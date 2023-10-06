@@ -19,6 +19,7 @@
 package minicpbp.examples;
 
 import minicpbp.engine.core.IntVar;
+import minicpbp.engine.core.LatinSquareSingleton;
 import minicpbp.engine.core.Solver;
 import minicpbp.search.DFSearch;
 import minicpbp.search.SearchStatistics;
@@ -27,6 +28,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -72,21 +74,31 @@ public class LatinSquare {
 
 		// enumerate all solutions in order to compute exact marginals
 //		/*
+		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
+		ls.initializeSols(order);
 		DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
 
+
         dfs.onSolution(() -> {
+					LatinSquareSingleton ls1 = LatinSquareSingleton.getInstance();
+        			int [][] sol = new int[order][order];
                     for (int i = 0; i < order; i++) {
 						for (int j = 0; j < order; j++) {
-							System.out.print(x[i][j].min() + " ");
+							int value = x[i][j].min();
+							sol[i][j]=value;
+							System.out.print(value + " ");
 						}
 						System.out.println();
                     }
+					ls.addSol(sol);
 					System.out.println("-------------------");
 			}
         );
 
    		SearchStatistics stats = dfs.solve();
+   		ls.normalizeSols(stats.numberOfSolutions());
         System.out.println(stats);
+
 //		 */
 
 		// perform k iterations of message-passing and trace the resulting marginals
@@ -96,7 +108,11 @@ public class LatinSquare {
 		int k = 3;
 		cp.vanillaBP(k);
 //		*/
+
+		LatinSquareSingleton.printTrueMarginals();
 	}
+
+
 
     public static void partialAssignments(IntVar[][] vars, int order, int nbFilled, int nbFile){
 
