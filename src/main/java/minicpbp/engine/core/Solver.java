@@ -28,6 +28,7 @@ import java.util.Random;
 
 public interface Solver {
 
+
     public enum PropaMode {
 	SP /* support propagation (aka standard constraint propagation) */, 
 	BP /* belief propagation */, 
@@ -156,6 +157,7 @@ public interface Solver {
      * Performs no-bells-and-whistles belief propagation: runs for a specified number of iterations, without damping
      */
     void vanillaBP(int nbIterations);
+    void vanillaBP(int nbIterations, boolean b);
 
     /**
      * Propagate following the right mode (fixpoint and/or belief)

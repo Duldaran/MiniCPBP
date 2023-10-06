@@ -108,11 +108,11 @@ public class LatinSquare {
 		// perform k iterations of message-passing and trace the resulting marginals
 //		/*
 		cp.fixPoint(); // initial constraint propagation
-		cp.setTraceBPFlag(true); 
+		cp.setTraceBPFlag(false);
 		int k = 3;
-		cp.vanillaBP(k);
+		cp.vanillaBP(k, true);
 //		*/
-
+		ls.printBPMarginals();
 		ls.printTrueMarginals();
 	}
 

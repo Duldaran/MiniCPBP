@@ -411,6 +411,47 @@ public class MiniCP implements Solver {
             throw e;
         }
     }
+    public void vanillaBP(int nbIterations, boolean latinSquare) {
+        notifyBeliefPropa();
+        setDamp(false);
+        LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
+        ls.initializeBP();
+        try {
+            if (resetMarginalsBeforeBP) {
+                // start afresh at each search-tree node
+                Iterator<IntVar> iterator = variables.iterator();
+                while (iterator.hasNext()) {
+                    iterator.next().resetMarginals();
+                }
+                Iterator<Constraint> iteratorC = constraints.iterator();
+                while (iteratorC.hasNext()) {
+                    iteratorC.next().resetLocalBelief();
+                }
+            }
+            for (int iter = 1; iter <= nbIterations; iter++) {
+                BPiteration();
+                ls.iterBP(iter);
+                if(!traceBP){
+                    for (int i = 0; i < variables.size(); i++) {
+                        ls.receiveBP(variables.get(i).getName(), variables.get(i).toString(), iter);
+                    }
+                }
+                else {
+                    System.out.println("##### after BP iteration " + iter + " #####");
+                    for (int i = 0; i < variables.size(); i++) {
+                        System.out.print(variables.get(i).getName());
+                        System.out.println(variables.get(i).toString());
+                        ls.receiveBP(variables.get(i).getName(), variables.get(i).toString(), iter);
+                    }
+                }
+            }
+        } catch (InconsistencyException e) {
+            // empty the queue and unset the scheduled status
+            while (!propagationQueue.isEmpty())
+                propagationQueue.remove().setScheduled(false);
+            throw e;
+        }
+    }
 
     /**
      * Propagate following the right mode
