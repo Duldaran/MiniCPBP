@@ -110,4 +110,6 @@ public class LogBelief implements Belief {
     public  double pow(double a, double b) {
 	return (b == 1.0) ? a : b*a;
     }
+
+	public double max(double a, double b) { return Math.max(a,b); }
 }

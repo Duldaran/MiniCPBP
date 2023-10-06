@@ -88,4 +88,9 @@ public interface Belief {
      * returns the elevation of belief a to the power b
      */
     double pow(double a, double b);
+
+    /**
+     * returns the maximum value between a and b
+     */
+    double max(double a, double b);
 }

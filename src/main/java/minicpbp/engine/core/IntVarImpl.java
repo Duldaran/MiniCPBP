@@ -349,6 +349,7 @@ public class IntVarImpl implements IntVar {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert domain.marginal(v) <= beliefRep.one() && domain.marginal(v) >= beliefRep.zero() : "domain.marginal(v) = " + domain.marginal(v);
         // domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), b));
+         domain.setMarginal(v, beliefRep.max(domain.marginal(v), b));
         if(domain.marginal(v)< b)
             domain.setMarginal(v,b);
     }

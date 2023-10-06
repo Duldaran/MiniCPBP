@@ -16,6 +16,10 @@
  * Copyright (c)  2019. by Gilles Pesant
  */
 
+// Standard command line
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 1"
+
+
 package minicpbp.examples;
 
 import minicpbp.engine.core.IntVar;
@@ -109,7 +113,7 @@ public class LatinSquare {
 		cp.vanillaBP(k);
 //		*/
 
-		LatinSquareSingleton.printTrueMarginals();
+		ls.printTrueMarginals();
 	}
 
 
