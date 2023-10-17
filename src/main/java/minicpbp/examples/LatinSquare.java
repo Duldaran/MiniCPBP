@@ -17,7 +17,7 @@
  */
 
 // Standard command line
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 1"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 1 5"
 
 
 package minicpbp.examples;
@@ -46,6 +46,7 @@ public class LatinSquare {
 		int order = Integer.parseInt(args[0]);
 		int nbFilled = Integer.parseInt(args[1]);
 		int nbFile = Integer.parseInt(args[2]);
+		int nbIter = Integer.parseInt(args[3]);
 
 		Solver cp = makeSolver();
 
@@ -84,18 +85,17 @@ public class LatinSquare {
 
 
         dfs.onSolution(() -> {
-					LatinSquareSingleton ls1 = LatinSquareSingleton.getInstance();
         			int [][] sol = new int[order][order];
                     for (int i = 0; i < order; i++) {
 						for (int j = 0; j < order; j++) {
 							int value = x[i][j].min();
 							sol[i][j]=value;
-							System.out.print(value + " ");
+							//System.out.print(value + " ");
 						}
-						System.out.println();
+						//System.out.println();
                     }
 					ls.addSol(sol);
-					System.out.println("-------------------");
+					//System.out.println("-------------------");
 			}
         );
 
@@ -109,11 +109,14 @@ public class LatinSquare {
 //		/*
 		cp.fixPoint(); // initial constraint propagation
 		cp.setTraceBPFlag(false);
-		int k = 3;
+		int k = nbIter;
+		ls.initializeBP(k);
 		cp.vanillaBP(k, true);
 //		*/
-		ls.printBPMarginals();
-		ls.printTrueMarginals();
+
+		float[] itersKL= ls.calculateItersKL(true);
+		//ls.printBPMarginals();
+		//ls.printTrueMarginals();
 	}
 
 

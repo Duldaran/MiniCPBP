@@ -2,6 +2,7 @@ package minicpbp.engine.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public final class LatinSquareSingleton {
     private static LatinSquareSingleton INSTANCE;
@@ -59,12 +60,11 @@ public final class LatinSquareSingleton {
 
     private static ArrayList<Marginal[][]> BPsols;
 
-    public static void initializeBP(){
+    public static void initializeBP(int nbIters){
         BPsols = new ArrayList();
-    }
-
-    public static void iterBP(int iter){
-        BPsols.add(iter-1, new Marginal[sols.length][sols[1].length]);
+        for(int i =0; i<nbIters; i++){
+            BPsols.add(new Marginal[sols.length][sols[1].length]);
+        }
     }
 
     public static void receiveBP(String name, String values, int iter){
@@ -90,6 +90,44 @@ public final class LatinSquareSingleton {
         }
     }
 
+    public static float[] calculateItersKL(Boolean print){
+        float[] itersKL = new float[BPsols.size()];
+        for(int i =0; i< itersKL.length; i++){
+            itersKL[i]=calculateIterKL(i);
+        }
+        if(print) printKL(itersKL);
+        return itersKL;
+    }
+
+    private static void printKL(float[] itersKL){
+        System.out.println("--------------------");
+        System.out.println("KL divergence :");
+        for (int i =0;i < itersKL.length;i++){
+            System.out.println(" Iter "+(i+1)+" : "+itersKL[i]);
+        }
+    }
+
+    private static float calculateIterKL(int iter){
+        Marginal[][] bpSol = BPsols.get(iter);
+        float iterKL=0f;
+        for(int i=0; i< bpSol.length;i++){
+            for (int j=0;j<bpSol[0].length;j++){
+                iterKL+=calculateKL(sols[i][j], bpSol[i][j]);
+            }
+        }
+        return iterKL;
+    }
+
+    private static float calculateKL(Marginal trueMarginal, Marginal bpMarginal){
+        float KLdivergence = 0f;
+        for (Map.Entry<Integer, Float> entry : trueMarginal.map.entrySet()) {
+            Integer k = entry.getKey();
+            Float v = entry.getValue();
+            float BPvalue = bpMarginal.map.get(k);
+            KLdivergence += v * Math.log(v / BPvalue);
+        }
+        return KLdivergence;
+    }
 }
 
 class Marginal {

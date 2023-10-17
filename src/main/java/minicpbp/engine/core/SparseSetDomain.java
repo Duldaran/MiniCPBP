@@ -196,6 +196,7 @@ public class SparseSetDomain implements IntDomain {
         int s = fillArray(domainValues);
         for (int j = 0; j < s; j++) {
             setMarginal(domainValues[j], beliefRep.one());
+            //setMarginal(domainValues[j], beliefRep.zero());
         }
     }
 

@@ -415,7 +415,6 @@ public class MiniCP implements Solver {
         notifyBeliefPropa();
         setDamp(false);
         LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
-        ls.initializeBP();
         try {
             if (resetMarginalsBeforeBP) {
                 // start afresh at each search-tree node
@@ -430,7 +429,6 @@ public class MiniCP implements Solver {
             }
             for (int iter = 1; iter <= nbIterations; iter++) {
                 BPiteration();
-                ls.iterBP(iter);
                 if(!traceBP){
                     for (int i = 0; i < variables.size(); i++) {
                         ls.receiveBP(variables.get(i).getName(), variables.get(i).toString(), iter);
