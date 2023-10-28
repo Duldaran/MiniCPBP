@@ -20,6 +20,7 @@ package minicpbp.engine.core;
 
 import minicpbp.state.StateSparseWeightedSet;
 import minicpbp.util.Belief;
+import minicpbp.util.Marginal;
 
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -385,6 +386,11 @@ public class SparseSetDomain implements IntDomain {
     @Override
     public String toString() {
         return domain.toString();
+    }
+
+    @Override
+    public Marginal toMarginal() {
+        return domain.toMarginal();
     }
 
 }

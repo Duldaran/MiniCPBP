@@ -19,6 +19,7 @@
 package minicpbp.engine.core;
 
 import minicpbp.state.StateStack;
+import minicpbp.util.Marginal;
 import minicpbp.util.Procedure;
 import minicpbp.util.exception.InconsistencyException;
 import minicpbp.util.Belief;
@@ -136,6 +137,11 @@ public class IntVarImpl implements IntVar {
     @Override
     public String toString() {
         return domain.toString();
+    }
+
+    @Override
+    public Marginal toMarginal() {
+        return domain.toMarginal();
     }
 
     @Override

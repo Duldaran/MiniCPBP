@@ -18,6 +18,7 @@
 
 package minicpbp.engine.core;
 
+import minicpbp.util.Marginal;
 import minicpbp.util.Procedure;
 import minicpbp.util.exception.InconsistencyException;
 
@@ -321,6 +322,12 @@ public interface IntVar {
      * @return True if the variable is a branch variable, False if not
      */
     public boolean isForBranching();
+
+    /**
+     *
+     * @return Marginals for the variable in a Marginal object
+     */
+    public Marginal toMarginal();
 
     public int wDeg();
 

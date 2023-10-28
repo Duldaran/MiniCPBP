@@ -428,7 +428,7 @@ public class MiniCP implements Solver {
                 BPiteration();
                 if(!traceBP){
                     for (int i = 0; i < variables.size(); i++) {
-                        ls.receiveBP(variables.get(i).getName(), variables.get(i).toString(), iter);
+                        ls.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                     }
                 }
                 else {
@@ -436,7 +436,7 @@ public class MiniCP implements Solver {
                     for (int i = 0; i < variables.size(); i++) {
                         System.out.print(variables.get(i).getName());
                         System.out.println(variables.get(i).toString());
-                        ls.receiveBP(variables.get(i).getName(), variables.get(i).toString(), iter);
+                        ls.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                     }
                 }
 

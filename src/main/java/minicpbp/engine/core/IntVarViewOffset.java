@@ -19,6 +19,7 @@
 
 package minicpbp.engine.core;
 
+import minicpbp.util.Marginal;
 import minicpbp.util.Procedure;
 import minicpbp.util.Belief;
 import minicpbp.util.exception.IntOverFlowException;
@@ -294,6 +295,17 @@ public class IntVarViewOffset implements IntVar {
         }
         b.append("}");
         return b.toString();
+
+    }
+    @Override
+    public Marginal toMarginal() {
+        Marginal margin = new Marginal();
+        for (int i = min(); i <= max(); i++) {
+            if (contains((i)))
+                margin.map.put(i,marginal(i));
+        }
+
+        return margin;
 
     }
 }

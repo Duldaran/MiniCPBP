@@ -16,6 +16,7 @@
 package minicpbp.state;
 
 import minicpbp.engine.core.Solver;
+import minicpbp.util.Marginal;
 
 /**
  * Weighted Set implemented using a sparse-set data structure
@@ -72,6 +73,14 @@ public class StateSparseWeightedSet extends StateSparseSet {
         }
         b.append("}");
         return b.toString();
+    }
+
+    public Marginal toMarginal(){
+        Marginal margin = new Marginal();
+        for (int i = 0; i < size(); i++) {
+            margin.map.put(values[i] + ofs,weights[i].value());
+        }
+        return margin;
     }
 
     /**

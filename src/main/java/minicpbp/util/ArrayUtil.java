@@ -26,16 +26,16 @@ public class ArrayUtil {
         return newArray;
     }
 
-    public static float[] addByElement(float[] a1, float[] a2){
-        float[] newArray = new float[a1.length];
+    public static double[] addByElement(double[] a1, double[] a2){
+        double[] newArray = new double[a1.length];
         for (int i = 0; i < a1.length; ++i) {
             newArray[i] = a1[i] + a2[i];
         }
         return newArray;
     }
 
-    public static float[] divideByElement(float[] a, int divisor){
-        float[] newArray = new float[a.length];
+    public static double[] divideByElement(double[] a, int divisor){
+        double[] newArray = new double[a.length];
         for (int i = 0; i < a.length; ++i) {
             newArray[i] = a[i]/divisor;
         }

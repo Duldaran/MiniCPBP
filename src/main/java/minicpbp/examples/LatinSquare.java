@@ -48,7 +48,7 @@ public class LatinSquare {
 		int nbIter = Integer.parseInt(args[3]);
 
 		Solver cp = makeSolver();
-		float[] itersKL= new float[nbIter];
+		double[] itersKL= new double[nbIter];
 		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
 
 		for(int fileNum=1; fileNum<=nbOfFiles; fileNum++ ){
@@ -123,8 +123,10 @@ public class LatinSquare {
 
 		}
 
-		itersKL=ArrayUtil.divideByElement(itersKL, nbIter);
+		itersKL=ArrayUtil.divideByElement(itersKL, nbOfFiles);
+		System.out.println("KL moyens:");
 		ls.printKLinCSV(itersKL);
+		System.out.println();
 	}
 
 

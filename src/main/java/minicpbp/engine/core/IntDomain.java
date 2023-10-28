@@ -18,6 +18,8 @@
 
 package minicpbp.engine.core;
 
+import minicpbp.util.Marginal;
+
 /**
  * Interface for integer domain implementation.
  * A domain is encapsulated in an {@link IntVar} implementation.
@@ -268,6 +270,12 @@ public interface IntDomain {
      * @param impact the observed impact
      */
     void registerImpact(int value, double impact);
+
+
+    /**
+     * Return marginals in a Marginal format
+     */
+    Marginal toMarginal();
 
     @Override
     String toString();

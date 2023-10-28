@@ -35,7 +35,7 @@ public final class LatinSquareSingleton {
         for (int i = 0; i < sol.length; i++) {
             for (int j = 0; j < sol[i].length; j++) {
                 int value = sol[i][j];
-                sols[i][j].map.put(value, sols[i][j].map.getOrDefault(value, 0f) + 1);
+                sols[i][j].map.put(value, sols[i][j].map.getOrDefault(value, 0.0) + 1);
             }
         }
     }
@@ -67,13 +67,8 @@ public final class LatinSquareSingleton {
         }
     }
 
-    public static void receiveBP(String name, String values, int iter){
+    public static void receiveBP(String name, Marginal margin , int iter){
         String[] square = name.replaceAll("[^0-9,]", "").split(",");
-        String[] margins = values.replaceAll("[^0-9 .]", "").split(" ");
-        Marginal margin = new Marginal();
-        for(int i =0; i< margins.length; i=i+3){
-            margin.map.put(Integer.parseInt(margins[i]), Float.parseFloat(margins[i+2]));
-        }
         BPsols.get(iter-1)[Integer.parseInt(square[0])][Integer.parseInt(square[1])] = margin;
     }
 
@@ -90,8 +85,8 @@ public final class LatinSquareSingleton {
         }
     }
 
-    public static float[] calculateItersKL(Boolean print){
-        float[] itersKL = new float[BPsols.size()];
+    public static double[] calculateItersKL(Boolean print){
+        double[] itersKL = new double[BPsols.size()];
         for(int i =0; i< itersKL.length; i++){
             itersKL[i]=calculateIterKL(i);
         }
@@ -99,7 +94,7 @@ public final class LatinSquareSingleton {
         return itersKL;
     }
 
-    private static void printKL(float[] itersKL){
+    private static void printKL(double[] itersKL){
         System.out.println("--------------------");
         System.out.println("KL divergence :");
         for (int i =0;i < itersKL.length;i++){
@@ -107,9 +102,9 @@ public final class LatinSquareSingleton {
         }
     }
 
-    private static float calculateIterKL(int iter){
+    private static double calculateIterKL(int iter){
         Marginal[][] bpSol = BPsols.get(iter);
-        float iterKL=0f;
+        double iterKL=0.0;
         for(int i=0; i< bpSol.length;i++){
             for (int j=0;j<bpSol[0].length;j++){
                 iterKL+=calculateKL(sols[i][j], bpSol[i][j]);
@@ -118,28 +113,21 @@ public final class LatinSquareSingleton {
         return iterKL;
     }
 
-    private static float calculateKL(Marginal trueMarginal, Marginal bpMarginal){
+    private static double calculateKL(Marginal trueMarginal, Marginal bpMarginal){
         float KLdivergence = 0f;
-        for (Map.Entry<Integer, Float> entry : trueMarginal.map.entrySet()) {
+        for (Map.Entry<Integer, Double> entry : trueMarginal.map.entrySet()) {
             Integer k = entry.getKey();
-            Float v = entry.getValue();
-            float BPvalue = bpMarginal.map.get(k);
+            Double v = entry.getValue();
+            Double BPvalue = bpMarginal.map.getOrDefault(k, 0.0);
             KLdivergence += v * Math.log(v / BPvalue);
         }
         return KLdivergence;
     }
 
-    public static void printKLinCSV(float[] itersKL){
+    public static void printKLinCSV(double[] itersKL){
         for (int i =0;i < itersKL.length;i++){
             System.out.print(itersKL[i]+";");
         }
     }
 }
 
-class Marginal {
-    HashMap<Integer,Float> map = new HashMap<Integer,Float>();
-
-    public void normalizeMarginal(int nbSols){
-        map.replaceAll((key,value)-> value/nbSols);
-    }
-}
