@@ -17,13 +17,14 @@
  */
 
 // Standard command line
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 1 5"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 10 5"
 
 
 package minicpbp.examples;
 
 import minicpbp.engine.core.IntVar;
-import minicpbp.engine.core.LatinSquareSingleton;
+import minicpbp.util.ArrayUtil;
+import minicpbp.util.LatinSquareSingleton;
 import minicpbp.engine.core.Solver;
 import minicpbp.search.DFSearch;
 import minicpbp.search.SearchStatistics;
@@ -32,9 +33,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Arrays;
 
 /**
  * The Partially-Filled Latin Square problem.
@@ -45,78 +44,87 @@ public class LatinSquare {
 
 		int order = Integer.parseInt(args[0]);
 		int nbFilled = Integer.parseInt(args[1]);
-		int nbFile = Integer.parseInt(args[2]);
+		int nbOfFiles = Integer.parseInt(args[2]);
 		int nbIter = Integer.parseInt(args[3]);
 
 		Solver cp = makeSolver();
+		float[] itersKL= new float[nbIter];
+		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
 
-        IntVar[][] x = new IntVar[order][order];
+		for(int fileNum=1; fileNum<=nbOfFiles; fileNum++ ){
 
-        for (int i = 0; i < order; i++) {
-            for (int j = 0; j < order; j++) {
-                x[i][j] = makeIntVar(cp, 0, order-1);
-				x[i][j].setName("x["+i+","+j+"]");
-            }
-        }
+			IntVar[][] x = new IntVar[order][order];
 
-		partialAssignments(x,order,nbFilled,nbFile);
-
-		for(int i = 0; i < order; i++) {
-			// constraint on row i
-			cp.post(allDifferent(x[i]));
-			// constraint on column i
-			IntVar[] column = new IntVar[order];
-			for (int j = 0; j < order; j++) {
-				column[j] = x[j][i];
+			for (int i = 0; i < order; i++) {
+				for (int j = 0; j < order; j++) {
+					x[i][j] = makeIntVar(cp, 0, order-1);
+					x[i][j].setName("x["+i+","+j+"]");
+				}
 			}
-			cp.post(allDifferent(column));
+
+			partialAssignments(x,order,nbFilled,fileNum);
+
+			for(int i = 0; i < order; i++) {
+				// constraint on row i
+				cp.post(allDifferent(x[i]));
+				// constraint on column i
+				IntVar[] column = new IntVar[order];
+				for (int j = 0; j < order; j++) {
+					column[j] = x[j][i];
+				}
+				cp.post(allDifferent(column));
+			}
+
+			IntVar[] xFlat = new IntVar[x.length * x.length];
+			for (int i = 0; i < x.length; i++) {
+				System.arraycopy(x[i], 0, xFlat, i * x.length, x.length);
+			}
+
+			// enumerate all solutions in order to compute exact marginals
+	//		/*
+
+			ls.initializeSols(order);
+			DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
+
+
+			dfs.onSolution(() -> {
+						int [][] sol = new int[order][order];
+						for (int i = 0; i < order; i++) {
+							for (int j = 0; j < order; j++) {
+								int value = x[i][j].min();
+								sol[i][j]=value;
+								//System.out.print(value + " ");
+							}
+							//System.out.println();
+						}
+						ls.addSol(sol);
+						//System.out.println("-------------------");
+				}
+			);
+
+			SearchStatistics stats = dfs.solve();
+			ls.normalizeSols(stats.numberOfSolutions());
+			System.out.println(stats);
+
+	//		 */
+
+			// perform k iterations of message-passing and trace the resulting marginals
+	//		/*
+			cp.fixPoint(); // initial constraint propagation
+			cp.setTraceBPFlag(false);
+			int k = nbIter;
+			ls.initializeBP(k);
+			cp.vanillaBP(k, true);
+	//		*/
+
+			itersKL = ArrayUtil.addByElement(ls.calculateItersKL(false), itersKL);
+			//ls.printBPMarginals();
+			//ls.printTrueMarginals();
+
 		}
 
-        IntVar[] xFlat = new IntVar[x.length * x.length];
-        for (int i = 0; i < x.length; i++) {
-            System.arraycopy(x[i], 0, xFlat, i * x.length, x.length);
-        }
-
-		// enumerate all solutions in order to compute exact marginals
-//		/*
-		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
-		ls.initializeSols(order);
-		DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
-
-
-        dfs.onSolution(() -> {
-        			int [][] sol = new int[order][order];
-                    for (int i = 0; i < order; i++) {
-						for (int j = 0; j < order; j++) {
-							int value = x[i][j].min();
-							sol[i][j]=value;
-							//System.out.print(value + " ");
-						}
-						//System.out.println();
-                    }
-					ls.addSol(sol);
-					//System.out.println("-------------------");
-			}
-        );
-
-   		SearchStatistics stats = dfs.solve();
-   		ls.normalizeSols(stats.numberOfSolutions());
-        System.out.println(stats);
-
-//		 */
-
-		// perform k iterations of message-passing and trace the resulting marginals
-//		/*
-		cp.fixPoint(); // initial constraint propagation
-		cp.setTraceBPFlag(false);
-		int k = nbIter;
-		ls.initializeBP(k);
-		cp.vanillaBP(k, true);
-//		*/
-
-		float[] itersKL= ls.calculateItersKL(true);
-		//ls.printBPMarginals();
-		//ls.printTrueMarginals();
+		itersKL=ArrayUtil.divideByElement(itersKL, nbIter);
+		ls.printKLinCSV(itersKL);
 	}
 
 

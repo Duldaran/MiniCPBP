@@ -25,4 +25,20 @@ public class ArrayUtil {
         System.arraycopy(a2,0,newArray, a1.length,a2.length);
         return newArray;
     }
+
+    public static float[] addByElement(float[] a1, float[] a2){
+        float[] newArray = new float[a1.length];
+        for (int i = 0; i < a1.length; ++i) {
+            newArray[i] = a1[i] + a2[i];
+        }
+        return newArray;
+    }
+
+    public static float[] divideByElement(float[] a, int divisor){
+        float[] newArray = new float[a.length];
+        for (int i = 0; i < a.length; ++i) {
+            newArray[i] = a[i]/divisor;
+        }
+        return newArray;
+    }
 }

@@ -23,11 +23,8 @@ import minicpbp.search.Objective;
 import minicpbp.state.StateInt;
 import minicpbp.state.StateManager;
 import minicpbp.state.StateStack;
+import minicpbp.util.*;
 import minicpbp.util.exception.InconsistencyException;
-import minicpbp.util.Procedure;
-import minicpbp.util.Belief;
-import minicpbp.util.StdBelief;
-import minicpbp.util.LogBelief;
 import minicpbp.engine.constraints.LinEqSystemModP;
 
 import java.util.*;
@@ -442,6 +439,7 @@ public class MiniCP implements Solver {
                         ls.receiveBP(variables.get(i).getName(), variables.get(i).toString(), iter);
                     }
                 }
+
             }
         } catch (InconsistencyException e) {
             // empty the queue and unset the scheduled status

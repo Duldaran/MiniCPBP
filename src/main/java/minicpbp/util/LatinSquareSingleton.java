@@ -1,4 +1,4 @@
-package minicpbp.engine.core;
+package minicpbp.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -127,6 +127,12 @@ public final class LatinSquareSingleton {
             KLdivergence += v * Math.log(v / BPvalue);
         }
         return KLdivergence;
+    }
+
+    public static void printKLinCSV(float[] itersKL){
+        for (int i =0;i < itersKL.length;i++){
+            System.out.print(itersKL[i]+";");
+        }
     }
 }
 
