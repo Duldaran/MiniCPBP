@@ -1,77 +1,65 @@
 package minicpbp.util;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
-public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
-    private static LatinSquareSingleton INSTANCE;
+public class ExamplesMarginalsSingleton {
+    private static ExamplesMarginalsSingleton INSTANCE;
 
-    private LatinSquareSingleton() {
-        super();
+    protected ExamplesMarginalsSingleton() {
     }
 
-    public static LatinSquareSingleton getInstance() {
+    public static ExamplesMarginalsSingleton getInstance() {
         if(INSTANCE == null) {
-            INSTANCE = new LatinSquareSingleton();
+            INSTANCE = new ExamplesMarginalsSingleton();
         }
 
         return INSTANCE;
     }
 
 
+    private static Marginal[] sols;
 
-    private static Marginal[][] sols;
-
-
-    public static void initializeSols(int order) {
-        sols = new Marginal[order][order];
+    public static void initializeSols(int nbVariables) {
+        sols = new Marginal[nbVariables];
         for (int i = 0; i < sols.length; i++) {
-            for (int j = 0; j < sols[i].length; j++) {
-                sols[i][j]= new Marginal();
-            }
+            sols[i]= new Marginal();
         }
     }
 
-    public static void addSol(int[][] sol) {
+    public static void addSol(int[] sol) {
         for (int i = 0; i < sol.length; i++) {
-            for (int j = 0; j < sol[i].length; j++) {
-                int value = sol[i][j];
-                sols[i][j].map.put(value, sols[i][j].map.getOrDefault(value, 0.0) + 1);
-            }
+            sols[i].map.put(sol[i], sols[i].map.getOrDefault(sol[i], 0.0) + 1);
         }
     }
 
     public  static void normalizeSols(int nbSols){
         for (int i = 0; i < sols.length; i++) {
-            for (int j = 0; j < sols[i].length; j++) {
-                sols[i][j].normalizeMarginal(nbSols);
-            }
+            sols[i].normalizeMarginal(nbSols);
         }
     }
 
     public static void printTrueMarginals(){
         System.out.println("-------------------");
         for (int i = 0; i < sols.length; i++) {
-            for (int j = 0; j < sols[i].length; j++) {
-                System.out.println(i+" "+j +" : "+sols[i][j].map.toString());
-            }
+            System.out.println(i+" : "+sols[i].map.toString());
         }
         System.out.println("-------------------");
     }
 
-    private static ArrayList<Marginal[][]> BPsols;
+    private static ArrayList<Marginal[]> BPsols;
 
     public static void initializeBP(int nbIters){
         BPsols = new ArrayList();
         for(int i =0; i<nbIters; i++){
-            BPsols.add(new Marginal[sols.length][sols[1].length]);
+            BPsols.add(new Marginal[sols.length]);
         }
     }
 
     public static void receiveBP(String name, Marginal margin , int iter){
-        String[] square = name.replaceAll("[^0-9,]", "").split(",");
-        BPsols.get(iter-1)[Integer.parseInt(square[0])][Integer.parseInt(square[1])] = margin;
+        if(name == null) return;
+        String index = name.replaceAll("[^0-9,]", "");
+        BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
     }
 
     public static void printBPMarginals(){
@@ -79,9 +67,7 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
             System.out.println("BP Iteration "+(iter+1));
             System.out.println("-------------------");
             for (int i = 0; i < sols.length; i++) {
-                for (int j = 0; j < sols[i].length; j++) {
-                    System.out.println(i+" "+j +" : "+BPsols.get(iter)[i][j].map.toString());
-                }
+                System.out.println(i+" : "+BPsols.get(iter)[i].map.toString());
             }
             System.out.println("-------------------");
         }
@@ -105,12 +91,10 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
     }
 
     private static double calculateIterKL(int iter){
-        Marginal[][] bpSol = BPsols.get(iter);
+        Marginal[]bpSol = BPsols.get(iter);
         double iterKL=0.0;
         for(int i=0; i< bpSol.length;i++){
-            for (int j=0;j<bpSol[0].length;j++){
-                iterKL+=calculateKL(sols[i][j], bpSol[i][j]);
-            }
+            iterKL+=calculateKL(sols[i], bpSol[i]);
         }
         return iterKL;
     }
@@ -132,4 +116,3 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
         }
     }
 }
-

@@ -16,12 +16,17 @@
  * Copyright (c)  2019. by Gilles Pesant
  */
 
+// Example command line
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="1-1 5"
+
 package minicpbp.examples;
 
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
 import minicpbp.search.DFSearch;
 import minicpbp.search.SearchStatistics;
+import minicpbp.util.ExamplesMarginalsSingleton;
+
 import static minicpbp.cp.Factory.*;
 import static minicpbp.cp.BranchingScheme.*;
 
@@ -39,36 +44,47 @@ public class MultiKnapsack {
     public static void main(String[] args) {
     
         Solver cp = makeSolver();
+        ExamplesMarginalsSingleton em = ExamplesMarginalsSingleton.getInstance();
+        int nbIter= Integer.parseInt(args[1]);
 		IntVar[] x = makeMultiKnapsack(cp,args[0]);
 
 		// enumerate all solutions in order to compute exact marginals
 //		/*
 		DFSearch dfs = makeDfs(cp, minEntropy(x));
+	    em.initializeSols(nbVariables);
 
 		dfs.onSolution(() -> {
+			int [] sol = new int[nbVariables];
 			for (int i = 0; i < nbVariables; i++) {
 				System.out.print(x[i].min() + " ");
+				sol[i]=x[i].min();
 			}
 			System.out.println("\n-------------------");
+			em.addSol(sol);
 		}
 		);
 
 		SearchStatistics stats = dfs.solve();
+		em.normalizeSols(stats.numberOfSolutions());
 		System.out.println(stats);
 //		 */
 
 		// perform k iterations of message-passing and trace the resulting marginals
 //		/*
 		cp.fixPoint(); // initial constraint propagation
-		cp.setTraceBPFlag(true);
-		int k = 5;
-		cp.vanillaBP(k);
+		cp.setTraceBPFlag(false);
+		em.initializeBP(nbIter);
+		cp.vanillaBP(nbIter, em);
 //		*/
+
+		em.printBPMarginals();
+		em.printTrueMarginals();
+		em.calculateItersKL(true);
     }
     
     public static IntVar[] makeMultiKnapsack(Solver cp, String inFile){
 	try {
-	    Scanner scanner = new Scanner(new FileReader("./src/main/java/minicpbp/examples/data/MultiKnapsack/"+inFile));
+	    Scanner scanner = new Scanner(new FileReader("./src/main/java/minicpbp/examples/data/MultiKnapsack/mknap"+inFile+".dat"));
 	    
 	    nbVariables = scanner.nextInt();
 	    nbConstraints = scanner.nextInt();

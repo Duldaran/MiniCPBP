@@ -21,6 +21,8 @@ package minicpbp.engine.core;
 import minicpbp.search.Objective;
 import minicpbp.state.StateManager;
 import minicpbp.state.StateStack;
+import minicpbp.util.ExamplesMarginalsSingleton;
+import minicpbp.util.LatinSquareSingleton;
 import minicpbp.util.Procedure;
 import minicpbp.util.Belief;
 
@@ -157,7 +159,7 @@ public interface Solver {
      * Performs no-bells-and-whistles belief propagation: runs for a specified number of iterations, without damping
      */
     void vanillaBP(int nbIterations);
-    void vanillaBP(int nbIterations, boolean b);
+    void vanillaBP(int nbIterations, ExamplesMarginalsSingleton b);
 
     /**
      * Propagate following the right mode (fixpoint and/or belief)

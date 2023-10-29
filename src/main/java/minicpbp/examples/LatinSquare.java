@@ -16,7 +16,7 @@
  * Copyright (c)  2019. by Gilles Pesant
  */
 
-// Standard command line
+// Example command line
 //mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 10 5"
 
 
@@ -112,9 +112,8 @@ public class LatinSquare {
 	//		/*
 			cp.fixPoint(); // initial constraint propagation
 			cp.setTraceBPFlag(false);
-			int k = nbIter;
-			ls.initializeBP(k);
-			cp.vanillaBP(k, true);
+			ls.initializeBP(nbIter);
+			cp.vanillaBP(nbIter, ls);
 	//		*/
 
 			itersKL = ArrayUtil.addByElement(ls.calculateItersKL(false), itersKL);
