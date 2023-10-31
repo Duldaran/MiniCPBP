@@ -327,6 +327,7 @@ public class IntVarViewMul implements IntVar {
 	if (v % a == 0) {
 	    assert x.marginal(v/a)<=beliefRep.one() && x.marginal(v/a)>=beliefRep.zero() : "x.marginal(v/a) = "+x.marginal(v/a) ;
 	    x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));
+        //x.setMarginal(v/a,beliefRep.max(x.marginal(v/a),b));
         } else {
             throw new InconsistencyException();
 	}

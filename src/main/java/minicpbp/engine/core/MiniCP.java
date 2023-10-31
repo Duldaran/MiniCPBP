@@ -429,7 +429,8 @@ public class MiniCP implements Solver {
                 BPiteration();
                 if(!traceBP){
                     for (int i = 0; i < variables.size(); i++) {
-                        instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                     }
                 }
                 else {
@@ -437,7 +438,8 @@ public class MiniCP implements Solver {
                     for (int i = 0; i < variables.size(); i++) {
                         System.out.print(variables.get(i).getName());
                         System.out.println(variables.get(i).toString());
-                        instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                     }
                 }
 

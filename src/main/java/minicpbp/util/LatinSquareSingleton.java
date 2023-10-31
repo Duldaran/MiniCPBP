@@ -61,7 +61,7 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
     }
 
     private static ArrayList<Marginal[][]> BPsols;
-
+    
     public static void initializeBP(int nbIters){
         BPsols = new ArrayList();
         for(int i =0; i<nbIters; i++){

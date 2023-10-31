@@ -30,6 +30,7 @@ import minicpbp.util.exception.NotImplementedException;
  * should extend.
  */
 public abstract class AbstractConstraint implements Constraint {
+    private double MASK_THRESHOLD = 0.0;
 
     private String name;
     /**
@@ -281,9 +282,9 @@ public abstract class AbstractConstraint implements Constraint {
                             vars[i].assign(val);
                             getSolver().fixPoint();
                             break; // all other values in this loop will have been removed from the domain
-                        } else
+                        } else if(Math.random() > MASK_THRESHOLD)
                             vars[i].receiveMessage(val, beliefRep.pow(localB, this.weight));
-                    } else
+                    } else if(Math.random() > MASK_THRESHOLD)
                         vars[i].receiveMessage(val, beliefRep.pow(localB, this.weight));
                 }
             }

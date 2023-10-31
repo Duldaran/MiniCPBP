@@ -243,6 +243,7 @@ public class IntVarViewOpposite implements IntVar {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(-v) <= beliefRep.one() && x.marginal(-v) >= beliefRep.zero() : "x.marginal(-v) = " + x.marginal(-v);
         x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));
+        //x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));
     }
 
     @Override

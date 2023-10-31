@@ -250,6 +250,7 @@ public class IntVarViewOffset implements IntVar {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(v - o) <= beliefRep.one() && x.marginal(v - o) >= beliefRep.zero() : "x.marginal(v - o) = " + x.marginal(v - o);
         x.setMarginal(v - o, beliefRep.multiply(x.marginal(v - o), b));
+        //x.setMarginal(v - o, beliefRep.max(x.marginal(v - o), b));
     }
 
     @Override

@@ -79,7 +79,7 @@ public class MultiKnapsack {
 
 		em.printBPMarginals();
 		em.printTrueMarginals();
-		em.calculateItersKL(true);
+		em.printKLinCSV(em.calculateItersKL(false));
     }
     
     public static IntVar[] makeMultiKnapsack(Solver cp, String inFile){
