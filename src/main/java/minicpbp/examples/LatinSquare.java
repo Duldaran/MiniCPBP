@@ -17,11 +17,12 @@
  */
 
 // Example command line
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 10 5"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.LatinSquare" -Dexec.args="10 50 10 10"
 
 
 package minicpbp.examples;
 
+import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.util.ArrayUtil;
 import minicpbp.util.LatinSquareSingleton;
@@ -33,6 +34,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -104,13 +106,21 @@ public class LatinSquare {
 
 			SearchStatistics stats = dfs.solve();
 			ls.normalizeSols(stats.numberOfSolutions());
-			System.out.println(stats);
+			//System.out.println(stats);
 
 	//		 */
 
 			// perform k iterations of message-passing and trace the resulting marginals
 	//		/*
 			cp.fixPoint(); // initial constraint propagation
+
+			// set each constraint's weight according to some attention criterion
+			Iterator<Constraint> iterator = cp.getConstraints().iterator();
+			while (iterator.hasNext()) {
+				Constraint c = iterator.next();
+				c.setWeight(0.5+1.0/( 1.0 + (double) c.dynamicArity()));
+			}
+
 			cp.setTraceBPFlag(false);
 			ls.initializeBP(nbIter);
 			cp.vanillaBP(nbIter, ls);
