@@ -251,6 +251,9 @@ public class IntVarViewMul implements IntVar {
     }
 
     @Override
+    public void initializeMarginals() { x.initializeMarginals(); }
+
+    @Override
     public void normalizeMarginals() {
 	x.normalizeMarginals();
     }
@@ -326,8 +329,9 @@ public class IntVarViewMul implements IntVar {
 	assert b<=beliefRep.one() && b>=beliefRep.zero() : "b = "+b ;
 	if (v % a == 0) {
 	    assert x.marginal(v/a)<=beliefRep.one() && x.marginal(v/a)>=beliefRep.zero() : "x.marginal(v/a) = "+x.marginal(v/a) ;
-	    x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));
-        //x.setMarginal(v/a,beliefRep.max(x.marginal(v/a),b));
+        //System.out.println("Variable "+x.getName()+" : "+x.marginal(v/a)+", "+b +", result : "+beliefRep.max(x.marginal(v/a), b));
+	    //x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));
+        x.setMarginal(v/a,beliefRep.max(x.marginal(v/a),b));
         } else {
             throw new InconsistencyException();
 	}

@@ -177,6 +177,9 @@ public class IntVarViewOpposite implements IntVar {
     }
 
     @Override
+    public void initializeMarginals() { x.initializeMarginals(); }
+
+    @Override
     public void normalizeMarginals() {
         x.normalizeMarginals();
     }
@@ -242,8 +245,8 @@ public class IntVarViewOpposite implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(-v) <= beliefRep.one() && x.marginal(-v) >= beliefRep.zero() : "x.marginal(-v) = " + x.marginal(-v);
-        x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));
-        //x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));
+        //x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));
+        x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));
     }
 
     @Override

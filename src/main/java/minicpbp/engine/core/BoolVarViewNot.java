@@ -187,6 +187,11 @@ public class BoolVarViewNot implements BoolVar {
     }
 
     @Override
+    public void initializeMarginals() {
+        x.initializeMarginals();
+    }
+
+    @Override
     public void resetMarginals() {
         x.resetMarginals();
     }

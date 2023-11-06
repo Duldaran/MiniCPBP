@@ -179,6 +179,9 @@ public class IntVarViewOffset implements IntVar {
     }
 
     @Override
+    public void initializeMarginals() { x.initializeMarginals(); }
+
+    @Override
     public void resetMarginals() {
         x.resetMarginals();
     }
@@ -249,8 +252,9 @@ public class IntVarViewOffset implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(v - o) <= beliefRep.one() && x.marginal(v - o) >= beliefRep.zero() : "x.marginal(v - o) = " + x.marginal(v - o);
-        x.setMarginal(v - o, beliefRep.multiply(x.marginal(v - o), b));
-        //x.setMarginal(v - o, beliefRep.max(x.marginal(v - o), b));
+        //System.out.println("Variable "+x.getName()+" : "+v+", "+o+", "+b +", result : "+beliefRep.max(x.marginal(v - o), b));
+        //x.setMarginal(v - o, beliefRep.multiply(x.marginal(v - o), b));
+        x.setMarginal(v - o, beliefRep.max(x.marginal(v - o), b));
     }
 
     @Override

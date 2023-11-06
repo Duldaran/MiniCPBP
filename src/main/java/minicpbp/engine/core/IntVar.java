@@ -221,6 +221,12 @@ public interface IntVar {
      * Normalizes the marginals.
      *
      */
+    void initializeMarginals();
+
+    /**
+     * Normalizes the marginals.
+     *
+     */
     void normalizeMarginals();
 
     /**

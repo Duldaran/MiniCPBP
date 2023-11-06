@@ -175,8 +175,15 @@ public interface IntDomain {
      */
     void setMarginal(int v, double m);
 
+
     /**
      * Sets the marginals to 1.
+     *
+     */
+    void initializeMarginals();
+
+    /**
+     * Sets the marginals to 0.
      *
      */
     void resetMarginals();

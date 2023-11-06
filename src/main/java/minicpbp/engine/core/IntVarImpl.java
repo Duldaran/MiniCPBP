@@ -271,6 +271,11 @@ public class IntVarImpl implements IntVar {
     }
 
     @Override
+    public void initializeMarginals() {
+        domain.initializeMarginals();
+    }
+
+    @Override
     public void resetMarginals() {
         domain.resetMarginals();
     }
@@ -354,6 +359,7 @@ public class IntVarImpl implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert domain.marginal(v) <= beliefRep.one() && domain.marginal(v) >= beliefRep.zero() : "domain.marginal(v) = " + domain.marginal(v);
+        //System.out.println("Variable "+getName()+" : "+domain.marginal(v)+", "+b +", result : "+beliefRep.max(domain.marginal(v), b));
         //domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), b));
         domain.setMarginal(v, beliefRep.max(domain.marginal(v), b));
     }
