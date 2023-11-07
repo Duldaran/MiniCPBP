@@ -415,7 +415,7 @@ public class MiniCP implements Solver {
     }
 
 
-    public void vanillaBP(int nbIterations, ExamplesMarginalsSingleton instance) {
+    public void vanillaBP(int nbIterations, ExamplesMarginalsSingleton instance, Boolean isDeuxCycle) {
         notifyBeliefPropa();
         setDamp(false);
         try {
@@ -434,7 +434,8 @@ public class MiniCP implements Solver {
                 BPiteration();
                 if(!traceBP){
                     for (int i = 0; i < variables.size(); i++) {
-                        if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        if(isDeuxCycle) System.out.println("Non implémenté");
+                        else if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                         else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                     }
                 }
@@ -443,7 +444,8 @@ public class MiniCP implements Solver {
                     for (int i = 0; i < variables.size(); i++) {
                         System.out.print(variables.get(i).getName());
                         System.out.println(variables.get(i).toString());
-                        if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        if(isDeuxCycle) System.out.println("Non implémenté");
+                        else if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                         else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
                     }
                 }

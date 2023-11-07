@@ -17,7 +17,7 @@
  */
 
 // Example command line
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="1-1 5"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="10 0 10"
 
 package minicpbp.examples;
 
@@ -25,6 +25,7 @@ import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
 import minicpbp.search.DFSearch;
 import minicpbp.search.SearchStatistics;
+import minicpbp.util.ArrayUtil;
 import minicpbp.util.ExamplesMarginalsSingleton;
 
 import static minicpbp.cp.Factory.*;
@@ -42,44 +43,58 @@ public class MultiKnapsack {
     private static int[] rhs;
    
     public static void main(String[] args) {
-    
-        Solver cp = makeSolver();
+
         ExamplesMarginalsSingleton em = ExamplesMarginalsSingleton.getInstance();
-        int nbIter= Integer.parseInt(args[1]);
-		IntVar[] x = makeMultiKnapsack(cp,args[0]);
+        int nbIter= Integer.parseInt(args[2]);
+		int startIndex= Integer.parseInt(args[1]);
+        int nbOfFiles=Integer.parseInt(args[0]);
+		double[] itersKL= new double[nbIter];
 
-		// enumerate all solutions in order to compute exact marginals
-//		/*
-		DFSearch dfs = makeDfs(cp, minEntropy(x));
-	    em.initializeSols(nbVariables);
+		String[] exemples = {"1-1","1-3","1-4","2-3","2-6","2-7","2-8","2-43","2-41","2-42"};
 
-		dfs.onSolution(() -> {
-			int [] sol = new int[nbVariables];
-			for (int i = 0; i < nbVariables; i++) {
-				System.out.print(x[i].min() + " ");
-				sol[i]=x[i].min();
+		for(int fileNum=0; fileNum<=nbOfFiles; fileNum++ ){
+			Solver cp = makeSolver();
+			System.out.println(exemples[(startIndex+fileNum)% exemples.length]);
+			IntVar[] x = makeMultiKnapsack(cp,exemples[(startIndex+fileNum)% exemples.length]);
+
+			// enumerate all solutions in order to compute exact marginals
+	//		/*
+			DFSearch dfs = makeDfs(cp, minEntropy(x));
+			em.initializeSols(nbVariables);
+
+			dfs.onSolution(() -> {
+				int [] sol = new int[nbVariables];
+				for (int i = 0; i < nbVariables; i++) {
+					//System.out.print(x[i].min() + " ");
+					sol[i]=x[i].min();
+				}
+				//System.out.println("\n-------------------");
+				em.addSol(sol);
 			}
-			System.out.println("\n-------------------");
-			em.addSol(sol);
+			);
+
+			SearchStatistics stats = dfs.solve();
+			em.normalizeSols(stats.numberOfSolutions());
+			System.out.println(stats);
+	//		 */
+
+			// perform k iterations of message-passing and trace the resulting marginals
+	//		/*
+			cp.fixPoint(); // initial constraint propagation
+			cp.setTraceBPFlag(false);
+			em.initializeBP(nbIter);
+			cp.vanillaBP(nbIter, em, false);
+	//		*/
+
+			//em.printBPMarginals();
+			//em.printTrueMarginals();
+			itersKL = ArrayUtil.addByElement(em.calculateItersKL(false), itersKL);
 		}
-		);
 
-		SearchStatistics stats = dfs.solve();
-		em.normalizeSols(stats.numberOfSolutions());
-		System.out.println(stats);
-//		 */
-
-		// perform k iterations of message-passing and trace the resulting marginals
-//		/*
-		cp.fixPoint(); // initial constraint propagation
-		cp.setTraceBPFlag(false);
-		em.initializeBP(nbIter);
-		cp.vanillaBP(nbIter, em);
-//		*/
-
-		em.printBPMarginals();
-		em.printTrueMarginals();
-		em.printKLinCSV(em.calculateItersKL(false));
+		itersKL= ArrayUtil.divideByElement(itersKL, nbOfFiles);
+		System.out.println("KL moyens:");
+		em.printKLinCSV(itersKL);
+		System.out.println();
     }
     
     public static IntVar[] makeMultiKnapsack(Solver cp, String inFile){

@@ -27,6 +27,7 @@ public class ExamplesMarginalsSingleton {
         }
     }
 
+
     public static void addSol(int[] sol) {
         for (int i = 0; i < sol.length; i++) {
             sols[i].map.put(sol[i], sols[i].map.getOrDefault(sol[i], 0.0) + 1);
@@ -59,8 +60,10 @@ public class ExamplesMarginalsSingleton {
     public static void receiveBP(String name, Marginal margin , int iter){
         if(name == null) return;
         String index = name.replaceAll("[^0-9,]", "");
+        if(Integer.parseInt(index)>= sols.length) {System.out.print(index);return;}
         BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
     }
+
 
     public static void printBPMarginals(){
         for (int iter = 0; iter< BPsols.size(); iter++){

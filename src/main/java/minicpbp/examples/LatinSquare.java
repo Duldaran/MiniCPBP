@@ -49,12 +49,11 @@ public class LatinSquare {
 		int nbOfFiles = Integer.parseInt(args[2]);
 		int nbIter = Integer.parseInt(args[3]);
 
-		Solver cp = makeSolver();
 		double[] itersKL= new double[nbIter];
 		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
 
 		for(int fileNum=1; fileNum<=nbOfFiles; fileNum++ ){
-
+			Solver cp = makeSolver();
 			IntVar[][] x = new IntVar[order][order];
 
 			for (int i = 0; i < order; i++) {
@@ -118,12 +117,12 @@ public class LatinSquare {
 			Iterator<Constraint> iterator = cp.getConstraints().iterator();
 			while (iterator.hasNext()) {
 				Constraint c = iterator.next();
-				c.setWeight(0.5+1.0/( 1.0 + (double) c.dynamicArity()));
+				c.setWeight(0.55+1.0/( 1.0 + (double) c.dynamicArity()));
 			}
 
 			cp.setTraceBPFlag(false);
 			ls.initializeBP(nbIter);
-			cp.vanillaBP(nbIter, ls);
+			cp.vanillaBP(nbIter, ls, false);
 	//		*/
 
 			itersKL = ArrayUtil.addByElement(ls.calculateItersKL(false), itersKL);
