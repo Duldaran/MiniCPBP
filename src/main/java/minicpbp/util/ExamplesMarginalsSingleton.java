@@ -64,6 +64,11 @@ public class ExamplesMarginalsSingleton {
         BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
     }
 
+    public static void receiveBP(int index, Marginal margin , int iter){
+        if(index>= sols.length) {System.out.print(index);return;}
+        BPsols.get(iter-1)[index] = margin;
+    }
+
 
     public static void printBPMarginals(){
         for (int iter = 0; iter< BPsols.size(); iter++){

@@ -17,10 +17,11 @@
  */
 
 // Example command line
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="10 0 10"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="7 0 10"
 
 package minicpbp.examples;
 
+import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
 import minicpbp.search.DFSearch;
@@ -33,6 +34,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class MultiKnapsack {
@@ -50,9 +52,9 @@ public class MultiKnapsack {
         int nbOfFiles=Integer.parseInt(args[0]);
 		double[] itersKL= new double[nbIter];
 
-		String[] exemples = {"1-1","1-3","1-4","2-3","2-6","2-7","2-8","2-43","2-41","2-42"};
+		String[] exemples = {"2-4","2-47","2-3","2-6","2-7","2-8","2-43"};
 
-		for(int fileNum=0; fileNum<=nbOfFiles; fileNum++ ){
+		for(int fileNum=0; fileNum<nbOfFiles; fileNum++ ){
 			Solver cp = makeSolver();
 			System.out.println(exemples[(startIndex+fileNum)% exemples.length]);
 			IntVar[] x = makeMultiKnapsack(cp,exemples[(startIndex+fileNum)% exemples.length]);
@@ -81,6 +83,14 @@ public class MultiKnapsack {
 			// perform k iterations of message-passing and trace the resulting marginals
 	//		/*
 			cp.fixPoint(); // initial constraint propagation
+
+			// set each constraint's weight according to some attention criterion
+			Iterator<Constraint> iterator = cp.getConstraints().iterator();
+			while (iterator.hasNext()) {
+				Constraint c = iterator.next();
+				c.setWeight(0.95+1.0/( 1.0 + (double) c.dynamicArity()));
+			}
+
 			cp.setTraceBPFlag(false);
 			em.initializeBP(nbIter);
 			cp.vanillaBP(nbIter, em, false);
