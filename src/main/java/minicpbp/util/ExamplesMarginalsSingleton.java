@@ -104,7 +104,7 @@ public class ExamplesMarginalsSingleton {
         for(int i=0; i< bpSol.length;i++){
             iterKL+=calculateKL(sols[i], bpSol[i]);
         }
-        return iterKL;
+        return iterKL/ bpSol.length;
     }
 
     private static double calculateKL(Marginal trueMarginal, Marginal bpMarginal){
@@ -118,9 +118,12 @@ public class ExamplesMarginalsSingleton {
         return KLdivergence;
     }
 
-    public static void printKLinCSV(double[] itersKL){
-        for (int i =0;i < itersKL.length;i++){
-            System.out.print(itersKL[i]+";");
+    public static void printKLinCSV(ArrayList<double[]> itersKL){
+        for (int i =0;i < itersKL.size();i++){
+            for (int j =0;j < itersKL.get(i).length;j++){
+                System.out.print(itersKL.get(i)[j]+";");
+            }
+            System.out.println();
         }
     }
 }

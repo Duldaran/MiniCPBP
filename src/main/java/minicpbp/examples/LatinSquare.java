@@ -34,6 +34,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -49,7 +50,7 @@ public class LatinSquare {
 		int nbOfFiles = Integer.parseInt(args[2]);
 		int nbIter = Integer.parseInt(args[3]);
 
-		double[] itersKL= new double[nbIter];
+		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
 
 		for(int fileNum=1; fileNum<=nbOfFiles; fileNum++ ){
@@ -125,13 +126,12 @@ public class LatinSquare {
 			cp.vanillaBP(nbIter, ls, false);
 	//		*/
 
-			itersKL = ArrayUtil.addByElement(ls.calculateItersKL(false), itersKL);
+			itersKL.add(ls.calculateItersKL(false));
 			//ls.printBPMarginals();
 			//ls.printTrueMarginals();
 
 		}
 
-		itersKL=ArrayUtil.divideByElement(itersKL, nbOfFiles);
 		System.out.println("KL moyens:");
 		ls.printKLinCSV(itersKL);
 		System.out.println();

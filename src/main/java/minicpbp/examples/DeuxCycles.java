@@ -32,6 +32,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeuxCycles {
@@ -47,7 +48,7 @@ public class DeuxCycles {
 		int nbIter = Integer.parseInt(args[2]);
 
 		ExamplesMarginalsSingleton em = ExamplesMarginalsSingleton.getInstance();
-		double[] itersKL= new double[nbIter];
+		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 
 		for(int cycle1Length=2; cycle1Length<=cycle1; cycle1Length++ ){
 			for(int cycle2Length=2; cycle2Length<=cycle2; cycle2Length++ ){
@@ -115,11 +116,10 @@ public class DeuxCycles {
 
 				//em.printBPMarginals();
 				//em.printTrueMarginals();
-				itersKL = ArrayUtil.addByElement(em.calculateItersKL(false), itersKL);
+				itersKL.add(em.calculateItersKL(false));
 			}
 
 		}
-		itersKL=ArrayUtil.divideByElement(itersKL, (cycle1-1)*(cycle2-1));
 		System.out.println("KL moyens:");
 		em.printKLinCSV(itersKL);
 		System.out.println();

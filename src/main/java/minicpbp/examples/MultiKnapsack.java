@@ -34,6 +34,7 @@ import static minicpbp.cp.BranchingScheme.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -50,7 +51,8 @@ public class MultiKnapsack {
         int nbIter= Integer.parseInt(args[2]);
 		int startIndex= Integer.parseInt(args[1]);
         int nbOfFiles=Integer.parseInt(args[0]);
-		double[] itersKL= new double[nbIter];
+
+		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 
 		String[] exemples = {"2-4","2-47","2-3","2-6","2-7","2-8","2-43"};
 
@@ -98,10 +100,9 @@ public class MultiKnapsack {
 
 			//em.printBPMarginals();
 			//em.printTrueMarginals();
-			itersKL = ArrayUtil.addByElement(em.calculateItersKL(false), itersKL);
+			itersKL.add(em.calculateItersKL(false));
 		}
 
-		itersKL= ArrayUtil.divideByElement(itersKL, nbOfFiles);
 		System.out.println("KL moyens:");
 		em.printKLinCSV(itersKL);
 		System.out.println();
