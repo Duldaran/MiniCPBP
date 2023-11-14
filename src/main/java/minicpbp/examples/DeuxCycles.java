@@ -16,7 +16,7 @@
  * Copyright (c)  2019. by Gilles Pesant
  */
 
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.DeuxCycles" -Dexec.args="10 10 10"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.DeuxCycles" -Dexec.args="8 8 10"
 
 package minicpbp.examples;
 
@@ -92,17 +92,17 @@ public class DeuxCycles {
 				dfs.onSolution(() -> {
 					int [] sol = new int[x.length];
 					for (int i = 0; i < x.length; i++) {
-						System.out.print(x[i].min() + " ");
+						//System.out.print(x[i].min() + " ");
 						sol[i]=x[i].min();
 					}
 					em.addSol(sol);
-					System.out.println("\n-------------------");
+					//System.out.println("\n-------------------");
 				}
 				);
 
 				SearchStatistics stats = dfs.solve();
 				em.normalizeSols(stats.numberOfSolutions());
-				System.out.println(stats);
+				//System.out.println(stats);
 		//		 */
 
 				// perform k iterations of message-passing and trace the resulting marginals
@@ -112,7 +112,7 @@ public class DeuxCycles {
 				em.initializeBP(nbIter);
 				cp.vanillaBP(nbIter, em, cycle1Length);
 		//		*/
-				System.out.println("1 : "+cycle1Length+" , 2 : "+cycle2Length);
+				//System.out.println("1 : "+cycle1Length+" , 2 : "+cycle2Length);
 
 				//em.printBPMarginals();
 				//em.printTrueMarginals();

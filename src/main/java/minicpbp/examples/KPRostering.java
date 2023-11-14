@@ -14,6 +14,8 @@
  *
  * mini-cpbp, replacing classic propagation by belief propagation
  * Copyright (c)  2019. by Gilles Pesant
+ *
+ * mvn exec:java -Dexec.mainClass="minicpbp.examples.KPRostering" -Dexec.args="4 10 10 10"
  */
 
 package minicpbp.examples;
@@ -43,89 +45,90 @@ public class KPRostering {
 		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
 		int nbEmpl = Integer.parseInt(args[0]);
 		int nbDays = Integer.parseInt(args[1]);
-		int nbFile = Integer.parseInt(args[2]);
+		int nbOfFiles = Integer.parseInt(args[2]);
 		int nbIter= Integer.parseInt(args[3]);
 
 		ArrayList<double[]> itersKL= new ArrayList<double[]>();
+		for(int fileNum=1; fileNum<=nbOfFiles; fileNum++ ) {
 
-		Solver cp = makeSolver();
+			Solver cp = makeSolver();
 
-        IntVar[][] x = new IntVar[nbEmpl][nbDays];
-		for (int i = 0; i < nbEmpl; i++) {
-			for (int j = 0; j < nbDays; j++) {
-				x[i][j] = makeIntVar(cp, new HashSet<>(Arrays.asList(0,2,3,5)));
-				x[i][j].setName("x["+i+","+j+"]");
-			}
-		}
-
-		int[][] A = new int[nbEmpl][nbDays];
-		int[] b = new int[nbEmpl];
-
-		readInstance(x,A,b,nbEmpl,nbDays,nbFile);
-
-		for(int i = 0; i < nbEmpl; i++) {
-			// constraint on row i
-			cp.post(sum(A[i], x[i], b[i]));
-		}
-		for(int j = 0; j < nbDays; j++) {
-			// constraint on column j
-			IntVar[] column = new IntVar[nbEmpl];
+			IntVar[][] x = new IntVar[nbEmpl][nbDays];
 			for (int i = 0; i < nbEmpl; i++) {
-				column[i] = x[i][j];
+				for (int j = 0; j < nbDays; j++) {
+					x[i][j] = makeIntVar(cp, new HashSet<>(Arrays.asList(0, 2, 3, 5)));
+					x[i][j].setName("x[" + i + "," + j + "]");
+				}
 			}
-			cp.post(allDifferent(column));
-		}
 
-        IntVar[] xFlat = new IntVar[nbEmpl * nbDays];
-        for (int i = 0; i < nbEmpl; i++) {
-            System.arraycopy(x[i], 0, xFlat, i * nbDays, nbDays);
-        }
+			int[][] A = new int[nbEmpl][nbDays];
+			int[] b = new int[nbEmpl];
 
-		// enumerate all solutions in order to compute exact marginals
+			readInstance(x, A, b, nbEmpl, nbDays, fileNum);
 
-		DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
-		ls.initializeSols(nbEmpl,nbDays);
+			for (int i = 0; i < nbEmpl; i++) {
+				// constraint on row i
+				cp.post(sum(A[i], x[i], b[i]));
+			}
+			for (int j = 0; j < nbDays; j++) {
+				// constraint on column j
+				IntVar[] column = new IntVar[nbEmpl];
+				for (int i = 0; i < nbEmpl; i++) {
+					column[i] = x[i][j];
+				}
+				cp.post(allDifferent(column));
+			}
 
-        dfs.onSolution(() -> {
-					int [][] sol = new int[nbEmpl][nbDays];
-                    for (int i = 0; i < nbEmpl; i++) {
-						for (int j = 0; j < nbDays; j++) {
-							System.out.print(x[i][j].min() + " ");
-							sol[i][j]=x[i][j].min();
+			IntVar[] xFlat = new IntVar[nbEmpl * nbDays];
+			for (int i = 0; i < nbEmpl; i++) {
+				System.arraycopy(x[i], 0, xFlat, i * nbDays, nbDays);
+			}
+
+			// enumerate all solutions in order to compute exact marginals
+
+			DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
+			ls.initializeSols(nbEmpl, nbDays);
+
+			dfs.onSolution(() -> {
+						int[][] sol = new int[nbEmpl][nbDays];
+						for (int i = 0; i < nbEmpl; i++) {
+							for (int j = 0; j < nbDays; j++) {
+								//System.out.print(x[i][j].min() + " ");
+								sol[i][j] = x[i][j].min();
+							}
+							//System.out.println();
 						}
-						System.out.println();
-                    }
-					ls.addSol(sol);
-					System.out.println("-------------------");
-			}
-        );
+						ls.addSol(sol);
+						//System.out.println("-------------------");
+					}
+			);
 
-		SearchStatistics stats = dfs.solve();
-		ls.normalizeSols(stats.numberOfSolutions());
-		System.out.println(stats);
-		//		 */
+			SearchStatistics stats = dfs.solve();
+			ls.normalizeSols(stats.numberOfSolutions());
+			//System.out.println(stats);
+			//		 */
 
-		// perform k iterations of message-passing and trace the resulting marginals
-		//		/*
-		cp.fixPoint(); // initial constraint propagation
+			// perform k iterations of message-passing and trace the resulting marginals
+			//		/*
+			cp.fixPoint(); // initial constraint propagation
 
-		// set each constraint's weight according to some attention criterion
-		/*Iterator<Constraint> iterator = cp.getConstraints().iterator();
-		while (iterator.hasNext()) {
-			Constraint c = iterator.next();
-			c.setWeight(0.95+1.0/( 1.0 + (double) c.dynamicArity()));
-		}*/
+			// set each constraint's weight according to some attention criterion
+			/*Iterator<Constraint> iterator = cp.getConstraints().iterator();
+			while (iterator.hasNext()) {
+				Constraint c = iterator.next();
+				c.setWeight(0.95+1.0/( 1.0 + (double) c.dynamicArity()));
+			}*/
 
-		cp.setTraceBPFlag(false);
-		ls.initializeBP(nbIter);
-		cp.vanillaBP(nbIter, ls, 0);
-		//		*/
+			cp.setTraceBPFlag(false);
+			ls.initializeBP(nbIter);
+			cp.vanillaBP(nbIter, ls, 0);
+			//		*/
 
-		//em.printBPMarginals();
-		//em.printTrueMarginals();
-		itersKL.add(ls.calculateItersKL(false));
+			//ls.printBPMarginals();
+			//ls.printTrueMarginals();
+			itersKL.add(ls.calculateItersKL(false));
 
-
+		}
 		System.out.println("KL moyens:");
 		ls.printKLinCSV(itersKL);
 		System.out.println();

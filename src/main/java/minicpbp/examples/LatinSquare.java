@@ -116,10 +116,10 @@ public class LatinSquare {
 
 			// set each constraint's weight according to some attention criterion
 			Iterator<Constraint> iterator = cp.getConstraints().iterator();
-			while (iterator.hasNext()) {
+			/*while (iterator.hasNext()) {
 				Constraint c = iterator.next();
 				c.setWeight(0.55+1.0/( 1.0 + (double) c.dynamicArity()));
-			}
+			}*/
 
 			cp.setTraceBPFlag(false);
 			ls.initializeBP(nbIter);

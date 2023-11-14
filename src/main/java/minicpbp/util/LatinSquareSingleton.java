@@ -70,6 +70,7 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
     }
 
     public static void receiveBP(String name, Marginal margin , int iter){
+        if(name == null) return;
         String[] square = name.replaceAll("[^0-9,]", "").split(",");
         BPsols.get(iter-1)[Integer.parseInt(square[0])][Integer.parseInt(square[1])] = margin;
     }
