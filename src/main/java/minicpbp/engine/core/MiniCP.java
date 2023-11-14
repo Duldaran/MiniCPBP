@@ -415,7 +415,7 @@ public class MiniCP implements Solver {
     }
 
 
-    public void vanillaBP(int nbIterations, ExamplesMarginalsSingleton instance, Boolean isDeuxCycle) {
+    public void vanillaBP(int nbIterations, ExamplesMarginalsSingleton instance, int cycle1length) {
         notifyBeliefPropa();
         setDamp(false);
         try {
@@ -434,9 +434,8 @@ public class MiniCP implements Solver {
                 BPiteration();
                 if(!traceBP){
                     for (int i = 0; i < variables.size(); i++) {
-                        if(isDeuxCycle) instance.receiveBP(i, variables.get(i).toMarginal(), iter);
-                        else if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
-                        else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter, cycle1length);
                     }
                 }
                 else {
@@ -444,9 +443,8 @@ public class MiniCP implements Solver {
                     for (int i = 0; i < variables.size(); i++) {
                         System.out.print(variables.get(i).getName());
                         System.out.println(variables.get(i).toString());
-                        if(isDeuxCycle) instance.receiveBP(i, variables.get(i).toMarginal(), iter);
-                        else if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
-                        else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        if(instance instanceof LatinSquareSingleton) ((LatinSquareSingleton) instance).receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter);
+                        else instance.receiveBP(variables.get(i).getName(), variables.get(i).toMarginal(), iter, cycle1length);
                     }
                 }
 

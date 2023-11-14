@@ -1,5 +1,7 @@
 package minicpbp.util;
 
+import minicpbp.examples.DeuxCycles;
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -57,6 +59,7 @@ public class ExamplesMarginalsSingleton {
         }
     }
 
+
     public static void receiveBP(String name, Marginal margin , int iter){
         if(name == null) return;
         String index = name.replaceAll("[^0-9,]", "");
@@ -64,9 +67,20 @@ public class ExamplesMarginalsSingleton {
         BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
     }
 
-    public static void receiveBP(int index, Marginal margin , int iter){
-        if(index>= sols.length) {System.out.print(index);return;}
-        BPsols.get(iter-1)[index] = margin;
+    public static void receiveBP(String name, Marginal margin , int iter, int cycle1length){
+        if(name == null) return;
+        String index;
+        if(cycle1length!=0){index = getDeuxCyclesIndex(name, cycle1length);}
+        else {index = name.replaceAll("[^0-9,]", "");}
+        if(Integer.parseInt(index)>= sols.length) {System.out.print(index);return;}
+        BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
+    }
+
+    public static String getDeuxCyclesIndex(String name, int cycle1length){
+        if(name.toUpperCase().contains("SHARED")) return "0";
+        String index = name.replaceAll("[^0-9,]", "");
+        if(index.charAt(0)=='1') return index.replaceFirst("1", "");
+        return String.valueOf(Integer.parseInt(index.replaceFirst("2", ""))+cycle1length-1);
     }
 
 

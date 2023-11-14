@@ -85,7 +85,7 @@ public class LatinSquare {
 			// enumerate all solutions in order to compute exact marginals
 	//		/*
 
-			ls.initializeSols(order);
+			ls.initializeSols(order, order);
 			DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
 
 
@@ -123,7 +123,7 @@ public class LatinSquare {
 
 			cp.setTraceBPFlag(false);
 			ls.initializeBP(nbIter);
-			cp.vanillaBP(nbIter, ls, false);
+			cp.vanillaBP(nbIter, ls, 0);
 	//		*/
 
 			itersKL.add(ls.calculateItersKL(false));

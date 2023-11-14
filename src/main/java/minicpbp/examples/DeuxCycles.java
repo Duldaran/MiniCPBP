@@ -110,7 +110,7 @@ public class DeuxCycles {
 				cp.fixPoint(); // initial constraint propagation
 				cp.setTraceBPFlag(false);
 				em.initializeBP(nbIter);
-				cp.vanillaBP(nbIter, em, true);
+				cp.vanillaBP(nbIter, em, cycle1Length);
 		//		*/
 				System.out.println("1 : "+cycle1Length+" , 2 : "+cycle2Length);
 

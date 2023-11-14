@@ -23,6 +23,9 @@ import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
 import minicpbp.search.DFSearch;
 import minicpbp.search.SearchStatistics;
+import minicpbp.util.ExamplesMarginalsSingleton;
+import minicpbp.util.LatinSquareSingleton;
+
 import static minicpbp.cp.Factory.*;
 import static minicpbp.cp.BranchingScheme.*;
 
@@ -37,9 +40,13 @@ public class KPRostering {
 
 	public static void main(String[] args) {
 
+		LatinSquareSingleton ls = LatinSquareSingleton.getInstance();
 		int nbEmpl = Integer.parseInt(args[0]);
 		int nbDays = Integer.parseInt(args[1]);
 		int nbFile = Integer.parseInt(args[2]);
+		int nbIter= Integer.parseInt(args[3]);
+
+		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 
 		Solver cp = makeSolver();
 
@@ -77,20 +84,51 @@ public class KPRostering {
 		// enumerate all solutions in order to compute exact marginals
 
 		DFSearch dfs = makeDfs(cp, minEntropy(xFlat));
+		ls.initializeSols(nbEmpl,nbDays);
 
         dfs.onSolution(() -> {
+					int [][] sol = new int[nbEmpl][nbDays];
                     for (int i = 0; i < nbEmpl; i++) {
 						for (int j = 0; j < nbDays; j++) {
 							System.out.print(x[i][j].min() + " ");
+							sol[i][j]=x[i][j].min();
 						}
 						System.out.println();
                     }
+					ls.addSol(sol);
 					System.out.println("-------------------");
 			}
         );
 
-   		SearchStatistics stats = dfs.solve();
-        System.out.println(stats);
+		SearchStatistics stats = dfs.solve();
+		ls.normalizeSols(stats.numberOfSolutions());
+		System.out.println(stats);
+		//		 */
+
+		// perform k iterations of message-passing and trace the resulting marginals
+		//		/*
+		cp.fixPoint(); // initial constraint propagation
+
+		// set each constraint's weight according to some attention criterion
+		/*Iterator<Constraint> iterator = cp.getConstraints().iterator();
+		while (iterator.hasNext()) {
+			Constraint c = iterator.next();
+			c.setWeight(0.95+1.0/( 1.0 + (double) c.dynamicArity()));
+		}*/
+
+		cp.setTraceBPFlag(false);
+		ls.initializeBP(nbIter);
+		cp.vanillaBP(nbIter, ls, 0);
+		//		*/
+
+		//em.printBPMarginals();
+		//em.printTrueMarginals();
+		itersKL.add(ls.calculateItersKL(false));
+
+
+		System.out.println("KL moyens:");
+		ls.printKLinCSV(itersKL);
+		System.out.println();
 
 }
 

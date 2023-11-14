@@ -24,8 +24,8 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
     private static Marginal[][] sols;
 
 
-    public static void initializeSols(int order) {
-        sols = new Marginal[order][order];
+    public static void initializeSols(int heigth, int width) {
+        sols = new Marginal[heigth][width];
         for (int i = 0; i < sols.length; i++) {
             for (int j = 0; j < sols[i].length; j++) {
                 sols[i][j]= new Marginal();

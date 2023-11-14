@@ -159,7 +159,7 @@ public interface Solver {
      * Performs no-bells-and-whistles belief propagation: runs for a specified number of iterations, without damping
      */
     void vanillaBP(int nbIterations);
-    void vanillaBP(int nbIterations, ExamplesMarginalsSingleton b, Boolean isDeuxCycle);
+    void vanillaBP(int nbIterations, ExamplesMarginalsSingleton b, int cycle1length);
 
     /**
      * Propagate following the right mode (fixpoint and/or belief)
