@@ -17,7 +17,7 @@
  */
 
 // Example command line
-//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="7 0 10"
+//mvn exec:java -Dexec.mainClass="minicpbp.examples.MultiKnapsack" -Dexec.args="3 0 10"
 
 package minicpbp.examples;
 
@@ -55,7 +55,7 @@ public class MultiKnapsack {
 		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 
 		//String[] exemples = {"2-4","2-47","2-3","2-6","2-7","2-8","2-43"};
-		String[] exemples = {"1-3","2-4", "2-47"};//Choisir quelques exemplaires ayant des comportements différents.
+		String[] exemples = {"1-1","2-4", "2-44"};//Choisir quelques exemplaires ayant des comportements différents.
 
 		for(int fileNum=0; fileNum<nbOfFiles; fileNum++ ){
 			Solver cp = makeSolver();
@@ -80,7 +80,7 @@ public class MultiKnapsack {
 
 			SearchStatistics stats = dfs.solve();
 			em.normalizeSols(stats.numberOfSolutions());
-			System.out.println(stats);
+			//System.out.println(stats);
 	//		 */
 
 			// perform k iterations of message-passing and trace the resulting marginals

@@ -70,7 +70,7 @@ public class DeuxCycles {
 
 				IntVar[] cycle1Vars = new IntVar[cycle1Length];
 				IntVar[] cycle2Vars = new IntVar[cycle2Length];
-				System.arraycopy(x,0,cycle1Vars,1,cycle1Length-1);
+				System.arraycopy(x,1,cycle1Vars,1,cycle1Length-1);
 				cycle1Vars[0] = x[0];
 				System.arraycopy(x,cycle1Length,cycle2Vars,1,cycle2Length-1);
 				cycle2Vars[0] = x[0];
@@ -83,6 +83,12 @@ public class DeuxCycles {
 				for (int i = 0; i < cycle2Length; i++) {
 					cp.post(negTable(new IntVar[]{cycle2Vars[i],cycle2Vars[(i+1)%cycle2Length]},negTable2));
 				}
+
+				// print degree of each variable
+				for (int i = 0; i < x.length; i++) {
+					System.out.print(x[i].getName() + ":" + x[i].deg() + " ");
+				}
+				System.out.println();
 
 				// enumerate all solutions in order to compute exact marginals
 		//		/*
