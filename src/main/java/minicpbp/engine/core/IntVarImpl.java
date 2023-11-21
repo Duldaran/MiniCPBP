@@ -367,9 +367,11 @@ public class IntVarImpl implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert domain.marginal(v) <= beliefRep.one() && domain.marginal(v) >= beliefRep.zero() : "domain.marginal(v) = " + domain.marginal(v);
-        //System.out.println("Variable "+getName()+" : "+domain.marginal(v)+", "+b +", result : "+beliefRep.max(domain.marginal(v), b));
-        domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), b));
-        //domain.setMarginal(v, beliefRep.max(domain.marginal(v), b));
+        domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), b));                           //Agg:Produit, 1 dans BP iteration
+        //domain.setMarginal(v, beliefRep.min(domain.marginal(v), b));                              //Agg:Min, 1 dans BP iteration
+        //domain.setMarginal(v, beliefRep.max(domain.marginal(v), b));                              //Agg:Max, 0 dans BP iteration
+        //domain.setMarginal(v, beliefRep.add(domain.marginal(v), b));                              //Agg:Somme (Moy arithmétique), 0 dans BP iteration
+        //domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), Math.pow(b, 1.0 / deg())));  //Agg:Moy géométrique, 1 dans BP iteration
     }
 
     @Override

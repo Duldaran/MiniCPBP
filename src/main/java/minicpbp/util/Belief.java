@@ -93,4 +93,11 @@ public interface Belief {
      * returns the maximum value between a and b
      */
     double max(double a, double b);
+
+    /**
+     * returns the minimum value between a and b
+     */
+    double min(double a, double b);
+
+
 }

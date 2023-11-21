@@ -250,8 +250,11 @@ public class IntVarViewOpposite implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(-v) <= beliefRep.one() && x.marginal(-v) >= beliefRep.zero() : "x.marginal(-v) = " + x.marginal(-v);
-        x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));
-        //x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));
+        x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));                       //Agg:Produit, 1 dans BP iteration
+        //x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));                          //Agg:Max, 0 dans BP iteration
+        //x.setMarginal(-v, beliefRep.min(x.marginal(-v), b));                          //Agg:Min, 1 dans BP iteration
+        //x.setMarginal(-v, beliefRep.add(x.marginal(-v), b));                          //Agg:Somme, 0 dans BP iteration
+        //x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration
     }
 
     @Override

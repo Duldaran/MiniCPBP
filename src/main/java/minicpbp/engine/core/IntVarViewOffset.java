@@ -257,9 +257,11 @@ public class IntVarViewOffset implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(v - o) <= beliefRep.one() && x.marginal(v - o) >= beliefRep.zero() : "x.marginal(v - o) = " + x.marginal(v - o);
-        //System.out.println("Variable "+x.getName()+" : "+v+", "+o+", "+b +", result : "+beliefRep.max(x.marginal(v - o), b));
-        x.setMarginal(v - o, beliefRep.multiply(x.marginal(v - o), b));
-        //x.setMarginal(v - o, beliefRep.max(x.marginal(v - o), b));
+        x.setMarginal(v - o, beliefRep.multiply(x.marginal(v - o), b));                         //Agg:Produit, 1 dans BP iteration
+        //x.setMarginal(v - o, beliefRep.max(x.marginal(v - o), b));                                  //Agg:Max, 0 dans BP iteration
+        //x.setMarginal(v - o, beliefRep.min(x.marginal(v - o), b));                                  //Agg:Min, 1 dans BP iteration
+        //x.setMarginal(v - o, beliefRep.add(x.marginal(v - o), b));                                  //Agg:Somme, 0 dans BP iteration
+        //x.setMarginal(v - o, beliefRep.multiply(x.marginal(v - o), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration
     }
 
     @Override

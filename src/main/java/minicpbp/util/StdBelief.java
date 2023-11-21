@@ -86,4 +86,6 @@ public class StdBelief implements Belief {
 
     public double max(double a, double b) { return Math.max(a,b); }
 
+    public double min(double a, double b) { return Math.min(a,b); }
+
 }

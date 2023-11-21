@@ -334,9 +334,11 @@ public class  IntVarViewMul implements IntVar {
 	assert b<=beliefRep.one() && b>=beliefRep.zero() : "b = "+b ;
 	if (v % a == 0) {
 	    assert x.marginal(v/a)<=beliefRep.one() && x.marginal(v/a)>=beliefRep.zero() : "x.marginal(v/a) = "+x.marginal(v/a) ;
-        //System.out.println("Variable "+x.getName()+" : "+x.marginal(v/a)+", "+b +", result : "+beliefRep.max(x.marginal(v/a), b));
-	    x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));
-        //x.setMarginal(v/a,beliefRep.max(x.marginal(v/a),b));
+	    x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));                       //Agg:Produit, 1 dans BP iteration
+        //x.setMarginal(v/a,beliefRep.max(x.marginal(v/a),b));                                //Agg:Max, 0 dans BP iteration
+        //x.setMarginal(-v, beliefRep.min(x.marginal(-v), b));                              //Agg:Min, 1 dans BP iteration
+        //x.setMarginal(-v, beliefRep.add(x.marginal(-v), b));                              //Agg:Somme, 0 dans BP iteration
+        //x.setMarginal(-v, beliefRep.max(x.marginal(-v), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration
         } else {
             throw new InconsistencyException();
 	}
