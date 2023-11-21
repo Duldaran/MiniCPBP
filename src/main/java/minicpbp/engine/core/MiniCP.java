@@ -551,8 +551,8 @@ public class MiniCP implements Solver {
         }
         Iterator<IntVar> iterator = variables.iterator();
         while (iterator.hasNext()) {
-            iterator.next().initializeMarginals();
-            //iterator.next().resetMarginals(); // prepare to receive all the messages from constraints
+            iterator.next().initializeMarginals(); // Reset to 1 before receiving new marginals
+            //iterator.next().resetMarginals(); // Reset to 0 before receiving new marginals
         }
        iteratorC = constraints.iterator();
         while (iteratorC.hasNext()) {

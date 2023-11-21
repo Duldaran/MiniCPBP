@@ -42,16 +42,16 @@ public class DeuxCycles {
     public static void main(String[] args) {
 
 		// lengths expressed as the number of variables involved
-		int cycle1 = Integer.parseInt(args[0]);
-		int cycle2 = Integer.parseInt(args[1]);
+		int cycle1Length = Integer.parseInt(args[0]);
+		int cycle2Length = Integer.parseInt(args[1]);
 
 		int nbIter = Integer.parseInt(args[2]);
 
 		ExamplesMarginalsSingleton em = ExamplesMarginalsSingleton.getInstance();
 		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 
-		for(int cycle1Length=2; cycle1Length<=cycle1; cycle1Length++ ){
-			for(int cycle2Length=2; cycle2Length<=cycle2; cycle2Length++ ){
+		//for(int cycle1Length=2; cycle1Length<=cycle1; cycle1Length++ ){
+			//for(int cycle2Length=2; cycle2Length<=cycle2; cycle2Length++ ){
 
 				Solver cp = makeSolver();
 				IntVar[] x = new IntVar[cycle1Length+cycle2Length-1]; // one shared variable
@@ -123,9 +123,9 @@ public class DeuxCycles {
 				//em.printBPMarginals();
 				//em.printTrueMarginals();
 				itersKL.add(em.calculateItersKL(false));
-			}
+			//}
 
-		}
+		//}
 		System.out.println("KL moyens:");
 		em.printKLinCSV(itersKL);
 		System.out.println();

@@ -54,8 +54,9 @@ public class MultiKnapsack {
 
 		ArrayList<double[]> itersKL= new ArrayList<double[]>();
 
-		//String[] exemples = {"2-4","2-47","2-3","2-6","2-7","2-8","2-43"};
-		String[] exemples = {"1-1","2-4", "2-44"};//Choisir quelques exemplaires ayant des comportements différents.
+		//String[] exemples = {"2-3","2-7","2-5", "2-8","2-4","2-41","2-43","2-47"};//Low constraints
+		String[] exemples = {"1-2","1-3","1-1", "1-4","1-5","2-11","2-12","2-13","2-15", "2-14","2-44"};// High Constraints + 2-10*
+		//String[] exemples = {"1-1","2-4", "2-44"};//Choisir quelques exemplaires ayant des comportements différents.
 
 		for(int fileNum=0; fileNum<nbOfFiles; fileNum++ ){
 			Solver cp = makeSolver();
