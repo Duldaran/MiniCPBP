@@ -24,6 +24,7 @@ import minicpbp.util.Procedure;
 import minicpbp.util.Belief;
 import minicpbp.util.exception.InconsistencyException;
 
+import java.util.HashMap;
 import java.util.Set;
 
 /**
@@ -34,6 +35,8 @@ public class IntVarViewOpposite implements IntVar {
     private final IntVar x;
     private String name;
     private Belief beliefRep;
+    private HashMap<Integer, Double> secondMax= new HashMap<Integer, Double>();
+    private HashMap<Integer, Double> secondMin= new HashMap<Integer, Double>();
 
     public IntVarViewOpposite(IntVar x) {
         this.x = x;
@@ -178,11 +181,11 @@ public class IntVarViewOpposite implements IntVar {
 
     @Override
     public void resetMarginals() {
-        x.resetMarginals();
+        x.resetMarginals();secondMax = new HashMap<Integer, Double>();
     }
 
     @Override
-    public void initializeMarginals() { x.initializeMarginals(); }
+    public void initializeMarginals() { x.initializeMarginals();  secondMin = new HashMap<Integer, Double>();}
 
     @Override
     public void normalizeMarginals() {
@@ -243,18 +246,29 @@ public class IntVarViewOpposite implements IntVar {
     public double sendMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(-v) <= beliefRep.one() && x.marginal(-v) >= beliefRep.zero() : "x.marginal(-v) = " + x.marginal(-v);
-        return (beliefRep.isZero(b) ? x.marginal(-v) : beliefRep.divide(x.marginal(-v), b));
+        if (beliefRep.isZero(b)) return x.marginal(-v);
+        //return (beliefRep.divide(x.marginal(-v), b));                                   //Agg:Produit, 1 dans BP iteration
+        // return (x.marginal(-v) == b && secondMax.get(-v)!=null? secondMax.get(-v) : x.marginal(-v));     //Agg:Max, 0 dans BP iteration
+        //return (x.marginal(-v) == b && secondMin.get(-v)!=null? secondMin.get(-v) : x.marginal(-v));     //Agg:Min, 1 dans BP iteration
+        return (beliefRep.subtract(x.marginal(-v), b));                           //Agg:Somme (Moy arithmétique), 0 dans BP iteration
+        //return (beliefRep.divide(x.marginal(-v),Math.pow(b, 1.0 / deg())));       //Agg:Moy géométrique, 1 dans BP iteration
     }
 
     @Override
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert x.marginal(-v) <= beliefRep.one() && x.marginal(-v) >= beliefRep.zero() : "x.marginal(-v) = " + x.marginal(-v);
-        //x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));                       //Agg:Produit, 1 dans BP iteration
-        //x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));                          //Agg:Max, 0 dans BP iteration
-        //x.setMarginal(-v, beliefRep.min(x.marginal(-v), b));                          //Agg:Min, 1 dans BP iteration
-        //x.setMarginal(-v, beliefRep.add(x.marginal(-v), b));                          //Agg:Somme, 0 dans BP iteration
-        x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration
+        //x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), b));                             //Agg:Produit, 1 dans BP iteration
+        /*if(b >= x.marginal(-v)){                                                           //Agg:Max, 0 dans BP iteration
+            secondMax.put(-v, x.marginal(-v));
+            x.setMarginal(-v, beliefRep.max(x.marginal(-v), b));
+        }*/
+        /*if(secondMin.get(-v)==null || b < secondMin.get(-v)){                                                           //Agg:Min, 1 dans BP iteration
+            secondMin.put(-v, beliefRep.max(x.marginal(-v), b));
+            x.setMarginal(-v, beliefRep.min(x.marginal(-v), b));
+        }*/
+        x.setMarginal(-v, beliefRep.add(x.marginal(-v), b));                                  //Agg:Somme, 0 dans BP iteration
+        //x.setMarginal(-v, beliefRep.multiply(x.marginal(-v), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration
     }
 
     @Override

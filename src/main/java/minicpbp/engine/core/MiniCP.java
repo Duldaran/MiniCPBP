@@ -310,7 +310,7 @@ public class MiniCP implements Solver {
                 // start afresh at each search-tree node
                 iterator = variables.iterator();
                 while (iterator.hasNext()) {
-                    iterator.next().resetMarginals();
+                    iterator.next().initializeMarginals();
                 }
                  Iterator<Constraint> iteratorC = constraints.iterator();
                 while (iteratorC.hasNext()) {
@@ -389,7 +389,7 @@ public class MiniCP implements Solver {
                 // start afresh at each search-tree node
                 Iterator<IntVar> iterator = variables.iterator();
                 while (iterator.hasNext()) {
-                    iterator.next().resetMarginals();
+                    iterator.next().initializeMarginals();
                 }
                 Iterator<Constraint> iteratorC = constraints.iterator();
                 while (iteratorC.hasNext()) {
@@ -492,7 +492,7 @@ public class MiniCP implements Solver {
             // start afresh
            Iterator<IntVar> iterator = variables.iterator();
             while (iterator.hasNext()) {
-                iterator.next().resetMarginals();
+                iterator.next().initializeMarginals();
             }
             Iterator<Constraint> iteratorC = constraints.iterator();
             while (iteratorC.hasNext()) {
@@ -561,9 +561,9 @@ public class MiniCP implements Solver {
                 c.sendMessages();
         }
        iterator = variables.iterator();
-        while (iterator.hasNext()) {
+        /*while (iterator.hasNext()) {
             iterator.next().normalizeMarginals();
-        }
+        }*/
     }
 
     /**

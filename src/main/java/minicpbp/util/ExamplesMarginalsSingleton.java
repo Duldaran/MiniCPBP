@@ -64,7 +64,7 @@ public class ExamplesMarginalsSingleton {
         if(name == null) return;
         String index = name.replaceAll("[^0-9,]", "");
         if(Integer.parseInt(index)>= sols.length) {System.out.print(index);return;}
-        BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
+        BPsols.get(iter-1)[Integer.parseInt(index)] = normalizeBP(margin);
     }
 
     public static void receiveBP(String name, Marginal margin , int iter, int cycle1length){
@@ -73,7 +73,17 @@ public class ExamplesMarginalsSingleton {
         if(cycle1length!=0){index = getDeuxCyclesIndex(name, cycle1length);}
         else {index = name.replaceAll("[^0-9,]", "");}
         if(Integer.parseInt(index)>= sols.length) {System.out.print(index);return;}
-        BPsols.get(iter-1)[Integer.parseInt(index)] = margin;
+        BPsols.get(iter-1)[Integer.parseInt(index)] = normalizeBP(margin);
+    }
+
+    private static Marginal normalizeBP(Marginal margin){
+        Double normalizingConstant = 0.0;
+        for (Double value : margin.map.values()){
+            normalizingConstant+=value;
+        }
+        final double finalNormalizingConstraint = normalizingConstant;
+        margin.map.replaceAll((k,v) -> v/finalNormalizingConstraint);
+        return margin;
     }
 
     public static String getDeuxCyclesIndex(String name, int cycle1length){

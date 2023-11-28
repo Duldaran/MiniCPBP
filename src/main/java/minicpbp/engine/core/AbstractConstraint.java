@@ -30,7 +30,7 @@ import minicpbp.util.exception.NotImplementedException;
  * should extend.
  */
 public abstract class AbstractConstraint implements Constraint {
-    private double MASK_THRESHOLD = 0.0;
+    //private double MASK_THRESHOLD = 0.0;
 
     private String name;
     /**
@@ -274,11 +274,11 @@ public abstract class AbstractConstraint implements Constraint {
                 normalizeBelief(i, (j, val) -> localBelief(j, val),
                         (j, val, b) -> setLocalBelief(j, val, b));
                 int s = vars[i].fillArray(domainValues);
- //               System.out.print(vars[i].getName()+": ");
+    //            System.out.print(vars[i].getName()+": ");
                 for (int j = 0; j < s; j++) {
                     int val = domainValues[j];
                     double localB = localBelief(i, val);
- //                   System.out.print(val+" "+localB+", ");
+  //                  System.out.print(val+" "+localB+", ");
                     assert localB <= beliefRep.one() && localB >= beliefRep.zero() : "c Should be normalized! localB = " + localB;
                     if (getSolver().actingOnZeroOneBelief() && isExactWCounting()) {
                         if (beliefRep.isZero(localB)) { // no support from this constraint
@@ -290,9 +290,9 @@ public abstract class AbstractConstraint implements Constraint {
                             vars[i].assign(val);
                             getSolver().fixPoint();
                             break; // all other values in this loop will have been removed from the domain
-                        } else if(Math.random() > MASK_THRESHOLD)
+                        } else //if(Math.random() > MASK_THRESHOLD)
                             vars[i].receiveMessage(val, beliefRep.pow(localB, this.weight));
-                    } else if(Math.random() > MASK_THRESHOLD)
+                    } else// if(Math.random() > MASK_THRESHOLD)
                         vars[i].receiveMessage(val, beliefRep.pow(localB, this.weight));
                 }
             }
