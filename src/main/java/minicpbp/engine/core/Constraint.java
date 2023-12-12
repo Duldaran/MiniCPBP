@@ -97,6 +97,11 @@ public interface Constraint {
     void resetLocalBelief();
 
     /**
+     * Sets the local belief to certainty.
+     */
+    void resetLocalBeliefToZero();
+
+    /**
      * Sets the constraint's weight to a nonnegative value.
      * w > 1 amplifies deviations from the uniform belief;
      * w < 1 dampens deviations from the uniform belief.

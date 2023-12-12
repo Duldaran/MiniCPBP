@@ -70,6 +70,7 @@ public class ExamplesMarginalsSingleton {
     public static void receiveBP(String name, Marginal margin , int iter, int cycle1length){
         if(name == null) return;
         String index;
+        //System.out.println(margin.map.toString());
         if(cycle1length!=0){index = getDeuxCyclesIndex(name, cycle1length);}
         else {index = name.replaceAll("[^0-9,]", "");}
         if(Integer.parseInt(index)>= sols.length) {System.out.print(index);return;}
@@ -82,7 +83,9 @@ public class ExamplesMarginalsSingleton {
             normalizingConstant+=value;
         }
         final double finalNormalizingConstraint = normalizingConstant;
-        margin.map.replaceAll((k,v) -> v/finalNormalizingConstraint);
+        if(normalizingConstant==0.0)margin.map.replaceAll((k,v) -> Double.valueOf(1.0/margin.map.size()));
+        else margin.map.replaceAll((k,v) -> v/finalNormalizingConstraint);
+        //System.out.println(margin.map.toString());
         return margin;
     }
 

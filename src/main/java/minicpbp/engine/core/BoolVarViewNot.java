@@ -96,6 +96,26 @@ public class BoolVarViewNot implements BoolVar {
     }
 
     @Override
+    public double getSecondMin(int v) {
+        return -1;
+    }
+
+    @Override
+    public double getSecondMax(int v) {
+        return -1;
+    }
+
+    @Override
+    public void putSecondMin(int v, double b) {
+
+    }
+
+    @Override
+    public void putSecondMax(int v, double b) {
+
+    }
+
+    @Override
     public int min() {
         return 1-x.max();
     }

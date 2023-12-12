@@ -395,6 +395,7 @@ public class SparseSetDomain implements IntDomain {
         return domain.toString();
     }
 
+    //Désactiver car il semble y avoir une erreur dans l'implémentation lorsqu'on utilise Mult, Offset et Opposite
     @Override
     public Marginal toMarginal() {
         return domain.toMarginal();

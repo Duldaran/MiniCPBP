@@ -230,6 +230,15 @@ public abstract class AbstractConstraint implements Constraint {
         }
     }
 
+    public void resetLocalBeliefToZero() {
+        for (int i = 0; i < vars.length; i++) {
+            int s = vars[i].fillArray(domainValues);
+            for (int j = 0; j < s; j++) {
+                setLocalBelief(i, domainValues[j], beliefRep.zero());
+            }
+        }
+    }
+
     private void dampenMessages(int i) {
         double lambda = beliefRep.std2rep(cp.dampingFactor());
         double oneMinusLambda = beliefRep.complement(lambda);

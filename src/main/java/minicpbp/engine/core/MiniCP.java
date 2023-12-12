@@ -428,6 +428,7 @@ public class MiniCP implements Solver {
                 Iterator<Constraint> iteratorC = constraints.iterator();
                 while (iteratorC.hasNext()) {
                     iteratorC.next().resetLocalBelief();
+                    //iteratorC.next().resetLocalBeliefToZero(); //Tentative d'initialiser les marginales à zéro du coté des contraintes pour les problèmes où elles le sont sur les variables, mais une itération semble s'effectuer avant la BP em tant que telle donc cela ne fonctionne pas
                 }
             }
             for (int iter = 1; iter <= nbIterations; iter++) {
@@ -456,6 +457,7 @@ public class MiniCP implements Solver {
             throw e;
         }
     }
+
 
     /**
      * Propagate following the right mode
@@ -560,7 +562,7 @@ public class MiniCP implements Solver {
             if (c.isActive())
                 c.sendMessages();
         }
-       iterator = variables.iterator();
+       //iterator = variables.iterator();
         /*while (iterator.hasNext()) {
             iterator.next().normalizeMarginals();
         }*/

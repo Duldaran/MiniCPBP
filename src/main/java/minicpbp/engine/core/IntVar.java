@@ -352,4 +352,10 @@ public interface IntVar {
     public String getName();
     public void setName(String name);
     public void registerConstraint(Constraint c);
+
+    public double getSecondMin(int v);
+    public double getSecondMax(int v);
+
+    public void putSecondMin(int v, double b);
+    public void putSecondMax(int v, double b);
 }

@@ -39,8 +39,6 @@ public class  IntVarViewMul implements IntVar {
     private final IntVar x;
     private String name;
     private Belief beliefRep;
-    private HashMap<Integer, Double> secondMax = new HashMap<Integer, Double>();
-    private HashMap<Integer, Double> secondMin = new HashMap<Integer, Double>();
 
     public IntVarViewMul(IntVar x, int a) {
         if ((1L + x.min()) * a <= (long) Integer.MIN_VALUE)
@@ -91,6 +89,26 @@ public class  IntVarViewMul implements IntVar {
     @Override
     public void registerConstraint(Constraint c) {
         x.registerConstraint(c);
+    }
+
+    @Override
+    public double getSecondMin(int v) {
+        return x.getSecondMin(v);
+    }
+
+    @Override
+    public double getSecondMax(int v) {
+        return x.getSecondMax(v);
+    }
+
+    @Override
+    public void putSecondMin(int v, double b) {
+        x.putSecondMin(v,b);
+    }
+
+    @Override
+    public void putSecondMax(int v, double b) {
+        x.putSecondMax(v,b);
     }
 
     @Override
@@ -222,6 +240,7 @@ public class  IntVarViewMul implements IntVar {
         }
 
         return margin;
+        //return x.toMarginal();
 
     }
 
@@ -255,11 +274,12 @@ public class  IntVarViewMul implements IntVar {
 
     @Override
     public void resetMarginals() {
-	x.resetMarginals();secondMax = new HashMap<Integer, Double>();
+        System.out.println("TEST");
+	x.resetMarginals();
     }
 
     @Override
-    public void initializeMarginals() { x.initializeMarginals();  secondMin = new HashMap<Integer, Double>();}
+    public void initializeMarginals() { x.initializeMarginals();}
 
     @Override
     public void normalizeMarginals() {
@@ -328,9 +348,15 @@ public class  IntVarViewMul implements IntVar {
 	    assert x.marginal(v/a)<=beliefRep.one() && x.marginal(v/a)>=beliefRep.zero() : "x.marginal(v/a) = "+x.marginal(v/a) ;
 	    if(beliefRep.isZero(b)) return x.marginal(v/a);
 	    //return (beliefRep.divide(x.marginal(v/a),b));                               //Agg:Produit, 1 dans BP iteration
-        // return (x.marginal(v/a) == b && secondMax.get(v/a)!=null? secondMax.get(v/a) : x.marginal(v/a));     //Agg:Max, 0 dans BP iteration
-        //return (x.marginal(v/a) == b && secondMin.get(v/a)!=null? secondMin.get(v/a) : x.marginal(v/a));     //Agg:Min, 1 dans BP iteration
-        return (beliefRep.subtract(x.marginal(v/a), b));                           //Agg:Somme (Moy arithmétique), 0 dans BP iteration
+        /*System.out.println(v/a);
+        System.out.println(b);
+        System.out.println(x.marginal(v/a));
+        if(secondMax.get(v/a)!=null) System.out.println(secondMax.get(v/a));
+        System.out.println(getName()+", "+((x.marginal(v/a) == b && secondMax.get(v/a)!=null)? secondMax.get(v/a) : x.marginal(v/a)));*/
+        //return ((x.marginal(v/a) == b && x.getSecondMax(v/a)!=-1)? x.getSecondMax(v/a) : x.marginal(v/a));     //Agg:Max, 0 dans BP iteration
+        return (x.marginal(v/a) == b && x.getSecondMin(v/a)!=-1? x.getSecondMin(v/a) : x.marginal(v/a));     //Agg:Min, 1 dans BP iteration
+        //if(b==beliefRep.one() && x.marginal(v/a)==beliefRep.one()) {return x.marginal(v/a);}
+        //return (beliefRep.subtract(x.marginal(v/a), b));                           //Agg:Somme (Moy arithmétique), 0 dans BP iteration
         //return (beliefRep.divide(x.marginal(v/a),Math.pow(b, 1.0 / deg())));       //Agg:Moy géométrique, 1 dans BP iteration
 
 	}
@@ -344,17 +370,17 @@ public class  IntVarViewMul implements IntVar {
 	assert b<=beliefRep.one() && b>=beliefRep.zero() : "b = "+b ;
 	if (v % a == 0) {
 	    assert x.marginal(v/a)<=beliefRep.one() && x.marginal(v/a)>=beliefRep.zero() : "x.marginal(v/a) = "+x.marginal(v/a) ;
-	    //x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));                       //Agg:Produit, 1 dans BP iteration
-        /*if(b >= x.marginal(v/a)){                                                                //Agg:Max, 0 dans BP iteration
-            secondMax.put(v/a, x.marginal(v/a));
+	    //x.setMarginal(v/a,beliefRep.multiply(x.marginal(v/a),b));                       //Agg:Produit, 1 dans BP iteration et dans LocalBelief initial
+        /*if(x.getSecondMax(v/a)==-1 || b > x.getSecondMax(v/a)){                                                                //Agg:Max, 0 dans BP iteration et dans LocalBelief initial
+            x.putSecondMax(v/a, beliefRep.min(x.marginal(v/a),b));
             x.setMarginal(v/a, beliefRep.max(x.marginal(v/a), b));
         }*/
-        /*if(secondMin.get(v/a)==null || b < secondMin.get(v/a)){                                                                //Agg:Min, 1 dans BP iteration
-            secondMin.put(v/a, beliefRep.max(x.marginal(v/a), b));
+        if(x.getSecondMin(v/a)==-1 || b < x.getSecondMin(v/a)){                                                                //Agg:Min, 1 dans BP iteration et dans LocalBelief initial
+            x.putSecondMin(v/a, beliefRep.max(x.marginal(v/a), b));
             x.setMarginal(v/a, beliefRep.min(x.marginal(v/a), b));
-        }*/
-        x.setMarginal(v/a, beliefRep.add(x.marginal(v/a), b));                              //Agg:Somme, 0 dans BP iteration
-        //x.setMarginal(v/a, beliefRep.multiply(x.marginal(v/a), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration
+        }
+        //x.setMarginal(v/a, beliefRep.add(x.marginal(v/a), b));                              //Agg:Somme, 0 dans BP iteration et dans LocalBelief initial
+        //x.setMarginal(v/a, beliefRep.multiply(x.marginal(v/a), Math.pow(b, 1.0 / deg())));      //Agg:Moy géométrique, 1 dans BP iteration et dans LocalBelief initial
         } else {
             throw new InconsistencyException();
 	}

@@ -139,7 +139,13 @@ public class IntVarImpl implements IntVar {
 
     @Override
     public Marginal toMarginal() {
-        return domain.toMarginal();
+        System.out.println(getName());
+        Marginal margin = new Marginal();
+        for (int i = domain.min(); i <= domain.max(); i++) {
+            if (domain.contains((i)))
+                margin.map.put(i,domain.marginal(i));
+        }
+        return margin;
     }
 
     @Override
@@ -270,12 +276,34 @@ public class IntVarImpl implements IntVar {
 
     @Override
     public void initializeMarginals() {
-        domain.initializeMarginals(); secondMin = new HashMap<Integer, Double>();
+        domain.initializeMarginals(); secondMin.clear();secondMax.clear();
     }
 
     @Override
     public void resetMarginals() {
-        domain.resetMarginals(); secondMax = new HashMap<Integer, Double>();
+        domain.resetMarginals(); secondMax.clear(); secondMin.clear();
+    }
+
+    @Override
+    public double getSecondMin(int v){
+        if(secondMin.get(v)==null) return -1.0;
+        return secondMin.get(v);
+    }
+
+    @Override
+    public double getSecondMax(int v){
+        if(secondMax.get(v)==null) return -1.0;
+        return secondMax.get(v);
+    }
+
+    @Override
+    public void putSecondMin(int v, double b){
+        secondMin.put(v, b);
+    }
+
+    @Override
+    public void putSecondMax(int v, double b){
+        secondMax.put(v, b);
     }
 
     @Override
@@ -359,9 +387,11 @@ public class IntVarImpl implements IntVar {
         assert size() > 0 : "domain size is null";
         if(beliefRep.isZero(b)) return beliefRep.divide(beliefRep.one(), size());
         //return (beliefRep.divide(domain.marginal(v), b));                               //Agg:Produit, 1 dans BP iteration
-        // return (domain.marginal(v) == b && secondMax.get(v)!=null? secondMax.get(v) : domain.marginal(v));     //Agg:Max, 0 dans BP iteration
-        //return (domain.marginal(v) == b && secondMin.get(v)!=null? secondMin.get(v) : domain.marginal(v));     //Agg:Min, 1 dans BP iteration
-        //if(beliefRep.subtract(domain.marginal(v), b)<0) System.out.println("Variable : "+domain.marginal(v)+", Contrainte : "+b);
+       // System.out.println(getName()+", "+(domain.marginal(v) == b && secondMax.get(v)!=null? secondMax.get(v) : domain.marginal(v)));
+        //return ((domain.marginal(v) == b && secondMax.get(v)!=null)? secondMax.get(v) : domain.marginal(v));     //Agg:Max, 0 dans BP iteration
+        return (domain.marginal(v) == b && secondMin.get(v)!=null? secondMin.get(v) : domain.marginal(v));     //Agg:Min, 1 dans BP iteration
+        //System.out.println(getName()+" Marginal : "+ domain.marginal(v)+"b : "+b);
+        //if(b==beliefRep.one() && domain.marginal(v)==beliefRep.one()) {return domain.marginal(v);}
         //return (beliefRep.subtract(domain.marginal(v), b));                           //Agg:Somme (Moy arithmétique), 0 dans BP iteration
         //return (beliefRep.divide(domain.marginal(v),Math.pow(b, 1.0 / deg())));       //Agg:Moy géométrique, 1 dans BP iteration
     }
@@ -370,17 +400,18 @@ public class IntVarImpl implements IntVar {
     public void receiveMessage(int v, double b) {
         assert b <= beliefRep.one() && b >= beliefRep.zero() : "b = " + b;
         assert domain.marginal(v) <= beliefRep.one() && domain.marginal(v) >= beliefRep.zero() : "domain.marginal(v) = " + domain.marginal(v);
-        //domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), b));                           //Agg:Produit, 1 dans BP iteration
-        /*if(secondMax.get(v)==null || b > secondMax.get(v)){                                                                //Agg:Max, 0 dans BP iteration
+        //domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), b));                           //Agg:Produit, 1 dans BP iteration et dans LocalBelief initial
+        /*if(secondMax.get(v)==null || b > secondMax.get(v)){                                                                //Agg:Max, 0 dans BP iteration et dans LocalBelief initial
             secondMax.put(v, beliefRep.min(domain.marginal(v), b));
             domain.setMarginal(v, beliefRep.max(domain.marginal(v), b));
+            //System.out.println( getName()+", B : " +b+ ", Best : "+domain.marginal(v)+ ", Second : "+secondMax.get(v));
         }*/
-        /*if(secondMin.get(v)==null || b < secondMin.get(v)){                             //Agg:Min, 1 dans BP iteration
+        if(secondMin.get(v)==null || b < secondMin.get(v)){                             //Agg:Min, 1 dans BP iteration et dans LocalBelief initial
             secondMin.put(v, beliefRep.max(domain.marginal(v), b));
             domain.setMarginal(v, beliefRep.min(domain.marginal(v), b));
-        }*/
-        domain.setMarginal(v, beliefRep.add(domain.marginal(v), b));                              //Agg:Somme (Moy arithmétique), 0 dans BP iteration
-        //domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), Math.pow(b, 1.0 / deg())));  //Agg:Moy géométrique, 1 dans BP iteration
+        }
+        //domain.setMarginal(v, beliefRep.add(domain.marginal(v), b));                              //Agg:Somme (Moy arithmétique), 0 dans BP iteration et dans LocalBelief initial
+        //domain.setMarginal(v, beliefRep.multiply(domain.marginal(v), Math.pow(b, 1.0 / deg())));  //Agg:Moy géométrique, 1 dans BP iteration et dans LocalBelief initial
     }
 
     @Override

@@ -71,6 +71,7 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
 
     public static void receiveBP(String name, Marginal margin , int iter){
         if(name == null) return;
+        //System.out.println(margin.map.toString());
         String[] square = name.replaceAll("[^0-9,]", "").split(",");
         BPsols.get(iter-1)[Integer.parseInt(square[0])][Integer.parseInt(square[1])] = normalizeBP(margin);
     }
@@ -82,6 +83,8 @@ public final class LatinSquareSingleton extends ExamplesMarginalsSingleton {
         }
         final double finalNormalizingConstraint = normalizingConstant;
         margin.map.replaceAll((k,v) -> v/finalNormalizingConstraint);
+        if(normalizingConstant==0.0)margin.map.replaceAll((k,v) -> Double.valueOf(1.0/margin.map.size()));
+        //System.out.println(margin.map.toString());
         return margin;
     }
 
