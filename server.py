@@ -18,7 +18,7 @@ def get_predictions(sentence):
         predictions = outputs[0]
     return predictions
 
-def get_next_word_probabilities(sentence, top_k=10000):
+def get_next_word_probabilities(sentence, top_k=30000):
 
     # Get the model predictions for the sentence.
     predictions = get_predictions(sentence)
@@ -47,6 +47,17 @@ def get_next_word_probabilities(sentence, top_k=10000):
     # Return the top k candidates and their probabilities.
     return list(zip(topk_candidates_tokens, topk_candidates_probabilities))
 
+def altgetpred(sentence):
+    inputs = tokenizer(sentence, return_tensors="pt")
+
+    model_outputs = model.generate(**inputs, max_new_tokens=5, return_dict_in_generate=True, output_scores=True)
+
+    generated_tokens_ids = model_outputs.sequences[0]
+
+    print(tokenizer.decode(generated_tokens_ids).removeprefix(sentence))
+    return
+
+
 @app.route('/')
 def testing():
 
@@ -60,11 +71,12 @@ def ngrams():
 @app.route('/token', methods=['POST'])
 def next_token():
     print("##################### New Request #####################")
-    raw_probs = get_next_word_probabilities(f"{request.data}")
-
-    #for prob in raw_probs:
-       # print("Candidat : "+prob[0])
-        #print("Probabilitées : "+str(prob[1]))
+    altgetpred(request.data.decode())
+    raw_probs = get_next_word_probabilities(request.data.decode())
+    
+    ##for prob in raw_probs:
+    ##    print("Candidat : "+prob[0])
+    ##    print("Probabilitées : "+str(prob[1]))
 
     return raw_probs
 
