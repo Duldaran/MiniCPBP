@@ -50,7 +50,7 @@
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("http://localhost:5000/token"))
-        .POST(HttpRequest.BodyPublishers.ofString("Hello World"))
+        .POST(HttpRequest.BodyPublishers.ofString("Hello"))
         .build();
         String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
         
