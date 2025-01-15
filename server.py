@@ -18,7 +18,7 @@ def get_predictions(sentence):
         predictions = outputs[0]
     return predictions
 
-def get_next_word_probabilities(sentence, top_k=30000):
+def get_next_word_probabilities(sentence, top_k=50000):
 
     # Get the model predictions for the sentence.
     predictions = get_predictions(sentence)
@@ -50,7 +50,7 @@ def get_next_word_probabilities(sentence, top_k=30000):
 def altgetpred(sentence):
     inputs = tokenizer(sentence, return_tensors="pt")
 
-    model_outputs = model.generate(**inputs, max_new_tokens=5, return_dict_in_generate=True, output_scores=True)
+    model_outputs = model.generate(**inputs, max_new_tokens=15, return_dict_in_generate=True, output_scores=True)
 
     generated_tokens_ids = model_outputs.sequences[0]
 
