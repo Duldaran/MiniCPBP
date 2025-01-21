@@ -267,7 +267,7 @@ public class Sentence{
                 System.out.println(e);
             }
         }
-        objectMapper.writeValue(Paths.get("results.json").toFile(), logs);
+        objectMapper.writeValue(Paths.get("model_results.json").toFile(), logs);
     }
     private static CompletableFuture<String> testRequest() throws Exception {
         HttpClient client = HttpClient.newHttpClient();
