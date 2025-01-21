@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 model_name = "gpt2"
 
-model = AutoModelForCausalLM.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
     
 def get_predictions(sentence):
