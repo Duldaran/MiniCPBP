@@ -56,19 +56,17 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.io.File;
 import java.io.IOException;
 
-public class Sentence{
+public class AutomataTest{
     public static void main(String[] args) throws IOException {
         //int[] sizes = {100,500,1000,1500,2000,2500,3000,4000,5000};
         //int[] sentence_length= {15};
         ObjectMapper objectMapper = new ObjectMapper();
-        
-        //ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/unmatched_instructions.json"));
         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen_hard_nohuman.json"));
         Iterator<JsonNode> elements = arrayNode.elements();
 
         List<Logging> logs = new ArrayList<>();
         int count=0;
-        while (elements.hasNext() && count<40) {
+        while (elements.hasNext() && count<1) {
             count++;
             JsonNode element = elements.next();
             String instruction = element.get("instruction").asText();
@@ -82,13 +80,11 @@ public class Sentence{
             catch (IOException e) {
                 e.printStackTrace();
             }
-
-            final int NUM_PB=3;
-            final int SENTENCE_MAX_NUMBER_WORDS=15;
+            final int SENTENCE_MAX_NUMBER_WORDS=3;
             final int SENTENCE_MIN_LENGTH=20;
             final int SENTENCE_MAX_LENGTH=100;
             final int MAX_WORDS_LENGTH=20;
-            final int DOMAINS_SIZE=1500;
+            final int DOMAINS_SIZE=3;
             final String[] Punctuation = {"'",".","-","!","?",",", ":"};
 
             lines = lines.subList(0, DOMAINS_SIZE);
@@ -110,9 +106,9 @@ public class Sentence{
                 if (lines.contains(REQUIRED_WORDS[i])==false) lines.add(REQUIRED_WORDS[i]);
                 REQUIRED_INDEX[i]=(lines.indexOf(REQUIRED_WORDS[i]));
             }
-            for(String punc : Punctuation){
+            /*for(String punc : Punctuation){
                 lines.add(punc);
-            }
+            }*/
             final List<String> words = lines;
 
 
@@ -136,7 +132,7 @@ public class Sentence{
 
             cp.post(Factory.sum(l, total_length));
 
-            cp.setTraceBPFlag(false);
+            cp.setTraceBPFlag(true);
 
             List<Integer> acceptedState = new ArrayList<>();
             acceptedState.add(1);
@@ -148,11 +144,12 @@ public class Sentence{
             A[1][0]=1;
             cp.post(Factory.regular(q, A, 0, acceptedState));
 
+            /*
             //Check for required word and end of sentence
             for(int index : REQUIRED_INDEX){
                 cp.post(Factory.atleast(q, index, 1));
             }
-            //cp.post(Factory.exactly(q, 1, 1));
+            cp.post(Factory.exactly(q, 1, 1));
             
             //Links words and their length
             for(int i=0;i<SENTENCE_MAX_NUMBER_WORDS;i++){
@@ -160,14 +157,15 @@ public class Sentence{
             }
 
             //Check the max length for each words
-            /*for(IntVar length : l){
+            for(IntVar length : l){
                 cp.post(Factory.isLessOrEqual(length, MAX_WORDS_LENGTH));
-            }*/
+            }
 
             //Check for min or max sentence length
-            //cp.post(Factory.isLessOrEqual(total_length,SENTENCE_MAX_LENGTH));
-            //cp.post(Factory.isLargerOrEqual(total_length,SENTENCE_MIN_LENGTH));
-
+            cp.post(Factory.isLessOrEqual(total_length,SENTENCE_MAX_LENGTH));
+            cp.post(Factory.isLargerOrEqual(total_length,SENTENCE_MIN_LENGTH));
+            */
+            /* 
             try{
                 HttpClient client = HttpClient.newHttpClient();
 
@@ -233,7 +231,7 @@ public class Sentence{
                     // post oracle
                     cp.post(Factory.oracle(q[i], tokens, scores));
                     cp.fixPoint();
-                    cp.vanillaBP(NUM_PB);
+                    cp.vanillaBP(3);
 
 
                     Vector<Integer> domainTokens = new Vector<>();
@@ -248,7 +246,7 @@ public class Sentence{
 
                     /*for (int j = Math.min(SENTENCE_MAX_NUMBER_WORDS-i,5); j < domainTokens.size(); j++) {
                         q[i].remove(domainTokens.get(j));
-                    }*/
+                    }
                     q[i].assign(q[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
                     int chosen = q[i].valueWithMaxMarginal();
                     num_tok++;
@@ -266,13 +264,28 @@ public class Sentence{
                 System.out.println("solution : " + current_sentence);
                 System.out.println("Perplexity is of " + perplexityScore);
                 logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
+                
             }
             catch(Exception e){
                 System.out.println(e);
             }
-            objectMapper.writeValue(Paths.get(String.format("model_results_%d_%d.json", NUM_PB, DOMAINS_SIZE)).toFile(), logs);
+            */
+            DFSearch search = Factory.makeDfs(cp, maxMarginal(q));
+            search.onSolution(() ->{
+                    String[] sentence = new String[q.length];
+                    for(int i = 0; i < q.length; i++) {
+                        sentence[i] = words.get(q[i].max());
+                    }
+                    System.out.println("solution:" + Arrays.toString(sentence));
+                    }
+            );
+            SearchStatistics stats = search.solve();
+            System.out.format("#Solutions: %s\n", stats.numberOfSolutions());
+            System.out.format("Statistics: %s\n", stats);
+            System.out.format("Time: %s\n", stats.timeElapsed());
+            System.out.println("-----");
         }
-        
+        //objectMapper.writeValue(Paths.get("model_results.json").toFile(), logs);
     }
     private static CompletableFuture<String> testRequest() throws Exception {
         HttpClient client = HttpClient.newHttpClient();
