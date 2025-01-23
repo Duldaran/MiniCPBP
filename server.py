@@ -6,13 +6,13 @@ import torch
 app = Flask(__name__)
 
 model_name = "gpt2"
-
+device='cuda' if torch.cuda.is_available() else 'cpu'
 model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
     
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
-    inputs = tokenizer.encode(sentence, return_tensors="pt")
+    inputs = tokenizer.encode(sentence, return_tensors="pt").to(device)
     with torch.no_grad():
         outputs = model(inputs)
         predictions = outputs[0]
@@ -48,7 +48,7 @@ def get_next_word_probabilities(sentence, top_k=50000):
     return list(zip(topk_candidates_tokens, topk_candidates_probabilities))
 
 def altgetpred(sentence):
-    inputs = tokenizer(sentence, return_tensors="pt")
+    inputs = tokenizer(sentence, return_tensors="pt").to(device)
 
     model_outputs = model.generate(**inputs, max_new_tokens=15, return_dict_in_generate=True, output_scores=True)
 

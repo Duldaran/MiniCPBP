@@ -3,6 +3,7 @@ import numpy as np
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
 import math
 import torch
+import os
 
 model_name = "gpt2"
 
@@ -20,7 +21,7 @@ with open('llm_output.json', 'r') as llm_file:
     llm_results = json.load(llm_file)
 
 # Load model results from JSON file
-with open('model_results.json', 'r') as model_file:
+with open('model_results_no_length.json', 'r') as model_file:
     model_results = json.load(model_file)
 
 
@@ -68,13 +69,37 @@ def calculate_statistics(results):
         'count_infinity': count_infinity
     }
 
+def compare_sets(instruction_set, result_set):
+    matched=True
+    for instruction in instruction_set:
+        if instruction[:-2] not in result_set:
+            matched=False
+            break
+    return matched
+
+
 llm_stats = calculate_statistics(llm_results)
 model_stats = calculate_statistics(model_results)
 
-print("LLM Results Statistics:", llm_stats)
-print("Model Results Statistics:", model_stats)
-print("Unmatched LLM Results:", unmatched_llm_results)
-print("Number of unmatched LLM Results:", len(unmatched_llm_results))
-print("Number of matched LLM Results:", len(matched_results))
-print("Number of verified LLM Results:", len(verified_llm_results))
-print("Number of verified Model Results:", len(verified_model_results))
+if unmatched_llm_results:
+    with open('../src/main/java/minicpbp/examples/data/Sentence/commongen_hard_nohuman.json', "r") as f:
+        data = json.load(f)
+    unmatched_instructions = []
+    for instruction in data:
+        for concepts in unmatched_llm_results:
+            if compare_sets(instruction['concept_set'],concepts['required_words']):
+                unmatched_instructions.append(instruction)
+                unmatched_llm_results.remove(concepts)
+                break
+    
+    with open('unmatched_instructions.json', 'w') as unmatched_llm_file:
+        json.dump(unmatched_instructions, unmatched_llm_file)
+
+else:
+    print("LLM Results Statistics:", llm_stats)
+    print("Model Results Statistics:", model_stats)
+    print("Unmatched LLM Results:", unmatched_llm_results)
+    print("Number of unmatched LLM Results:", len(unmatched_llm_results))
+    print("Number of matched LLM Results:", len(matched_results))
+    print("Number of verified LLM Results:", len(verified_llm_results))
+    print("Number of verified Model Results:", len(verified_model_results))
