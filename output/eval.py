@@ -5,7 +5,9 @@ import math
 import torch
 import os
 
-model_name = "gpt2"
+model_name = "gpt2-xl"
+
+eval=False
 
 model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -21,7 +23,7 @@ with open('llm_output.json', 'r') as llm_file:
     llm_results = json.load(llm_file)
 
 # Load model results from JSON file
-with open('model_results_no_length.json', 'r') as model_file:
+with open('model_results_5_9894.json', 'r') as model_file:
     model_results = json.load(model_file)
 
 
@@ -81,7 +83,7 @@ def compare_sets(instruction_set, result_set):
 llm_stats = calculate_statistics(llm_results)
 model_stats = calculate_statistics(model_results)
 
-if unmatched_llm_results:
+if unmatched_llm_results and eval:
     with open('../src/main/java/minicpbp/examples/data/Sentence/commongen_hard_nohuman.json', "r") as f:
         data = json.load(f)
     unmatched_instructions = []
