@@ -9,12 +9,12 @@ perplexity = load("perplexity", module_type="metric")
 import math
 
 device='cuda'
-model_name = "gpt2"
+model_name = "gpt2-xl"
 
 model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-with open('src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
+with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
     data = json.load(f)
 
 treated_data = [(i['instruction'],i['concept_set']) for i in data]
