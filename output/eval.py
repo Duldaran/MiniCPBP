@@ -56,6 +56,15 @@ def calculate_statistics(results):
     perplexities = [result for result in results if result['perplexity'] != 'Infinity']
     count_infinity = sum(1 for result in results if result['perplexity'] == 'Infinity')
     
+    lengths = [len(result['sentence'].split(' ')) for result in results]
+    average_length = sum(lengths)/len(lengths)
+    
+    short_sentences=[]
+    
+    for result in results:
+        if len(result['sentence'].split(' ')) < 15:
+            short_sentences.append(result['sentence'])
+    
     perplexities = [score(result['sentence'],tokenizer,model) for result in results]
     
     if perplexities:
@@ -68,7 +77,9 @@ def calculate_statistics(results):
     return {
         'quartiles': quartiles,
         'average': average,
-        'count_infinity': count_infinity
+        'count_infinity': count_infinity,
+        'average_length': average_length,
+        'short_sentences': short_sentences
     }
 
 def compare_sets(instruction_set, result_set):
@@ -100,7 +111,6 @@ if unmatched_llm_results and eval:
 else:
     print("LLM Results Statistics:", llm_stats)
     print("Model Results Statistics:", model_stats)
-    print("Unmatched LLM Results:", unmatched_llm_results)
     print("Number of unmatched LLM Results:", len(unmatched_llm_results))
     print("Number of matched LLM Results:", len(matched_results))
     print("Number of verified LLM Results:", len(verified_llm_results))
