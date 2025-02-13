@@ -5,7 +5,8 @@ import torch
 
 app = Flask(__name__)
 
-model_name = "gpt2"
+#model_name = "gpt2"
+model_name = "gpt2-xl"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -23,30 +24,19 @@ def get_next_word_probabilities(sentence, top_k=50000):
     # Get the model predictions for the sentence.
     predictions = get_predictions(sentence)
     
-
+    
     # Get the next token candidates.
     next_token_candidates_tensor = predictions[0, -1, :]
     
-    # Get the top k next token candidates.
-    topk_candidates_indexes = torch.topk(
-        next_token_candidates_tensor, top_k).indices.tolist()
-
     
     # Get the token probabilities for all candidates.
     all_candidates_probabilities = torch.nn.functional.softmax(
-        next_token_candidates_tensor, dim=-1)
+        next_token_candidates_tensor, dim=-1).tolist()
     
-    # Filter the token probabilities for the top k candidates.
-    topk_candidates_probabilities = \
-        all_candidates_probabilities[topk_candidates_indexes].tolist()
-
-    # Decode the top k candidates back to words.
-    topk_candidates_tokens = \
-        [tokenizer.decode([idx]).strip() for idx in topk_candidates_indexes]
 
     # Return the top k candidates and their probabilities.
-    return list(zip(topk_candidates_tokens, topk_candidates_probabilities))
-
+    return list(zip(range(0,len(next_token_candidates_tensor)), all_candidates_probabilities))
+    
 def altgetpred(sentence):
     inputs = tokenizer(sentence, return_tensors="pt").to(device)
 
@@ -55,13 +45,20 @@ def altgetpred(sentence):
     generated_tokens_ids = model_outputs.sequences[0]
 
     print(tokenizer.decode(generated_tokens_ids).removeprefix(sentence))
-    return
+    return tokenizer.decode(generated_tokens_ids).removeprefix(sentence)
 
+@app.route('/altpred', methods=['POST'])
+def altpred():
+    return altgetpred(request.data.decode())
+
+@app.route('/tokenize', methods=['POST'])
+def get_tokens():
+    return tokenizer.convert_tokens_to_ids(tokenizer.tokenize(request.data.decode()))
 
 @app.route('/')
 def testing():
 
-    probabilities = get_next_word_probabilities("<s>I am late",top_k=512)
+    probabilities = get_next_word_probabilities("<s>Hello",top_k=5)
     return probabilities
 
 @app.route('/ngrams', methods=['POST'])
@@ -70,9 +67,9 @@ def ngrams():
 
 @app.route('/token', methods=['POST'])
 def next_token():
-    print("##################### New Request #####################")
-    altgetpred(request.data.decode())
+    #altgetpred(request.data.decode())
     raw_probs = get_next_word_probabilities(request.data.decode())
+    #raw_probs = [('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1),('banane', 0.1)]
     
     ##for prob in raw_probs:
     ##    print("Candidat : "+prob[0])
@@ -81,5 +78,4 @@ def next_token():
     return raw_probs
 
 if __name__ == '__main__':  
-   app.run()
-
+    app.run()

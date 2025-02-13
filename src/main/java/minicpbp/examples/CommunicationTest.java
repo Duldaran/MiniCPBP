@@ -18,22 +18,32 @@
  import minicpbp.cp.Factory;
  import minicpbp.engine.core.IntVar;
  import minicpbp.engine.core.Solver;
- import minicpbp.search.DFSearch;
+import minicpbp.examples.Sentence.Logging;
+import minicpbp.search.DFSearch;
  import minicpbp.search.SearchStatistics;
- 
- import java.io.IOException;
+
+import java.io.File;
+import java.io.IOException;
  import java.net.http.HttpClient;
  import java.nio.charset.StandardCharsets;
  import java.nio.file.Files;
  import java.nio.file.Paths;
- import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Arrays;
  import java.util.Collections;
  import java.util.HashMap;
- import java.util.List;
- import java.util.Vector;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Vector;
  import java.util.concurrent.CompletableFuture;
  import java.util.stream.Collectors;
- import java.net.HttpURLConnection;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
+import java.net.HttpURLConnection;
  import java.net.URI;
  import java.net.URL;
  import java.net.http.HttpClient;
@@ -46,32 +56,68 @@
  
  
  public class CommunicationTest{
-    public static void main(String[] args) {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("http://localhost:5000/token"))
-        .POST(HttpRequest.BodyPublishers.ofString("Hello"))
-        .build();
-        String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+    public static void main(String[] args) throws IOException {
+        /*ObjectMapper objectMapper = new ObjectMapper();
         
-        HashMap<String, Double> tokenToScoreNLP = new HashMap<>();
-        for (String tuple : response.split("\\],\\[")) {
-            try {
-                tuple=tuple.replaceAll("]","");
-                String token = tuple.substring(tuple.indexOf('"')+1,tuple.lastIndexOf(',')-1);
-                double score = Double.parseDouble(tuple.substring(tuple.lastIndexOf(',')+1));
-                
-                if (tokenToScoreNLP.containsKey(token)) {
-                    score += tokenToScoreNLP.get(token);
-                }
-                tokenToScoreNLP.put(token, score);
+        //ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/unmatched_instructions.json"));
+        ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen_hard_nohuman.json"));
+        Iterator<JsonNode> elements = arrayNode.elements();
 
-            } catch (Exception e) {
-                System.err.println(tuple);
-                System.err.println(e);
+        List<Logging> logs = new ArrayList<>();*/
+        int count=0;
+        while (count<1) {
+        //while (elements.hasNext() && count<40) {
+            count++;/* 
+            JsonNode element = elements.next();
+            String instruction = element.get("instruction").asText();
+            instruction = instruction.replace("\n", " ");
+            instruction = instruction.replace("\"", "");
+
+            List<String> required_words_temp = new ArrayList<String>();
+            Iterator<JsonNode> required_words_JsonNode= element.get("concept_set").elements();
+            while (required_words_JsonNode.hasNext()) {
+                String word = required_words_JsonNode.next().asText();
+                required_words_temp.add(word.substring(0, word.indexOf('_')));
             }
+            String[] REQUIRED_WORDS = required_words_temp.toArray(new String[0]);
+
+            String current_sentence = "";
+            Double logSumProbs = 0.0;
+            int num_tok=0;*/
+            /*HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:5000/altpred"))
+                .POST(HttpRequest.BodyPublishers.ofString("<s>Hello"))
+                .build();
+                String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+                System.out.println(response);
+                
+                HashMap<String, Double> tokenToScoreNLP = new HashMap<>();
+                String maxtoken = "";
+                Double max = 0.0;*/
+            for (int i = 0; i < 15; i++) {
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:5000/token"))
+                .POST(HttpRequest.BodyPublishers.ofString("<s>Hello"))
+                .build();
+                String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+                
+                HashMap<String, Double> tokenToScoreNLP = new HashMap<>();
+                String maxtoken = "";
+                Double max = 0.0;
+                
+
+            }
+            //System.out.println(current_sentence);
+            //double perplexityScore = Math.exp(-logSumProbs / num_tok);
+            /*System.out.println("solution : " + current_sentence);
+            System.out.println("Perplexity is of " + perplexityScore);*/
+            //logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
+
         }
-        System.out.println(tokenToScoreNLP.size());
+        //objectMapper.writeValue(Paths.get("llm_notbarebone.json").toFile(), logs);
     }
  }
  
