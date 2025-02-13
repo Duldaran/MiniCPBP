@@ -94,7 +94,7 @@ public class Sentence{
             }
 
 
-            final int NUM_PB=5;
+            final int NUM_PB=3;
             final int SENTENCE_MAX_NUMBER_WORDS=30;
             final int SENTENCE_MIN_LENGTH=20;
             final int SENTENCE_MAX_LENGTH=200;
