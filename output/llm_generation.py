@@ -35,7 +35,7 @@ for problem in tqdm(treated_data):
     
     inputs = tokenizer(sentence, return_tensors="pt")
     with torch.no_grad():
-        model_outputs = model.generate(**inputs, max_new_tokens=15, return_dict_in_generate=True, output_scores=True)
+        model_outputs = model.generate(**inputs, max_new_tokens=30, return_dict_in_generate=True, output_scores=True)
         
 
         generated_tokens_ids = model_outputs.sequences[0]

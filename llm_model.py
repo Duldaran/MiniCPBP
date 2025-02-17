@@ -17,12 +17,6 @@ model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
-tokens = tokenizer.tokenize(" ")
-print(tokenizer.convert_tokens_to_ids(tokens))
-print(tokens)
-print(tokenizer.decode(tokenizer.convert_tokens_to_ids(tokens)))
-
-'''
 # Get the model predictions for the sentence.
 predictions = get_predictions("<s>Hello")
 
@@ -43,7 +37,7 @@ tokens = \
 with open('tokenizer_dict', 'w', encoding="UTF-8") as tokens_dict:
     for ind,token in enumerate(tokens):
         try:
-            tokens_dict.write(str(ind)+":"+token+"\n")
+            tokens_dict.write(str(ind)+"::"+token+"\n")
         except:
             print("Error")
             pass
@@ -107,5 +101,4 @@ def next_token():
     ##    print("Probabilitées : "+str(prob[1]))
 
     return raw_probs
-'''
 
