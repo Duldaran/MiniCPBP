@@ -95,7 +95,7 @@ public class Sentence{
 
 
             final int NUM_PB=3;
-            final int SENTENCE_MAX_NUMBER_WORDS=30;
+            final int SENTENCE_MAX_NUMBER_TOKENS=30;
             final int SENTENCE_MIN_LENGTH=20;
             final int SENTENCE_MAX_LENGTH=200;
             final int MAX_WORDS_LENGTH=20;
@@ -140,9 +140,9 @@ public class Sentence{
                 }*/
 
                 Solver cp = Factory.makeSolver(false);
-                IntVar[] q = Factory.makeIntVarArray(cp, SENTENCE_MAX_NUMBER_WORDS, words.size());
-                //IntVar[] l = Factory.makeIntVarArray(cp, SENTENCE_MAX_NUMBER_WORDS, words.size());
-                //IntVar total_length = Factory.makeIntVar(cp, SENTENCE_MAX_NUMBER_WORDS*max_length);
+                IntVar[] q = Factory.makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, words.size());
+                //IntVar[] l = Factory.makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, words.size());
+                //IntVar total_length = Factory.makeIntVar(cp, SENTENCE_MAX_NUMBER_TOKENS*max_length);
                 
                 for(int i=0; i<q.length; i++){
                     q[i].setName("Q"+i);
@@ -171,7 +171,7 @@ public class Sentence{
                 //cp.post(Factory.atleast(q, 220, 6));
                 
                 /*//Links words and their length
-                for(int i=0;i<SENTENCE_MAX_NUMBER_WORDS;i++){
+                for(int i=0;i<SENTENCE_MAX_NUMBER_TOKENS;i++){
                     cp.post(Factory.element(word_length, q[i], l[i]));
                 }
 
@@ -188,7 +188,7 @@ public class Sentence{
                 String current_sentence = "";
                 Double logSumProbs = 0.0;
                 int num_tok=0;
-                for (int i = 0; i < SENTENCE_MAX_NUMBER_WORDS; i++) {
+                for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
                     // Makes the request
                     HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:5000/token"))
@@ -236,7 +236,13 @@ public class Sentence{
                     }
                     current_sentence += words.get(chosen);
                     //System.out.println(current_sentence);
-                    //if (chosen==0) {for(int j = i+1; j < SENTENCE_MAX_NUMBER_WORDS; j++){q[j].assign(0); } break;}
+                    if (chosen == 13) {
+                        for (int j = i + 1; j < SENTENCE_MAX_NUMBER_TOKENS; j++) {
+                            q[j].assign(words.size() - 1);
+                            cp.fixPoint();
+                        }
+                        break;
+                    }
                 }
                 double perplexityScore = Math.exp(-logSumProbs / num_tok);
                 //System.out.println("solution : " + current_sentence);
