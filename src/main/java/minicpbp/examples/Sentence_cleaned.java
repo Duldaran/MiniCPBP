@@ -66,8 +66,8 @@
  
          List<Logging> logs = new ArrayList<>();
          int count=0;
- 
-         while (elements.hasNext() && count<1) {
+         //elements.next();
+         while (elements.hasNext() && count<40) {
              count++;
              JsonNode element = elements.next();
              String instruction = element.get("instruction").asText();
@@ -92,9 +92,12 @@
                      corrected_lines[Integer.parseInt(line[0])]=line[1];
                  }
              }
+
+             final List<String> words = Arrays.asList(corrected_lines);
  
  
-             final int NUM_PB=2;
+             final int NUM_PB=3;
+             final double w = 1;
              final int SENTENCE_MAX_NUMBER_TOKENS=30;
  
              
@@ -104,25 +107,9 @@
                  Iterator<JsonNode> required_words_JsonNode= element.get("concept_set").elements();
                  while (required_words_JsonNode.hasNext()) {
                      String word = required_words_JsonNode.next().asText();
-                     required_words_temp.add(" "+word.substring(0, word.indexOf('_')));
+                     required_words_temp.add(word.substring(0, word.indexOf('_')));
                  }
                  String[] REQUIRED_WORDS = required_words_temp.toArray(new String[0]);
- 
- 
-                 List<Integer> REQUIRED_INDEX = new ArrayList<Integer>();
-                 for(int i = 0; i<REQUIRED_WORDS.length;i++){
-                     HttpRequest request = HttpRequest.newBuilder()
-                     .uri(URI.create("http://localhost:5000/tokenize"))
-                     .POST(HttpRequest.BodyPublishers.ofString(REQUIRED_WORDS[i]))
-                     .build();
-                     String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-                     for(String index : response.substring(1,response.length()-2).split(",")){
-                         REQUIRED_INDEX.add(Integer.parseInt(index));
-                     }
-                 }
-                 final int[] REQUIRED_INDEXES = REQUIRED_INDEX.stream().mapToInt(Integer::intValue).toArray();
-                 
-                 final List<String> words = Arrays.asList(corrected_lines);
  
  
  
@@ -143,18 +130,46 @@
                  Arrays.fill(A[1], -1);
                  A[1][words.size()-1]=1;
                  cp.post(Factory.regular(q, A, 0, acceptedState));
- 
-                 //Check for required word and end of sentence
-                 for(int index : REQUIRED_INDEXES){
-                     cp.post(Factory.atleast(q, index, 1));
+
+                 for(int i = 0; i<REQUIRED_WORDS.length;i++){
+                     HttpRequest request = HttpRequest.newBuilder()
+                     .uri(URI.create("http://localhost:5000/tokenize"))
+                     .POST(HttpRequest.BodyPublishers.ofString(" "+REQUIRED_WORDS[i]))
+                     .build();
+                     String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+                     String[] tokens = response.substring(1,response.length()-2).split(",");
+                     if(tokens.length>1){
+                        List<Integer> endState = new ArrayList<>();
+                        endState.add(tokens.length);
+                        int[][] States = new int[tokens.length+1][words.size()];
+                        for(int j=0; j<tokens.length; j++){
+                            Arrays.fill(States[j], 0);
+                            States[j][Integer.parseInt(tokens[j])]=j+1;
+                            if(j==1){
+                                States[j][Integer.parseInt(tokens[j-1])]=j;
+                            }
+                        }
+                        Arrays.fill(States[tokens.length], tokens.length);
+                        cp.post(Factory.regular(q, States, 0, endState));       
+                     }
+                     else{
+                        List<Integer> indexs = new ArrayList<>();
+                        System.out.println("REQUIRED_WORDS[i] "+REQUIRED_WORDS[i]);
+                        for(String word : words){
+                            if(word.toUpperCase().strip().startsWith(REQUIRED_WORDS[i].toUpperCase().strip())){
+                                indexs.add(words.indexOf(word));
+                                System.out.println("word "+word);
+                            }
+                        }
+                        int[] REQUIRED_INDEX = indexs.stream().mapToInt(Integer::intValue).toArray();
+                        cp.post(Factory.atleast(q, REQUIRED_INDEX, 1));
+                     }
                  }
-                 System.out.println(Arrays.toString(REQUIRED_INDEXES));
-                 cp.post(Factory.atleast(q, REQUIRED_INDEXES, REQUIRED_INDEXES.length));
-                 cp.post(Factory.atleast(q, words.size()-1, 1));
+
                  
          System.out.println("Using "+NUM_PB+" iterations of BP");
- 
-         String current_sentence = "";
+        System.out.println(instruction);
+         String current_sentence = "# Your Results   - Sentence:";
                  Double logSumProbs = 0.0;
                  int num_tok=0;
                  for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
@@ -198,7 +213,7 @@
                      System.out.println("token "+i);
  
                      Constraint c = Factory.oracle(q[i], tokens, scores);
-                     double w = 1.0;
+
                      c.setWeight(w);
                      System.out.println("oracle's weight set to "+w);
                      cp.post(c);
@@ -210,6 +225,9 @@
                          System.out.println("INCONSISTENCY!");
                          for(int j=0; j<q.length; j++){
                              System.out.println(q[j].getName()+q[j].toString());
+                         }
+                         for(String word: REQUIRED_WORDS){
+                             System.out.println(word);
                          }
                      }
                      System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
@@ -235,7 +253,7 @@
                  //System.out.println("Perplexity is of " + perplexityScore);
                  logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
              
-             objectMapper.writeValue(Paths.get(String.format("model_results_%d.json", NUM_PB)).toFile(), logs);
+             objectMapper.writeValue(Paths.get(String.format("model_results_%d_%2.1f.json", NUM_PB, w)).toFile(), logs);
          }
  
          
