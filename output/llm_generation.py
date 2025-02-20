@@ -33,7 +33,7 @@ for problem in tqdm(treated_data):
     for i in range(len(concept_set)):
         concept_set[i]=concept_set[i][:-2]
     
-    inputs = tokenizer(sentence, return_tensors="pt")
+    inputs = tokenizer(sentence+"# Your Results   - Sentence:", return_tensors="pt")
     with torch.no_grad():
         model_outputs = model.generate(**inputs, max_new_tokens=30, return_dict_in_generate=True, output_scores=True)
         
