@@ -8,6 +8,7 @@ import os
 model_name = "gpt2-xl"
 
 eval=False
+results_name='model_results_3_1,0.json'
 
 model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -23,12 +24,13 @@ with open('llm_output.json', 'r') as llm_file:
     llm_results = json.load(llm_file)
 
 # Load model results from JSON file
-with open('model_results_5_9894.json', 'r') as model_file:
+with open(results_name, 'r') as model_file:
     model_results = json.load(model_file)
 
 
 unmatched_llm_results = []
 matched_results = []
+llm_results = llm_results[:len(model_results)]
 for llm_result in llm_results:
     matched=False
     for model_result in model_results:
@@ -39,17 +41,19 @@ for llm_result in llm_results:
     if matched==False:
         unmatched_llm_results.append(llm_result)
         
-def verify_required_words(results):
+def verify_required_words(results, print=False):
     verified_results = []
     for result in results:
         sentence = result['sentence']
         required_words = result['required_words']
-        if all(word in sentence for word in required_words):
+        if all(word.strip().upper() in sentence.upper() for word in required_words):
             verified_results.append(result)
+        elif print:
+            print(f"Required words {required_words} not in sentence {sentence}")
     return verified_results
 
 verified_llm_results = verify_required_words(llm_results)
-verified_model_results = verify_required_words(model_results)
+verified_model_results = verify_required_words(model_results, True)
 
 
 def calculate_statistics(results):
@@ -68,7 +72,7 @@ def calculate_statistics(results):
     perplexities = [score(result['sentence'],tokenizer,model) for result in results]
     
     if perplexities:
-        quartiles = np.percentile(perplexities, [0,25, 50, 75,100])
+        quartiles = np.percentile(perplexities, [0,25, 50, 75,100]).tolist()
         average = np.mean(perplexities)
     else:
         quartiles = [None,None, None, None, None]
@@ -109,9 +113,13 @@ if unmatched_llm_results and eval:
         json.dump(unmatched_instructions, unmatched_llm_file)
 
 else:
-    print("LLM Results Statistics:", llm_stats)
-    print("Model Results Statistics:", model_stats)
-    print("Number of unmatched LLM Results:", len(unmatched_llm_results))
-    print("Number of matched LLM Results:", len(matched_results))
-    print("Number of verified LLM Results:", len(verified_llm_results))
-    print("Number of verified Model Results:", len(verified_model_results))
+    stats={}
+    stats['llm_stats']=llm_stats
+    stats['model_stats']=model_stats
+    stats['unmatched_llm_results']=len(unmatched_llm_results)
+    stats['matched_results']=len(matched_results)
+    stats['verified_llm_results']=len(verified_llm_results)
+    stats['verified_model_results']=len(verified_model_results)
+    with open('stats_'+results_name, 'w') as stats_file:
+        json.dump(stats, stats_file)
+
