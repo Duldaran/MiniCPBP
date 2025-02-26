@@ -5,22 +5,26 @@ import math
 import torch
 import os
 
-model_name = "gpt2-xl"
+model_name = "gpt2-large"
 
 eval=False
-results_name='model_results_3_1,0.json'
+results_name='model_results_gpt_large.json'
 
 model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
+#default_instruction = "# Instruction\n\nGiven several concepts (i.e., nouns or verbs), write a short and simple sentence that contains *all* the required words.\nThe sentence should describe a common scene in daily life, and the concepts should be used in a natural way.\n\n# Examples\n\n## Example 1\n- Concepts: \"dog(noun), frisbee(noun), catch(verb), throw(verb)\"\n- Sentence: The dog catches the frisbee when the boy throws it into the air.\n\n## Example 2\n- Concepts: \"apple(noun), place(verb), tree(noun), pick(verb)\"\n- Sentence: A girl picks some apples from a tree and places them into her basket.\n\n# Your Task \n\n- Concepts: \"catch(verb), dog(noun), frisbee(noun), throw(verb)\"\n- Sentence: # Your Results   - Sentence:"
+default_instruction=""
+
 def score(sentence, tokenizer, model):
-    tokenize_input = tokenizer.tokenize(sentence)
+    tokenize_input = tokenizer.tokenize(default_instruction+sentence)
     tensor_input = torch.tensor([tokenizer.convert_tokens_to_ids(tokenize_input)])
     out=model(tensor_input, labels=tensor_input)
+    print(math.exp(out.loss.item()))
     return math.exp(out.loss.item())
 
 # Load LLM results from JSON file
-with open('llm_output.json', 'r') as llm_file:
+with open('llm_output_gpt_large.json', 'r') as llm_file:
     llm_results = json.load(llm_file)
 
 # Load model results from JSON file
@@ -70,7 +74,8 @@ def calculate_statistics(results):
             short_sentences.append(result['sentence'])
     
     perplexities = [score(result['sentence'],tokenizer,model) for result in results]
-    
+    print(perplexities)
+
     if perplexities:
         quartiles = np.percentile(perplexities, [0,25, 50, 75,100]).tolist()
         average = np.mean(perplexities)
