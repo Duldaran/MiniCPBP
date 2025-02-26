@@ -34,7 +34,8 @@
  import java.util.HashMap;
  import java.util.Iterator;
  import java.util.List;
- import java.util.Vector;
+import java.util.TreeMap;
+import java.util.Vector;
  import java.util.concurrent.CompletableFuture;
  import java.util.stream.Collectors;
  import java.net.HttpURLConnection;
@@ -64,36 +65,53 @@
          ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen_hard_nohuman.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
  
+         List<String> lines = Collections.emptyList();
+         try {
+             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict.txt"),StandardCharsets.UTF_8);
+         }
+         catch (Exception e) {
+             e.printStackTrace();
+         }
+
+         int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
+
+         String[] corrected_lines = new String[token_size];
+         Arrays.fill(corrected_lines, "");
+         for(int i=0;i<lines.size();i++){
+             String[] line = lines.get(i).split("::");
+             if(line.length>1){
+                 corrected_lines[Integer.parseInt(line[0])]=line[1];
+             }
+         }
+
+        final List<String> words = Arrays.asList(corrected_lines);
+
+        List<Integer> capitalized_words= new ArrayList<>();
+        int sentence_end=-1;
+        for(int i=0; i<words.size(); i++){
+            if(words.get(i).equals(".")){
+                sentence_end=i;
+            }
+            if(words.get(i).strip().length()!=0 && Character.isUpperCase(words.get(i).strip().charAt(0))){
+                capitalized_words.add(i);
+            }
+        }
+
+
          List<Logging> logs = new ArrayList<>();
          int count=0;
-         //elements.next();
-         while (elements.hasNext() && count<40) {
+         elements.next();
+
+        final int MAX_COUNT = 1;
+
+         while (elements.hasNext() && count<MAX_COUNT) {
              count++;
              JsonNode element = elements.next();
              String instruction = element.get("instruction").asText();
              instruction = instruction.replace("\n", " ");
              instruction = instruction.replace("\"", "");
  
-             List<String> lines = Collections.emptyList();
-             try {
-                 lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict.txt"),StandardCharsets.UTF_8);
-             }
-             catch (Exception e) {
-                 e.printStackTrace();
-             }
- 
-             int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
- 
-             String[] corrected_lines = new String[token_size];
-             Arrays.fill(corrected_lines, "");
-             for(int i=0;i<lines.size();i++){
-                 String[] line = lines.get(i).split("::");
-                 if(line.length>1){
-                     corrected_lines[Integer.parseInt(line[0])]=line[1];
-                 }
-             }
-
-             final List<String> words = Arrays.asList(corrected_lines);
+             
  
  
              final int NUM_PB=3;
@@ -121,15 +139,28 @@
                  }
  
                  cp.setTraceBPFlag(false);
- 
+                 
+                 // Regular sentence constraint
+
                  List<Integer> acceptedState = new ArrayList<>();
-                 acceptedState.add(1);
-                 int[][] A = new int[2][words.size()];
-                 Arrays.fill(A[0], 0);
-                 A[0][words.size()-1]=1;
-                 Arrays.fill(A[1], -1);
-                 A[1][words.size()-1]=1;
+                 int[][] A = new int[4][words.size()];
+                 acceptedState.add(A.length-1);
+                 Arrays.fill(A[0], -1);
+                 for(int index:capitalized_words){
+                    A[0][index]=1;
+                }
+                 Arrays.fill(A[1], 1);
+                 A[1][words.size()-1]=-1;
+                 A[1][sentence_end]=2;
+                 Arrays.fill(A[2], -1);
+                 A[2][words.size()-1]=3;
+                 for(int index:capitalized_words){
+                     A[2][index]=1;
+                 }
+                 Arrays.fill(A[3], -1);
+                 A[3][words.size()-1]=3;
                  cp.post(Factory.regular(q, A, 0, acceptedState));
+
 
                  for(int i = 0; i<REQUIRED_WORDS.length;i++){
                      HttpRequest request = HttpRequest.newBuilder()
@@ -167,7 +198,7 @@
                  }
 
                  
-         System.out.println("Using "+NUM_PB+" iterations of BP");
+        System.out.println("Using "+NUM_PB+" iterations of BP");
         System.out.println(instruction);
          String current_sentence = "# Your Results   - Sentence:";
                  Double logSumProbs = 0.0;
@@ -210,7 +241,7 @@
                      }
  
  
-                     System.out.println("token "+i);
+                    System.out.println("token "+i);
  
                      Constraint c = Factory.oracle(q[i], tokens, scores);
 
@@ -218,6 +249,16 @@
                      System.out.println("oracle's weight set to "+w);
                      cp.post(c);
                      System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
+                    double[] temp = scores.clone();
+                    Arrays.sort(temp);
+                    for(int n=1; n<=5; n++){
+                        for(int k=0; k<temp.length; k++){
+                            if(temp[temp.length-n]==scores[k]){
+                                System.out.println("GPT, before BP (max token, 'the word', its probability) "+k+", '"+words.get(k)+"', "+scores[k]);
+                            }
+                        }
+                    }
+
                      try {
                          cp.fixPoint();
                      }
@@ -230,10 +271,35 @@
                              System.out.println(word);
                          }
                      }
+                    TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                    for(int j=0; j<q[i].size(); j++){
+                        bestTokens.put(q[i].marginal(j), j);
+                    }
+                    for(int j=0; j<5; j++){
+                        if(bestTokens.isEmpty()){
+                            break;
+                        }
+                        double prob = bestTokens.lastKey();
+                        int token = bestTokens.remove(prob);
+                        System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                    }
+
                      System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
                      cp.vanillaBP(NUM_PB);
                      System.out.println("after BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
                      
+                    bestTokens = new TreeMap<Double, Integer>();
+                    for(int j=0; j<q[i].size(); j++){
+                        bestTokens.put(q[i].marginal(j), j);
+                    }
+                    for(int j=0; j<5; j++){
+                        if(bestTokens.isEmpty()){
+                            break;
+                        }
+                        double prob = bestTokens.lastKey();
+                        int token = bestTokens.remove(prob);
+                        System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                    }
 
                      q[i].assign(q[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
                      int chosen = q[i].valueWithMaxMarginal();
@@ -245,7 +311,7 @@
                          logSumProbs = -Double.MAX_VALUE;
                      }
                      current_sentence += words.get(chosen);
-                     System.out.println("sentence so far: " + current_sentence);
+                     //System.out.println("sentence so far: " + current_sentence);
 
                  }
                  double perplexityScore = Math.exp(-logSumProbs / num_tok);
@@ -253,7 +319,7 @@
                  //System.out.println("Perplexity is of " + perplexityScore);
                  logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
              
-             objectMapper.writeValue(Paths.get(String.format("model_results_%d_%2.1f.json", NUM_PB, w)).toFile(), logs);
+             objectMapper.writeValue(Paths.get(String.format("model_results_%d_%d_%2.1f.json", MAX_COUNT,NUM_PB, w)).toFile(), logs);
          }
  
          

@@ -6,6 +6,7 @@ import torch
 app = Flask(__name__)
 
 model_name = "gpt2-xl"
+#model_name = "gpt2-large"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
