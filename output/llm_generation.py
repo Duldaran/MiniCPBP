@@ -17,7 +17,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
     data = json.load(f)
 
-treated_data = [(i['instruction'],i['concept_set']) for i in data]
+treated_data = [(i['instruction'],i['concept_set']) for i in data][:40]
 
 
 
@@ -49,6 +49,6 @@ for problem in tqdm(treated_data):
     print(ppl)
     results.append({"sentence":sentence_out, "required_words":concept_set, "perplexity":ppl})
     
-with open('llm_output.json', 'w') as outfile:
+with open('llm_output_40.json', 'w') as outfile:
     json.dump(results, outfile, indent=4)
     
