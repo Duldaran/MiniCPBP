@@ -43,7 +43,8 @@ def verify_required_words(results):
         ):
             verified_results.append(result)
         else:
-            print(f"Required words {required_words} not in sentence {sentence}")
+            #print(f"Required words {required_words} not in sentence {sentence}")
+            continue
     
     return verified_results
 
@@ -63,7 +64,6 @@ def calculate_statistics(results):
             short_sentences.append(result['sentence'])
     
     perplexities = [score(result['sentence'],tokenizer,model) for result in results]
-    print(perplexities)
 
     if perplexities:
         quartiles = np.percentile(perplexities, [0,25, 50, 75,100]).tolist()
@@ -101,21 +101,26 @@ def calculate_metrics(reference_sentences, generated_sentences):
     meteor_scores = []
     for refs, gen in zip(reference_sentences, generated_sentences):
         meteor_scores.append(meteor_score([ref.split(' ') for ref in refs], gen.split(' ')))
-    metrics['meteor'] = meteor_scores
+    metrics['meteor'] = sum(meteor_scores)/len(meteor_scores)
 
+    rouge_whole_scores = []
+    blue_whole_scores = []
     for refs, gen in zip(reference_sentences, generated_sentences):
         # Calculate ROUGE
         scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
-        rouge_scores = scorer.score(refs, gen)
-        metrics['rouge'].append({key: value.fmeasure for key, value in rouge_scores.items()})
+        rouge_scores = scorer.score(refs[0], gen)
+        # Calculate mean ROUGE scores
+        
+        rouge_whole_scores.append({key: value.fmeasure for key, value in rouge_scores.items()})
+
 
         # Calculate BLEU
         bleu_score = sentence_bleu([ref.split(' ') for ref in refs], gen.split(' '))
-        metrics['bleu'].append(bleu_score)
-
-
-    metrics['cider'] = cider_score
-    metrics['spice'] = spice_score
+        blue_whole_scores.append(bleu_score)
+    
+    rouge_means = {key: np.mean([score[key] for score in rouge_whole_scores]) for key in rouge_whole_scores[0].keys()}
+    metrics['rouge'] = rouge_means
+    metrics['bleu'] = np.mean(blue_whole_scores)
 
     return metrics
 
@@ -134,6 +139,8 @@ llm_files = [f for f in json_files if f.startswith('llm_output')]
 # Evaluate every pair of model and LLM output files
 for model_file in model_files:
     for llm_file in llm_files:
+        if "old" not in model_file.lower():
+            continue
         print(f"Evaluating pair: Model File = {model_file}, LLM File = {llm_file}")
         # Determine the model name based on the file names
         if "gpt" in model_file.lower():
@@ -187,10 +194,6 @@ for model_file in model_files:
         llm_stats = calculate_statistics(llm_results)
         model_stats = calculate_statistics(model_results)
 
-        # Save stats for the current pair
-        # Ensure model and LLM files match based on their naming convention
-        if model_file.split('_')[2] != llm_file.split('_')[2]:
-            continue
 
         stats = {}
         if not old_commongen:
@@ -203,15 +206,15 @@ for model_file in model_files:
 
         if old_commongen:
             # Load reference sentences from old_commongen.json
-            with open('old_commongen.json', 'r') as ref_file:
+            with open('src\main\java\minicpbp\examples\data\Sentence\old_commongen.json', 'r') as ref_file:
                 reference_data = json.load(ref_file)
-            reference_sentences = [item['sentence'] for item in reference_data]
+            reference_sentences = [item['reference'] for item in reference_data]
 
             # Extract generated sentences
             generated_sentences = [result['sentence'] for result in model_results]
 
             # Calculate metrics
-            metrics = calculate_metrics(reference_sentences[1:len(generated_sentences) + 1], generated_sentences)
+            metrics = calculate_metrics(reference_sentences[1:], generated_sentences[:-1])
 
             # Add metrics to stats
             stats['metrics'] = metrics
