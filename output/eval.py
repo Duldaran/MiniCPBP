@@ -17,7 +17,7 @@ def score(sentence, tokenizer, model):
     return math.exp(out.loss.item())
 
         
-def verify_required_words(results):
+def verify_required_words(results, tokenizer):
     
     verified_results = []
     lemmatizer = WordNetLemmatizer()
@@ -25,20 +25,21 @@ def verify_required_words(results):
     for result in results:
         sentence = result['sentence']
         required_words = result['required_words']
-        sentence_tokens = sentence.split()
+        required_words = [tokenizer.decode(token).strip().lower() for word in required_words for token in tokenizer.convert_tokens_to_ids(tokenizer.tokenize(" "+word))]
+        sentence_tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(sentence))
 
         # Generate lemmas for different parts of speech
         sentence_lemmas = {
-            "n": [lemmatizer.lemmatize(token.lower(), pos="n") for token in sentence_tokens],
-            "v": [lemmatizer.lemmatize(token.lower(), pos="v") for token in sentence_tokens],
-            "a": [lemmatizer.lemmatize(token.lower(), pos="a") for token in sentence_tokens],
-            "r": [lemmatizer.lemmatize(token.lower(), pos="r") for token in sentence_tokens],
-            "s": [lemmatizer.lemmatize(token.lower(), pos="s") for token in sentence_tokens],
+            "n": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="n") for token in sentence_tokens],
+            "v": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="v") for token in sentence_tokens],
+            "a": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="a") for token in sentence_tokens],
+            "r": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="r") for token in sentence_tokens],
+            "s": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="s") for token in sentence_tokens],
         }
 
         # Check if each required word appears in at least one lemma set
         if all(
-            any(lemmatizer.lemmatize(word.strip().lower(), pos=pos) in sentence_lemmas[pos] for pos in sentence_lemmas)
+            any(lemmatizer.lemmatize(word, pos=pos) in sentence_lemmas[pos] for pos in sentence_lemmas)
             for word in required_words
         ):
             verified_results.append(result)
@@ -139,7 +140,7 @@ llm_files = [f for f in json_files if f.startswith('llm_output')]
 # Evaluate every pair of model and LLM output files
 for model_file in model_files:
     for llm_file in llm_files:
-        if "old" not in model_file.lower():
+        if "gpt" not in model_file.lower():
             continue
         print(f"Evaluating pair: Model File = {model_file}, LLM File = {llm_file}")
         # Determine the model name based on the file names
@@ -186,9 +187,9 @@ for model_file in model_files:
 
 
 
-        verified_llm_results = verify_required_words(llm_results)
+        verified_llm_results = verify_required_words(llm_results, tokenizer)
 
-        verified_model_results = verify_required_words(model_results)
+        verified_model_results = verify_required_words(model_results, tokenizer)
 
         # Calculate statistics
         llm_stats = calculate_statistics(llm_results)
