@@ -62,12 +62,12 @@ import java.util.Vector;
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
          ObjectMapper objectMapper = new ObjectMapper();
-         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen_hard_nohuman.json"));
+         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/old_commongen.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
  
          List<String> lines = Collections.emptyList();
          try {
-             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict.txt"),StandardCharsets.UTF_8);
+             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_gpt2.txt"),StandardCharsets.UTF_8);
          }
          catch (Exception e) {
              e.printStackTrace();
@@ -102,7 +102,8 @@ import java.util.Vector;
          int count=0;
          elements.next();
 
-        final int MAX_COUNT = 1;
+        final int MAX_COUNT = 40;
+        final boolean PRINT_TRACE = false;
 
          while (elements.hasNext() && count<MAX_COUNT) {
              count++;
@@ -125,7 +126,7 @@ import java.util.Vector;
                  Iterator<JsonNode> required_words_JsonNode= element.get("concept_set").elements();
                  while (required_words_JsonNode.hasNext()) {
                      String word = required_words_JsonNode.next().asText();
-                     required_words_temp.add(word.substring(0, word.indexOf('_')));
+                     required_words_temp.add(word.split("_")[0]);
                  }
                  String[] REQUIRED_WORDS = required_words_temp.toArray(new String[0]);
  
@@ -168,39 +169,33 @@ import java.util.Vector;
                      .POST(HttpRequest.BodyPublishers.ofString(" "+REQUIRED_WORDS[i]))
                      .build();
                      String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-                     String[] tokens = response.substring(1,response.length()-2).split(",");
-                     if(tokens.length>1){
+                     int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
+                     int id = split_response[0];
+                     int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
+                     if(id==-1){
                         List<Integer> endState = new ArrayList<>();
                         endState.add(tokens.length);
                         int[][] States = new int[tokens.length+1][words.size()];
                         for(int j=0; j<tokens.length; j++){
                             Arrays.fill(States[j], 0);
-                            States[j][Integer.parseInt(tokens[j])]=j+1;
+                            States[j][tokens[j]]=j+1;
                             if(j==1){
-                                States[j][Integer.parseInt(tokens[j-1])]=j;
+                                States[j][tokens[j-1]]=j;
                             }
                         }
                         Arrays.fill(States[tokens.length], tokens.length);
                         cp.post(Factory.regular(q, States, 0, endState));       
                      }
-                     else{
-                        List<Integer> indexs = new ArrayList<>();
-                        System.out.println("REQUIRED_WORDS[i] "+REQUIRED_WORDS[i]);
-                        for(String word : words){
-                            if(word.toUpperCase().strip().startsWith(REQUIRED_WORDS[i].toUpperCase().strip())){
-                                indexs.add(words.indexOf(word));
-                                System.out.println("word "+word);
-                            }
-                        }
-                        int[] REQUIRED_INDEX = indexs.stream().mapToInt(Integer::intValue).toArray();
-                        cp.post(Factory.atleast(q, REQUIRED_INDEX, 1));
+                     else if(id==-2){
+                        if(PRINT_TRACE)System.out.println("REQUIRED_WORDS[i] "+REQUIRED_WORDS[i]);
+                        cp.post(Factory.atleast(q, tokens, 1));
                      }
                  }
 
                  
-        System.out.println("Using "+NUM_PB+" iterations of BP");
-        System.out.println(instruction);
-         String current_sentence = "# Your Results   - Sentence:";
+        if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
+        if(PRINT_TRACE)System.out.println(instruction);
+         String current_sentence = "";
                  Double logSumProbs = 0.0;
                  int num_tok=0;
                  for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
@@ -241,20 +236,23 @@ import java.util.Vector;
                      }
  
  
-                    System.out.println("token "+i);
+                    if(PRINT_TRACE) System.out.println("token "+i);
  
                      Constraint c = Factory.oracle(q[i], tokens, scores);
 
                      c.setWeight(w);
-                     System.out.println("oracle's weight set to "+w);
+                     if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
                      cp.post(c);
-                     System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
-                    double[] temp = scores.clone();
-                    Arrays.sort(temp);
-                    for(int n=1; n<=5; n++){
-                        for(int k=0; k<temp.length; k++){
-                            if(temp[temp.length-n]==scores[k]){
-                                System.out.println("GPT, before BP (max token, 'the word', its probability) "+k+", '"+words.get(k)+"', "+scores[k]);
+                     if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
+                     if(PRINT_TRACE) 
+                     {
+                        double[] temp = scores.clone();
+                        Arrays.sort(temp);
+                        for(int n=1; n<=5; n++){
+                            for(int k=0; k<temp.length; k++){
+                                if(temp[temp.length-n]==scores[k]){
+                                    System.out.println("GPT, before BP (max token, 'the word', its probability) "+k+", '"+words.get(k)+"', "+scores[k]);
+                                }
                             }
                         }
                     }
@@ -270,35 +268,43 @@ import java.util.Vector;
                          for(String word: REQUIRED_WORDS){
                              System.out.println(word);
                          }
+                         current_sentence += " ERROR";
+                         break;
                      }
-                    TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                    for(int j=0; j<q[i].size(); j++){
-                        bestTokens.put(q[i].marginal(j), j);
-                    }
-                    for(int j=0; j<5; j++){
-                        if(bestTokens.isEmpty()){
-                            break;
+                     if(PRINT_TRACE) 
+                     {
+                        TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                        for(int j=0; j<q[i].size(); j++){
+                            bestTokens.put(q[i].marginal(j), j);
                         }
-                        double prob = bestTokens.lastKey();
-                        int token = bestTokens.remove(prob);
-                        System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                        for(int j=0; j<5; j++){
+                            if(bestTokens.isEmpty()){
+                                break;
+                            }
+                            double prob = bestTokens.lastKey();
+                            int token = bestTokens.remove(prob);
+                            System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                        }
                     }
 
-                     System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
+                    if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
                      cp.vanillaBP(NUM_PB);
-                     System.out.println("after BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
+                     if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
                      
-                    bestTokens = new TreeMap<Double, Integer>();
-                    for(int j=0; j<q[i].size(); j++){
-                        bestTokens.put(q[i].marginal(j), j);
-                    }
-                    for(int j=0; j<5; j++){
-                        if(bestTokens.isEmpty()){
-                            break;
+                     if(PRINT_TRACE) 
+                     {
+                        TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                        for(int j=0; j<q[i].size(); j++){
+                            bestTokens.put(q[i].marginal(j), j);
                         }
-                        double prob = bestTokens.lastKey();
-                        int token = bestTokens.remove(prob);
-                        System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                        for(int j=0; j<5; j++){
+                            if(bestTokens.isEmpty()){
+                                break;
+                            }
+                            double prob = bestTokens.lastKey();
+                            int token = bestTokens.remove(prob);
+                            System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                        }
                     }
 
                      q[i].assign(q[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling

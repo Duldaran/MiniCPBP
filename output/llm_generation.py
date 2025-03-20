@@ -8,16 +8,20 @@ from evaluate import load
 perplexity = load("perplexity", module_type="metric")
 import math
 
-device='cuda'
+device='cuda' if torch.cuda.is_available() else 'cpu'
 model_name = "gpt2-xl"
+#model_name ="meta-llama/Llama-3.2-3B"
+#model_name ="google/gemma-2-2b"
 
-model = AutoModelForCausalLM.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
+with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen.json', 'r') as f:
+#with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
     data = json.load(f)
 
-treated_data = [(i['instruction'],i['concept_set']) for i in data]
+
+treated_data = [(i['instruction'],i['concept_set']) for i in data][:40]
 
 
 
@@ -33,7 +37,7 @@ for problem in tqdm(treated_data):
     for i in range(len(concept_set)):
         concept_set[i]=concept_set[i][:-2]
     
-    inputs = tokenizer(sentence+"# Your Results   - Sentence:", return_tensors="pt")
+    inputs = tokenizer(sentence, return_tensors="pt").to(device)
     with torch.no_grad():
         model_outputs = model.generate(**inputs, max_new_tokens=30, return_dict_in_generate=True, output_scores=True)
         
