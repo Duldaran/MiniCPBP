@@ -10,7 +10,7 @@ def get_predictions(sentence):
         predictions = outputs[0]
     return predictions
 
-model_name = "gpt2"
+model_name = "mistralai/Mistral-7B-v0.3"
 #model_name = "gpt2-xl"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
