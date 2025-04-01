@@ -1551,14 +1551,18 @@ public final class Factory {
      * @return a constraint so that {@code x is a word recognized by automaton A and of total cost tc}
      */
     public static Constraint costRegular(IntVar[] x, int[][] A, int s, List<Integer> f, int[][][] c, IntVar tc) {
-        return new CostRegular(x, A, s, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, s, f, c, tc, vars);
     }
 
     /**
      * special case with 0 being the initial state
      */
     public static Constraint costRegular(IntVar[] x, int[][] A, List<Integer> f, int[][][] c, IntVar tc) {
-        return new CostRegular(x, A, 0, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, 0, f, c, tc, vars);
     }
 
     /**
@@ -1569,21 +1573,27 @@ public final class Factory {
         for (int i = 0; i < A.length; i++) {
             f.add(i);
         }
-        return new CostRegular(x, A, 0, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, 0, f, c, tc, vars);
     }
 
     /**
      * special case with 2D cost matrix: state x domain value
      */
     public static Constraint costRegular(IntVar[] x, int[][] A, int s, List<Integer> f, int[][] c, IntVar tc) {
-        return new CostRegular(x, A, s, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, s, f, c, tc, vars);
     }
 
     /**
      * special case with 0 being the initial state
      */
     public static Constraint costRegular(IntVar[] x, int[][] A, List<Integer> f, int[][] c, IntVar tc) {
-        return new CostRegular(x, A, 0, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, 0, f, c, tc, vars);
     }
 
     /**
@@ -1594,21 +1604,27 @@ public final class Factory {
         for (int i = 0; i < A.length; i++) {
             f.add(i);
         }
-        return new CostRegular(x, A, 0, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, 0, f, c, tc, vars);
     }
 
     /**
      * special case with 1D cost matrix: domain value
      */
     public static Constraint costRegular(IntVar[] x, int[][] A, int s, List<Integer> f, int[] c, IntVar tc) {
-        return new CostRegular(x, A, s, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, s, f, c, tc, vars);
     }
 
     /**
      * special case with 0 being the initial state
      */
     public static Constraint costRegular(IntVar[] x, int[][] A, List<Integer> f, int[] c, IntVar tc) {
-        return new CostRegular(x, A, 0, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, 0, f, c, tc, vars);
     }
 
     /**
@@ -1619,7 +1635,9 @@ public final class Factory {
         for (int i = 0; i < A.length; i++) {
             f.add(i);
         }
-        return new CostRegular(x, A, 0, f, c, tc);
+        IntVar[] vars = Arrays.copyOf(x, x.length + 1);
+        vars[x.length] = tc;
+        return new CostRegular(x, A, 0, f, c, tc, vars);
     }
 
     /**
@@ -1635,6 +1653,27 @@ public final class Factory {
      */
     public static Constraint grammar(IntVar[] x, CFG g) {
         return new Grammar(x, g);
+    }
+
+    /**
+     * Returns a constraint to describe a fully-observable, finite, discrete Markov Decision Process (MDP) of order 1 with deterministic rewards.
+     * <p> This constraint holds iff the sequence of actions and states (start,a0,s0,...,an-1,sn-1) may occur with non-zero probability and collects a sum of rewards (undiscounted) equal to totalReward.
+     *
+     * @param a     a sequence of action variables (domain values are nonnegative and start at 0)
+     * @param s     a sequence of state variables (domain values are nonnegative and start at 0)
+     * @param P     a 3D array giving the transition probability between states given an action: {states} x {actions} x {states} -> [0,1]
+     * @param R     a 3D array giving integer rewards: {states} x {actions} x {states} -> Z
+     * @param start the initial state
+     * @param tr    the total reward of sequence (start,a0,s0,...,an-1,sn-1) computed as the sum of the corresponding integer rewards from array R.
+     */
+    public static Constraint markov(IntVar[] a, IntVar[] s, double[][][] P, int[][][] R, int start, IntVar tr) {
+        assert (a.length == s.length);
+        IntVar[] vars = Arrays.copyOf(a, 2 * a.length + 1);
+        for (int i = 0; i < s.length; i++) {
+            vars[a.length + i] = s[i];
+        }
+        vars[2 * a.length] = tr;
+        return new Markov(a, s, P, R, start, tr, vars);
     }
 
     /**
@@ -1887,6 +1926,19 @@ public final class Factory {
             l[j] = makeIntVar(b[0].getSolver(), 0, capacity);
         }
         return binPacking(b,size,l);
+    }
+    /**
+     * more general case with variable-size items
+    */
+    public static Constraint binPacking(IntVar[] b, IntVar[] size, IntVar[] l) {
+        IntVar[] vars = Arrays.copyOf(b, b.length + l.length + size.length);
+        for (int i = 0; i < l.length; i++) {
+            vars[b.length + i] = l[i];
+        }
+        for (int i = 0; i < size.length; i++) {
+            vars[b.length + l.length + i] = size[i];
+        }
+        return new BinPackingVar(b,size,l,vars);
     }
 
     /**
