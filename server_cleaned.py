@@ -5,14 +5,19 @@ from nltk.stem import WordNetLemmatizer
 import nltk
 nltk.download('wordnet')
 import time
+import gc
 
 
 app = Flask(__name__)
 
-#model_name = "meta-llama/Llama-3.2-3B"
-model_name = "gpt2-xl"
+gc.collect()
+torch.cuda.empty_cache()
+torch.cuda.reset_peak_memory_stats()
+
+model_name = "meta-llama/Llama-3.2-3B"
+#model_name = "gpt2-xl"
 device='cuda' if torch.cuda.is_available() else 'cpu'
-model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
     
 def get_predictions(sentence):
