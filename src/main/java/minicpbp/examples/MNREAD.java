@@ -158,7 +158,7 @@ public class MNREAD {
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 59;
+        final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w =1.0;
@@ -179,7 +179,7 @@ public class MNREAD {
             cp.post(element(charNum, word_index[i], num_char[i]));
         }
 
-        IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD+1,MAX_NUMBER_WORD+1);
+        IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
         
         cp.post(sum(has_space, nb_words));
         cp.post(sum(num_char, NUMBER_CHAR));
