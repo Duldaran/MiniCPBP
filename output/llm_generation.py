@@ -25,7 +25,7 @@ flush()
 model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen.json', 'r') as f:
+with open('..\src\main\java\minicpbp\examples\data\Sentence\modified_commongen.json', 'r') as f:
 #with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
     data = json.load(f)
 

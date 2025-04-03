@@ -6,6 +6,7 @@ import nltk
 nltk.download('wordnet')
 import time
 import gc
+import json
 
 
 app = Flask(__name__)
@@ -14,10 +15,10 @@ gc.collect()
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
 
-model_name = "meta-llama/Llama-3.2-3B"
-#model_name = "gpt2-xl"
+#model_name = "meta-llama/Llama-3.2-3B"
+model_name = "microsoft/Phi-3.5-mini-instruct"
 device='cuda' if torch.cuda.is_available() else 'cpu'
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
     
 def get_predictions(sentence):
@@ -111,7 +112,7 @@ def testing():
 @app.route('/token', methods=['POST'])
 def next_token():
     raw_probs = get_next_word_probabilities(request.data.decode())
-    
+
     return raw_probs
 
 if __name__ == '__main__':  
