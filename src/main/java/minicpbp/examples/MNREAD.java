@@ -161,7 +161,7 @@ public class MNREAD {
         final int NUMBER_CHAR = 59;
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w =4.0;
+        final double w =1.0;
         final int NUM_ITERATIONS = 10;
 
     for(int iter=0;iter<NUM_ITERATIONS;iter++){
