@@ -71,7 +71,7 @@ public class MNREAD {
              e.printStackTrace();
          }
 
-
+    
          int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
 
          String[] corrected_lines = new String[token_size];
@@ -161,7 +161,10 @@ public class MNREAD {
         final int NUMBER_CHAR = 59;
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w =5.0;
+        final double w =4.0;
+        final int NUM_ITERATIONS = 10;
+
+    for(int iter=0;iter<NUM_ITERATIONS;iter++){
 
         Solver cp = makeSolver();
         IntVar[] sizes = makeIntVarArray(cp, 30, Arrays.stream(lengthTokens).min().getAsInt(), Arrays.stream(lengthTokens).max().getAsInt());
@@ -353,8 +356,8 @@ public class MNREAD {
                }
            }
 
-           word_index[i].assign(word_index[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
-            int chosen = word_index[i].valueWithMaxMarginal();
+           word_index[i].assign(word_index[i].biasedWheelValue());//TODO : Trouver un meilleur sampling
+            int chosen = word_index[i].min();
             num_tok++;
             if (0<=chosen && chosen<scores.length) {
                 logSumProbs += Math.log(scores[chosen]);
@@ -373,8 +376,8 @@ public class MNREAD {
         System.out.println("solution : " + current_sentence);
   
         logs.add(new Logging(current_sentence, perplexityScore));
-    
-    objectMapper.writeValue(Paths.get(String.format("results_MNREAD_%d_%2.1f.json",NUM_PB, w)).toFile(), logs);
+    }
+    objectMapper.writeValue(Paths.get(String.format("results_MNREAD_%d_%d_%2.1f.json",NUM_ITERATIONS,NUM_PB, w)).toFile(), logs);
     }
 
 

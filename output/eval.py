@@ -8,11 +8,14 @@ from rouge_score import rouge_scorer
 from nltk.translate.bleu_score import sentence_bleu
 from nltk.translate.meteor_score import meteor_score
 from nltk.stem import WordNetLemmatizer
+import gc
 
+
+device='cuda' if torch.cuda.is_available() else 'cpu'
 
 def score(sentence, tokenizer, model):
     tokenize_input = tokenizer.tokenize(default_instruction+sentence)
-    tensor_input = torch.tensor([tokenizer.convert_tokens_to_ids(tokenize_input)])
+    tensor_input = torch.tensor([tokenizer.convert_tokens_to_ids(tokenize_input)]).to(device)
     out=model(tensor_input, labels=tensor_input)
     return math.exp(out.loss.item())
 
@@ -140,21 +143,15 @@ llm_files = [f for f in json_files if f.startswith('llm_output')]
 # Evaluate every pair of model and LLM output files
 for model_file in model_files:
     for llm_file in llm_files:
-        if "gpt" not in model_file.lower():
+        if "phi" not in model_file.lower():
             continue
         print(f"Evaluating pair: Model File = {model_file}, LLM File = {llm_file}")
         # Determine the model name based on the file names
-        if "gpt" in model_file.lower():
-            model_name = "gpt2-xl"
-        elif "llama" in model_file.lower():
-            model_name = "meta-llama/Llama-3.2-3B"
-        else:
-            print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (Unknown model type)")
-            continue
 
 
-        llm_name_model = next((name for name in ["gpt", "llama"] if name in model_file.lower()), None)
-        llm_name_llm = next((name for name in ["gpt", "llama"] if name in llm_file.lower()), None)
+
+        llm_name_model = next((name for name in ["gpt", "llama","phi"] if name in model_file.lower()), None)
+        llm_name_llm = next((name for name in ["gpt", "llama","phi"] if name in llm_file.lower()), None)
 
         if llm_name_model != llm_name_llm:
             print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (LLM names do not match)")
@@ -168,6 +165,22 @@ for model_file in model_files:
             print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (Dataset difficulty does not match)")
             continue
         
+        gc.collect()
+        torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats()
+        
+        if "gpt" in model_file.lower():
+            model_name = "gpt2-xl"
+            model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+        elif "llama" in model_file.lower():
+            model_name = "meta-llama/Llama-3.2-3B" 
+            model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+        elif "phi" in model_file.lower():
+            model_name = "microsoft/Phi-3.5-mini-instruct"
+            model = AutoModelForCausalLM.from_pretrained(model_name, load_in_8bit=True)
+        else:
+            print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (Unknown model type)")
+            continue
         
         old_commongen = "old" in model_file.lower()
 
@@ -182,7 +195,7 @@ for model_file in model_files:
             model_results = json.load(model_file_obj)
             
 
-        model = AutoModelForCausalLM.from_pretrained(model_name)
+        
         tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 

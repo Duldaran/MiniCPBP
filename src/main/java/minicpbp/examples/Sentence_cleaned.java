@@ -62,18 +62,18 @@ import java.util.Vector;
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
          ObjectMapper objectMapper = new ObjectMapper();
-         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/old_commongen.json"));
+         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
  
          List<String> lines = Collections.emptyList();
          try {
-             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_gpt2.txt"),StandardCharsets.UTF_8);
+             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_phi.txt"),StandardCharsets.UTF_8);//Change with the llm
          }
          catch (Exception e) {
              e.printStackTrace();
          }
 
-         int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
+         int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0])+1;
 
          String[] corrected_lines = new String[token_size];
          Arrays.fill(corrected_lines, "");
@@ -118,6 +118,7 @@ import java.util.Vector;
              final int NUM_PB=3;
              final double w = 1;
              final int SENTENCE_MAX_NUMBER_TOKENS=30;
+             final int END_TOKEN=3;
  
              
              HttpClient client = HttpClient.newHttpClient();
@@ -150,16 +151,17 @@ import java.util.Vector;
                  for(int index:capitalized_words){
                     A[0][index]=1;
                 }
+
                  Arrays.fill(A[1], 1);
-                 A[1][words.size()-1]=-1;
+                 A[1][END_TOKEN]=-1;
                  A[1][sentence_end]=2;
                  Arrays.fill(A[2], -1);
-                 A[2][words.size()-1]=3;
+                 A[2][END_TOKEN]=3;
                  for(int index:capitalized_words){
                      A[2][index]=1;
                  }
                  Arrays.fill(A[3], -1);
-                 A[3][words.size()-1]=3;
+                 A[3][END_TOKEN]=3;
                  cp.post(Factory.regular(q, A, 0, acceptedState));
 
 
@@ -195,7 +197,9 @@ import java.util.Vector;
                  
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
         if(PRINT_TRACE)System.out.println(instruction);
-         String current_sentence = "";
+         String current_sentence = "\\n" + //
+                          "\\n" + //
+                          "# Response:";//Remove when changing LLM
                  Double logSumProbs = 0.0;
                  int num_tok=0;
                  for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
@@ -221,6 +225,10 @@ import java.util.Vector;
                              int token = Integer.parseInt(token_score[0]);
                              double score = Double.parseDouble(token_score[1]);
                              
+                             if(token>=words.size()){
+                                 continue;
+                             }
+
                              tokens[token] = token;
                              scores[token] = score;
  
@@ -317,7 +325,7 @@ import java.util.Vector;
                          logSumProbs = -Double.MAX_VALUE;
                      }
                      current_sentence += words.get(chosen);
-                     //System.out.println("sentence so far: " + current_sentence);
+                     if(PRINT_TRACE) System.out.println("sentence so far: " + current_sentence);
 
                  }
                  double perplexityScore = Math.exp(-logSumProbs / num_tok);
