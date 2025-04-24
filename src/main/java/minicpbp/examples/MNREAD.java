@@ -36,6 +36,8 @@ import minicpbp.search.SearchStatistics;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -47,7 +49,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.Set;
 import java.util.TreeMap;
 
 import static minicpbp.cp.BranchingScheme.*;
@@ -89,7 +93,6 @@ public class MNREAD {
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_domain.json")), StandardCharsets.UTF_8);
             corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
-            corpusDomains.remove(Integer.valueOf(220));
             corpusDomains.remove(Integer.valueOf(6));
             corpusDomains.add(13);
         } catch (Exception e) {
@@ -151,6 +154,56 @@ public class MNREAD {
             lengthTokens[i]=charSum;
         }
 
+        List<List<Integer>> corpusWords = new ArrayList<>();
+        ObjectMapper objectMapperWords = new ObjectMapper();
+        try {
+            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
+            corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
+        int stateCounter = 0;
+
+        for (List<Integer> seq : corpusWords) {
+            int currentState = 0;
+            if (seq.contains(6)) {
+                continue;
+            }
+
+            for (int i = 0; i < seq.size(); i++) {
+                int input = indexToCorpusDomain.get(seq.get(i));
+
+                Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
+                Integer nextState = currentTrans.get(input);
+                if (i == seq.size() - 1) {
+                    nextState = 0;
+                    currentTrans.put(input, nextState);
+                }
+                if (nextState == null) {
+                    nextState = stateCounter++;
+                    currentTrans.put(input, nextState);
+                }
+
+                currentState = nextState;
+            }
+        }
+
+        int numStates = stateCounter;
+        int[][] table = new int[numStates][corpusDomains.size()];
+        for (int[] row : table) Arrays.fill(row, -1);
+
+        for (Entry<Integer, Map<Integer, Integer>> fromEntry : transitions.entrySet()) {
+            int from = fromEntry.getKey();
+            for (Entry<Integer, Integer> inputEntry : fromEntry.getValue().entrySet()) {
+                int input = inputEntry.getKey();
+                int to = inputEntry.getValue();
+                table[from][input] = to;
+            }
+        }
+
         final int LINE_SIZE = 15896;
         final int SPACE_SIZE =512;
         final int MIN_SPACE_SIZE =410;
@@ -161,8 +214,8 @@ public class MNREAD {
         final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w =1.0;
-        final int NUM_ITERATIONS = 10;
+        final double w =2.0;
+        final int NUM_ITERATIONS = 4;
 
     for(int iter=0;iter<NUM_ITERATIONS;iter++){
 
@@ -217,16 +270,8 @@ public class MNREAD {
         A[2][corpusDomains.size()-1]=2;
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
-         /* 
-        int space_index = indexToCorpusDomain.get(220);
-        List<Integer> acceptedState2 = new ArrayList<>();
-        int[][] B = new int[2][corpusDomains.size()];
-        acceptedState2.add(0);
-        Arrays.fill(B[0], 0);
-        B[0][space_index]=1;
-        Arrays.fill(B[1], 0);
-        B[1][space_index]=-1;
-        cp.post(Factory.regular(word_index, B, 0, acceptedState2));*/
+        //Words regular
+        cp.post(Factory.regular(word_index, table, 0,List.of(0) ));
         
                 
         HttpClient client = HttpClient.newHttpClient();
@@ -374,8 +419,15 @@ public class MNREAD {
         }
         double perplexityScore = Math.exp(-logSumProbs / num_tok);
         System.out.println("solution : " + current_sentence);
-  
-        logs.add(new Logging(current_sentence, perplexityScore));
+        
+        HttpRequest request = HttpRequest.newBuilder()
+                     .uri(URI.create("http://localhost:5000/tokenize"))
+                     .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+                     .build();
+                     String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+                     int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
+                     int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
+        logs.add(new Logging(current_sentence, perplexityScore, tokens));
     }
     objectMapper.writeValue(Paths.get(String.format("results_MNREAD_%d_%d_%2.1f.json",NUM_ITERATIONS,NUM_PB, w)).toFile(), logs);
     }
@@ -384,14 +436,16 @@ public class MNREAD {
     public static class Logging {
 
         public String sentence;
+        public int[] tokens;
         public double perplexity;
 
         public Logging() {
         }
 
-        public Logging(String sentence, double perplexityScore) {
+        public Logging(String sentence, double perplexityScore, int[] tokens) {
             this.sentence = sentence;
             this.perplexity = perplexityScore;
+            this.tokens = tokens;
         }
     }
 }

@@ -62,12 +62,12 @@ import java.util.Vector;
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
          ObjectMapper objectMapper = new ObjectMapper();
-         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen.json"));
+         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/old_commongen.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
  
          List<String> lines = Collections.emptyList();
          try {
-             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_phi.txt"),StandardCharsets.UTF_8);//Change with the llm
+             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_gpt2.txt"),StandardCharsets.UTF_8);//Change with the llm
          }
          catch (Exception e) {
              e.printStackTrace();
@@ -116,9 +116,9 @@ import java.util.Vector;
  
  
              final int NUM_PB=3;
-             final double w = 1;
+             final double w = 1.2;
              final int SENTENCE_MAX_NUMBER_TOKENS=30;
-             final int END_TOKEN=3;
+             final int END_TOKEN=50256;//Change with llm
  
              
              HttpClient client = HttpClient.newHttpClient();
@@ -197,9 +197,7 @@ import java.util.Vector;
                  
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
         if(PRINT_TRACE)System.out.println(instruction);
-         String current_sentence = "\\n" + //
-                          "\\n" + //
-                          "# Response:";//Remove when changing LLM
+         String current_sentence = " ";//Change with llm
                  Double logSumProbs = 0.0;
                  int num_tok=0;
                  for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {

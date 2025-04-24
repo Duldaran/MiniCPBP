@@ -34,11 +34,14 @@ model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 tokens = []
+tokenized_words= []
 for word in words:
     token_ids = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(" "+word))
     tokens.extend(token_ids)
+    tokenized_words.append(token_ids)
     token_ids = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(" "+word.capitalize()))
     tokens.extend(token_ids)
+    tokenized_words.append(token_ids)
 tokens = list(set(tokens))
 
 print(len(tokens))
@@ -49,7 +52,8 @@ with open('corpus_domain.json', 'w', encoding="UTF-8") as tokens_dict:
 with open('corpus_words.json', 'w', encoding="UTF-8") as words_file:
     json.dump(words, words_file)
     
-
+with open('corpus_tokenized_words.json', 'w', encoding="UTF-8") as tokenized_words_file:
+    json.dump(tokenized_words, tokenized_words_file)
 
 
 

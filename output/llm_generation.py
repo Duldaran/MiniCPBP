@@ -16,17 +16,16 @@ def flush():
   torch.cuda.reset_peak_memory_stats()
 
 device='cuda' if torch.cuda.is_available() else 'cpu'
-model_name = "microsoft/Phi-3.5-mini-instruct"
+#model_name ="ctrlg/gpt2-large_common-gen"
 #model_name ="meta-llama/Llama-3.2-3B"
-#model_name ="google/gemma-2-2b"
+model_name ="stabilityai/stablelm-zephyr-3b"
 
 flush()
 
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-with open('..\src\main\java\minicpbp\examples\data\Sentence\modified_commongen.json', 'r') as f:
-#with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen_hard_nohuman.json', 'r') as f:
+with open('..\src\main\java\minicpbp\examples\data\Sentence\commongen.json', 'r') as f:
     data = json.load(f)
 
 
@@ -42,10 +41,12 @@ results=[]
 for problem in tqdm(treated_data):
     sentence = problem[0].replace("\n", " ").replace("\"", "")
     concept_set = problem[1]
-    sentence_correction="\n\n# Response:"
-
+    
+    
     for i in range(len(concept_set)):
         concept_set[i]=concept_set[i][:-2]
+        
+    sentence_correction=""#.join(concept_set).replace("\n", " ").replace("\"", "").replace("  ", " ") + " = "   
     
     inputs = tokenizer(sentence+sentence_correction, return_tensors="pt").to(device)
     with torch.no_grad():

@@ -9,6 +9,8 @@ from nltk.translate.bleu_score import sentence_bleu
 from nltk.translate.meteor_score import meteor_score
 from nltk.stem import WordNetLemmatizer
 import gc
+import string
+import re
 
 
 device='cuda' if torch.cuda.is_available() else 'cpu'
@@ -28,16 +30,15 @@ def verify_required_words(results, tokenizer):
     for result in results:
         sentence = result['sentence']
         required_words = result['required_words']
-        required_words = [tokenizer.decode(token).strip().lower() for word in required_words for token in tokenizer.convert_tokens_to_ids(tokenizer.tokenize(" "+word))]
-        sentence_tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(sentence))
+        sentence_tokens = re.findall( r'\w+|[^\s\w]+', sentence)
 
         # Generate lemmas for different parts of speech
         sentence_lemmas = {
-            "n": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="n") for token in sentence_tokens],
-            "v": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="v") for token in sentence_tokens],
-            "a": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="a") for token in sentence_tokens],
-            "r": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="r") for token in sentence_tokens],
-            "s": [lemmatizer.lemmatize(tokenizer.decode(token).lower().strip(), pos="s") for token in sentence_tokens],
+            "n": [lemmatizer.lemmatize(token.lower(), pos="n") for token in sentence_tokens],
+            "v": [lemmatizer.lemmatize(token.lower(), pos="v") for token in sentence_tokens],
+            "a": [lemmatizer.lemmatize(token.lower(), pos="a") for token in sentence_tokens],
+            "r": [lemmatizer.lemmatize(token.lower(), pos="r") for token in sentence_tokens],
+            "s": [lemmatizer.lemmatize(token.lower(), pos="s") for token in sentence_tokens],
         }
 
         # Check if each required word appears in at least one lemma set
@@ -46,10 +47,6 @@ def verify_required_words(results, tokenizer):
             for word in required_words
         ):
             verified_results.append(result)
-        else:
-            #print(f"Required words {required_words} not in sentence {sentence}")
-            continue
-    
     return verified_results
 
 
@@ -143,15 +140,15 @@ llm_files = [f for f in json_files if f.startswith('llm_output')]
 # Evaluate every pair of model and LLM output files
 for model_file in model_files:
     for llm_file in llm_files:
-        if "phi" not in model_file.lower():
+        if  "ctrlg" not in model_file.lower():
             continue
         print(f"Evaluating pair: Model File = {model_file}, LLM File = {llm_file}")
         # Determine the model name based on the file names
 
 
 
-        llm_name_model = next((name for name in ["gpt", "llama","phi"] if name in model_file.lower()), None)
-        llm_name_llm = next((name for name in ["gpt", "llama","phi"] if name in llm_file.lower()), None)
+        llm_name_model = next((name for name in ["gpt", "llama","phi", "zephyr", "crtlg"] if name in model_file.lower()), None)
+        llm_name_llm = next((name for name in ["gpt", "llama","phi", "zephyr", "crtlg"] if name in llm_file.lower()), None)
 
         if llm_name_model != llm_name_llm:
             print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (LLM names do not match)")
@@ -170,7 +167,7 @@ for model_file in model_files:
         torch.cuda.reset_peak_memory_stats()
         
         if "gpt" in model_file.lower():
-            model_name = "gpt2-xl"
+            model_name = "gpt2-large"
             model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
         elif "llama" in model_file.lower():
             model_name = "meta-llama/Llama-3.2-3B" 
@@ -178,6 +175,12 @@ for model_file in model_files:
         elif "phi" in model_file.lower():
             model_name = "microsoft/Phi-3.5-mini-instruct"
             model = AutoModelForCausalLM.from_pretrained(model_name, load_in_8bit=True)
+        elif "zephyr" in model_file.lower():
+            model_name = "stabilityai/stablelm-zephyr-3b"
+            model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+        elif "ctrlg" in model_file.lower():
+            model_name = "ctrlg/gpt2-large_common-gen"
+            model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")    
         else:
             print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (Unknown model type)")
             continue
@@ -210,13 +213,13 @@ for model_file in model_files:
 
 
         stats = {}
-        if not old_commongen:
-            stats['llm_stats'] = llm_stats
+        stats['llm_stats'] = llm_stats
         stats['model_stats'] = model_stats
         stats['llm_results'] = len(llm_results)
         stats['model_results'] = len(model_results)
         stats['verified_llm_results'] = len(verified_llm_results)
         stats['verified_model_results'] = len(verified_model_results)
+        stats['models_errors'] = [result for result in model_results if result not in verified_model_results]
 
         if old_commongen:
             # Load reference sentences from old_commongen.json

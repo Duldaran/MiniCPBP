@@ -11,7 +11,7 @@ def get_predictions(sentence):
     return predictions
 
 
-model_name = "microsoft/Phi-3.5-mini-instruct"
+model_name = "stabilityai/stablelm-zephyr-3b"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -39,8 +39,8 @@ tokens = \
 with open('tokenizer_dict.txt', 'w', encoding="UTF-8") as tokens_dict:
     for ind,token in enumerate(tokens):
         try:
-            corrected_token = tokenizer.tokenize(token)[-1].replace(chr(SPECIAL_SPACE_CHAR_ASCII_CODE), " ")
-            tokens_dict.write(str(ind)+"::"+corrected_token+"\n")
+            #corrected_token = tokenizer.tokenize(token)[-1].replace(chr(SPECIAL_SPACE_CHAR_ASCII_CODE), " ")
+            tokens_dict.write(str(ind)+"::"+token+"\n")
         except:
             print(token)
             pass
