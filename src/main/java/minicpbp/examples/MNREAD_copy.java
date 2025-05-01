@@ -23,6 +23,7 @@ import minicpbp.engine.constraints.Circuit;
 import minicpbp.engine.constraints.Element1D;
 import minicpbp.engine.constraints.LessOrEqual;
 import minicpbp.engine.constraints.Markov;
+import minicpbp.engine.core.BoolVar;
 import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
@@ -38,6 +39,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -93,7 +95,7 @@ public class MNREAD_copy {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_domain.json")), StandardCharsets.UTF_8);
             corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
             corpusDomains.remove(Integer.valueOf(6));
-            corpusDomains.add(220);
+            corpusDomains.add(13);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -158,16 +160,20 @@ public class MNREAD_copy {
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
-            corpusWords = corpusWords.subList(0, 10);//Testing
-            corpusWords.add(List.of(220));
+            //corpusWords = corpusWords.subList(0, 30);//Testing
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
         Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
-        int stateCounter = 1;
+        Map<Integer, Integer> initialTrans = transitions.computeIfAbsent(0, k -> new HashMap<>());
+        initialTrans.put(indexToCorpusDomain.get(13), 1);
+        Map<Integer, Integer> finalTrans = transitions.computeIfAbsent(1, k -> new HashMap<>());
+        finalTrans.put(indexToCorpusDomain.get(13), 1);
+        int stateCounter = 2;
 
+        ArrayList<Integer> terminalStates = new ArrayList<>();
         for (List<Integer> seq : corpusWords) {
             int currentState = 0;
             if (seq.contains(6)) {
@@ -175,21 +181,28 @@ public class MNREAD_copy {
             }
 
             for (int i = 0; i < seq.size(); i++) {
+                
+                Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
+
                 int input = indexToCorpusDomain.get(seq.get(i));
 
-                Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
                 Integer nextState = currentTrans.get(input);
-                if (i == seq.size() - 1) {
-                    nextState = 0;
-                    currentTrans.put(input, nextState);
-                }
                 if (nextState == null) {
                     nextState = stateCounter++;
                     currentTrans.put(input, nextState);
                 }
 
                 currentState = nextState;
+
+                if(seq.size()-1==i){
+                    terminalStates.add(currentState);
+                }
             }
+        }
+        for (int state : terminalStates) {
+            Map<Integer, Integer> currentTrans =transitions.computeIfAbsent(state, k -> new HashMap<>());
+            initialTrans = transitions.get(0);
+            currentTrans.putAll(initialTrans);
         }
 
         int numStates = stateCounter;
@@ -204,6 +217,8 @@ public class MNREAD_copy {
                 table[from][input] = to;
             }
         }
+        
+        /* 
         System.out.println("Transition Table:");
         System.out.print("State/Input\t");
         System.out.println();
@@ -215,7 +230,7 @@ public class MNREAD_copy {
                 }
             }
             System.out.println();
-        }
+        }*/
 
         final int LINE_SIZE = 15896;
         final int SPACE_SIZE =512;
@@ -229,7 +244,7 @@ public class MNREAD_copy {
         final int NUM_PB = 3;
         final double w =2.0;
         final int NUM_ITERATIONS = 4;
-        final int NUM_TOKENS =5;
+        final int NUM_TOKENS =30;
 
 
         Solver cp = makeSolver();
@@ -247,8 +262,8 @@ public class MNREAD_copy {
 
         IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
         
-        //cp.post(sum(has_space, nb_words));
-        //cp.post(sum(num_char, NUMBER_CHAR));
+        cp.post(sum(has_space, nb_words));
+        cp.post(sum(num_char, NUMBER_CHAR));
 
 
 
@@ -268,8 +283,13 @@ public class MNREAD_copy {
         for (int i=0; i<line.length-1; i++) {
             cp.post(lessOrEqual(line[i], line[i + 1]));
             cp.post(lessOrEqual(line[i + 1],plus(line[i],1)));
+            BoolVar[] changeLine = new BoolVar[2];
+            changeLine[0]= Factory.isEqual(line[i], line[i + 1]);
+            changeLine[1]= Factory.isEqual(has_space[i+1], 1);
+            cp.post(Factory.or(changeLine));
         }
-        //cp.post(binPacking(line,sizes,lineSize));
+        cp.post(binPacking(line,sizes,lineSize));
+
 
         List<Integer> acceptedState = new ArrayList<>();
         int[][] A = new int[3][corpusDomains.size()];
@@ -284,11 +304,11 @@ public class MNREAD_copy {
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
         //Words regular
-        cp.post(Factory.regular(word_index, table, 0,List.of(0) ));
+        cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
         
         
         DFSearch search = Factory.makeDfs(cp, maxMarginal(word_index));
-        final List<Integer> finalCorpusDomains = corpusDomains; // Create a final copy
+        final List<Integer> finalCorpusDomains = corpusDomains;
         search.onSolution(() ->{
                 String[] sentence = new String[word_index.length];
                 for(int i = 0; i < word_index.length; i++) {
@@ -298,8 +318,8 @@ public class MNREAD_copy {
                 for(int i = 0; i < word_index.length; i++) {
                     tokens[i] = finalCorpusDomains.get(word_index[i].max());
                 }
-                //System.out.println("solution:" + Arrays.toString(sentence));
-                //System.out.println("tokens:" + Arrays.toString(tokens));
+                System.out.println("solution:" + Arrays.toString(sentence));
+                System.out.println("tokens:" + Arrays.toString(tokens));
                 }
         );
         SearchStatistics stats = search.solve();

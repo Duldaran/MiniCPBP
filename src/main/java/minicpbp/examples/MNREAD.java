@@ -23,6 +23,7 @@ import minicpbp.engine.constraints.Circuit;
 import minicpbp.engine.constraints.Element1D;
 import minicpbp.engine.constraints.LessOrEqual;
 import minicpbp.engine.constraints.Markov;
+import minicpbp.engine.core.BoolVar;
 import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
@@ -64,6 +65,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class MNREAD {
     public static void main(String[] args) throws Exception {
+        final int END_TOKEN = 13;
 
         List<Logging> logs = new ArrayList<>();
 
@@ -94,7 +96,7 @@ public class MNREAD {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_domain.json")), StandardCharsets.UTF_8);
             corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
             corpusDomains.remove(Integer.valueOf(6));
-            corpusDomains.add(13);
+            corpusDomains.add(END_TOKEN);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -159,14 +161,20 @@ public class MNREAD {
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
+            corpusWords.add(List.of(END_TOKEN));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
         Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
-        int stateCounter = 0;
+        Map<Integer, Integer> initialTrans = transitions.computeIfAbsent(0, k -> new HashMap<>());
+        initialTrans.put(indexToCorpusDomain.get(END_TOKEN), 1);
+        Map<Integer, Integer> finalTrans = transitions.computeIfAbsent(1, k -> new HashMap<>());
+        finalTrans.put(indexToCorpusDomain.get(END_TOKEN), 1);
+        int stateCounter = 2;
 
+        ArrayList<Integer> terminalStates = new ArrayList<>();
         for (List<Integer> seq : corpusWords) {
             int currentState = 0;
             if (seq.contains(6)) {
@@ -178,17 +186,23 @@ public class MNREAD {
 
                 Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
                 Integer nextState = currentTrans.get(input);
-                if (i == seq.size() - 1) {
-                    nextState = 0;
-                    currentTrans.put(input, nextState);
-                }
                 if (nextState == null) {
                     nextState = stateCounter++;
                     currentTrans.put(input, nextState);
                 }
 
                 currentState = nextState;
+
+                if(seq.size()-1==i){
+                    terminalStates.add(currentState);
+                }
             }
+        }
+
+        for (int state : terminalStates) {
+            Map<Integer, Integer> currentTrans =transitions.computeIfAbsent(state, k -> new HashMap<>());
+            initialTrans = transitions.get(0);
+            currentTrans.putAll(initialTrans);
         }
 
         int numStates = stateCounter;
@@ -214,8 +228,8 @@ public class MNREAD {
         final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w =2.0;
-        final int NUM_ITERATIONS = 4;
+        final double w =0.5;
+        final int NUM_ITERATIONS = 2;
 
     for(int iter=0;iter<NUM_ITERATIONS;iter++){
 
@@ -255,12 +269,16 @@ public class MNREAD {
         for (int i=0; i<line.length-1; i++) {
             cp.post(lessOrEqual(line[i], line[i + 1]));
             cp.post(lessOrEqual(line[i + 1],plus(line[i],1)));
+            cp.post(notEqual(word_index[i], word_index[i + 1]));
+            BoolVar[] changeLine = new BoolVar[2];
+            changeLine[0]= Factory.isEqual(line[i], line[i + 1]);
+            changeLine[1]= Factory.isEqual(has_space[i+1], 1);
+            cp.post(Factory.or(changeLine));
         }
         cp.post(binPacking(line,sizes,lineSize));
 
         List<Integer> acceptedState = new ArrayList<>();
         int[][] A = new int[3][corpusDomains.size()];
-        acceptedState.add(1);
         acceptedState.add(2);
         Arrays.fill(A[0], -1);
         for(int index:capitalized_words){A[0][index]=1;}
@@ -271,16 +289,25 @@ public class MNREAD {
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
         //Words regular
-        cp.post(Factory.regular(word_index, table, 0,List.of(0) ));
+        cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
         
                 
         HttpClient client = HttpClient.newHttpClient();
         
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
+        
+        final int[] default_initial_token = {358, 578};
+        
+        Random random = new Random();
+        int randomIndex = random.nextInt(default_initial_token.length);
+        int randomElement = default_initial_token[randomIndex];
+        word_index[0].assign(indexToCorpusDomain.get(randomElement));
+    
         String current_sentence = "";
+        current_sentence += words.get(randomElement);
         Double logSumProbs = 0.0;
-        int num_tok=0;
-        for (int i = 0; i < sizes.length; i++) {
+        int num_tok=1;
+        for (int i = 1; i < sizes.length; i++) {
             // Makes the request
             HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:5000/token"))
@@ -401,8 +428,8 @@ public class MNREAD {
                }
            }
 
-           word_index[i].assign(word_index[i].biasedWheelValue());//TODO : Trouver un meilleur sampling
-            int chosen = word_index[i].min();
+           word_index[i].assign(word_index[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
+            int chosen = word_index[i].valueWithMaxMarginal();
             num_tok++;
             if (0<=chosen && chosen<scores.length) {
                 logSumProbs += Math.log(scores[chosen]);
@@ -412,7 +439,9 @@ public class MNREAD {
                 System.out.println("Chose a value not in the nlp model");
                 logSumProbs = -Double.MAX_VALUE;
             }
-            current_sentence += words.get(corpusDomains.get(chosen));
+            if(!words.get(corpusDomains.get(chosen)).equals(".")){     
+                current_sentence += words.get(corpusDomains.get(chosen));
+            }
             System.out.println("sentence so far: " + current_sentence);
             System.out.println("index chosen: " + corpusDomains.get(chosen));
 
