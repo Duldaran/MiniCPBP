@@ -30,7 +30,11 @@ def verify_required_words(results, tokenizer):
     for result in results:
         sentence = result['sentence']
         required_words = result['required_words']
-        sentence_tokens = re.findall( r'\w+|[^\s\w]+', sentence)
+        
+        if isinstance(required_words[0], list):
+            required_words = [sublist[0] for sublist in required_words]
+            
+        sentence_tokens = re.findall(r'\w+|[^\s\w]+', sentence)
 
         # Generate lemmas for different parts of speech
         sentence_lemmas = {
@@ -52,17 +56,10 @@ def verify_required_words(results, tokenizer):
 
 
 def calculate_statistics(results):
-    perplexities = [result for result in results if result['perplexity'] != 'Infinity']
-    count_infinity = sum(1 for result in results if result['perplexity'] == 'Infinity')
     
     lengths = [len(result['sentence'].split(' ')) for result in results]
     average_length = sum(lengths)/len(lengths)
     
-    short_sentences=[]
-    
-    for result in results:
-        if len(result['sentence'].split(' ')) < 15:
-            short_sentences.append(result['sentence'])
     
     perplexities = [score(result['sentence'],tokenizer,model) for result in results]
 
@@ -76,9 +73,7 @@ def calculate_statistics(results):
     return {
         'quartiles': quartiles,
         'average': average,
-        'count_infinity': count_infinity,
-        'average_length': average_length,
-        'short_sentences': short_sentences
+        'average_length': average_length
     }
 
 def compare_sets(instruction_set, result_set):
@@ -135,20 +130,18 @@ json_files = [f for f in os.listdir(output_dir) if f.endswith('.json')]
 
 # Separate model and LLM output files
 model_files = [f for f in json_files if f.startswith('model_results')]
-llm_files = [f for f in json_files if f.startswith('llm_output')]
+llm_files = [f for f in json_files if f.startswith('llm_output') or f.startswith('ctrlg')]
 
 # Evaluate every pair of model and LLM output files
 for model_file in model_files:
     for llm_file in llm_files:
-        if  "ctrlg" not in model_file.lower():
-            continue
         print(f"Evaluating pair: Model File = {model_file}, LLM File = {llm_file}")
         # Determine the model name based on the file names
 
 
 
-        llm_name_model = next((name for name in ["gpt", "llama","phi", "zephyr", "crtlg"] if name in model_file.lower()), None)
-        llm_name_llm = next((name for name in ["gpt", "llama","phi", "zephyr", "crtlg"] if name in llm_file.lower()), None)
+        llm_name_model = next((name for name in ["gpt", "llama","phi", "zephyr", "ctrlg"] if name in model_file.lower()), None)
+        llm_name_llm = next((name for name in ["gpt", "llama","phi", "zephyr", "ctrlg"] if name in llm_file.lower()), None)
 
         if llm_name_model != llm_name_llm:
             print(f"Skipping pair: Model File = {model_file}, LLM File = {llm_file} (LLM names do not match)")
@@ -200,7 +193,7 @@ for model_file in model_files:
 
         
         tokenizer = AutoTokenizer.from_pretrained(model_name)
-
+        llm_results = llm_results[:len(model_results)]
 
 
         verified_llm_results = verify_required_words(llm_results, tokenizer)

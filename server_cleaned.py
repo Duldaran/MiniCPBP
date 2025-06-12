@@ -15,8 +15,8 @@ gc.collect()
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
 
-model_name = "meta-llama/Llama-3.2-3B"
-#model_name = "ctrlg/gpt2-large_common-gen"
+#model_name = "meta-llama/Llama-3.2-3B"
+model_name = "ctrlg/gpt2-large_common-gen"
 #model_name ="stabilityai/stablelm-zephyr-3b"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)

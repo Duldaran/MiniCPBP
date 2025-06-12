@@ -66,267 +66,289 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class MNREAD_copy {
     public static void main(String[] args) throws Exception {
+        final String llm_name="zephyr";
 
-
-        List<String> lines = Collections.emptyList();
-         try {
-             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/tokenizer_dict_llama.txt"),StandardCharsets.UTF_8);
-         }
-         catch (Exception e) {
-             e.printStackTrace();
-         }
-
-    
-         int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
-
-         String[] corrected_lines = new String[token_size];
-         Arrays.fill(corrected_lines, "");
-         for(int i=0;i<lines.size();i++){
-             String[] line = lines.get(i).split("::");
-             if(line.length>1){
-                 corrected_lines[Integer.parseInt(line[0])]=line[1];
-             }
-         }
-        final List<String> words = Arrays.asList(corrected_lines);
-        
-        List<Integer> corpusDomains = new ArrayList<>();
-        ObjectMapper objectMapper = new ObjectMapper();
+        List<String> sentences = Collections.emptyList();
         try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_domain.json")), StandardCharsets.UTF_8);
-            corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
-            corpusDomains.remove(Integer.valueOf(6));
-            corpusDomains.add(13);
-        } catch (Exception e) {
-            e.printStackTrace();
+            sentences = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/IJCAI2023_EN_BENCH_SORTED.txt"),StandardCharsets.UTF_8);
         }
-        Map<Integer, Integer> indexToCorpusDomain = new HashMap<>();
-        for (int i = 0; i < corpusDomains.size(); i++) {
-            indexToCorpusDomain.put(corpusDomains.get(i), i);
-        }
-
-        List<Integer> capitalized_words= new ArrayList<>();
-        for(int i=0; i<corpusDomains.size(); i++){
-            if(words.get(corpusDomains.get(i)).strip().length()!=0 && Character.isUpperCase(words.get(corpusDomains.get(i)).strip().charAt(0))){
-                capitalized_words.add(i);
-            }
-        }
-
-        int[] start_words  = new int[corpusDomains.size()];
-        for(int i=0; i<corpusDomains.size(); i++){
-            if(words.get(corpusDomains.get(i)).length()!=0 && words.get(corpusDomains.get(i)).charAt(0)==' '){
-                start_words[i]=1;
-            }
-        }
-
-        String charToIntFilePath = "./src/main/java/minicpbp/examples/data/MNREAD/TimesCost_modified.json";
-        Map<String, Integer> charToIntMap = new HashMap<>();
-        try {
-            String charToIntJson = new String(Files.readAllBytes(Paths.get(charToIntFilePath)), StandardCharsets.UTF_8);
-            charToIntMap = objectMapper.readValue(charToIntJson, new TypeReference<Map<String, Integer>>() {});
-        } catch (Exception e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
 
-        int[] lengthTokens = new int[corpusDomains.size()];
-        int[] charNum = new int[corpusDomains.size()];
-        for (int i = 0; i < corpusDomains.size(); i++) {
-            int domainIndex = corpusDomains.get(i);
-            String word = words.get(domainIndex);
-            int charSum = 0;
-            if(i==corpusDomains.size()-1){
-                charNum[i]=0;
-                lengthTokens[i]=0;
-                continue;
-            }
-            charNum[i]=word.length();
-            for (char c : word.toCharArray()) {
-                if(word.length()==0){
-                    break;
-                }
-                String charStr = String.valueOf(c);
-                charSum += charToIntMap.getOrDefault(charStr, 1000000);
-                if (charToIntMap.getOrDefault(charStr, 1000000) == 1000000) {
-                    System.err.println("Character not found in mapping: " + charStr);
-                    System.err.println("Word: " + word);
-                    System.err.println("Index: " + domainIndex);
-                    throw new Exception("Character not found");
-                }
-            }
-            lengthTokens[i]=charSum;
+        String [] corrected_sentences = new String[sentences.size()];
+        for(int i=0;i<100;i++){
+            corrected_sentences[i] = sentences.get(i).split(",")[0].strip();
         }
 
-        List<List<Integer>> corpusWords = new ArrayList<>();
-        ObjectMapper objectMapperWords = new ObjectMapper();
-        try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
-            corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
-            //corpusWords = corpusWords.subList(0, 30);//Testing
-        } catch (Exception e) {
-            e.printStackTrace();
+        HttpClient client = HttpClient.newHttpClient();
+
+        int[][] tokens = new int[corrected_sentences.length][];
+
+        for(int i = 0; i<corrected_sentences.length;i++){
+            HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("http://localhost:5000/tokenize"))
+            .POST(HttpRequest.BodyPublishers.ofString(" "+corrected_sentences[i]))
+            .build();
+            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+            int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
+            tokens[i]= Arrays.copyOfRange(split_response, 1, split_response.length);
         }
 
-
-        Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
-        Map<Integer, Integer> initialTrans = transitions.computeIfAbsent(0, k -> new HashMap<>());
-        initialTrans.put(indexToCorpusDomain.get(13), 1);
-        Map<Integer, Integer> finalTrans = transitions.computeIfAbsent(1, k -> new HashMap<>());
-        finalTrans.put(indexToCorpusDomain.get(13), 1);
-        int stateCounter = 2;
-
-        ArrayList<Integer> terminalStates = new ArrayList<>();
-        for (List<Integer> seq : corpusWords) {
-            int currentState = 0;
-            if (seq.contains(6)) {
-                continue;
+        for (int t = 0; t<tokens.length;t++)
+        {
+            List<String> lines = Collections.emptyList();
+            try {
+                lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/tokenizer_dict.txt"),StandardCharsets.UTF_8);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
             }
 
-            for (int i = 0; i < seq.size(); i++) {
-                
-                Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
-
-                int input = indexToCorpusDomain.get(seq.get(i));
-
-                Integer nextState = currentTrans.get(input);
-                if (nextState == null) {
-                    nextState = stateCounter++;
-                    currentTrans.put(input, nextState);
-                }
-
-                currentState = nextState;
-
-                if(seq.size()-1==i){
-                    terminalStates.add(currentState);
-                }
-            }
-        }
-        for (int state : terminalStates) {
-            Map<Integer, Integer> currentTrans =transitions.computeIfAbsent(state, k -> new HashMap<>());
-            initialTrans = transitions.get(0);
-            currentTrans.putAll(initialTrans);
-        }
-
-        int numStates = stateCounter;
-        int[][] table = new int[numStates][corpusDomains.size()];
-        for (int[] row : table) Arrays.fill(row, -1);
-
-        for (Entry<Integer, Map<Integer, Integer>> fromEntry : transitions.entrySet()) {
-            int from = fromEntry.getKey();
-            for (Entry<Integer, Integer> inputEntry : fromEntry.getValue().entrySet()) {
-                int input = inputEntry.getKey();
-                int to = inputEntry.getValue();
-                table[from][input] = to;
-            }
-        }
         
-        /* 
-        System.out.println("Transition Table:");
-        System.out.print("State/Input\t");
-        System.out.println();
-        for (int i = 0; i < table.length; i++) {
-            System.out.print("State " + i + "\t");
-            for (int j = 0; j < table[i].length; j++) {
-                if (table[i][j] != -1) {
-                    System.out.print("Column " + corpusDomains.get(j) + ": " + table[i][j] + "\t");
+            int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
+
+            String[] corrected_lines = new String[token_size];
+            Arrays.fill(corrected_lines, "");
+            for(int i=0;i<lines.size();i++){
+                String[] line = lines.get(i).split("::");
+                if(line.length>1){
+                    corrected_lines[Integer.parseInt(line[0])]=line[1];
                 }
             }
-            System.out.println();
-        }*/
+            final List<String> words = Arrays.asList(corrected_lines);
+            
+            List<Integer> corpusDomains = new ArrayList<>();
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_domain.json")), StandardCharsets.UTF_8);
+                corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
+                corpusDomains.add(15);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Map<Integer, Integer> indexToCorpusDomain = new HashMap<>();
+            for (int i = 0; i < corpusDomains.size(); i++) {
+                indexToCorpusDomain.put(corpusDomains.get(i), i);
+            }
 
-        final int LINE_SIZE = 15896;
-        final int SPACE_SIZE =512;
-        final int MIN_SPACE_SIZE =410;
-        final int MAX_SPACE_SIZE =640;
-        final int MAX_NUMBER_SPACE = 5;
-        final int MIN_NUMBER_WORD = 9;
-        final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
-        final boolean PRINT_TRACE = false;
-        final int NUM_PB = 3;
-        final double w =2.0;
-        final int NUM_ITERATIONS = 4;
-        final int NUM_TOKENS =30;
+            List<Integer> capitalized_words= new ArrayList<>();
+            for(int i=0; i<corpusDomains.size(); i++){
+                if(words.get(corpusDomains.get(i)).strip().length()!=0 && Character.isUpperCase(words.get(corpusDomains.get(i)).strip().charAt(0))){
+                    capitalized_words.add(i);
+                }
+            }
+
+            int[] start_words  = new int[corpusDomains.size()];
+            for(int i=0; i<corpusDomains.size(); i++){
+                if(words.get(corpusDomains.get(i)).length()!=0 && words.get(corpusDomains.get(i)).charAt(0)==' '){
+                    start_words[i]=1;
+                }
+            }
+
+            String charToIntFilePath = "./src/main/java/minicpbp/examples/data/MNREAD/TimesCost_modified.json";
+            Map<String, Integer> charToIntMap = new HashMap<>();
+            try {
+                String charToIntJson = new String(Files.readAllBytes(Paths.get(charToIntFilePath)), StandardCharsets.UTF_8);
+                charToIntMap = objectMapper.readValue(charToIntJson, new TypeReference<Map<String, Integer>>() {});
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            int[] lengthTokens = new int[corpusDomains.size()];
+            int[] charNum = new int[corpusDomains.size()];
+            for (int i = 0; i < corpusDomains.size(); i++) {
+                int domainIndex = corpusDomains.get(i);
+                String word = words.get(domainIndex);
+                int charSum = 0;
+                if(i==corpusDomains.size()-1){
+                    charNum[i]=0;
+                    lengthTokens[i]=0;
+                    continue;
+                }
+                charNum[i]=word.length();
+                for (char c : word.toCharArray()) {
+                    if(word.length()==0){
+                        break;
+                    }
+                    String charStr = String.valueOf(c);
+                    charSum += charToIntMap.getOrDefault(charStr, 1000000);
+                    if (charToIntMap.getOrDefault(charStr, 1000000) == 1000000) {
+                        System.err.println("Character not found in mapping: " + charStr);
+                        System.err.println("Word: " + word);
+                        System.err.println("Index: " + domainIndex);
+                        throw new Exception("Character not found");
+                    }
+                }
+                lengthTokens[i]=charSum;
+            }
+
+            /*List<List<Integer>> corpusWords = new ArrayList<>();
+            ObjectMapper objectMapperWords = new ObjectMapper();
+            try {
+                String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
+                corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
+                //corpusWords = corpusWords.subList(0, 30);//Testing
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
-        Solver cp = makeSolver();
-        IntVar[] sizes = makeIntVarArray(cp, NUM_TOKENS, Arrays.stream(lengthTokens).min().getAsInt(), Arrays.stream(lengthTokens).max().getAsInt());
-        IntVar[] word_index = makeIntVarArray(cp, sizes.length, 0, corpusDomains.size()-1);
-        IntVar[] has_space = makeIntVarArray(cp, sizes.length, 0, 1);
-        IntVar[] num_char = makeIntVarArray(cp, sizes.length, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
-        for (int i=0; i<sizes.length; i++){
-            sizes[i].setName("size["+i+"]");
-            word_index[i].setName("word_index["+i+"]");
-            cp.post(element(lengthTokens, word_index[i], sizes[i]));
-            cp.post(element(start_words, word_index[i], has_space[i]));
-            cp.post(element(charNum, word_index[i], num_char[i]));
+            Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
+            Map<Integer, Integer> initialTrans = transitions.computeIfAbsent(0, k -> new HashMap<>());
+            initialTrans.put(indexToCorpusDomain.get(13), 1);
+            Map<Integer, Integer> finalTrans = transitions.computeIfAbsent(1, k -> new HashMap<>());
+            finalTrans.put(indexToCorpusDomain.get(13), 1);
+            int stateCounter = 2;
+
+            ArrayList<Integer> terminalStates = new ArrayList<>();
+            for (List<Integer> seq : corpusWords) {
+                int currentState = 0;
+                if (seq.contains(6)) {
+                    continue;
+                }
+
+                for (int i = 0; i < seq.size(); i++) {
+                    
+                    Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
+
+                    int input = indexToCorpusDomain.get(seq.get(i));
+
+                    Integer nextState = currentTrans.get(input);
+                    if (nextState == null) {
+                        nextState = stateCounter++;
+                        currentTrans.put(input, nextState);
+                    }
+
+                    currentState = nextState;
+
+                    if(seq.size()-1==i){
+                        terminalStates.add(currentState);
+                    }
+                }
+            }
+            for (int state : terminalStates) {
+                Map<Integer, Integer> currentTrans =transitions.computeIfAbsent(state, k -> new HashMap<>());
+                initialTrans = transitions.get(0);
+                currentTrans.putAll(initialTrans);
+            }
+
+            int numStates = stateCounter;
+            int[][] table = new int[numStates][corpusDomains.size()];
+            for (int[] row : table) Arrays.fill(row, -1);
+
+            for (Entry<Integer, Map<Integer, Integer>> fromEntry : transitions.entrySet()) {
+                int from = fromEntry.getKey();
+                for (Entry<Integer, Integer> inputEntry : fromEntry.getValue().entrySet()) {
+                    int input = inputEntry.getKey();
+                    int to = inputEntry.getValue();
+                    table[from][input] = to;
+                }
+            }*/
+            
+
+
+            final int LINE_SIZE = 15896;
+            final int SPACE_SIZE =512;
+            final int MIN_SPACE_SIZE =410;
+            final int MAX_SPACE_SIZE =640;
+            final int MAX_NUMBER_SPACE = 5;
+            final int MIN_NUMBER_WORD = 9;
+            final int MAX_NUMBER_WORD = 15;
+            final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
+            final boolean PRINT_TRACE = false;
+            final int NUM_PB = 3;
+            final double w =2.0;
+            final int NUM_ITERATIONS = 4;
+            //final int NUM_TOKENS =30;
+            final int NUM_TOKENS =tokens[t].length;
+
+
+            Solver cp = makeSolver();
+            IntVar[] sizes = makeIntVarArray(cp, NUM_TOKENS, Arrays.stream(lengthTokens).min().getAsInt(), Arrays.stream(lengthTokens).max().getAsInt());
+            IntVar[] word_index = makeIntVarArray(cp, sizes.length, 0, corpusDomains.size()-1);
+            IntVar[] has_space = makeIntVarArray(cp, sizes.length, 0, 1);
+            IntVar[] num_char = makeIntVarArray(cp, sizes.length, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
+            for (int i=0; i<sizes.length; i++){
+                sizes[i].setName("size["+i+"]");
+                word_index[i].setName("word_index["+i+"]");
+                cp.post(element(lengthTokens, word_index[i], sizes[i]));
+                cp.post(element(start_words, word_index[i], has_space[i]));
+                cp.post(element(charNum, word_index[i], num_char[i]));
+            }
+
+            IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
+            
+            cp.post(sum(has_space, nb_words));
+            cp.post(sum(num_char, NUMBER_CHAR));
+
+
+
+            int nbLines = 3;
+            IntVar[] line = makeIntVarArray(cp, sizes.length, nbLines);
+            for (int i=0; i<line.length; i++)
+                line[i].setName("line["+i+"]");
+
+
+
+
+            IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
+            for (int i=0; i<lineSize.length; i++)
+                lineSize[i].setName("lineSize["+i+"]");
+            line[0].assign(0);
+            line[line.length-1].assign(nbLines-1);
+            for (int i=0; i<line.length-1; i++) {
+                cp.post(lessOrEqual(line[i], line[i + 1]));
+                cp.post(lessOrEqual(line[i + 1],plus(line[i],1)));
+                BoolVar[] changeLine = new BoolVar[2];
+                changeLine[0]= Factory.isEqual(line[i], line[i + 1]);
+                changeLine[1]= Factory.isEqual(has_space[i+1], 1);
+                cp.post(Factory.or(changeLine));
+            }
+            cp.post(binPacking(line,sizes,lineSize));
+
+
+            List<Integer> acceptedState = new ArrayList<>();
+            int[][] A = new int[3][corpusDomains.size()];
+            acceptedState.add(1);
+            acceptedState.add(2);
+            Arrays.fill(A[0], -1);
+            for(int index:capitalized_words){A[0][index]=1;}
+            Arrays.fill(A[1], 1);
+            A[1][corpusDomains.size()-1]=2;
+            Arrays.fill(A[2], -1);
+            A[2][corpusDomains.size()-1]=2;
+            cp.post(Factory.regular(word_index, A, 0, acceptedState));
+
+            //Words regular
+            //cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
+
+            for (int i=0; i<tokens[t].length-1; i++){
+                word_index[i].assign(indexToCorpusDomain.get(tokens[t][i]));
+            }
+            
+            
+            DFSearch search = Factory.makeDfs(cp, maxMarginal(word_index));
+            final List<Integer> finalCorpusDomains = corpusDomains;
+            search.onSolution(() ->{
+                    String[] sentence = new String[word_index.length];
+                    for(int i = 0; i < word_index.length; i++) {
+                        sentence[i] = words.get(finalCorpusDomains.get(word_index[i].max()));
+                    }
+                    int[] final_tokens = new int[word_index.length];
+                    for(int i = 0; i < word_index.length; i++) {
+                        final_tokens[i] = finalCorpusDomains.get(word_index[i].max());
+                    }
+                    System.out.println("solution:" + Arrays.toString(sentence));
+                    System.out.println("tokens:" + Arrays.toString(final_tokens));
+                    }
+            );
+            SearchStatistics stats = search.solve(statistics -> statistics.numberOfSolutions() == 1);
+            System.out.format("#Solutions: %s\n", stats.numberOfSolutions());
+            System.out.format("Statistics: %s\n", stats);
+            System.out.format("Time: %s\n", stats.timeElapsed());
+            System.out.println("-----");
         }
-
-        IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
-        
-        cp.post(sum(has_space, nb_words));
-        cp.post(sum(num_char, NUMBER_CHAR));
-
-
-
-        int nbLines = 3;
-        IntVar[] line = makeIntVarArray(cp, sizes.length, nbLines);
-        for (int i=0; i<line.length; i++)
-            line[i].setName("line["+i+"]");
-
-
-
-
-        IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
-        for (int i=0; i<lineSize.length; i++)
-            lineSize[i].setName("lineSize["+i+"]");
-        line[0].assign(0);
-        line[line.length-1].assign(nbLines-1);
-        for (int i=0; i<line.length-1; i++) {
-            cp.post(lessOrEqual(line[i], line[i + 1]));
-            cp.post(lessOrEqual(line[i + 1],plus(line[i],1)));
-            BoolVar[] changeLine = new BoolVar[2];
-            changeLine[0]= Factory.isEqual(line[i], line[i + 1]);
-            changeLine[1]= Factory.isEqual(has_space[i+1], 1);
-            cp.post(Factory.or(changeLine));
-        }
-        cp.post(binPacking(line,sizes,lineSize));
-
-
-        List<Integer> acceptedState = new ArrayList<>();
-        int[][] A = new int[3][corpusDomains.size()];
-        acceptedState.add(1);
-        acceptedState.add(2);
-        Arrays.fill(A[0], -1);
-        for(int index:capitalized_words){A[0][index]=1;}
-        Arrays.fill(A[1], 1);
-        A[1][corpusDomains.size()-1]=2;
-        Arrays.fill(A[2], -1);
-        A[2][corpusDomains.size()-1]=2;
-        cp.post(Factory.regular(word_index, A, 0, acceptedState));
-
-        //Words regular
-        cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
-        
-        
-        DFSearch search = Factory.makeDfs(cp, maxMarginal(word_index));
-        final List<Integer> finalCorpusDomains = corpusDomains;
-        search.onSolution(() ->{
-                String[] sentence = new String[word_index.length];
-                for(int i = 0; i < word_index.length; i++) {
-                    sentence[i] = words.get(finalCorpusDomains.get(word_index[i].max()));
-                }
-                int[] tokens = new int[word_index.length];
-                for(int i = 0; i < word_index.length; i++) {
-                    tokens[i] = finalCorpusDomains.get(word_index[i].max());
-                }
-                System.out.println("solution:" + Arrays.toString(sentence));
-                System.out.println("tokens:" + Arrays.toString(tokens));
-                }
-        );
-        SearchStatistics stats = search.solve();
-        System.out.format("#Solutions: %s\n", stats.numberOfSolutions());
-        System.out.format("Statistics: %s\n", stats);
-        System.out.format("Time: %s\n", stats.timeElapsed());
-        System.out.println("-----");
     }
 }
         

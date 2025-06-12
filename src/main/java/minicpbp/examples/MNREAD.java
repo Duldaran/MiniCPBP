@@ -65,13 +65,14 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class MNREAD {
     public static void main(String[] args) throws Exception {
-        final int END_TOKEN = 13;
+        final int END_TOKEN = 15;//
+        final String llm_name="zephyr";//
 
         List<Logging> logs = new ArrayList<>();
 
         List<String> lines = Collections.emptyList();
          try {
-             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/tokenizer_dict_llama.txt"),StandardCharsets.UTF_8);
+             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/tokenizer_dict.txt"),StandardCharsets.UTF_8);
          }
          catch (Exception e) {
              e.printStackTrace();
@@ -93,17 +94,20 @@ public class MNREAD {
         List<Integer> corpusDomains = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_domain.json")), StandardCharsets.UTF_8);
+            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_domain.json")), StandardCharsets.UTF_8);
             corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
-            corpusDomains.remove(Integer.valueOf(6));
+            corpusDomains.remove(Integer.valueOf(8));
             corpusDomains.add(END_TOKEN);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         Map<Integer, Integer> indexToCorpusDomain = new HashMap<>();
         for (int i = 0; i < corpusDomains.size(); i++) {
             indexToCorpusDomain.put(corpusDomains.get(i), i);
         }
+
+        System.out.println("corpusDomains size: " + corpusDomains.size());
 
         List<Integer> capitalized_words= new ArrayList<>();
         for(int i=0; i<corpusDomains.size(); i++){
@@ -156,10 +160,10 @@ public class MNREAD {
             lengthTokens[i]=charSum;
         }
 
-        List<List<Integer>> corpusWords = new ArrayList<>();
+        /*List<List<Integer>> corpusWords = new ArrayList<>();
         ObjectMapper objectMapperWords = new ObjectMapper();
         try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
+            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
             corpusWords.add(List.of(END_TOKEN));
         } catch (Exception e) {
@@ -216,7 +220,7 @@ public class MNREAD {
                 int to = inputEntry.getValue();
                 table[from][input] = to;
             }
-        }
+        }*/
 
         final int LINE_SIZE = 15896;
         final int SPACE_SIZE =512;
@@ -228,8 +232,8 @@ public class MNREAD {
         final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w =0.5;
-        final int NUM_ITERATIONS = 2;
+        final double w =1.2;
+        final int NUM_ITERATIONS = 10;
 
     for(int iter=0;iter<NUM_ITERATIONS;iter++){
 
@@ -289,25 +293,18 @@ public class MNREAD {
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
         //Words regular
-        cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
+        //cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
         
                 
         HttpClient client = HttpClient.newHttpClient();
         
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
         
-        final int[] default_initial_token = {358, 578};
-        
-        Random random = new Random();
-        int randomIndex = random.nextInt(default_initial_token.length);
-        int randomElement = default_initial_token[randomIndex];
-        word_index[0].assign(indexToCorpusDomain.get(randomElement));
     
-        String current_sentence = "";
-        current_sentence += words.get(randomElement);
+        String current_sentence = " ";
         Double logSumProbs = 0.0;
-        int num_tok=1;
-        for (int i = 1; i < sizes.length; i++) {
+        int num_tok=0;
+        for (int i = 0; i < sizes.length; i++) {
             // Makes the request
             HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:5000/token"))
@@ -337,6 +334,11 @@ public class MNREAD {
                     int token_index=indexToCorpusDomain.get(token);
                     tokens[token_index] = token_index;
                     scores[token_index] = score;
+                    if (score < 0) {
+                        System.out.println("Score is negative: " + score);
+                        System.out.println("Token: " + token);
+                        continue;
+                    }
                     total_score += score;
 
                     if (score > max_score) {
@@ -349,11 +351,18 @@ public class MNREAD {
                     System.err.println(e);
                 }
             }
-            for (double score : scores) {
+            for (int j=0; j<tokens.length; j++) {
+                double score=scores[j];
                 if (score > 0) {
                     score /= total_score;
                 }
+                else if (score == 0) {
+                    System.out.println("Score is zero: " + score);
+                    System.out.println("Token: " + corpusDomains.get(tokens[j]));
+                }
                 else {
+                    System.out.println("Score is negative: " + score);
+                    System.out.println("Token: " + corpusDomains.get(tokens[j]));
                     throw new Exception("Score is negative or zero");
                 }
             }
@@ -428,8 +437,8 @@ public class MNREAD {
                }
            }
 
-           word_index[i].assign(word_index[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
-            int chosen = word_index[i].valueWithMaxMarginal();
+           int chosen = word_index[i].biasedWheelValue();
+           word_index[i].assign(chosen);//TODO : Trouver un meilleur sampling
             num_tok++;
             if (0<=chosen && chosen<scores.length) {
                 logSumProbs += Math.log(scores[chosen]);

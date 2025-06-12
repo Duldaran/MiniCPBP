@@ -62,7 +62,7 @@ import java.util.Vector;
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
          ObjectMapper objectMapper = new ObjectMapper();
-         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/old_commongen.json"));
+         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
  
          List<String> lines = Collections.emptyList();
