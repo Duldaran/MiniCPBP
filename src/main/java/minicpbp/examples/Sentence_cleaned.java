@@ -100,9 +100,9 @@ import java.util.Vector;
 
          List<Logging> logs = new ArrayList<>();
          int count=0;
-         elements.next();
+         //elements.next();
 
-        final int MAX_COUNT = 40;
+        final int MAX_COUNT = 400;
         final boolean PRINT_TRACE = false;
 
          while (elements.hasNext() && count<MAX_COUNT) {
