@@ -24,7 +24,8 @@
  import minicpbp.util.exception.InconsistencyException;
  
  import java.io.IOException;
- import java.net.http.HttpClient;
+import java.io.PrintStream;
+import java.net.http.HttpClient;
  import java.nio.charset.StandardCharsets;
  import java.nio.file.Files;
  import java.nio.file.Paths;
@@ -57,7 +58,8 @@ import java.util.Vector;
  import com.fasterxml.jackson.databind.node.ArrayNode;
  
  import java.io.File;
- import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.IOException;
  
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
@@ -67,7 +69,7 @@ import java.util.Vector;
  
          List<String> lines = Collections.emptyList();
          try {
-             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_gpt2.txt"),StandardCharsets.UTF_8);//Change with the llm
+             lines = Files.readAllLines(Paths.get("./src/main/java/minicpbp/examples/data/Sentence/tokenizer_dict_zephyr.txt"),StandardCharsets.UTF_8);//Change with the llm
          }
          catch (Exception e) {
              e.printStackTrace();
@@ -100,10 +102,12 @@ import java.util.Vector;
 
          List<Logging> logs = new ArrayList<>();
          int count=0;
-         //elements.next();
+         elements.next();//** */
 
-        final int MAX_COUNT = 400;
-        final boolean PRINT_TRACE = false;
+        final int MAX_COUNT = 1;//** */
+        final boolean PRINT_TRACE = true;
+        PrintStream fileOut = new PrintStream(new FileOutputStream("output.txt"));
+        System.setOut(fileOut);
 
          while (elements.hasNext() && count<MAX_COUNT) {
              count++;
@@ -118,7 +122,7 @@ import java.util.Vector;
              final int NUM_PB=3;
              final double w = 1.2;
              final int SENTENCE_MAX_NUMBER_TOKENS=30;
-             final int END_TOKEN=50256;//Change with llm
+             final int END_TOKEN=0;//Change with llm
  
              
              HttpClient client = HttpClient.newHttpClient();
@@ -164,7 +168,7 @@ import java.util.Vector;
                  A[3][END_TOKEN]=3;
                  cp.post(Factory.regular(q, A, 0, acceptedState));
 
-
+                ArrayList<Integer> required_tokens = new ArrayList<>();
                  for(int i = 0; i<REQUIRED_WORDS.length;i++){
                      HttpRequest request = HttpRequest.newBuilder()
                      .uri(URI.create("http://localhost:5000/tokenize"))
@@ -174,6 +178,7 @@ import java.util.Vector;
                      int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
                      int id = split_response[0];
                      int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
+                     required_tokens.addAll(Arrays.stream(tokens).boxed().collect(Collectors.toList()));
                      if(id==-1){
                         List<Integer> endState = new ArrayList<>();
                         endState.add(tokens.length);
@@ -193,6 +198,8 @@ import java.util.Vector;
                         cp.post(Factory.atleast(q, tokens, 1));
                      }
                  }
+                required_tokens.add(END_TOKEN);
+                required_tokens.add(1000);
 
                  
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
@@ -250,7 +257,7 @@ import java.util.Vector;
                      if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
                      cp.post(c);
                      if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
-                     if(PRINT_TRACE) 
+                     /*if(PRINT_TRACE) 
                      {
                         double[] temp = scores.clone();
                         Arrays.sort(temp);
@@ -261,7 +268,12 @@ import java.util.Vector;
                                 }
                             }
                         }
-                    }
+                    }*/
+                     if(PRINT_TRACE){
+                        for (int token : required_tokens) {
+                            System.out.println("GPT, before BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + scores[token]);
+                        }
+                     }
 
                      try {
                          cp.fixPoint();
@@ -277,7 +289,7 @@ import java.util.Vector;
                          current_sentence += " ERROR";
                          break;
                      }
-                     if(PRINT_TRACE) 
+                     /*if(PRINT_TRACE) 
                      {
                         TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
                         for(int j=0; j<q[i].size(); j++){
@@ -291,13 +303,19 @@ import java.util.Vector;
                             int token = bestTokens.remove(prob);
                             System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
                         }
-                    }
+                    }*/
+                    if(PRINT_TRACE){
+                        
+                        for (int token : required_tokens) {
+                            System.out.println("CP model, before BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + q[i].marginal(token));
+                        }
+                     }
 
                     if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
                      cp.vanillaBP(NUM_PB);
                      if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
                      
-                     if(PRINT_TRACE) 
+                     /*if(PRINT_TRACE) 
                      {
                         TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
                         for(int j=0; j<q[i].size(); j++){
@@ -311,7 +329,14 @@ import java.util.Vector;
                             int token = bestTokens.remove(prob);
                             System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
                         }
-                    }
+                    }*/
+
+                    if(PRINT_TRACE){
+                        
+                        for (int token : required_tokens) {
+                            System.out.println("after BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + q[i].marginal(token));
+                        }
+                     }
 
                      q[i].assign(q[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
                      int chosen = q[i].valueWithMaxMarginal();

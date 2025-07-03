@@ -14,12 +14,12 @@ app = Flask(__name__)
 gc.collect()
 
 #model_name = "meta-llama/Llama-3.2-3B"
-model_name = "../Ctrl-G/ctrlg/gpt2-large_common-gen"
-#model_name ="stabilityai/stablelm-zephyr-3b"
+#model_name = "../Ctrl-G/ctrlg/gpt2-large_common-gen"
+model_name ="stabilityai/stablelm-zephyr-3b"
 device='cuda' if torch.cuda.is_available() else 'cpu'
-#model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
-tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+#model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
     
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
