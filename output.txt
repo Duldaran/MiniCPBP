@@ -1,364 +1,783 @@
-Using 3 iterations of BP
-# Instruction  Given several concepts (i.e., nouns or verbs), write a short and simple sentence that contains *all* the required words. The sentence should describe a common scene in daily life, and the concepts should be used in a natural way.  # Examples  ## Example 1 - Concepts: dog(noun), frisbee(noun), catch(verb), throw(verb) - Sentence: The dog catches the frisbee when the boy throws it into the air.  ## Example 2 - Concepts: apple(noun), place(verb), tree(noun), pick(verb) - Sentence: A girl picks some apples from a tree and places them into her basket.  # Your Task   - Concepts: food(noun), front(noun), sit(verb), table(noun) - Sentence: 
-token 0
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 4553, 'After', 0.37263959646224976
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0064529654130183E-8
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 5.635288676669736E-12
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.0
-CP model, before BP (max token, 'the word', its probability) 39596, 'Tensor', 1.0
-after BP (max token, 'the word', its probability) 4553, 'After', 0.44495188104325145
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-after BP (token, 'the word', its probability) 1000, 'err', 1.0
-sentence so far:  After
-token 1
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 9123, ' eating', 0.6753365993499756
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 8.384303384900704E-8
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 6.926014124199187E-13
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868690149E-5
-CP model, before BP (max token, 'the word', its probability) 50304, '', 1.987942868690149E-5
-after BP (max token, 'the word', its probability) 9123, ' eating', 0.7843623488124883
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-after BP (token, 'the word', its probability) 1000, 'err', 3.2186402790301966E-15
-sentence so far:  After eating
-token 2
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 617, ' her', 0.585856020450592
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 5.410246917136874E-9
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 3.8215641588734695E-12
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0093465839764253E-131
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428677928757E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428712919186E-5
-after BP (max token, 'the word', its probability) 617, ' her', 0.6672954611423656
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0093465839764253E-131
-after BP (token, 'the word', its probability) 1000, 'err', 2.521497142911812E-14
-sentence so far:  After eating her
-token 3
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 2739, ' food', 0.7221237421035767
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 3.586279717637808E-8
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.0574236487668623E-13
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.9034101612645273E-128
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686406953E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428688407835E-5
-after BP (max token, 'the word', its probability) 2739, ' food', 0.7930237675259926
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.9034101612645273E-128
-after BP (token, 'the word', its probability) 1000, 'err', 6.99746488526778E-16
-sentence so far:  After eating her food
-token 4
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 13, ',', 0.9992721676826477
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.8653543154556473E-9
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 3.2013464551809354E-14
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0282726393891433E-122
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428683260714E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428697347926E-5
-after BP (max token, 'the word', its probability) 13, ',', 0.9998824716809078
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0282726393891433E-122
-after BP (token, 'the word', its probability) 1000, 'err', 6.408075465205639E-17
-sentence so far:  After eating her food,
-token 5
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 253, ' the', 0.871031641960144
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.259659291960816E-9
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.2185217598007408E-14
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.9529149576344213E-118
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868482466E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428692866796E-5
-after BP (max token, 'the word', its probability) 253, ' the', 0.9349210575410344
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.9529149576344213E-118
-after BP (token, 'the word', its probability) 1000, 'err', 4.549992226180296E-17
-sentence so far:  After eating her food, the
-token 6
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 3416, ' woman', 0.8737195134162903
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 3.2379715575459045E-10
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.7636453137091805E-15
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.9640021188456304E-113
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428684166836E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428694800098E-5
-after BP (max token, 'the word', its probability) 3416, ' woman', 0.9214802882950826
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.9640021188456304E-113
-after BP (token, 'the word', its probability) 1000, 'err', 3.6695970088812395E-18
-sentence so far:  After eating her food, the woman
-token 7
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 17954, ' sits', 0.9822256565093994
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.9549342145097626E-9
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 3.9329988918423986E-12
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.1984863427518742E-111
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686912846E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428686925744E-5
-after BP (max token, 'the word', its probability) 17954, ' sits', 0.994629598928941
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.1984863427518742E-111
-after BP (token, 'the word', its probability) 1000, 'err', 2.0925528677479917E-14
-sentence so far:  After eating her food, the woman sits
-token 8
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 275, ' in', 0.48731091618537903
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.2638549757612054E-7
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 8.840334714266262E-12
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 9.47864977067789E-105
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868638316E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868841121E-5
-after BP (max token, 'the word', its probability) 275, ' in', 0.5110453341509947
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 9.47864977067789E-105
-after BP (token, 'the word', its probability) 1000, 'err', 6.589531066877319E-14
-sentence so far:  After eating her food, the woman sits in
-token 9
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 2914, ' front', 0.9935575127601624
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.8322389438996112E-10
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.3873185030779077E-14
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.141139239230797E-98
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428641723445E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428817862665E-5
-after BP (max token, 'the word', its probability) 2914, ' front', 0.9976531878784706
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.141139239230797E-98
-after BP (token, 'the word', its probability) 1000, 'err', 2.3602575474004722E-17
-sentence so far:  After eating her food, the woman sits in front
-token 10
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 273, ' of', 0.9999992847442627
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.968429668737116E-11
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.927533536448238E-16
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.4387758329248726E-98
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686906418E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428686910172E-5
-after BP (max token, 'the word', its probability) 273, ' of', 0.9999999716185719
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.4387758329248726E-98
-after BP (token, 'the word', its probability) 1000, 'err', 2.289826699960511E-19
-sentence so far:  After eating her food, the woman sits in front of
-token 11
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 253, ' the', 0.9995007514953613
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.2335321653011988E-10
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 4.722064155946099E-16
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.3878407637693862E-94
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686906825E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428686907225E-5
-after BP (max token, 'the word', its probability) 253, ' the', 0.9999025088156837
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.3878407637693862E-94
-after BP (token, 'the word', its probability) 1000, 'err', 4.066082330313523E-19
-sentence so far:  After eating her food, the woman sits in front of the
-token 12
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 2829, ' table', 0.9994049072265625
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0521218340997507E-9
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 4.046523045028033E-14
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 7.610952931735285E-89
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686908102E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428686910647E-5
-after BP (max token, 'the word', its probability) 2829, ' table', 0.9999092184396995
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 7.610952931735285E-89
-after BP (token, 'the word', its probability) 1000, 'err', 8.487293500905654E-17
-sentence so far:  After eating her food, the woman sits in front of the table
-token 13
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 281, ' to', 0.4930395781993866
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.785945293406257E-7
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.331981396180849E-12
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.6940358999727413E-81
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868659654E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428687721854E-5
-after BP (max token, 'the word', its probability) 281, ' to', 0.5485732986592854
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.6940358999727413E-81
-after BP (token, 'the word', its probability) 1000, 'err', 1.4094400977882395E-14
-sentence so far:  After eating her food, the woman sits in front of the table to
-token 14
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 7921, ' relax', 0.35249412059783936
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.4823939409325249E-7
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.929921236183297E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.656338000565514E-73
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942778717393E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879431295008195E-5
-after BP (max token, 'the word', its probability) 7921, ' relax', 0.4035824906566609
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.656338000565514E-73
-after BP (token, 'the word', its probability) 1000, 'err', 3.232787794504817E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax
-token 15
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 15, '.', 0.9116449952125549
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.105657358697499E-6
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.336043862348868E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0252331796849054E-69
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428617841442E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428886983942E-5
-after BP (max token, 'the word', its probability) 15, '.', 0.94645363525766
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0252331796849054E-69
-after BP (token, 'the word', its probability) 1000, 'err', 9.44698662882162E-14
-sentence so far:  After eating her food, the woman sits in front of the table to relax.
-token 16
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 2490, ' ', 0.31371015310287476
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.30202314257621765
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 2.7357006633990655E-13
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0987617037676571E-64
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942853980567E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942911321802E-5
-after BP (max token, 'the word', its probability) 2490, ' ', 0.5174125859379912
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0987617037676571E-64
-after BP (token, 'the word', its probability) 1000, 'err', 1.7477728547163951E-15
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 17
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.4951097590851322E-58
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942470854972E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987944021957496E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984976
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.4951097590851322E-58
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696534E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 18
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 8.67236642450098E-58
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868645427E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868824285E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984976
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 8.67236642450098E-58
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696534E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 19
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.362482725788154E-53
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868644673E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868823531E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984976
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 4.362482725788154E-53
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696536E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 20
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.1944708746383522E-48
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686446588E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428688235172E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984977
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.1944708746383522E-48
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696539E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 21
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.1038903125444422E-43
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868644227E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428688230853E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984974
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.1038903125444422E-43
-after BP (token, 'the word', its probability) 1000, 'err', 1.551770560269653E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 22
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 5.5529277522659405E-39
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879428686444297E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868823288E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984976
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 5.5529277522659405E-39
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696539E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 23
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.793303489610957E-34
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868644754E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868823612E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984975
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 2.793303489610957E-34
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696536E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 24
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.4051226187695394E-29
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868645466E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868824324E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984975
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.4051226187695394E-29
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696536E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 25
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 7.068224348383721E-25
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868644981E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.987942868823839E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984977
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 7.068224348383721E-25
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696539E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 26
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 3.555547022860261E-20
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.987942868007555E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879428681864133E-5
-after BP (max token, 'the word', its probability) 187, '', 0.9369197740984961
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 3.555547022860261E-20
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705602696513E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 27
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.7885559389049537E-15
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.9879134859605912E-5
-CP model, before BP (max token, 'the word', its probability) 34, 'A', 1.9879134861394466E-5
-after BP (max token, 'the word', its probability) 187, '', 0.936919774035827
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.7885559389049537E-15
-after BP (token, 'the word', its probability) 1000, 'err', 1.5517705601658557E-13
-sentence so far:  After eating her food, the woman sits in front of the table to relax. 
-token 28
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 187, '', 0.8924721479415894
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.001042491989210248
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.994644900638054E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 8.997151794459386E-11
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.0
-CP model, before BP (max token, 'the word', its probability) 964, '.', 0.9999999999100285
-after BP (max token, 'the word', its probability) 964, '.', 1.0
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 8.997151794459386E-11
-after BP (token, 'the word', its probability) 1000, 'err', 1.0
-sentence so far:  After eating her food, the woman sits in front of the table to relax. .
-token 29
-oracle's weight set to 1.2
-GPT, before BP (max token, 'the word', its probability) 0, '<|endoftext|>', 0.32993894815444946
-GPT, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 0.32993894815444946
-GPT, before BP (token, 'the word', its probability) 1000, 'err', 1.1719819559274924E-11
-CP model, before BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-CP model, before BP (token, 'the word', its probability) 1000, 'err', 1.0
-CP model, before BP (max token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-after BP (max token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-after BP (token, 'the word', its probability) 0, '<|endoftext|>', 1.0
-after BP (token, 'the word', its probability) 1000, 'err', 1.0
-Chose a value not in the nlp model
-sentence so far:  After eating her food, the woman sits in front of the table to relax. .<|endoftext|>
-solution :  After eating her food, the woman sits in front of the table to relax. .<|endoftext|>
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After eating her food, the woman sits in front of the table to relax.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The teacher uses the machine to demonstrate how to sew a simple dress.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The car drives on the road while the water is splashed by the wheels.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The background decorate with colorful lights and music playing softly in the background as people enjoy the festive atmosphere under the tree.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The man boards the boat and rides it through the calm water.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The audience dances in the front of the stage as the music plays.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  While walking down the street, the cellphone user talks to their friend about their day.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog walks on the beach and plays with the sand, while the people relax on the shore.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The machine sews the piece of fabric together to create a beautiful dress. In this task, you are asked to create a simple sentence sewing.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After shave, the man stands in the bathtub with one leg raised, preparing to shave the other leg.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The object spins when someone throws it a certain distance.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The girl takes a picture of the front of the house from the stand she placed earlier.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  Sitting in the cozy café, I enjoy reading the newspaper while drinking a warm coffee.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The teacher clap singe along with the students as they all sing a beautiful song together. In this task, you are asked to hand.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  During the presentation, the presenter gives a tour of the front of the building to the audience. The presenter stands in front of the.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  At night, the dog walks down the street and looks for its owner.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  In the morning, a boy sails his surfboard on the calm water and rides the waves in the afternoon.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  While walking near the water, the man holds his hand to keep it warm.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After skiing down the snowy hill, the skier covers himself with a warm jacket to stay comfortable.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  To demonstrate the knitting process, I will use the needle and yarn to create a simple pattern on the knitting board.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The alligator holds onto the log with its mouth while it sits on the bank of the river.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  I use a piece of wood to cut a shape into the surface of the table.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After getting out of bed, the girl sits on the chair and combats her hair while waiting for her friends to arrive.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The child draws a beautiful piece of art using a marker on a piece of paper.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The sander is sanding the floor of the house when he suddenly stops and looks around.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The motorize scooter ride is a fun way to explore the street on a sunny day.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  In the swimmer's race, several swimmers compete in the pool to see who can swim the fastest.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dribble of the ball is controlled by the player as they move across the court.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The woman demonstrates how to straighten hair using an iron.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy hits the ball with his bat and then rolls it along the alley.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The dog leaps into the air and catches the ball that the boy throws for him. In this task, you are asked to create leap.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  In the field, the coach teaches the players how to throw and catch the football properly.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The toddler pushes a cart into the store to pick up some toys.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+INCONSISTENCY!
+Q0{510  <1.0>}
+Q1{41885  <1.0>}
+Q2{518  <1.0>}
+Q3{310  <1.0>}
+Q4{15492  <1.0>}
+Q5{41243  <1.0>}
+Q6{1070  <1.0>}
+Q7{275  <1.0>}
+Q8{253  <1.0>}
+Q9{1824  <1.0>}
+Q10{347  <1.0>}
+Q11{253  <1.0>}
+Q12{1436  <1.0>}
+Q13{4850  <1.0>}
+Q14{715  <1.0>}
+Q15{253  <1.0>}
+Q16{9735  <1.0>}
+Q17{15  <1.0>}
+Q18{496  <1.0>}
+Q19{436  <1.0>}
+Q20{4836  <1.0>}
+Q21{13  <1.0>}
+Q22{368  <1.0>}
+Q23{403  <1.0>}
+Q24{2546  <1.0>}
+Q25{281  <1.0>}
+Q26{2794  <0.8176783390863804>}
+Q27{8248  <1.9879134859721366E-5>, 2133  <1.9879134859721366E-5>, 15163  <1.9879134861035236E-5>, 2915  <1.9879134859721366E-5>, 18456  <1.9879134861035236E-5>}
+Q28{0  <1.9879134861041355E-5>, 15  <0.999980120865139>}
+Q29{0  <1.0>}
+body
+kayak
+paddle
+water
+solution :  The kayak is gently paddled in the water as the person gets into the boat. In this task, you are asked to create ERROR
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  People treadmill while listening to music to keep fit and healthy. This sentence describes a common scene in daily life where people use a treadrunning.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The worker takes a break to rest and recharge during the workday.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+INCONSISTENCY!
+Q0{510  <1.0>}
+Q1{26540  <1.0>}
+Q2{9257  <1.0>}
+Q3{448  <1.0>}
+Q4{2695  <1.0>}
+Q5{253  <1.0>}
+Q6{15737  <1.0>}
+Q7{342  <1.0>}
+Q8{247  <1.0>}
+Q9{12798  <1.0>}
+Q10{13  <1.0>}
+Q11{2403  <1.0>}
+Q12{10799  <1.0>}
+Q13{12176  <1.0>}
+Q14{281  <1.0>}
+Q15{5416  <1.0>}
+Q16{253  <1.0>}
+Q17{2457  <1.0>}
+Q18{11609  <1.0>}
+Q19{310  <1.0>}
+Q20{3962  <1.0>}
+Q21{15  <1.0>}
+Q22{496  <1.0>}
+Q23{436  <1.0>}
+Q24{4836  <1.0>}
+Q25{13  <1.0>}
+Q26{368  <0.8719246288561282>}
+Q27{4450  <1.987913486004266E-5>, 5986  <1.9879134860129924E-5>, 4697  <1.987913486004266E-5>, 16431  <1.987913486004266E-5>, 50229  <1.987913486004266E-5>, 32994  <1.9879134860129924E-5>, 19184  <1.987913486004266E-5>, 34519  <1.987913486004266E-5>, 44770  <1.987913486004266E-5>}
+Q28{0  <1.987913486012464E-5>, 15  <0.9999801208651399>}
+Q29{0  <1.0>}
+board
+chop
+cut
+knife
+solution :  The chef carefully chops the vegetables with a knife, making precise cuts to ensure the final dish is perfect. In this task, you ERROR
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+INCONSISTENCY!
+Q0{4553  <1.0>}
+Q1{247  <1.0>}
+Q2{1048  <1.0>}
+Q3{1388  <1.0>}
+Q4{387  <1.0>}
+Q5{789  <1.0>}
+Q6{13  <1.0>}
+Q7{2516  <1.0>}
+Q8{21936  <1.0>}
+Q9{281  <1.0>}
+Q10{10913  <1.0>}
+Q11{690  <1.0>}
+Q12{41204  <1.0>}
+Q13{327  <1.0>}
+Q14{253  <1.0>}
+Q15{3497  <1.0>}
+Q16{281  <1.0>}
+Q17{6079  <1.0>}
+Q18{13  <1.0>}
+Q19{285  <1.0>}
+Q20{840  <1.0>}
+Q21{344  <1.0>}
+Q22{588  <1.0>}
+Q23{14841  <1.0>}
+Q24{731  <1.0>}
+Q25{1996  <1.0>}
+Q26{15  <1.0>}
+Q27{5402  <0.34922505431632184>}
+Q28{15  <1.0>}
+Q29{0  <1.0>}
+building
+hang
+wash
+window
+solution :  After a long day at work, John decides to hang some towels on the window to dry, and then he will wash them later. Your ERROR
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  John wears a shirt and holds it with his hand while sitting on the bench.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  On someone's birthday, we blow out the candles on the cake and sing happy birthday.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog runs around the ball and sometimes even uses its mouth to catch it when it's thrown.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  Sitting on the bench, I read a paper while enjoying the sunshine. In this task, you are asked to create a simple sentence sitting.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog runs along the path while following the scent of the bush.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The cook rolls a piece of dough between her hands until it becomes smooth and elastic.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog takes a nap on the bed after its long walk outside.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The worker takes a break to eat a sandwich he just made at his desk.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy throws the ball onto the table, and it bounces off the cup.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy rides the donkey and pulls a cart full of fruits through the market.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The machine sews the fabric with the thread as the needle pierces the layers of the material. In this task, you are asked sew.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The faucet rinse with the hand when you turn it on to wash your hands.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The driver shifts the gear into a higher gear while driving on the highway. Your Task is to create a sentence that incorporates all the given car.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After looking into the mirror, she can see that her hair needs a brush to make it smooth and shiny.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The young boy used a tool to apply plaster on the wall, making it smooth and even.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The audience performs on stage when the actors come out and start their play. In this task, you are asked to create a simple sentence front.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After shave, the man sits in his chair and rests his head on the pillow.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After sitting down at the table, the girl folds her paper carefully.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy hits the ball as he rides his horse in the park.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After cooking a delicious meal, the man wears his grill shirt to show off his culinary skills.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  When you look into the mirror, you can see the weight you have to lift to reach the front.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  At the gym, I perform various exercises using a rope to strengthen my body.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog uses its stick to splash around in the water and cool its mouth on a hot day.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After applying her makeup, she looks into the mirror to make sure everything looks perfect.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  In the game, the player uses scissor to cut the paper and rock to simulate a game of paper rock scissors.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  Sara wears a glass on her neck and sits on a chair to relax after work.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  When wrenching the bolt loosen it first, then use a hammer to tap it off.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The man drives his car with his hand on the wheel.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  Sitting on the chair, I read a book while enjoying my coffee. The sentence should be simple, clear, and easy to understand sitting.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The present is wrapped and placed on the table as the family sits together to open it.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  Sara holds the mirror and paints her face with a bright color.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog jumps into the water from the dock to play.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog carries a toy in its mouth while playing with the grass.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  When you open the present, you will find a beautiful vase that you can sit on the floor.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  While walking down the street, she carries her bag carefully so as not to drop anything inside.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog jumps and catches the ball when the boy throws it into the air.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy rides his horse over the obstacle and makes it jump in the air.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  When you go to the store, you need to place the button card on the scanner to press the button and make a purchase.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+INCONSISTENCY!
+Q0{510  <1.0>}
+Q1{5145  <1.0>}
+Q2{268  <1.0>}
+Q3{2108  <1.0>}
+Q4{3511  <1.0>}
+Q5{1824  <1.0>}
+Q6{689  <1.0>}
+Q7{253  <1.0>}
+Q8{18661  <1.0>}
+Q9{281  <1.0>}
+Q10{37092  <1.0>}
+Q11{731  <1.0>}
+Q12{285  <1.0>}
+Q13{1056  <1.0>}
+Q14{731  <1.0>}
+Q15{36766  <1.0>}
+Q16{323  <1.0>}
+Q17{8955  <1.0>}
+Q18{15  <1.0>}
+Q19{496  <1.0>}
+Q20{436  <1.0>}
+Q21{4836  <1.0>}
+Q22{13  <1.0>}
+Q23{368  <1.0>}
+Q24{403  <1.0>}
+Q25{2546  <1.0>}
+Q26{281  <0.9999999998571099>}
+Q27{40943  <1.987913486007101E-5>, 19466  <1.9879134860071455E-5>, 11636  <1.987913486007101E-5>, 43410  <1.987913486007101E-5>}
+Q28{0  <1.9879134860065427E-5>, 15  <0.99998012086514>}
+Q29{0  <1.0>}
+bean
+bowl
+machine
+pour
+roast
+solution :  The machine pours hot water over the beans to roast them and make them tasty for dinner. In this task, you are asked to ERROR
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The kid rides his scooter on the street while wearing a helmet to protect his head from any potential accidents.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  During the celebration, my friend and I enjoy the delicious food and drinks while learning new knitting techniques from the expert teacher.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The photographer takes a picture of the family while they swim in the crystal clear water.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The animal sits at the top of the tree while the wind blows its fur. This sentence describes a common scene in daily life where an pet.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The team scores a goal and the crowd cheers loudly, excitedly celebrating their victory. In this task, you are asked to create cheer.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The butcher grinder the meat and puts it into a bowl for the soup. In this task, you are asked to create a simple fall.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  To open the cork-covered bottle, one needs to use a tool and remove the cork by gently tapping it with the hammer.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy lets the ball touch the ground as he kicks it gently.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  When it's too short to walk, I sit on the bench and wear my comfortable shoes to protect my feet. This sentence contains all top.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The boy jumps into the pool and goggle at the water while holding his hand above his head.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  After using the toilet, one should wear gloves to clean the surrounding area thoroughly. Your Task is to create a sentence that incorporates all the brush.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  When you want to write something down, you hold the pen with your hand and tap it gently on the table.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+sentence end reached
+solution :  The vehicle rides on the wind as it sails across the open sea. In this task, you are asked to create a simple sentence that power.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog leash is attached to the collar, and they walk together through the field with the dog happily sniffing the grass.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After adjusting the front mirror, the driver ties a knot in the rearview mirror to prevent it from falling off while driving on the highway stand.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The kid hangs a doughnut on a string and eats it while playing at the park.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+Inconsistency detected, state restored
+INCONSISTENCY!
+Q0{510  <1.0>}
+Q1{20391  <1.0>}
+Q2{4760  <1.0>}
+Q3{32356  <1.0>}
+Q4{253  <1.0>}
+Q5{4023  <1.0>}
+Q6{342  <1.0>}
+Q7{521  <1.0>}
+Q8{1481  <1.0>}
+Q9{2918  <1.0>}
+Q10{1029  <1.0>}
+Q11{13  <1.0>}
+Q12{26400  <1.0>}
+Q13{323  <1.0>}
+Q14{253  <1.0>}
+Q15{4736  <1.0>}
+Q16{1501  <1.0>}
+Q17{15  <1.0>}
+Q18{496  <1.0>}
+Q19{436  <1.0>}
+Q20{4836  <1.0>}
+Q21{13  <1.0>}
+Q22{368  <1.0>}
+Q23{403  <1.0>}
+Q24{2546  <1.0>}
+Q25{281  <1.0>}
+Q26{2794  <0.8574442207753543>}
+Q27{45561  <1.987913486387161E-5>, 12260  <1.987913485875011E-5>, 30406  <1.987913485875011E-5>, 1094  <1.987913485875011E-5>, 6037  <1.987913486387161E-5>, 24327  <1.987913486387161E-5>, 2329  <1.987913485875011E-5>, 21296  <1.987913485875011E-5>, 49847  <1.987913486387161E-5>, 3514  <1.987913485875011E-5>}
+Q28{0  <1.987913486386928E-5>, 15  <0.9999801208651361>}
+Q29{0  <1.0>}
+air
+head
+hold
+kick
+pad
+solution :  The soccer player kicks the ball with his head held high, aiming for the goal post. In this task, you are asked to create ERROR
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  The dog runs in the field in front of the house and plays with a ball.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+c Warning: method updateBelief not implemented yet for Among constraint. Using uniform belief instead.
+sentence end reached
+solution :  After a long day at work, the tired man rests his head on his shoulder and closes his eye to sleep peacefully.

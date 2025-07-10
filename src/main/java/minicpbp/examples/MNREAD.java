@@ -65,10 +65,9 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class MNREAD {
     public static void main(String[] args) throws Exception {
-        final int END_TOKEN = 15;//
         final String llm_name="zephyr";//
 
-        List<Logging> logs = new ArrayList<>();
+        List<Logging>  logs = new ArrayList<>();
 
         List<String> lines = Collections.emptyList();
          try {
@@ -97,10 +96,18 @@ public class MNREAD {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_domain.json")), StandardCharsets.UTF_8);
             corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
             corpusDomains.remove(Integer.valueOf(8));
-            corpusDomains.add(END_TOKEN);
+            corpusDomains.add(Integer.valueOf(50276));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        int sentence_end=15;
+        /*for(int i=0; i<words.size(); i++){
+            if(words.get(i).equals(".")){
+                sentence_end=i;
+            }
+        }*/
+        corpusDomains.add(sentence_end);
 
         Map<Integer, Integer> indexToCorpusDomain = new HashMap<>();
         for (int i = 0; i < corpusDomains.size(); i++) {
@@ -109,16 +116,13 @@ public class MNREAD {
 
         System.out.println("corpusDomains size: " + corpusDomains.size());
 
-        List<Integer> capitalized_words= new ArrayList<>();
-        for(int i=0; i<corpusDomains.size(); i++){
-            if(words.get(corpusDomains.get(i)).strip().length()!=0 && Character.isUpperCase(words.get(corpusDomains.get(i)).strip().charAt(0))){
-                capitalized_words.add(i);
-            }
-        }
+        sentence_end = indexToCorpusDomain.get(sentence_end);
+
+
 
         int[] start_words  = new int[corpusDomains.size()];
         for(int i=0; i<corpusDomains.size(); i++){
-            if(words.get(corpusDomains.get(i)).length()!=0 && words.get(corpusDomains.get(i)).charAt(0)==' '){
+            if(words.get(corpusDomains.get(i)).strip().length()!=0 && words.get(corpusDomains.get(i)).charAt(0)==' '){
                 start_words[i]=1;
             }
         }
@@ -160,12 +164,11 @@ public class MNREAD {
             lengthTokens[i]=charSum;
         }
 
-        /*List<List<Integer>> corpusWords = new ArrayList<>();
+        List<List<Integer>> corpusWords = new ArrayList<>();
         ObjectMapper objectMapperWords = new ObjectMapper();
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
-            corpusWords.add(List.of(END_TOKEN));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -173,19 +176,23 @@ public class MNREAD {
 
         Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
         Map<Integer, Integer> initialTrans = transitions.computeIfAbsent(0, k -> new HashMap<>());
-        initialTrans.put(indexToCorpusDomain.get(END_TOKEN), 1);
+        initialTrans.put(sentence_end, 1);
         Map<Integer, Integer> finalTrans = transitions.computeIfAbsent(1, k -> new HashMap<>());
-        finalTrans.put(indexToCorpusDomain.get(END_TOKEN), 1);
+        finalTrans.put(sentence_end, 1);
         int stateCounter = 2;
 
         ArrayList<Integer> terminalStates = new ArrayList<>();
         for (List<Integer> seq : corpusWords) {
             int currentState = 0;
-            if (seq.contains(6)) {
+            if (seq.contains(8)) {
                 continue;
             }
 
             for (int i = 0; i < seq.size(); i++) {
+                if (!indexToCorpusDomain.containsKey(seq.get(i))) {
+                    System.out.println("Token not in corpusDomains: " + seq.get(i));
+                    continue;
+                }
                 int input = indexToCorpusDomain.get(seq.get(i));
 
                 Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
@@ -220,7 +227,7 @@ public class MNREAD {
                 int to = inputEntry.getValue();
                 table[from][input] = to;
             }
-        }*/
+        }
 
         final int LINE_SIZE = 15896;
         final int SPACE_SIZE =512;
@@ -229,11 +236,11 @@ public class MNREAD {
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 59;//Verify if you need to count the spaces at the beginning of lines
+        final int NUMBER_CHAR = 63;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w =1.2;
-        final int NUM_ITERATIONS = 10;
+        final double w = 2;
+        final int NUM_ITERATIONS = 20;
 
     for(int iter=0;iter<NUM_ITERATIONS;iter++){
 
@@ -251,9 +258,11 @@ public class MNREAD {
         }
 
         IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
+        IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
         
         cp.post(sum(has_space, nb_words));
-        cp.post(sum(num_char, NUMBER_CHAR));
+        //cp.post(sum(num_char, NUMBER_CHAR));
+        cp.post(sum(num_char, nb_char));
 
 
 
@@ -265,7 +274,13 @@ public class MNREAD {
 
 
 
-        IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
+        IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE+SPACE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+SPACE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
+        /*IntVar[] lineSize = makeIntVarArray(
+            cp, 
+            nbLines,  
+            (int)Math.round(LINE_SIZE + SPACE_SIZE - MAX_NUMBER_SPACE * (MAX_SPACE_SIZE - SPACE_SIZE) - 0.2 * LINE_SIZE),
+            (int)Math.round(LINE_SIZE + SPACE_SIZE + MAX_NUMBER_SPACE * (SPACE_SIZE - MIN_SPACE_SIZE) + 0.2 * LINE_SIZE)
+        );*/
         for (int i=0; i<lineSize.length; i++)
             lineSize[i].setName("lineSize["+i+"]");
         line[0].assign(0);
@@ -282,14 +297,12 @@ public class MNREAD {
         cp.post(binPacking(line,sizes,lineSize));
 
         List<Integer> acceptedState = new ArrayList<>();
-        int[][] A = new int[3][corpusDomains.size()];
-        acceptedState.add(2);
-        Arrays.fill(A[0], -1);
-        for(int index:capitalized_words){A[0][index]=1;}
-        Arrays.fill(A[1], 1);
-        A[1][corpusDomains.size()-1]=2;
-        Arrays.fill(A[2], -1);
-        A[2][corpusDomains.size()-1]=2;
+        int[][] A = new int[2][corpusDomains.size()];
+        acceptedState.add(1);
+        Arrays.fill(A[0], 0);
+        A[0][sentence_end]=1;
+        Arrays.fill(A[1], -1);
+        A[1][sentence_end]=1;
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
         //Words regular
@@ -300,11 +313,50 @@ public class MNREAD {
         
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
         
-    
-        String current_sentence = " ";
+        String[] commonWords = {
+        "I",
+        "You",
+        "He",
+        "She",
+        "It",
+        "We",
+        "They",
+        "The",
+        "A",
+        "An",
+        "This",
+        "That",
+        "These",
+        "Those",
+        "There"};
+
+        String selectedWord = " "+commonWords[new Random().nextInt(commonWords.length)];
+        
+        HttpRequest request1 = HttpRequest.newBuilder()
+        .uri(URI.create("http://localhost:5000/tokenize"))
+        .POST(HttpRequest.BodyPublishers.ofString("0"+selectedWord))
+        .build();
+        String response1 = client.sendAsync(request1, BodyHandlers.ofString()).thenApply((HttpResponse<String> r) -> r.body()).join();
+        int[] split_response1 = Arrays.stream(response1.substring(1,response1.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
+        int id = split_response1[0];
+        int[] tokens1= Arrays.copyOfRange(split_response1, 1, split_response1.length);
+        if (id != -1 && id != -3)
+            throw new Exception("Error in tokenization: " + response1);
+        int i = 0;
+        for (; i < tokens1.length; i++) {
+            if (!indexToCorpusDomain.containsKey(tokens1[i])) {
+                System.out.println("Token not in corpusDomains: " + tokens1[i]);
+                System.out.println(selectedWord);
+                System.out.println(Arrays.toString(tokens1));
+                throw new Exception("Token not in corpusDomains");
+            }
+            word_index[i].assign(indexToCorpusDomain.get(tokens1[i]));
+        }
+
+        String current_sentence = selectedWord;
         Double logSumProbs = 0.0;
-        int num_tok=0;
-        for (int i = 0; i < sizes.length; i++) {
+        int num_tok=i;
+        for (; i < sizes.length; i++) {
             // Makes the request
             HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:5000/token"))
@@ -447,10 +499,9 @@ public class MNREAD {
                 System.out.println(scores.length);
                 System.out.println("Chose a value not in the nlp model");
                 logSumProbs = -Double.MAX_VALUE;
-            }
-            if(!words.get(corpusDomains.get(chosen)).equals(".")){     
-                current_sentence += words.get(corpusDomains.get(chosen));
-            }
+            } 
+            current_sentence += words.get(corpusDomains.get(chosen));
+            
             System.out.println("sentence so far: " + current_sentence);
             System.out.println("index chosen: " + corpusDomains.get(chosen));
 

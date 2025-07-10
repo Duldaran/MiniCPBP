@@ -2,8 +2,7 @@ from flask import Flask, request
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
 import torch
 from nltk.stem import WordNetLemmatizer
-import nltk
-nltk.download('wordnet')
+from nltk.corpus import wordnet
 import time
 import gc
 import json
@@ -13,13 +12,16 @@ app = Flask(__name__)
 
 gc.collect()
 
+#java -Xms2g -Xmx16g  -cp minicpbp-1.0.jar minicpbp.examples.MNREAD
+
+
 #model_name = "meta-llama/Llama-3.2-3B"
 #model_name = "../Ctrl-G/ctrlg/gpt2-large_common-gen"
 model_name ="stabilityai/stablelm-zephyr-3b"
 device='cuda' if torch.cuda.is_available() else 'cpu'
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
-#model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+#model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
+tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
     
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
@@ -75,32 +77,36 @@ with open('lemme_dict', 'w', encoding="UTF-8") as tokens_dict:
 
 @app.route('/tokenize', methods=['POST'])
 def get_tokens():
-    tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(request.data.decode()))
+    tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(request.data.decode()[1:]))
+    soft_constaint_flage=request.data.decode()[0]
     if len(tokens) > 1:return [-1]+tokens
     elif len(tokens) == 1: 
-        similar_tokens=set()
-        lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower())
-        for index,lemme in enumerate(all_lemmes_nouns):
-            if lemme == lemme_token:
-                similar_tokens.add(index)
-        lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"v")
-        for index,lemme in enumerate(all_lemmes_verbs):
-            if lemme == lemme_token :
-                similar_tokens.add(index)
-        lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"a")
-        for index,lemme in enumerate(all_lemmes_adjectives):
-            if lemme == lemme_token:
-                similar_tokens.add(index)
-        lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"r")
-        for index,lemme in enumerate(all_lemmes_adverbs):
-            if lemme == lemme_token:
-                similar_tokens.add(index)
-        lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"s")
-        for index,lemme in enumerate(all_lemmes_satellites):
-            if lemme == lemme_token:
-                similar_tokens.add(index)
-        return [-2]+list(similar_tokens)
-    else: return [-3]
+        if soft_constaint_flage == '1':
+            similar_tokens=set()
+            lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower())
+            for index,lemme in enumerate(all_lemmes_nouns):
+                if lemme == lemme_token:
+                    similar_tokens.add(index)
+            lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"v")
+            for index,lemme in enumerate(all_lemmes_verbs):
+                if lemme == lemme_token :
+                    similar_tokens.add(index)
+            lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"a")
+            for index,lemme in enumerate(all_lemmes_adjectives):
+                if lemme == lemme_token:
+                    similar_tokens.add(index)
+            lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"r")
+            for index,lemme in enumerate(all_lemmes_adverbs):
+                if lemme == lemme_token:
+                    similar_tokens.add(index)
+            lemme_token= WordNetLemmatizer().lemmatize(tokenizer.decode(tokens).strip().lower(),"s")
+            for index,lemme in enumerate(all_lemmes_satellites):
+                if lemme == lemme_token:
+                    similar_tokens.add(index)
+            return [-2]+list(similar_tokens)
+        else:
+            return [-3] + tokens
+    else: return [-4]
 
 @app.route('/')
 def testing():

@@ -21,10 +21,12 @@
  import minicpbp.engine.core.Constraint;
  import minicpbp.search.DFSearch;
  import minicpbp.search.SearchStatistics;
- import minicpbp.util.exception.InconsistencyException;
+import minicpbp.state.StateManager;
+import minicpbp.util.exception.InconsistencyException;
  
  import java.io.IOException;
 import java.io.PrintStream;
+import java.lang.Thread.State;
 import java.net.http.HttpClient;
  import java.nio.charset.StandardCharsets;
  import java.nio.file.Files;
@@ -61,6 +63,10 @@ import java.util.Vector;
 import java.io.FileOutputStream;
 import java.io.IOException;
  
+
+//java -cp minicpbp-1.0.jar minicpbp.examples.Sentence_cleaned
+
+
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
          ObjectMapper objectMapper = new ObjectMapper();
@@ -91,7 +97,7 @@ import java.io.IOException;
         List<Integer> capitalized_words= new ArrayList<>();
         int sentence_end=-1;
         for(int i=0; i<words.size(); i++){
-            if(words.get(i).equals(".")){
+            if(words.get(i).equals(".") && sentence_end==-1){
                 sentence_end=i;
             }
             if(words.get(i).strip().length()!=0 && Character.isUpperCase(words.get(i).strip().charAt(0))){
@@ -104,8 +110,8 @@ import java.io.IOException;
          int count=0;
          elements.next();//** */
 
-        final int MAX_COUNT = 1;//** */
-        final boolean PRINT_TRACE = true;
+        final int MAX_COUNT = 100;//** */
+        final boolean PRINT_TRACE = false;
         PrintStream fileOut = new PrintStream(new FileOutputStream("output.txt"));
         System.setOut(fileOut);
 
@@ -172,7 +178,7 @@ import java.io.IOException;
                  for(int i = 0; i<REQUIRED_WORDS.length;i++){
                      HttpRequest request = HttpRequest.newBuilder()
                      .uri(URI.create("http://localhost:5000/tokenize"))
-                     .POST(HttpRequest.BodyPublishers.ofString(" "+REQUIRED_WORDS[i]))
+                     .POST(HttpRequest.BodyPublishers.ofString("1 "+REQUIRED_WORDS[i]))
                      .build();
                      String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
                      int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
@@ -204,159 +210,171 @@ import java.io.IOException;
                  
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
         if(PRINT_TRACE)System.out.println(instruction);
-         String current_sentence = " ";//Change with llm
-                 Double logSumProbs = 0.0;
-                 int num_tok=0;
-                 for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
-                     // Makes the request
-                     HttpRequest request = HttpRequest.newBuilder()
-                     .uri(URI.create("http://localhost:5000/token"))
-                     .POST(HttpRequest.BodyPublishers.ofString(instruction+current_sentence))
-                     .build();
-                     String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
- 
-                     // Parse the response into data structures
-                     int[] tokens = new int[words.size()];
-                     double[] scores = new double[words.size()];
- 
-                     int max_token = -1;
-                     double max_score = 0;
- 
-                     for (String tuple : response.split("\\],\\[")) {
-                         try {
-                             String[] token_score = tuple.split(",");
-                             token_score[1]=token_score[1].replaceAll("\\]","");
-                             token_score[0]=token_score[0].replaceAll("\\[","");
-                             int token = Integer.parseInt(token_score[0]);
-                             double score = Double.parseDouble(token_score[1]);
-                             
-                             if(token>=words.size()){
-                                 continue;
-                             }
+        String current_sentence = " ";//Change with llm
+            Double logSumProbs = 0.0;
+            int num_tok=0;
+            for (int i = 0; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
+                // Makes the request
+                HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:5000/token"))
+                .POST(HttpRequest.BodyPublishers.ofString(instruction+current_sentence))
+                .build();
+                String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
 
-                             tokens[token] = token;
-                             scores[token] = score;
- 
-                             if (score > max_score) {
-                                 max_score = score;
-                                 max_token = token;
-                             }
- 
-                         } catch (Exception e) {
-                             System.err.println(tuple);
-                             System.err.println(e);
-                         }
-                     }
- 
- 
-                    if(PRINT_TRACE) System.out.println("token "+i);
- 
-                     Constraint c = Factory.oracle(q[i], tokens, scores);
+                // Parse the response into data structures
+                int[] tokens = new int[words.size()];
+                double[] scores = new double[words.size()];
 
-                     c.setWeight(w);
-                     if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
-                     cp.post(c);
-                     if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
-                     /*if(PRINT_TRACE) 
-                     {
-                        double[] temp = scores.clone();
-                        Arrays.sort(temp);
-                        for(int n=1; n<=5; n++){
-                            for(int k=0; k<temp.length; k++){
-                                if(temp[temp.length-n]==scores[k]){
-                                    System.out.println("GPT, before BP (max token, 'the word', its probability) "+k+", '"+words.get(k)+"', "+scores[k]);
-                                }
-                            }
-                        }
-                    }*/
-                     if(PRINT_TRACE){
-                        for (int token : required_tokens) {
-                            System.out.println("GPT, before BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + scores[token]);
-                        }
-                     }
+                int max_token = -1;
+                double max_score = 0;
 
-                     try {
-                         cp.fixPoint();
-                     }
-                     catch (InconsistencyException e) {
-                         System.out.println("INCONSISTENCY!");
-                         for(int j=0; j<q.length; j++){
-                             System.out.println(q[j].getName()+q[j].toString());
-                         }
-                         for(String word: REQUIRED_WORDS){
-                             System.out.println(word);
-                         }
-                         current_sentence += " ERROR";
-                         break;
-                     }
-                     /*if(PRINT_TRACE) 
-                     {
-                        TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                        for(int j=0; j<q[i].size(); j++){
-                            bestTokens.put(q[i].marginal(j), j);
-                        }
-                        for(int j=0; j<5; j++){
-                            if(bestTokens.isEmpty()){
-                                break;
-                            }
-                            double prob = bestTokens.lastKey();
-                            int token = bestTokens.remove(prob);
-                            System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
-                        }
-                    }*/
-                    if(PRINT_TRACE){
+                for (String tuple : response.split("\\],\\[")) {
+                    try {
+                        String[] token_score = tuple.split(",");
+                        token_score[1]=token_score[1].replaceAll("\\]","");
+                        token_score[0]=token_score[0].replaceAll("\\[","");
+                        int token = Integer.parseInt(token_score[0]);
+                        double score = Double.parseDouble(token_score[1]);
                         
-                        for (int token : required_tokens) {
-                            System.out.println("CP model, before BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + q[i].marginal(token));
+                        if(token>=words.size()){
+                            continue;
                         }
-                     }
 
-                    if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
-                     cp.vanillaBP(NUM_PB);
-                     if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
-                     
-                     /*if(PRINT_TRACE) 
-                     {
-                        TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                        for(int j=0; j<q[i].size(); j++){
-                            bestTokens.put(q[i].marginal(j), j);
+                        tokens[token] = token;
+                        scores[token] = score;
+
+                        if (score > max_score) {
+                            max_score = score;
+                            max_token = token;
                         }
-                        for(int j=0; j<5; j++){
-                            if(bestTokens.isEmpty()){
-                                break;
-                            }
-                            double prob = bestTokens.lastKey();
-                            int token = bestTokens.remove(prob);
-                            System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+
+                    } catch (Exception e) {
+                        System.err.println(tuple);
+                        System.err.println(e);
+                    }
+                }
+
+
+            if(PRINT_TRACE) System.out.println("token "+i);
+
+                Constraint c = Factory.oracle(q[i], tokens, scores);
+
+                c.setWeight(w);
+                if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
+                cp.post(c);
+                if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
+                /*if(PRINT_TRACE) 
+                {
+                double[] temp = scores.clone();
+                Arrays.sort(temp);
+                for(int n=1; n<=5; n++){
+                    for(int k=0; k<temp.length; k++){
+                        if(temp[temp.length-n]==scores[k]){
+                            System.out.println("GPT, before BP (max token, 'the word', its probability) "+k+", '"+words.get(k)+"', "+scores[k]);
                         }
-                    }*/
+                    }
+                }
+            }*/
+                if(PRINT_TRACE){
+                for (int token : required_tokens) {
+                    System.out.println("GPT, before BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + scores[token]);
+                }
+                }
 
-                    if(PRINT_TRACE){
-                        
-                        for (int token : required_tokens) {
-                            System.out.println("after BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + q[i].marginal(token));
-                        }
-                     }
+                try {
+                    cp.fixPoint();
+                }
+                catch (InconsistencyException e) {
+                    System.out.println("INCONSISTENCY!");
+                    for(int j=0; j<q.length; j++){
+                        System.out.println(q[j].getName()+q[j].toString());
+                    }
+                    for(String word: REQUIRED_WORDS){
+                        System.out.println(word);
+                    }
+                    current_sentence += " ERROR";
+                    break;
+                }
+                /*if(PRINT_TRACE) 
+                {
+                TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                for(int j=0; j<q[i].size(); j++){
+                    bestTokens.put(q[i].marginal(j), j);
+                }
+                for(int j=0; j<5; j++){
+                    if(bestTokens.isEmpty()){
+                        break;
+                    }
+                    double prob = bestTokens.lastKey();
+                    int token = bestTokens.remove(prob);
+                    System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                }
+            }*/
+            if(PRINT_TRACE){
+                
+                for (int token : required_tokens) {
+                    System.out.println("CP model, before BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + q[i].marginal(token));
+                }
+                }
 
-                     q[i].assign(q[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
-                     int chosen = q[i].valueWithMaxMarginal();
-                     num_tok++;
-                     if (0<chosen && chosen<scores.length) {
-                         logSumProbs += Math.log(scores[chosen]);
-                     } else {
-                         System.out.println("Chose a value not in the nlp model");
-                         logSumProbs = -Double.MAX_VALUE;
-                     }
-                     current_sentence += words.get(chosen);
-                     if(PRINT_TRACE) System.out.println("sentence so far: " + current_sentence);
+            if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
+                cp.vanillaBP(NUM_PB);
+                if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+q[i].valueWithMaxMarginal()+", '"+words.get(q[i].valueWithMaxMarginal())+"', "+q[i].maxMarginal());
+                
+                /*if(PRINT_TRACE) 
+                {
+                TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                for(int j=0; j<q[i].size(); j++){
+                    bestTokens.put(q[i].marginal(j), j);
+                }
+                for(int j=0; j<5; j++){
+                    if(bestTokens.isEmpty()){
+                        break;
+                    }
+                    double prob = bestTokens.lastKey();
+                    int token = bestTokens.remove(prob);
+                    System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                }
+            }*/
 
-                 }
-                 double perplexityScore = Math.exp(-logSumProbs / num_tok);
-                 System.out.println("solution : " + current_sentence);
-                 //System.out.println("Perplexity is of " + perplexityScore);
-                 logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
-             
-             objectMapper.writeValue(Paths.get(String.format("model_results_%d_%d_%2.1f.json", MAX_COUNT,NUM_PB, w)).toFile(), logs);
+            if(PRINT_TRACE){
+                
+                for (int token : required_tokens) {
+                    System.out.println("after BP (token, 'the word', its probability) " + token + ", '" + words.get(token) + "', " + q[i].marginal(token));
+                }
+                }
+
+                q[i].assign(q[i].valueWithMaxMarginal());//TODO : Trouver un meilleur sampling
+                int chosen = q[i].valueWithMaxMarginal();
+                num_tok++;
+                if (0<chosen && chosen<scores.length) {
+                    logSumProbs += Math.log(scores[chosen]);
+                } else {
+                    System.out.println("Chose a value not in the nlp model");
+                    logSumProbs = -Double.MAX_VALUE;
+                }
+                current_sentence += words.get(chosen);
+                if(PRINT_TRACE) System.out.println("sentence so far: " + current_sentence);
+                if(chosen == sentence_end){
+                    System.out.println("sentence end reached");
+                    StateManager sm = cp.getStateManager();
+                    try {
+                        sm.saveState();
+                        q[i+1].assign(END_TOKEN);
+                        cp.fixPoint();
+                        break;
+                    } catch (InconsistencyException e) {
+                        sm.restoreState();
+                        System.out.println("Inconsistency detected, state restored");
+                    }
+                }
+            }
+            double perplexityScore = Math.exp(-logSumProbs / num_tok);
+            System.out.println("solution : " + current_sentence);
+            //System.out.println("Perplexity is of " + perplexityScore);
+            logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
+            
+            objectMapper.writeValue(Paths.get(String.format("model_results_%d_%d_%2.1f.json", MAX_COUNT,NUM_PB, w)).toFile(), logs);
          }
  
          

@@ -96,14 +96,14 @@ import java.net.HttpURLConnection;
                 HashMap<String, Double> tokenToScoreNLP = new HashMap<>();
                 String maxtoken = "";
                 Double max = 0.0;*/
-            for (int i = 0; i < 15; i++) {
+            for (int i = 0; i < 1; i++) {
                 HttpClient client = HttpClient.newHttpClient();
                 HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:5000/token"))
-                .POST(HttpRequest.BodyPublishers.ofString("<s>Hello"))
+                .uri(URI.create("http://localhost:5000/tokenize"))
+                .POST(HttpRequest.BodyPublishers.ofString("0 They"))
                 .build();
                 String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-                
+                System.out.println(response);
                 HashMap<String, Double> tokenToScoreNLP = new HashMap<>();
                 String maxtoken = "";
                 Double max = 0.0;
