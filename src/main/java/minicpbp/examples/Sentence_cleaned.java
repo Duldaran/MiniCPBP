@@ -64,7 +64,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
  
 
-//java -cp minicpbp-1.0.jar minicpbp.examples.Sentence_cleaned
+//java -cp target/minicpbp-1.0.jar minicpbp.examples.Sentence_cleaned
 
 
  public class Sentence_cleaned{

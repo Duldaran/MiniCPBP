@@ -65,6 +65,12 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class MNREAD {
     public static void main(String[] args) throws Exception {
+        try {
+            System.out.println("25 Juillet");
+            int port = Integer.parseInt(args[1]);
+            final int NUM_ITERATIONS = Integer.parseInt(args[0]);
+            final int process_id = Integer.parseInt(args[2]);
+
         final String llm_name="zephyr";//
 
         List<Logging>  logs = new ArrayList<>();
@@ -94,7 +100,8 @@ public class MNREAD {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_domain.json")), StandardCharsets.UTF_8);
-            corpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
+            final List<Integer> parsedCorpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<Integer>>() {}); 
+            corpusDomains.addAll(parsedCorpusDomains);
             corpusDomains.remove(Integer.valueOf(8));
             corpusDomains.add(Integer.valueOf(50276));
         } catch (Exception e) {
@@ -117,6 +124,7 @@ public class MNREAD {
         System.out.println("corpusDomains size: " + corpusDomains.size());
 
         sentence_end = indexToCorpusDomain.get(sentence_end);
+        final int final_sentence_end = sentence_end;
 
 
 
@@ -240,15 +248,16 @@ public class MNREAD {
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = 2;
-        final int NUM_ITERATIONS = 20;
+        //final int NUM_ITERATIONS = 8;
 
-    for(int iter=0;iter<NUM_ITERATIONS;iter++){
-
+        for (int k = 0; k < NUM_ITERATIONS; k += 1) {
+        
         Solver cp = makeSolver();
         IntVar[] sizes = makeIntVarArray(cp, 30, Arrays.stream(lengthTokens).min().getAsInt(), Arrays.stream(lengthTokens).max().getAsInt());
         IntVar[] word_index = makeIntVarArray(cp, sizes.length, 0, corpusDomains.size()-1);
         IntVar[] has_space = makeIntVarArray(cp, sizes.length, 0, 1);
         IntVar[] num_char = makeIntVarArray(cp, sizes.length, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
+        
         for (int i=0; i<sizes.length; i++){
             sizes[i].setName("size["+i+"]");
             word_index[i].setName("word_index["+i+"]");
@@ -258,21 +267,16 @@ public class MNREAD {
         }
 
         IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
-        IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
+        //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
         
         cp.post(sum(has_space, nb_words));
-        //cp.post(sum(num_char, NUMBER_CHAR));
-        cp.post(sum(num_char, nb_char));
-
-
+        cp.post(sum(num_char, NUMBER_CHAR));
+        //cp.post(sum(num_char, nb_char));
 
         int nbLines = 3;
         IntVar[] line = makeIntVarArray(cp, sizes.length, nbLines);
         for (int i=0; i<line.length; i++)
             line[i].setName("line["+i+"]");
-
-
-
 
         IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE+SPACE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+SPACE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
         /*IntVar[] lineSize = makeIntVarArray(
@@ -281,8 +285,10 @@ public class MNREAD {
             (int)Math.round(LINE_SIZE + SPACE_SIZE - MAX_NUMBER_SPACE * (MAX_SPACE_SIZE - SPACE_SIZE) - 0.2 * LINE_SIZE),
             (int)Math.round(LINE_SIZE + SPACE_SIZE + MAX_NUMBER_SPACE * (SPACE_SIZE - MIN_SPACE_SIZE) + 0.2 * LINE_SIZE)
         );*/
+
         for (int i=0; i<lineSize.length; i++)
             lineSize[i].setName("lineSize["+i+"]");
+
         line[0].assign(0);
         line[line.length-1].assign(nbLines-1);
         for (int i=0; i<line.length-1; i++) {
@@ -294,61 +300,61 @@ public class MNREAD {
             changeLine[1]= Factory.isEqual(has_space[i+1], 1);
             cp.post(Factory.or(changeLine));
         }
-        cp.post(binPacking(line,sizes,lineSize));
+        //cp.post(binPacking(line,sizes,lineSize));
 
         List<Integer> acceptedState = new ArrayList<>();
         int[][] A = new int[2][corpusDomains.size()];
         acceptedState.add(1);
         Arrays.fill(A[0], 0);
-        A[0][sentence_end]=1;
+        A[0][final_sentence_end]=1;
         Arrays.fill(A[1], -1);
-        A[1][sentence_end]=1;
+        A[1][final_sentence_end]=1;
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
+
 
         //Words regular
         //cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
-        
-                
+
         HttpClient client = HttpClient.newHttpClient();
-        
-        if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
-        
+
         String[] commonWords = {
-        "I",
-        "You",
-        "He",
-        "She",
-        "It",
-        "We",
-        "They",
-        "The",
-        "A",
-        "An",
-        "This",
-        "That",
-        "These",
-        "Those",
-        "There"};
+            "I",
+            "You",
+            "He",
+            "She",
+            "It",
+            "We",
+            "They",
+            "The",
+            "A",
+            "An",
+            "This",
+            "That",
+            "These",
+            "Those",
+            "There"};
 
         String selectedWord = " "+commonWords[new Random().nextInt(commonWords.length)];
-        
+
         HttpRequest request1 = HttpRequest.newBuilder()
-        .uri(URI.create("http://localhost:5000/tokenize"))
-        .POST(HttpRequest.BodyPublishers.ofString("0"+selectedWord))
-        .build();
+            .uri(URI.create("http://localhost:5000/tokenize"))
+            .POST(HttpRequest.BodyPublishers.ofString("0"+selectedWord))
+            .build();
         String response1 = client.sendAsync(request1, BodyHandlers.ofString()).thenApply((HttpResponse<String> r) -> r.body()).join();
         int[] split_response1 = Arrays.stream(response1.substring(1,response1.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
         int id = split_response1[0];
         int[] tokens1= Arrays.copyOfRange(split_response1, 1, split_response1.length);
         if (id != -1 && id != -3)
-            throw new Exception("Error in tokenization: " + response1);
+            throw new RuntimeException("Error in tokenization: " + response1);
         int i = 0;
         for (; i < tokens1.length; i++) {
             if (!indexToCorpusDomain.containsKey(tokens1[i])) {
-                System.out.println("Token not in corpusDomains: " + tokens1[i]);
-                System.out.println(selectedWord);
-                System.out.println(Arrays.toString(tokens1));
-                throw new Exception("Token not in corpusDomains");
+                if (PRINT_TRACE) {
+                    System.out.println("Token not in corpusDomains: " + tokens1[i]);
+                    System.out.println(selectedWord);
+                    System.out.println(Arrays.toString(tokens1));
+                }
+                throw new RuntimeException("Token not in corpusDomains");
             }
             word_index[i].assign(indexToCorpusDomain.get(tokens1[i]));
         }
@@ -357,14 +363,12 @@ public class MNREAD {
         Double logSumProbs = 0.0;
         int num_tok=i;
         for (; i < sizes.length; i++) {
-            // Makes the request
             HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:5000/token"))
-            .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
-            .build();
+                .uri(URI.create("http://localhost:5000/token"))
+                .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+                .build();
             String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
 
-            // Parse the response into data structures
             int[] tokens = new int[corpusDomains.size()];
             double[] scores = new double[corpusDomains.size()];
 
@@ -387,8 +391,10 @@ public class MNREAD {
                     tokens[token_index] = token_index;
                     scores[token_index] = score;
                     if (score < 0) {
-                        System.out.println("Score is negative: " + score);
-                        System.out.println("Token: " + token);
+                        if (PRINT_TRACE) {
+                            System.out.println("Score is negative: " + score);
+                            System.out.println("Token: " + token);
+                        }
                         continue;
                     }
                     total_score += score;
@@ -399,8 +405,10 @@ public class MNREAD {
                     }
 
                 } catch (Exception e) {
-                    System.err.println(tuple);
-                    System.err.println(e);
+                    if (PRINT_TRACE) {
+                        System.err.println(tuple);
+                        System.err.println(e);
+                    }
                 }
             }
             for (int j=0; j<tokens.length; j++) {
@@ -409,17 +417,20 @@ public class MNREAD {
                     score /= total_score;
                 }
                 else if (score == 0) {
-                    System.out.println("Score is zero: " + score);
-                    System.out.println("Token: " + corpusDomains.get(tokens[j]));
+                    if (PRINT_TRACE) {
+                        System.out.println("Score is zero: " + score);
+                        System.out.println("Token: " + corpusDomains.get(tokens[j]));
+                    }
                 }
                 else {
-                    System.out.println("Score is negative: " + score);
-                    System.out.println("Token: " + corpusDomains.get(tokens[j]));
-                    throw new Exception("Score is negative or zero");
+                    if (PRINT_TRACE) {
+                        System.out.println("Score is negative: " + score);
+                        System.out.println("Token: " + corpusDomains.get(tokens[j]));
+                    }
+                    throw new RuntimeException("Score is negative or zero");
                 }
             }
             max_score /= total_score;
-
 
             if(PRINT_TRACE) System.out.println("token "+i);
 
@@ -431,94 +442,134 @@ public class MNREAD {
             if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
             if(PRINT_TRACE) 
             {
-               double[] temp = scores.clone();
-               Arrays.sort(temp);
-               for(int n=1; n<=5; n++){
-                   for(int k=0; k<temp.length; k++){
-                       if(temp[temp.length-n]==scores[k]){
-                           System.out.println("GPT, before BP (max token, 'the word', its probability) "+k+", '"+words.get(k)+"', "+scores[k]);
-                       }
-                   }
-               }
-           }
+                double[] temp = scores.clone();
+                Arrays.sort(temp);
+                for(int n=1; n<=5; n++){
+                    for(int m=0; m<temp.length; m++){
+                        if(temp[temp.length-n]==scores[m]){
+                            System.out.println("GPT, before BP (max token, 'the word', its probability) "+m+", '"+words.get(m)+"', "+scores[m]);
+                        }
+                    }
+                }
+            }
 
             try {
                 cp.fixPoint();
             }
             catch (InconsistencyException e) {
-                System.out.println("INCONSISTENCY!");
-                for(int j=0; j<word_index.length; j++){
-                    System.out.println(word_index[j].getName()+word_index[j].toString());
+                if (PRINT_TRACE) {
+                    System.out.println("INCONSISTENCY!");
+                    for(int j=0; j<word_index.length; j++){
+                        System.out.println(word_index[j].getName()+word_index[j].toString());
+                    }
                 }
                 current_sentence += " ERROR";
                 break;
             }
             if(PRINT_TRACE) 
             {
-               TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-               for(int j=0; j<word_index[i].size(); j++){
-                   bestTokens.put(word_index[i].marginal(j), j);
-               }
-               for(int j=0; j<5; j++){
-                   if(bestTokens.isEmpty()){
-                       break;
-                   }
-                   double prob = bestTokens.lastKey();
-                   int token = bestTokens.remove(prob);
-                   System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
-               }
-           }
+                TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                for(int j=0; j<word_index[i].size(); j++){
+                    bestTokens.put(word_index[i].marginal(j), j);
+                }
+                for(int j=0; j<5; j++){
+                    if(bestTokens.isEmpty()){
+                        break;
+                    }
+                    double prob = bestTokens.lastKey();
+                    int token = bestTokens.remove(prob);
+                    System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                }
+            }
 
-           if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
+            if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
             cp.vanillaBP(NUM_PB);
             if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
             
             if(PRINT_TRACE) 
             {
-               TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-               for(int j=0; j<word_index[i].size(); j++){
-                   bestTokens.put(word_index[i].marginal(j), j);
-               }
-               for(int j=0; j<5; j++){
-                   if(bestTokens.isEmpty()){
-                       break;
-                   }
-                   double prob = bestTokens.lastKey();
-                   int token = bestTokens.remove(prob);
-                   System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
-               }
-           }
+                TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                for(int j=0; j<word_index[i].size(); j++){
+                    bestTokens.put(word_index[i].marginal(j), j);
+                }
+                for(int j=0; j<5; j++){
+                    if(bestTokens.isEmpty()){
+                        break;
+                    }
+                    double prob = bestTokens.lastKey();
+                    int token = bestTokens.remove(prob);
+                    System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                }
+            }
 
-           int chosen = word_index[i].biasedWheelValue();
-           word_index[i].assign(chosen);//TODO : Trouver un meilleur sampling
+            int chosen = word_index[i].biasedWheelValue();
+            word_index[i].assign(chosen);
             num_tok++;
             if (0<=chosen && chosen<scores.length) {
                 logSumProbs += Math.log(scores[chosen]);
             } else {
-                System.out.println("index chosen: " + chosen);
-                System.out.println(scores.length);
-                System.out.println("Chose a value not in the nlp model");
+                if (PRINT_TRACE) {
+                    System.out.println("index chosen: " + chosen);
+                    System.out.println(scores.length);
+                    System.out.println("Chose a value not in the nlp model");
+                }
                 logSumProbs = -Double.MAX_VALUE;
             } 
             current_sentence += words.get(corpusDomains.get(chosen));
             
-            System.out.println("sentence so far: " + current_sentence);
-            System.out.println("index chosen: " + corpusDomains.get(chosen));
-
+            if (PRINT_TRACE) {
+                System.out.println("sentence so far: " + current_sentence);
+                System.out.println("index chosen: " + corpusDomains.get(chosen));
+            }
         }
         double perplexityScore = Math.exp(-logSumProbs / num_tok);
-        System.out.println("solution : " + current_sentence);
-        
+        if (PRINT_TRACE) System.out.println("solution : " + current_sentence);
+
         HttpRequest request = HttpRequest.newBuilder()
-                     .uri(URI.create("http://localhost:5000/tokenize"))
-                     .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
-                     .build();
-                     String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-                     int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
-                     int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
+            .uri(URI.create("http://localhost:5000/tokenize"))
+            .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+            .build();
+        String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+        int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
+        int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
+
+        
         logs.add(new Logging(current_sentence, perplexityScore, tokens));
+
+        }
+    
+    Map<String, Object> result = new LinkedHashMap<>();
+    result.put("status", "ok");
+    result.put("port", port);
+    result.put("num_iterations", NUM_ITERATIONS);
+    result.put("num_pb", NUM_PB);
+    result.put("weight", w);
+    result.put("llm_name", llm_name);
+    result.put("logs", logs);
+    String OUTPUT_DIR = "./outputs";
+    Files.createDirectories(Paths.get(OUTPUT_DIR));
+    String outputFileName = OUTPUT_DIR + "/result_" + process_id + ".json";
+    objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
-    objectMapper.writeValue(Paths.get(String.format("results_MNREAD_%d_%d_%2.1f.json",NUM_ITERATIONS,NUM_PB, w)).toFile(), logs);
+    catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+            // Write error to output file
+            String OUTPUT_DIR = "./outputs";
+            Files.createDirectories(Paths.get(OUTPUT_DIR));
+            String outputFileName = OUTPUT_DIR + "/result_" + (args.length > 2 ? args[2] : "error") + ".json";
+            Map<String, Object> errorResult = new LinkedHashMap<>();
+            errorResult.put("status", "error");
+            errorResult.put("error_message", e.getMessage());
+            errorResult.put("exception", e.toString());
+            ObjectMapper errorMapper = new ObjectMapper();
+            try {
+                errorMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), errorResult);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            System.exit(1);
+    }
     }
 
 
