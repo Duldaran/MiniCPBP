@@ -69,6 +69,12 @@ import java.io.IOException;
 
  public class Sentence_cleaned{
      public static void main(String[] args) throws IOException {
+        System.out.println("5 Août");
+        int port = args.length > 1 ? Integer.parseInt(args[1]) : 5000;
+        final double weight = args.length > 0 ? Double.parseDouble(args[0]) : 1.2;
+        final int MAX_COUNT = args.length > 2 ? Integer.parseInt(args[3]) : 40;
+
+
          ObjectMapper objectMapper = new ObjectMapper();
          ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
@@ -106,11 +112,10 @@ import java.io.IOException;
         }
 
 
-         List<Logging> logs = new ArrayList<>();
-         int count=0;
-         elements.next();//** */
+        List<Logging> logs = new ArrayList<>();
+        int count=0;
+        elements.next();//** */
 
-        final int MAX_COUNT = 100;//** */
         final boolean PRINT_TRACE = false;
         PrintStream fileOut = new PrintStream(new FileOutputStream("output.txt"));
         System.setOut(fileOut);
@@ -126,7 +131,7 @@ import java.io.IOException;
  
  
              final int NUM_PB=3;
-             final double w = 1.2;
+             final double w = weight;
              final int SENTENCE_MAX_NUMBER_TOKENS=30;
              final int END_TOKEN=0;//Change with llm
  
@@ -174,10 +179,11 @@ import java.io.IOException;
                  A[3][END_TOKEN]=3;
                  cp.post(Factory.regular(q, A, 0, acceptedState));
 
+                
                 ArrayList<Integer> required_tokens = new ArrayList<>();
                  for(int i = 0; i<REQUIRED_WORDS.length;i++){
                      HttpRequest request = HttpRequest.newBuilder()
-                     .uri(URI.create("http://localhost:5000/tokenize"))
+                        .uri(URI.create("http://localhost:" + port + "/tokenize"))
                      .POST(HttpRequest.BodyPublishers.ofString("1 "+REQUIRED_WORDS[i]))
                      .build();
                      String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
@@ -205,7 +211,8 @@ import java.io.IOException;
                      }
                  }
                 required_tokens.add(END_TOKEN);
-                required_tokens.add(1000);
+
+                cp.post(Factory.atleast(q, required_tokens.stream().mapToInt(Integer::intValue).toArray(), REQUIRED_WORDS.length+1));
 
                  
         if(PRINT_TRACE)System.out.println("Using "+NUM_PB+" iterations of BP");
@@ -374,7 +381,9 @@ import java.io.IOException;
             //System.out.println("Perplexity is of " + perplexityScore);
             logs.add(new Logging(current_sentence, perplexityScore, REQUIRED_WORDS));
             
-            objectMapper.writeValue(Paths.get(String.format("model_results_%d_%d_%2.1f.json", MAX_COUNT,NUM_PB, w)).toFile(), logs);
+            String dir = args.length > 2 ? args[2] : ".";
+            File outputFile = Paths.get(dir, String.format("model_results_%d_%d_%2.1f.json", MAX_COUNT, NUM_PB, w)).toFile();
+            objectMapper.writeValue(outputFile, logs);
          }
  
          

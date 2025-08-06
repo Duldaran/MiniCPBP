@@ -64,6 +64,7 @@ all_lemmes_adverbs = [WordNetLemmatizer().lemmatize(token.strip().lower(),"r") f
 print(time.time())
 all_lemmes_satellites = [WordNetLemmatizer().lemmatize(token.strip().lower(),"s") for token in all_tokens]
 print(time.time())
+print("Ready")
 
 '''
 with open('lemme_dict', 'w', encoding="UTF-8") as tokens_dict:
@@ -121,5 +122,10 @@ def next_token():
 
     return raw_probs
 
+@app.route('/ping', methods=['GET'])
+def ping():
+    return 'pong', 200
+
 if __name__ == '__main__':  
-    app.run()
+    print("Starting server...")
+    app.run(host="0.0.0.0", port=5000)

@@ -6,4 +6,5 @@
 #SBATCH --mem=24G
 
 module load java/21.0.1
-python run-all.py -i 1 -t 1
+export JAVA_TOOL_OPTIONS="-Xmx6g"
+python run-all.py -i 5 -t 5

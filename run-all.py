@@ -52,24 +52,15 @@ def wait_for_server(port, timeout=10):
             if r.ok:
                 return
         except Exception:
-            time.sleep(5)
+            time.sleep(1)
 
 # Lance un processus (serveur + appel Java)
 def run_task(task_id, input_path, port):
     result_json = {}
     result_file = os.path.join(OUTPUT_DIR, f"result_{task_id}.json")
 
-    # Lance le serveur Python
-    server = subprocess.Popen(
-        ["python", "server_cleaned.py", str(port)],
-        env={**os.environ, "CUDA_VISIBLE_DEVICES": GPU_ID},
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-    )
 
-    wait_for_server(port)
-
-
-    cmd = f'java -cp target/minicpbp-1.0.jar minicpbp.examples.MNREAD {input_path} {port} {task_id} -Xmx2048m'
+    cmd = f'java -cp target/minicpbp-1.0.jar minicpbp.examples.MNREAD {input_path} {port} {task_id}'
 
     try:
         result = subprocess.run(
@@ -100,7 +91,6 @@ def run_task(task_id, input_path, port):
 
 
     finally:
-        server.terminate()
         if os.path.exists(result_file):
             with open(result_file, "r") as f:
                 try:
@@ -122,6 +112,17 @@ def main():
         split_input_file()
 
     combined_results = []
+    
+    port = BASE_PORT
+    
+     # Lance le serveur Python
+    server = subprocess.Popen(
+        ["python", "server_cleaned.py", str(port)],
+        env={**os.environ, "CUDA_VISIBLE_DEVICES": GPU_ID},
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+
+    wait_for_server(port)
 
     with ThreadPoolExecutor(max_workers=NUM_THREADS) as executor:
         futures = []
@@ -130,7 +131,6 @@ def main():
                 part_input = os.path.join(INPUT_SPLIT_DIR, f"part_{i}.txt")
             else:
                 part_input = NUM_ITERATIONS
-            port = BASE_PORT + i
             futures.append(
                 executor.submit(run_task, i, part_input, port)
             )
@@ -138,6 +138,8 @@ def main():
         for future in as_completed(futures):
             combined_results.append(future.result())
 
+    server.terminate()
+    
     # 3. Combine tous les résultats
     with open(FINAL_OUTPUT, "w") as f:
         json.dump(combined_results, f, indent=2)

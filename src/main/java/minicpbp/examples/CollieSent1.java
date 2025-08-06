@@ -63,14 +63,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-public class MNREAD {
+public class CollieSent1 {
     public static void main(String[] args) throws Exception {
-        try {
-            System.out.println("25 Juillet");
+        
+            System.out.println("6 Aout");
             int port = Integer.parseInt(args[1]);
-            final int NUM_ITERATIONS = Integer.parseInt(args[0]);
-            final int process_id = Integer.parseInt(args[2]);
-
+            final int NUM_ITERATIONS = Integer.parseInt(args[3]);
+            final double weight = Double.parseDouble(args[0]);
+        try {
         final String llm_name="zephyr";//
 
         List<Logging>  logs = new ArrayList<>();
@@ -135,172 +135,53 @@ public class MNREAD {
             }
         }
 
-        String charToIntFilePath = "./src/main/java/minicpbp/examples/data/MNREAD/TimesCost_modified.json";
-        Map<String, Integer> charToIntMap = new HashMap<>();
-        try {
-            String charToIntJson = new String(Files.readAllBytes(Paths.get(charToIntFilePath)), StandardCharsets.UTF_8);
-            charToIntMap = objectMapper.readValue(charToIntJson, new TypeReference<Map<String, Integer>>() {});
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        int[] lengthTokens = new int[corpusDomains.size()];
         int[] charNum = new int[corpusDomains.size()];
         for (int i = 0; i < corpusDomains.size(); i++) {
             int domainIndex = corpusDomains.get(i);
             String word = words.get(domainIndex);
-            int charSum = 0;
             if(i==corpusDomains.size()-1){
                 charNum[i]=0;
-                lengthTokens[i]=0;
                 continue;
             }
             charNum[i]=word.length();
-            for (char c : word.toCharArray()) {
-                if(word.length()==0){
-                    break;
-                }
-                String charStr = String.valueOf(c);
-                charSum += charToIntMap.getOrDefault(charStr, 1000000);
-                if (charToIntMap.getOrDefault(charStr, 1000000) == 1000000) {
-                    System.err.println("Character not found in mapping: " + charStr);
-                    System.err.println("Word: " + word);
-                    System.err.println("Index: " + domainIndex);
-                    throw new Exception("Character not found");
-                }
-            }
-            lengthTokens[i]=charSum;
+            
         }
 
-        List<List<Integer>> corpusWords = new ArrayList<>();
-        ObjectMapper objectMapperWords = new ObjectMapper();
-        try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
-            corpusWords = objectMapperWords.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+ 
 
 
-        Map<Integer, Map<Integer, Integer>> transitions = new HashMap<>();
-        Map<Integer, Integer> initialTrans = transitions.computeIfAbsent(0, k -> new HashMap<>());
-        initialTrans.put(sentence_end, 1);
-        Map<Integer, Integer> finalTrans = transitions.computeIfAbsent(1, k -> new HashMap<>());
-        finalTrans.put(sentence_end, 1);
-        int stateCounter = 2;
-
-        ArrayList<Integer> terminalStates = new ArrayList<>();
-        for (List<Integer> seq : corpusWords) {
-            int currentState = 0;
-            if (seq.contains(8)) {
-                continue;
-            }
-
-            for (int i = 0; i < seq.size(); i++) {
-                if (!indexToCorpusDomain.containsKey(seq.get(i))) {
-                    System.out.println("Token not in corpusDomains: " + seq.get(i));
-                    continue;
-                }
-                int input = indexToCorpusDomain.get(seq.get(i));
-
-                Map<Integer, Integer> currentTrans = transitions.computeIfAbsent(currentState, k -> new HashMap<>());
-                Integer nextState = currentTrans.get(input);
-                if (nextState == null) {
-                    nextState = stateCounter++;
-                    currentTrans.put(input, nextState);
-                }
-
-                currentState = nextState;
-
-                if(seq.size()-1==i){
-                    terminalStates.add(currentState);
-                }
-            }
-        }
-
-        for (int state : terminalStates) {
-            Map<Integer, Integer> currentTrans =transitions.computeIfAbsent(state, k -> new HashMap<>());
-            initialTrans = transitions.get(0);
-            currentTrans.putAll(initialTrans);
-        }
-
-        int numStates = stateCounter;
-        int[][] table = new int[numStates][corpusDomains.size()];
-        for (int[] row : table) Arrays.fill(row, -1);
-
-        for (Entry<Integer, Map<Integer, Integer>> fromEntry : transitions.entrySet()) {
-            int from = fromEntry.getKey();
-            for (Entry<Integer, Integer> inputEntry : fromEntry.getValue().entrySet()) {
-                int input = inputEntry.getKey();
-                int to = inputEntry.getValue();
-                table[from][input] = to;
-            }
-        }
-
-        final int LINE_SIZE = 15896;
-        final int SPACE_SIZE =512;
-        final int MIN_SPACE_SIZE =410;
-        final int MAX_SPACE_SIZE =640;
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 63;//Verify if you need to count the spaces at the beginning of lines
+        final int NUMBER_CHAR = 82;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
-        final double w = 2;
+        final double w = weight;
+        final int SENTENCE_MAX_NUMBER_TOKENS = 30;
         //final int NUM_ITERATIONS = 8;
 
         for (int k = 0; k < NUM_ITERATIONS; k += 1) {
         
         Solver cp = makeSolver();
-        IntVar[] sizes = makeIntVarArray(cp, 30, Arrays.stream(lengthTokens).min().getAsInt(), Arrays.stream(lengthTokens).max().getAsInt());
-        IntVar[] word_index = makeIntVarArray(cp, sizes.length, 0, corpusDomains.size()-1);
-        IntVar[] has_space = makeIntVarArray(cp, sizes.length, 0, 1);
-        IntVar[] num_char = makeIntVarArray(cp, sizes.length, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
-        
-        for (int i=0; i<sizes.length; i++){
-            sizes[i].setName("size["+i+"]");
+        IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+        //IntVar[] has_space = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 1);
+        IntVar[] num_char = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
+
+        for (int i=0; i<SENTENCE_MAX_NUMBER_TOKENS; i++){
             word_index[i].setName("word_index["+i+"]");
-            cp.post(element(lengthTokens, word_index[i], sizes[i]));
-            cp.post(element(start_words, word_index[i], has_space[i]));
+            //cp.post(element(start_words, word_index[i], has_space[i]));
             cp.post(element(charNum, word_index[i], num_char[i]));
         }
 
-        IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
+        //IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
         //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
         
-        cp.post(sum(has_space, nb_words));
+        //cp.post(sum(has_space, nb_words));
         cp.post(sum(num_char, NUMBER_CHAR));
         //cp.post(sum(num_char, nb_char));
 
-        int nbLines = 3;
-        IntVar[] line = makeIntVarArray(cp, sizes.length, nbLines);
-        for (int i=0; i<line.length; i++)
-            line[i].setName("line["+i+"]");
 
-        IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE+SPACE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+SPACE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
-        /*IntVar[] lineSize = makeIntVarArray(
-            cp, 
-            nbLines,  
-            (int)Math.round(LINE_SIZE + SPACE_SIZE - MAX_NUMBER_SPACE * (MAX_SPACE_SIZE - SPACE_SIZE) - 0.2 * LINE_SIZE),
-            (int)Math.round(LINE_SIZE + SPACE_SIZE + MAX_NUMBER_SPACE * (SPACE_SIZE - MIN_SPACE_SIZE) + 0.2 * LINE_SIZE)
-        );*/
 
-        for (int i=0; i<lineSize.length; i++)
-            lineSize[i].setName("lineSize["+i+"]");
-
-        line[0].assign(0);
-        line[line.length-1].assign(nbLines-1);
-        for (int i=0; i<line.length-1; i++) {
-            cp.post(lessOrEqual(line[i], line[i + 1]));
-            cp.post(lessOrEqual(line[i + 1],plus(line[i],1)));
-            cp.post(notEqual(word_index[i], word_index[i + 1]));
-            BoolVar[] changeLine = new BoolVar[2];
-            changeLine[0]= Factory.isEqual(line[i], line[i + 1]);
-            changeLine[1]= Factory.isEqual(has_space[i+1], 1);
-            cp.post(Factory.or(changeLine));
-        }
-        //cp.post(binPacking(line,sizes,lineSize));
 
         List<Integer> acceptedState = new ArrayList<>();
         int[][] A = new int[2][corpusDomains.size()];
@@ -359,13 +240,14 @@ public class MNREAD {
             word_index[i].assign(indexToCorpusDomain.get(tokens1[i]));
         }
 
+        String instruction = "Please generate a sentence with exactly 82 characters. Include whitespace into your character count.";
         String current_sentence = selectedWord;
         Double logSumProbs = 0.0;
         int num_tok=i;
-        for (; i < sizes.length; i++) {
+        for (; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
             HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:5000/token"))
-                .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+                .uri(URI.create("http://localhost:" + port + "/token"))
+                .POST(HttpRequest.BodyPublishers.ofString(instruction + current_sentence))
                 .build();
             String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
 
@@ -526,7 +408,7 @@ public class MNREAD {
         if (PRINT_TRACE) System.out.println("solution : " + current_sentence);
 
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:5000/tokenize"))
+            .uri(URI.create("http://localhost:" + port + "/tokenize"))
             .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
             .build();
         String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
@@ -548,7 +430,7 @@ public class MNREAD {
     result.put("logs", logs);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result_" + process_id + ".json";
+    String outputFileName = OUTPUT_DIR + "/result_" + weight + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
@@ -557,7 +439,7 @@ public class MNREAD {
             // Write error to output file
             String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result_" + (args.length > 2 ? args[2] : "error") + ".json";
+            String outputFileName = OUTPUT_DIR + "/result_" + weight + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
             errorResult.put("error_message", e.getMessage());
