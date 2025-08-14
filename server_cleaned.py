@@ -1,28 +1,52 @@
-from flask import Flask, request
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
-import torch
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import wordnet
-import time
-import gc
-import json
+import os
+print("Importing server...")
+os.environ['PYTHONVERBOSE'] = '1'
+try:
+    print("Importing sys...")
+    import sys
+    print("Configuring stdout...")
+    sys.stdout.reconfigure(line_buffering=True)
+    print("Configuring stderr...")
+    sys.stderr.reconfigure(line_buffering=True)
+    
+    print("Importing json...")
+    import json
+    print("Importing traceback...")
+    import traceback
+    print("Importing Flask and request...")
+    from flask import Flask, request
+    print("Importing torch...")
+    start_time = time.time()
+    import torch
+    print("Done importing torch in", time.time() - start_time, "seconds")
+    print("Importing AutoModelForCausalLM, AutoTokenizer...")
+    os.environ['TRANSFORMERS_OFFLINE'] = '1'  # Skip online model checks
+    os.environ['HF_HUB_DISABLE_TELEMETRY'] = '1'  # Disable telemetry
+    start_time = time.time()
+    from transformers import  AutoModelForCausalLM, AutoTokenizer
+    print("Done importing transformers in", time.time() - start_time, "seconds")
+    print("Importing WordNetLemmatizer...")
+    from nltk.stem import WordNetLemmatizer
+    print("Importing wordnet corpus...")
+    from nltk.corpus import wordnet
+    print("Importing time...")
+    import time
+    print("Importing gc...")
+    import gc
+    print("Importing argparse...")
+    import argparse
+    print("Imports done.")
+except Exception as e:
+    print("Import error:", file=sys.stderr)
+    traceback.print_exc(file=sys.stderr)
 
-
+parser = argparse.ArgumentParser(description="Flask server for token prediction")
+parser.add_argument('--port', type=int, default=5000, help='Port to run the server on')
+args = parser.parse_args()
 app = Flask(__name__)
 
 gc.collect()
 
-#java -Xms2g -Xmx16g  -cp minicpbp-1.0.jar minicpbp.examples.MNREAD
-
-
-#model_name = "meta-llama/Llama-3.2-3B"
-#model_name = "../Ctrl-G/ctrlg/gpt2-large_common-gen"
-model_name ="stabilityai/stablelm-zephyr-3b"
-device='cuda' if torch.cuda.is_available() else 'cpu'
-#model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
-tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
-    
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
     inputs = tokenizer.encode(sentence, return_tensors="pt").to(device)
@@ -47,34 +71,83 @@ def get_next_word_probabilities(sentence):
     # Return the top k candidates and their probabilities.
     return list(zip(range(0,len(next_token_candidates_tensor)), all_candidates_probabilities))
 
-#Works well for noun but not for others (*Would need to know grammatical class of the word to get the right lemmatization)
+#java -Xms2g -Xmx16g  -cp minicpbp-1.0.jar minicpbp.examples.MNREAD
 
-next_token_candidates_tensor = get_predictions("<s>Hello")[0, -1, :]
-print(len(next_token_candidates_tensor))
-print(time.time())
-all_tokens = [tokenizer.decode([idx], skip_special_tokens=False) for idx in range(0, len(next_token_candidates_tensor)+1)]
-print(time.time())
-all_lemmes_nouns = [WordNetLemmatizer().lemmatize(token.strip().lower()) for token in all_tokens]
-print(time.time())
-all_lemmes_verbs = [WordNetLemmatizer().lemmatize(token.strip().lower(),"v") for token in all_tokens]
-print(time.time())
-all_lemmes_adjectives = [WordNetLemmatizer().lemmatize(token.strip().lower(),"a") for token in all_tokens]
-print(time.time())
-all_lemmes_adverbs = [WordNetLemmatizer().lemmatize(token.strip().lower(),"r") for token in all_tokens]
-print(time.time())
-all_lemmes_satellites = [WordNetLemmatizer().lemmatize(token.strip().lower(),"s") for token in all_tokens]
-print(time.time())
-print("Ready")
 
-'''
-with open('lemme_dict', 'w', encoding="UTF-8") as tokens_dict:
-    for ind,token in enumerate(all_lemmes):
-        try:
-            tokens_dict.write(str(ind)+"::"+token+"\n")
-        except:
-            print("Error")
-            pass
-'''
+try:
+    print("Setting model_name...")
+    #model_name = "meta-llama/Llama-3.2-3B"
+    #model_name = "../Ctrl-G/ctrlg/gpt2-large_common-gen"
+    model_name ="stabilityai/stablelm-zephyr-3b"
+
+    print("Detecting device...")
+    device='cuda' if torch.cuda.is_available() else 'cpu'
+    if device == 'cuda':
+        print("Using GPU")
+        torch.cuda.set_device(0)
+    else:
+        print("Using CPU")
+
+    #print("Loading model...")
+    #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+    print("Loading model with local_files_only=True...")
+    model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
+
+    print("Loading tokenizer with local_files_only=True...")
+    tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
+
+    print("Getting next_token_candidates_tensor...")
+    next_token_candidates_tensor = get_predictions("<s>Hello")[0, -1, :]
+
+    print("Printing length of next_token_candidates_tensor...")
+    print(len(next_token_candidates_tensor))
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Generating all_tokens...")
+    all_tokens = [tokenizer.decode([idx], skip_special_tokens=False) for idx in range(0, len(next_token_candidates_tensor)+1)]
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Generating all_lemmes_nouns...")
+    all_lemmes_nouns = [WordNetLemmatizer().lemmatize(token.strip().lower()) for token in all_tokens]
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Generating all_lemmes_verbs...")
+    all_lemmes_verbs = [WordNetLemmatizer().lemmatize(token.strip().lower(),"v") for token in all_tokens]
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Generating all_lemmes_adjectives...")
+    all_lemmes_adjectives = [WordNetLemmatizer().lemmatize(token.strip().lower(),"a") for token in all_tokens]
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Generating all_lemmes_adverbs...")
+    all_lemmes_adverbs = [WordNetLemmatizer().lemmatize(token.strip().lower(),"r") for token in all_tokens]
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Generating all_lemmes_satellites...")
+    all_lemmes_satellites = [WordNetLemmatizer().lemmatize(token.strip().lower(),"s") for token in all_tokens]
+
+    print("Printing current time...")
+    print(time.time())
+
+    print("Ready")
+except Exception as e:
+    print("Error during model/tokenizer/lemmatizer setup:"+str(e), file=sys.stderr)
+    traceback.print_exc(file=sys.stderr)
+    sys.exit(1)
+
+
 
 @app.route('/tokenize', methods=['POST'])
 def get_tokens():
@@ -128,4 +201,10 @@ def ping():
 
 if __name__ == '__main__':  
     print("Starting server...")
-    app.run(host="0.0.0.0", port=5000)
+    try:
+        app.run(host="0.0.0.0", port=args.port)
+    except Exception as e:
+        exc_type = type(e).__name__
+        print(f"Server crashed with exception type: {exc_type}", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)  # Optional: Full stack trace
+        sys.exit(1)

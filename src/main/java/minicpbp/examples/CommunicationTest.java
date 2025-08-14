@@ -18,7 +18,7 @@
  import minicpbp.cp.Factory;
  import minicpbp.engine.core.IntVar;
  import minicpbp.engine.core.Solver;
-import minicpbp.examples.Sentence.Logging;
+import minicpbp.examples.Sentence_cleaned.Logging;
 import minicpbp.search.DFSearch;
  import minicpbp.search.SearchStatistics;
 

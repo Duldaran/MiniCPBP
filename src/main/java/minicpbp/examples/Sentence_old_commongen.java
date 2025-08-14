@@ -67,7 +67,7 @@ import java.io.IOException;
 //java -cp target/minicpbp-1.0.jar minicpbp.examples.Sentence_cleaned
 
 
- public class Sentence_cleaned{
+ public class Sentence_old_commongen{
      public static void main(String[] args) throws IOException {
         System.out.println("5 Août");
         int port = args.length > 1 ? Integer.parseInt(args[1]) : 5000;
@@ -76,7 +76,7 @@ import java.io.IOException;
 
 
          ObjectMapper objectMapper = new ObjectMapper();
-         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/commongen.json"));
+         ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(new File("./src/main/java/minicpbp/examples/data/Sentence/old_commongen.json"));
          Iterator<JsonNode> elements = arrayNode.elements();
  
          List<String> lines = Collections.emptyList();
