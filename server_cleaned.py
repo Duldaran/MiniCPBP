@@ -1,4 +1,6 @@
 import os
+
+from sympy import im
 print("Importing server...")
 os.environ['PYTHONVERBOSE'] = '1'
 try:
@@ -9,6 +11,8 @@ try:
     print("Configuring stderr...")
     sys.stderr.reconfigure(line_buffering=True)
     
+    print("Importing time...")
+    import time
     print("Importing json...")
     import json
     print("Importing traceback...")
@@ -29,8 +33,6 @@ try:
     from nltk.stem import WordNetLemmatizer
     print("Importing wordnet corpus...")
     from nltk.corpus import wordnet
-    print("Importing time...")
-    import time
     print("Importing gc...")
     import gc
     print("Importing argparse...")

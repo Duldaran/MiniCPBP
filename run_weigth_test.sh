@@ -72,7 +72,7 @@ fi
 values=(0.1 0.4 0.6 0.8 1 1.2 1.5 1.8 2 2.5 3.0 3.7 4.5 5.0)
 
 
-MAX_JOBS=2
+MAX_JOBS=3
 
 # --- Function to run command with semaphore ---
 run_with_semaphore() {
@@ -113,30 +113,44 @@ NUM_RUNS=10
 # -----------------------------
 # Run Sentence_old_commongen in parallel
 # -----------------------------
-pids=()
-for val in "${values[@]}"; do
-    echo "Running Sentence_old_commongen with argument $val"
-    run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.Sentence_old_commongen $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
-done
-
-# Wait for remaining Sentence_old_commongen
-for pid in "${pids[@]}"; do
-    wait $pid
-done
+# pids=()
+# for val in "${values[@]}"; do
+#     echo "Running Sentence_old_commongen with argument $val"
+#     run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.Sentence_old_commongen $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
+# done
+#
+# # Wait for remaining Sentence_old_commongen
+# for pid in "${pids[@]}"; do
+#     wait $pid
+# done
 
 
 # -----------------------------
 # Run CollieSent1 in parallel
 # -----------------------------
-#pids=()
-#for val in "${values[@]}"; do
-#    echo "Running CollieSent1 with argument $val"
-#    run_with_semaphore "srun --exclusive -N1 -n1java -cp target/minicpbp-1.0.jar minicpbp.examples.CollieSent1 $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
-#done
+pids=()
+for val in "${values[@]}"; do
+    echo "Running CollieSent1 with argument $val"
+    run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.CollieSent1_words $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
+done
 
 # Wait for remaining CollieSent1
-#for pid in "${pids[@]}"; do
-#    wait $pid
-#done
+for pid in "${pids[@]}"; do
+    wait $pid
+done
+
+# -----------------------------
+# Run MNREAD_words in parallel
+# -----------------------------
+pids=()
+for val in "${values[@]}"; do
+   echo "Running MNREAD_words with argument $val"
+    run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.MNREAD_words $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
+done
+
+# Wait for remaining MNREAD_words
+for pid in "${pids[@]}"; do
+    wait $pid
+done
 
 kill $SERVER_PID
