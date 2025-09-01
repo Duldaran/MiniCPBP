@@ -15,6 +15,12 @@ export JAVA_TOOL_OPTIONS="-Xmx6g"
 OUTPUT_DIR="test_weigth_result"
 mkdir -p "$OUTPUT_DIR"
 
+# Create test cases log file
+TEST_LOG_FILE="$OUTPUT_DIR/test_cases_executed.txt"
+echo "Test Execution Log - $(date)" > "$TEST_LOG_FILE"
+echo "=================================" >> "$TEST_LOG_FILE"
+echo "" >> "$TEST_LOG_FILE"
+
 which python
 python --version
 python -c "import torch; import transformers; print('Preload done')"
@@ -40,6 +46,8 @@ PORT=$(get_random_port)
 
 if [ $? -eq 0 ]; then
     echo "Using port $PORT"
+    echo "Server port used: $PORT" >> "$TEST_LOG_FILE"
+    echo "" >> "$TEST_LOG_FILE"
     # You can now launch your server with $PORT
 else
     echo "Failed to find available port"
@@ -95,27 +103,42 @@ run_with_semaphore() {
 
 NUM_RUNS=10
 
+# Log general test parameters
+echo "General Parameters:" >> "$TEST_LOG_FILE"
+echo "  Number of runs per test: $NUM_RUNS" >> "$TEST_LOG_FILE"
+echo "  Maximum parallel jobs: $MAX_JOBS" >> "$TEST_LOG_FILE"
+echo "  Test values: ${values[*]}" >> "$TEST_LOG_FILE"
+echo "" >> "$TEST_LOG_FILE"
+
 # -----------------------------
 # Run Sentence_cleaned in parallel
 # -----------------------------
 #pids=()
+#echo "SENTENCE_CLEANED TEST CASES" >> "$TEST_LOG_FILE"
+#echo "Started at: $(date)" >> "$TEST_LOG_FILE"
 #for val in "${values[@]}"; do
 #    echo "Running Sentence_cleaned with argument $val"
+#    echo "  - Value: $val (Runs: $NUM_RUNS)" >> "$TEST_LOG_FILE"
 #    run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.Sentence_cleaned $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
 #done
-
-# Wait for remaining Sentence_cleaned
+#
+## Wait for remaining Sentence_cleaned
 #for pid in "${pids[@]}"; do
 #    wait $pid
 #done
+#echo "Completed at: $(date)" >> "$TEST_LOG_FILE"
+#echo "" >> "$TEST_LOG_FILE"
 
 
 # -----------------------------
 # Run Sentence_old_commongen in parallel
 # -----------------------------
 # pids=()
+# echo "SENTENCE_OLD_COMMONGEN TEST CASES" >> "$TEST_LOG_FILE"
+# echo "Started at: $(date)" >> "$TEST_LOG_FILE"
 # for val in "${values[@]}"; do
 #     echo "Running Sentence_old_commongen with argument $val"
+#     echo "  - Value: $val (Runs: $NUM_RUNS)" >> "$TEST_LOG_FILE"
 #     run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.Sentence_old_commongen $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
 # done
 #
@@ -123,14 +146,19 @@ NUM_RUNS=10
 # for pid in "${pids[@]}"; do
 #     wait $pid
 # done
+# echo "Completed at: $(date)" >> "$TEST_LOG_FILE"
+# echo "" >> "$TEST_LOG_FILE"
 
 
 # -----------------------------
 # Run CollieSent1 in parallel
 # -----------------------------
 pids=()
+echo "COLLIESENT1_WORDS TEST CASES" >> "$TEST_LOG_FILE"
+echo "Started at: $(date)" >> "$TEST_LOG_FILE"
 for val in "${values[@]}"; do
     echo "Running CollieSent1 with argument $val"
+    echo "  - Value: $val (Runs: $NUM_RUNS)" >> "$TEST_LOG_FILE"
     run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.CollieSent1_words $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
 done
 
@@ -138,13 +166,18 @@ done
 for pid in "${pids[@]}"; do
     wait $pid
 done
+echo "Completed at: $(date)" >> "$TEST_LOG_FILE"
+echo "" >> "$TEST_LOG_FILE"
 
 # -----------------------------
 # Run MNREAD_words in parallel
 # -----------------------------
 pids=()
+echo "MNREAD_WORDS TEST CASES" >> "$TEST_LOG_FILE"
+echo "Started at: $(date)" >> "$TEST_LOG_FILE"
 for val in "${values[@]}"; do
    echo "Running MNREAD_words with argument $val"
+   echo "  - Value: $val (Runs: $NUM_RUNS)" >> "$TEST_LOG_FILE"
     run_with_semaphore "srun --exclusive -N1 -n1 java -cp target/minicpbp-1.0.jar minicpbp.examples.MNREAD_words $val $PORT $OUTPUT_DIR $NUM_RUNS" pids
 done
 
@@ -152,5 +185,16 @@ done
 for pid in "${pids[@]}"; do
     wait $pid
 done
+echo "Completed at: $(date)" >> "$TEST_LOG_FILE"
+echo "" >> "$TEST_LOG_FILE"
+
+# Final summary
+echo "TEST EXECUTION SUMMARY" >> "$TEST_LOG_FILE"
+echo "======================" >> "$TEST_LOG_FILE"
+echo "Total test cases executed:" >> "$TEST_LOG_FILE"
+echo "  - CollieSent1_words: ${#values[@]} parameter values × $NUM_RUNS runs = $((${#values[@]} * NUM_RUNS)) total executions" >> "$TEST_LOG_FILE"
+echo "  - MNREAD_words: ${#values[@]} parameter values × $NUM_RUNS runs = $((${#values[@]} * NUM_RUNS)) total executions" >> "$TEST_LOG_FILE"
+echo "" >> "$TEST_LOG_FILE"
+echo "All tests completed at: $(date)" >> "$TEST_LOG_FILE"
 
 kill $SERVER_PID

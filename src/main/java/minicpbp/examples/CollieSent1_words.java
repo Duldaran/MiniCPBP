@@ -131,7 +131,7 @@ public class CollieSent1_words {
 
         System.out.println("corpusDomains size: " + corpusDomains.size());
 
-        final int final_sentence_end = sentence_end;
+        final int final_sentence_end = words.size()-2;
 
 
 
@@ -228,7 +228,7 @@ public class CollieSent1_words {
         Arrays.fill(A[0], 0);
         A[0][final_sentence_end]=1;
         Arrays.fill(A[1], -1);
-        A[1][final_sentence_end]=1;
+        A[1][corpusDomains.size()-1]=1;
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
 

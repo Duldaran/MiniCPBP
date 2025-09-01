@@ -128,7 +128,8 @@ public class MNREAD_words {
         }
 
         System.out.println("corpusDomains size: " + corpusDomains.size());
-        final int final_sentence_end = sentence_end;
+        final int final_sentence_end = corpusDomains.get(corpusDomains.size()-2);
+        final int pad_token = corpusDomains.get(corpusDomains.size()-1);
 
 
 
@@ -343,8 +344,9 @@ public class MNREAD_words {
         acceptedState.add(1);
         Arrays.fill(A[0], 0);
         A[0][final_sentence_end]=1;
+        A[0][pad_token]=-1;
         Arrays.fill(A[1], -1);
-        A[1][final_sentence_end]=1;
+        A[1][pad_token]=1;
         cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
 
@@ -359,7 +361,7 @@ public class MNREAD_words {
         int num_tok = 1;
         for (int i=1; i < sizes.length; i++) {
             HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:5000/token"))
+                .uri(URI.create("http://localhost:" + port + "/token"))
                 .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
                 .build();
             String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
@@ -514,6 +516,8 @@ public class MNREAD_words {
                 }
                 logSumProbs = -Double.MAX_VALUE;
             } 
+            if(chosen==pad_token)
+                break;
             current_sentence += words.get(corpusDomains.get(chosen));
             
             if (PRINT_TRACE) {
@@ -525,7 +529,7 @@ public class MNREAD_words {
         if (PRINT_TRACE) System.out.println("solution : " + current_sentence);
 
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:5000/tokenize"))
+            .uri(URI.create("http://localhost:" + port + "/tokenize"))
             .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
             .build();
         String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
@@ -562,6 +566,7 @@ public class MNREAD_words {
             errorResult.put("status", "error");
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
+            errorResult.put("date", java.time.LocalDateTime.now().toString());
             ObjectMapper errorMapper = new ObjectMapper();
             try {
                 errorMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), errorResult);
