@@ -33,6 +33,7 @@ import minicpbp.search.Objective;
 import minicpbp.util.exception.InconsistencyException;
 import minicpbp.util.io.InputReader;
 import minicpbp.search.SearchStatistics;
+import minicpbp.state.StateManager;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -63,6 +64,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.ibm.icu.impl.Pair;
 
 public class MNREAD_words {
     public static void main(String[] args) throws Exception {
@@ -253,6 +255,7 @@ public class MNREAD_words {
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
+        final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
         for (int k = 0; k < NUM_ITERATIONS; k += 1) {
@@ -373,6 +376,7 @@ public class MNREAD_words {
             double max_score = 0;
             double total_score = 0;
 
+            List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
             for (String tuple : response.split("\\],\\[")) {
                 try {
                     String[] token_score = tuple.split(",");
@@ -380,35 +384,34 @@ public class MNREAD_words {
                     token_score[0]=token_score[0].replaceAll("\\[","");
                     int token = Integer.parseInt(token_score[0]);
                     double score = Double.parseDouble(token_score[1]);
-                    
-                    if (!corpusDomainsSet.containsKey(token)) {
-                        continue;
-                    }
-                    if (score < 0) {
-                        if (PRINT_TRACE) {
-                            System.out.println("Score is negative: " + score);
-                            System.out.println("Token: " + token);
-                        }
-                        continue;
-                    }
-
-                    int[] token_indexs=corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
-                    for(int token_index: token_indexs) {
-                        tokens[token_index] = token_index;
-                        scores[token_index] = score;
-                        total_score += score;
-                    }
-                    total_score += score;
-
-                    if (score > max_score) {
-                        max_score = score;
-                        max_token = token_indexs[0];
-                    }
-
+                    if (!corpusDomainsSet.containsKey(token)) continue;
+                    if (score < 0) continue;
+                    tokenScoreList.add(Pair.of(token, score));
                 } catch (Exception e) {
                     if (PRINT_TRACE) {
                         System.err.println(tuple);
                         System.err.println(e);
+                    }
+                }
+            }
+
+            tokenScoreList.sort((a, b) -> Double.compare(
+                b.second, a.second
+            ));
+            int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+            for (int l = 0; l < limit; l++) {
+                int token = tokenScoreList.get(l).first;
+                double score = tokenScoreList.get(l).second;
+                int[] token_indexs = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                for (int token_index : token_indexs) {
+                    tokens[token_index] = token_index;
+                    scores[token_index] = score;
+                    total_score += score;
+                }
+                if (PRINT_TRACE) {
+                    if (score > max_score) {
+                        max_score = score;
+                        max_token = token_indexs[0];
                     }
                 }
             }
@@ -431,7 +434,7 @@ public class MNREAD_words {
                     throw new RuntimeException("Score is negative or zero");
                 }
             }
-            max_score /= total_score;
+            if(PRINT_TRACE)max_score /= total_score;
 
             if(PRINT_TRACE) System.out.println("token "+i);
 
@@ -516,8 +519,19 @@ public class MNREAD_words {
                 }
                 logSumProbs = -Double.MAX_VALUE;
             } 
-            if(chosen==pad_token)
-                break;
+            if(chosen == sentence_end){
+                    System.out.println("sentence end reached");
+                    StateManager sm = cp.getStateManager();
+                    try {
+                        sm.saveState();
+                        word_index[i+1].assign(pad_token);
+                        cp.fixPoint();
+                        break;
+                    } catch (InconsistencyException e) {
+                        sm.restoreState();
+                        System.out.println("Inconsistency detected, state restored");
+                    }
+                }
             current_sentence += words.get(corpusDomains.get(chosen));
             
             if (PRINT_TRACE) {

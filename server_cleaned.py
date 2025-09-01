@@ -27,7 +27,7 @@ try:
     os.environ['TRANSFORMERS_OFFLINE'] = '1'  # Skip online model checks
     os.environ['HF_HUB_DISABLE_TELEMETRY'] = '1'  # Disable telemetry
     start_time = time.time()
-    from transformers import  AutoModelForCausalLM, AutoTokenizer
+    from transformers import  AutoModelForCausalLM, AutoModelForMaskedLM, AutoTokenizer
     print("Done importing transformers in", time.time() - start_time, "seconds")
     print("Importing WordNetLemmatizer...")
     from nltk.stem import WordNetLemmatizer
@@ -76,6 +76,25 @@ def get_next_word_probabilities(sentence):
 #java -Xms2g -Xmx16g  -cp minicpbp-1.0.jar minicpbp.examples.MNREAD
 
 
+def get_mask_distributions(sentence):
+    inputs = mlm_tokenizer(sentence, return_tensors="pt").to(device)
+    with torch.no_grad():
+        outputs = mlm_model(**inputs)
+        logits = outputs.logits
+
+    mask_positions = (inputs.input_ids == mlm_tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
+
+    distributions = {}
+    for pos in mask_positions:
+        probs = torch.softmax(logits[0, pos], dim=-1).cpu().tolist()
+        distributions[int(pos)] = {
+            "mask_index": int(pos),
+            "tokens": [mlm_tokenizer.decode([i]) for i in range(len(probs))],
+            "probs": probs
+        }
+    return distributions
+
+
 try:
     print("Setting model_name...")
     #model_name = "meta-llama/Llama-3.2-3B"
@@ -95,6 +114,12 @@ try:
     print("Loading model with local_files_only=True...")
     model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
 
+    print("Loading MLM model...")
+    mlm_model_name = "distilbert-base-uncased"
+    mlm_model = AutoModelForMaskedLM.from_pretrained(mlm_model_name).to(device)
+    mlm_tokenizer = AutoTokenizer.from_pretrained(mlm_model_name)
+    print("MLM model ready")
+    
     print("Loading tokenizer with local_files_only=True...")
     tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
 
@@ -195,13 +220,26 @@ def testing():
 def next_token():
     raw_probs = get_next_word_probabilities(request.data.decode())
 
-    return raw_probs
+    return json.dumps(raw_probs)
 
 @app.route('/ping', methods=['GET'])
 def ping():
     return 'pong', 200
 
-if __name__ == '__main__':  
+@app.route('/mlm', methods=['POST'])
+def mlm_predict():
+    try:
+        sentence = request.data.decode()
+        if "[MASK]" not in sentence:
+            return {"error": "Sentence must contain [MASK] token"}, 400
+
+        distributions = get_mask_distributions(sentence)
+        return distributions, 200
+    except Exception as e:
+        traceback.print_exc()
+        return {"error": str(e)}, 500
+
+if __name__ == '__main__':
     print("Starting server...")
     try:
         app.run(host="0.0.0.0", port=args.port)
