@@ -12,7 +12,7 @@ def get_predictions(sentence):
 
 
 #model_name = "stabilityai/stablelm-zephyr-3b"
-model_name ="distilbert-base-uncased"
+model_name ="roberta-base"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
 model = AutoModelForMaskedLM.from_pretrained(model_name).to(device)
@@ -23,7 +23,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 # Get the model predictions for the sentence.
 #predictions = get_predictions("<s>Hello")
-inputs = tokenizer("Hello [MASK]", return_tensors="pt").to(device)
+inputs = tokenizer("Hello <mask>!", return_tensors="pt").to(device)
 with torch.no_grad():
         outputs = model(**inputs)
         predictions = outputs.logits

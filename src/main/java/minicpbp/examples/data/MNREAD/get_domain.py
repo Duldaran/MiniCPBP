@@ -1,4 +1,4 @@
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
+from transformers import pipeline, AutoModelForCausalLM, AutoModelForMaskedLM, AutoTokenizer
 import torch
 import json
 from lemminflect import getAllLemmas, getInflection, getAllInflections, getAllInflectionsOOV
@@ -28,9 +28,10 @@ words = list(set(words))
 print(len(words))
 
 
-model_name = "stabilityai/stablelm-zephyr-3b"
+model_name = "roberta-base"
 device='cuda' if torch.cuda.is_available() else 'cpu'
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+#model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+model = AutoModelForMaskedLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 tokens = []

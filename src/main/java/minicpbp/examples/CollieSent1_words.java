@@ -101,6 +101,7 @@ public class CollieSent1_words {
         final List<String> tokens_list = Arrays.asList(corrected_lines);
         ArrayList<String> words = new ArrayList<>();
         Map<Integer, List<Integer>> corpusDomainsSet = new HashMap<>();
+        Map<Integer, Integer> corpusDomainToIndex = new HashMap<>();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
@@ -109,10 +110,10 @@ public class CollieSent1_words {
                 List<Integer> sublist = parsedCorpusDomains.get(i);
                 words.add(sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining("")));
                 if (!corpusDomainsSet.containsKey(sublist.get(0)))
-                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(Collections.singletonList(i)));
+                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(List.of(i)));
                 else
                     corpusDomainsSet.get(sublist.get(0)).add(i);
-
+                corpusDomainToIndex.put(i, sublist.get(0));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -170,6 +171,7 @@ public class CollieSent1_words {
         final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
+        String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
         for (int k = 0; k < NUM_ITERATIONS; k += 1) {
 
         String[] commonWords = {
@@ -393,8 +395,13 @@ public class CollieSent1_words {
                     System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
                 }
             }
-
-            int chosen = word_index[i].biasedWheelValue();
+            int chosen;
+            try {
+                chosen = word_index[i].biasedWheelValue();
+            } catch (Exception e) {
+                System.out.println("Inconsistency detected");
+                break;
+            }
             word_index[i].assign(chosen);
             num_tok++;
             if (0<=chosen && chosen<scores.length) {
@@ -421,7 +428,8 @@ public class CollieSent1_words {
                     }
                 }
             current_sentence += words.get(corpusDomains.get(chosen));
-            
+            tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
+
             if (PRINT_TRACE) {
                 System.out.println("sentence so far: " + current_sentence);
                 System.out.println("index chosen: " + corpusDomains.get(chosen));
@@ -439,7 +447,7 @@ public class CollieSent1_words {
         int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
 
         
-        logs.add(new Logging(current_sentence, perplexityScore, tokens));
+        logs.add(new Logging(current_sentence, perplexityScore, tokens, tokens_used));
 
         }
     
@@ -484,14 +492,16 @@ public class CollieSent1_words {
         public String sentence;
         public int[] tokens;
         public double perplexity;
+        public String[] tokens_used;
 
         public Logging() {
         }
 
-        public Logging(String sentence, double perplexityScore, int[] tokens) {
+        public Logging(String sentence, double perplexityScore, int[] tokens, String[] tokens_used) {
             this.sentence = sentence;
             this.perplexity = perplexityScore;
             this.tokens = tokens;
+            this.tokens_used = tokens_used;
         }
     }
 }

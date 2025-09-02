@@ -49,6 +49,8 @@ app = Flask(__name__)
 
 gc.collect()
 
+mask_string = "<mask>"
+
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
     inputs = tokenizer.encode(sentence, return_tensors="pt").to(device)
@@ -82,14 +84,16 @@ def get_mask_distributions(sentence):
         outputs = mlm_model(**inputs)
         logits = outputs.logits
 
-    mask_positions = (inputs.input_ids == mlm_tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
+    words = sentence.split()
+    mask_positions = [i for i, word in enumerate(words) if word == mask_string]
+
 
     distributions = {}
     for pos in mask_positions:
         probs = torch.softmax(logits[0, pos], dim=-1).cpu().tolist()
         distributions[int(pos)] = {
             "mask_index": int(pos),
-            "tokens": [mlm_tokenizer.decode([i]) for i in range(len(probs))],
+            "tokens": list(range(len(probs))),
             "probs": probs
         }
     return distributions
@@ -115,7 +119,7 @@ try:
     model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
 
     print("Loading MLM model...")
-    mlm_model_name = "distilbert-base-uncased"
+    mlm_model_name = "roberta-base"
     mlm_model = AutoModelForMaskedLM.from_pretrained(mlm_model_name).to(device)
     mlm_tokenizer = AutoTokenizer.from_pretrained(mlm_model_name)
     print("MLM model ready")
@@ -208,6 +212,8 @@ def get_tokens():
         else:
             return [-3] + tokens
     else: return [-4]
+    
+
 
 @app.route('/')
 def testing():
@@ -229,12 +235,26 @@ def ping():
 @app.route('/mlm', methods=['POST'])
 def mlm_predict():
     try:
+        
         sentence = request.data.decode()
-        if "[MASK]" not in sentence:
-            return {"error": "Sentence must contain [MASK] token"}, 400
+
+
+        if mask_string not in sentence:
+            return {"error": f"Sentence must contain a mask token ({mask_string})"}, 400
 
         distributions = get_mask_distributions(sentence)
         return distributions, 200
+    except Exception as e:
+        traceback.print_exc()
+        return {"error": str(e)}, 500
+    
+@app.route('/mlm_tokenize', methods=['POST'])
+def mlm_tokenize():
+    try:
+        sentence = request.data.decode()
+        tokens = tokenizer.tokenize(sentence)
+        token_ids = tokenizer.convert_tokens_to_ids(tokens)
+        return {"tokens": tokens, "token_ids": token_ids}, 200
     except Exception as e:
         traceback.print_exc()
         return {"error": str(e)}, 500
