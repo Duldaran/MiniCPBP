@@ -103,17 +103,24 @@ public class CollieSent1_words {
         Map<Integer, List<Integer>> corpusDomainsSet = new HashMap<>();
         Map<Integer, Integer> corpusDomainToIndex = new HashMap<>();
         ObjectMapper objectMapper = new ObjectMapper();
+        int k = 0;
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             final List<List<Integer>> parsedCorpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
             for (int i = 0; i < parsedCorpusDomains.size(); i++) {
                 List<Integer> sublist = parsedCorpusDomains.get(i);
-                words.add(sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining("")));
+                if (sublist.size() != 1) continue;
+                String word_string = sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining(""));
+                if (words.contains(word_string)) {
+                    continue;
+                }
+                words.add(word_string);
                 if (!corpusDomainsSet.containsKey(sublist.get(0)))
-                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(List.of(i)));
+                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(List.of(k)));
                 else
-                    corpusDomainsSet.get(sublist.get(0)).add(i);
-                corpusDomainToIndex.put(i, sublist.get(0));
+                    corpusDomainsSet.get(sublist.get(0)).add(k);
+                corpusDomainToIndex.put(k, sublist.get(0));
+                k++;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,6 +132,8 @@ public class CollieSent1_words {
         words.add("<END>");
         corpusDomainsSet.put(sentence_end, new ArrayList<>(Collections.singletonList(words.size()-2)));
         corpusDomainsSet.put(tokens_list.size()-1, new ArrayList<>(Collections.singletonList(words.size()-1)));
+        corpusDomainToIndex.put(words.size()-2, sentence_end);
+        corpusDomainToIndex.put(words.size()-1, tokens_list.size()-1);
 
         List<Integer> corpusDomains = new ArrayList<>();
         for (int idx = 0; idx < words.size(); idx++) {
@@ -172,7 +181,7 @@ public class CollieSent1_words {
         //final int NUM_ITERATIONS = 8;
 
         String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
-        for (int k = 0; k < NUM_ITERATIONS; k += 1) {
+        for (int z = 0; z < NUM_ITERATIONS; z += 1) {
 
         String[] commonWords = {
         "I",
@@ -248,7 +257,7 @@ public class CollieSent1_words {
         String instruction = "Please generate a sentence with exactly 82 characters. Include whitespace into your character count.";
         String current_sentence = selectedWord;
         Double logSumProbs = 0.0;
-        int num_tok=1;
+        int num_tok=0;
         for (int i=1; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:" + port + "/token"))
@@ -397,6 +406,11 @@ public class CollieSent1_words {
             }
             int chosen;
             try {
+                if (word_index[i].maxMarginal() == 0.0) {
+                            System.out.println("No valid tokens found");
+                            current_sentence += " ERROR";
+                            break;
+                }
                 chosen = word_index[i].biasedWheelValue();
             } catch (Exception e) {
                 System.out.println("Inconsistency detected");
@@ -447,7 +461,7 @@ public class CollieSent1_words {
         int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
 
         
-        logs.add(new Logging(current_sentence, perplexityScore, tokens, tokens_used));
+        logs.add(new Logging(current_sentence, perplexityScore, tokens, tokens_used.clone()));
 
         }
     

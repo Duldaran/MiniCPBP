@@ -97,7 +97,7 @@ public class mlm_CollieSent1_words {
             final double weight = Double.parseDouble(args[0]);
         try {
 
-        ArrayList<String> base_sentence = new ArrayList<>(Arrays.asList("It can be a simple sentence or a sentence with aunts oranges or paining blooding"));
+        ArrayList<String> base_sentence = new ArrayList<>(Arrays.asList("An sentence about a cat playing with a ball of string could be something special"));
 
 
 
@@ -135,6 +135,7 @@ public class mlm_CollieSent1_words {
             int j = 0;
             for (int i = 0; i < parsedCorpusDomains.size(); i++) {
                 List<Integer> sublist = parsedCorpusDomains.get(i);
+                if(sublist.size() != 1) continue;
                 String word_string = sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining("")).strip();
                 if (words.contains(word_string)) {
                     continue;
@@ -194,7 +195,7 @@ public class mlm_CollieSent1_words {
         final double w = weight;
         final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).split(" ").length;
         final int ORACLE_TOP_K = 10;
-        final int NUMBER_CHAR = 82 - 2 - SENTENCE_MAX_NUMBER_TOKENS;//Le point et les espaces enlevés
+        final int NUMBER_CHAR = 82 - 1 - SENTENCE_MAX_NUMBER_TOKENS;//Le point et les espaces enlevés
         //final int NUM_ITERATIONS = 8;
 
         String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
@@ -270,9 +271,9 @@ public class mlm_CollieSent1_words {
                 for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
                     String fieldName = it.next();
                     JsonNode tok = maskedTokens.get(fieldName);
-                    System.out.println("Masked token: " + tok.get("mask_index").asInt());
-                    
-                    int z = tok.get("mask_index").asInt();
+                    System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                    int z = tok.get("mask_word_position").asInt();
                     ArrayNode probsNode = (ArrayNode) tok.get("probs");
                     ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
                     List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
@@ -483,7 +484,7 @@ public class mlm_CollieSent1_words {
             for (int j = 0; j < tokensArray.size(); j++) {
                 tokens[j] = tokensArray.get(j).asInt();
             }
-            logs.add(new Logging(current_sentence, original_sentence, perplexityScore, tokens, tokens_used));
+            logs.add(new Logging(current_sentence, original_sentence, perplexityScore, tokens, tokens_used.clone()));
 
             String[] wordsArr = current_sentence.split(" ");
             /*if (wordsArr.length > 0 && wordsArr[wordsArr.length - 1].equals("ERROR")) {
@@ -500,6 +501,7 @@ public class mlm_CollieSent1_words {
     result.put("num_pb", NUM_PB);
     result.put("weight", w);
     result.put("llm_name", llm_name);
+    result.put("base_sentence", base_sentence.get(0));
     result.put("logs", logs);
     result.put("date", java.time.LocalDateTime.now().toString());
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";

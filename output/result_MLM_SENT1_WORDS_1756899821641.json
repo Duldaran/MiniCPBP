@@ -1,0 +1,130 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "logs" : [ {
+    "sentence" : "A sentence about a cat and its love for bright sunlights <mask> sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 5798, 285, 697, 2389, 323, 6627, 5101, 22850, 654, 12477, 31, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a cat and its love for <mask> <mask> <mask> sunsets"
+  }, {
+    "sentence" : "A sentence about <mask> cat and its <mask> for chasing afternoons and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 654, 12477, 31, 5798, 285, 697, 654, 12477, 31, 323, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about <mask> cat and its <mask> for chasing afternoons and sunsets"
+  }, {
+    "sentence" : "A sentence about a <mask> <mask> <mask> love for chasing afternoons and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 2389, 323, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a <mask> <mask> <mask> love for chasing afternoons and sunsets"
+  }, {
+    "sentence" : "A <mask> about a cat <mask> its <mask> for chasing afternoons and sunsets ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 5798, 654, 12477, 31, 697, 654, 12477, 31, 323, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A <mask> about a cat <mask> its <mask> for chasing afternoons and sunsets"
+  }, {
+    "sentence" : "<mask> sentence about a cat and its <mask> for chasing afternoons and sunsets ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 5798, 285, 697, 654, 12477, 31, 323, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "<mask> sentence about a cat and its <mask> for chasing afternoons and sunsets"
+  }, {
+    "sentence" : "A sentence about a <mask> and its love for chasing <mask> and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 285, 697, 2389, 323, 31702, 654, 12477, 31, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a <mask> and its love for chasing <mask> and sunsets"
+  }, {
+    "sentence" : "A sentence <mask> a <mask> and its love for chasing afternoons and sunsets ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 654, 12477, 31, 285, 697, 2389, 323, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence <mask> a <mask> and its love for chasing afternoons and sunsets"
+  }, {
+    "sentence" : "<mask> sentence <mask> a cat and its love for chasing afternoons <mask> sunsets ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 654, 12477, 31, 247, 5798, 285, 697, 2389, 323, 31702, 846, 2369, 790, 654, 12477, 31, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "<mask> sentence <mask> a cat and its love for chasing afternoons <mask> sunsets"
+  }, {
+    "sentence" : "A sentence about a cat and <mask> love <mask> chasing <mask> and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 5798, 285, 654, 12477, 31, 2389, 654, 12477, 31, 31702, 654, 12477, 31, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a cat and <mask> love <mask> chasing <mask> and sunsets"
+  }, {
+    "sentence" : "<mask> <mask> about a cat and its love for chasing afternoons and <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 670, 247, 5798, 285, 697, 2389, 323, 31702, 846, 2369, 790, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "<mask> <mask> about a cat and its love for chasing afternoons and <mask>"
+  }, {
+    "sentence" : "<mask> sentence about a cat and its love for chasing <mask> and <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 5798, 285, 697, 2389, 323, 31702, 654, 12477, 31, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "<mask> sentence about a cat and its love for chasing <mask> and <mask>"
+  }, {
+    "sentence" : "A <mask> about a cat and its love <mask> chasing afternoons and sunsets ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 5798, 285, 697, 2389, 654, 12477, 31, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A <mask> about a cat and its love <mask> chasing afternoons and sunsets"
+  }, {
+    "sentence" : "A sentence about a <mask> and its love for chasing <mask> and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 285, 697, 2389, 323, 31702, 654, 12477, 31, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a <mask> and its love for chasing <mask> and sunsets"
+  }, {
+    "sentence" : "A sentence about <mask> cat and its love for <mask> afternoons and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 654, 12477, 31, 5798, 285, 697, 2389, 323, 654, 12477, 31, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about <mask> cat and its love for <mask> afternoons and sunsets"
+  }, {
+    "sentence" : "A <mask> about a cat and its <mask> for chasing <mask> and sunsets ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 5798, 285, 697, 654, 12477, 31, 323, 31702, 654, 12477, 31, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A <mask> about a cat and its <mask> for chasing <mask> and sunsets"
+  }, {
+    "sentence" : "A sentence about a cat and its love <mask> chasing afternoons and <mask> ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 5798, 285, 697, 2389, 654, 12477, 31, 31702, 846, 2369, 790, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a cat and its love <mask> chasing afternoons and <mask>"
+  }, {
+    "sentence" : "A <mask> about a cat <mask> its love for chasing afternoons and <mask> ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 5798, 654, 12477, 31, 697, 2389, 323, 31702, 846, 2369, 790, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A <mask> about a cat <mask> its love for chasing afternoons and <mask>"
+  }, {
+    "sentence" : "A sentence <mask> a <mask> and its love for chasing afternoons and sunsets ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 654, 12477, 31, 285, 697, 2389, 323, 31702, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence <mask> a <mask> and its love for chasing afternoons and sunsets"
+  }, {
+    "sentence" : "A sentence about a cat and <mask> love for chasing afternoons <mask> sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 5798, 285, 654, 12477, 31, 2389, 323, 31702, 846, 2369, 790, 654, 12477, 31, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a cat and <mask> love for chasing afternoons <mask> sunsets"
+  }, {
+    "sentence" : "A sentence about a cat and its love <mask> <mask> afternoons and sunsets ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 5798, 285, 697, 2389, 654, 12477, 31, 654, 12477, 31, 846, 2369, 790, 285, 5101, 19598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " bright", " sun", null, null ],
+    "original_sentence" : "A sentence about a cat and its love <mask> <mask> afternoons and sunsets"
+  } ],
+  "date" : "2025-09-03T07:43:41.639341100"
+}

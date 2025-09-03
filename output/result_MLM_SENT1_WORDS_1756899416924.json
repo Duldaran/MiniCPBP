@@ -1,0 +1,130 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "logs" : [ {
+    "sentence" : "It can use a simple sentence or a sentence with the oranges or paining blooding",
+    "tokens" : [ 1147, 476, 897, 247, 2969, 6197, 390, 247, 6197, 342, 253, 390, 6525, 390, 268, 1776, 2614, 272 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can <mask> a simple sentence or a sentence with <mask> oranges or paining blooding"
+  }, {
+    "sentence" : "It could use a simple sentence or a sentence with more oranges or paining light",
+    "tokens" : [ 1147, 812, 897, 247, 2969, 6197, 390, 247, 6197, 342, 625, 390, 6525, 390, 268, 1776, 1708 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It <mask> use a simple sentence or a sentence with <mask> oranges or paining <mask>"
+  }, {
+    "sentence" : "<mask> could use a <mask> sentence or a sentence with more oranges or paining light ERROR",
+    "tokens" : [ 29, 12477, 31, 812, 897, 247, 654, 12477, 31, 6197, 390, 247, 6197, 342, 625, 390, 6525, 390, 268, 1776, 1708, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "<mask> could use a <mask> sentence or a sentence with more oranges or paining light"
+  }, {
+    "sentence" : "It <mask> use a simple sentence or a sentence <mask> more oranges <mask> paining light ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 897, 247, 2969, 6197, 390, 247, 6197, 654, 12477, 31, 625, 390, 6525, 654, 12477, 31, 268, 1776, 1708, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It <mask> use a simple sentence or a sentence <mask> more oranges <mask> paining light"
+  }, {
+    "sentence" : "It can be a simple sentence or aunts <mask> with aunts blooded or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 247, 24779, 654, 12477, 31, 342, 247, 24779, 2614, 264, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can be a simple sentence or <mask> <mask> with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It could use a simple <mask> or a <mask> with more oranges or paining light ERROR",
+    "tokens" : [ 1147, 812, 897, 247, 2969, 654, 12477, 31, 390, 247, 654, 12477, 31, 342, 625, 390, 6525, 390, 268, 1776, 1708, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It could use a simple <mask> or a <mask> with more oranges or paining light"
+  }, {
+    "sentence" : "It can <mask> a simple sentence <mask> a sentence with aunts oranges or paining <mask> ERROR",
+    "tokens" : [ 1147, 476, 654, 12477, 31, 247, 2969, 6197, 654, 12477, 31, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can <mask> a simple sentence <mask> a sentence with aunts oranges or paining <mask>"
+  }, {
+    "sentence" : "<mask> can use a simple sentence or a sentence with <mask> oranges or paining blooding ERROR",
+    "tokens" : [ 29, 12477, 31, 476, 897, 247, 2969, 6197, 390, 247, 6197, 342, 654, 12477, 31, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "<mask> can use a simple sentence or a sentence with <mask> oranges or paining blooding"
+  }, {
+    "sentence" : "It can use a simple sentence or <mask> sentence of the oranges and paining blooding ERROR",
+    "tokens" : [ 1147, 476, 897, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 273, 253, 390, 6525, 285, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can use a simple sentence or <mask> sentence <mask> the oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or a sentence with aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can be <mask> simple sentence or a sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It can use a <mask> sentence or <mask> sentence with the oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 897, 247, 654, 12477, 31, 6197, 390, 654, 12477, 31, 6197, 342, 253, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can use a <mask> sentence or <mask> sentence with the oranges or paining blooding"
+  }, {
+    "sentence" : "It can use a simple <mask> or a sentence <mask> the oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 897, 247, 2969, 654, 12477, 31, 390, 247, 6197, 654, 12477, 31, 253, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can use a simple <mask> or a sentence <mask> the oranges or paining blooding"
+  }, {
+    "sentence" : "It could <mask> <mask> <mask> sentence or a sentence with more oranges or paining light ERROR",
+    "tokens" : [ 1147, 812, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 6197, 390, 247, 6197, 342, 625, 390, 6525, 390, 268, 1776, 1708, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It could <mask> <mask> <mask> sentence or a sentence with more oranges or paining light"
+  }, {
+    "sentence" : "It can use <mask> simple sentence or <mask> sentence with the oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 897, 654, 12477, 31, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 253, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can use <mask> simple sentence or <mask> sentence with the oranges or paining blooding"
+  }, {
+    "sentence" : "It can use a simple sentence or <mask> sentence with the <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 897, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 253, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can use a simple sentence or <mask> sentence with the <mask> or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It <mask> use a simple sentence <mask> a sentence <mask> the oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 897, 247, 2969, 6197, 654, 12477, 31, 247, 6197, 654, 12477, 31, 253, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It <mask> use a simple sentence <mask> a sentence <mask> the oranges or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts oranges or paining blooding"
+  }, {
+    "sentence" : "<mask> could use a simple <mask> or <mask> sentence with more oranges or paining light ERROR",
+    "tokens" : [ 29, 12477, 31, 812, 897, 247, 2969, 654, 12477, 31, 390, 654, 12477, 31, 6197, 342, 625, 390, 6525, 390, 268, 1776, 1708, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "<mask> could use a simple <mask> or <mask> sentence with more oranges or paining light"
+  }, {
+    "sentence" : "<mask> could use a simple sentence or a sentence with more <mask> or <mask> light ERROR",
+    "tokens" : [ 29, 12477, 31, 812, 897, 247, 2969, 6197, 390, 247, 6197, 342, 625, 654, 12477, 31, 390, 654, 12477, 31, 1708, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", " use", null, null, null, null, " a", null, " of", " more", " blood", " and", null, " light" ],
+    "original_sentence" : "<mask> could use a simple sentence or a sentence with more <mask> or <mask> light"
+  } ],
+  "date" : "2025-09-03T07:36:56.922913700"
+}

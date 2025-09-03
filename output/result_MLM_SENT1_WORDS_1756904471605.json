@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "An sentence about a cat playing with a ball of string could be something special",
+  "logs" : [ {
+    "sentence" : "a movie about a cat playing with a ball of string could become something special",
+    "tokens" : [ 66, 6440, 670, 247, 5798, 4882, 342, 247, 4023, 273, 2876, 812, 2489, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " movie", null, null, null, null, null, null, null, null, null, null, " become", null, null ],
+    "original_sentence" : "<mask> <mask> about a cat playing with a ball of string could <mask> something special"
+  }, {
+    "sentence" : "a story about your cat playing with a ball of ice could become something special",
+    "tokens" : [ 66, 2926, 670, 634, 5798, 4882, 342, 247, 4023, 273, 6749, 812, 2489, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " your", null, null, null, null, null, null, " ice", null, " become", null, null ],
+    "original_sentence" : "a <mask> about <mask> cat playing with a ball of <mask> could become something special"
+  }, {
+    "sentence" : "a story about a cat playing with a pack of <mask> could become something special ERROR",
+    "tokens" : [ 66, 2926, 670, 247, 5798, 4882, 342, 247, 3584, 273, 654, 12477, 31, 812, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, null, null, null, " pack", null, " ice", null, " become", null, null ],
+    "original_sentence" : "a story about <mask> cat playing with a <mask> of <mask> could become something special"
+  }, {
+    "sentence" : "a story about your cat playing with a ball of ice could become your <mask> ERROR",
+    "tokens" : [ 66, 2926, 670, 634, 5798, 4882, 342, 247, 4023, 273, 6749, 812, 2489, 634, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", null, null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a story about your cat <mask> with a ball of ice could become <mask> <mask>"
+  }, {
+    "sentence" : "a movie about a cat <mask> with a ball of <mask> could become something special ERROR",
+    "tokens" : [ 66, 6440, 670, 247, 5798, 654, 12477, 31, 342, 247, 4023, 273, 654, 12477, 31, 812, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", null, null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a movie about a cat <mask> with a ball of <mask> could become something special"
+  }, {
+    "sentence" : "a story about <mask> cat playing with a ball of <mask> could become something special ERROR",
+    "tokens" : [ 66, 2926, 670, 654, 12477, 31, 5798, 4882, 342, 247, 4023, 273, 654, 12477, 31, 812, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", null, null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a story about <mask> cat playing with a ball of <mask> could become something special"
+  }, {
+    "sentence" : "An <mask> about a cat playing with a ball <mask> <mask> could be something special ERROR",
+    "tokens" : [ 1145, 654, 12477, 31, 670, 247, 5798, 4882, 342, 247, 4023, 654, 12477, 31, 654, 12477, 31, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", null, null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "An <mask> about a cat playing with a ball <mask> <mask> could be something special"
+  }, {
+    "sentence" : "a movie about a cat playing with <mask> ball of <mask> could become something special ERROR",
+    "tokens" : [ 66, 6440, 670, 247, 5798, 4882, 342, 654, 12477, 31, 4023, 273, 654, 12477, 31, 812, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", null, null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a movie about a cat playing with <mask> ball of <mask> could become something special"
+  }, {
+    "sentence" : "a story about your cat playing with a ball of ice could become <mask> <mask> ERROR",
+    "tokens" : [ 66, 2926, 670, 634, 5798, 4882, 342, 247, 4023, 273, 6749, 812, 2489, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", null, null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a story about your cat playing with a ball of ice could become <mask> <mask>"
+  }, {
+    "sentence" : "a story about a cat playing with a ball of string could become something special",
+    "tokens" : [ 66, 2926, 670, 247, 5798, 4882, 342, 247, 4023, 273, 2876, 812, 2489, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", null, " playing", " with", null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a <mask> about a cat <mask> <mask> a ball of string could become something special"
+  }, {
+    "sentence" : "a story about your kid playing with a ball of ice could become something special",
+    "tokens" : [ 66, 2926, 670, 634, 5772, 4882, 342, 247, 4023, 273, 6749, 812, 2489, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "<mask> story about your <mask> playing with a ball of ice could become something special"
+  }, {
+    "sentence" : "a story <mask> your <mask> playing with a ball of ice could become something <mask> ERROR",
+    "tokens" : [ 66, 2926, 654, 12477, 31, 634, 654, 12477, 31, 4882, 342, 247, 4023, 273, 6749, 812, 2489, 1633, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a story <mask> your <mask> playing with a ball of ice could become something <mask>"
+  }, {
+    "sentence" : "a story about <mask> kid playing with a ball <mask> ice <mask> become something special ERROR",
+    "tokens" : [ 66, 2926, 670, 654, 12477, 31, 5772, 4882, 342, 247, 4023, 654, 12477, 31, 6749, 654, 12477, 31, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", null, " pack", null, " ice", null, " become", " your", null ],
+    "original_sentence" : "a story about <mask> kid playing with a ball <mask> ice <mask> become something special"
+  }, {
+    "sentence" : "a movie about a cat playing with a ball of string could become something special",
+    "tokens" : [ 66, 6440, 670, 247, 5798, 4882, 342, 247, 4023, 273, 2876, 812, 2489, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a movie about a cat playing with <mask> <mask> of string could become <mask> special"
+  }, {
+    "sentence" : "a story about a cat playing with a ball <mask> string could become something <mask> ERROR",
+    "tokens" : [ 66, 2926, 670, 247, 5798, 4882, 342, 247, 4023, 654, 12477, 31, 2876, 812, 2489, 1633, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a story about a cat playing with a ball <mask> string could become something <mask>"
+  }, {
+    "sentence" : "a story about a cat playing with a ball of <mask> could become <mask> special ERROR",
+    "tokens" : [ 66, 2926, 670, 247, 5798, 4882, 342, 247, 4023, 273, 654, 12477, 31, 812, 2489, 654, 12477, 31, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a story about a cat playing with a ball of <mask> could become <mask> special"
+  }, {
+    "sentence" : "a story about your kid <mask> with a <mask> of ice <mask> become something special ERROR",
+    "tokens" : [ 66, 2926, 670, 634, 5772, 654, 12477, 31, 342, 247, 654, 12477, 31, 273, 6749, 654, 12477, 31, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", null, " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a story about your kid <mask> with a <mask> of ice <mask> become something special"
+  }, {
+    "sentence" : "a story about your cat playing with a ball of ice could become something special",
+    "tokens" : [ 66, 2926, 670, 634, 5798, 4882, 342, 247, 4023, 273, 6749, 812, 2489, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a story <mask> your cat playing with a ball of ice could become <mask> special"
+  }, {
+    "sentence" : "a <mask> about your cat <mask> <mask> a ball of ice could become something special ERROR",
+    "tokens" : [ 66, 654, 12477, 31, 670, 634, 5798, 654, 12477, 31, 654, 12477, 31, 247, 4023, 273, 6749, 812, 2489, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a <mask> about your cat <mask> <mask> a ball of ice could become something special"
+  }, {
+    "sentence" : "a story about your cat playing with a <mask> of <mask> could <mask> something special ERROR",
+    "tokens" : [ 66, 2926, 670, 634, 5798, 4882, 342, 247, 654, 12477, 31, 273, 654, 12477, 31, 812, 654, 12477, 31, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", " kid", " playing", " with", " a", " ball", null, " ice", null, " become", " something", null ],
+    "original_sentence" : "a story about your cat playing with a <mask> of <mask> could <mask> something special"
+  } ],
+  "date" : "2025-09-03T09:01:11.603358900"
+}

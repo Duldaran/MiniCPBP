@@ -84,18 +84,31 @@ def get_mask_distributions(sentence):
         outputs = mlm_model(**inputs)
         logits = outputs.logits
 
-    words = sentence.split()
-    mask_positions = [i for i, word in enumerate(words) if word == mask_string]
+    mask_token_id = mlm_tokenizer.mask_token_id
+    mask_positions = (inputs.input_ids == mask_token_id).nonzero(as_tuple=True)[1].tolist()
+    mask_positions.sort()
 
+    if sentence.startswith("<s>"):
+        sentence = sentence[len("<s>"):].lstrip()
+    if sentence.endswith("."):
+        sentence = sentence[:-1].rstrip()
+    mask_word_positions = [i for i, x in enumerate(sentence.split()) if x == mask_string]
+    
+    if len(mask_positions) != len(mask_word_positions):
+        print(mask_positions, mask_word_positions)
+        print(sentence)
 
     distributions = {}
-    for pos in mask_positions:
+    for idx_in_mask_positions, pos in enumerate(mask_positions):
         probs = torch.softmax(logits[0, pos], dim=-1).cpu().tolist()
+        mask_word_pos = mask_word_positions[idx_in_mask_positions] if idx_in_mask_positions < len(mask_word_positions) else None
         distributions[int(pos)] = {
             "mask_index": int(pos),
+            "mask_word_position": mask_word_pos,
             "tokens": list(range(len(probs))),
             "probs": probs
         }
+
     return distributions
 
 

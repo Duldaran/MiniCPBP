@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "An sentence about a cat playing with a ball of string could be something special",
+  "logs" : [ {
+    "sentence" : "An sentence about a cat playing with touching ball of string could be something special",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 342, 19883, 4023, 273, 2876, 812, 320, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " playing", null, " touching", null, null, null, null, " be", null, null ],
+    "original_sentence" : "An sentence about a cat <mask> with <mask> ball of string could <mask> something special"
+  }, {
+    "sentence" : "An idea about a cat <mask> with touching ball of string could be something special ERROR",
+    "tokens" : [ 1145, 2934, 670, 247, 5798, 654, 12477, 31, 342, 19883, 4023, 273, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " idea", null, null, null, " playing", null, " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "An <mask> about a cat <mask> with touching ball of string could be <mask> special"
+  }, {
+    "sentence" : "one sentence about a cat playing on a ball of string could be something special",
+    "tokens" : [ 531, 6197, 670, 247, 5798, 4882, 327, 247, 4023, 273, 2876, 812, 320, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", null, " playing", " on", " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "<mask> sentence about <mask> cat playing <mask> a ball of string could be something special"
+  }, {
+    "sentence" : "An sentence about a cat <mask> with touching ball <mask> string could be something special ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 654, 12477, 31, 342, 19883, 4023, 654, 12477, 31, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", null, " playing", " on", " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "An sentence about a cat <mask> with touching ball <mask> string could be something special"
+  }, {
+    "sentence" : "<mask> sentence about a cat playing with touching ball of string could be <mask> special ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 5798, 4882, 342, 19883, 4023, 273, 2876, 812, 320, 654, 12477, 31, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", null, " playing", " on", " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "<mask> sentence about a cat playing with touching ball of string could be <mask> special"
+  }, {
+    "sentence" : "<mask> sentence about a cat playing with a ball <mask> string could be something special ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 5798, 4882, 342, 247, 4023, 654, 12477, 31, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", null, " playing", " on", " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "<mask> sentence about a cat playing with a ball <mask> string could be something special"
+  }, {
+    "sentence" : "An sentence about a cat playing <mask> <mask> ball of string could be something special ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 654, 12477, 31, 654, 12477, 31, 4023, 273, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", null, " playing", " on", " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "An sentence about a cat playing <mask> <mask> ball of string could be something special"
+  }, {
+    "sentence" : "An sentence about <mask> cat playing <mask> touching ball of string could be something <mask> ERROR",
+    "tokens" : [ 1145, 6197, 670, 654, 12477, 31, 5798, 4882, 654, 12477, 31, 19883, 4023, 273, 2876, 812, 320, 1633, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", null, " playing", " on", " touching", null, null, null, null, " be", " something", null ],
+    "original_sentence" : "An sentence about <mask> cat playing <mask> touching ball of string could be something <mask>"
+  }, {
+    "sentence" : "An sentence about a girl playing with touching ball of <mask> could be something else ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 3226, 4882, 342, 19883, 4023, 273, 654, 12477, 31, 812, 320, 1633, 2010, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " on", " touching", null, null, null, null, " be", " something", " else" ],
+    "original_sentence" : "An sentence about a <mask> playing with touching ball of <mask> could be something <mask>"
+  }, {
+    "sentence" : "An sentence about a cat playing with touching ball <mask> <mask> could be something special ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 342, 19883, 4023, 654, 12477, 31, 654, 12477, 31, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, null, " be", " something", " else" ],
+    "original_sentence" : "An sentence about a cat playing <mask> touching ball <mask> <mask> could be something special"
+  }, {
+    "sentence" : "An sentence about a cat playing with touching ball of string could be something special",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 342, 19883, 4023, 273, 2876, 812, 320, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, null, " be", " something", " else" ],
+    "original_sentence" : "An sentence about <mask> cat playing <mask> touching ball of string could be something special"
+  }, {
+    "sentence" : "An sentence about a cat playing with <mask> ball of string could be something <mask> ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 342, 654, 12477, 31, 4023, 273, 2876, 812, 320, 1633, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, null, " be", " something", " else" ],
+    "original_sentence" : "An sentence about a cat playing with <mask> ball of string could be something <mask>"
+  }, {
+    "sentence" : "one <mask> about <mask> cat playing on a ball of string could be something special ERROR",
+    "tokens" : [ 531, 654, 12477, 31, 670, 654, 12477, 31, 5798, 4882, 327, 247, 4023, 273, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, null, " be", " something", " else" ],
+    "original_sentence" : "one <mask> about <mask> cat playing on a ball of string could be something special"
+  }, {
+    "sentence" : "<mask> sentence about a cat <mask> with a ball of string could be <mask> special ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 5798, 654, 12477, 31, 342, 247, 4023, 273, 2876, 812, 320, 654, 12477, 31, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, null, " be", " something", " else" ],
+    "original_sentence" : "<mask> sentence about a cat <mask> with a ball of string could be <mask> special"
+  }, {
+    "sentence" : "An sentence about a girl playing with a ball of string can be something special",
+    "tokens" : [ 1145, 6197, 670, 247, 3226, 4882, 342, 247, 4023, 273, 2876, 476, 320, 1633, 2714 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, " can", " be", " something", " else" ],
+    "original_sentence" : "An sentence about a <mask> playing with a ball of string <mask> be something special"
+  }, {
+    "sentence" : "one sentence <mask> a cat <mask> on a ball of string could be something <mask> ERROR",
+    "tokens" : [ 531, 6197, 654, 12477, 31, 247, 5798, 654, 12477, 31, 327, 247, 4023, 273, 2876, 812, 320, 1633, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, " can", " be", " something", " else" ],
+    "original_sentence" : "one sentence <mask> a cat <mask> on a ball of string could be something <mask>"
+  }, {
+    "sentence" : "An sentence about a cat playing <mask> <mask> ball <mask> string could be something special ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 654, 12477, 31, 654, 12477, 31, 4023, 654, 12477, 31, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, " can", " be", " something", " else" ],
+    "original_sentence" : "An sentence about a cat playing <mask> <mask> ball <mask> string could be something special"
+  }, {
+    "sentence" : "An sentence about a cat playing with touching ball of <mask> could be <mask> <mask> ERROR",
+    "tokens" : [ 1145, 6197, 670, 247, 5798, 4882, 342, 19883, 4023, 273, 654, 12477, 31, 812, 320, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, " can", " be", " something", " else" ],
+    "original_sentence" : "An sentence about a cat playing with touching ball of <mask> could be <mask> <mask>"
+  }, {
+    "sentence" : "An sentence about <mask> cat playing with a <mask> of string could be something special ERROR",
+    "tokens" : [ 1145, 6197, 670, 654, 12477, 31, 5798, 4882, 342, 247, 654, 12477, 31, 273, 2876, 812, 320, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, " can", " be", " something", " else" ],
+    "original_sentence" : "An sentence about <mask> cat playing with a <mask> of string could be something special"
+  }, {
+    "sentence" : "An sentence about <mask> girl playing with a ball of <mask> can <mask> something special ERROR",
+    "tokens" : [ 1145, 6197, 670, 654, 12477, 31, 3226, 4882, 342, 247, 4023, 273, 654, 12477, 31, 476, 654, 12477, 31, 1633, 2714, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " idea", null, " a", " girl", " playing", " with", " touching", null, null, null, " can", " be", " something", " else" ],
+    "original_sentence" : "An sentence about <mask> girl playing with a ball of <mask> can <mask> something special"
+  } ],
+  "date" : "2025-09-03T08:56:45.171260500"
+}
