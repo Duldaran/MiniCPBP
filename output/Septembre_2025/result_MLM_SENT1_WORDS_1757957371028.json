@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "They say I should expect a visit from a ditching crew soon because they finished",
+  "logs" : [ {
+    "sentence" : "<mask> say I should expect a visit from a ditching crew soon because they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "<mask> say I <mask> expect a visit from a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a visit from <mask> ditching crew soon because of weather ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 3517, 984, 273, 8588, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a visit from <mask> ditching crew soon because <mask> <mask>"
+  }, {
+    "sentence" : "<mask> say I should expect a visit from <mask> ditching crew soon because they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I should expect a visit from <mask> ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect <mask> visit from a <mask> crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 654, 12477, 31, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect <mask> visit from a <mask> crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a visit <mask> a ditching <mask> soon because they <mask> ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 4143, 654, 12477, 31, 247, 277, 31054, 654, 12477, 31, 3517, 984, 597, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a visit <mask> a ditching <mask> soon because they <mask>"
+  }, {
+    "sentence" : "They say <mask> should expect a <mask> from a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 1902, 247, 654, 12477, 31, 432, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should expect a <mask> from a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should <mask> a visit from <mask> ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 654, 12477, 31, 247, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should <mask> a visit from <mask> ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "They say I should expect <mask> visit from a <mask> crew soon because <mask> finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 654, 12477, 31, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 984, 654, 12477, 31, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect <mask> visit from a <mask> crew soon because <mask> finished"
+  }, {
+    "sentence" : "They say I <mask> expect a visit from <mask> ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 654, 12477, 31, 1902, 247, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I <mask> expect a visit from <mask> ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "<mask> say I should expect a visit from a <mask> <mask> soon because they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 247, 654, 12477, 31, 654, 12477, 31, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I should expect a visit from a <mask> <mask> soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a <mask> from a <mask> crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 654, 12477, 31, 432, 247, 654, 12477, 31, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a <mask> from a <mask> crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a visit from <mask> ditching <mask> soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 4143, 432, 654, 12477, 31, 277, 31054, 654, 12477, 31, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a visit from <mask> ditching <mask> soon because they finished"
+  }, {
+    "sentence" : "They <mask> <mask> should expect a visit <mask> a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 654, 12477, 31, 943, 1902, 247, 4143, 654, 12477, 31, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They <mask> <mask> should expect a visit <mask> a ditching crew soon because they finished"
+  }, {
+    "sentence" : "<mask> say I <mask> expect a visit from a ditching <mask> soon because they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 654, 12477, 31, 1902, 247, 4143, 432, 247, 277, 31054, 654, 12477, 31, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I <mask> expect a visit from a ditching <mask> soon because they finished"
+  }, {
+    "sentence" : "They say I <mask> expect a <mask> from a ditching <mask> soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 654, 12477, 31, 1902, 247, 654, 12477, 31, 432, 247, 277, 31054, 654, 12477, 31, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I <mask> expect a <mask> from a ditching <mask> soon because they finished"
+  }, {
+    "sentence" : "They <mask> I should <mask> a visit from a ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 309, 943, 654, 12477, 31, 247, 4143, 432, 247, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They <mask> I should <mask> a visit from a ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "They <mask> I should expect <mask> visit from a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 309, 943, 1902, 654, 12477, 31, 4143, 432, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They <mask> I should expect <mask> visit from a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a visit from a <mask> crew soon because they <mask> ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 984, 597, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a visit from a <mask> crew soon because they <mask>"
+  }, {
+    "sentence" : "They say <mask> should <mask> a visit from a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 654, 12477, 31, 247, 4143, 432, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should <mask> a visit from a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say <mask> should expect <mask> visit <mask> a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 1902, 654, 12477, 31, 4143, 654, 12477, 31, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should expect <mask> visit <mask> a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say <mask> should <mask> a visit <mask> a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 654, 12477, 31, 247, 4143, 654, 12477, 31, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should <mask> a visit <mask> a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a visit <mask> a ditching crew soon because they <mask> ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 4143, 654, 12477, 31, 247, 277, 31054, 10402, 3517, 984, 597, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a visit <mask> a ditching crew soon because they <mask>"
+  }, {
+    "sentence" : "They say <mask> should expect a visit from a ditching crew soon because <mask> <mask> ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 1902, 247, 4143, 432, 247, 277, 31054, 10402, 3517, 984, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should expect a visit from a ditching crew soon because <mask> <mask>"
+  }, {
+    "sentence" : "They say I should <mask> a visit from a ditching crew soon <mask> they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 654, 12477, 31, 247, 4143, 432, 247, 277, 31054, 10402, 3517, 654, 12477, 31, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should <mask> a visit from a ditching crew soon <mask> they finished"
+  }, {
+    "sentence" : "They say I should expect <mask> visit from a ditching <mask> soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 654, 12477, 31, 4143, 432, 247, 277, 31054, 654, 12477, 31, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect <mask> visit from a ditching <mask> soon because they finished"
+  }, {
+    "sentence" : "They say I should <mask> a visit from a ditching crew soon because <mask> finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 654, 12477, 31, 247, 4143, 432, 247, 277, 31054, 10402, 3517, 984, 654, 12477, 31, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should <mask> a visit from a ditching crew soon because <mask> finished"
+  }, {
+    "sentence" : "<mask> say I should expect a visit from <mask> ditching crew soon <mask> they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 3517, 654, 12477, 31, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I should expect a visit from <mask> ditching crew soon <mask> they finished"
+  }, {
+    "sentence" : "<mask> say I should expect a visit from a <mask> crew soon because they <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 984, 597, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I should expect a visit from a <mask> crew soon because they <mask>"
+  }, {
+    "sentence" : "They say I should <mask> a visit from a <mask> crew soon because <mask> finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 654, 12477, 31, 247, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 984, 654, 12477, 31, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should <mask> a visit from a <mask> crew soon because <mask> finished"
+  }, {
+    "sentence" : "They say <mask> should expect a <mask> from a ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 1902, 247, 654, 12477, 31, 432, 247, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should expect a <mask> from a ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "They say I <mask> expect <mask> visit from a ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 654, 12477, 31, 1902, 654, 12477, 31, 4143, 432, 247, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I <mask> expect <mask> visit from a ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect <mask> visit from <mask> ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 654, 12477, 31, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect <mask> visit from <mask> ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "They say I should expect a <mask> from <mask> ditching crew soon because <mask> finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 654, 12477, 31, 432, 654, 12477, 31, 277, 31054, 10402, 3517, 984, 654, 12477, 31, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a <mask> from <mask> ditching crew soon because <mask> finished"
+  }, {
+    "sentence" : "They <mask> <mask> should expect a visit from <mask> ditching crew soon because they finished ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 654, 12477, 31, 943, 1902, 247, 4143, 432, 654, 12477, 31, 277, 31054, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They <mask> <mask> should expect a visit from <mask> ditching crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect <mask> visit <mask> a ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 654, 12477, 31, 4143, 654, 12477, 31, 247, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect <mask> visit <mask> a ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "<mask> say I should expect a visit from a <mask> crew soon because they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I should expect a visit from a <mask> crew soon because they finished"
+  }, {
+    "sentence" : "They say I should expect a <mask> <mask> a ditching <mask> soon because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 654, 12477, 31, 654, 12477, 31, 247, 277, 31054, 654, 12477, 31, 3517, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a <mask> <mask> a ditching <mask> soon because they finished"
+  }, {
+    "sentence" : "They say <mask> should expect a <mask> from a ditching crew soon because <mask> finished ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 943, 1902, 247, 654, 12477, 31, 432, 247, 277, 31054, 10402, 3517, 984, 654, 12477, 31, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say <mask> should expect a <mask> from a ditching crew soon because <mask> finished"
+  }, {
+    "sentence" : "They say I should expect a visit <mask> a ditching crew <mask> because they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 247, 4143, 654, 12477, 31, 247, 277, 31054, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect a visit <mask> a ditching crew <mask> because they finished"
+  }, {
+    "sentence" : "<mask> say I should expect a visit from a <mask> crew <mask> because they finished ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 309, 943, 1902, 247, 4143, 432, 247, 654, 12477, 31, 10402, 654, 12477, 31, 984, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "<mask> say I should expect a visit from a <mask> crew <mask> because they finished"
+  }, {
+    "sentence" : "They say I should expect <mask> visit from a <mask> crew soon <mask> they finished ERROR",
+    "tokens" : [ 3726, 1333, 309, 943, 1902, 654, 12477, 31, 4143, 432, 247, 654, 12477, 31, 10402, 3517, 654, 12477, 31, 597, 6699, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " should", null, null, null, null, null, null, null, null, null, " of", " weather" ],
+    "original_sentence" : "They say I should expect <mask> visit from a <mask> crew soon <mask> they finished"
+  } ],
+  "date" : "2025-09-15T13:29:31.026232"
+}

@@ -1,0 +1,377 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "We need toasts and paling staves as an adult Gives you awoke toying with kettles",
+  "logs" : [ {
+    "sentence" : "We need toasts and paling staves like an adult since you awoke toying ourselves kettles.",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 751, 271, 6782, 1580, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, " like", null, null, " since", null, null, null, " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves <mask> an adult <mask> you awoke toying <mask> kettles"
+  }, {
+    "sentence" : "<mask> and hands and paling staves as an adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 285, 3564, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, null, " like", null, null, " since", null, null, null, " ourselves", null ],
+    "original_sentence" : "<mask> <mask> <mask> and paling staves as an adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves as an adult Gives <mask> awoke toying <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 654, 12477, 31, 247, 47211, 281, 3184, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, null, " like", null, null, " since", null, null, null, " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves as an adult Gives <mask> awoke toying <mask> kettles"
+  }, {
+    "sentence" : "We need toasts and paling themselves like an adult since you awoke to ourselves kettles.",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 281, 9361, 465, 3592, 868, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> like an adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves like an adult <mask> you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 751, 271, 6782, 654, 12477, 31, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves like an adult <mask> you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need <mask> and paling <mask> like an adult since <mask> awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 654, 12477, 31, 285, 268, 4052, 654, 12477, 31, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need <mask> and paling <mask> like an adult since <mask> awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We <mask> toasts and paling <mask> like an adult since <mask> awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and paling <mask> like an adult since <mask> awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves as an <mask> Gives you awoke toying with <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 654, 12477, 31, 443, 1644, 368, 247, 47211, 281, 3184, 342, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves as an <mask> Gives you awoke toying with <mask>"
+  }, {
+    "sentence" : "We <mask> toasts and <mask> themselves like an adult since you awoke to ourselves kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 654, 12477, 31, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and <mask> themselves like an adult since you awoke to ourselves kettles"
+  }, {
+    "sentence" : "We <mask> toasts and paling themselves like an adult since you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and paling themselves like an adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We <mask> toasts and paling staves as an adult Gives <mask> <mask> toying with kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 654, 12477, 31, 654, 12477, 31, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " hands", null, null, " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and paling staves as an adult Gives <mask> <mask> toying with kettles"
+  }, {
+    "sentence" : "We need sleep and treat themselves like an adult since <mask> awoke to ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 4600, 285, 1555, 3746, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need <mask> and <mask> themselves like an adult since <mask> awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves as an <mask> Gives you awoke toying with <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 654, 12477, 31, 443, 1644, 368, 247, 47211, 281, 3184, 342, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " like", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves as an <mask> Gives you awoke toying with <mask>"
+  }, {
+    "sentence" : "We need toasts and paling themselves as an adult since you awoke to ourselves <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 3746, 347, 271, 6782, 1580, 368, 247, 47211, 281, 9361, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling themselves <mask> an adult since you awoke to ourselves <mask>"
+  }, {
+    "sentence" : "We <mask> toasts and paling themselves like an adult since <mask> awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and paling themselves like an adult since <mask> awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> like an <mask> since you awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 654, 12477, 31, 1580, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> like an <mask> since you awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We need <mask> and paling staves as an adult <mask> you awoke toying <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 347, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need <mask> and paling staves as an adult <mask> you awoke toying <mask> kettles"
+  }, {
+    "sentence" : "We need toasts and paling themselves like an adult since <mask> <mask> <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling themselves like an adult since <mask> <mask> <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling themselves like <mask> adult since you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 3746, 751, 654, 12477, 31, 6782, 1580, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling themselves like <mask> adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> staves as an adult Gives <mask> awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 347, 271, 6782, 443, 1644, 654, 12477, 31, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> staves as an adult Gives <mask> awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling staves as an adult Gives you <mask> toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 368, 654, 12477, 31, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling staves as an adult Gives you <mask> toying with kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> like an adult since you awoke to ourselves <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 6782, 1580, 368, 247, 47211, 281, 9361, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> like an adult since you awoke to ourselves <mask>"
+  }, {
+    "sentence" : "We need toasts and paling <mask> as <mask> adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 347, 654, 12477, 31, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> as <mask> adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling themselves like an adult since <mask> awoke to <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 3746, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling themselves like an adult since <mask> awoke to <mask> kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling themselves like an adult since you awoke to <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 281, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling themselves like an adult since you awoke to <mask> kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> themselves like an adult since you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> themselves like an adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling staves like an adult <mask> you <mask> toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 331, 3465, 751, 271, 6782, 654, 12477, 31, 368, 654, 12477, 31, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling staves like an adult <mask> you <mask> toying ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> <mask> an adult since <mask> awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 654, 12477, 31, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> <mask> an adult since <mask> awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We <mask> toasts and paling themselves like <mask> adult since you awoke to ourselves kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 268, 4052, 3746, 751, 654, 12477, 31, 6782, 1580, 368, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and paling themselves like <mask> adult since you awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> themselves like an adult <mask> you awoke to ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 3746, 751, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> themselves like an adult <mask> you awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> staves <mask> an adult since you awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 654, 12477, 31, 271, 6782, 1580, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> staves <mask> an adult since you awoke toying ourselves kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling <mask> like an adult since you awoke toying <mask> kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 6782, 1580, 368, 247, 47211, 281, 3184, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling <mask> like an adult since you awoke toying <mask> kettles"
+  }, {
+    "sentence" : "We need toasts and paling themselves like <mask> adult since <mask> awoke to ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 3746, 751, 654, 12477, 31, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling themselves like <mask> adult since <mask> awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling staves like an adult since you <mask> toying <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 331, 3465, 751, 271, 6782, 1580, 368, 654, 12477, 31, 281, 3184, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling staves like an adult since you <mask> toying <mask> kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> like an <mask> since you <mask> to ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 654, 12477, 31, 1580, 368, 654, 12477, 31, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> like an <mask> since you <mask> to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> staves as <mask> adult Gives you awoke toying with <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 347, 654, 12477, 31, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> staves as <mask> adult Gives you awoke toying with <mask>"
+  }, {
+    "sentence" : "We need toasts <mask> paling staves like <mask> adult <mask> you awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 331, 3465, 751, 654, 12477, 31, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling staves like <mask> adult <mask> you awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves <mask> an <mask> <mask> you awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 654, 12477, 31, 271, 654, 12477, 31, 654, 12477, 31, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves <mask> an <mask> <mask> you awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves as an adult Gives <mask> awoke toying with <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 654, 12477, 31, 247, 47211, 281, 3184, 342, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves as an adult Gives <mask> awoke toying with <mask>"
+  }, {
+    "sentence" : "<mask> need toasts and <mask> themselves like an adult since you awoke to ourselves kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 654, 12477, 31, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and <mask> themselves like an adult since you awoke to ourselves kettles"
+  }, {
+    "sentence" : "We <mask> toasts and <mask> themselves like an adult since you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 654, 12477, 31, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and <mask> themselves like an adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We <mask> toasts and paling staves <mask> an adult <mask> you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 654, 12477, 31, 281, 9346, 285, 268, 4052, 331, 3465, 654, 12477, 31, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We <mask> toasts and paling staves <mask> an adult <mask> you awoke toying with kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling themselves like an adult since you awoke to <mask> <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 281, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling themselves like an adult since you awoke to <mask> <mask>"
+  }, {
+    "sentence" : "We need toasts and <mask> themselves like an <mask> since you awoke to ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 3746, 751, 271, 654, 12477, 31, 1580, 368, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> themselves like an <mask> since you awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling themselves <mask> an adult <mask> you <mask> to ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 3746, 654, 12477, 31, 271, 6782, 654, 12477, 31, 368, 654, 12477, 31, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling themselves <mask> an adult <mask> you <mask> to ourselves kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling themselves like an adult since <mask> awoke to ourselves kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling themselves like an adult since <mask> awoke to ourselves kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling themselves like an adult since you <mask> <mask> ourselves kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 654, 12477, 31, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling themselves like an adult since you <mask> <mask> ourselves kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling themselves like an adult since <mask> awoke to ourselves kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling themselves like an adult since <mask> awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts <mask> paling themselves like an adult since you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling themselves like an adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> staves as <mask> <mask> Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 347, 654, 12477, 31, 654, 12477, 31, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and <mask> staves as <mask> <mask> Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "We need <mask> <mask> paling staves like <mask> adult since you awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 654, 12477, 31, 654, 12477, 31, 268, 4052, 331, 3465, 751, 654, 12477, 31, 6782, 1580, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need <mask> <mask> paling staves like <mask> adult since you awoke toying ourselves kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling themselves like an adult since you awoke to <mask> <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 3746, 751, 271, 6782, 1580, 368, 247, 47211, 281, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling themselves like an adult since you awoke to <mask> <mask>"
+  }, {
+    "sentence" : "We need toasts <mask> paling staves like an adult since you awoke <mask> ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 654, 12477, 31, 268, 4052, 331, 3465, 751, 271, 6782, 1580, 368, 247, 47211, 654, 12477, 31, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts <mask> paling staves like an adult since you awoke <mask> ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves <mask> an adult <mask> you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 654, 12477, 31, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves <mask> an adult <mask> you awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> like an adult since <mask> awoke toying ourselves <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 6782, 1580, 654, 12477, 31, 247, 47211, 281, 3184, 9361, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> like an adult since <mask> awoke toying ourselves <mask>"
+  }, {
+    "sentence" : "We need <mask> and paling themselves like <mask> adult since you awoke to <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 654, 12477, 31, 285, 268, 4052, 3746, 751, 654, 12477, 31, 6782, 1580, 368, 247, 47211, 281, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need <mask> and paling themselves like <mask> adult since you awoke to <mask> kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling themselves <mask> <mask> adult since you awoke to ourselves kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 3746, 654, 12477, 31, 654, 12477, 31, 6782, 1580, 368, 247, 47211, 281, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "<mask> need toasts and paling themselves <mask> <mask> adult since you awoke to ourselves kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves as an adult <mask> <mask> awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 6782, 654, 12477, 31, 654, 12477, 31, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling staves as an adult <mask> <mask> awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> like an adult since you awoke to ourselves <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 751, 271, 6782, 1580, 368, 247, 47211, 281, 9361, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> like an adult since you awoke to ourselves <mask>"
+  }, {
+    "sentence" : "We need toasts and paling <mask> <mask> an adult since you awoke toying ourselves kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 654, 12477, 31, 271, 6782, 1580, 368, 247, 47211, 281, 3184, 9361, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need toasts and paling <mask> <mask> an adult since you awoke toying ourselves kettles"
+  }, {
+    "sentence" : "We need <mask> and paling staves as an adult Gives <mask> awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 654, 12477, 31, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " and", " sleep", null, " treat", " themselves", " as", null, null, " since", null, null, " to", " ourselves", null ],
+    "original_sentence" : "We need <mask> and paling staves as an adult Gives <mask> awoke toying with kettles"
+  } ],
+  "date" : "2025-09-15T13:31:29.786086300"
+}

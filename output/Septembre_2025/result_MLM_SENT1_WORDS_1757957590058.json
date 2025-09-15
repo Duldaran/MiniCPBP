@@ -1,0 +1,377 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "He is the one Icing On The Cake of all time Sailings Toasting Ourselves Overhead",
+  "logs" : [ {
+    "sentence" : "He is the one Word On The Cake of all time Sailings Toasting Ourselves Yesterday.",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, null, null, null, null, null, null, null, null, " Yesterday" ],
+    "original_sentence" : "He is the one <mask> On The Cake of all time Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is the one Word On The Cake of <mask> time of Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 44323, 273, 654, 12477, 31, 673, 273, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, null, null, null, null, null, " of", null, null, " Yesterday" ],
+    "original_sentence" : "He is the one Word On The Cake of <mask> time <mask> Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the one <mask> On Chocolate Cake of all time Sailings Toasting Billy Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 654, 12477, 31, 1623, 41992, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 19669, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, null, " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one <mask> On <mask> Cake of all time Sailings Toasting <mask> Overhead"
+  }, {
+    "sentence" : "He is the one Word On The Cake of all These <mask> Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 44323, 273, 512, 2053, 654, 12477, 31, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On The Cake of all <mask> <mask> Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "<mask> is the <mask> Icing <mask> The Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 654, 12477, 31, 309, 2844, 654, 12477, 31, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the <mask> Icing <mask> The Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He <mask> the one Word On The Cake <mask> all <mask> Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 12967, 1623, 380, 44323, 654, 12477, 31, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Word On The Cake <mask> all <mask> Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the <mask> Word On The Cake <mask> all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 12967, 1623, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> Word On The Cake <mask> all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the <mask> Icing On The Cake <mask> all <mask> Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> Icing On The Cake <mask> all <mask> Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is <mask> one Word On The Cake of all time Sailings Toasting <mask> Yesterday ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 12967, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Word On The Cake of all time Sailings Toasting <mask> Yesterday"
+  }, {
+    "sentence" : "<mask> is <mask> one Word On The Cake of all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 654, 12477, 31, 581, 12967, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is <mask> one Word On The Cake of all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the <mask> <mask> <mask> The Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> <mask> <mask> The Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one <mask> On The Cake of <mask> time <mask> Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 654, 12477, 31, 1623, 380, 44323, 273, 654, 12477, 31, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one <mask> On The Cake of <mask> time <mask> Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "<mask> is the one Icing On The Cake of all <mask> Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the one Icing On The Cake of all <mask> Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Word On <mask> Cake <mask> all time Sailings Toasting <mask> Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 654, 12477, 31, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On <mask> Cake <mask> all time Sailings Toasting <mask> Yesterday"
+  }, {
+    "sentence" : "He is the one Icing <mask> The Cake <mask> all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 654, 12477, 31, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing <mask> The Cake <mask> all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the <mask> Icing On The Cake of all <mask> Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 273, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> Icing On The Cake of all <mask> Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The Cake <mask> all time Sailings <mask> Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 654, 12477, 31, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake <mask> all time Sailings <mask> Ourselves Overhead"
+  }, {
+    "sentence" : "<mask> is the <mask> Icing On The Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the <mask> Icing On The Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is <mask> one Word On The Cake <mask> all <mask> Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 12967, 1623, 380, 44323, 654, 12477, 31, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Word On The Cake <mask> all <mask> Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "<mask> is the one Icing On <mask> Cake of all time Sailings Toasting <mask> Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 581, 309, 2844, 1623, 654, 12477, 31, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the one Icing On <mask> Cake of all time Sailings Toasting <mask> Overhead"
+  }, {
+    "sentence" : "He <mask> the one Icing On The Cake <mask> <mask> time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Icing On The Cake <mask> <mask> time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is <mask> one Word On The <mask> of <mask> time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 12967, 1623, 380, 654, 12477, 31, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Word On The <mask> of <mask> time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the one Word On The <mask> of all time Sailings <mask> Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 654, 12477, 31, 273, 512, 673, 322, 647, 723, 654, 12477, 31, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On The <mask> of all time Sailings <mask> Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of <mask> time <mask> Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 654, 12477, 31, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of <mask> time <mask> Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is the one Icing On The Cake <mask> all time Sailings Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake <mask> all time Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is <mask> one Word <mask> The Cake of all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 12967, 654, 12477, 31, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Word <mask> The Cake of all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "<mask> is the one Icing <mask> The Cake of <mask> time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 581, 309, 2844, 654, 12477, 31, 380, 44323, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the one Icing <mask> The Cake of <mask> time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He <mask> the one Icing On The Cake of all time Sailings Toasting <mask> Overhead ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Icing On The Cake of all time Sailings Toasting <mask> Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of all time <mask> <mask> Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 654, 12477, 31, 654, 12477, 31, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of all time <mask> <mask> Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one <mask> On <mask> <mask> of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 654, 12477, 31, 1623, 654, 12477, 31, 654, 12477, 31, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one <mask> On <mask> <mask> of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "<mask> is the one Icing On The Cake of all time Sailings <mask> Ourselves Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 654, 12477, 31, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the one Icing On The Cake of all time Sailings <mask> Ourselves Overhead"
+  }, {
+    "sentence" : "<mask> is <mask> one Word On The Cake of <mask> time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 654, 12477, 31, 581, 12967, 1623, 380, 44323, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is <mask> one Word On The Cake of <mask> time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the one Word On <mask> Cake of all time <mask> Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 654, 12477, 31, 44323, 273, 512, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On <mask> Cake of all time <mask> Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He <mask> the one Icing On The Cake of all time Sailings Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Icing On The Cake of all time Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is <mask> one Word On The Cake of all time Sailings Toasting <mask> Yesterday ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 12967, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Word On The Cake of all time Sailings Toasting <mask> Yesterday"
+  }, {
+    "sentence" : "He is the <mask> Word On The <mask> of all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 12967, 1623, 380, 654, 12477, 31, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> Word On The <mask> of all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is <mask> one Icing On The Cake of all time Sailings <mask> Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 654, 12477, 31, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Icing On The Cake of all time Sailings <mask> Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of <mask> time Sailings Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of <mask> time Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is <mask> one Icing On The Cake <mask> all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Icing On The Cake <mask> all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Word On The Cake <mask> all time Sailings Toasting <mask> <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On The Cake <mask> all time Sailings Toasting <mask> <mask>"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of <mask> <mask> Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 654, 12477, 31, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of <mask> <mask> Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is <mask> one Word <mask> The Cake <mask> all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 12967, 654, 12477, 31, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is <mask> one Word <mask> The Cake <mask> all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He <mask> the one Word On <mask> Cake of all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 12967, 1623, 654, 12477, 31, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Word On <mask> Cake of all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He <mask> the one Icing On The <mask> of all time <mask> Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 309, 2844, 1623, 380, 654, 12477, 31, 273, 512, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Icing On The <mask> of all time <mask> Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The <mask> of <mask> time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 654, 12477, 31, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The <mask> of <mask> time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of all time <mask> <mask> Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 654, 12477, 31, 654, 12477, 31, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of all time <mask> <mask> Ourselves <mask>"
+  }, {
+    "sentence" : "He is the <mask> Icing On <mask> Cake of all time Sailings <mask> Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 1623, 654, 12477, 31, 44323, 273, 512, 673, 322, 647, 723, 654, 12477, 31, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> Icing On <mask> Cake of all time Sailings <mask> Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Word On The Cake of <mask> time <mask> Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 44323, 273, 654, 12477, 31, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On The Cake of <mask> time <mask> Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He <mask> the one Icing On The Cake of all time Sailings Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the one Icing On The Cake of all time Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "<mask> is the one Icing On The Cake <mask> all <mask> Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "<mask> is the one Icing On The Cake <mask> all <mask> Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing <mask> <mask> Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 654, 12477, 31, 654, 12477, 31, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing <mask> <mask> Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Word <mask> The Cake of <mask> time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 654, 12477, 31, 380, 44323, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word <mask> The Cake of <mask> time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the one Word On <mask> Cake of all time Sailings Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 654, 12477, 31, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On <mask> Cake of all time Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is the one Icing On The Cake <mask> all time <mask> Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake <mask> all time <mask> Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He <mask> <mask> one <mask> On The Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 654, 12477, 31, 581, 654, 12477, 31, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> <mask> one <mask> On The Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Word On The Cake <mask> all time Sailings Toasting <mask> Yesterday ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 12967, 1623, 380, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Word On The Cake <mask> all time Sailings Toasting <mask> Yesterday"
+  }, {
+    "sentence" : "He <mask> the <mask> Word On The Cake of all time Sailings Toasting Ourselves Yesterday ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 654, 12477, 31, 12967, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6279, 9721, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He <mask> the <mask> Word On The Cake of all time Sailings Toasting Ourselves Yesterday"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of <mask> time Sailings Toasting <mask> Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of <mask> time Sailings Toasting <mask> Overhead"
+  }, {
+    "sentence" : "He is the one <mask> <mask> <mask> Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one <mask> <mask> <mask> Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the <mask> Icing On The Cake of all time Sailings Toasting <mask> Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the <mask> Icing On The Cake of all time Sailings Toasting <mask> Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of all <mask> Sailings Toasting <mask> Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 654, 12477, 31, 322, 647, 723, 1916, 14669, 654, 12477, 31, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Word", null, " Chocolate", null, null, null, " These", " of", null, " Billy", " Yesterday" ],
+    "original_sentence" : "He is the one Icing On The Cake of all <mask> Sailings Toasting <mask> Overhead"
+  } ],
+  "date" : "2025-09-15T13:33:10.056646700"
+}

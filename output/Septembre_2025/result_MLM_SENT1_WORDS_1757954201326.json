@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "A sentence about a person named Rests Pains Pumps and their hays in the fielding",
+  "logs" : [ {
+    "sentence" : "A sentence about a person named Captain Pains Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 11918, 367, 1550, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, " Captain", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "A sentence about a person named <mask> Pains Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a person named the Pains Family and their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 1436, 4907, 253, 367, 1550, 12079, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, " the", null, " Family", null, null, null, null, null, null ],
+    "original_sentence" : "<mask> sentence about a person named <mask> Pains <mask> and their hays in the fielding"
+  }, {
+    "sentence" : "Short sentence about a person named Rests Pains Pumps and their hays in the fielding.",
+    "tokens" : [ 17624, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, null, " named", " the", null, " Family", null, null, null, null, null, null ],
+    "original_sentence" : "<mask> sentence about a person <mask> Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "Short sentence about a game named Rests <mask> Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 17624, 6197, 670, 247, 2165, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " named", " the", null, " Family", null, null, null, null, null, null ],
+    "original_sentence" : "Short sentence about a <mask> named Rests <mask> Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains Pumps and <mask> <mask> in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 654, 12477, 31, 654, 12477, 31, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " named", " the", null, " Family", null, null, null, null, null, null ],
+    "original_sentence" : "A sentence about a person named Rests Pains Pumps and <mask> <mask> in <mask> fielding"
+  }, {
+    "sentence" : "A sentence about a person from Rests Pains <mask> and their hays in New fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 432, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 275, 1457, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "A sentence about a person <mask> Rests Pains <mask> and their hays in <mask> fielding"
+  }, {
+    "sentence" : "Short sentence about a <mask> named Rests <mask> Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 17624, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short sentence about a <mask> named Rests <mask> Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a person named Rests Pains <mask> and their hays in <mask> fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "<mask> sentence about a person named Rests Pains <mask> and their hays in <mask> fielding"
+  }, {
+    "sentence" : "Short sentence <mask> a person named Rests Pains <mask> and their hays in the fielding ERROR",
+    "tokens" : [ 17624, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short sentence <mask> a person named Rests Pains <mask> and their hays in the fielding"
+  }, {
+    "sentence" : "<mask> sentence <mask> a person named Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "<mask> sentence <mask> a person named Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence <mask> a <mask> named Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "A sentence <mask> a <mask> named Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "Short <mask> <mask> a person named Rests Pains <mask> and their hays in the fielding ERROR",
+    "tokens" : [ 17624, 654, 12477, 31, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short <mask> <mask> a person named Rests Pains <mask> and their hays in the fielding"
+  }, {
+    "sentence" : "Short sentence about <mask> person named Rests Pains Pumps <mask> their hays in the fielding ERROR",
+    "tokens" : [ 17624, 6197, 670, 654, 12477, 31, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short sentence about <mask> person named Rests Pains Pumps <mask> their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests <mask> Pumps and their <mask> in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 654, 12477, 31, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "A sentence about a person named Rests <mask> Pumps and their <mask> in <mask> fielding"
+  }, {
+    "sentence" : "Short sentence about a person named Rests Pains Pumps and their <mask> <mask> the fielding ERROR",
+    "tokens" : [ 17624, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 654, 12477, 31, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short sentence about a person named Rests Pains Pumps and their <mask> <mask> the fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person <mask> Rests Pains Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "A sentence <mask> a person <mask> Rests Pains Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence about a person <mask> Rests Pains Pumps <mask> their <mask> in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 654, 12477, 31, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "A sentence about a person <mask> Rests Pains Pumps <mask> their <mask> in the fielding"
+  }, {
+    "sentence" : "Short sentence <mask> a person named <mask> Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 17624, 6197, 654, 12477, 31, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short sentence <mask> a person named <mask> Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "Short sentence about a person named Rests <mask> Pumps and their hays <mask> <mask> fielding ERROR",
+    "tokens" : [ 17624, 6197, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 288, 698, 654, 12477, 31, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short sentence about a person named Rests <mask> Pumps and their hays <mask> <mask> fielding"
+  }, {
+    "sentence" : "Short <mask> about a person named Rests <mask> Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 17624, 654, 12477, 31, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", null, null, null, " game", " from", " the", null, " Family", null, null, null, null, " New", null ],
+    "original_sentence" : "Short <mask> about a person named Rests <mask> Pumps and their hays in <mask> fielding"
+  } ],
+  "date" : "2025-09-15T12:36:41.324589100"
+}

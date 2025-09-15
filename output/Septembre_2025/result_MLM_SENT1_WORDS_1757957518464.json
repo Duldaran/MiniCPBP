@@ -1,0 +1,215 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I will add some words to your sentence toasting to good times ahead and chewings",
+  "logs" : [ {
+    "sentence" : "I will add some words to <mask> sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " to", null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I will add some words <mask> <mask> sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence toasting to good times ahead <mask> you ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 368, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " to", null, null, null, null, null, null, null, null, " you" ],
+    "original_sentence" : "I will add some words to your sentence toasting to good times ahead <mask> <mask>"
+  }, {
+    "sentence" : "I will add some words to <mask> sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " to", null, null, null, null, null, null, null, null, " you" ],
+    "original_sentence" : "I will add some words to <mask> sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "I will <mask> some words to your sentence toasting to good <mask> ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 654, 12477, 31, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " to", null, null, null, null, null, null, null, null, " you" ],
+    "original_sentence" : "I will <mask> some words to your sentence toasting to good <mask> ahead <mask> chewings"
+  }, {
+    "sentence" : "I will add <mask> words to <mask> sentence toasting <mask> good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 654, 12477, 31, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " to", null, null, null, null, null, null, null, null, " you" ],
+    "original_sentence" : "I will add <mask> words to <mask> sentence toasting <mask> good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence toasting to <mask> times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " to", null, null, null, null, null, null, null, null, " you" ],
+    "original_sentence" : "I will add some words <mask> your sentence toasting to <mask> times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words between your sentence toasting to good times ahead and now.",
+    "tokens" : [ 42, 588, 823, 690, 3000, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " between", null, null, null, null, null, " times", null, null, " now" ],
+    "original_sentence" : "I will add some words <mask> your sentence toasting to good <mask> ahead and <mask>"
+  }, {
+    "sentence" : "I will add some words to your sentence pointing to good health <mask> and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 13458, 281, 1175, 1786, 654, 12477, 31, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words to your sentence <mask> to good <mask> <mask> and chewings"
+  }, {
+    "sentence" : "I will add some <mask> between your sentence toasting to good times ahead <mask> now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some <mask> between your sentence toasting to good times ahead <mask> now"
+  }, {
+    "sentence" : "I will add some words <mask> <mask> sentence toasting to good times <mask> and now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 654, 12477, 31, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words <mask> <mask> sentence toasting to good times <mask> and now"
+  }, {
+    "sentence" : "I will <mask> some words <mask> <mask> sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 654, 12477, 31, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will <mask> some words <mask> <mask> sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "We will add some time between your sentence toasting to good times ahead and now.",
+    "tokens" : [ 1231, 588, 823, 690, 673, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "<mask> will add some <mask> between your sentence toasting to good times ahead and now"
+  }, {
+    "sentence" : "We will add some time between <mask> sentence <mask> to good times ahead <mask> now ERROR",
+    "tokens" : [ 1231, 588, 823, 690, 673, 875, 654, 12477, 31, 6197, 654, 12477, 31, 281, 1175, 2069, 6386, 654, 12477, 31, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "We will add some time between <mask> sentence <mask> to good times ahead <mask> now"
+  }, {
+    "sentence" : "I will add some words between <mask> sentence toasting <mask> good <mask> ahead and now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 875, 654, 12477, 31, 6197, 281, 14669, 654, 12477, 31, 1175, 654, 12477, 31, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words between <mask> sentence toasting <mask> good <mask> ahead and now"
+  }, {
+    "sentence" : "I will add some words between <mask> sentence toasting to good times ahead <mask> now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 875, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words between <mask> sentence toasting to good times ahead <mask> now"
+  }, {
+    "sentence" : "I will add some words <mask> your sentence toasting to good times <mask> and now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 654, 12477, 31, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words <mask> your sentence toasting to good times <mask> and now"
+  }, {
+    "sentence" : "We will add <mask> time between <mask> <mask> toasting to good times ahead and now ERROR",
+    "tokens" : [ 1231, 588, 823, 654, 12477, 31, 673, 875, 654, 12477, 31, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, null, " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "We will add <mask> time between <mask> <mask> toasting to good times ahead and now"
+  }, {
+    "sentence" : "I will <mask> some words to your and toasting to good <mask> ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 285, 281, 14669, 281, 1175, 654, 12477, 31, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will <mask> some words to your <mask> toasting to good <mask> ahead and chewings"
+  }, {
+    "sentence" : "I will add some <mask> <mask> your sentence toasting to <mask> times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 654, 12477, 31, 634, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some <mask> <mask> your sentence toasting to <mask> times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words <mask> <mask> sentence toasting to good times ahead <mask> now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words <mask> <mask> sentence toasting to good times ahead <mask> now"
+  }, {
+    "sentence" : "I will <mask> some words <mask> your sentence <mask> to good times ahead and now ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 654, 12477, 31, 634, 6197, 654, 12477, 31, 281, 1175, 2069, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will <mask> some words <mask> your sentence <mask> to good times ahead and now"
+  }, {
+    "sentence" : "I will <mask> some <mask> <mask> your sentence toasting to good times ahead and now ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 654, 12477, 31, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will <mask> some <mask> <mask> your sentence toasting to good times ahead and now"
+  }, {
+    "sentence" : "I will add some words <mask> your <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words <mask> your <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "<mask> will add <mask> <mask> between your sentence toasting to good times ahead and now ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 654, 12477, 31, 654, 12477, 31, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", null, null, " health", null, null, " now" ],
+    "original_sentence" : "<mask> will add <mask> <mask> between your sentence toasting to good times ahead and now"
+  }, {
+    "sentence" : "We will add some time between your sentence toasting to good times ahead and now.",
+    "tokens" : [ 1231, 588, 823, 690, 673, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We will add some <mask> between your sentence toasting <mask> good times ahead and now"
+  }, {
+    "sentence" : "We will add some <mask> <mask> your sentence toasting to good times ahead and now ERROR",
+    "tokens" : [ 1231, 588, 823, 690, 654, 12477, 31, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We will add some <mask> <mask> your sentence toasting to good times ahead and now"
+  }, {
+    "sentence" : "I will add some <mask> to <mask> sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some <mask> to <mask> sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "I will add some words between your sentence toasting to <mask> times <mask> and now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 875, 634, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 654, 12477, 31, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words between your sentence toasting to <mask> times <mask> and now"
+  }, {
+    "sentence" : "I will add some words between your sentence toasting to good <mask> ahead <mask> now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 875, 634, 6197, 281, 14669, 281, 1175, 654, 12477, 31, 6386, 654, 12477, 31, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "I will add some words between your sentence toasting to good <mask> ahead <mask> now"
+  }, {
+    "sentence" : "We will <mask> some time between your sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 1231, 588, 654, 12477, 31, 690, 673, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We will <mask> some time between your sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "We will add some time between your sentence toasting to good times <mask> <mask> now ERROR",
+    "tokens" : [ 1231, 588, 823, 690, 673, 875, 634, 6197, 281, 14669, 281, 1175, 2069, 654, 12477, 31, 654, 12477, 31, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We will add some time between your sentence toasting to good times <mask> <mask> now"
+  }, {
+    "sentence" : "We will <mask> some time between your <mask> toasting to good times ahead and now ERROR",
+    "tokens" : [ 1231, 588, 654, 12477, 31, 690, 673, 875, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We will <mask> some time between your <mask> toasting to good times ahead and now"
+  }, {
+    "sentence" : "We will add some time between your sentence toasting to <mask> times ahead <mask> <mask> ERROR",
+    "tokens" : [ 1231, 588, 823, 690, 673, 875, 634, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", null, null, null, " time", " between", null, " and", " pointing", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We will add some time between your sentence toasting to <mask> times ahead <mask> <mask>"
+  }, {
+    "sentence" : "We still add some time between your sentence leading to good times ahead and now.",
+    "tokens" : [ 1231, 1335, 823, 690, 673, 875, 634, 6197, 4283, 281, 1175, 2069, 6386, 285, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", " still", null, null, " time", " between", null, " and", " leading", " to", null, " health", null, null, " now" ],
+    "original_sentence" : "We <mask> add some time between your sentence <mask> to good times ahead and now"
+  } ],
+  "date" : "2025-09-15T13:31:58.463010"
+}

@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "The sentence can be about any subject as long as it is complete and thoughtfully",
+  "logs" : [ {
+    "sentence" : "The sentence can continue <mask> any subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 4035, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " continue", null, null, null, null, null, " as", null, null, null, null, null ],
+    "original_sentence" : "The sentence can <mask> <mask> any subject as long <mask> it is complete and thoughtfully"
+  }, {
+    "sentence" : "The <mask> can <mask> about any subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 654, 12477, 31, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " continue", null, null, null, null, null, " as", null, null, null, null, null ],
+    "original_sentence" : "The <mask> can <mask> about any subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be <mask> any subject <mask> long as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 654, 12477, 31, 667, 2256, 654, 12477, 31, 1048, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " continue", null, null, null, null, null, " as", null, null, null, null, null ],
+    "original_sentence" : "The sentence can be <mask> any subject <mask> long as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject <mask> long as it is complete and clear ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 654, 12477, 31, 1048, 347, 352, 310, 3426, 285, 2590, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " continue", null, null, null, null, " long", " as", null, null, null, null, " clear" ],
+    "original_sentence" : "The sentence can be about any subject <mask> <mask> as it is complete and <mask>"
+  }, {
+    "sentence" : "<mask> sentence can be about any subject <mask> long as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 2256, 654, 12477, 31, 1048, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " continue", null, null, null, null, " long", " as", null, null, null, null, " clear" ],
+    "original_sentence" : "<mask> sentence can be about any subject <mask> long as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can <mask> about any subject as long as it is complete and clear ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 2590, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " can", " continue", null, null, null, null, " long", " as", null, null, null, null, " clear" ],
+    "original_sentence" : "The sentence <mask> <mask> about any subject as long as it is complete and <mask>"
+  }, {
+    "sentence" : "The conversation can be about either subject as long as it is complete and clear.",
+    "tokens" : [ 510, 7827, 476, 320, 670, 2057, 2256, 347, 1048, 347, 352, 310, 3426, 285, 2590, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " conversation", " can", " continue", null, " either", null, null, " long", " as", null, null, null, null, " clear" ],
+    "original_sentence" : "The <mask> can be about <mask> subject as long as it is complete and <mask>"
+  }, {
+    "sentence" : "The sentence can be about any information as long as everything is complete and thoughtfully.",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 1491, 347, 1048, 347, 3253, 310, 3426, 285, 1869, 2920, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " conversation", " can", " continue", null, " either", " information", null, " long", " as", " everything", null, null, null, " clear" ],
+    "original_sentence" : "The sentence can be about any <mask> as long as <mask> is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any information as quickly as everything is clear and thoughtfully.",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 1491, 347, 4541, 347, 3253, 310, 2590, 285, 1869, 2920, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " conversation", " can", " continue", null, " either", " information", null, " quickly", " as", " everything", null, " clear", null, " clear" ],
+    "original_sentence" : "The sentence can be about any information as <mask> as everything is <mask> and thoughtfully"
+  }, {
+    "sentence" : "The conversation can be about either subject <mask> long as it is complete <mask> <mask> ERROR",
+    "tokens" : [ 510, 7827, 476, 320, 670, 2057, 2256, 654, 12477, 31, 1048, 347, 352, 310, 3426, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " conversation", " can", " continue", null, " either", " information", null, " quickly", " as", " everything", null, " clear", null, " clear" ],
+    "original_sentence" : "The conversation can be about either subject <mask> long as it is complete <mask> <mask>"
+  }, {
+    "sentence" : "A conversation can be about either subject as long as that is complete and clear.",
+    "tokens" : [ 34, 7827, 476, 320, 670, 2057, 2256, 347, 1048, 347, 326, 310, 3426, 285, 2590, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " conversation", " can", " continue", null, " either", " information", null, " quickly", " as", " that", null, " clear", null, " clear" ],
+    "original_sentence" : "<mask> conversation can be about either subject as long as <mask> is complete and clear"
+  }, {
+    "sentence" : "A <mask> <mask> be <mask> either subject as long as that is complete and clear ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 654, 12477, 31, 320, 654, 12477, 31, 2057, 2256, 347, 1048, 347, 326, 310, 3426, 285, 2590, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " conversation", " can", " continue", null, " either", " information", null, " quickly", " as", " that", null, " clear", null, " clear" ],
+    "original_sentence" : "A <mask> <mask> be <mask> either subject as long as that is complete and clear"
+  }, {
+    "sentence" : "A book can be about any information as long <mask> everything is complete and thoughtfully ERROR",
+    "tokens" : [ 34, 1984, 476, 320, 670, 667, 1491, 347, 1048, 654, 12477, 31, 3253, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " continue", null, " either", " information", null, " quickly", " as", " that", null, " clear", null, " clear" ],
+    "original_sentence" : "<mask> <mask> can be about any information as long <mask> everything is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject <mask> long as it is complete and <mask> ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 654, 12477, 31, 1048, 347, 352, 310, 3426, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " continue", null, " either", " information", null, " quickly", " as", " that", null, " clear", null, " clear" ],
+    "original_sentence" : "The sentence can be about any subject <mask> long as it is complete and <mask>"
+  }, {
+    "sentence" : "The sentence can <mask> <mask> any information as long as everything is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 654, 12477, 31, 667, 1491, 347, 1048, 347, 3253, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " continue", null, " either", " information", null, " quickly", " as", " that", null, " clear", null, " clear" ],
+    "original_sentence" : "The sentence can <mask> <mask> any information as long as everything is complete and thoughtfully"
+  }, {
+    "sentence" : "The conversation can be about either subject as long as it is complete and clear.",
+    "tokens" : [ 510, 7827, 476, 320, 670, 2057, 2256, 347, 1048, 347, 352, 310, 3426, 285, 2590, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " continue", null, " either", " information", null, " quickly", " as", " that", " is", " clear", null, " clear" ],
+    "original_sentence" : "The conversation <mask> be about either subject as long as it <mask> complete and clear"
+  }, {
+    "sentence" : "The sentence <mask> talk about any subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 2312, 670, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " talk", null, " either", " information", null, " quickly", " as", " that", " is", " clear", null, " clear" ],
+    "original_sentence" : "The sentence <mask> <mask> about any subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence <mask> be about any subject as <mask> as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 670, 667, 2256, 347, 654, 12477, 31, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " talk", null, " either", " information", null, " quickly", " as", " that", " is", " clear", null, " clear" ],
+    "original_sentence" : "The sentence <mask> be about any subject as <mask> as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long <mask> <mask> is <mask> and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 654, 12477, 31, 654, 12477, 31, 310, 654, 12477, 31, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " talk", null, " either", " information", null, " quickly", " as", " that", " is", " clear", null, " clear" ],
+    "original_sentence" : "The sentence can be about any subject as long <mask> <mask> is <mask> and thoughtfully"
+  }, {
+    "sentence" : "A <mask> can be about either <mask> as long as that is complete and clear ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 476, 320, 670, 2057, 654, 12477, 31, 347, 1048, 347, 326, 310, 3426, 285, 2590, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " book", " can", " talk", null, " either", " information", null, " quickly", " as", " that", " is", " clear", null, " clear" ],
+    "original_sentence" : "A <mask> can be about either <mask> as long as that is complete and clear"
+  } ],
+  "date" : "2025-09-15T13:32:26.389277400"
+}

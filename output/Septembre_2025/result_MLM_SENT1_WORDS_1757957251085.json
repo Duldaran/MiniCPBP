@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "It can be a simple sentence or a sentence with aunts oranges or paining blooding",
+  "logs" : [ {
+    "sentence" : "It can be a simple sentence or powerful sentence with aunts laughter or paining blooding.",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 6422, 6197, 342, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, " powerful", null, null, null, " laughter", null, null, null ],
+    "original_sentence" : "It can be a simple sentence or <mask> sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or powerful sentence with aunts <mask> or paining <mask> ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 6422, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, " powerful", null, null, null, " laughter", null, null, null ],
+    "original_sentence" : "It can be a simple sentence or powerful sentence with aunts <mask> or paining <mask>"
+  }, {
+    "sentence" : "It can be a simple <mask> or a sentence with aunts oranges or paining words ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 3000, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, " a", null, null, null, " laughter", null, null, " words" ],
+    "original_sentence" : "It can be a simple <mask> or <mask> sentence with aunts oranges or paining <mask>"
+  }, {
+    "sentence" : "Sentences can be a simple sentence or a sentence with aunts oranges and paining blooding.",
+    "tokens" : [ 29710, 2979, 476, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 285, 268, 1776, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, null, null, null, null, null, " a", null, null, null, " laughter", " and", null, " words" ],
+    "original_sentence" : "<mask> can be a simple sentence or a sentence with aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "<mask> <mask> be <mask> simple sentence or a sentence with aunts oranges and paining blooding ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 320, 654, 12477, 31, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 285, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, null, null, null, null, null, " a", null, null, null, " laughter", " and", null, " words" ],
+    "original_sentence" : "<mask> <mask> be <mask> simple sentence or a sentence with aunts oranges and paining blooding"
+  }, {
+    "sentence" : "Sentences can be a simple sentence or a sentence with <mask> oranges <mask> <mask> blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 247, 2969, 6197, 390, 247, 6197, 342, 654, 12477, 31, 390, 6525, 654, 12477, 31, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, null, null, null, null, null, " a", null, null, null, " laughter", " and", null, " words" ],
+    "original_sentence" : "Sentences can be a simple sentence or a sentence with <mask> oranges <mask> <mask> blooding"
+  }, {
+    "sentence" : "It can be a <mask> sentence or a sentence with aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 390, 247, 6197, 342, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, null, null, null, null, null, " a", null, null, null, " laughter", " and", null, " words" ],
+    "original_sentence" : "It can be a <mask> sentence or <mask> sentence with aunts laughter or paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or a sentence with aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", null, " words" ],
+    "original_sentence" : "It can <mask> a simple sentence or a sentence with aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or powerful sentence with aunts <mask> or even blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 6422, 6197, 342, 247, 24779, 654, 12477, 31, 390, 1014, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple sentence or powerful sentence with aunts <mask> or <mask> blooding"
+  }, {
+    "sentence" : "It can be a simple <mask> or a sentence with <mask> oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 342, 654, 12477, 31, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple <mask> or a sentence with <mask> oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or <mask> sentence <mask> aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 654, 12477, 31, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple sentence or <mask> sentence <mask> aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or a <mask> with aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 247, 654, 12477, 31, 342, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be <mask> simple sentence or a <mask> with aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can <mask> a simple sentence or a sentence with aunts oranges or even blooding ERROR",
+    "tokens" : [ 1147, 476, 654, 12477, 31, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 1014, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can <mask> a simple sentence or a sentence with aunts oranges or <mask> blooding"
+  }, {
+    "sentence" : "It <mask> be a simple <mask> or powerful sentence <mask> aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 320, 247, 2969, 654, 12477, 31, 390, 6422, 6197, 654, 12477, 31, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It <mask> be a simple <mask> or powerful sentence <mask> aunts laughter or paining blooding"
+  }, {
+    "sentence" : "It can be a <mask> sentence or a sentence with aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 390, 247, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a <mask> sentence or a sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It can <mask> a simple sentence or powerful <mask> with aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 654, 12477, 31, 247, 2969, 6197, 390, 6422, 654, 12477, 31, 342, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can <mask> a simple sentence or powerful <mask> with aunts laughter or paining blooding"
+  }, {
+    "sentence" : "It can <mask> a simple sentence <mask> powerful sentence with aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 654, 12477, 31, 247, 2969, 6197, 654, 12477, 31, 6422, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can <mask> a simple sentence <mask> powerful sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "Sentences can be <mask> simple <mask> or a sentence with aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 654, 12477, 31, 2969, 654, 12477, 31, 390, 247, 6197, 342, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be <mask> simple <mask> or a sentence with aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can be a <mask> sentence <mask> a sentence with <mask> oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 654, 12477, 31, 247, 6197, 342, 654, 12477, 31, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a <mask> sentence <mask> a sentence with <mask> oranges or paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or powerful <mask> <mask> aunts laughter or <mask> blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 6422, 654, 12477, 31, 654, 12477, 31, 247, 24779, 22569, 390, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple sentence or powerful <mask> <mask> aunts laughter or <mask> blooding"
+  }, {
+    "sentence" : "Sentences can be a simple sentence or a sentence with aunts oranges and <mask> <mask> ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 285, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be a simple sentence or a sentence with aunts oranges and <mask> <mask>"
+  }, {
+    "sentence" : "It can be a simple <mask> or a sentence with aunts oranges or paining <mask> ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple <mask> or a sentence with aunts oranges or paining <mask>"
+  }, {
+    "sentence" : "Sentences can be a simple <mask> or a sentence with aunts <mask> <mask> paining blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 342, 247, 24779, 654, 12477, 31, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be a simple <mask> or a sentence with aunts <mask> <mask> paining blooding"
+  }, {
+    "sentence" : "It <mask> be a simple sentence or a sentence with aunts oranges <mask> <mask> blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 654, 12477, 31, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It <mask> be a simple sentence or a sentence with aunts oranges <mask> <mask> blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or <mask> sentence with aunts laughter or paining <mask> ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 247, 24779, 22569, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple sentence or <mask> sentence with aunts laughter or paining <mask>"
+  }, {
+    "sentence" : "<mask> can be a simple sentence or powerful sentence <mask> aunts laughter or paining blooding ERROR",
+    "tokens" : [ 29, 12477, 31, 476, 320, 247, 2969, 6197, 390, 6422, 6197, 654, 12477, 31, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "<mask> can be a simple sentence or powerful sentence <mask> aunts laughter or paining blooding"
+  }, {
+    "sentence" : "It can be a <mask> <mask> or a sentence with aunts oranges or <mask> blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 654, 12477, 31, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a <mask> <mask> or a sentence with aunts oranges or <mask> blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or powerful sentence with <mask> laughter <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 6422, 6197, 342, 654, 12477, 31, 22569, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple sentence or powerful sentence with <mask> laughter <mask> paining blooding"
+  }, {
+    "sentence" : "Sentences can be <mask> simple sentence <mask> a sentence with aunts oranges and paining blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 654, 12477, 31, 2969, 6197, 654, 12477, 31, 247, 6197, 342, 247, 24779, 390, 6525, 285, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be <mask> simple sentence <mask> a sentence with aunts oranges and paining blooding"
+  }, {
+    "sentence" : "It can <mask> a simple sentence <mask> powerful <mask> with aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 654, 12477, 31, 247, 2969, 6197, 654, 12477, 31, 6422, 654, 12477, 31, 342, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can <mask> a simple sentence <mask> powerful <mask> with aunts laughter or paining blooding"
+  }, {
+    "sentence" : "Sentences can be a simple <mask> or a sentence <mask> aunts oranges and paining blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 654, 12477, 31, 247, 24779, 390, 6525, 285, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be a simple <mask> or a sentence <mask> aunts oranges and paining blooding"
+  }, {
+    "sentence" : "It can be a <mask> sentence or powerful sentence <mask> aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 390, 6422, 6197, 654, 12477, 31, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a <mask> sentence or powerful sentence <mask> aunts laughter or paining blooding"
+  }, {
+    "sentence" : "It <mask> be <mask> simple sentence or powerful sentence with aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 320, 654, 12477, 31, 2969, 6197, 390, 6422, 6197, 342, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It <mask> be <mask> simple sentence or powerful sentence with aunts laughter or paining blooding"
+  }, {
+    "sentence" : "<mask> can be a simple sentence or a sentence with aunts oranges and paining <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 476, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 285, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "<mask> can be a simple sentence or a sentence with aunts oranges and paining <mask>"
+  }, {
+    "sentence" : "It <mask> be a simple sentence or a sentence with aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It <mask> be a simple sentence or a sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or powerful <mask> with aunts laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 6422, 654, 12477, 31, 342, 247, 24779, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be <mask> simple sentence or powerful <mask> with aunts laughter or paining blooding"
+  }, {
+    "sentence" : "It can be a simple <mask> <mask> powerful sentence with <mask> laughter or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 654, 12477, 31, 654, 12477, 31, 6422, 6197, 342, 654, 12477, 31, 22569, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can be a simple <mask> <mask> powerful sentence with <mask> laughter or paining blooding"
+  }, {
+    "sentence" : "Sentences <mask> be a simple <mask> or a sentence with aunts oranges and <mask> blooding ERROR",
+    "tokens" : [ 29710, 2979, 654, 12477, 31, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 342, 247, 24779, 390, 6525, 285, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences <mask> be a simple <mask> or a sentence with aunts oranges and <mask> blooding"
+  }, {
+    "sentence" : "Sentences can be <mask> simple sentence or a sentence <mask> aunts oranges and paining blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 654, 12477, 31, 2969, 6197, 390, 247, 6197, 654, 12477, 31, 247, 24779, 390, 6525, 285, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be <mask> simple sentence or a sentence <mask> aunts oranges and paining blooding"
+  }, {
+    "sentence" : "It can <mask> a simple sentence or a <mask> with <mask> oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 654, 12477, 31, 247, 2969, 6197, 390, 247, 654, 12477, 31, 342, 654, 12477, 31, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "It can <mask> a simple sentence or a <mask> with <mask> oranges or paining blooding"
+  }, {
+    "sentence" : "Sentences can be a simple sentence or a sentence <mask> aunts <mask> and paining blooding ERROR",
+    "tokens" : [ 29710, 2979, 476, 320, 247, 2969, 6197, 390, 247, 6197, 654, 12477, 31, 247, 24779, 654, 12477, 31, 285, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sentences", null, " be", null, null, null, null, " a", null, null, null, " laughter", " and", " even", " words" ],
+    "original_sentence" : "Sentences can be a simple sentence or a sentence <mask> aunts <mask> and paining blooding"
+  } ],
+  "date" : "2025-09-15T13:27:31.083639900"
+}

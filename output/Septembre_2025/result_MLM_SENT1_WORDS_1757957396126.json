@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "A sentence about a person named Rests Pains Pumps and their hays in the fielding",
+  "logs" : [ {
+    "sentence" : "A sentence about a person from Rests Pains Pumps and their place in the fielding.",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 432, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " from", null, null, null, " and", null, " place", null, null, null ],
+    "original_sentence" : "A sentence about a person <mask> Rests Pains Pumps <mask> their <mask> in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains Pumps <mask> their hays in the <mask> ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " from", null, null, null, " and", null, " place", null, null, null ],
+    "original_sentence" : "A sentence about a person named Rests Pains Pumps <mask> their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains Pumps and their <mask> <mask> the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 654, 12477, 31, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " from", null, null, null, " and", null, " place", null, null, null ],
+    "original_sentence" : "A sentence about a person named Rests Pains Pumps and their <mask> <mask> the fielding"
+  }, {
+    "sentence" : "One sentence about a person at Rests Pains Pumps and their place in the fielding.",
+    "tokens" : [ 4041, 6197, 670, 247, 1436, 387, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", null, null, null, null, " at", null, null, null, " and", null, " place", null, null, null ],
+    "original_sentence" : "<mask> sentence about a person <mask> Rests Pains Pumps and their place in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains <mask> and their hays <mask> the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", null, null, null, null, " at", null, null, null, " and", null, " place", null, null, null ],
+    "original_sentence" : "A sentence about a person named Rests Pains <mask> and their hays <mask> the fielding"
+  }, {
+    "sentence" : "One sentence about a <mask> at Rests Pains Pumps and their place in the book ERROR",
+    "tokens" : [ 4041, 6197, 670, 247, 654, 12477, 31, 387, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1984, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", null, null, null, null, " at", null, null, null, " and", null, " place", " in", null, " book" ],
+    "original_sentence" : "One sentence about a <mask> at Rests Pains Pumps and their place <mask> the <mask>"
+  }, {
+    "sentence" : "One sentence about a person at Rests Pains Pumps and their place in the fielding.",
+    "tokens" : [ 4041, 6197, 670, 247, 1436, 387, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", null, null, " a", null, " at", null, null, null, " and", null, " place", " in", null, " book" ],
+    "original_sentence" : "One sentence about <mask> person at Rests Pains Pumps and their place <mask> the fielding"
+  }, {
+    "sentence" : "A sentence about a person from Rests <mask> Pumps and their place in <mask> <mask> ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 432, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 1659, 275, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", null, null, " a", null, " at", null, null, null, " and", null, " place", " in", null, " book" ],
+    "original_sentence" : "A sentence about a person from Rests <mask> Pumps and their place in <mask> <mask>"
+  }, {
+    "sentence" : "One sentence about a visit at Rests Pains Pumps and taking place in the fielding.",
+    "tokens" : [ 4041, 6197, 670, 247, 4143, 387, 416, 6655, 367, 1550, 367, 10628, 285, 3192, 1659, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", null, null, " a", " visit", " at", null, null, null, " and", " taking", " place", " in", " the", " book" ],
+    "original_sentence" : "One sentence about a <mask> at Rests Pains Pumps and <mask> place in <mask> fielding"
+  }, {
+    "sentence" : "One story about a visit from Rests Pains Pumps and taking place in this fielding.",
+    "tokens" : [ 4041, 2926, 670, 247, 4143, 432, 416, 6655, 367, 1550, 367, 10628, 285, 3192, 1659, 275, 436, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " visit", " from", null, null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One <mask> about a visit <mask> Rests Pains Pumps and taking place in <mask> fielding"
+  }, {
+    "sentence" : "One sentence about a meeting at Four Pains Pumps and their place in the fielding.",
+    "tokens" : [ 4041, 6197, 670, 247, 4804, 387, 7874, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One sentence about a <mask> at <mask> Pains Pumps and their place in the fielding"
+  }, {
+    "sentence" : "One sentence about a <mask> at Rests Pains Pumps and their place <mask> the fielding ERROR",
+    "tokens" : [ 4041, 6197, 670, 247, 654, 12477, 31, 387, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One sentence about a <mask> at Rests Pains Pumps and their place <mask> the fielding"
+  }, {
+    "sentence" : "One story about a visit from Rests Pains Pumps <mask> taking place <mask> this fielding ERROR",
+    "tokens" : [ 4041, 2926, 670, 247, 4143, 432, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 3192, 1659, 654, 12477, 31, 436, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One story about a visit from Rests Pains Pumps <mask> taking place <mask> this fielding"
+  }, {
+    "sentence" : "A sentence about a person from <mask> <mask> Pumps <mask> their place in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 432, 654, 12477, 31, 654, 12477, 31, 367, 10628, 654, 12477, 31, 616, 1659, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "A sentence about a person from <mask> <mask> Pumps <mask> their place in the fielding"
+  }, {
+    "sentence" : "One <mask> about a person at <mask> Pains Pumps and their place in the fielding ERROR",
+    "tokens" : [ 4041, 654, 12477, 31, 670, 247, 1436, 387, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One <mask> about a person at <mask> Pains Pumps and their place in the fielding"
+  }, {
+    "sentence" : "A <mask> about a person from Rests Pains <mask> and their place in the fielding ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 1436, 432, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 1659, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "A <mask> about a person from Rests Pains <mask> and their place in the fielding"
+  }, {
+    "sentence" : "One sentence about <mask> person at <mask> Pains Pumps and their place in the fielding ERROR",
+    "tokens" : [ 4041, 6197, 670, 654, 12477, 31, 1436, 387, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One sentence about <mask> person at <mask> Pains Pumps and their place in the fielding"
+  }, {
+    "sentence" : "<mask> sentence <mask> a person at Rests Pains Pumps and their place in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 654, 12477, 31, 247, 1436, 387, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "<mask> sentence <mask> a person at Rests Pains Pumps and their place in the fielding"
+  }, {
+    "sentence" : "One sentence about <mask> visit at Rests Pains Pumps and taking <mask> in <mask> fielding ERROR",
+    "tokens" : [ 4041, 6197, 670, 654, 12477, 31, 4143, 387, 416, 6655, 367, 1550, 367, 10628, 285, 3192, 654, 12477, 31, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One sentence about <mask> visit at Rests Pains Pumps and taking <mask> in <mask> fielding"
+  }, {
+    "sentence" : "One sentence about a <mask> at Rests Pains Pumps and their place in <mask> fielding ERROR",
+    "tokens" : [ 4041, 6197, 670, 247, 654, 12477, 31, 387, 416, 6655, 367, 1550, 367, 10628, 285, 616, 1659, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", null, " a", " meeting", " from", " Four", null, null, " and", " taking", " place", " in", " this", " book" ],
+    "original_sentence" : "One sentence about a <mask> at Rests Pains Pumps and their place in <mask> fielding"
+  } ],
+  "date" : "2025-09-15T13:29:56.124053700"
+}

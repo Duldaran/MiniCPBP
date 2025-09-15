@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "There must be a subject and a verb inking it topping the charts inching towelled",
+  "logs" : [ {
+    "sentence" : "<mask> however be a subject and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 2299, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " however", null, null, null, null, " a", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "<mask> <mask> be a subject and <mask> verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and something verb inking it against the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 1633, 17257, 275, 4351, 352, 1411, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " however", null, null, null, null, " something", null, null, null, " against", null, null, null, null ],
+    "original_sentence" : "There must be a subject and <mask> verb inking it <mask> the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and something here inking it through the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 1633, 1060, 275, 4351, 352, 949, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " however", null, null, null, null, " something", " here", null, null, " through", null, null, null, null ],
+    "original_sentence" : "There must be a subject and something <mask> inking it <mask> the charts inching towelled"
+  }, {
+    "sentence" : "<mask> <mask> be a subject and something <mask> inking it against the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 320, 247, 2256, 285, 1633, 654, 12477, 31, 275, 4351, 352, 1411, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " however", null, null, null, null, " something", " here", null, null, " through", null, null, null, null ],
+    "original_sentence" : "<mask> <mask> be a subject and something <mask> inking it against the charts inching towelled"
+  }, {
+    "sentence" : "There can be one subject and something verb inking it against the other inching towelled.",
+    "tokens" : [ 2512, 476, 320, 581, 2256, 285, 1633, 17257, 275, 4351, 352, 1411, 253, 643, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " one", null, null, " something", " here", null, null, " through", null, " other", null, null ],
+    "original_sentence" : "There <mask> be <mask> subject and something verb inking it against the <mask> inching towelled"
+  }, {
+    "sentence" : "There must be a point and something here inking it through the charts inching up.",
+    "tokens" : [ 2512, 1364, 320, 247, 1127, 285, 1633, 1060, 275, 4351, 352, 949, 253, 19840, 275, 7695, 598, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " one", " point", null, " something", " here", null, null, " through", null, " other", null, " up" ],
+    "original_sentence" : "There must be a <mask> and something here inking it through the charts inching <mask>"
+  }, {
+    "sentence" : "<mask> must be a subject and something <mask> inking it through the charts <mask> towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 1633, 654, 12477, 31, 275, 4351, 352, 949, 253, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " one", " point", null, " something", " here", null, null, " through", null, " other", null, " up" ],
+    "original_sentence" : "<mask> must be a subject and something <mask> inking it through the charts <mask> towelled"
+  }, {
+    "sentence" : "There <mask> both a subject and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 654, 12477, 31, 1097, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", " both", " one", " point", null, " something", " here", null, null, " through", " the", " other", null, " up" ],
+    "original_sentence" : "There <mask> <mask> a subject and a verb inking it topping <mask> charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and <mask> verb inking it and the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 285, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", " both", " one", " point", null, " something", " here", null, null, " and", " the", " other", null, " up" ],
+    "original_sentence" : "There must be a subject and <mask> verb inking it <mask> the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a verb behind it topping the <mask> <mask> towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 3212, 352, 281, 2784, 253, 654, 12477, 31, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", " both", " one", " point", null, " something", " here", " behind", null, " and", " the", " other", null, " up" ],
+    "original_sentence" : "There must be a subject and a verb <mask> it topping the <mask> <mask> towelled"
+  }, {
+    "sentence" : "There must be a subject and something verb inking up against the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 1633, 17257, 275, 4351, 598, 1411, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " other", null, " up" ],
+    "original_sentence" : "There <mask> be a subject and something verb inking <mask> against the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a verb inking it topping the subject inching forward.",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 2256, 275, 7695, 3579, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There must be a subject and a verb inking it topping the <mask> inching <mask>"
+  }, {
+    "sentence" : "There must be a subject <mask> something verb inking <mask> against the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 654, 12477, 31, 1633, 17257, 275, 4351, 654, 12477, 31, 1411, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There must be a subject <mask> something verb inking <mask> against the <mask> inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and something <mask> inking it through the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 1633, 654, 12477, 31, 275, 4351, 352, 949, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There must be <mask> subject and something <mask> inking it through the charts inching towelled"
+  }, {
+    "sentence" : "There must be a <mask> and <mask> <mask> inking it through the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 654, 12477, 31, 285, 654, 12477, 31, 654, 12477, 31, 275, 4351, 352, 949, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There must be a <mask> and <mask> <mask> inking it through the charts inching towelled"
+  }, {
+    "sentence" : "There <mask> be a point <mask> something here inking it through the charts inching <mask> ERROR",
+    "tokens" : [ 2512, 654, 12477, 31, 320, 247, 1127, 654, 12477, 31, 1633, 1060, 275, 4351, 352, 949, 253, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There <mask> be a point <mask> something here inking it through the charts inching <mask>"
+  }, {
+    "sentence" : "<mask> must be a subject and something verb <mask> up against the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 1633, 17257, 654, 12477, 31, 598, 1411, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "<mask> must be a subject and something verb <mask> up against the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and something verb inking up <mask> <mask> <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 1633, 17257, 275, 4351, 598, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There must be a subject and something verb inking up <mask> <mask> <mask> inching towelled"
+  }, {
+    "sentence" : "There <mask> be a point and something here inking it through the charts <mask> up ERROR",
+    "tokens" : [ 2512, 654, 12477, 31, 320, 247, 1127, 285, 1633, 1060, 275, 4351, 352, 949, 253, 19840, 654, 12477, 31, 598, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "There <mask> be a point and something here inking it through the charts <mask> up"
+  }, {
+    "sentence" : "<mask> must be <mask> subject and something verb inking up against the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 654, 12477, 31, 2256, 285, 1633, 17257, 275, 4351, 598, 1411, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", " both", " one", " point", null, " something", " here", " behind", " up", " and", " the", " subject", null, " forward" ],
+    "original_sentence" : "<mask> must be <mask> subject and something verb inking up against the charts inching towelled"
+  } ],
+  "date" : "2025-09-15T13:31:05.902884200"
+}

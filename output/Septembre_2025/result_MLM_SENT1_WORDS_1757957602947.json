@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "A sentence about a person named Rests Pains Pumps and their hays in the fielding",
+  "logs" : [ {
+    "sentence" : "A sentence about a couple named Rests Pains Pumps and their hays around the fielding.",
+    "tokens" : [ 34, 6197, 670, 247, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 1475, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " couple", null, null, null, null, null, null, null, " around", null, null ],
+    "original_sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays <mask> the fielding"
+  }, {
+    "sentence" : "A sentence about a person named <mask> Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " about", null, " couple", null, null, null, null, null, null, null, " around", null, null ],
+    "original_sentence" : "A sentence <mask> a person named <mask> Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A picture tracking a couple named Rests and Pumps and their hays around the fielding.",
+    "tokens" : [ 34, 5406, 12544, 247, 4564, 4907, 416, 6655, 285, 367, 10628, 285, 616, 288, 698, 1475, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " picture", " tracking", null, " couple", null, null, " and", null, null, null, null, " around", null, null ],
+    "original_sentence" : "A <mask> <mask> a couple named Rests <mask> Pumps and their hays around the fielding"
+  }, {
+    "sentence" : "This story about a couple named Rests Pains Pumps and their hays around the fielding.",
+    "tokens" : [ 1552, 2926, 670, 247, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 1475, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", null, " couple", null, null, " and", null, null, null, null, " around", null, null ],
+    "original_sentence" : "<mask> <mask> about a couple named Rests Pains Pumps and their hays around the fielding"
+  }, {
+    "sentence" : "A picture tracking a couple named Rests and Pumps and their hays around the fielding.",
+    "tokens" : [ 34, 5406, 12544, 247, 4564, 4907, 416, 6655, 285, 367, 10628, 285, 616, 288, 698, 1475, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", null, " couple", null, null, " and", null, null, null, null, " around", " the", null ],
+    "original_sentence" : "A picture tracking a couple named Rests <mask> Pumps and their hays around <mask> fielding"
+  }, {
+    "sentence" : "This story about young couple named Rests Pains Pumps is of hays around the fielding.",
+    "tokens" : [ 1552, 2926, 670, 2872, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 310, 273, 288, 698, 1475, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "This story about <mask> couple named Rests Pains Pumps <mask> <mask> hays around the fielding"
+  }, {
+    "sentence" : "This story about young couple <mask> <mask> Pains Pumps is of <mask> around the fielding ERROR",
+    "tokens" : [ 1552, 2926, 670, 2872, 4564, 654, 12477, 31, 654, 12477, 31, 367, 1550, 367, 10628, 310, 273, 654, 12477, 31, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "This story about young couple <mask> <mask> Pains Pumps is of <mask> around the fielding"
+  }, {
+    "sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays around <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 1475, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays around <mask> fielding"
+  }, {
+    "sentence" : "<mask> story <mask> <mask> couple named Rests Pains Pumps and their hays around the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 2926, 654, 12477, 31, 654, 12477, 31, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "<mask> story <mask> <mask> couple named Rests Pains Pumps and their hays around the fielding"
+  }, {
+    "sentence" : "A picture tracking a <mask> named Rests and <mask> and their hays around the fielding ERROR",
+    "tokens" : [ 34, 5406, 12544, 247, 654, 12477, 31, 4907, 416, 6655, 285, 654, 12477, 31, 285, 616, 288, 698, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "A picture tracking a <mask> named Rests and <mask> and their hays around the fielding"
+  }, {
+    "sentence" : "<mask> sentence <mask> a couple named Rests Pains Pumps and their hays around the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 654, 12477, 31, 247, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "<mask> sentence <mask> a couple named Rests Pains Pumps and their hays around the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a <mask> named Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "<mask> sentence about a <mask> named Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "This <mask> <mask> young couple named Rests Pains Pumps is <mask> hays around the fielding ERROR",
+    "tokens" : [ 1552, 654, 12477, 31, 654, 12477, 31, 2872, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 310, 654, 12477, 31, 288, 698, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " is", " of", null, " around", " the", null ],
+    "original_sentence" : "This <mask> <mask> young couple named Rests Pains Pumps is <mask> hays around the fielding"
+  }, {
+    "sentence" : "This story about young couple named Rests Pains Pumps most of it in the fielding.",
+    "tokens" : [ 1552, 2926, 670, 2872, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 954, 273, 352, 275, 253, 1673, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "This story about young couple named Rests Pains Pumps <mask> of <mask> <mask> the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains <mask> <mask> their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 654, 12477, 31, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "A sentence about a person named Rests Pains <mask> <mask> their hays in the fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person <mask> Rests Pains Pumps and their <mask> in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 285, 616, 654, 12477, 31, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "A sentence <mask> a person <mask> Rests Pains Pumps and their <mask> in the fielding"
+  }, {
+    "sentence" : "This story <mask> young <mask> <mask> Rests Pains Pumps most of it in the fielding ERROR",
+    "tokens" : [ 1552, 2926, 654, 12477, 31, 2872, 654, 12477, 31, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 954, 273, 352, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "This story <mask> young <mask> <mask> Rests Pains Pumps most of it in the fielding"
+  }, {
+    "sentence" : "This story about a couple <mask> Rests Pains <mask> and their hays around the fielding ERROR",
+    "tokens" : [ 1552, 2926, 670, 247, 4564, 654, 12477, 31, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "This story about a couple <mask> Rests Pains <mask> and their hays around the fielding"
+  }, {
+    "sentence" : "A picture tracking a couple named <mask> and Pumps and their hays <mask> the fielding ERROR",
+    "tokens" : [ 34, 5406, 12544, 247, 4564, 4907, 654, 12477, 31, 285, 367, 10628, 285, 616, 288, 698, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "A picture tracking a couple named <mask> and Pumps and their hays <mask> the fielding"
+  }, {
+    "sentence" : "This <mask> about <mask> couple named Rests Pains Pumps is of hays around the fielding ERROR",
+    "tokens" : [ 1552, 654, 12477, 31, 670, 654, 12477, 31, 4564, 4907, 416, 6655, 367, 1550, 367, 10628, 310, 273, 288, 698, 1475, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " story", " tracking", " young", " couple", null, null, " and", null, " most", " of", " it", " in", " the", null ],
+    "original_sentence" : "This <mask> about <mask> couple named Rests Pains Pumps is of hays around the fielding"
+  } ],
+  "date" : "2025-09-15T13:33:22.946014500"
+}

@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "It can be a simple sentence or a sentence with aunts oranges or paining blooding",
+  "logs" : [ {
+    "sentence" : "It can be a <mask> sentence or a sentence with aunts screaming or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 390, 247, 6197, 342, 247, 24779, 22233, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a <mask> sentence or a sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "<mask> it be a simple sentence or a sentence with aunts oranges or paining blooding ERROR",
+    "tokens" : [ 29, 12477, 31, 352, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, null, null, null, null, " screaming", null, null, null ],
+    "original_sentence" : "<mask> <mask> <mask> a simple sentence or a sentence with aunts oranges or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or a conversation with aunts oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 247, 7827, 342, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be <mask> simple sentence or <mask> <mask> with aunts oranges or paining blooding"
+  }, {
+    "sentence" : "<mask> can be a simple sentence or <mask> sentence with aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 29, 12477, 31, 476, 320, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "<mask> can be a simple sentence or <mask> sentence with aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or a sentence with aunts oranges <mask> <mask> blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 654, 12477, 31, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be <mask> simple sentence or a sentence with aunts oranges <mask> <mask> blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or a <mask> with aunts oranges or paining <mask> ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 247, 654, 12477, 31, 342, 247, 24779, 390, 6525, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a simple sentence or a <mask> with aunts oranges or paining <mask>"
+  }, {
+    "sentence" : "It <mask> be a simple sentence or a sentence with <mask> oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 320, 247, 2969, 6197, 390, 247, 6197, 342, 654, 12477, 31, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It <mask> be a simple sentence or a sentence with <mask> oranges or paining blooding"
+  }, {
+    "sentence" : "It can be a <mask> sentence or a sentence <mask> aunts oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 390, 247, 6197, 654, 12477, 31, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a <mask> sentence or a sentence <mask> aunts oranges or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts oranges or <mask> blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 247, 24779, 390, 6525, 390, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts oranges or <mask> blooding"
+  }, {
+    "sentence" : "It can be a <mask> sentence or a sentence with aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 654, 12477, 31, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a <mask> sentence or a sentence with aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence <mask> a <mask> <mask> aunts oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 654, 12477, 31, 247, 654, 12477, 31, 654, 12477, 31, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a simple sentence <mask> a <mask> <mask> aunts oranges or paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or a sentence <mask> aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 247, 6197, 654, 12477, 31, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a simple sentence or a sentence <mask> aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "It <mask> <mask> a simple sentence or a sentence with aunts oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 654, 12477, 31, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It <mask> <mask> a simple sentence or a sentence with aunts oranges or paining blooding"
+  }, {
+    "sentence" : "It can be <mask> <mask> sentence or a sentence with <mask> oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 654, 12477, 31, 6197, 390, 247, 6197, 342, 654, 12477, 31, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be <mask> <mask> sentence or a sentence with <mask> oranges or paining blooding"
+  }, {
+    "sentence" : "It can be a simple <mask> or a <mask> with aunts oranges or paining <mask> ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 654, 12477, 31, 342, 247, 24779, 390, 6525, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a simple <mask> or a <mask> with aunts oranges or paining <mask>"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 247, 24779, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be <mask> simple sentence or <mask> sentence with aunts oranges <mask> paining blooding"
+  }, {
+    "sentence" : "<mask> can be a simple sentence or a sentence with aunts oranges or paining <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 476, 320, 247, 2969, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "<mask> can be a simple sentence or a sentence with aunts oranges or paining <mask>"
+  }, {
+    "sentence" : "It can be <mask> simple sentence or a sentence with <mask> oranges <mask> paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 654, 12477, 31, 2969, 6197, 390, 247, 6197, 342, 654, 12477, 31, 390, 6525, 654, 12477, 31, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be <mask> simple sentence or a sentence with <mask> oranges <mask> paining blooding"
+  }, {
+    "sentence" : "<mask> can be a <mask> sentence or a sentence with aunts oranges or paining blooding ERROR",
+    "tokens" : [ 29, 12477, 31, 476, 320, 247, 654, 12477, 31, 6197, 390, 247, 6197, 342, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "<mask> can be a <mask> sentence or a sentence with aunts oranges or paining blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or <mask> sentence with <mask> oranges or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 342, 654, 12477, 31, 390, 6525, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " it", " be", null, null, null, null, " a", " conversation", null, null, " screaming", null, null, null ],
+    "original_sentence" : "It can be a simple sentence or <mask> sentence with <mask> oranges or paining blooding"
+  } ],
+  "date" : "2025-09-15T12:35:00.184155400"
+}

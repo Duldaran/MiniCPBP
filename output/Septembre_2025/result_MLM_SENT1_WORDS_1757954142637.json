@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I will add some words to your sentence toasting to good times ahead and chewings",
+  "logs" : [ {
+    "sentence" : "This will add some words to your sentence <mask> to good times spells and chewings ERROR",
+    "tokens" : [ 1552, 588, 823, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 1175, 2069, 30712, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "<mask> will add some words to your sentence <mask> to good times <mask> and chewings"
+  }, {
+    "sentence" : "I <mask> add some words to <mask> sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I <mask> add some words to <mask> sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "<mask> will add some <mask> to your sentence toasting to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "<mask> will add some <mask> to your sentence toasting to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "<mask> will add some <mask> to your sentence toasting to good <mask> ahead and chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 654, 12477, 31, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "<mask> will add some <mask> to your sentence toasting to good <mask> ahead and chewings"
+  }, {
+    "sentence" : "I <mask> add some words to your <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I <mask> add some words to your <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will <mask> some words to your sentence <mask> to good times <mask> and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 1175, 2069, 654, 12477, 31, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will <mask> some words to your sentence <mask> to good times <mask> and chewings"
+  }, {
+    "sentence" : "I will add <mask> words to <mask> sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will add <mask> words to <mask> sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I <mask> add some words to your <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I <mask> add some words to your <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will <mask> some words to your <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will <mask> some words to your <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to <mask> sentence toasting to <mask> times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will add some words to <mask> sentence toasting to <mask> times ahead <mask> chewings"
+  }, {
+    "sentence" : "I will add some <mask> to your sentence toasting to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will add some <mask> to your sentence toasting to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence <mask> to good <mask> ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 1175, 654, 12477, 31, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will add some words to your sentence <mask> to good <mask> ahead and <mask>"
+  }, {
+    "sentence" : "I <mask> add some <mask> to your sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I <mask> add some <mask> to your sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will <mask> some words to your sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will <mask> some words to your sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "I will add some <mask> to your sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will add some <mask> to your sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "I will add some <mask> <mask> your sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will add some <mask> <mask> your sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "<mask> will add some words to your <mask> toasting to <mask> times ahead and chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 690, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "<mask> will add some words to your <mask> toasting to <mask> times ahead and chewings"
+  }, {
+    "sentence" : "I will <mask> some words <mask> your sentence toasting to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "I will <mask> some words <mask> your sentence toasting to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "<mask> will <mask> some words to your sentence toasting to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 654, 12477, 31, 690, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "<mask> will <mask> some words to your sentence toasting to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "<mask> will add <mask> words to your sentence toasting to good times <mask> and chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 654, 12477, 31, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 654, 12477, 31, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", null, null, null, null, null, null, null, null, null, null, null, " spells", null, null ],
+    "original_sentence" : "<mask> will add <mask> words to your sentence toasting to good times <mask> and chewings"
+  } ],
+  "date" : "2025-09-15T12:35:42.635181800"
+}

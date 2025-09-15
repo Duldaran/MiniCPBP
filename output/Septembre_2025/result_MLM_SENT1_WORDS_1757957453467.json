@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "It can be a simple sentence or a sentence with aunts oranges or paining blooding",
+  "logs" : [ {
+    "sentence" : "It can be a simple sentence or powerful sentence about aunts oranges or paining blooding.",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 247, 24779, 390, 6525, 390, 268, 1776, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, " powerful", null, " about", null, null, null, null, null ],
+    "original_sentence" : "It can be a simple sentence or <mask> sentence <mask> aunts oranges or paining blooding"
+  }, {
+    "sentence" : "It could be a simple sentence or powerful sentence about aunts oranges or first blooding.",
+    "tokens" : [ 1147, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 247, 24779, 390, 6525, 390, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", null, null, null, null, null, " powerful", null, " about", null, null, null, " first", null ],
+    "original_sentence" : "It <mask> be a simple sentence or powerful sentence about aunts oranges or <mask> blooding"
+  }, {
+    "sentence" : "It could be a simple sentence or <mask> sentence about aunts oranges or first <mask> ERROR",
+    "tokens" : [ 1147, 812, 320, 247, 2969, 6197, 390, 654, 12477, 31, 6197, 670, 247, 24779, 390, 6525, 390, 806, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " could", null, null, null, null, null, " powerful", null, " about", null, null, null, " first", null ],
+    "original_sentence" : "It could be a simple sentence or <mask> sentence about aunts oranges or first <mask>"
+  }, {
+    "sentence" : "This could be a simple sentence or powerful sentence about the oranges or first blooding.",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 253, 390, 6525, 390, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " could", null, null, " simple", null, null, " powerful", null, " about", " the", null, null, " first", null ],
+    "original_sentence" : "<mask> could be a <mask> sentence or powerful sentence about <mask> oranges or first blooding"
+  }, {
+    "sentence" : "It can be a simple sentence or a sentence <mask> aunts <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 6197, 390, 247, 6197, 654, 12477, 31, 247, 24779, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " could", null, null, " simple", null, null, " powerful", null, " about", " the", null, null, " first", null ],
+    "original_sentence" : "It can be a simple sentence or a sentence <mask> aunts <mask> or paining blooding"
+  }, {
+    "sentence" : "It could be a simple sentence or powerful sentence about aunts oranges or first blooding.",
+    "tokens" : [ 1147, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 247, 24779, 390, 6525, 390, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " could", null, " a", " simple", null, null, " powerful", null, " about", " the", null, null, " first", null ],
+    "original_sentence" : "It could be <mask> <mask> sentence or powerful sentence about aunts oranges or first blooding"
+  }, {
+    "sentence" : "This could be a simple sentence or powerful sentence about the oranges of first blooding.",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 253, 390, 6525, 273, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " could", null, " a", " simple", null, null, " powerful", null, " about", " the", null, " of", " first", null ],
+    "original_sentence" : "This could be a simple sentence or powerful sentence about <mask> oranges <mask> first blooding"
+  }, {
+    "sentence" : "This could be a simple sentence or powerful statement like the oranges or first blooding.",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 390, 6422, 3908, 751, 253, 390, 6525, 390, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " could", null, " a", " simple", null, null, " powerful", " statement", " like", " the", null, " of", " first", null ],
+    "original_sentence" : "This could be a simple sentence or powerful <mask> <mask> <mask> oranges or first blooding"
+  }, {
+    "sentence" : "It could be a simple sentence or powerful sentence about aunts oranges or first blooding.",
+    "tokens" : [ 1147, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 247, 24779, 390, 6525, 390, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", null, " a", " simple", null, null, " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "<mask> could be a simple sentence or powerful sentence about aunts oranges or first <mask>"
+  }, {
+    "sentence" : "This could be a simple sentence or powerful <mask> <mask> the oranges or <mask> blooding ERROR",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 390, 6422, 654, 12477, 31, 654, 12477, 31, 253, 390, 6525, 390, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", null, " a", " simple", null, null, " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "This could be a simple sentence or powerful <mask> <mask> the oranges or <mask> blooding"
+  }, {
+    "sentence" : "It can be a simple <mask> or a sentence with <mask> <mask> or paining blooding ERROR",
+    "tokens" : [ 1147, 476, 320, 247, 2969, 654, 12477, 31, 390, 247, 6197, 342, 654, 12477, 31, 654, 12477, 31, 390, 268, 1776, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", null, " a", " simple", null, null, " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "It can be a simple <mask> or a sentence with <mask> <mask> or paining blooding"
+  }, {
+    "sentence" : "It could be a simple sentence <mask> powerful sentence <mask> aunts oranges or first blooding ERROR",
+    "tokens" : [ 1147, 812, 320, 247, 2969, 6197, 654, 12477, 31, 6422, 6197, 654, 12477, 31, 247, 24779, 390, 6525, 390, 806, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", null, " a", " simple", null, null, " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "It could be a simple sentence <mask> powerful sentence <mask> aunts oranges or first blooding"
+  }, {
+    "sentence" : "This could be a simple sentence or powerful sentence about the oranges of first blooding.",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 670, 253, 390, 6525, 273, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", null, " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "This could be a simple <mask> <mask> powerful sentence about the oranges of first blooding"
+  }, {
+    "sentence" : "This could <mask> a simple sentence <mask> powerful sentence about the oranges of first blooding ERROR",
+    "tokens" : [ 1552, 812, 654, 12477, 31, 247, 2969, 6197, 654, 12477, 31, 6422, 6197, 670, 253, 390, 6525, 273, 806, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", null, " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "This could <mask> a simple sentence <mask> powerful sentence about the oranges of first blooding"
+  }, {
+    "sentence" : "It could have a simple sentence or powerful sentence about the oranges or first blooding.",
+    "tokens" : [ 1147, 812, 452, 247, 2969, 6197, 390, 6422, 6197, 670, 253, 390, 6525, 390, 806, 2614, 272, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", " have", " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "<mask> could <mask> a simple sentence or powerful sentence about <mask> oranges or first blooding"
+  }, {
+    "sentence" : "It <mask> have a simple sentence <mask> powerful sentence about the oranges <mask> first blooding ERROR",
+    "tokens" : [ 1147, 654, 12477, 31, 452, 247, 2969, 6197, 654, 12477, 31, 6422, 6197, 670, 253, 390, 6525, 654, 12477, 31, 806, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", " have", " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "It <mask> have a simple sentence <mask> powerful sentence about the oranges <mask> first blooding"
+  }, {
+    "sentence" : "This could be a simple sentence <mask> powerful sentence <mask> the oranges of first blooding ERROR",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 654, 12477, 31, 6422, 6197, 654, 12477, 31, 253, 390, 6525, 273, 806, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", " have", " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "This could be a simple sentence <mask> powerful sentence <mask> the oranges of first blooding"
+  }, {
+    "sentence" : "This could be a simple sentence or powerful sentence <mask> the <mask> or first <mask> ERROR",
+    "tokens" : [ 1552, 812, 320, 247, 2969, 6197, 390, 6422, 6197, 654, 12477, 31, 253, 654, 12477, 31, 390, 806, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", " have", " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "This could be a simple sentence or powerful sentence <mask> the <mask> or first <mask>"
+  }, {
+    "sentence" : "This could <mask> a simple sentence or powerful sentence about the <mask> or <mask> blooding ERROR",
+    "tokens" : [ 1552, 812, 654, 12477, 31, 247, 2969, 6197, 390, 6422, 6197, 670, 253, 654, 12477, 31, 390, 654, 12477, 31, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", " have", " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "This could <mask> a simple sentence or powerful sentence about the <mask> or <mask> blooding"
+  }, {
+    "sentence" : "It could be a simple <mask> or powerful <mask> about aunts <mask> or first blooding ERROR",
+    "tokens" : [ 1147, 812, 320, 247, 2969, 654, 12477, 31, 390, 6422, 654, 12477, 31, 670, 247, 24779, 654, 12477, 31, 390, 806, 2614, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " could", " have", " a", " simple", " sentence", " or", " powerful", " statement", " like", " the", null, " of", " first", "ORIGINAL WORD" ],
+    "original_sentence" : "It could be a simple <mask> or powerful <mask> about aunts <mask> or first blooding"
+  } ],
+  "date" : "2025-09-15T13:30:53.465390400"
+}

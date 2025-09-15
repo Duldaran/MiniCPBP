@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "We need toasts and paling staves as an adult Gives you awoke toying with kettles",
+  "logs" : [ {
+    "sentence" : "You need toasts and paling staves becoming an adult Gives you awoke toying with kettles.",
+    "tokens" : [ 1394, 878, 281, 9346, 285, 268, 4052, 331, 3465, 7552, 271, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", null, null, null, null, null, " becoming", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "<mask> need toasts and paling staves <mask> an adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "We want toasts and <mask> <mask> as an adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 971, 281, 9346, 285, 654, 12477, 31, 654, 12477, 31, 347, 271, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We <mask> toasts and <mask> <mask> as an adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> staves as an adult Gives you <mask> <mask> with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 347, 271, 6782, 443, 1644, 368, 654, 12477, 31, 654, 12477, 31, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need toasts and <mask> staves as an adult Gives you <mask> <mask> with kettles"
+  }, {
+    "sentence" : "We need toasts and paling <mask> as an adult <mask> you awoke toying <mask> kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 347, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need toasts and paling <mask> as an adult <mask> you awoke toying <mask> kettles"
+  }, {
+    "sentence" : "We need toasts and <mask> staves as an adult Gives never awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 347, 271, 6782, 443, 1644, 1620, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "We need toasts and <mask> staves as an adult Gives <mask> awoke toying with kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves as an <mask> Gives you awoke toying <mask> <mask> ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 654, 12477, 31, 443, 1644, 368, 247, 47211, 281, 3184, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "We need toasts and paling staves as an <mask> Gives you awoke toying <mask> <mask>"
+  }, {
+    "sentence" : "You need toasts and paling staves becoming <mask> adult Gives <mask> <mask> toying with kettles ERROR",
+    "tokens" : [ 1394, 878, 281, 9346, 285, 268, 4052, 331, 3465, 7552, 654, 12477, 31, 6782, 443, 1644, 654, 12477, 31, 654, 12477, 31, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "You need toasts and paling staves becoming <mask> adult Gives <mask> <mask> toying with kettles"
+  }, {
+    "sentence" : "You need <mask> and paling staves becoming an adult <mask> you awoke toying with kettles ERROR",
+    "tokens" : [ 1394, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 7552, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "You need <mask> and paling staves becoming an adult <mask> you awoke toying with kettles"
+  }, {
+    "sentence" : "We need <mask> and paling staves <mask> an adult <mask> you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 654, 12477, 31, 271, 6782, 654, 12477, 31, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "We need <mask> and paling staves <mask> an adult <mask> you awoke toying with kettles"
+  }, {
+    "sentence" : "<mask> need toasts and <mask> staves becoming an adult Gives you awoke <mask> with kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 654, 12477, 31, 331, 3465, 7552, 271, 6782, 443, 1644, 368, 247, 47211, 654, 12477, 31, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "<mask> need toasts and <mask> staves becoming an adult Gives you awoke <mask> with kettles"
+  }, {
+    "sentence" : "<mask> need <mask> and paling staves as an adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "<mask> need <mask> and paling staves as an adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling staves becoming <mask> adult Gives you awoke toying <mask> kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 331, 3465, 7552, 654, 12477, 31, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 654, 12477, 31, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "<mask> need toasts and paling staves becoming <mask> adult Gives you awoke toying <mask> kettles"
+  }, {
+    "sentence" : "You <mask> toasts and paling staves becoming an <mask> Gives you awoke <mask> with kettles ERROR",
+    "tokens" : [ 1394, 654, 12477, 31, 281, 9346, 285, 268, 4052, 331, 3465, 7552, 271, 654, 12477, 31, 443, 1644, 368, 247, 47211, 654, 12477, 31, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "You <mask> toasts and paling staves becoming an <mask> Gives you awoke <mask> with kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling staves as an adult Gives you <mask> <mask> with kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 331, 3465, 347, 271, 6782, 443, 1644, 368, 654, 12477, 31, 654, 12477, 31, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "<mask> need toasts and paling staves as an adult Gives you <mask> <mask> with kettles"
+  }, {
+    "sentence" : "You need <mask> and <mask> staves becoming an adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 1394, 878, 654, 12477, 31, 285, 654, 12477, 31, 331, 3465, 7552, 271, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "You need <mask> and <mask> staves becoming an adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "<mask> need toasts and paling <mask> as <mask> adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 281, 9346, 285, 268, 4052, 654, 12477, 31, 347, 654, 12477, 31, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "<mask> need toasts and paling <mask> as <mask> adult Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "<mask> need <mask> and paling staves becoming an adult Gives you awoke <mask> with kettles ERROR",
+    "tokens" : [ 29, 12477, 31, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 7552, 271, 6782, 443, 1644, 368, 247, 47211, 654, 12477, 31, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "<mask> need <mask> and paling staves becoming an adult Gives you awoke <mask> with kettles"
+  }, {
+    "sentence" : "We need toasts and paling staves <mask> an <mask> Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 1231, 878, 281, 9346, 285, 268, 4052, 331, 3465, 654, 12477, 31, 271, 654, 12477, 31, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "We need toasts and paling staves <mask> an <mask> Gives you awoke toying with kettles"
+  }, {
+    "sentence" : "You need <mask> and paling staves <mask> an adult Gives <mask> awoke toying with kettles ERROR",
+    "tokens" : [ 1394, 878, 654, 12477, 31, 285, 268, 4052, 331, 3465, 654, 12477, 31, 271, 6782, 443, 1644, 654, 12477, 31, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "You need <mask> and paling staves <mask> an adult Gives <mask> awoke toying with kettles"
+  }, {
+    "sentence" : "You <mask> <mask> and paling <mask> becoming an adult Gives you awoke toying with kettles ERROR",
+    "tokens" : [ 1394, 654, 12477, 31, 654, 12477, 31, 285, 268, 4052, 654, 12477, 31, 7552, 271, 6782, 443, 1644, 368, 247, 47211, 281, 3184, 342, 465, 3592, 868, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " you", " want", null, null, null, null, " becoming", null, null, null, " never", null, null, null, null ],
+    "original_sentence" : "You <mask> <mask> and paling <mask> becoming an adult Gives you awoke toying with kettles"
+  } ],
+  "date" : "2025-09-15T12:35:23.760733900"
+}

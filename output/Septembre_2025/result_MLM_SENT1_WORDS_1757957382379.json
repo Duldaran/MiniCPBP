@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "He is the one Icing On The Cake of all time Sailings Toasting Ourselves Overhead",
+  "logs" : [ {
+    "sentence" : "He is the one name On the Cake <mask> all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 1416, 1623, 253, 44323, 654, 12477, 31, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " name", null, " the", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He is the one <mask> On <mask> Cake <mask> all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is <mask> one Star On the Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 8141, 1623, 253, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", null, " the", null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He is <mask> one <mask> On <mask> Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing On <mask> Cake of all time Before Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 654, 12477, 31, 44323, 273, 512, 673, 9613, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", null, " the", null, null, null, null, " Before", null, null, null ],
+    "original_sentence" : "He is the one Icing On <mask> Cake of all time <mask> Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the <mask> Icing From The Cake of all time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 4325, 380, 44323, 273, 512, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, null, null, " Before", null, null, null ],
+    "original_sentence" : "He is the <mask> Icing <mask> The Cake of all time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is <mask> one Icing On The Cake <mask> all time <mask> Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 673, 654, 12477, 31, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, null, null, " Before", null, null, null ],
+    "original_sentence" : "He is <mask> one Icing On The Cake <mask> all time <mask> Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of all Past Sailings Toasting Ourselves Together.",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 20840, 322, 647, 723, 1916, 14669, 3824, 3049, 20058, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, null, " Past", " Before", null, null, " Together" ],
+    "original_sentence" : "He is the one Icing On The Cake of all <mask> Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of Our Past Sailings Bringing Ourselves Together.",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 3824, 20840, 322, 647, 723, 28436, 272, 3824, 3049, 20058, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He is the one Icing On The Cake of <mask> Past Sailings <mask> Ourselves Together"
+  }, {
+    "sentence" : "He is the <mask> Icing On The Cake of <mask> time Sailings Toasting Ourselves Overhead ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 273, 654, 12477, 31, 673, 322, 647, 723, 1916, 14669, 3824, 3049, 6061, 2522, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He is the <mask> Icing On The Cake of <mask> time Sailings Toasting Ourselves Overhead"
+  }, {
+    "sentence" : "He <mask> the one Icing On The Cake <mask> all Past Sailings Toasting Ourselves Together ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 20840, 322, 647, 723, 1916, 14669, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He <mask> the one Icing On The Cake <mask> all Past Sailings Toasting Ourselves Together"
+  }, {
+    "sentence" : "He is <mask> one Icing On The Cake of <mask> Past <mask> Toasting Ourselves Together ERROR",
+    "tokens" : [ 1328, 310, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 273, 654, 12477, 31, 20840, 654, 12477, 31, 1916, 14669, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He is <mask> one Icing On The Cake of <mask> Past <mask> Toasting Ourselves Together"
+  }, {
+    "sentence" : "He is the one <mask> On The Cake <mask> <mask> Past Sailings Bringing Ourselves Together ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 654, 12477, 31, 1623, 380, 44323, 654, 12477, 31, 654, 12477, 31, 20840, 322, 647, 723, 28436, 272, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He is the one <mask> On The Cake <mask> <mask> Past Sailings Bringing Ourselves Together"
+  }, {
+    "sentence" : "He is the one Icing On The Cake of all Past Sailings Toasting Ourselves Together.",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 512, 20840, 322, 647, 723, 1916, 14669, 3824, 3049, 20058, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He <mask> the one Icing On The Cake of all Past Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "It is the one Icing On The Cake of Our Past Sailings Bringing Ourselves Together.",
+    "tokens" : [ 1147, 310, 253, 581, 309, 2844, 1623, 380, 44323, 273, 3824, 20840, 322, 647, 723, 28436, 272, 3824, 3049, 20058, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "<mask> <mask> the one Icing On The Cake of Our Past Sailings Bringing Ourselves Together"
+  }, {
+    "sentence" : "He is the <mask> Icing On The Cake of Our Past <mask> Bringing Ourselves Together ERROR",
+    "tokens" : [ 1328, 310, 253, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 273, 3824, 20840, 654, 12477, 31, 28436, 272, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He is the <mask> Icing On The Cake of Our Past <mask> Bringing Ourselves Together"
+  }, {
+    "sentence" : "<mask> is <mask> one Icing On The Cake of all Past Sailings Toasting Ourselves Together ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 273, 512, 20840, 322, 647, 723, 1916, 14669, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "<mask> is <mask> one Icing On The Cake of all Past Sailings Toasting Ourselves Together"
+  }, {
+    "sentence" : "It is <mask> one <mask> On The Cake of Our Past Sailings Bringing Ourselves <mask> ERROR",
+    "tokens" : [ 1147, 310, 654, 12477, 31, 581, 654, 12477, 31, 1623, 380, 44323, 273, 3824, 20840, 322, 647, 723, 28436, 272, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "It is <mask> one <mask> On The Cake of Our Past Sailings Bringing Ourselves <mask>"
+  }, {
+    "sentence" : "He <mask> <mask> one Icing On The Cake of all Past Sailings Toasting Ourselves Together ERROR",
+    "tokens" : [ 1328, 654, 12477, 31, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 273, 512, 20840, 322, 647, 723, 1916, 14669, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He <mask> <mask> one Icing On The Cake of all Past Sailings Toasting Ourselves Together"
+  }, {
+    "sentence" : "It is <mask> <mask> Icing On The Cake of Our Past Sailings Bringing Ourselves Together ERROR",
+    "tokens" : [ 1147, 310, 654, 12477, 31, 654, 12477, 31, 309, 2844, 1623, 380, 44323, 273, 3824, 20840, 322, 647, 723, 28436, 272, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "It is <mask> <mask> Icing On The Cake of Our Past Sailings Bringing Ourselves Together"
+  }, {
+    "sentence" : "He is the one Icing On The Cake <mask> all Past Sailings Toasting Ourselves <mask> ERROR",
+    "tokens" : [ 1328, 310, 253, 581, 309, 2844, 1623, 380, 44323, 654, 12477, 31, 512, 20840, 322, 647, 723, 1916, 14669, 3824, 3049, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "He is the one Icing On The Cake <mask> all Past Sailings Toasting Ourselves <mask>"
+  }, {
+    "sentence" : "<mask> is <mask> one Icing On The Cake of all Past <mask> Toasting Ourselves Together ERROR",
+    "tokens" : [ 29, 12477, 31, 310, 654, 12477, 31, 581, 309, 2844, 1623, 380, 44323, 273, 512, 20840, 654, 12477, 31, 1916, 14669, 3824, 3049, 20058, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", null, null, " Star", " From", " the", null, null, " Our", " Past", " Before", " Bringing", null, " Together" ],
+    "original_sentence" : "<mask> is <mask> one Icing On The Cake of all Past <mask> Toasting Ourselves Together"
+  } ],
+  "date" : "2025-09-15T13:29:42.378643700"
+}

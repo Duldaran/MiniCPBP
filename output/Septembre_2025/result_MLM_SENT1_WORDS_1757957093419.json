@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "They say that time caging is the bested way to freeest way towered your thoughts",
+  "logs" : [ {
+    "sentence" : "They say that time caging is the easiest way to freeest <mask> towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 253, 24746, 1039, 281, 1959, 383, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, " easiest", null, null, null, null, null, null, null ],
+    "original_sentence" : "They say that time caging is the <mask> way to freeest <mask> towered your thoughts"
+  }, {
+    "sentence" : "They say that time travel is the bested <mask> to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 4288, 310, 253, 1682, 264, 654, 12477, 31, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " travel", null, " the", " easiest", null, null, null, null, null, null, null ],
+    "original_sentence" : "They say that time <mask> is <mask> bested <mask> to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that that caging is the bested way <mask> freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 326, 260, 2977, 310, 253, 1682, 264, 1039, 654, 12477, 31, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", null ],
+    "original_sentence" : "They say that <mask> caging is the bested way <mask> freeest way towered <mask> thoughts"
+  }, {
+    "sentence" : "They say that time <mask> is the bested way to freeest way towered your business ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 654, 12477, 31, 310, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 2136, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time <mask> is the bested way to freeest way towered your <mask>"
+  }, {
+    "sentence" : "They say <mask> time caging is the bested way to freeest <mask> towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 1959, 383, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging is the bested way to freeest <mask> towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging is the bested way to <mask> way towered <mask> thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 654, 12477, 31, 1039, 281, 8736, 654, 12477, 31, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is the bested way to <mask> way towered <mask> thoughts"
+  }, {
+    "sentence" : "<mask> <mask> that time caging is the bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "<mask> <mask> that time caging is the bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say <mask> time caging <mask> the bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 654, 12477, 31, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging <mask> the bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging is the <mask> way to freeest way towered <mask> <mask> ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 253, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is the <mask> way to freeest way towered <mask> <mask>"
+  }, {
+    "sentence" : "They say <mask> time caging is the bested way to <mask> <mask> towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 654, 12477, 31, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging is the bested way to <mask> <mask> towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging <mask> <mask> <mask> way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging <mask> <mask> <mask> way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging is <mask> bested way to freeest way towered <mask> <mask> ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 654, 12477, 31, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is <mask> bested way to freeest way towered <mask> <mask>"
+  }, {
+    "sentence" : "<mask> say that time caging is the bested way to freeest way towered <mask> thoughts ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 654, 12477, 31, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "<mask> say that time caging is the bested way to freeest way towered <mask> thoughts"
+  }, {
+    "sentence" : "<mask> say that time caging is the bested way to <mask> way towered your thoughts ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 654, 12477, 31, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "<mask> say that time caging is the bested way to <mask> way towered your thoughts"
+  }, {
+    "sentence" : "They <mask> that time caging is <mask> bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 326, 673, 260, 2977, 310, 654, 12477, 31, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They <mask> that time caging is <mask> bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They <mask> that time caging is <mask> bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 326, 673, 260, 2977, 310, 654, 12477, 31, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They <mask> that time caging is <mask> bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "<mask> say that time <mask> is the bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 326, 673, 654, 12477, 31, 310, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "<mask> say that time <mask> is the bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging <mask> the bested way <mask> freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 654, 12477, 31, 253, 1682, 264, 1039, 654, 12477, 31, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging <mask> the bested way <mask> freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging is the bested <mask> to freeest way <mask> your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 253, 1682, 264, 654, 12477, 31, 281, 1959, 383, 1039, 654, 12477, 31, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is the bested <mask> to freeest way <mask> your thoughts"
+  }, {
+    "sentence" : "They say <mask> time caging is the <mask> way to freeest way towered your <mask> ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 310, 253, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging is the <mask> way to freeest way towered your <mask>"
+  }, {
+    "sentence" : "They say <mask> time caging is the <mask> way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 310, 253, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging is the <mask> way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that <mask> caging is the bested way <mask> freeest <mask> towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 654, 12477, 31, 260, 2977, 310, 253, 1682, 264, 1039, 654, 12477, 31, 1959, 383, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that <mask> caging is the bested way <mask> freeest <mask> towered your thoughts"
+  }, {
+    "sentence" : "They say that time <mask> is the bested <mask> <mask> freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 654, 12477, 31, 310, 253, 1682, 264, 654, 12477, 31, 654, 12477, 31, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time <mask> is the bested <mask> <mask> freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say <mask> time caging <mask> the bested way <mask> freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 654, 12477, 31, 253, 1682, 264, 1039, 654, 12477, 31, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging <mask> the bested way <mask> freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging is <mask> bested way to <mask> <mask> towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 654, 12477, 31, 1682, 264, 1039, 281, 654, 12477, 31, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is <mask> bested way to <mask> <mask> towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging is the bested way <mask> freeest way <mask> <mask> thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 654, 12477, 31, 1959, 383, 1039, 654, 12477, 31, 654, 12477, 31, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is the bested way <mask> freeest way <mask> <mask> thoughts"
+  }, {
+    "sentence" : "They say that time caging is the <mask> way to freeest way towered your <mask> ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 253, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is the <mask> way to freeest way towered your <mask>"
+  }, {
+    "sentence" : "They say that time caging is <mask> <mask> way to freeest <mask> towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 310, 654, 12477, 31, 654, 12477, 31, 1039, 281, 1959, 383, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging is <mask> <mask> way to freeest <mask> towered your thoughts"
+  }, {
+    "sentence" : "They say that <mask> caging is the bested way to <mask> way towered <mask> thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 654, 12477, 31, 260, 2977, 310, 253, 1682, 264, 1039, 281, 654, 12477, 31, 1039, 281, 8736, 654, 12477, 31, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that <mask> caging is the bested way to <mask> way towered <mask> thoughts"
+  }, {
+    "sentence" : "They say that time caging <mask> the bested <mask> <mask> freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 654, 12477, 31, 253, 1682, 264, 654, 12477, 31, 654, 12477, 31, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging <mask> the bested <mask> <mask> freeest way towered your thoughts"
+  }, {
+    "sentence" : "<mask> say that time <mask> is the bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 326, 673, 654, 12477, 31, 310, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "<mask> say that time <mask> is the bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They <mask> that time <mask> is the bested way to <mask> way towered your thoughts ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 326, 673, 654, 12477, 31, 310, 253, 1682, 264, 1039, 281, 654, 12477, 31, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They <mask> that time <mask> is the bested way to <mask> way towered your thoughts"
+  }, {
+    "sentence" : "They <mask> <mask> time caging is the bested <mask> to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 654, 12477, 31, 673, 260, 2977, 310, 253, 1682, 264, 654, 12477, 31, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They <mask> <mask> time caging is the bested <mask> to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that <mask> caging is the bested <mask> to freeest way <mask> your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 654, 12477, 31, 260, 2977, 310, 253, 1682, 264, 654, 12477, 31, 281, 1959, 383, 1039, 654, 12477, 31, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that <mask> caging is the bested <mask> to freeest way <mask> your thoughts"
+  }, {
+    "sentence" : "They say that <mask> caging is the <mask> way to <mask> way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 654, 12477, 31, 260, 2977, 310, 253, 654, 12477, 31, 1039, 281, 654, 12477, 31, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that <mask> caging is the <mask> way to <mask> way towered your thoughts"
+  }, {
+    "sentence" : "They say <mask> time <mask> is the bested way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 654, 12477, 31, 310, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time <mask> is the bested way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They say that time caging <mask> the bested way to freeest way towered <mask> <mask> ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 654, 12477, 31, 253, 1682, 264, 1039, 281, 1959, 383, 1039, 281, 8736, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging <mask> the bested way to freeest way towered <mask> <mask>"
+  }, {
+    "sentence" : "They say <mask> time caging is the <mask> way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 654, 12477, 31, 673, 260, 2977, 310, 253, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say <mask> time caging is the <mask> way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "They <mask> that time caging is the bested way to <mask> way <mask> your thoughts ERROR",
+    "tokens" : [ 3726, 654, 12477, 31, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 654, 12477, 31, 1039, 654, 12477, 31, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They <mask> that time caging is the bested way to <mask> way <mask> your thoughts"
+  }, {
+    "sentence" : "They say that time caging <mask> the <mask> way to freeest way towered your thoughts ERROR",
+    "tokens" : [ 3726, 1333, 326, 673, 260, 2977, 654, 12477, 31, 253, 654, 12477, 31, 1039, 281, 1959, 383, 1039, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "They say that time caging <mask> the <mask> way to freeest way towered your thoughts"
+  }, {
+    "sentence" : "<mask> say that time caging is the bested way to freeest <mask> towered your thoughts ERROR",
+    "tokens" : [ 29, 12477, 31, 1333, 326, 673, 260, 2977, 310, 253, 1682, 264, 1039, 281, 1959, 383, 654, 12477, 31, 281, 8736, 634, 7906, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " that", " travel", null, " the", " easiest", null, null, null, null, null, " your", " business" ],
+    "original_sentence" : "<mask> say that time caging is the bested way to freeest <mask> towered your thoughts"
+  } ],
+  "date" : "2025-09-15T13:24:53.416946200"
+}

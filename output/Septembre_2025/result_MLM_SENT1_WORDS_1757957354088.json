@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "The sentence can be about any subject as long as it is complete and thoughtfully",
+  "logs" : [ {
+    "sentence" : "The sentence <mask> be covering any subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 10985, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "The sentence <mask> be <mask> any subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long that it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 326, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", null, null, " that", null, null, null, null, null ],
+    "original_sentence" : "The sentence can be about any <mask> as long <mask> it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can <mask> about any subject as long as it is complete and clear ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 2590, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", null, " that", null, null, null, null, " clear" ],
+    "original_sentence" : "The sentence can <mask> about any subject <mask> long as it is complete and <mask>"
+  }, {
+    "sentence" : "The sentence can <mask> about any subject as long as <mask> <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 347, 654, 12477, 31, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", null, " that", null, null, null, null, " clear" ],
+    "original_sentence" : "The sentence can <mask> about any subject as long as <mask> <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about any subject as long as it is <mask> and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 2256, 347, 1048, 347, 352, 310, 654, 12477, 31, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", null, " that", " it", null, null, null, " clear" ],
+    "original_sentence" : "<mask> sentence can be about any subject as long as <mask> is <mask> and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about any conversation as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 7827, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " conversation", " as", null, " that", " it", null, null, null, " clear" ],
+    "original_sentence" : "<mask> sentence can be about any <mask> as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long as it <mask> complete and <mask> ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 347, 352, 654, 12477, 31, 3426, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " conversation", " as", null, " that", " it", null, null, null, " clear" ],
+    "original_sentence" : "The sentence can be about any subject as long as it <mask> complete and <mask>"
+  }, {
+    "sentence" : "The sentence <mask> be about any subject as carefully as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 670, 667, 2256, 347, 9257, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " conversation", " as", " carefully", " that", " it", null, null, null, " clear" ],
+    "original_sentence" : "The sentence <mask> be about any subject as <mask> as it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> <mask> can be about any <mask> as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 476, 320, 670, 667, 654, 12477, 31, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " conversation", " as", " carefully", " that", " it", null, null, null, " clear" ],
+    "original_sentence" : "<mask> <mask> can be about any <mask> as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long as it <mask> <mask> <mask> thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 347, 352, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " conversation", " as", " carefully", " that", " it", null, null, null, " clear" ],
+    "original_sentence" : "The sentence can be about any subject as long as it <mask> <mask> <mask> thoughtfully"
+  }, {
+    "sentence" : "The sentence can be <mask> any subject as long because it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 654, 12477, 31, 667, 2256, 347, 1048, 984, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " conversation", " as", " carefully", " because", " it", null, null, " and", " clear" ],
+    "original_sentence" : "The sentence can be <mask> any subject as long <mask> it is complete <mask> thoughtfully"
+  }, {
+    "sentence" : "The sentence can be <mask> any subject as long as it is complete written thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 310, 3426, 3542, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " written", " clear" ],
+    "original_sentence" : "The sentence can be <mask> any <mask> as long as it is complete <mask> thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about any subject as long <mask> it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 2256, 347, 1048, 654, 12477, 31, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " written", " clear" ],
+    "original_sentence" : "<mask> sentence can be about any subject as long <mask> it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be <mask> any subject as long as it is <mask> and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 310, 654, 12477, 31, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " written", " clear" ],
+    "original_sentence" : "The sentence can be <mask> any subject as long as it is <mask> and thoughtfully"
+  }, {
+    "sentence" : "The sentence can <mask> about any subject as long <mask> it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 654, 12477, 31, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " written", " clear" ],
+    "original_sentence" : "The sentence can <mask> about any subject as long <mask> it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long <mask> it is complete very thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 654, 12477, 31, 352, 310, 3426, 1077, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as long <mask> it is complete <mask> thoughtfully"
+  }, {
+    "sentence" : "The <mask> can be about any subject as long as it <mask> complete and <mask> ERROR",
+    "tokens" : [ 510, 654, 12477, 31, 476, 320, 670, 667, 2256, 347, 1048, 347, 352, 654, 12477, 31, 3426, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "The <mask> can be about any subject as long as it <mask> complete and <mask>"
+  }, {
+    "sentence" : "<mask> <mask> can be about any subject as long <mask> it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 476, 320, 670, 667, 2256, 347, 1048, 654, 12477, 31, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "<mask> <mask> can be about any subject as long <mask> it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be <mask> any subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "<mask> sentence can be <mask> any subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> <mask> can be about <mask> subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 476, 320, 670, 654, 12477, 31, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "<mask> <mask> can be about <mask> subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can <mask> about any subject as long as <mask> is complete <mask> thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 347, 654, 12477, 31, 310, 3426, 654, 12477, 31, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "The sentence can <mask> about any subject as long as <mask> is complete <mask> thoughtfully"
+  }, {
+    "sentence" : "The sentence <mask> be about any <mask> <mask> long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 670, 667, 654, 12477, 31, 654, 12477, 31, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "The sentence <mask> be about any <mask> <mask> long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as <mask> as it is complete and clear ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 654, 12477, 31, 347, 352, 310, 3426, 285, 2590, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as <mask> as it is complete and <mask>"
+  }, {
+    "sentence" : "The sentence <mask> be <mask> any subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, null, " very", " clear" ],
+    "original_sentence" : "The sentence <mask> be <mask> any subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long as <mask> is carefully and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 347, 654, 12477, 31, 310, 9257, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as long as <mask> is <mask> and thoughtfully"
+  }, {
+    "sentence" : "The sentence can <mask> about <mask> subject as long as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 654, 12477, 31, 2256, 347, 1048, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can <mask> about <mask> subject as long as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence <mask> be <mask> <mask> subject as long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 654, 12477, 31, 654, 12477, 31, 2256, 347, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence <mask> be <mask> <mask> subject as long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about <mask> subject <mask> long as it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 654, 12477, 31, 2256, 654, 12477, 31, 1048, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "<mask> sentence can be about <mask> subject <mask> long as it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about any subject <mask> <mask> as it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 2256, 654, 12477, 31, 654, 12477, 31, 347, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "<mask> sentence can be about any subject <mask> <mask> as it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can <mask> about any subject as long <mask> it is complete and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 654, 12477, 31, 352, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "<mask> sentence can <mask> about any subject as long <mask> it is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about any subject as long as <mask> is <mask> and thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 2256, 347, 1048, 347, 654, 12477, 31, 310, 654, 12477, 31, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "<mask> sentence can be about any subject as long as <mask> is <mask> and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as long as it is <mask> <mask> <mask> ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 1048, 347, 352, 310, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as long as it is <mask> <mask> <mask>"
+  }, {
+    "sentence" : "The sentence can be about any subject <mask> long as <mask> is <mask> and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 654, 12477, 31, 1048, 347, 654, 12477, 31, 310, 654, 12477, 31, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject <mask> long as <mask> is <mask> and thoughtfully"
+  }, {
+    "sentence" : "The sentence <mask> be about any subject as long as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 654, 12477, 31, 320, 670, 667, 2256, 347, 1048, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence <mask> be about any subject as long as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as <mask> as it is complete <mask> <mask> ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 654, 12477, 31, 347, 352, 310, 3426, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as <mask> as it is complete <mask> <mask>"
+  }, {
+    "sentence" : "The sentence can <mask> about any subject as long as it <mask> complete and <mask> ERROR",
+    "tokens" : [ 510, 6197, 476, 654, 12477, 31, 670, 667, 2256, 347, 1048, 347, 352, 654, 12477, 31, 3426, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can <mask> about any subject as long as it <mask> complete and <mask>"
+  }, {
+    "sentence" : "The sentence can be <mask> any subject as long as it is <mask> and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 310, 654, 12477, 31, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be <mask> any subject as long as it is <mask> and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as <mask> as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 654, 12477, 31, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as <mask> as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be <mask> any subject as long as it <mask> complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 654, 12477, 31, 667, 2256, 347, 1048, 347, 352, 654, 12477, 31, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be <mask> any subject as long as it <mask> complete and thoughtfully"
+  }, {
+    "sentence" : "The sentence can be about any subject as <mask> <mask> <mask> is complete and thoughtfully ERROR",
+    "tokens" : [ 510, 6197, 476, 320, 670, 667, 2256, 347, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 310, 3426, 285, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "The sentence can be about any subject as <mask> <mask> <mask> is complete and thoughtfully"
+  }, {
+    "sentence" : "<mask> sentence can be about any subject <mask> long as it is complete <mask> thoughtfully ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 476, 320, 670, 667, 2256, 654, 12477, 31, 1048, 347, 352, 310, 3426, 654, 12477, 31, 1869, 2920, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " covering", null, " subject", " as", " carefully", " because", " it", null, " carefully", " very", " clear" ],
+    "original_sentence" : "<mask> sentence can be about any subject <mask> long as it is complete <mask> thoughtfully"
+  } ],
+  "date" : "2025-09-15T13:29:14.087014900"
+}

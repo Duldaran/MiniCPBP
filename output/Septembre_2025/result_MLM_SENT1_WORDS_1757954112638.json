@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "There must be a subject and a verb inking it topping the charts inching towelled",
+  "logs" : [ {
+    "sentence" : "There must be something subject and a verb inking it topping the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 1633, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " something", null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be <mask> subject and a verb inking it topping <mask> charts inching towelled"
+  }, {
+    "sentence" : "There may be something subject and a verb inking it topping the subject inching towelled.",
+    "tokens" : [ 2512, 778, 320, 1633, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 2256, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " may", null, " something", null, null, null, null, null, null, null, " the", " subject", null, null ],
+    "original_sentence" : "There <mask> be something subject and a verb inking it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "There can <mask> something subject and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 476, 654, 12477, 31, 1633, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " something", null, null, null, null, null, null, null, " the", " subject", null, null ],
+    "original_sentence" : "There <mask> <mask> something subject and a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There may be something subject and <mask> verb inking it <mask> the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 778, 320, 1633, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 654, 12477, 31, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " something", null, null, null, null, null, null, null, " the", " subject", null, null ],
+    "original_sentence" : "There may be something subject and <mask> verb inking it <mask> the <mask> inching towelled"
+  }, {
+    "sentence" : "There may be something subject and a verb inking <mask> topping the subject is towelled ERROR",
+    "tokens" : [ 2512, 778, 320, 1633, 2256, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 2256, 310, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " something", null, null, null, null, null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There may be something subject and a verb inking <mask> topping the subject <mask> towelled"
+  }, {
+    "sentence" : "There must be something subject and a verb inking it topping the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 1633, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, " something", null, null, " a", null, null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be something subject and <mask> verb inking it topping <mask> charts inching towelled"
+  }, {
+    "sentence" : "There must be something subject and a song inking it topping the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 1633, 2256, 285, 247, 4498, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There <mask> be something subject and a <mask> inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be something subject and a verb inking it topping the charts inching towelled.",
+    "tokens" : [ 2512, 1364, 320, 1633, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be something subject and <mask> verb inking it topping <mask> charts inching towelled"
+  }, {
+    "sentence" : "There may be something subject and <mask> verb inking <mask> topping the subject inching towelled ERROR",
+    "tokens" : [ 2512, 778, 320, 1633, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 2256, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There may be something subject and <mask> verb inking <mask> topping the subject inching towelled"
+  }, {
+    "sentence" : "There may be something subject and a verb inking it <mask> <mask> subject inching towelled ERROR",
+    "tokens" : [ 2512, 778, 320, 1633, 2256, 285, 247, 17257, 275, 4351, 352, 654, 12477, 31, 654, 12477, 31, 2256, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There may be something subject and a verb inking it <mask> <mask> subject inching towelled"
+  }, {
+    "sentence" : "There must <mask> a <mask> and a verb inking <mask> topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 654, 12477, 31, 247, 654, 12477, 31, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must <mask> a <mask> and a verb inking <mask> topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and a <mask> inking it topping the charts <mask> towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 247, 654, 12477, 31, 275, 4351, 352, 281, 2784, 253, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be <mask> subject and a <mask> inking it topping the charts <mask> towelled"
+  }, {
+    "sentence" : "There must <mask> something <mask> <mask> a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 654, 12477, 31, 1633, 654, 12477, 31, 654, 12477, 31, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must <mask> something <mask> <mask> a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and a <mask> <mask> it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 247, 654, 12477, 31, 654, 12477, 31, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be <mask> subject and a <mask> <mask> it topping the charts inching towelled"
+  }, {
+    "sentence" : "There <mask> be a subject and a <mask> inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 654, 12477, 31, 320, 247, 2256, 285, 247, 654, 12477, 31, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There <mask> be a subject and a <mask> inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and a verb inking <mask> topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be <mask> subject and a verb inking <mask> topping the <mask> inching towelled"
+  }, {
+    "sentence" : "There may be something subject and a <mask> <mask> it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 778, 320, 1633, 2256, 285, 247, 654, 12477, 31, 654, 12477, 31, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There may be something subject and a <mask> <mask> it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and <mask> verb inking it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be <mask> subject and <mask> verb inking it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "There must be something subject <mask> a verb inking it <mask> <mask> charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 1633, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 352, 654, 12477, 31, 654, 12477, 31, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " must", null, " something", null, null, " a", " song", null, null, null, " the", " subject", " is", null ],
+    "original_sentence" : "There must be something subject <mask> a verb inking it <mask> <mask> charts inching towelled"
+  }, {
+    "sentence" : "That must be something subject and a song inking and topping the charts inching towelled.",
+    "tokens" : [ 2773, 1364, 320, 1633, 2256, 285, 247, 4498, 275, 4351, 285, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " that", " must", null, " something", null, null, " a", " song", null, " and", null, " the", " subject", " is", null ],
+    "original_sentence" : "<mask> must be something subject and a song inking <mask> topping the charts inching towelled"
+  } ],
+  "date" : "2025-09-15T12:35:12.636087100"
+}

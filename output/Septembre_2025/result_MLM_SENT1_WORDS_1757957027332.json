@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "There must be a subject and a verb inking it topping the charts inching towelled",
+  "logs" : [ {
+    "sentence" : "There can be a subject and a verb inking it topping the charts inching <mask> ERROR",
+    "tokens" : [ 2512, 476, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There <mask> be a subject and a verb inking it topping <mask> charts inching <mask>"
+  }, {
+    "sentence" : "There must be a <mask> and a verb inking <mask> topping the charts <mask> towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 654, 12477, 31, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a <mask> and a verb inking <mask> topping the charts <mask> towelled"
+  }, {
+    "sentence" : "There <mask> <mask> <mask> subject and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There <mask> <mask> <mask> subject and a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must <mask> <mask> subject and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 654, 12477, 31, 654, 12477, 31, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must <mask> <mask> subject and a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must <mask> a subject and a verb inking it topping <mask> charts <mask> towelled ERROR",
+    "tokens" : [ 2512, 1364, 654, 12477, 31, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 654, 12477, 31, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must <mask> a subject and a verb inking it topping <mask> charts <mask> towelled"
+  }, {
+    "sentence" : "There must be a subject and <mask> verb inking it <mask> the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 654, 12477, 31, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and <mask> verb inking it <mask> the charts inching towelled"
+  }, {
+    "sentence" : "There must <mask> a subject <mask> a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 654, 12477, 31, 247, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must <mask> a subject <mask> a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "<mask> must be a subject and a <mask> inking it topping <mask> charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 247, 654, 12477, 31, 275, 4351, 352, 281, 2784, 654, 12477, 31, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject and a <mask> inking it topping <mask> charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject <mask> a verb inking it topping the charts <mask> <mask> ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject <mask> a verb inking it topping the charts <mask> <mask>"
+  }, {
+    "sentence" : "<mask> must <mask> a subject and a verb inking <mask> topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 654, 12477, 31, 247, 2256, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must <mask> a subject and a verb inking <mask> topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a <mask> and a verb <mask> it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 654, 12477, 31, 285, 247, 17257, 654, 12477, 31, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a <mask> and a verb <mask> it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "<mask> must be a subject and a verb inking it topping the charts inching <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject and a verb inking it topping the charts inching <mask>"
+  }, {
+    "sentence" : "<mask> must be a subject <mask> a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject <mask> a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a <mask> and a verb inking it topping <mask> <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 654, 12477, 31, 285, 247, 17257, 275, 4351, 352, 281, 2784, 654, 12477, 31, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a <mask> and a verb inking it topping <mask> <mask> inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a verb inking <mask> topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a verb inking <mask> topping the <mask> inching towelled"
+  }, {
+    "sentence" : "There must be a subject <mask> a verb inking <mask> <mask> the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 654, 12477, 31, 654, 12477, 31, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject <mask> a verb inking <mask> <mask> the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a <mask> <mask> it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 654, 12477, 31, 654, 12477, 31, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a <mask> <mask> it topping the charts inching towelled"
+  }, {
+    "sentence" : "<mask> must be <mask> subject and <mask> verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 654, 12477, 31, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be <mask> subject and <mask> verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a verb inking it topping <mask> <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 654, 12477, 31, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a verb inking it topping <mask> <mask> inching towelled"
+  }, {
+    "sentence" : "There must <mask> a subject and a <mask> inking it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 654, 12477, 31, 247, 2256, 285, 247, 654, 12477, 31, 275, 4351, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must <mask> a subject and a <mask> inking it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "<mask> <mask> be a subject and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> <mask> be a subject and a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and a verb <mask> it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 247, 17257, 654, 12477, 31, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be <mask> subject and a verb <mask> it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and <mask> verb inking it topping <mask> <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 654, 12477, 31, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and <mask> verb inking it topping <mask> <mask> inching towelled"
+  }, {
+    "sentence" : "There must be <mask> subject and a verb <mask> it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 654, 12477, 31, 2256, 285, 247, 17257, 654, 12477, 31, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be <mask> subject and a verb <mask> it topping the charts inching towelled"
+  }, {
+    "sentence" : "<mask> must be a subject and <mask> verb inking it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject and <mask> verb inking it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a verb inking <mask> topping the charts <mask> towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a verb inking <mask> topping the charts <mask> towelled"
+  }, {
+    "sentence" : "There must be a subject and <mask> verb <mask> it topping the charts <mask> towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 654, 12477, 31, 352, 281, 2784, 253, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and <mask> verb <mask> it topping the charts <mask> towelled"
+  }, {
+    "sentence" : "There must be a <mask> and <mask> verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 654, 12477, 31, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a <mask> and <mask> verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a <mask> inking it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 654, 12477, 31, 275, 4351, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a <mask> inking it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "<mask> must <mask> a <mask> and a verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 654, 12477, 31, 247, 654, 12477, 31, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must <mask> a <mask> and a verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "<mask> <mask> be a subject and a verb inking it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> <mask> be a subject and a verb inking it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "<mask> must be a subject and a verb <mask> it topping the charts inching towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 247, 17257, 654, 12477, 31, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject and a verb <mask> it topping the charts inching towelled"
+  }, {
+    "sentence" : "<mask> must be a subject and a <mask> inking it topping the charts inching <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 285, 247, 654, 12477, 31, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject and a <mask> inking it topping the charts inching <mask>"
+  }, {
+    "sentence" : "There must be a subject and <mask> verb <mask> it topping the <mask> inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 654, 12477, 31, 352, 281, 2784, 253, 654, 12477, 31, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and <mask> verb <mask> it topping the <mask> inching towelled"
+  }, {
+    "sentence" : "<mask> must be a subject <mask> a verb inking it topping the charts <mask> towelled ERROR",
+    "tokens" : [ 29, 12477, 31, 1364, 320, 247, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 654, 12477, 31, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "<mask> must be a subject <mask> a verb inking it topping the charts <mask> towelled"
+  }, {
+    "sentence" : "There must be a subject <mask> a verb inking it <mask> the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 654, 12477, 31, 247, 17257, 275, 4351, 352, 654, 12477, 31, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject <mask> a verb inking it <mask> the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and a verb inking it topping <mask> charts inching <mask> ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 275, 4351, 352, 281, 2784, 654, 12477, 31, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a verb inking it topping <mask> charts inching <mask>"
+  }, {
+    "sentence" : "There must be a subject and a verb <mask> it <mask> the charts inching <mask> ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 247, 17257, 654, 12477, 31, 352, 654, 12477, 31, 253, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and a verb <mask> it <mask> the charts inching <mask>"
+  }, {
+    "sentence" : "There must be a <mask> and <mask> verb inking it topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 654, 12477, 31, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a <mask> and <mask> verb inking it topping the charts inching towelled"
+  }, {
+    "sentence" : "There must be a subject and <mask> verb inking it topping the charts inching <mask> ERROR",
+    "tokens" : [ 2512, 1364, 320, 247, 2256, 285, 654, 12477, 31, 17257, 275, 4351, 352, 281, 2784, 253, 19840, 275, 7695, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There must be a subject and <mask> verb inking it topping the charts inching <mask>"
+  }, {
+    "sentence" : "There <mask> be a subject and a verb inking <mask> topping the charts inching towelled ERROR",
+    "tokens" : [ 2512, 654, 12477, 31, 320, 247, 2256, 285, 247, 17257, 275, 4351, 654, 12477, 31, 281, 2784, 253, 19840, 275, 7695, 281, 4714, 264, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " can", null, null, null, null, null, null, null, null, null, " the", null, null, null ],
+    "original_sentence" : "There <mask> be a subject and a verb inking <mask> topping the charts inching towelled"
+  } ],
+  "date" : "2025-09-15T13:23:47.331502800"
+}

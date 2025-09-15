@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I will add some words to your sentence toasting to good times ahead and chewings",
+  "logs" : [ {
+    "sentence" : "I will add some words into your sentence toasting to good times ahead and beyond.",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 4457, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " into", null, null, null, null, null, null, null, null, " beyond" ],
+    "original_sentence" : "I will add some words <mask> your sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "I will add some words into your book toasting these good months ahead and beyond.",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 634, 1984, 281, 14669, 841, 1175, 2607, 6386, 285, 4457, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " into", null, " book", null, " these", null, " months", null, null, " beyond" ],
+    "original_sentence" : "I will add some words into your <mask> toasting <mask> good <mask> ahead and beyond"
+  }, {
+    "sentence" : "It will add some words into your day toasting these good months ahead and beyond.",
+    "tokens" : [ 1147, 588, 823, 690, 3000, 715, 634, 1388, 281, 14669, 841, 1175, 2607, 6386, 285, 4457, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", null, null, null, null, " into", null, " day", null, " these", null, " months", null, null, " beyond" ],
+    "original_sentence" : "<mask> will add some words into your <mask> toasting these good months ahead and beyond"
+  }, {
+    "sentence" : "I will add some words into your sentence toasting to good <mask> tomorrow and beyond ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 634, 6197, 281, 14669, 281, 1175, 654, 12477, 31, 10873, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", null, null, null, " words", " into", null, " day", null, " these", null, " months", " tomorrow", null, " beyond" ],
+    "original_sentence" : "I will add some <mask> into your sentence toasting to good <mask> <mask> and beyond"
+  }, {
+    "sentence" : "I will add some words into your sentence toasting to good times <mask> and now ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 634, 6197, 281, 14669, 281, 1175, 2069, 654, 12477, 31, 285, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", null, null, null, " words", " into", null, " day", null, " these", null, " months", " tomorrow", null, " now" ],
+    "original_sentence" : "I will add some words into your sentence toasting to good times <mask> and <mask>"
+  }, {
+    "sentence" : "It will add <mask> words into your day toasting <mask> good months ahead <mask> beyond ERROR",
+    "tokens" : [ 1147, 588, 823, 654, 12477, 31, 3000, 715, 634, 1388, 281, 14669, 654, 12477, 31, 1175, 2607, 6386, 654, 12477, 31, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", null, null, null, " words", " into", null, " day", null, " these", null, " months", " tomorrow", null, " now" ],
+    "original_sentence" : "It will add <mask> words into your day toasting <mask> good months ahead <mask> beyond"
+  }, {
+    "sentence" : "<mask> <mask> add some words to your sentence <mask> to good times ahead and chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 823, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", null, null, null, " words", " into", null, " day", null, " these", null, " months", " tomorrow", null, " now" ],
+    "original_sentence" : "<mask> <mask> add some words to your sentence <mask> to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add <mask> words to your <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", null, null, null, " words", " into", null, " day", null, " these", null, " months", " tomorrow", null, " now" ],
+    "original_sentence" : "I will add <mask> words to your <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words into each sentence toasting to good times ahead and beyond.",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 1016, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 4457, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, null, " words", " into", " each", " day", null, " these", " good", " months", " tomorrow", null, " now" ],
+    "original_sentence" : "I <mask> add some words into <mask> sentence toasting to <mask> times ahead and beyond"
+  }, {
+    "sentence" : "I will add some words into your <mask> toasting to good <mask> ahead and beyond ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 634, 654, 12477, 31, 281, 14669, 281, 1175, 654, 12477, 31, 6386, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, null, " words", " into", " each", " day", null, " these", " good", " months", " tomorrow", null, " now" ],
+    "original_sentence" : "I will add some words into your <mask> toasting to good <mask> ahead and beyond"
+  }, {
+    "sentence" : "I will add some words into each sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 715, 1016, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, null, " words", " into", " each", " day", null, " these", " good", " months", " tomorrow", " and", " now" ],
+    "original_sentence" : "I will add some words into each sentence toasting to good times ahead <mask> <mask>"
+  }, {
+    "sentence" : "I will add some words to each <mask> toasting to good times ahead and beyond ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 1016, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, null, " words", " to", " each", " day", null, " these", " good", " months", " tomorrow", " and", " now" ],
+    "original_sentence" : "I will add some words <mask> each <mask> toasting to good times ahead and beyond"
+  }, {
+    "sentence" : "I will add more words into each sentence pointing to good times ahead and beyond.",
+    "tokens" : [ 42, 588, 823, 625, 3000, 715, 1016, 6197, 13458, 281, 1175, 2069, 6386, 285, 4457, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " and", " now" ],
+    "original_sentence" : "I <mask> add <mask> words into each sentence <mask> to good times ahead and beyond"
+  }, {
+    "sentence" : "It will <mask> some words into your day toasting these good months ahead of <mask> ERROR",
+    "tokens" : [ 1147, 588, 654, 12477, 31, 690, 3000, 715, 634, 1388, 281, 14669, 841, 1175, 2607, 6386, 273, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "It will <mask> some words into your day toasting these good months ahead <mask> <mask>"
+  }, {
+    "sentence" : "I will <mask> some words to your sentence toasting to <mask> times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "I will <mask> some words to your sentence toasting to <mask> times ahead and chewings"
+  }, {
+    "sentence" : "It will add some words into your day toasting <mask> good <mask> ahead and beyond ERROR",
+    "tokens" : [ 1147, 588, 823, 690, 3000, 715, 634, 1388, 281, 14669, 654, 12477, 31, 1175, 654, 12477, 31, 6386, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "It will add some words into your day toasting <mask> good <mask> ahead and beyond"
+  }, {
+    "sentence" : "I will add some words <mask> your book <mask> these good months ahead and beyond ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 634, 1984, 654, 12477, 31, 841, 1175, 2607, 6386, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "I will add some words <mask> your book <mask> these good months ahead and beyond"
+  }, {
+    "sentence" : "I will add some words <mask> your sentence <mask> to good times <mask> and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 634, 6197, 654, 12477, 31, 281, 1175, 2069, 654, 12477, 31, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "I will add some words <mask> your sentence <mask> to good times <mask> and chewings"
+  }, {
+    "sentence" : "I will add <mask> words into each sentence <mask> to <mask> times ahead and beyond ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 715, 1016, 6197, 654, 12477, 31, 281, 654, 12477, 31, 2069, 6386, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "I will add <mask> words into each sentence <mask> to <mask> times ahead and beyond"
+  }, {
+    "sentence" : "It will add some words into your day <mask> these good months <mask> and beyond ERROR",
+    "tokens" : [ 1147, 588, 823, 690, 3000, 715, 634, 1388, 654, 12477, 31, 841, 1175, 2607, 654, 12477, 31, 285, 4457, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " will", null, " more", " words", " to", " each", " day", " pointing", " these", " good", " months", " tomorrow", " of", " now" ],
+    "original_sentence" : "It will add some words into your day <mask> these good months <mask> and beyond"
+  } ],
+  "date" : "2025-09-15T13:24:35.212469100"
+}

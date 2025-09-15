@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "A sentence about a person named Rests Pains Pumps and their hays in the fielding",
+  "logs" : [ {
+    "sentence" : "A sentence about a person named Rests Pains talking <mask> their hays in the past ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 5015, 654, 12477, 31, 616, 288, 698, 275, 253, 2469, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, " talking", null, null, null, null, null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests Pains <mask> <mask> their hays in the <mask>"
+  }, {
+    "sentence" : "A story about a person named Rests Pains <mask> and their hays in the fielding ERROR",
+    "tokens" : [ 34, 2926, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a person named Rests Pains <mask> and their hays <mask> the fielding"
+  }, {
+    "sentence" : "A <mask> about a person named <mask> Pains Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a person named <mask> Pains Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "<mask> sentence about a person named <mask> Pains Pumps and their <mask> in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 654, 12477, 31, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence about a person named <mask> Pains Pumps and their <mask> in the fielding"
+  }, {
+    "sentence" : "A <mask> about a person named Rests Pains Pumps <mask> their hays in the fielding ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a person named Rests Pains Pumps <mask> their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about <mask> <mask> named Rests Pains Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 654, 12477, 31, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about <mask> <mask> named Rests Pains Pumps and their hays in <mask> fielding"
+  }, {
+    "sentence" : "A sentence about a person named <mask> Pains Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named <mask> Pains Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence about a person named Rests <mask> Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests <mask> Pumps and their hays in <mask> fielding"
+  }, {
+    "sentence" : "A <mask> about a person <mask> Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 1436, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a person <mask> Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "<mask> sentence <mask> a person named Rests Pains Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence <mask> a person named Rests Pains Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays in <mask> fielding"
+  }, {
+    "sentence" : "A <mask> about a person named <mask> Pains Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a person named <mask> Pains Pumps and their hays in <mask> fielding"
+  }, {
+    "sentence" : "<mask> sentence <mask> a person named Rests Pains Pumps <mask> their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence <mask> a person named Rests Pains Pumps <mask> their hays in the fielding"
+  }, {
+    "sentence" : "<mask> <mask> about a person named Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 654, 12477, 31, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> <mask> about a person named Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains <mask> and <mask> hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 654, 12477, 31, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests Pains <mask> and <mask> hays in <mask> fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person named Rests Pains Pumps and their <mask> in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 654, 12477, 31, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person named Rests Pains Pumps and their <mask> in <mask> fielding"
+  }, {
+    "sentence" : "A sentence <mask> <mask> person named Rests Pains Pumps and their <mask> in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 654, 12477, 31, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 654, 12477, 31, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> <mask> person named Rests Pains Pumps and their <mask> in the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a person named <mask> Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence about a person named <mask> Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A <mask> about a <mask> named <mask> Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 654, 12477, 31, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a <mask> named <mask> Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests <mask> Pumps and <mask> hays <mask> the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 654, 12477, 31, 288, 698, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests <mask> Pumps and <mask> hays <mask> the fielding"
+  }, {
+    "sentence" : "A sentence <mask> a <mask> named Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a <mask> named Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays <mask> <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 654, 12477, 31, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays <mask> <mask> fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains Pumps <mask> <mask> hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 654, 12477, 31, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests Pains Pumps <mask> <mask> hays in <mask> fielding"
+  }, {
+    "sentence" : "A <mask> about a person <mask> Rests Pains Pumps and their hays <mask> the fielding ERROR",
+    "tokens" : [ 34, 654, 12477, 31, 670, 247, 1436, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A <mask> about a person <mask> Rests Pains Pumps and their hays <mask> the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a person named <mask> Pains Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence about a person named <mask> Pains Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence about <mask> person named Rests Pains Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 654, 12477, 31, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about <mask> person named Rests Pains Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person named Rests Pains Pumps <mask> their hays <mask> the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 654, 12477, 31, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person named Rests Pains Pumps <mask> their hays <mask> the fielding"
+  }, {
+    "sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a <mask> named Rests Pains Pumps and their hays in <mask> fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person named Rests Pains Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person named Rests Pains Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests <mask> Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests <mask> Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a person named Rests <mask> Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 1436, 4907, 416, 6655, 654, 12477, 31, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence about a person named Rests <mask> Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence about a person <mask> <mask> Pains Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 654, 12477, 31, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person <mask> <mask> Pains Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence <mask> a person named Rests Pains Pumps <mask> their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person named Rests Pains Pumps <mask> their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about <mask> person named Rests Pains Pumps and their hays <mask> <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 654, 12477, 31, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 654, 12477, 31, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about <mask> person named Rests Pains Pumps and their hays <mask> <mask> fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person named Rests Pains Pumps <mask> their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 654, 12477, 31, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person named Rests Pains Pumps <mask> their hays in the fielding"
+  }, {
+    "sentence" : "A sentence <mask> a person <mask> Rests Pains Pumps and their hays in the <mask> ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 654, 12477, 31, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person <mask> Rests Pains Pumps and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence about a person <mask> <mask> Pains Pumps and <mask> hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 654, 12477, 31, 654, 12477, 31, 367, 1550, 367, 10628, 285, 654, 12477, 31, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person <mask> <mask> Pains Pumps and <mask> hays in the fielding"
+  }, {
+    "sentence" : "<mask> sentence about a <mask> named Rests Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 29, 12477, 31, 6197, 670, 247, 654, 12477, 31, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "<mask> sentence about a <mask> named Rests Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about a person named Rests Pains <mask> and their hays in the <mask> ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 1436, 4907, 416, 6655, 367, 1550, 654, 12477, 31, 285, 616, 288, 698, 275, 253, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about a person named Rests Pains <mask> and their hays in the <mask>"
+  }, {
+    "sentence" : "A sentence <mask> a person named <mask> Pains Pumps and their hays in the fielding ERROR",
+    "tokens" : [ 34, 6197, 654, 12477, 31, 247, 1436, 4907, 654, 12477, 31, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 253, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence <mask> a person named <mask> Pains Pumps and their hays in the fielding"
+  }, {
+    "sentence" : "A sentence about <mask> person named Rests Pains Pumps and their hays in <mask> fielding ERROR",
+    "tokens" : [ 34, 6197, 670, 654, 12477, 31, 1436, 4907, 416, 6655, 367, 1550, 367, 10628, 285, 616, 288, 698, 275, 654, 12477, 31, 1673, 272, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, null, null, null, null, null, " talking", null, null, null, " in", null, " past" ],
+    "original_sentence" : "A sentence about <mask> person named Rests Pains Pumps and their hays in <mask> fielding"
+  } ],
+  "date" : "2025-09-15T13:26:08.136337"
+}

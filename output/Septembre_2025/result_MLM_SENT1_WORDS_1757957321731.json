@@ -1,0 +1,257 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I will add some words to your sentence toasting to good times ahead and chewings",
+  "logs" : [ {
+    "sentence" : "I will add some words to <mask> sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, " add", null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "<mask> will <mask> some words to <mask> sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some <mask> to your sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I <mask> add some <mask> to your sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence toasting the good times <mask> and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 281, 14669, 253, 1175, 2069, 654, 12477, 31, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, null, " the", null, null, null, null, null ],
+    "original_sentence" : "I will <mask> some words to your sentence toasting <mask> good times <mask> and chewings"
+  }, {
+    "sentence" : "I will add some words <mask> your sentence toasting <mask> good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 654, 12477, 31, 634, 6197, 281, 14669, 654, 12477, 31, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, null, " the", null, null, null, null, null ],
+    "original_sentence" : "I will add some words <mask> your sentence toasting <mask> good times ahead and chewings"
+  }, {
+    "sentence" : "I will <mask> some words to your sentence pointing to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 281, 634, 6197, 13458, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, " pointing", " the", null, null, null, null, null ],
+    "original_sentence" : "I will <mask> some words to your sentence <mask> to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence toasting to healthier times ahead before chewings.",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, " pointing", " the", " healthier", null, null, " before", null ],
+    "original_sentence" : "I will add some words to your sentence toasting to <mask> times ahead <mask> chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence toasting to <mask> straight ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 654, 12477, 31, 4951, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some words to your sentence toasting to <mask> <mask> ahead and chewings"
+  }, {
+    "sentence" : "I <mask> add some words to your sentence toasting to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " will", " add", null, null, null, null, null, " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add some words to your sentence toasting to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "I would add two words to your sentence toasting to healthier times ahead before chewings.",
+    "tokens" : [ 42, 651, 823, 767, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, null, null, null, " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add <mask> words to your sentence toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I would add <mask> <mask> to your <mask> toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 651, 823, 654, 12477, 31, 654, 12477, 31, 281, 634, 654, 12477, 31, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, null, null, null, " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I would add <mask> <mask> to your <mask> toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I would add <mask> words to your sentence toasting <mask> healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 651, 823, 654, 12477, 31, 3000, 281, 634, 6197, 281, 14669, 654, 12477, 31, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, null, null, null, " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I would add <mask> words to your sentence toasting <mask> healthier times ahead before chewings"
+  }, {
+    "sentence" : "I will add some words to <mask> sentence toasting to <mask> times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 654, 12477, 31, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, null, null, null, " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some words to <mask> sentence toasting to <mask> times ahead and chewings"
+  }, {
+    "sentence" : "I would add two words for your morning toasting to healthier times ahead before chewings.",
+    "tokens" : [ 42, 651, 823, 767, 3000, 323, 634, 4131, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I would add two words <mask> your <mask> toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "<mask> would add two words to your sentence toasting to healthier times ahead <mask> <mask> ERROR",
+    "tokens" : [ 29, 12477, 31, 651, 823, 767, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "<mask> would add two words to your sentence toasting to healthier times ahead <mask> <mask>"
+  }, {
+    "sentence" : "I will add some words to your sentence <mask> to <mask> times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 654, 12477, 31, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some words to your sentence <mask> to <mask> times ahead and <mask>"
+  }, {
+    "sentence" : "I <mask> <mask> <mask> words to your sentence toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> <mask> <mask> words to your sentence toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I would add two words <mask> your morning <mask> to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 651, 823, 767, 3000, 654, 12477, 31, 634, 4131, 654, 12477, 31, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I would add two words <mask> your morning <mask> to healthier times ahead before chewings"
+  }, {
+    "sentence" : "<mask> will add some <mask> to your sentence toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "<mask> will add some <mask> to your sentence toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I will add some <mask> to <mask> <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 654, 12477, 31, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some <mask> to <mask> <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "<mask> would <mask> two words to your sentence toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 651, 654, 12477, 31, 767, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "<mask> would <mask> two words to your sentence toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I <mask> add two words for <mask> morning toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 767, 3000, 323, 654, 12477, 31, 4131, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add two words for <mask> morning toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I would add two words <mask> <mask> sentence toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 651, 823, 767, 3000, 654, 12477, 31, 654, 12477, 31, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I would add two words <mask> <mask> sentence toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I will add some <mask> to your sentence toasting to healthier times ahead before <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some <mask> to your sentence toasting to healthier times ahead before <mask>"
+  }, {
+    "sentence" : "<mask> will add <mask> words <mask> your sentence toasting to healthier times ahead before chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 654, 12477, 31, 3000, 654, 12477, 31, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "<mask> will add <mask> words <mask> your sentence toasting to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I will add some <mask> to your sentence toasting to good times ahead and <mask> ERROR",
+    "tokens" : [ 42, 588, 823, 690, 654, 12477, 31, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some <mask> to your sentence toasting to good times ahead and <mask>"
+  }, {
+    "sentence" : "I will <mask> some words <mask> your <mask> toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 588, 654, 12477, 31, 690, 3000, 654, 12477, 31, 634, 654, 12477, 31, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will <mask> some words <mask> your <mask> toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to your <mask> toasting to healthier <mask> <mask> before chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 33696, 654, 12477, 31, 654, 12477, 31, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add some words to your <mask> toasting to healthier <mask> <mask> before chewings"
+  }, {
+    "sentence" : "I <mask> <mask> some words <mask> your sentence toasting to good times ahead and chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 654, 12477, 31, 690, 3000, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> <mask> some words <mask> your sentence toasting to good times ahead and chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence toasting to good times <mask> and chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 1175, 2069, 654, 12477, 31, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "<mask> will add some words to your sentence toasting to good times <mask> and chewings"
+  }, {
+    "sentence" : "I <mask> add two words for your morning toasting <mask> healthier times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 767, 3000, 323, 634, 4131, 281, 14669, 654, 12477, 31, 33696, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add two words for your morning toasting <mask> healthier times ahead <mask> chewings"
+  }, {
+    "sentence" : "I will add <mask> words <mask> your sentence toasting to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 654, 12477, 31, 634, 6197, 281, 14669, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I will add <mask> words <mask> your sentence toasting to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "I <mask> add some words to your sentence toasting to healthier times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add some words to your sentence toasting to healthier times ahead <mask> chewings"
+  }, {
+    "sentence" : "I <mask> add some words to your sentence <mask> to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add some words to your sentence <mask> to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I <mask> add two <mask> to your sentence toasting <mask> healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 767, 654, 12477, 31, 281, 634, 6197, 281, 14669, 654, 12477, 31, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I <mask> add two <mask> to your sentence toasting <mask> healthier times ahead before chewings"
+  }, {
+    "sentence" : "I would <mask> two words for your morning toasting to healthier <mask> ahead before chewings ERROR",
+    "tokens" : [ 42, 651, 654, 12477, 31, 767, 3000, 323, 634, 4131, 281, 14669, 281, 33696, 654, 12477, 31, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", null ],
+    "original_sentence" : "I would <mask> two words for your morning toasting to healthier <mask> ahead before chewings"
+  }, {
+    "sentence" : "I will add <mask> words to your sentence toasting to healthier times ahead before now ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 281, 634, 6197, 281, 14669, 281, 33696, 2069, 6386, 1078, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", " now" ],
+    "original_sentence" : "I will add <mask> words to your sentence toasting to healthier times ahead before <mask>"
+  }, {
+    "sentence" : "I <mask> add some words to <mask> sentence toasting to healthier <mask> ahead before chewings ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 823, 690, 3000, 281, 654, 12477, 31, 6197, 281, 14669, 281, 33696, 654, 12477, 31, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", " now" ],
+    "original_sentence" : "I <mask> add some words to <mask> sentence toasting to healthier <mask> ahead before chewings"
+  }, {
+    "sentence" : "<mask> will add some words to your <mask> toasting to good <mask> ahead and chewings ERROR",
+    "tokens" : [ 29, 12477, 31, 588, 823, 690, 3000, 281, 634, 654, 12477, 31, 281, 14669, 281, 1175, 654, 12477, 31, 6386, 285, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", " now" ],
+    "original_sentence" : "<mask> will add some words to your <mask> toasting to good <mask> ahead and chewings"
+  }, {
+    "sentence" : "I will add <mask> words to your sentence <mask> to healthier times ahead before chewings ERROR",
+    "tokens" : [ 42, 588, 823, 654, 12477, 31, 3000, 281, 634, 6197, 654, 12477, 31, 281, 33696, 2069, 6386, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", " now" ],
+    "original_sentence" : "I will add <mask> words to your sentence <mask> to healthier times ahead before chewings"
+  }, {
+    "sentence" : "I will add some words to your sentence <mask> to good times ahead <mask> chewings ERROR",
+    "tokens" : [ 42, 588, 823, 690, 3000, 281, 634, 6197, 654, 12477, 31, 281, 1175, 2069, 6386, 654, 12477, 31, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", " now" ],
+    "original_sentence" : "I will add some words to your sentence <mask> to good times ahead <mask> chewings"
+  }, {
+    "sentence" : "I would add two words <mask> your morning toasting to healthier times <mask> before chewings ERROR",
+    "tokens" : [ 42, 651, 823, 767, 3000, 654, 12477, 31, 634, 4131, 281, 14669, 281, 33696, 2069, 654, 12477, 31, 1078, 1161, 88, 723, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " would", " add", " two", null, " for", null, " morning", " pointing", " the", " healthier", " straight", null, " before", " now" ],
+    "original_sentence" : "I would add two words <mask> your morning toasting to healthier times <mask> before chewings"
+  } ],
+  "date" : "2025-09-15T13:28:41.729954200"
+}
