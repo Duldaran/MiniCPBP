@@ -60,20 +60,35 @@ def get_predictions(sentence):
     return predictions
 
 def get_next_word_probabilities(sentence):
+    NEW_WORD=False
+    
+    while not NEW_WORD:
+        # Get the model predictions for the sentence.
+        predictions = get_predictions(sentence)
+        
+        # Get the next token candidates.
+        next_token_candidates_tensor = predictions[0, -1, :]
+        
+        # Get the token probabilities for all candidates.
+        all_candidates_probabilities = torch.nn.functional.softmax(
+            next_token_candidates_tensor, dim=-1).tolist()
+        
+        top_token = tokenizer.decode([next_token_candidates_tensor.argmax().item()], skip_special_tokens=False)
+        if top_token.startswith(" ") or top_token == ".":
+            NEW_WORD = True
+        else:
+            sentence += top_token
 
-    # Get the model predictions for the sentence.
-    predictions = get_predictions(sentence)
+        
     
-    # Get the next token candidates.
-    next_token_candidates_tensor = predictions[0, -1, :]
-    
-    # Get the token probabilities for all candidates.
-    all_candidates_probabilities = torch.nn.functional.softmax(
-        next_token_candidates_tensor, dim=-1).tolist()
-    
-
-    # Return the top k candidates and their probabilities.
-    return list(zip(range(0,len(next_token_candidates_tensor)), all_candidates_probabilities))
+    # Get the last added word in the sentence (could be multiple tokens)
+    # Find the last word by splitting the sentence
+    sentence_words = sentence.strip().split()
+    # Return a JSON object with probabilities and last word
+    return {
+        "prob": list(zip(range(0, len(next_token_candidates_tensor)), all_candidates_probabilities)),
+        "sentence": sentence,
+    }
 
 #java -Xms2g -Xmx16g  -cp minicpbp-1.0.jar minicpbp.examples.MNREAD
 
@@ -129,7 +144,7 @@ try:
     #print("Loading model...")
     #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
     print("Loading model with local_files_only=True...")
-    model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
+    model = AutoModelForCausalLM.from_pretrained(model_name, local_files_only=True).to(device)
 
     print("Loading MLM model...")
     mlm_model_name = "roberta-base"
@@ -239,7 +254,7 @@ def testing():
 def next_token():
     raw_probs = get_next_word_probabilities(request.data.decode())
 
-    return json.dumps(raw_probs)
+    return raw_probs
 
 @app.route('/ping', methods=['GET'])
 def ping():

@@ -76,6 +76,8 @@ public class CollieSent1_words {
         try {
         final String llm_name="zephyr";//
 
+        long startTime = System.currentTimeMillis();
+
         List<Logging>  logs = new ArrayList<>();
 
         List<String> lines = Collections.emptyList();
@@ -154,21 +156,18 @@ public class CollieSent1_words {
             }
         }
 
-        int[] charNum = new int[corpusDomains.size()];
-        for (int i = 0; i < corpusDomains.size(); i++) {
-            int domainIndex = corpusDomains.get(i);
+        List<Integer> listCharNum = new ArrayList<>();
+        for (int j = 0; j < corpusDomains.size(); j++) {
+            int domainIndex = corpusDomains.get(j);
             String word = words.get(domainIndex);
-            if(i==corpusDomains.size()-1){
-                charNum[i]=0;
+            if(j==pad_token){
+                listCharNum.add(0);
                 continue;
             }
-            charNum[i]=word.length();
-            
+            listCharNum.add(word.length());
         }
 
  
-
-
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
@@ -180,9 +179,14 @@ public class CollieSent1_words {
         final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
+        
+        double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
+        System.out.println("Initialization time (s): " + initTime);
+
         String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
         for (int z = 0; z < NUM_ITERATIONS; z += 1) {
-
+        
+        tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
         String[] commonWords = {
         "I",
         "You",
@@ -213,38 +217,10 @@ public class CollieSent1_words {
             words.add(selectedWord);
             corpusDomains.add(words.size()-1);
             index_word = words.size()-1;
+            listCharNum.add(selectedWord.length());
         }
         
-        Solver cp = makeSolver();
-        IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-        //IntVar[] has_space = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 1);
-        IntVar[] num_char = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
 
-        for (int i=0; i<SENTENCE_MAX_NUMBER_TOKENS; i++){
-            word_index[i].setName("word_index["+i+"]");
-            //cp.post(element(start_words, word_index[i], has_space[i]));
-            cp.post(element(charNum, word_index[i], num_char[i]));
-        }
-
-        //IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
-        //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
-        
-        //cp.post(sum(has_space, nb_words));
-        cp.post(sum(num_char, NUMBER_CHAR));
-        //cp.post(sum(num_char, nb_char));
-
-
-
-
-        List<Integer> acceptedState = new ArrayList<>();
-        int[][] A = new int[2][corpusDomains.size()];
-        acceptedState.add(1);
-        Arrays.fill(A[0], 0);
-        A[0][final_sentence_end]=1;
-        A[0][pad_token]=-1;
-        Arrays.fill(A[1], -1);
-        A[1][pad_token]=1;
-        cp.post(Factory.regular(word_index, A, 0, acceptedState));
 
 
         //Words regular
@@ -252,13 +228,18 @@ public class CollieSent1_words {
 
         HttpClient client = HttpClient.newHttpClient();
 
-        word_index[0].assign(index_word);
+
+
+        //word_index[0].assign(index_word);
 
         String instruction = "Please generate a sentence with exactly 82 characters. Include whitespace into your character count.";
         String current_sentence = selectedWord;
         Double logSumProbs = 0.0;
-        int num_tok=0;
-        for (int i=1; i < SENTENCE_MAX_NUMBER_TOKENS; i++) {
+        int num_tok=1;
+        while(num_tok<SENTENCE_MAX_NUMBER_TOKENS){
+            int i = num_tok;
+            System.out.println(num_tok);
+            System.out.println(current_sentence);
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:" + port + "/token"))
                 .POST(HttpRequest.BodyPublishers.ofString(instruction + current_sentence))
@@ -269,18 +250,84 @@ public class CollieSent1_words {
             double[] scores = new double[corpusDomains.size()];
 
             ObjectMapper mapper = new ObjectMapper();
-            List<List<Object>> tupleList = mapper.readValue(response, 
-                new TypeReference<List<List<Object>>>(){});
+            JsonNode jsonNode = mapper.readTree(response);
+            ArrayNode tupleList = (ArrayNode) jsonNode.get("prob");
+
+            current_sentence = jsonNode.has("sentence") ? jsonNode.get("sentence").asText().replace(instruction, "") : "";
+            System.out.println(current_sentence);
+            String[] splitWords = current_sentence.replace(",", "").strip().split("\\s+");
+
+            for (String word : splitWords) {
+                word = " " + word;
+                if (!words.contains(word)) {
+                    words.add(word);
+                    corpusDomains.add(words.size() - 1);
+                    listCharNum.add(word.length());
+                }
+            }
+
+            int[] charNum = listCharNum.stream().mapToInt(Integer::intValue).toArray();
+
+
+            Solver cp = makeSolver();
+            IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+            IntVar[] num_char = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
+
+            for (int j=0; j<SENTENCE_MAX_NUMBER_TOKENS; j++){
+                word_index[j].setName("word_index["+j+"]");
+                cp.post(element(charNum, word_index[j], num_char[j]));
+            }
+
+            //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
+            
+            cp.post(sum(num_char, NUMBER_CHAR));
+            //cp.post(sum(num_char, nb_char));
+
+
+            List<Integer> acceptedState = new ArrayList<>();
+            int[][] A = new int[2][corpusDomains.size()];
+            acceptedState.add(1);
+            acceptedState.add(0);
+            Arrays.fill(A[0], 0);
+            A[0][final_sentence_end]=1;
+            Arrays.fill(A[1], -1);
+            A[1][pad_token]=1;
+            cp.post(Factory.regular(word_index, A, 0, acceptedState));
+
+            System.out.println("Words in the sentence: " + Arrays.toString(splitWords));
+
+            // Assign each word in splitWords to word_index
+            for (int idx = 0; idx < splitWords.length; idx++) {
+                String word = " " + splitWords[idx];
+                int corpusIdx = words.indexOf(word);
+                if (corpusIdx == -1) {
+                    System.out.println("Word not in corpus: " + word);
+                    current_sentence += " ERROR";
+                    break;
+                }
+                int domainIdx = corpusDomains.indexOf(corpusIdx);
+                try {
+                    word_index[idx].assign(domainIdx);
+                } catch (Exception e) {
+                    current_sentence += " ERROR";
+                    System.out.println("Inconsistency detected when assigning word: " + word);
+                    System.out.println(Arrays.toString(splitWords));
+                    break;
+                }
+            }
+
 
             int max_token = -1;
             double max_score = 0;
             double total_score = 0;
 
+
+
             List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
-            for (List<Object> tuple : tupleList) {
+            for (JsonNode tuple : tupleList) {
                 try {
-                    int token = ((Number) tuple.get(0)).intValue();
-                    double score = ((Number) tuple.get(1)).doubleValue();
+                    int token = ( tuple.get(0)).asInt();
+                    double score = ( tuple.get(1)).asDouble();
                     if (!corpusDomainsSet.containsKey(token)) continue;
                     if (score < 0) continue;
                     tokenScoreList.add(Pair.of(token, score));
@@ -295,6 +342,11 @@ public class CollieSent1_words {
             tokenScoreList.sort((a, b) -> Double.compare(
                 b.second, a.second
             ));
+            for (int t = 0; t < Math.min(5, tokenScoreList.size()); t++) {
+                Pair<Integer, Double> pair = tokenScoreList.get(t);
+                System.out.println("Top " + (t + 1) + ": token=" + tokens_list.get(pair.first) + ", score=" + pair.second);
+            }
+
             int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
             for (int l = 0; l < limit; l++) {
                 int token = tokenScoreList.get(l).first;
@@ -414,10 +466,19 @@ public class CollieSent1_words {
                 chosen = word_index[i].biasedWheelValue();
             } catch (Exception e) {
                 System.out.println("Inconsistency detected");
+                current_sentence += " ERROR";
                 break;
             }
-            word_index[i].assign(chosen);
-            num_tok++;
+            //word_index[i].assign(chosen);
+            System.out.println("chosen: "+chosen+", '"+words.get(chosen)+"', "+word_index[i].marginal(chosen));
+            try
+            {
+                System.out.println(tokens_list.get(corpusDomainToIndex.get(chosen)));
+            }
+            catch (Exception e) {
+                System.out.println("not in original corpus");
+            }
+            
             if (0<=chosen && chosen<scores.length) {
                 logSumProbs += Math.log(scores[chosen]);
             } else {
@@ -428,26 +489,45 @@ public class CollieSent1_words {
                 }
                 logSumProbs = -Double.MAX_VALUE;
             }
-            if(chosen == sentence_end){
-                    System.out.println("sentence end reached");
-                    StateManager sm = cp.getStateManager();
-                    try {
-                        sm.saveState();
-                        word_index[i+1].assign(pad_token);
-                        cp.fixPoint();
-                        break;
-                    } catch (InconsistencyException e) {
-                        sm.restoreState();
-                        System.out.println("Inconsistency detected, state restored");
+            if(chosen == final_sentence_end && i<SENTENCE_MAX_NUMBER_TOKENS-1){
+                System.out.println("sentence end reached");
+                StateManager sm = cp.getStateManager();
+                try {
+                    sm.saveState();
+                    word_index[i].assign(chosen);
+                    word_index[i+1].assign(pad_token);
+                    cp.fixPoint();
+                    current_sentence += words.get(corpusDomains.get(chosen));
+                    try
+                    {
+                        tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
                     }
+                    catch (NullPointerException e) {
+                        tokens_used[num_tok] = words.get(corpusDomains.get(chosen))+ " (not in original corpus)";
+                    }
+                    break;
+                } catch (InconsistencyException e) {
+                    sm.restoreState();
+                    System.out.println("Inconsistency detected, state restored");
+                    while(chosen == final_sentence_end)
+                        chosen = word_index[i].biasedWheelValue();
                 }
-            current_sentence += words.get(corpusDomains.get(chosen));
-            tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
+            }
+            try
+            {
+                current_sentence += tokens_list.get(corpusDomainToIndex.get(chosen));
+                tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
+            }
+            catch (Exception e) {
+                current_sentence += words.get(corpusDomains.get(chosen));
+                tokens_used[num_tok] = words.get(corpusDomains.get(chosen))+ " (not in original corpus)";
+            }
 
             if (PRINT_TRACE) {
                 System.out.println("sentence so far: " + current_sentence);
                 System.out.println("index chosen: " + corpusDomains.get(chosen));
             }
+            num_tok++;
         }
         double perplexityScore = Math.exp(-logSumProbs / num_tok);
         if (PRINT_TRACE) System.out.println("solution : " + current_sentence);

@@ -95,9 +95,30 @@ public class mlm_CollieSent1_words {
             int port = Integer.parseInt(args[1]);
             final int NUM_ITERATIONS = Integer.parseInt(args[3]);
             final double weight = Double.parseDouble(args[0]);
+            final int seed = Integer.parseInt(args[4]);
         try {
 
-        ArrayList<String> base_sentence = new ArrayList<>(Arrays.asList("An sentence about a cat playing with a ball of string could be something special"));
+        // Read initial base sentence from file
+        ArrayList<String> base_sentence = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String jsonContent = new String(Files.readAllBytes(Paths.get("./output/Septembre_2025/result_SENT1_WORDS_1756741626069.json")), StandardCharsets.UTF_8);
+            JsonNode rootNode = objectMapper.readTree(jsonContent);
+            ArrayNode logsArray = (ArrayNode) rootNode.get("logs");
+            if (logsArray != null && logsArray.size() > seed) {
+                String sentence = logsArray.get(seed).get("sentence").asText().strip();
+                if (sentence.endsWith(".")) {
+                    sentence = sentence.substring(0, sentence.length() - 1);
+                }
+                base_sentence.add(sentence);
+            } else {
+                base_sentence.add("An sentence about a cat playing with a ball of string could be something special");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            base_sentence.add("An sentence about a cat playing with a ball of string could be something special");
+            System.err.println("Could not read base sentence file, using default.");
+        }
 
 
 
@@ -128,7 +149,7 @@ public class mlm_CollieSent1_words {
         ArrayList<String> words = new ArrayList<>();
         Map<Integer, List<Integer>> corpusDomainsSet = new HashMap<>();
         Map<Integer, Integer> corpusDomainToIndex = new HashMap<>();
-        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper = new ObjectMapper();
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             final List<List<Integer>> parsedCorpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
@@ -194,7 +215,7 @@ public class mlm_CollieSent1_words {
         final int NUM_PB = 3;
         final double w = weight;
         final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).split(" ").length;
-        final int ORACLE_TOP_K = 10;
+        final int ORACLE_TOP_K = 100;
         final int NUMBER_CHAR = 82 - 1 - SENTENCE_MAX_NUMBER_TOKENS;//Le point et les espaces enlevés
         //final int NUM_ITERATIONS = 8;
 
@@ -228,7 +249,9 @@ public class mlm_CollieSent1_words {
         StateManager sm = cp.getStateManager();
         sm.saveState();
 
-        for (int l=0; l < NUM_ITERATIONS; l++) {
+        int l = -1;
+        while (l < NUM_ITERATIONS-1 || (base_sentence.size() < 5 && l < 3*NUM_ITERATIONS)) {
+            l++;
             System.out.println("Iteration: " + l);
             sm.restoreState();
             sm.saveState();
@@ -471,6 +494,15 @@ public class mlm_CollieSent1_words {
             }
             double perplexityScore = Math.exp(-logSumProbs / num_tok);
             //if (PRINT_TRACE) 
+            // Capitalize first word if not already capitalized
+            if (!current_sentence.isEmpty() && Character.isLowerCase(current_sentence.charAt(0))) {
+                current_sentence = Character.toUpperCase(current_sentence.charAt(0)) + current_sentence.substring(1);
+            }
+            if (base_sentence.contains(current_sentence)) {
+                System.out.println("Duplicate sentence, skipping: " + current_sentence);
+                continue;
+            }
+            current_sentence = current_sentence.endsWith("ERROR") ? current_sentence : current_sentence + ".";
             System.out.println("solution : " + current_sentence);
 
             HttpRequest request2 = HttpRequest.newBuilder()
@@ -490,7 +522,12 @@ public class mlm_CollieSent1_words {
             /*if (wordsArr.length > 0 && wordsArr[wordsArr.length - 1].equals("ERROR")) {
                 current_sentence = String.join(" ", Arrays.copyOf(wordsArr, wordsArr.length - 1));
             }*/
-            if(!current_sentence.contains("ERROR")){base_sentence.add(current_sentence);}
+            if(!current_sentence.contains("ERROR")){
+                if (current_sentence.endsWith(".")) {
+                    current_sentence = current_sentence.substring(0, current_sentence.length() - 1);
+                }
+                base_sentence.add(current_sentence);
+            }
             }
   
     
