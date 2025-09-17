@@ -1,0 +1,119 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because",
+  "logs" : [ {
+    "sentence" : "Following is a story about a cat that eats fish and has yellow fur color because.",
+    "tokens" : [ 17588, 310, 247, 2926, 670, 247, 5798, 326, 40724, 6773, 285, 556, 8862, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " following", null, null, " story", null, null, null, null, null, null, null, null, " yellow", null, null, null ],
+    "original_sentence" : "<mask> is a <mask> about a cat that eats fish and has <mask> fur color because"
+  }, {
+    "sentence" : "Following is a story starring a cat that eats fish and has yellow fur color tone.",
+    "tokens" : [ 17588, 310, 247, 2926, 28193, 247, 5798, 326, 40724, 6773, 285, 556, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " following", null, null, " story", " starring", null, " cat", null, " eats", null, null, null, " yellow", null, null, " tone" ],
+    "original_sentence" : "Following is a story <mask> a <mask> that <mask> fish and has yellow fur color <mask>"
+  }, {
+    "sentence" : "It tells a story starring a cat that eats fish and has a <mask> color tone ERROR",
+    "tokens" : [ 1147, 8599, 247, 2926, 28193, 247, 5798, 326, 40724, 6773, 285, 556, 247, 654, 12477, 31, 3295, 10541, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " tells", null, " story", " about", " a", " cat", null, " eats", null, null, null, " a", null, null, " tone" ],
+    "original_sentence" : "<mask> <mask> a story starring a cat that eats fish and has <mask> <mask> color tone"
+  }, {
+    "sentence" : "Following is a story about a cat that collected fish and has a fur color because.",
+    "tokens" : [ 17588, 310, 247, 2926, 670, 247, 5798, 326, 5728, 6773, 285, 556, 247, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " is", null, " story", " about", " a", " cat", null, " collected", null, null, null, " a", null, null, " tone" ],
+    "original_sentence" : "Following <mask> a story <mask> a cat that <mask> fish and has <mask> fur color because"
+  }, {
+    "sentence" : "Following is a story starring a cat that eats mice and has yellow fur color tone.",
+    "tokens" : [ 17588, 310, 247, 2926, 28193, 247, 5798, 326, 40724, 3754, 285, 556, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " is", null, " story", " about", " a", " cat", " that", " collected", " mice", " and", null, " a", null, " color", " tone" ],
+    "original_sentence" : "Following is a story starring a cat <mask> eats <mask> <mask> has yellow fur <mask> tone"
+  }, {
+    "sentence" : "Here is a sentence about a cat that eats food and is beautiful fur color changes.",
+    "tokens" : [ 4943, 310, 247, 6197, 670, 247, 5798, 326, 40724, 2739, 285, 310, 5389, 11829, 3295, 2544, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " here", " is", null, " story", " about", " a", " cat", " that", " collected", " food", " and", " is", " a", null, " color", " changes" ],
+    "original_sentence" : "<mask> is a sentence about a cat that eats <mask> and <mask> beautiful fur color <mask>"
+  }, {
+    "sentence" : "Following is a story starring a cat that eats bugs and has yellow fur color tone.",
+    "tokens" : [ 17588, 310, 247, 2926, 28193, 247, 5798, 326, 40724, 19775, 285, 556, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " here", " is", " a", " story", " about", " a", " cat", " that", " collected", " bugs", " and", " is", " a", null, " color", " tone" ],
+    "original_sentence" : "Following is <mask> story starring a <mask> that eats <mask> and has yellow fur color <mask>"
+  }, {
+    "sentence" : "Here is a sentence about a cat having eats food that is beautiful but it changes.",
+    "tokens" : [ 4943, 310, 247, 6197, 670, 247, 5798, 1907, 40724, 2739, 326, 310, 5389, 533, 352, 2544, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " here", " is", " a", " story", " about", " a", " cat", " having", " collected", " bugs", " that", " has", " yellow", " but", " it", " tone" ],
+    "original_sentence" : "Here is a sentence about a cat <mask> eats food <mask> is beautiful <mask> <mask> changes"
+  }, {
+    "sentence" : "This is a television starring a cat that eats mice and has yellow fur color tone.",
+    "tokens" : [ 1552, 310, 247, 7315, 28193, 247, 5798, 326, 40724, 3754, 285, 556, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " a", " television", " about", " a", " cat", " having", " collected", " mice", " that", " has", " yellow", " but", " it", " tone" ],
+    "original_sentence" : "<mask> is a <mask> starring a cat that eats <mask> and has yellow fur color tone"
+  }, {
+    "sentence" : "This is a sentence about a fish that eats fish and has beautiful <mask> just because ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 6773, 326, 40724, 6773, 285, 556, 5389, 654, 12477, 31, 816, 984, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " a", " television", " about", " a", " fish", " having", " collected", " mice", " that", " has", " yellow", " but", " just", " tone" ],
+    "original_sentence" : "This is a sentence about <mask> <mask> that eats fish and has beautiful <mask> <mask> because"
+  }, {
+    "sentence" : "This is a story starring a cat that eats potatoes and has yellow skin color eyes.",
+    "tokens" : [ 1552, 310, 247, 2926, 28193, 247, 5798, 326, 40724, 20951, 285, 556, 8862, 4808, 3295, 2927, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " a", " television", " about", " a", " fish", " having", " collected", " potatoes", " that", " has", " yellow", " skin", " just", " eyes" ],
+    "original_sentence" : "<mask> is a story starring a cat that eats <mask> and has yellow <mask> color <mask>"
+  }, {
+    "sentence" : "Following is a story starring a cat that eats bugs and a yellow fur color system.",
+    "tokens" : [ 17588, 310, 247, 2926, 28193, 247, 5798, 326, 40724, 19775, 285, 247, 8862, 11829, 3295, 985, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " a", " television", " about", " a", " fish", " having", " collected", " potatoes", " that", " a", " yellow", " skin", " just", " system" ],
+    "original_sentence" : "Following is <mask> story starring a cat that eats bugs and <mask> yellow fur color <mask>"
+  }, {
+    "sentence" : "Following is a story starring this cat that eats mice in a yellow fur color tone.",
+    "tokens" : [ 17588, 310, 247, 2926, 28193, 436, 5798, 326, 40724, 3754, 275, 247, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " a", " television", " about", " this", " fish", " having", " collected", " potatoes", " in", " a", " yellow", " skin", " just", " system" ],
+    "original_sentence" : "Following is a story starring <mask> cat that eats mice <mask> <mask> yellow fur color tone"
+  }, {
+    "sentence" : "Following paints a picture of a cat that eats mice and has yellow fur color tone.",
+    "tokens" : [ 17588, 44569, 247, 5406, 273, 247, 5798, 326, 40724, 3754, 285, 556, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " paints", " a", " picture", " of", " this", " fish", " having", " collected", " potatoes", " and", " a", " yellow", " skin", " just", " system" ],
+    "original_sentence" : "Following <mask> a <mask> <mask> a cat that eats mice <mask> has yellow fur color tone"
+  }, {
+    "sentence" : "Following is a picture inside this cat that eats mice in a yellow fur color tone.",
+    "tokens" : [ 17588, 310, 247, 5406, 3304, 436, 5798, 326, 40724, 3754, 275, 247, 8862, 11829, 3295, 10541, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " paints", " a", " picture", " inside", " this", " fish", " having", " eats", " potatoes", " and", " a", " yellow", " skin", " just", " system" ],
+    "original_sentence" : "Following is a <mask> <mask> this cat that <mask> mice in a yellow fur color tone"
+  }, {
+    "sentence" : "This is a sentence about a man having eats food that is beautiful but it changes.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 637, 1907, 40724, 2739, 326, 310, 5389, 533, 352, 2544, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " paints", " a", " picture", " inside", " this", " man", " having", " eats", " potatoes", " and", " is", " yellow", " skin", " it", " system" ],
+    "original_sentence" : "<mask> is a sentence about a <mask> having eats food that <mask> beautiful but <mask> changes"
+  }, {
+    "sentence" : "Here is touching sentence about a cat that eats food that is beautiful and color changes.",
+    "tokens" : [ 4943, 310, 19883, 6197, 670, 247, 5798, 326, 40724, 2739, 326, 310, 5389, 285, 3295, 2544, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " paints", " touching", " picture", " inside", " this", " cat", " having", " eats", " potatoes", " that", " is", " yellow", " and", " it", " system" ],
+    "original_sentence" : "Here is <mask> sentence about a <mask> that eats food <mask> is beautiful <mask> color changes"
+  }, {
+    "sentence" : "This is a movie starring a cat that eats potatoes and has no skin color anywhere.",
+    "tokens" : [ 1552, 310, 247, 6440, 28193, 247, 5798, 326, 40724, 20951, 285, 556, 642, 4808, 3295, 9825, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " touching", " movie", " inside", " this", " cat", " having", " eats", " potatoes", " that", " is", " no", " and", " it", " anywhere" ],
+    "original_sentence" : "This <mask> a <mask> starring a cat that eats potatoes and has <mask> skin color <mask>"
+  } ],
+  "date" : "2025-09-16T18:54:06.677355800"
+}

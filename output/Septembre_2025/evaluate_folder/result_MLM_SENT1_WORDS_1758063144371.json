@@ -1,0 +1,119 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "A sentence about a dog named Rocky that loves to play in the park during vacation",
+  "logs" : [ {
+    "sentence" : "A sentence from a dog named Rocky that loves to play in the park during vacation.",
+    "tokens" : [ 34, 6197, 432, 247, 4370, 4907, 37669, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " from", null, " dog", null, null, null, null, null, null, " in", null, null, null, null ],
+    "original_sentence" : "A sentence <mask> a <mask> named Rocky that loves to play <mask> the park during vacation"
+  }, {
+    "sentence" : "Book is about a dog named Rocky that loves to picnic in the park during vacation.",
+    "tokens" : [ 12323, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 38769, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " is", " from", null, " dog", null, null, null, null, " to", " picnic", " in", null, null, null, null ],
+    "original_sentence" : "<mask> <mask> about a dog named Rocky that loves <mask> <mask> in the park during vacation"
+  }, {
+    "sentence" : "A picture from a dog named Rocky that loves their play in the park during summer.",
+    "tokens" : [ 34, 5406, 432, 247, 4370, 4907, 37669, 326, 14528, 616, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " picture", " from", null, " dog", null, null, " that", null, " their", " picnic", " in", null, null, null, " summer" ],
+    "original_sentence" : "A <mask> from a dog named Rocky <mask> loves <mask> play in the park during <mask>"
+  }, {
+    "sentence" : "A sentence from a dog named Rocky that loves to play at the park during vacation.",
+    "tokens" : [ 34, 6197, 432, 247, 4370, 4907, 37669, 326, 14528, 281, 1132, 387, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " picture", " from", null, " dog", null, null, " that", null, " their", " picnic", " at", null, null, " during", " summer" ],
+    "original_sentence" : "A sentence from a dog named Rocky <mask> loves to play <mask> the park <mask> vacation"
+  }, {
+    "sentence" : "Movie is about a dog named Rocky that loves to picnic in my park during vacation.",
+    "tokens" : [ 48157, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 38769, 275, 619, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " movie", " picture", " from", null, " dog", " named", null, " that", null, " their", " picnic", " at", " my", null, " during", " summer" ],
+    "original_sentence" : "<mask> is about a dog <mask> Rocky <mask> loves to picnic in <mask> park during vacation"
+  }, {
+    "sentence" : "A picture from a dog named Lucky that loves their play in the park during summer.",
+    "tokens" : [ 34, 5406, 432, 247, 4370, 4907, 45023, 326, 14528, 616, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " picture", " from", " a", " dog", " named", " Lucky", " that", null, " their", " picnic", " at", " my", null, " during", " summer" ],
+    "original_sentence" : "<mask> picture from <mask> dog named <mask> that loves their play in the park during summer"
+  }, {
+    "sentence" : "A sentence about my dog named Rocky that loves to play in the park during winter.",
+    "tokens" : [ 34, 6197, 670, 619, 4370, 4907, 37669, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 8986, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " picture", " from", " my", " dog", " named", " Lucky", " that", null, " their", " picnic", " in", " my", null, " during", " winter" ],
+    "original_sentence" : "A sentence about <mask> dog named Rocky that loves to play <mask> the park during <mask>"
+  }, {
+    "sentence" : "A sentence about my dog named Rocky that loves to play in the snow during winter.",
+    "tokens" : [ 34, 6197, 670, 619, 4370, 4907, 37669, 326, 14528, 281, 1132, 275, 253, 8762, 1309, 8986, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " picture", " about", " my", " dog", " named", " Lucky", " that", null, " to", " picnic", " in", " my", " snow", " during", " winter" ],
+    "original_sentence" : "A sentence <mask> my dog named Rocky that loves <mask> play in the <mask> during winter"
+  }, {
+    "sentence" : "Book Talk about a dog named Rocky that likes to picnic in the park during winter.",
+    "tokens" : [ 12323, 25664, 670, 247, 4370, 4907, 37669, 326, 13052, 281, 38769, 275, 253, 5603, 1309, 8986, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " Talk", " about", " my", " dog", " named", " Lucky", " that", " likes", " to", " picnic", " in", " my", " snow", " during", " winter" ],
+    "original_sentence" : "Book <mask> about a dog named Rocky that <mask> to picnic in the park during <mask>"
+  }, {
+    "sentence" : "Story is about a dog named Bear that loves to picnic in the park during vacation.",
+    "tokens" : [ 29569, 310, 670, 247, 4370, 4907, 25743, 326, 14528, 281, 38769, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " story", " Talk", " about", " my", " dog", " named", " Bear", " that", " likes", " to", " picnic", " in", " my", " snow", " during", " winter" ],
+    "original_sentence" : "<mask> is about a dog named <mask> that loves to picnic <mask> the park during vacation"
+  }, {
+    "sentence" : "Book is about a dog named Rocky that loves to picnic in my woods during vacation.",
+    "tokens" : [ 12323, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 38769, 275, 619, 18557, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " story", " Talk", " about", " my", " dog", " named", " Bear", " that", " likes", " to", " picnic", " in", " my", " woods", " during", " winter" ],
+    "original_sentence" : "Book is <mask> a dog named Rocky that loves to picnic in <mask> <mask> during vacation"
+  }, {
+    "sentence" : "Book is about a dog named Rocky that loves to picnic at the park during vacation.",
+    "tokens" : [ 12323, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 38769, 387, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " is", " about", " my", " dog", " named", " Bear", " that", " likes", " to", " picnic", " at", " the", " woods", " during", " winter" ],
+    "original_sentence" : "<mask> <mask> about a dog named Rocky that loves to picnic <mask> <mask> park during vacation"
+  }, {
+    "sentence" : "A painting from a dog named Penny that loves to play at the park during vacation.",
+    "tokens" : [ 34, 13497, 432, 247, 4370, 4907, 42778, 326, 14528, 281, 1132, 387, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " painting", " about", " my", " dog", " named", " Penny", " that", " likes", " to", " picnic", " at", " the", " woods", " during", " winter" ],
+    "original_sentence" : "A <mask> from a dog named <mask> <mask> loves to play at the park during vacation"
+  }, {
+    "sentence" : "Book is about a dog named Rocky that loves to picnic in my woods sometimes times.",
+    "tokens" : [ 12323, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 38769, 275, 619, 18557, 4536, 2069, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " painting", " about", " my", " dog", " named", " Penny", " that", " likes", " to", " picnic", " at", " the", " woods", " sometimes", " times" ],
+    "original_sentence" : "Book is about a <mask> named Rocky that loves to picnic in my woods <mask> <mask>"
+  }, {
+    "sentence" : "Book is about a dog named Drew that loves his picnic in my woods sometimes times.",
+    "tokens" : [ 12323, 310, 670, 247, 4370, 4907, 30864, 326, 14528, 521, 38769, 275, 619, 18557, 4536, 2069, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " is", " about", " my", " dog", " named", " Drew", " that", " likes", " his", " picnic", " at", " the", " woods", " sometimes", " times" ],
+    "original_sentence" : "Book <mask> about a dog named <mask> that loves <mask> picnic in my woods sometimes times"
+  }, {
+    "sentence" : "A sentence about my dog named Rocky that loves to play in beautiful snow with me.",
+    "tokens" : [ 34, 6197, 670, 619, 4370, 4907, 37669, 326, 14528, 281, 1132, 275, 5389, 8762, 342, 479, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " is", " from", " a", " dog", " named", " Bear", " that", " likes", " his", " play", " at", " beautiful", " woods", " with", " me" ],
+    "original_sentence" : "A sentence about my dog named Rocky that loves to play in <mask> snow <mask> <mask>"
+  }, {
+    "sentence" : "Book is about a dog named Drew that spends his picnic <mask> my woods sometimes times ERROR",
+    "tokens" : [ 12323, 310, 670, 247, 4370, 4907, 30864, 326, 30885, 521, 38769, 654, 12477, 31, 619, 18557, 4536, 2069, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " is", " from", " a", " dog", " named", " Bear", " that", " spends", " his", " play", " at", " beautiful", " woods", " with", " me" ],
+    "original_sentence" : "Book is about a dog <mask> Drew that <mask> his picnic <mask> my woods sometimes times"
+  }, {
+    "sentence" : "A picture of a dog playing Lucky that loves their play in the snow during summer.",
+    "tokens" : [ 34, 5406, 273, 247, 4370, 4882, 45023, 326, 14528, 616, 1132, 275, 253, 8762, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " book", " is", " of", " a", " dog", " playing", " Bear", " that", " spends", " his", " play", " at", " beautiful", " snow", " with", " me" ],
+    "original_sentence" : "A picture <mask> <mask> dog <mask> Lucky that loves their play in the <mask> during summer"
+  } ],
+  "date" : "2025-09-16T18:52:24.369203400"
+}

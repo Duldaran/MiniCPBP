@@ -1,0 +1,95 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "She was so happy to see her family again after a long time away from experiencing",
+  "logs" : [ {
+    "sentence" : "She was so glad to see her family again after a long time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 9995, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " glad", " to", null, null, null, null, null, null, null, null, null, " from", null ],
+    "original_sentence" : "She was so <mask> <mask> see her family again after a long time away <mask> experiencing"
+  }, {
+    "sentence" : "She was so happy to see her family after a very long time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 2021, 846, 247, 1077, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", null, " so", " glad", " to", " see", null, null, " after", " a", " very", null, null, null, " from", null ],
+    "original_sentence" : "She was <mask> happy to see her family <mask> <mask> <mask> long time away from experiencing"
+  }, {
+    "sentence" : "She was so happy to see her son again after a long time hiding from experiencing.",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 3347, 969, 846, 247, 1048, 673, 17197, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " glad", " to", " see", null, " son", " after", " after", " very", null, " time", " hiding", " from", null ],
+    "original_sentence" : "She was so happy to see her <mask> again after a long <mask> <mask> from experiencing"
+  }, {
+    "sentence" : "She was so happy to see her child again after a long time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 1429, 969, 846, 247, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", null, " child", " after", " after", " very", null, " time", " hiding", " from", null ],
+    "original_sentence" : "She was so <mask> to see her <mask> again <mask> a long time away <mask> experiencing"
+  }, {
+    "sentence" : "She was so happy to see that face again after a long time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 326, 2454, 969, 846, 247, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " that", " face", " after", " after", " very", null, " time", " hiding", " from", null ],
+    "original_sentence" : "She <mask> so happy to see <mask> <mask> again after a long time away from experiencing"
+  }, {
+    "sentence" : "She was so happy to see her family again from a long time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 2021, 969, 432, 247, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " that", " face", " after", " from", " very", " long", " time", " hiding", " from", null ],
+    "original_sentence" : "She was so <mask> to see her family again <mask> a <mask> time away from experiencing"
+  }, {
+    "sentence" : "She was so glad to see her family again after a long time she loved experiencing.",
+    "tokens" : [ 2993, 369, 594, 9995, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 703, 7636, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " that", " face", " after", " from", " very", " long", " time", " she", " loved", null ],
+    "original_sentence" : "She was so glad to see her family again after a long <mask> <mask> <mask> experiencing"
+  }, {
+    "sentence" : "She was so glad to see her family again after a few years away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 9995, 281, 923, 617, 2021, 969, 846, 247, 1643, 1107, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " that", " face", " after", " from", " very", " few", " years", " away", " loved", null ],
+    "original_sentence" : "She was so glad to see her family again after a <mask> <mask> <mask> from experiencing"
+  }, {
+    "sentence" : "She was <mask> glad to see her family again after a long time of loved ones ERROR",
+    "tokens" : [ 2993, 369, 654, 12477, 31, 9995, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 273, 7636, 4394, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " that", " child", " after", " from", " very", " few", " years", " of", " from", " ones" ],
+    "original_sentence" : "She was <mask> glad to see her family again after a long time <mask> loved <mask>"
+  }, {
+    "sentence" : "She was so glad to see her family again after a past time she loved experiencing.",
+    "tokens" : [ 2993, 369, 594, 9995, 281, 923, 617, 2021, 969, 846, 247, 2469, 673, 703, 7636, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " her", " child", " after", " after", " very", " past", " years", " away", " from", " ones" ],
+    "original_sentence" : "<mask> was so glad to see her family again <mask> a <mask> time she loved experiencing"
+  }, {
+    "sentence" : "She was so glad to see <mask> family again after a few years away from them ERROR",
+    "tokens" : [ 2993, 369, 594, 9995, 281, 923, 654, 12477, 31, 2021, 969, 846, 247, 1643, 1107, 1977, 432, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " her", " child", " after", " after", " very", " past", " years", " away", " from", " them" ],
+    "original_sentence" : "She was so glad <mask> see <mask> family again after a few years away from <mask>"
+  }, {
+    "sentence" : "She was so happy to see her family again after so of time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 2021, 969, 846, 594, 273, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " her", " family", " after", " after", " so", " of", " years", " away", " from", " them" ],
+    "original_sentence" : "She was <mask> happy to <mask> her family again after <mask> <mask> time away from experiencing"
+  }, {
+    "sentence" : "She was so glad to see his family again after a long time away from experiencing.",
+    "tokens" : [ 2993, 369, 594, 9995, 281, 923, 521, 2021, 969, 846, 247, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " was", " so", " happy", " to", " see", " his", " family", " after", " after", " a", " of", " years", " away", " from", " them" ],
+    "original_sentence" : "<mask> was so glad to see <mask> <mask> again after <mask> long time away from experiencing"
+  }, {
+    "sentence" : "She remembered so happy to see her family again after a long time away from them.",
+    "tokens" : [ 2993, 12659, 594, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " she", " remembered", " so", " happy", " to", " see", " his", " family", " after", " after", " a", " of", " years", " away", " from", " them" ],
+    "original_sentence" : "She <mask> so happy <mask> see her family again after a long time away <mask> <mask>"
+  } ],
+  "date" : "2025-09-16T18:50:59.806524800"
+}

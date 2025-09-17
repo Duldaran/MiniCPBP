@@ -1,0 +1,125 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I can't make any promises about the story, but I can give you some ideas following",
+  "logs" : [ {
+    "sentence" : "I can't make any promises following the story, but I can give you some words following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 1563, 253, 2926, 13, 533, 309, 476, 1918, 368, 690, 3000, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, null, " following", null, null, null, null, null, " give", null, null, " words", null ],
+    "original_sentence" : "I can't <mask> any promises <mask> the story, but I can <mask> you some <mask> following"
+  }, {
+    "sentence" : "I <mask> make any promises about the story, but I can give you some the following ERROR",
+    "tokens" : [ 42, 654, 12477, 31, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 1918, 368, 690, 253, 1563, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, null, " following", null, null, " but", null, null, " give", null, null, " the", null ],
+    "original_sentence" : "I <mask> make any promises about the story, <mask> I can give you some <mask> following"
+  }, {
+    "sentence" : "I can't make any promises following this story, but I can give everyone some words now.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 1563, 436, 2926, 13, 533, 309, 476, 1918, 4130, 690, 3000, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, null, " following", " this", null, " but", null, null, " give", " everyone", null, " the", " now" ],
+    "original_sentence" : "I can't make any promises following <mask> story, but I can give <mask> some words <mask>"
+  }, {
+    "sentence" : "I can't make any statements about the story, but I can give you some answers following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 7234, 670, 253, 2926, 13, 533, 309, 476, 1918, 368, 690, 9172, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, " statements", " following", " this", null, " but", null, null, " give", " you", null, " answers", " now" ],
+    "original_sentence" : "I can't make any <mask> about the story, but I can give <mask> some <mask> following"
+  }, {
+    "sentence" : "I can't make any <mask> on the story, but I can give you general ideas following ERROR",
+    "tokens" : [ 42, 476, 626, 1056, 667, 654, 12477, 31, 327, 253, 2926, 13, 533, 309, 476, 1918, 368, 2087, 5697, 1563, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, " statements", " on", " this", null, " but", null, null, " give", " you", " general", " answers", " now" ],
+    "original_sentence" : "I can't make any <mask> <mask> the story, but I can give you <mask> ideas following"
+  }, {
+    "sentence" : "I can't make <mask> promises about the story, but I can give you some ideas here ERROR",
+    "tokens" : [ 42, 476, 626, 1056, 654, 12477, 31, 16966, 670, 253, 2926, 13, 533, 309, 476, 1918, 368, 690, 5697, 1060, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, " statements", " on", " this", null, " but", " I", null, " give", " you", " general", " answers", " here" ],
+    "original_sentence" : "I can't make <mask> promises about the story, <mask> <mask> can give you some ideas <mask>"
+  }, {
+    "sentence" : "I can't make any promises with complete story, but I can give you some words following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 342, 3426, 2926, 13, 533, 309, 476, 1918, 368, 690, 3000, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, " statements", " with", " complete", null, " but", " I", null, " give", " you", " general", " answers", " here" ],
+    "original_sentence" : "I can't make any promises <mask> <mask> story, but <mask> can give you some words following"
+  }, {
+    "sentence" : "I can't make any promises following this on but I can give everyone my words now.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 1563, 436, 327, 533, 309, 476, 1918, 4130, 619, 3000, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " make", null, " statements", " with", " complete", " on", " but", " I", null, " give", " you", " my", " answers", " here" ],
+    "original_sentence" : "I can't make any promises following this <mask> but <mask> can give everyone <mask> words now"
+  }, {
+    "sentence" : "I cannot make any promises from this on <mask> I can give you my words now ERROR",
+    "tokens" : [ 42, 2550, 1056, 667, 16966, 432, 436, 327, 654, 12477, 31, 309, 476, 1918, 368, 619, 3000, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " cannot", " make", null, " statements", " from", " complete", " on", " but", " I", null, " give", " you", " my", " answers", " here" ],
+    "original_sentence" : "I <mask> make any promises <mask> this on <mask> I can give <mask> my words now"
+  }, {
+    "sentence" : "I cannot make any promises about the story, but I can present you some ideas following.",
+    "tokens" : [ 42, 2550, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 1246, 368, 690, 5697, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " cannot", " make", null, " statements", " about", " complete", " on", " but", " I", null, " present", " you", " my", " answers", " here" ],
+    "original_sentence" : "I <mask> make any promises <mask> the story, but I can <mask> you some ideas following"
+  }, {
+    "sentence" : "I can't make any promises about this point but I can give everyone the words now.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 436, 1127, 533, 309, 476, 1918, 4130, 253, 3000, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", null, " statements", " about", " complete", " point", " but", " I", null, " present", " you", " the", " answers", " here" ],
+    "original_sentence" : "I can't make any promises <mask> this <mask> <mask> I can give everyone <mask> words now"
+  }, {
+    "sentence" : "I cannot make any promises following this story, but I can give everyone some hope now.",
+    "tokens" : [ 42, 2550, 1056, 667, 16966, 1563, 436, 2926, 13, 533, 309, 476, 1918, 4130, 690, 3524, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", null, " statements", " about", " this", " point", " but", " I", null, " present", " you", " the", " hope", " here" ],
+    "original_sentence" : "I <mask> make any promises following <mask> story, but <mask> can give everyone some <mask> now"
+  }, {
+    "sentence" : "I can't make any promises in this story, but I can give everyone some good information.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 275, 436, 2926, 13, 533, 309, 476, 1918, 4130, 690, 1175, 1491, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " any", " statements", " in", " this", " point", " but", " I", null, " present", " you", " the", " good", " information" ],
+    "original_sentence" : "I can't make <mask> promises <mask> this story, but I can give everyone some <mask> <mask>"
+  }, {
+    "sentence" : "I can't make any promises following complete story, but I can give you some words here.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 1563, 3426, 2926, 13, 533, 309, 476, 1918, 368, 690, 3000, 1060, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " any", " statements", " following", " this", " point", " but", " I", null, " present", " you", " the", " good", " here" ],
+    "original_sentence" : "I can't make any promises <mask> complete story, but I can give <mask> some words <mask>"
+  }, {
+    "sentence" : "I cannot make any promises about the future but I can give you a ideas following.",
+    "tokens" : [ 42, 2550, 1056, 667, 16966, 670, 253, 2852, 533, 309, 476, 1918, 368, 247, 5697, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " any", " statements", " following", " this", " future", " but", " I", null, " give", " you", " a", " good", " here" ],
+    "original_sentence" : "I cannot make any promises about the <mask> but I can <mask> you <mask> ideas following"
+  }, {
+    "sentence" : "I never make any promises about the future but I can try the few ideas following.",
+    "tokens" : [ 42, 1620, 1056, 667, 16966, 670, 253, 2852, 533, 309, 476, 1611, 253, 1643, 5697, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " never", " make", " any", " statements", " following", " this", " future", " but", " I", null, " try", " the", " few", " good", " here" ],
+    "original_sentence" : "I <mask> make any promises about the future but I can <mask> <mask> <mask> ideas following"
+  }, {
+    "sentence" : "I never make any promises about the future but I can say the few words following.",
+    "tokens" : [ 42, 1620, 1056, 667, 16966, 670, 253, 2852, 533, 309, 476, 1333, 253, 1643, 3000, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " never", " make", " any", " statements", " following", " the", " future", " but", " I", null, " say", " the", " few", " words", " here" ],
+    "original_sentence" : "I never make any promises about <mask> future <mask> I can <mask> the few <mask> following"
+  }, {
+    "sentence" : "I can't make it without following little story, but I can give everyone some words now.",
+    "tokens" : [ 42, 476, 626, 1056, 352, 1293, 1563, 1652, 2926, 13, 533, 309, 476, 1918, 4130, 690, 3000, 1024, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " never", " make", " it", " without", " following", " little", " future", " but", " I", null, " say", " the", " few", " words", " here" ],
+    "original_sentence" : "I can't make <mask> <mask> following <mask> story, but I can give everyone some words now"
+  }, {
+    "sentence" : "I can't make any promises about the story, but someone can give you some words already.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2926, 13, 533, 3095, 476, 1918, 368, 690, 3000, 2168, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " never", " make", " it", " without", " about", " little", " future", " but", " someone", null, " say", " the", " few", " words", " already" ],
+    "original_sentence" : "I can't make any promises <mask> the story, but <mask> can give you some words <mask>"
+  } ],
+  "date" : "2025-09-16T18:57:18.251034400"
+}
