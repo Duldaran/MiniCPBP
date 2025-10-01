@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because",
+    "perplexity" : 123.7619400024414,
+    "weight" : 2.4339579264213279E-32
+  },
+  "logs" : [ {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur [MASK] hair ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 544, 18690, 62, 4707, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, null, null, null, null, null, null, null, null, null, null, null, null, null, " hair" ],
+    "original_sentence" : "[MASK] is a sentence about a cat that eats fish and has beautiful fur [MASK] [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats meat and has beautiful fur color because.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 9132, 285, 556, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, null, " sentence", " about", null, null, null, null, " meat", null, null, null, null, null, " hair" ],
+    "original_sentence" : "This is a [MASK] [MASK] a cat that eats [MASK] and has beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, null, " sentence", " about", null, " cat", null, null, " meat", " and", " has", null, null, null, " hair" ],
+    "original_sentence" : "This is a sentence about a [MASK] that eats fish [MASK] [MASK] beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, null, " sentence", " about", " a", " cat", " that", null, " meat", " and", " has", null, null, null, " hair" ],
+    "original_sentence" : "This is a sentence about [MASK] cat [MASK] eats fish [MASK] has beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats bread and has beautiful fur color inside.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 10238, 285, 556, 5389, 11829, 3295, 3304, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, null, " sentence", " about", " a", " cat", " that", null, " bread", " and", " has", null, null, null, " inside" ],
+    "original_sentence" : "[MASK] is a sentence about a cat that eats [MASK] and has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is an sentence about a cat that eats fish and has beautiful ears and because.",
+    "tokens" : [ 1552, 310, 271, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 13628, 285, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, " an", " sentence", " about", " a", " cat", " that", null, " bread", " and", " has", null, " ears", " and", " inside" ],
+    "original_sentence" : "This is [MASK] sentence [MASK] a cat that eats fish and has beautiful [MASK] [MASK] because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color changes.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 2544, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, " an", " sentence", " about", " a", " cat", " that", " eats", " bread", " and", " has", null, " ears", " and", " changes" ],
+    "original_sentence" : "This is a sentence about [MASK] cat that [MASK] fish [MASK] has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and has [MASK] fur color brown ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 544, 18690, 62, 11829, 3295, 8516, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, " an", " sentence", " about", " a", " cat", " that", " eats", " bread", " and", " has", null, " ears", " and", " brown" ],
+    "original_sentence" : "[MASK] is a sentence about a cat that eats fish [MASK] has [MASK] fur color [MASK]"
+  }, {
+    "sentence" : "This is a story about friendly cat that eats fish and has beautiful fur color too.",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 11453, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 1512, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, " an", " story", " about", " friendly", " cat", " that", " eats", " bread", " and", " has", null, " ears", " and", " too" ],
+    "original_sentence" : "This is a [MASK] about [MASK] cat [MASK] eats fish and has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence showing a cat that eats fish and has beautiful fur and because.",
+    "tokens" : [ 1552, 310, 247, 6197, 4645, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 285, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " an", " story", " showing", " friendly", " cat", " that", " eats", " bread", " and", " has", null, " ears", " and", " too" ],
+    "original_sentence" : "This [MASK] a sentence [MASK] a cat that eats fish [MASK] has beautiful fur [MASK] because"
+  }, {
+    "sentence" : "This is a Movie about a cat that eats fish and has beautiful fur color [MASK] ERROR",
+    "tokens" : [ 1552, 310, 247, 27615, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " an", " Movie", " showing", " friendly", " cat", " that", " eats", " bread", " and", " has", null, " ears", " and", " too" ],
+    "original_sentence" : "This is a [MASK] about a cat [MASK] eats fish and has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful colors is because.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 9830, 310, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " an", " Movie", " about", " friendly", " cat", " that", " eats", " bread", " and", " has", null, " colors", " is", " too" ],
+    "original_sentence" : "[MASK] is a sentence [MASK] a cat that eats fish and has beautiful [MASK] [MASK] because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color changes.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 2544, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " about", " friendly", " cat", " that", " eats", " bread", " and", " has", null, " colors", " is", " changes" ],
+    "original_sentence" : "This is [MASK] sentence about a cat that eats fish [MASK] has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a cat that is beautiful and has beautiful fur color hair.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 310, 5389, 285, 556, 5389, 11829, 3295, 4707, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " about", " friendly", " cat", " that", " is", " beautiful", " and", " has", null, " colors", " is", " hair" ],
+    "original_sentence" : "This is a sentence about a cat [MASK] [MASK] [MASK] and has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a person that is beautiful and has beautiful [MASK] and hair ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 1436, 326, 310, 5389, 285, 556, 5389, 544, 18690, 62, 285, 4707, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " about", " friendly", " person", " that", " is", " beautiful", " and", " has", null, " colors", " and", " hair" ],
+    "original_sentence" : "This is a sentence about a [MASK] that [MASK] beautiful and has beautiful [MASK] [MASK] hair"
+  }, {
+    "sentence" : "This is a sentence about a cat that is beautiful for its beautiful fur color hair.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 310, 5389, 323, 697, 5389, 11829, 3295, 4707, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " about", " friendly", " person", " that", " is", " beautiful", " for", " its", null, " colors", " and", " hair" ],
+    "original_sentence" : "This is a sentence [MASK] a cat that is beautiful [MASK] [MASK] beautiful fur color hair"
+  }, {
+    "sentence" : "This is a sentence [MASK] a woman that is beautiful and has beautiful brown color hair ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 544, 18690, 62, 247, 3416, 326, 310, 5389, 285, 556, 5389, 8516, 3295, 4707, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " about", " friendly", " woman", " that", " is", " beautiful", " for", " its", null, " brown", " and", " hair" ],
+    "original_sentence" : "[MASK] is a sentence [MASK] a [MASK] that is beautiful and has beautiful [MASK] color hair"
+  }, {
+    "sentence" : "This is a sentence with a cat that is beautiful and has beautiful dark color hair.",
+    "tokens" : [ 1552, 310, 247, 6197, 342, 247, 5798, 326, 310, 5389, 285, 556, 5389, 3644, 3295, 4707, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " with", " friendly", " woman", " that", " is", " beautiful", " for", " has", null, " dark", " and", " hair" ],
+    "original_sentence" : "This [MASK] a sentence [MASK] a cat that is beautiful and [MASK] beautiful [MASK] color hair"
+  }, {
+    "sentence" : "This is a sentence about a dog that is beautiful and has beautiful fur color eyes.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 310, 5389, 285, 556, 5389, 11829, 3295, 2927, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " Movie", " with", " a", " dog", " that", " is", " beautiful", " for", " has", null, " dark", " and", " eyes" ],
+    "original_sentence" : "This is [MASK] sentence about [MASK] [MASK] that is beautiful and has beautiful fur color [MASK]"
+  }, {
+    "sentence" : "This is a story about a dog that is [MASK] and has beautiful fur color eyes ERROR",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 4370, 326, 310, 544, 18690, 62, 285, 556, 5389, 11829, 3295, 2927, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " is", " a", " story", " with", " a", " dog", " that", " is", " beautiful", " for", " has", null, " dark", " and", " eyes" ],
+    "original_sentence" : "This is a [MASK] about [MASK] dog that is [MASK] and has beautiful fur color eyes"
+  } ],
+  "date" : "2025-09-30T11:21:20.400780900",
+  "time" : 43.168
+}

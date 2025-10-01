@@ -1,0 +1,76 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 10,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "And he had no idea what to do with the fact that she was in",
+    "perplexity" : 9.721983909606934,
+    "weight" : 0.3296084856612656
+  },
+  "logs" : [ {
+    "sentence" : "But he had no idea what to do with the fact and she was ill",
+    "tokens" : [ 1989, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 285, 703, 369, 2853, 15 ],
+    "perplexity" : 31.627769470214844,
+    "tokens_used" : [ " But", null, null, null, null, null, null, null, null, null, null, " and", null, null, " ill" ],
+    "original_sentence" : "[MASK] he had no idea what to do with the fact [MASK] she was [MASK]"
+  }, {
+    "sentence" : "But he had no idea what to do with the fact that she was in",
+    "tokens" : [ 1989, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 326, 703, 369, 275, 15 ],
+    "perplexity" : 10.249829292297363,
+    "tokens_used" : [ " But", null, " had", null, null, null, " to", null, null, null, null, " and", null, " was", " ill" ],
+    "original_sentence" : "[MASK] he [MASK] no idea what [MASK] do with the fact that she [MASK] in"
+  }, {
+    "sentence" : "And he had no [MASK] what to [MASK] with the fact [MASK] she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 544, 18690, 62, 752, 281, 544, 18690, 62, 342, 253, 958, 544, 18690, 62, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " But", null, " had", null, null, null, " to", null, null, null, null, " and", null, " was", " ill" ],
+    "original_sentence" : "And he had no [MASK] what to [MASK] with the fact [MASK] she was in"
+  }, {
+    "sentence" : "[MASK] [MASK] had no idea what to do [MASK] the fact that she was [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 574, 642, 2934, 752, 281, 513, 544, 18690, 62, 253, 958, 326, 703, 369, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " But", null, " had", null, null, null, " to", null, null, null, null, " and", null, " was", " ill" ],
+    "original_sentence" : "[MASK] [MASK] had no idea what to do [MASK] the fact that she was [MASK]"
+  }, {
+    "sentence" : "And he had no idea what to do with the [MASK] that she was dead ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 544, 18690, 62, 326, 703, 369, 3846, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " But", null, " had", null, null, " what", " to", null, " with", null, null, " and", null, " was", " dead" ],
+    "original_sentence" : "And he had no idea [MASK] to do [MASK] the [MASK] that she was [MASK]"
+  }, {
+    "sentence" : "But he had no idea what to do with the fact that she was in",
+    "tokens" : [ 1989, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 326, 703, 369, 275, 15 ],
+    "perplexity" : 10.249829292297363,
+    "tokens_used" : [ " But", null, " had", null, null, " what", " to", null, " with", null, null, " and", null, " was", " dead" ],
+    "original_sentence" : "But he had no idea [MASK] [MASK] do [MASK] the fact that she was in"
+  }, {
+    "sentence" : "And he had no idea what to do with the fact that she was in",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 326, 703, 369, 275, 15 ],
+    "perplexity" : 9.721983909606934,
+    "tokens_used" : [ " But", null, " had", " no", null, " what", " to", null, " with", null, null, " and", null, " was", " dead" ],
+    "original_sentence" : "And he [MASK] [MASK] idea what to do [MASK] the fact that she was in"
+  }, {
+    "sentence" : "And [MASK] had no idea what to [MASK] [MASK] the [MASK] that she was in ERROR",
+    "tokens" : [ 1898, 544, 18690, 62, 574, 642, 2934, 752, 281, 544, 18690, 62, 544, 18690, 62, 253, 544, 18690, 62, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " But", null, " had", " no", null, " what", " to", null, " with", null, null, " and", null, " was", " dead" ],
+    "original_sentence" : "And [MASK] had no idea what to [MASK] [MASK] the [MASK] that she was in"
+  }, {
+    "sentence" : "[MASK] [MASK] had no idea what [MASK] do with the [MASK] that she was in ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 574, 642, 2934, 752, 544, 18690, 62, 513, 342, 253, 544, 18690, 62, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " But", null, " had", " no", null, " what", " to", null, " with", null, null, " and", null, " was", " dead" ],
+    "original_sentence" : "[MASK] [MASK] had no idea what [MASK] do with the [MASK] that she was in"
+  }, {
+    "sentence" : "And he had no of what to do with the fact that she was dead",
+    "tokens" : [ 1898, 344, 574, 642, 273, 752, 281, 513, 342, 253, 958, 326, 703, 369, 3846, 15 ],
+    "perplexity" : 27.384204864501953,
+    "tokens_used" : [ " But", null, " had", " no", " of", " what", " to", null, " with", null, null, " and", null, " was", " dead" ],
+    "original_sentence" : "And he had no [MASK] what [MASK] do with the fact that she was [MASK]"
+  } ],
+  "date" : "2025-09-30T15:28:09.077494500",
+  "time" : 25.445
+}

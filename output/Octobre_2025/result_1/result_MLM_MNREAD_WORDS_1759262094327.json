@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "It made me wonder if it was going to be able to speak to me",
+    "perplexity" : 12.666766166687012,
+    "weight" : 0.034737403653966756
+  },
+  "logs" : [ {
+    "sentence" : "It made me wonder if it was going to be able to speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 320, 2104, 281, 3984, 281, 479, 15 ],
+    "perplexity" : 12.666766166687012,
+    "tokens_used" : [ null, null, " me", " wonder", null, null, null, null, null, " be", null, null, null, null, null ],
+    "original_sentence" : "It made [MASK] [MASK] if it was going to [MASK] able to speak to me"
+  }, {
+    "sentence" : "It made me wonder if it was going to be able to speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 320, 2104, 281, 3984, 281, 479, 15 ],
+    "perplexity" : 12.666766166687012,
+    "tokens_used" : [ null, " made", " me", " wonder", null, null, null, null, null, " be", null, null, null, " to", " me" ],
+    "original_sentence" : "It [MASK] me wonder if it was going to be able to speak [MASK] [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it was going to be able to get with me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 320, 2104, 281, 755, 342, 479, 15 ],
+    "perplexity" : 17.222681045532227,
+    "tokens_used" : [ " it", " made", " me", " wonder", null, null, null, null, " to", " be", null, null, " get", " with", " me" ],
+    "original_sentence" : "[MASK] made me wonder if it was going [MASK] be able to [MASK] [MASK] me"
+  }, {
+    "sentence" : "It made me wonder if I was going to be able the speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 309, 369, 1469, 281, 320, 2104, 253, 3984, 281, 479, 15 ],
+    "perplexity" : 36.13208770751953,
+    "tokens_used" : [ " it", " made", " me", " wonder", " if", " I", null, null, " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me wonder [MASK] [MASK] was going to be able [MASK] speak to me"
+  }, {
+    "sentence" : "It made me wonder if it was I should be able to speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 309, 943, 320, 2104, 281, 3984, 281, 479, 15 ],
+    "perplexity" : 27.676748275756836,
+    "tokens_used" : [ " it", " made", " me", " wonder", " if", " I", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me wonder [MASK] it was [MASK] [MASK] be able to speak to me"
+  }, {
+    "sentence" : "[MASK] made me wonder if it was going to [MASK] able [MASK] [MASK] to me ERROR",
+    "tokens" : [ 60, 18690, 62, 1160, 479, 4282, 604, 352, 369, 1469, 281, 544, 18690, 62, 2104, 544, 18690, 62, 544, 18690, 62, 281, 479, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " made", " me", " wonder", " if", " I", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "[MASK] made me wonder if it was going to [MASK] able [MASK] [MASK] to me"
+  }, {
+    "sentence" : "It made me wonder if he was going to be able to speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 344, 369, 1469, 281, 320, 2104, 281, 3984, 281, 479, 15 ],
+    "perplexity" : 10.621479034423828,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "[MASK] made [MASK] wonder if [MASK] was going to be able to speak to me"
+  }, {
+    "sentence" : "[MASK] made me wonder if he was [MASK] to be able [MASK] speak to [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 1160, 479, 4282, 604, 344, 369, 544, 18690, 62, 281, 320, 2104, 544, 18690, 62, 3984, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "[MASK] made me wonder if he was [MASK] to be able [MASK] speak to [MASK]"
+  }, {
+    "sentence" : "It made [MASK] wonder if he was going to be [MASK] to speak to [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 544, 18690, 62, 4282, 604, 344, 369, 1469, 281, 320, 544, 18690, 62, 281, 3984, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made [MASK] wonder if he was going to be [MASK] to speak to [MASK]"
+  }, {
+    "sentence" : "It made [MASK] wonder if it was [MASK] to [MASK] able to [MASK] to me ERROR",
+    "tokens" : [ 1147, 1160, 544, 18690, 62, 4282, 604, 352, 369, 544, 18690, 62, 281, 544, 18690, 62, 2104, 281, 544, 18690, 62, 281, 479, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made [MASK] wonder if it was [MASK] to [MASK] able to [MASK] to me"
+  }, {
+    "sentence" : "It made me wonder if [MASK] was going to [MASK] able to speak [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 544, 18690, 62, 369, 1469, 281, 544, 18690, 62, 2104, 281, 3984, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me wonder if [MASK] was going to [MASK] able to speak [MASK] [MASK]"
+  }, {
+    "sentence" : "It [MASK] [MASK] wonder if he was going to be able to speak to [MASK] ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 544, 18690, 62, 4282, 604, 344, 369, 1469, 281, 320, 2104, 281, 3984, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It [MASK] [MASK] wonder if he was going to be able to speak to [MASK]"
+  }, {
+    "sentence" : "It made me [MASK] if he [MASK] going to be able [MASK] speak to [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 544, 18690, 62, 604, 344, 544, 18690, 62, 1469, 281, 320, 2104, 544, 18690, 62, 3984, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me [MASK] if he [MASK] going to be able [MASK] speak to [MASK]"
+  }, {
+    "sentence" : "It made me [MASK] [MASK] he was going to [MASK] able to speak to [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 544, 18690, 62, 544, 18690, 62, 344, 369, 1469, 281, 544, 18690, 62, 2104, 281, 3984, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " I", " should", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me [MASK] [MASK] he was going to [MASK] able to speak to [MASK]"
+  }, {
+    "sentence" : "It made me wonder if he was going to be able to speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 344, 369, 1469, 281, 320, 2104, 281, 3984, 281, 479, 15 ],
+    "perplexity" : 10.621479034423828,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " going", " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me wonder if he was [MASK] [MASK] [MASK] able to speak to me"
+  }, {
+    "sentence" : "[MASK] made me wonder if he was [MASK] to be able [MASK] speak [MASK] me ERROR",
+    "tokens" : [ 60, 18690, 62, 1160, 479, 4282, 604, 344, 369, 544, 18690, 62, 281, 320, 2104, 544, 18690, 62, 3984, 544, 18690, 62, 479, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " going", " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "[MASK] made me wonder if he was [MASK] to be able [MASK] speak [MASK] me"
+  }, {
+    "sentence" : "It made me [MASK] [MASK] he was going [MASK] be able to speak to me ERROR",
+    "tokens" : [ 1147, 1160, 479, 544, 18690, 62, 544, 18690, 62, 344, 369, 1469, 544, 18690, 62, 320, 2104, 281, 3984, 281, 479, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " going", " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me [MASK] [MASK] he was going [MASK] be able to speak to me"
+  }, {
+    "sentence" : "It made me wonder if it was [MASK] to be [MASK] to speak to [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 544, 18690, 62, 281, 320, 544, 18690, 62, 281, 3984, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " going", " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me wonder if it was [MASK] to be [MASK] to speak to [MASK]"
+  }, {
+    "sentence" : "It made me wonder if he was [MASK] to be able [MASK] speak [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 344, 369, 544, 18690, 62, 281, 320, 2104, 544, 18690, 62, 3984, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " going", " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It made me wonder if he was [MASK] to be able [MASK] speak [MASK] [MASK]"
+  }, {
+    "sentence" : "It made me wonder if he was going to be able to speak to me",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 344, 369, 1469, 281, 320, 2104, 281, 3984, 281, 479, 15 ],
+    "perplexity" : 10.621479034423828,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " he", null, " going", " to", " be", null, " the", " get", " with", " me" ],
+    "original_sentence" : "It [MASK] me wonder if he was going [MASK] [MASK] able to speak to me"
+  } ],
+  "date" : "2025-09-30T15:54:54.325531800",
+  "time" : 31.482
+}

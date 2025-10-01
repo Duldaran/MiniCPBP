@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "A sentence about a dog named Rocky that loves to play in the park during vacation",
+    "perplexity" : 156.21685791015625,
+    "weight" : 1.20440813186356E-95
+  },
+  "logs" : [ {
+    "sentence" : "A collection about a dog named Billy that loves to play in the park during summer",
+    "tokens" : [ 34, 4849, 670, 247, 4370, 4907, 19669, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 81.61583709716797,
+    "tokens_used" : [ null, " collection", null, null, null, null, " Billy", null, null, null, null, null, null, null, null, " summer" ],
+    "original_sentence" : "A [MASK] about a dog named [MASK] that loves to play in the park during [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the park during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 67.60253143310547,
+    "tokens_used" : [ null, " neighborhood", " has", null, null, null, " Billy", null, " likes", null, null, null, null, null, null, " summer" ],
+    "original_sentence" : "A [MASK] [MASK] a dog named Billy that [MASK] to play in the park during summer"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the park during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 67.60253143310547,
+    "tokens_used" : [ null, " neighborhood", " has", null, null, " named", " Billy", " that", " likes", null, null, null, null, null, null, " summer" ],
+    "original_sentence" : "A neighborhood has a dog [MASK] Billy [MASK] [MASK] to play in the park during [MASK]"
+  }, {
+    "sentence" : "Family neighborhood has a dog named Billy that likes to go to the park during day",
+    "tokens" : [ 21276, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 564, 281, 253, 5603, 1309, 1388, 15 ],
+    "perplexity" : 66.9681396484375,
+    "tokens_used" : [ " family", " neighborhood", " has", null, null, " named", " Billy", " that", " likes", null, " go", " to", null, null, null, " day" ],
+    "original_sentence" : "[MASK] neighborhood has a dog named Billy that likes to [MASK] [MASK] the park during [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in different park and out",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 1027, 5603, 285, 562, 15 ],
+    "perplexity" : 140.15179443359375,
+    "tokens_used" : [ " family", " neighborhood", " has", null, " dog", " named", " Billy", " that", " likes", null, " go", " to", " different", null, " and", " out" ],
+    "original_sentence" : "A neighborhood has a [MASK] named Billy that likes to play in [MASK] park [MASK] [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the park during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 67.60253143310547,
+    "tokens_used" : [ " A", " neighborhood", " has", null, " dog", " named", " Billy", " that", " likes", null, " go", " to", " different", null, " and", " out" ],
+    "original_sentence" : "[MASK] neighborhood has a [MASK] [MASK] Billy that [MASK] to play in the park during summer"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the yard during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 63.67805862426758,
+    "tokens_used" : [ " A", " neighborhood", " has", null, " dog", " named", " Billy", " that", " likes", " to", " go", " to", " different", " yard", " during", " out" ],
+    "original_sentence" : "A neighborhood has a dog named Billy that [MASK] [MASK] play in the [MASK] [MASK] summer"
+  }, {
+    "sentence" : "My family has a dog named Billy that likes to play in the yard during [MASK] ERROR",
+    "tokens" : [ 3220, 2021, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " My", " family", " has", null, " dog", " named", " Billy", " that", " likes", " to", " go", " in", " different", " yard", " during", " out" ],
+    "original_sentence" : "[MASK] [MASK] has a dog named Billy that likes to play [MASK] the yard during [MASK]"
+  }, {
+    "sentence" : "Their neighborhood has a dog named Billy that likes to play in the pool during it",
+    "tokens" : [ 22674, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 6363, 1309, 352, 15 ],
+    "perplexity" : 73.97129821777344,
+    "tokens_used" : [ " Their", " family", " has", " a", " dog", " named", " Billy", " that", " likes", " to", " go", " in", " different", " pool", " during", " it" ],
+    "original_sentence" : "[MASK] neighborhood has [MASK] dog named Billy that likes to play in the [MASK] during [MASK]"
+  }, {
+    "sentence" : "A friend has a dog named Miles that likes outdoors play in the yard during summer",
+    "tokens" : [ 34, 3331, 556, 247, 4370, 4907, 29761, 326, 13052, 32321, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 118.3865737915039,
+    "tokens_used" : [ " Their", " friend", " has", " a", " dog", " named", " Miles", " that", " likes", " outdoors", " go", " in", " different", " pool", " during", " summer" ],
+    "original_sentence" : "A [MASK] has a dog named [MASK] that likes [MASK] play in the yard during [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the yard during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 63.67805862426758,
+    "tokens_used" : [ " Their", " friend", " has", " a", " dog", " named", " Miles", " that", " likes", " outdoors", " play", " in", " different", " pool", " during", " summer" ],
+    "original_sentence" : "A neighborhood has a dog named Billy that [MASK] to [MASK] [MASK] the yard during [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a small named dog that likes to play in the yard during summer",
+    "tokens" : [ 34, 9168, 556, 247, 1355, 4907, 4370, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 92.04560089111328,
+    "tokens_used" : [ " Their", " friend", " has", " a", " small", " named", " dog", " that", " likes", " to", " play", " in", " different", " pool", " during", " summer" ],
+    "original_sentence" : "A neighborhood has a [MASK] named [MASK] that likes [MASK] play in the yard during summer"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the yard during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 63.67805862426758,
+    "tokens_used" : [ " A", " friend", " has", " a", " small", " named", " dog", " that", " likes", " to", " play", " in", " different", " pool", " during", " summer" ],
+    "original_sentence" : "[MASK] neighborhood has a dog named Billy that [MASK] to play in the yard during [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the yard during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 63.67805862426758,
+    "tokens_used" : [ " A", " friend", " has", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " different", " yard", " during", " summer" ],
+    "original_sentence" : "A neighborhood has a [MASK] [MASK] Billy that likes [MASK] play in the [MASK] during summer"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the yard during summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1309, 5768, 15 ],
+    "perplexity" : 63.67805862426758,
+    "tokens_used" : [ " A", " friend", " has", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " different", " yard", " during", " summer" ],
+    "original_sentence" : "A neighborhood [MASK] a dog named Billy [MASK] likes to play in the yard during [MASK]"
+  }, {
+    "sentence" : "A neighborhood has a dog named Billy that likes to play in the sun through summer",
+    "tokens" : [ 34, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 5101, 949, 5768, 15 ],
+    "perplexity" : 102.73433685302734,
+    "tokens_used" : [ " A", " friend", " has", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " the", " sun", " through", " summer" ],
+    "original_sentence" : "A neighborhood has [MASK] dog named Billy that likes to play in [MASK] [MASK] [MASK] summer"
+  }, {
+    "sentence" : "My neighborhood has a dog named Billy that likes to play in the yard every summer",
+    "tokens" : [ 3220, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1046, 5768, 15 ],
+    "perplexity" : 47.486366271972656,
+    "tokens_used" : [ " My", " friend", " has", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " the", " sun", " every", " summer" ],
+    "original_sentence" : "[MASK] neighborhood has a dog named Billy that likes to [MASK] in the yard [MASK] summer"
+  }, {
+    "sentence" : "My neighborhood has a dog named Billy that likes to play in the yard every summer",
+    "tokens" : [ 3220, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1046, 5768, 15 ],
+    "perplexity" : 47.486366271972656,
+    "tokens_used" : [ " My", " friend", " has", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " the", " yard", " every", " summer" ],
+    "original_sentence" : "My neighborhood has a dog named Billy that likes to [MASK] in the [MASK] [MASK] summer"
+  }, {
+    "sentence" : "My neighborhood has a dog named Billy that likes to play in the yard every summer",
+    "tokens" : [ 3220, 9168, 556, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 15789, 1046, 5768, 15 ],
+    "perplexity" : 47.486366271972656,
+    "tokens_used" : [ " My", " friend", " has", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " the", " yard", " every", " summer" ],
+    "original_sentence" : "My neighborhood [MASK] a dog [MASK] Billy that likes to play [MASK] the yard every [MASK]"
+  }, {
+    "sentence" : "My neighborhood have a dog named Billy that likes to play in the sun every summer",
+    "tokens" : [ 3220, 9168, 452, 247, 4370, 4907, 19669, 326, 13052, 281, 1132, 275, 253, 5101, 1046, 5768, 15 ],
+    "perplexity" : 75.4395980834961,
+    "tokens_used" : [ " My", " friend", " have", " a", " dog", " named", " dog", " that", " likes", " to", " play", " in", " the", " sun", " every", " summer" ],
+    "original_sentence" : "My neighborhood [MASK] a dog [MASK] Billy that likes to [MASK] in the [MASK] every summer"
+  } ],
+  "date" : "2025-09-30T11:37:23.471395400",
+  "time" : 39.948
+}

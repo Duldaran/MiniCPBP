@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to be able to tell her what was going on in the bed",
+    "perplexity" : 16.865489959716797,
+    "weight" : 1.8979356963435653E-4
+  },
+  "logs" : [ {
+    "sentence" : "We need to be able to tell her what is going now in the bed",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 752, 310, 1469, 1024, 275, 253, 3722, 15 ],
+    "perplexity" : 41.47262191772461,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be able to [MASK] her what [MASK] going [MASK] [MASK] the bed"
+  }, {
+    "sentence" : "I need to be able to tell her what was going on in your bed",
+    "tokens" : [ 42, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 634, 3722, 15 ],
+    "perplexity" : 20.22030258178711,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to be [MASK] [MASK] tell her what was going on in [MASK] bed"
+  }, {
+    "sentence" : "We need to be able to tell her what was going on in the bar",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 253, 2534, 15 ],
+    "perplexity" : 16.067214965820312,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to [MASK] able to tell her what was going on in [MASK] [MASK]"
+  }, {
+    "sentence" : "We had to be able to tell her what was going on in the room",
+    "tokens" : [ 1231, 574, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 253, 2316, 15 ],
+    "perplexity" : 11.291826248168945,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to [MASK] able to tell her what was going on in the [MASK]"
+  }, {
+    "sentence" : "We had to [MASK] able to tell [MASK] what was going on in the [MASK] ERROR",
+    "tokens" : [ 1231, 574, 281, 544, 18690, 62, 2104, 281, 2028, 544, 18690, 62, 752, 369, 1469, 327, 275, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to [MASK] able to tell [MASK] what was going on in the [MASK]"
+  }, {
+    "sentence" : "We had to [MASK] able to tell her what [MASK] going on in the [MASK] ERROR",
+    "tokens" : [ 1231, 574, 281, 544, 18690, 62, 2104, 281, 2028, 617, 752, 544, 18690, 62, 1469, 327, 275, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to [MASK] able to tell her what [MASK] going on in the [MASK]"
+  }, {
+    "sentence" : "He had to be able to tell her what was going on in the room",
+    "tokens" : [ 1328, 574, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 253, 2316, 15 ],
+    "perplexity" : 11.128796577453613,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] had [MASK] be [MASK] to tell her [MASK] was going on in the room"
+  }, {
+    "sentence" : "He had [MASK] be able to tell her what was going on in [MASK] [MASK] ERROR",
+    "tokens" : [ 1328, 574, 544, 18690, 62, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He had [MASK] be able to tell her what was going on in [MASK] [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] to be [MASK] to tell her what was going on in the room ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 320, 544, 18690, 62, 281, 2028, 617, 752, 369, 1469, 327, 275, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to be [MASK] to tell her what was going on in the room"
+  }, {
+    "sentence" : "He had to be able to tell her what [MASK] going on [MASK] [MASK] room ERROR",
+    "tokens" : [ 1328, 574, 281, 320, 2104, 281, 2028, 617, 752, 544, 18690, 62, 1469, 327, 544, 18690, 62, 544, 18690, 62, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He had to be able to tell her what [MASK] going on [MASK] [MASK] room"
+  }, {
+    "sentence" : "We had to be able to tell you what was going on in the room",
+    "tokens" : [ 1231, 574, 281, 320, 2104, 281, 2028, 368, 752, 369, 1469, 327, 275, 253, 2316, 15 ],
+    "perplexity" : 11.041190147399902,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to be able to [MASK] [MASK] what was [MASK] on in the room"
+  }, {
+    "sentence" : "We [MASK] [MASK] [MASK] able to tell you what was going on in [MASK] room ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 2104, 281, 2028, 368, 752, 369, 1469, 327, 275, 544, 18690, 62, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] [MASK] [MASK] able to tell you what was going on in [MASK] room"
+  }, {
+    "sentence" : "[MASK] had to [MASK] able to [MASK] her what was going on in the [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 574, 281, 544, 18690, 62, 2104, 281, 544, 18690, 62, 617, 752, 369, 1469, 327, 275, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] had to [MASK] able to [MASK] her what was going on in the [MASK]"
+  }, {
+    "sentence" : "He had to be able to tell [MASK] what was going [MASK] in the [MASK] ERROR",
+    "tokens" : [ 1328, 574, 281, 320, 2104, 281, 2028, 544, 18690, 62, 752, 369, 1469, 544, 18690, 62, 275, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He had to be able to tell [MASK] what was going [MASK] in the [MASK]"
+  }, {
+    "sentence" : "He had [MASK] [MASK] able to tell her what was going on in [MASK] [MASK] ERROR",
+    "tokens" : [ 1328, 574, 544, 18690, 62, 544, 18690, 62, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He had [MASK] [MASK] able to tell her what was going on in [MASK] [MASK]"
+  }, {
+    "sentence" : "We had to be able to tell you what was going on in the room",
+    "tokens" : [ 1231, 574, 281, 320, 2104, 281, 2028, 368, 752, 369, 1469, 327, 275, 253, 2316, 15 ],
+    "perplexity" : 11.041190147399902,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to be able to [MASK] you what [MASK] going on in the room"
+  }, {
+    "sentence" : "We had [MASK] be able to tell you what was [MASK] on in [MASK] room ERROR",
+    "tokens" : [ 1231, 574, 544, 18690, 62, 320, 2104, 281, 2028, 368, 752, 369, 544, 18690, 62, 327, 275, 544, 18690, 62, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had [MASK] be able to tell you what was [MASK] on in [MASK] room"
+  }, {
+    "sentence" : "We had to be able to tell her what was going on [MASK] [MASK] [MASK] ERROR",
+    "tokens" : [ 1231, 574, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to be able to tell her what was going on [MASK] [MASK] [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] to be able to tell [MASK] what [MASK] going on in the room ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 320, 2104, 281, 2028, 544, 18690, 62, 752, 544, 18690, 62, 1469, 327, 275, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to be able to tell [MASK] what [MASK] going on in the room"
+  }, {
+    "sentence" : "We had to be able to tell you what was [MASK] on in [MASK] [MASK] ERROR",
+    "tokens" : [ 1231, 574, 281, 320, 2104, 281, 2028, 368, 752, 369, 544, 18690, 62, 327, 275, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to be able to tell you what was [MASK] on in [MASK] [MASK]"
+  } ],
+  "date" : "2025-09-30T19:39:42.082704900",
+  "time" : 83.948
+}

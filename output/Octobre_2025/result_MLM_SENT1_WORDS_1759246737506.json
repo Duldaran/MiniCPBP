@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because",
+    "perplexity" : 123.7619400024414,
+    "weight" : 3.1394319208899915E-35
+  },
+  "logs" : [ {
+    "sentence" : "This is a report about a bird that eats fish and has beautiful tail color because",
+    "tokens" : [ 1552, 310, 247, 1304, 670, 247, 12621, 326, 40724, 6773, 285, 556, 5389, 8105, 3295, 984, 15 ],
+    "perplexity" : 112.79167938232422,
+    "tokens_used" : [ null, null, null, " report", " about", null, " bird", null, null, null, null, null, null, " tail", null, null ],
+    "original_sentence" : "This is a [MASK] [MASK] a [MASK] that eats fish and has beautiful [MASK] color because"
+  }, {
+    "sentence" : "This is a report about a bird that eats fish and has beautiful tail color changes",
+    "tokens" : [ 1552, 310, 247, 1304, 670, 247, 12621, 326, 40724, 6773, 285, 556, 5389, 8105, 3295, 2544, 15 ],
+    "perplexity" : 122.48279571533203,
+    "tokens_used" : [ " This", null, null, " report", " about", null, " bird", null, null, null, null, null, null, " tail", null, " changes" ],
+    "original_sentence" : "[MASK] is a report [MASK] a [MASK] that eats fish and has beautiful tail color [MASK]"
+  }, {
+    "sentence" : "This is a story about a bird that eats seeds and has beautiful tail color changes",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 12621, 326, 40724, 12922, 285, 556, 5389, 8105, 3295, 2544, 15 ],
+    "perplexity" : 119.54289245605469,
+    "tokens_used" : [ " This", null, " a", " story", " about", null, " bird", null, null, " seeds", null, null, null, " tail", null, " changes" ],
+    "original_sentence" : "This is [MASK] [MASK] about a bird that eats [MASK] and has beautiful tail color [MASK]"
+  }, {
+    "sentence" : "This is a report about a animal that eats fish and its beautiful tail color color",
+    "tokens" : [ 1552, 310, 247, 1304, 670, 247, 5893, 326, 40724, 6773, 285, 697, 5389, 8105, 3295, 3295, 15 ],
+    "perplexity" : 195.28756713867188,
+    "tokens_used" : [ " This", null, " a", " story", " about", null, " animal", null, null, " seeds", null, " its", null, " tail", null, " color" ],
+    "original_sentence" : "This is a report about a [MASK] that eats fish and [MASK] beautiful tail color [MASK]"
+  }, {
+    "sentence" : "This is a story about a bird that eats seeds and has beautiful tail color changes",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 12621, 326, 40724, 12922, 285, 556, 5389, 8105, 3295, 2544, 15 ],
+    "perplexity" : 119.54289245605469,
+    "tokens_used" : [ " This", null, " a", " story", " about", null, " animal", " that", null, " seeds", null, " its", null, " tail", null, " changes" ],
+    "original_sentence" : "This is a [MASK] about a bird [MASK] eats [MASK] and has beautiful tail color [MASK]"
+  }, {
+    "sentence" : "This is a report about a bird that eats fish and has the [MASK] color wheel ERROR",
+    "tokens" : [ 1552, 310, 247, 1304, 670, 247, 12621, 326, 40724, 6773, 285, 556, 253, 544, 18690, 62, 3295, 9530, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", null, " a", " story", " about", null, " animal", " that", null, " seeds", null, " its", " the", " tail", null, " wheel" ],
+    "original_sentence" : "This is a report about a bird that eats fish and has [MASK] [MASK] color [MASK]"
+  }, {
+    "sentence" : "This is a report about a bird that eats insects and has beautiful tail color tips",
+    "tokens" : [ 1552, 310, 247, 1304, 670, 247, 12621, 326, 40724, 22392, 285, 556, 5389, 8105, 3295, 12192, 15 ],
+    "perplexity" : 148.7114715576172,
+    "tokens_used" : [ " This", " is", " a", " story", " about", null, " animal", " that", null, " insects", null, " its", " the", " tail", null, " tips" ],
+    "original_sentence" : "This [MASK] a report about a bird that eats [MASK] and has beautiful tail color [MASK]"
+  }, {
+    "sentence" : "This is a report about a bird that eats fish that has changing tail color because",
+    "tokens" : [ 1552, 310, 247, 1304, 670, 247, 12621, 326, 40724, 6773, 326, 556, 6890, 8105, 3295, 984, 15 ],
+    "perplexity" : 138.47738647460938,
+    "tokens_used" : [ " This", " is", " a", " story", " about", null, " bird", " that", null, " insects", " that", " its", " changing", " tail", null, " tips" ],
+    "original_sentence" : "This is a report about a [MASK] that eats fish [MASK] has [MASK] tail color because"
+  }, {
+    "sentence" : "This is a story about a bird that eats fish and sports another tail color because",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 12621, 326, 40724, 6773, 285, 9001, 1529, 8105, 3295, 984, 15 ],
+    "perplexity" : 121.67115783691406,
+    "tokens_used" : [ " This", " is", " a", " story", " about", null, " bird", " that", null, " insects", " that", " sports", " another", " tail", null, " tips" ],
+    "original_sentence" : "This is a [MASK] about a bird that eats fish and [MASK] [MASK] tail color because"
+  }, {
+    "sentence" : "This is a report having a dog that eats fish and has beautiful skin color because",
+    "tokens" : [ 1552, 310, 247, 1304, 1907, 247, 4370, 326, 40724, 6773, 285, 556, 5389, 4808, 3295, 984, 15 ],
+    "perplexity" : 172.27273559570312,
+    "tokens_used" : [ " This", " is", " a", " story", " having", null, " dog", " that", null, " insects", " that", " sports", " another", " skin", null, " tips" ],
+    "original_sentence" : "This is a report [MASK] a [MASK] that eats fish and has beautiful [MASK] color because"
+  }, {
+    "sentence" : "This is a report of a bird that eats fish and has beautiful feather color because",
+    "tokens" : [ 1552, 310, 247, 1304, 273, 247, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 3295, 984, 15 ],
+    "perplexity" : 93.9853515625,
+    "tokens_used" : [ " This", " is", " a", " story", " of", " a", " dog", " that", null, " insects", " and", " sports", " another", " feather", null, " tips" ],
+    "original_sentence" : "This is a report [MASK] [MASK] bird that eats fish [MASK] has beautiful [MASK] color because"
+  }, {
+    "sentence" : "This is a type of sea bird that eats fish and has beautiful feather color because",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 3295, 984, 15 ],
+    "perplexity" : 84.58802795410156,
+    "tokens_used" : [ " This", " is", " a", " type", " of", " sea", " dog", " that", null, " insects", " and", " sports", " another", " feather", null, " tips" ],
+    "original_sentence" : "This [MASK] a [MASK] of [MASK] bird [MASK] eats fish and has beautiful feather color because"
+  }, {
+    "sentence" : "It is a type of sea bird that eats fish and has beautiful feather tipped feathers",
+    "tokens" : [ 1147, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 40414, 34099, 15 ],
+    "perplexity" : 94.74774169921875,
+    "tokens_used" : [ " It", " is", " a", " type", " of", " sea", " dog", " that", null, " insects", " and", " sports", " another", " feather", " tipped", " feathers" ],
+    "original_sentence" : "[MASK] is a [MASK] of sea bird that eats fish and has beautiful feather [MASK] [MASK]"
+  }, {
+    "sentence" : "This is a type of sea bird that eats fish and has beautiful feather color because",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 3295, 984, 15 ],
+    "perplexity" : 84.58802795410156,
+    "tokens_used" : [ " It", " is", " a", " type", " of", " sea", " dog", " that", null, " fish", " and", " sports", " another", " feather", " tipped", " feathers" ],
+    "original_sentence" : "This [MASK] a type of sea bird [MASK] eats [MASK] and has beautiful feather color because"
+  }, {
+    "sentence" : "This is a type of sea bird that eats fish and has beautiful feather among because",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 2190, 984, 15 ],
+    "perplexity" : 226.9118194580078,
+    "tokens_used" : [ " It", " is", " a", " type", " of", " sea", " dog", " that", " eats", " fish", " and", " sports", " another", " feather", " among", " feathers" ],
+    "original_sentence" : "This is a [MASK] of sea bird that [MASK] fish [MASK] has beautiful feather [MASK] because"
+  }, {
+    "sentence" : "This is a type colored sea bird that eats fish and has high feather color because",
+    "tokens" : [ 1552, 310, 247, 1511, 18010, 6150, 12621, 326, 40724, 6773, 285, 556, 1029, 22676, 3295, 984, 15 ],
+    "perplexity" : 213.5860595703125,
+    "tokens_used" : [ " It", " is", " a", " type", " colored", " sea", " dog", " that", " eats", " fish", " and", " sports", " high", " feather", " among", " feathers" ],
+    "original_sentence" : "This is a [MASK] [MASK] sea bird that [MASK] fish and has [MASK] feather color because"
+  }, {
+    "sentence" : "This is a type of sea bird that eats fish and has beautiful feather color changes",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 3295, 2544, 15 ],
+    "perplexity" : 96.58842468261719,
+    "tokens_used" : [ " It", " is", " a", " type", " colored", " sea", " dog", " that", " eats", " fish", " and", " sports", " high", " feather", " among", " changes" ],
+    "original_sentence" : "This [MASK] a type of [MASK] bird that eats fish [MASK] has beautiful feather color [MASK]"
+  }, {
+    "sentence" : "This is a type of sea bird that eats fish and has beautiful feather color because",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 22676, 3295, 984, 15 ],
+    "perplexity" : 84.58802795410156,
+    "tokens_used" : [ " It", " is", " a", " type", " colored", " sea", " bird", " that", " eats", " fish", " and", " sports", " high", " feather", " among", " changes" ],
+    "original_sentence" : "This is a [MASK] of sea [MASK] that eats fish [MASK] has beautiful feather color because"
+  }, {
+    "sentence" : "This is a type of sea bird that eats fish and has beautiful head color [MASK] ERROR",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 40724, 6773, 285, 556, 5389, 1481, 3295, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", " a", " type", " colored", " sea", " bird", " that", " eats", " fish", " and", " sports", " high", " head", " among", " changes" ],
+    "original_sentence" : "This [MASK] a type of [MASK] bird that eats fish and has beautiful [MASK] color [MASK]"
+  }, {
+    "sentence" : "This is a type of sea bird that caught fish and has beautiful feather color wings",
+    "tokens" : [ 1552, 310, 247, 1511, 273, 6150, 12621, 326, 7270, 6773, 285, 556, 5389, 22676, 3295, 15926, 15 ],
+    "perplexity" : 178.8937225341797,
+    "tokens_used" : [ " It", " is", " a", " type", " of", " sea", " bird", " that", " caught", " fish", " and", " sports", " high", " head", " among", " wings" ],
+    "original_sentence" : "This is a type [MASK] sea bird that [MASK] fish and has beautiful feather color [MASK]"
+  } ],
+  "date" : "2025-09-30T11:38:57.504478900",
+  "time" : 41.176
+}

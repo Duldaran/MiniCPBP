@@ -1,0 +1,131 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "An important message from the boss for all the team members was an important note",
+  "logs" : [ {
+    "sentence" : "An end message from the team for all the team members was another important note.",
+    "tokens" : [ 1145, 990, 3935, 432, 253, 2285, 323, 512, 253, 2285, 2758, 369, 1529, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " end", null, null, null, " team", null, null, " the", null, null, null, " another", null, null ],
+    "original_sentence" : "An <mask> message from the <mask> for all <mask> team members was <mask> important note"
+  }, {
+    "sentence" : "The end message from the team for all my team members was another important note.",
+    "tokens" : [ 510, 990, 3935, 432, 253, 2285, 323, 512, 619, 2285, 2758, 369, 1529, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " the", " end", null, null, " the", " team", null, null, " my", null, null, null, " another", null, null ],
+    "original_sentence" : "<mask> end message from <mask> team for all <mask> team members was another important note"
+  }, {
+    "sentence" : "An important note from the boss for all the team members was very important note.",
+    "tokens" : [ 1145, 1774, 3877, 432, 253, 12145, 323, 512, 253, 2285, 2758, 369, 1077, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " the", " end", " note", null, " the", " team", null, null, " the", null, null, null, " very", null, null ],
+    "original_sentence" : "An important <mask> from <mask> boss for all <mask> team members was <mask> important note"
+  }, {
+    "sentence" : "Very important note from the team for all the team members A very important note.",
+    "tokens" : [ 17534, 1774, 3877, 432, 253, 2285, 323, 512, 253, 2285, 2758, 329, 1077, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " very", " end", " note", null, " the", " team", null, null, " the", null, null, " A", " very", null, null ],
+    "original_sentence" : "<mask> important <mask> from the <mask> for all the team members <mask> very important note"
+  }, {
+    "sentence" : "An open message from the team to all the team members was another important note.",
+    "tokens" : [ 1145, 1527, 3935, 432, 253, 2285, 281, 512, 253, 2285, 2758, 369, 1529, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " very", " open", " note", null, " the", " team", " to", null, " the", null, null, " A", " very", null, null ],
+    "original_sentence" : "An <mask> message from the <mask> <mask> all the team members was another important note"
+  }, {
+    "sentence" : "An important message in the meeting for all the team members was an opening note.",
+    "tokens" : [ 1145, 1774, 3935, 275, 253, 4804, 323, 512, 253, 2285, 2758, 369, 271, 5909, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " very", " open", " note", " in", " the", " meeting", " to", null, " the", null, " members", " A", " very", " opening", null ],
+    "original_sentence" : "An important message <mask> the <mask> for all the team <mask> was an <mask> note"
+  }, {
+    "sentence" : "An important message from the boss for all the working men was an important note.",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2444, 1821, 369, 271, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " very", " open", " note", " in", " the", " meeting", " to", null, " the", " working", " men", " A", " very", " important", null ],
+    "original_sentence" : "An important message from <mask> boss for all the <mask> <mask> was an <mask> note"
+  }, {
+    "sentence" : "The important message from the boss for all the working men on an important note.",
+    "tokens" : [ 510, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2444, 1821, 327, 271, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " the", " open", " note", " in", " the", " meeting", " to", " all", " the", " working", " men", " on", " very", " important", null ],
+    "original_sentence" : "<mask> important message from the boss for <mask> the working men <mask> an important note"
+  }, {
+    "sentence" : "Most important message in the meeting for all <mask> team members was an opening note ERROR",
+    "tokens" : [ 10342, 1774, 3935, 275, 253, 4804, 323, 512, 654, 12477, 31, 2285, 2758, 369, 271, 5909, 3877, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " most", " open", " note", " in", " the", " meeting", " to", " all", " the", " working", " members", " on", " very", " important", null ],
+    "original_sentence" : "<mask> important message in the meeting for all <mask> team <mask> was an opening note"
+  }, {
+    "sentence" : "The important message of the day for all honest working men on an important note.",
+    "tokens" : [ 510, 1774, 3935, 273, 253, 1388, 323, 512, 8274, 2444, 1821, 327, 271, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " most", " open", " note", " of", " the", " day", " to", " all", " honest", " working", " members", " on", " very", " important", null ],
+    "original_sentence" : "The important message <mask> the <mask> for all <mask> working men on an important note"
+  }, {
+    "sentence" : "An important message from the boss for all the working crew was an important one.",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2444, 10402, 369, 271, 1774, 581, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " most", " open", " message", " of", " the", " day", " to", " all", " honest", " working", " crew", " on", " very", " important", " one" ],
+    "original_sentence" : "An important <mask> from the boss for all the working <mask> was an important <mask>"
+  }, {
+    "sentence" : "An end message from the team for all the team members was an important statement.",
+    "tokens" : [ 1145, 990, 3935, 432, 253, 2285, 323, 512, 253, 2285, 2758, 369, 271, 1774, 3908, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " most", " open", " message", " of", " the", " day", " to", " all", " the", " working", " crew", " on", " an", " important", " statement" ],
+    "original_sentence" : "An end message from the team for <mask> <mask> team members was <mask> important <mask>"
+  }, {
+    "sentence" : "An important question from the boss to all the working crew was an important one.",
+    "tokens" : [ 1145, 1774, 1953, 432, 253, 12145, 281, 512, 253, 2444, 10402, 369, 271, 1774, 581, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " most", " open", " question", " of", " the", " day", " to", " all", " the", " working", " crew", " on", " an", " important", " one" ],
+    "original_sentence" : "An important <mask> from the boss <mask> all the working crew was an important <mask>"
+  }, {
+    "sentence" : "An important question from the boss to all the working crew and an important one.",
+    "tokens" : [ 1145, 1774, 1953, 432, 253, 12145, 281, 512, 253, 2444, 10402, 285, 271, 1774, 581, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " an", " open", " question", " of", " the", " day", " to", " all", " the", " working", " crew", " and", " an", " important", " one" ],
+    "original_sentence" : "<mask> important question from <mask> boss to all the working crew <mask> an important one"
+  }, {
+    "sentence" : "An open message to the team and all the team members with another important note.",
+    "tokens" : [ 1145, 1527, 3935, 281, 253, 2285, 285, 512, 253, 2285, 2758, 342, 1529, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " an", " open", " question", " to", " the", " day", " and", " all", " the", " working", " crew", " with", " an", " important", " one" ],
+    "original_sentence" : "<mask> open message <mask> the team <mask> all the team members <mask> another important note"
+  }, {
+    "sentence" : "An end note from the meeting for all the team members and another important note.",
+    "tokens" : [ 1145, 990, 3877, 432, 253, 4804, 323, 512, 253, 2285, 2758, 285, 1529, 1774, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " an", " open", " note", " to", " the", " meeting", " and", " all", " the", " working", " crew", " and", " an", " important", " one" ],
+    "original_sentence" : "An end <mask> from <mask> <mask> for all the team members <mask> another important note"
+  }, {
+    "sentence" : "An open message from the player for all the team members was an important moment.",
+    "tokens" : [ 1145, 1527, 3935, 432, 253, 4760, 323, 512, 253, 2285, 2758, 369, 271, 1774, 2774, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " an", " open", " note", " to", " the", " player", " and", " all", " the", " working", " members", " and", " an", " important", " moment" ],
+    "original_sentence" : "An <mask> message from the <mask> for all the team <mask> was an important <mask>"
+  }, {
+    "sentence" : "First the question from the boss to all members working crew is an important one.",
+    "tokens" : [ 6407, 253, 1953, 432, 253, 12145, 281, 512, 2758, 2444, 10402, 310, 271, 1774, 581, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " first", " the", " note", " to", " the", " player", " and", " all", " members", " working", " members", " is", " an", " important", " moment" ],
+    "original_sentence" : "<mask> <mask> question from the boss to all <mask> working crew <mask> an important one"
+  }, {
+    "sentence" : "An important bit of the meeting for all the audience members was an opening note.",
+    "tokens" : [ 1145, 1774, 2372, 273, 253, 4804, 323, 512, 253, 8446, 2758, 369, 271, 5909, 3877, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " first", " important", " bit", " of", " the", " player", " and", " all", " members", " audience", " members", " is", " an", " important", " moment" ],
+    "original_sentence" : "An <mask> <mask> <mask> the meeting for all the <mask> members was an opening note"
+  }, {
+    "sentence" : "An open message from the team for all the team members for an important question.",
+    "tokens" : [ 1145, 1527, 3935, 432, 253, 2285, 323, 512, 253, 2285, 2758, 323, 271, 1774, 1953, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " first", " important", " bit", " of", " the", " team", " and", " all", " members", " audience", " members", " for", " an", " important", " question" ],
+    "original_sentence" : "An open message from the <mask> for all the team <mask> <mask> an important <mask>"
+  } ],
+  "date" : "2025-09-16T18:56:31.864187900"
+}

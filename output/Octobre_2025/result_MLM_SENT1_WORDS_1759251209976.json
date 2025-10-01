@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "A sentence about a dog named Rocky that loves to play in the park during vacation",
+    "perplexity" : 156.21685791015625,
+    "weight" : 7.846689163632133E-38
+  },
+  "logs" : [ {
+    "sentence" : "A sentence about a dog [MASK] Rocky that loves to play in the park about a ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 544, 18690, 62, 37669, 326, 14528, 281, 1132, 275, 253, 5603, 670, 247, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, " to", null, null, null, null, " about", " a" ],
+    "original_sentence" : "A sentence about a dog [MASK] Rocky that loves [MASK] play in the park [MASK] [MASK]"
+  }, {
+    "sentence" : "A sentence about an dog named Rocky that loves to play in the sun during vacation",
+    "tokens" : [ 34, 6197, 670, 271, 4370, 4907, 37669, 326, 14528, 281, 1132, 275, 253, 5101, 1309, 18125, 15 ],
+    "perplexity" : 286.52545166015625,
+    "tokens_used" : [ null, null, null, " an", " dog", null, null, null, null, " to", null, null, null, " sun", " about", " a" ],
+    "original_sentence" : "A sentence about [MASK] [MASK] named Rocky that loves to play in the [MASK] during vacation"
+  }, {
+    "sentence" : "A sentence about a boy named Rocky that loves to play in the park during vacation",
+    "tokens" : [ 34, 6197, 670, 247, 5006, 4907, 37669, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 190.50848388671875,
+    "tokens_used" : [ null, null, null, " an", " boy", null, null, " that", null, " to", null, null, " the", " sun", " about", " a" ],
+    "original_sentence" : "A sentence about a [MASK] named Rocky [MASK] loves to play in [MASK] park during vacation"
+  }, {
+    "sentence" : "This book about a dog named Rocky that loves to swim in the ocean during vacation",
+    "tokens" : [ 1552, 1984, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 10831, 275, 253, 12927, 1309, 18125, 15 ],
+    "perplexity" : 114.78427124023438,
+    "tokens_used" : [ " This", " book", null, " an", " boy", null, null, " that", null, " to", " swim", null, " the", " ocean", " about", " a" ],
+    "original_sentence" : "[MASK] [MASK] about a dog named Rocky that loves to [MASK] in the [MASK] during vacation"
+  }, {
+    "sentence" : "This book about a dog named Rocky that loves to swim in the ocean during vacation",
+    "tokens" : [ 1552, 1984, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 10831, 275, 253, 12927, 1309, 18125, 15 ],
+    "perplexity" : 114.78427124023438,
+    "tokens_used" : [ " This", " book", null, " an", " boy", null, null, " that", null, " to", " swim", " in", " the", " ocean", " about", " a" ],
+    "original_sentence" : "This book about a dog named Rocky that loves [MASK] [MASK] [MASK] the ocean during vacation"
+  }, {
+    "sentence" : "This book about a dog named [MASK] that likes to swim in the ocean during vacation ERROR",
+    "tokens" : [ 1552, 1984, 670, 247, 4370, 4907, 544, 18690, 62, 326, 13052, 281, 10831, 275, 253, 12927, 1309, 18125, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " book", null, " a", " boy", " named", null, " that", " likes", " to", " swim", " in", " the", " ocean", " about", " a" ],
+    "original_sentence" : "This book about [MASK] dog [MASK] [MASK] that [MASK] to swim in the ocean during vacation"
+  }, {
+    "sentence" : "A book about a dog named Rocky brother loves to swim in the ocean during vacation",
+    "tokens" : [ 34, 1984, 670, 247, 4370, 4907, 37669, 4929, 14528, 281, 10831, 275, 253, 12927, 1309, 18125, 15 ],
+    "perplexity" : 203.48025512695312,
+    "tokens_used" : [ " a", " book", null, " a", " boy", " named", null, " brother", " likes", " to", " swim", " in", " the", " ocean", " about", " a" ],
+    "original_sentence" : "[MASK] book about a dog named Rocky [MASK] loves to swim [MASK] the [MASK] during vacation"
+  }, {
+    "sentence" : "This is about a dog named Rocky that loves to swim in Pacific ocean during summer",
+    "tokens" : [ 1552, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 10831, 275, 11553, 12927, 1309, 5768, 15 ],
+    "perplexity" : 113.55831909179688,
+    "tokens_used" : [ " a", " is", null, " a", " boy", " named", null, " brother", " likes", " to", " swim", " in", " Pacific", " ocean", " about", " summer" ],
+    "original_sentence" : "This [MASK] about a dog named Rocky that loves to [MASK] in [MASK] ocean during [MASK]"
+  }, {
+    "sentence" : "This is about a dog named Rocky that loves to swim in Pacific ocean during summer",
+    "tokens" : [ 1552, 310, 670, 247, 4370, 4907, 37669, 326, 14528, 281, 10831, 275, 11553, 12927, 1309, 5768, 15 ],
+    "perplexity" : 113.55831909179688,
+    "tokens_used" : [ " a", " is", " about", " a", " dog", " named", null, " that", " likes", " to", " swim", " in", " Pacific", " ocean", " during", " summer" ],
+    "original_sentence" : "This is [MASK] a [MASK] named Rocky [MASK] loves to swim in Pacific ocean [MASK] summer"
+  }, {
+    "sentence" : "This book describes a dog named Rocky that loves to swim in the ocean on vacation",
+    "tokens" : [ 1552, 1984, 8631, 247, 4370, 4907, 37669, 326, 14528, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 93.13668060302734,
+    "tokens_used" : [ " a", " is", " describes", " a", " dog", " named", null, " that", " likes", " to", " swim", " in", " Pacific", " ocean", " on", " summer" ],
+    "original_sentence" : "This book [MASK] [MASK] dog named Rocky that loves to swim in the ocean [MASK] vacation"
+  }, {
+    "sentence" : "This story describes a dog and fish that loves to swim in the ocean on adventures",
+    "tokens" : [ 1552, 2926, 8631, 247, 4370, 285, 6773, 326, 14528, 281, 10831, 275, 253, 12927, 327, 27420, 15 ],
+    "perplexity" : 141.04937744140625,
+    "tokens_used" : [ " a", " story", " describes", " a", " dog", " and", " fish", " that", " likes", " to", " swim", " in", " Pacific", " ocean", " on", " adventures" ],
+    "original_sentence" : "This [MASK] describes a dog [MASK] [MASK] that loves to swim in the ocean on [MASK]"
+  }, {
+    "sentence" : "This post describes a dog named Rocky that likes to swim in the ocean on vacation",
+    "tokens" : [ 1552, 1501, 8631, 247, 4370, 4907, 37669, 326, 13052, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 92.03760528564453,
+    "tokens_used" : [ " a", " post", " describes", " a", " dog", " and", " fish", " that", " likes", " to", " swim", " in", " Pacific", " ocean", " on", " vacation" ],
+    "original_sentence" : "This [MASK] describes a dog named Rocky that [MASK] to swim in the ocean on [MASK]"
+  }, {
+    "sentence" : "This sentence describes a dog named Will that likes to swim in the ocean on water",
+    "tokens" : [ 1552, 6197, 8631, 247, 4370, 4907, 7395, 326, 13052, 281, 10831, 275, 253, 12927, 327, 1824, 15 ],
+    "perplexity" : 92.8782958984375,
+    "tokens_used" : [ " a", " sentence", " describes", " a", " dog", " and", " Will", " that", " likes", " to", " swim", " in", " Pacific", " ocean", " on", " water" ],
+    "original_sentence" : "This [MASK] describes a dog named [MASK] that likes to swim in the [MASK] on [MASK]"
+  }, {
+    "sentence" : "This sentence describes a fish named fish that likes to swim in the ocean on land",
+    "tokens" : [ 1552, 6197, 8631, 247, 6773, 4907, 6773, 326, 13052, 281, 10831, 275, 253, 12927, 327, 2659, 15 ],
+    "perplexity" : 97.82465362548828,
+    "tokens_used" : [ " a", " sentence", " describes", " a", " fish", " and", " fish", " that", " likes", " to", " swim", " in", " Pacific", " ocean", " on", " land" ],
+    "original_sentence" : "This [MASK] describes a [MASK] named [MASK] that likes to swim in the ocean on [MASK]"
+  }, {
+    "sentence" : "This sentence describes a dog named Will that likes that swim in the run on water",
+    "tokens" : [ 1552, 6197, 8631, 247, 4370, 4907, 7395, 326, 13052, 326, 10831, 275, 253, 1408, 327, 1824, 15 ],
+    "perplexity" : 290.02044677734375,
+    "tokens_used" : [ " a", " sentence", " describes", " a", " fish", " and", " fish", " that", " likes", " that", " swim", " in", " the", " run", " on", " land" ],
+    "original_sentence" : "This sentence describes a dog named Will [MASK] likes [MASK] swim in [MASK] [MASK] on water"
+  }, {
+    "sentence" : "This story pictures a dog named Rocky that loves to swim in the ocean on vacation",
+    "tokens" : [ 1552, 2926, 7968, 247, 4370, 4907, 37669, 326, 14528, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 142.2294158935547,
+    "tokens_used" : [ " a", " story", " pictures", " a", " fish", " and", " fish", " that", " likes", " to", " swim", " in", " the", " run", " on", " land" ],
+    "original_sentence" : "This [MASK] [MASK] a dog named Rocky that loves [MASK] [MASK] in the ocean on vacation"
+  }, {
+    "sentence" : "This story describes a dog named Bill that likes to swim in the ocean on vacation",
+    "tokens" : [ 1552, 2926, 8631, 247, 4370, 4907, 7641, 326, 13052, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 88.70809173583984,
+    "tokens_used" : [ " a", " story", " pictures", " a", " fish", " and", " Bill", " that", " likes", " to", " swim", " in", " the", " run", " on", " land" ],
+    "original_sentence" : "This [MASK] describes [MASK] dog named [MASK] that likes to swim in the ocean on vacation"
+  }, {
+    "sentence" : "This story about their dog named Bill that likes to swim in the ocean on vacation",
+    "tokens" : [ 1552, 2926, 670, 616, 4370, 4907, 7641, 326, 13052, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 185.24685668945312,
+    "tokens_used" : [ " a", " story", " about", " their", " fish", " and", " Bill", " that", " likes", " to", " swim", " in", " the", " run", " on", " land" ],
+    "original_sentence" : "This story [MASK] [MASK] dog named Bill that likes [MASK] swim in the ocean on vacation"
+  }, {
+    "sentence" : "This story describes a boy named Bill that likes to swim in the ocean on vacation",
+    "tokens" : [ 1552, 2926, 8631, 247, 5006, 4907, 7641, 326, 13052, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 88.22074890136719,
+    "tokens_used" : [ " This", " story", " about", " their", " boy", " and", " Bill", " that", " likes", " to", " swim", " in", " the", " ocean", " on", " land" ],
+    "original_sentence" : "[MASK] story describes a [MASK] named Bill that likes to swim in the [MASK] on vacation"
+  }, {
+    "sentence" : "This story describes a boy named Bill that likes to swim in the ocean on vacation",
+    "tokens" : [ 1552, 2926, 8631, 247, 5006, 4907, 7641, 326, 13052, 281, 10831, 275, 253, 12927, 327, 18125, 15 ],
+    "perplexity" : 88.22074890136719,
+    "tokens_used" : [ " This", " story", " about", " their", " boy", " named", " Bill", " that", " likes", " to", " swim", " in", " the", " ocean", " on", " vacation" ],
+    "original_sentence" : "This [MASK] describes a boy [MASK] Bill that likes to swim in the ocean on [MASK]"
+  } ],
+  "date" : "2025-09-30T12:53:29.974769700",
+  "time" : 37.478
+}

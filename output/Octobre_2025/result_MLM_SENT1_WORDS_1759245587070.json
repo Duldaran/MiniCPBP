@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "A sentence about a dog named Rocky that loves to play in the park during vacation",
+    "perplexity" : 156.21685791015625,
+    "weight" : 1.4086347785065896E-94
+  },
+  "logs" : [ {
+    "sentence" : "A sentence about a dog or creature that loves to play in the park during vacation.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 390, 15906, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " or", " creature", null, null, null, " play", null, null, null, null, null ],
+    "original_sentence" : "A sentence about a dog [MASK] [MASK] that loves to [MASK] in the park during vacation"
+  }, {
+    "sentence" : "A sentence about a dog or creature that loves to play in the park during daylight.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 390, 15906, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 31335, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " or", " creature", " that", null, null, " play", " in", null, null, null, " daylight" ],
+    "original_sentence" : "A sentence about a dog or creature [MASK] loves to play [MASK] the park during [MASK]"
+  }, {
+    "sentence" : "A sentence about a dog or cat that loves to play in the park during [MASK] ERROR",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 390, 5798, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " or", " cat", " that", null, null, " play", " in", null, null, null, " daylight" ],
+    "original_sentence" : "A sentence about a dog or [MASK] that loves to play [MASK] the park during [MASK]"
+  }, {
+    "sentence" : "A sentence about a dog or creature that loves to play in the park during daylight.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 390, 15906, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 31335, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " about", null, null, " or", " cat", " that", null, null, " play", " in", null, null, null, " daylight" ],
+    "original_sentence" : "A sentence [MASK] a dog or creature [MASK] loves to play [MASK] the park during daylight"
+  }, {
+    "sentence" : "A sentence about a dog or creature that loves to play in a park enjoying daylight.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 390, 15906, 326, 14528, 281, 1132, 275, 247, 5603, 18262, 31335, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " about", null, null, " or", " cat", " that", null, null, " play", " in", " a", null, " enjoying", " daylight" ],
+    "original_sentence" : "A sentence about a dog or creature [MASK] loves to play in [MASK] park [MASK] daylight"
+  }, {
+    "sentence" : "A collection about a dog or creature that likes to play in the park during summer.",
+    "tokens" : [ 34, 4849, 670, 247, 4370, 390, 15906, 326, 13052, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " collection", " about", null, null, " or", " cat", " that", " likes", " to", " play", " in", " a", null, " enjoying", " summer" ],
+    "original_sentence" : "A [MASK] about a dog or creature that [MASK] [MASK] play in the park during [MASK]"
+  }, {
+    "sentence" : "A story about a friendly sea creature that likes to play in the sun during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 13052, 281, 1132, 275, 253, 5101, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", " about", null, " friendly", " sea", " cat", " that", " likes", " to", " play", " in", " a", " sun", " enjoying", " summer" ],
+    "original_sentence" : "A [MASK] about a [MASK] [MASK] creature that likes to play in the [MASK] during summer"
+  }, {
+    "sentence" : "Short story about a friendly sea creature that likes to play in the sun in summer.",
+    "tokens" : [ 17624, 2926, 670, 247, 11453, 6150, 15906, 326, 13052, 281, 1132, 275, 253, 5101, 275, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " story", " about", null, " friendly", " sea", " cat", " that", " likes", " to", " play", " in", " a", " sun", " in", " summer" ],
+    "original_sentence" : "[MASK] story about a friendly sea creature that [MASK] to play in the sun [MASK] summer"
+  }, {
+    "sentence" : "A film about a friendly wild creature that likes to play in the sun during summer.",
+    "tokens" : [ 34, 3085, 670, 247, 11453, 4956, 15906, 326, 13052, 281, 1132, 275, 253, 5101, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " film", " about", null, " friendly", " wild", " cat", " that", " likes", " to", " play", " in", " a", " sun", " in", " summer" ],
+    "original_sentence" : "A [MASK] about a friendly [MASK] creature that likes [MASK] play in the sun during summer"
+  }, {
+    "sentence" : "A story about a friendly sea creature that likes to swim in the sun during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 13052, 281, 10831, 275, 253, 5101, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " film", " about", null, " friendly", " wild", " cat", " that", " likes", " to", " swim", " in", " a", " sun", " in", " summer" ],
+    "original_sentence" : "A story about a friendly sea creature that [MASK] [MASK] [MASK] in the sun during [MASK]"
+  }, {
+    "sentence" : "A story about a friendly sea creature that learns to swim in the ocean during day.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 33772, 281, 10831, 275, 253, 12927, 1309, 1388, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " film", " about", null, " friendly", " wild", " cat", " that", " learns", " to", " swim", " in", " a", " ocean", " in", " day" ],
+    "original_sentence" : "A story about a friendly sea creature that [MASK] to swim in the [MASK] during [MASK]"
+  }, {
+    "sentence" : "A story about a friendly sea creature that likes to swim in the sea during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 13052, 281, 10831, 275, 253, 6150, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " story", " about", " a", " friendly", " sea", " cat", " that", " learns", " to", " swim", " in", " a", " sea", " in", " day" ],
+    "original_sentence" : "A [MASK] about [MASK] friendly [MASK] creature that likes to swim in the [MASK] during summer"
+  }, {
+    "sentence" : "A story about a friendly sea turtle that likes to swim in fresh sea during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 45993, 326, 13052, 281, 10831, 275, 5352, 6150, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " story", " about", " a", " friendly", " sea", " turtle", " that", " likes", " to", " swim", " in", " fresh", " sea", " in", " day" ],
+    "original_sentence" : "A story about a friendly sea [MASK] that [MASK] [MASK] swim in [MASK] sea during summer"
+  }, {
+    "sentence" : "A report about a small sea creature that likes to swim in the ocean during summer.",
+    "tokens" : [ 34, 1304, 670, 247, 1355, 6150, 15906, 326, 13052, 281, 10831, 275, 253, 12927, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " report", " about", " a", " small", " sea", " turtle", " that", " likes", " to", " swim", " in", " fresh", " ocean", " in", " day" ],
+    "original_sentence" : "A [MASK] about a [MASK] sea creature that likes to swim [MASK] the [MASK] during summer"
+  }, {
+    "sentence" : "A story about a friendly sea creature that likes to live in the sea during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 13052, 281, 3153, 275, 253, 6150, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " short", " report", " about", " a", " small", " sea", " turtle", " that", " likes", " to", " live", " in", " the", " ocean", " in", " day" ],
+    "original_sentence" : "A story about a friendly [MASK] creature that [MASK] to [MASK] in [MASK] sea during summer"
+  }, {
+    "sentence" : "A story about a friendly sea creature that learns to swim in the sea every summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 33772, 281, 10831, 275, 253, 6150, 1046, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " A", " report", " about", " a", " small", " sea", " turtle", " that", " learns", " to", " live", " in", " the", " ocean", " every", " day" ],
+    "original_sentence" : "[MASK] story about a friendly sea creature that [MASK] to swim [MASK] the sea [MASK] summer"
+  }, {
+    "sentence" : "It is about a friendly sea creature that likes that swim in the sea during summer.",
+    "tokens" : [ 1147, 310, 670, 247, 11453, 6150, 15906, 326, 13052, 326, 10831, 275, 253, 6150, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", " about", " a", " small", " sea", " turtle", " that", " learns", " that", " live", " in", " the", " ocean", " every", " day" ],
+    "original_sentence" : "[MASK] [MASK] about a friendly sea creature that likes [MASK] swim in the sea during summer"
+  }, {
+    "sentence" : "A story about a star shaped creature witch likes to swim in the sea during storms.",
+    "tokens" : [ 34, 2926, 670, 247, 4177, 16745, 15906, 25204, 13052, 281, 10831, 275, 253, 6150, 1309, 33387, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", " about", " a", " star", " shaped", " turtle", " witch", " learns", " that", " live", " in", " the", " ocean", " every", " storms" ],
+    "original_sentence" : "A story about a [MASK] [MASK] creature [MASK] likes to swim in the sea during [MASK]"
+  }, {
+    "sentence" : "A story about a friendly sea lion that likes to swim in the Pacific during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 27405, 326, 13052, 281, 10831, 275, 253, 11553, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " is", " about", " a", " star", " shaped", " lion", " witch", " learns", " that", " live", " in", " the", " Pacific", " every", " storms" ],
+    "original_sentence" : "A story [MASK] [MASK] friendly sea [MASK] that likes to swim in the [MASK] during summer"
+  }, {
+    "sentence" : "A story about a friendly sea creature that likes to swim in the sea during summer.",
+    "tokens" : [ 34, 2926, 670, 247, 11453, 6150, 15906, 326, 13052, 281, 10831, 275, 253, 6150, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " It", " story", " about", " a", " star", " shaped", " lion", " witch", " learns", " to", " live", " in", " the", " Pacific", " every", " storms" ],
+    "original_sentence" : "A [MASK] about [MASK] friendly sea creature that likes [MASK] swim [MASK] the sea during summer"
+  } ],
+  "date" : "2025-09-30T11:19:47.068381200",
+  "time" : 51.341
+}

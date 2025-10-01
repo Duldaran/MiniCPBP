@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because",
+    "perplexity" : 123.7619400024414,
+    "weight" : 3.2425504260130607E-28
+  },
+  "logs" : [ {
+    "sentence" : "This is a sentence about a cat [MASK] eats fish and has the fur color brown ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 544, 18690, 62, 40724, 6773, 285, 556, 253, 11829, 3295, 8516, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, " has", " the", null, null, " brown" ],
+    "original_sentence" : "This is a sentence about a cat [MASK] eats fish and [MASK] [MASK] fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fur and has beautiful hair color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 11829, 285, 556, 5389, 4707, 3295, 984, 15 ],
+    "perplexity" : 128.9075164794922,
+    "tokens_used" : [ null, null, " a", null, null, null, null, null, null, " fur", null, " has", " the", " hair", null, " brown" ],
+    "original_sentence" : "This is [MASK] sentence about a cat that eats [MASK] and has beautiful [MASK] color because"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has beautiful fur color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 117.13823699951172,
+    "tokens_used" : [ null, null, " a", null, null, null, " dog", " that", null, " meat", null, " has", " the", " hair", null, " brown" ],
+    "original_sentence" : "This is a sentence about a [MASK] [MASK] eats [MASK] and has beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about a dog that eat meat and has beautiful hair color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 6008, 9132, 285, 556, 5389, 4707, 3295, 984, 15 ],
+    "perplexity" : 156.801513671875,
+    "tokens_used" : [ null, " is", " a", null, null, null, " dog", " that", " eat", " meat", null, " has", " the", " hair", null, " brown" ],
+    "original_sentence" : "This [MASK] a sentence about a dog that [MASK] meat and has beautiful [MASK] color because"
+  }, {
+    "sentence" : "This is a sentence recognizing a dog that eats meat and has the skin color yellow",
+    "tokens" : [ 1552, 310, 247, 6197, 26182, 247, 4370, 326, 40724, 9132, 285, 556, 253, 4808, 3295, 8862, 15 ],
+    "perplexity" : 140.70001220703125,
+    "tokens_used" : [ null, " is", " a", null, " recognizing", null, " dog", " that", " eat", " meat", null, " has", " the", " skin", null, " yellow" ],
+    "original_sentence" : "This is a sentence [MASK] a dog that eats meat and has [MASK] [MASK] color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has beautiful fur color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 117.13823699951172,
+    "tokens_used" : [ " This", " is", " a", null, " recognizing", " a", " dog", " that", " eat", " meat", null, " has", " the", " skin", null, " yellow" ],
+    "original_sentence" : "[MASK] is a sentence about [MASK] dog that eats [MASK] and has beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has different fur color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 99.9979476928711,
+    "tokens_used" : [ " This", " is", " a", null, " recognizing", " a", " dog", " that", " eat", " meat", null, " has", " different", " skin", null, " yellow" ],
+    "original_sentence" : "[MASK] is a sentence about a [MASK] that eats meat and [MASK] [MASK] fur color because"
+  }, {
+    "sentence" : "This is a collection about a dog that eats meat and has different fur color types",
+    "tokens" : [ 1552, 310, 247, 4849, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 3510, 15 ],
+    "perplexity" : 120.18193817138672,
+    "tokens_used" : [ " This", " is", " a", " collection", " recognizing", " a", " dog", " that", " eat", " meat", null, " has", " different", " skin", null, " types" ],
+    "original_sentence" : "This is a [MASK] about a dog [MASK] eats meat and has different fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has different fur color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 99.9979476928711,
+    "tokens_used" : [ " This", " is", " a", " collection", " recognizing", " a", " dog", " that", " eats", " meat", null, " has", " different", " skin", null, " types" ],
+    "original_sentence" : "This is a sentence about a [MASK] that [MASK] meat and [MASK] different fur color because"
+  }, {
+    "sentence" : "This is the sentence about a dog that eats meat and has different a color because",
+    "tokens" : [ 1552, 310, 253, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 247, 3295, 984, 15 ],
+    "perplexity" : 199.98284912109375,
+    "tokens_used" : [ " This", " is", " the", " collection", " recognizing", " a", " dog", " that", " eats", " meat", null, " has", " different", " a", null, " types" ],
+    "original_sentence" : "This is [MASK] sentence about [MASK] dog that eats meat and has different [MASK] color because"
+  }, {
+    "sentence" : "This is a sentence about a bird that likes meat and has different fur and because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 12621, 326, 13052, 9132, 285, 556, 1027, 11829, 285, 984, 15 ],
+    "perplexity" : 177.11940002441406,
+    "tokens_used" : [ " This", " is", " a", " collection", " recognizing", " a", " bird", " that", " likes", " meat", null, " has", " different", " a", " and", " types" ],
+    "original_sentence" : "This is [MASK] sentence about a [MASK] that [MASK] meat and has different fur [MASK] because"
+  }, {
+    "sentence" : "Tell us a sentence about a dog that eats meat and has different fur color because",
+    "tokens" : [ 17570, 441, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 128.84481811523438,
+    "tokens_used" : [ " tell", " us", " a", " collection", " recognizing", " a", " bird", " that", " likes", " meat", null, " has", " different", " a", " color", " types" ],
+    "original_sentence" : "[MASK] [MASK] a sentence about a dog that eats [MASK] and has different fur [MASK] because"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has different fur color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 99.9979476928711,
+    "tokens_used" : [ " This", " us", " a", " collection", " about", " a", " bird", " that", " likes", " meat", null, " has", " different", " a", " color", " types" ],
+    "original_sentence" : "[MASK] is a sentence [MASK] a dog [MASK] eats meat and has [MASK] fur color because"
+  }, {
+    "sentence" : "This is a picture having a dog that eats meat and has different fur color because",
+    "tokens" : [ 1552, 310, 247, 5406, 1907, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 115.2094497680664,
+    "tokens_used" : [ " This", " us", " a", " picture", " having", " a", " bird", " that", " likes", " meat", null, " has", " different", " a", " color", " types" ],
+    "original_sentence" : "This is a [MASK] [MASK] a dog [MASK] eats meat and has different fur color because"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat while has different fur color types",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 1223, 556, 1027, 11829, 3295, 3510, 15 ],
+    "perplexity" : 233.61463928222656,
+    "tokens_used" : [ " This", " us", " a", " picture", " having", " a", " bird", " that", " likes", " meat", " while", " has", " different", " a", " color", " types" ],
+    "original_sentence" : "[MASK] is a sentence about a dog that eats meat [MASK] has different fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has different fur color because",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 99.9979476928711,
+    "tokens_used" : [ " This", " us", " a", " picture", " about", " a", " bird", " that", " likes", " meat", " while", " has", " different", " a", " color", " types" ],
+    "original_sentence" : "This is [MASK] sentence [MASK] a dog that eats meat and [MASK] different fur color because"
+  }, {
+    "sentence" : "This is a sentence about a [MASK] that eats meat and has the fur color red ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 544, 18690, 62, 326, 40724, 9132, 285, 556, 253, 11829, 3295, 2502, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " us", " a", " picture", " about", " a", " bird", " that", " eats", " meat", " while", " has", " the", " a", " color", " red" ],
+    "original_sentence" : "This is a sentence about a [MASK] that [MASK] meat and has [MASK] fur color [MASK]"
+  }, {
+    "sentence" : "This is a sentence about a dog that eats meat and has [MASK] fur color black ERROR",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 4370, 326, 40724, 9132, 285, 556, 544, 18690, 62, 11829, 3295, 2806, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " us", " a", " picture", " about", " a", " bird", " that", " eats", " meat", " and", " has", " the", " a", " color", " black" ],
+    "original_sentence" : "This is a sentence [MASK] a dog that eats meat [MASK] has [MASK] fur color [MASK]"
+  }, {
+    "sentence" : "This is a story about a dog that collects meat with a different fur color because",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 4370, 326, 41084, 9132, 342, 247, 1027, 11829, 3295, 984, 15 ],
+    "perplexity" : 73.1251220703125,
+    "tokens_used" : [ " This", " us", " a", " story", " about", " a", " bird", " that", " collects", " meat", " with", " a", " the", " a", " color", " black" ],
+    "original_sentence" : "This is a [MASK] about a dog that [MASK] meat [MASK] [MASK] different fur color because"
+  }, {
+    "sentence" : "This is a story about a dog that collects dust on a different skin color [MASK] ERROR",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 4370, 326, 41084, 8660, 327, 247, 1027, 4808, 3295, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " This", " us", " a", " story", " about", " a", " bird", " that", " collects", " dust", " on", " a", " the", " skin", " color", " black" ],
+    "original_sentence" : "This is a story about a dog that collects [MASK] [MASK] a different [MASK] color [MASK]"
+  } ],
+  "date" : "2025-09-30T12:54:55.609655700",
+  "time" : 40.043
+}

@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "She was so happy to see her family again after a long time away from experiencing",
+    "perplexity" : 24.879972457885742,
+    "weight" : 5.626138188270603E-6
+  },
+  "logs" : [ {
+    "sentence" : "She was so happy to see her family again after a [MASK] time away from them ERROR",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 2021, 969, 846, 247, 544, 18690, 62, 673, 1977, 432, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", null, null, null, null, null, null, null, null, null, null, null, null, null, null, " them" ],
+    "original_sentence" : "[MASK] was so happy to see her family again after a [MASK] time away from [MASK]"
+  }, {
+    "sentence" : "She was very sad to see her family again after a long time away from experiencing.",
+    "tokens" : [ 2993, 369, 1077, 8872, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 18492, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", null, " very", " sad", null, " see", null, null, null, null, null, null, null, " away", null, " them" ],
+    "original_sentence" : "She was [MASK] [MASK] to [MASK] her family again after a long time [MASK] from experiencing"
+  }, {
+    "sentence" : "She was so happy to see her family again after a long time in [MASK] experiencing ERROR",
+    "tokens" : [ 2993, 369, 594, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 275, 544, 18690, 62, 18492, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", null, " very", " happy", null, " see", null, null, null, null, null, " long", null, " in", null, " them" ],
+    "original_sentence" : "She was so [MASK] to see her family again after a [MASK] time [MASK] [MASK] experiencing"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from television.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 7315, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", null, " very", " happy", null, " see", null, null, " again", null, " a", " long", null, " in", null, " television" ],
+    "original_sentence" : "She was [MASK] happy to see her family [MASK] after [MASK] long time away from [MASK]"
+  }, {
+    "sentence" : "I was very happy to see their family again after a long time away from television.",
+    "tokens" : [ 42, 369, 1077, 5211, 281, 923, 616, 2021, 969, 846, 247, 1048, 673, 1977, 432, 7315, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, " very", " happy", null, " see", " their", null, " again", " after", " a", " long", null, " in", null, " television" ],
+    "original_sentence" : "[MASK] was very happy to see [MASK] family again [MASK] a [MASK] time away from television"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from television.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 7315, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " was", " very", " happy", null, " see", " their", " family", " again", " after", " a", " long", null, " in", null, " television" ],
+    "original_sentence" : "She [MASK] very happy to see her [MASK] [MASK] after a [MASK] time away from television"
+  }, {
+    "sentence" : "Everybody was very happy to see her family again after a long time away from them.",
+    "tokens" : [ 35485, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " Everybody", " was", " very", " happy", null, " see", " their", " family", " again", " after", " a", " long", null, " away", null, " them" ],
+    "original_sentence" : "[MASK] was very happy to see her family again after [MASK] long time [MASK] from [MASK]"
+  }, {
+    "sentence" : "She was very happy to finish her job again after a long time away from television.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 8416, 617, 2628, 969, 846, 247, 1048, 673, 1977, 432, 7315, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " Everybody", " was", " very", " happy", null, " finish", " their", " job", " again", " after", " a", " long", null, " away", null, " them" ],
+    "original_sentence" : "She was very happy to [MASK] her [MASK] [MASK] after a long time away from television"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " Everybody", " was", " very", " happy", null, " finish", " their", " job", " again", " after", " a", " long", null, " away", null, " everything" ],
+    "original_sentence" : "She was [MASK] happy to see her family [MASK] [MASK] a long time away from [MASK]"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time and loved everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 285, 7636, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", null, " finish", " their", " job", " again", " after", " a", " long", null, " and", " loved", " everything" ],
+    "original_sentence" : "[MASK] [MASK] very happy to see her family again after a long time [MASK] [MASK] everything"
+  }, {
+    "sentence" : "She was very happy to see her family again [MASK] a long time away from home ERROR",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 544, 18690, 62, 247, 1048, 673, 1977, 432, 1728, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " finish", " their", " job", " again", " after", " a", " long", null, " and", " from", " home" ],
+    "original_sentence" : "She was very happy [MASK] see her family again [MASK] a long time away [MASK] [MASK]"
+  }, {
+    "sentence" : "She was very happy to see her neighborhood again after a long time away from home.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 9168, 969, 846, 247, 1048, 673, 1977, 432, 1728, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " finish", " their", " neighborhood", " again", " after", " a", " long", null, " and", " from", " home" ],
+    "original_sentence" : "She was very happy to see her [MASK] again [MASK] a [MASK] time away from [MASK]"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " finish", " their", " neighborhood", " again", " after", " a", " long", null, " away", " from", " home" ],
+    "original_sentence" : "[MASK] was very happy to see her family again [MASK] [MASK] long time [MASK] from everything"
+  }, {
+    "sentence" : "She was very happy to see her family again [MASK] a long time away from them ERROR",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 544, 18690, 62, 247, 1048, 673, 1977, 432, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " finish", " their", " neighborhood", " again", " after", " a", " long", null, " away", " from", " them" ],
+    "original_sentence" : "She was very happy to see her family again [MASK] [MASK] long time away from [MASK]"
+  }, {
+    "sentence" : "She was very happy to see her mother again after a long time away from everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 3101, 969, 846, 247, 1048, 673, 1977, 432, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " finish", " their", " mother", " again", " after", " a", " long", " time", " away", " from", " them" ],
+    "original_sentence" : "She was very [MASK] to see her [MASK] again after a [MASK] [MASK] away from everything"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " see", " her", " mother", " again", " after", " a", " long", " time", " away", " from", " them" ],
+    "original_sentence" : "She was very happy to [MASK] [MASK] family again after [MASK] long time away from everything"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " see", " her", " mother", " again", " after", " a", " long", " time", " away", " from", " them" ],
+    "original_sentence" : "[MASK] was very [MASK] to see her family again after a [MASK] time away from everything"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from [MASK] ERROR",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " see", " her", " mother", " again", " after", " a", " long", " time", " away", " from", " them" ],
+    "original_sentence" : "She was very happy [MASK] see her family again after a long time away [MASK] [MASK]"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from television.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 7315, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " see", " her", " mother", " again", " after", " a", " long", " time", " away", " from", " them" ],
+    "original_sentence" : "[MASK] [MASK] very happy to see her family again after a long time [MASK] from television"
+  }, {
+    "sentence" : "She was very happy to see her family again after a long time away from everything.",
+    "tokens" : [ 2993, 369, 1077, 5211, 281, 923, 617, 2021, 969, 846, 247, 1048, 673, 1977, 432, 3253, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " She", " was", " very", " happy", " to", " see", " her", " mother", " again", " after", " a", " long", " time", " away", " from", " them" ],
+    "original_sentence" : "She was very happy to [MASK] [MASK] family again after a long time away [MASK] everything"
+  } ],
+  "date" : "2025-09-30T11:18:05.055447100",
+  "time" : 45.495
+}

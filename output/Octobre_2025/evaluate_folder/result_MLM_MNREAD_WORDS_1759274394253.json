@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to get out of bed to get out of the house next door",
+    "perplexity" : 17.321533203125,
+    "weight" : 0.026147083593402513
+  },
+  "logs" : [ {
+    "sentence" : "I need to get out of bed to get home of the house next door",
+    "tokens" : [ 42, 878, 281, 755, 562, 273, 3722, 281, 755, 1728, 273, 253, 2419, 1735, 3369, 15 ],
+    "perplexity" : 39.315128326416016,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out of bed to get [MASK] of [MASK] house next door"
+  }, {
+    "sentence" : "We had all run out of gas to get out of the house next door",
+    "tokens" : [ 1231, 574, 512, 1408, 562, 273, 3678, 281, 755, 562, 273, 253, 2419, 1735, 3369, 15 ],
+    "perplexity" : 28.030620574951172,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] [MASK] [MASK] out of [MASK] to get out of the house next door"
+  }, {
+    "sentence" : "We need to [MASK] out [MASK] [MASK] to get [MASK] of the house next door ERROR",
+    "tokens" : [ 1231, 878, 281, 544, 18690, 62, 562, 544, 18690, 62, 544, 18690, 62, 281, 755, 544, 18690, 62, 273, 253, 2419, 1735, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to [MASK] out [MASK] [MASK] to get [MASK] of the house next door"
+  }, {
+    "sentence" : "[MASK] need to get out of bed to get out of [MASK] house [MASK] door ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 544, 18690, 62, 2419, 544, 18690, 62, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out of bed to get out of [MASK] house [MASK] door"
+  }, {
+    "sentence" : "We need [MASK] get out [MASK] bed to [MASK] [MASK] of the house next door ERROR",
+    "tokens" : [ 1231, 878, 544, 18690, 62, 755, 562, 544, 18690, 62, 3722, 281, 544, 18690, 62, 544, 18690, 62, 273, 253, 2419, 1735, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need [MASK] get out [MASK] bed to [MASK] [MASK] of the house next door"
+  }, {
+    "sentence" : "We need to get out of gas to get out of the way next summer",
+    "tokens" : [ 1231, 878, 281, 755, 562, 273, 3678, 281, 755, 562, 273, 253, 1039, 1735, 5768, 15 ],
+    "perplexity" : 36.13186264038086,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to get [MASK] of [MASK] to get out of the [MASK] next [MASK]"
+  }, {
+    "sentence" : "We had to get back of bed to get out of the house next door",
+    "tokens" : [ 1231, 574, 281, 755, 896, 273, 3722, 281, 755, 562, 273, 253, 2419, 1735, 3369, 15 ],
+    "perplexity" : 44.20414733886719,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to get [MASK] [MASK] bed to get out of the house next door"
+  }, {
+    "sentence" : "We have to get out of bed to get out of the house next door",
+    "tokens" : [ 1231, 452, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2419, 1735, 3369, 15 ],
+    "perplexity" : 16.81094741821289,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to get out [MASK] bed to [MASK] out [MASK] the house next door"
+  }, {
+    "sentence" : "[MASK] [MASK] to get [MASK] of bed to get out of the house next door ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 755, 544, 18690, 62, 273, 3722, 281, 755, 562, 273, 253, 2419, 1735, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to get [MASK] of bed to get out of the house next door"
+  }, {
+    "sentence" : "[MASK] have to [MASK] out of bed to get out of the house next [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 452, 281, 544, 18690, 62, 562, 273, 3722, 281, 755, 562, 273, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] have to [MASK] out of bed to get out of the house next [MASK]"
+  }, {
+    "sentence" : "We have to get out of bed [MASK] [MASK] out of the house [MASK] [MASK] ERROR",
+    "tokens" : [ 1231, 452, 281, 755, 562, 273, 3722, 544, 18690, 62, 544, 18690, 62, 562, 273, 253, 2419, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We have to get out of bed [MASK] [MASK] out of the house [MASK] [MASK]"
+  }, {
+    "sentence" : "We had to get out of bed to get out of the garage next door",
+    "tokens" : [ 1231, 574, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 19476, 1735, 3369, 15 ],
+    "perplexity" : 20.342605590820312,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to [MASK] out of bed to get out of the [MASK] next door"
+  }, {
+    "sentence" : "We have to get out of bed to get out of the house next door",
+    "tokens" : [ 1231, 452, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2419, 1735, 3369, 15 ],
+    "perplexity" : 16.81094741821289,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We have to get [MASK] of bed to get out [MASK] the house [MASK] door"
+  }, {
+    "sentence" : "We had to get out of bed and get out of the house next door",
+    "tokens" : [ 1231, 574, 281, 755, 562, 273, 3722, 285, 755, 562, 273, 253, 2419, 1735, 3369, 15 ],
+    "perplexity" : 14.513826370239258,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to [MASK] out of bed [MASK] get out of the house next door"
+  }, {
+    "sentence" : "We had to get out of bed [MASK] get [MASK] of the house [MASK] door ERROR",
+    "tokens" : [ 1231, 574, 281, 755, 562, 273, 3722, 544, 18690, 62, 755, 544, 18690, 62, 273, 253, 2419, 544, 18690, 62, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to get out of bed [MASK] get [MASK] of the house [MASK] door"
+  }, {
+    "sentence" : "We had [MASK] get [MASK] of bed and get out of the house next [MASK] ERROR",
+    "tokens" : [ 1231, 574, 544, 18690, 62, 755, 544, 18690, 62, 273, 3722, 285, 755, 562, 273, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had [MASK] get [MASK] of bed and get out of the house next [MASK]"
+  }, {
+    "sentence" : "[MASK] had to [MASK] out [MASK] [MASK] and get out of the house next door ERROR",
+    "tokens" : [ 60, 18690, 62, 574, 281, 544, 18690, 62, 562, 544, 18690, 62, 544, 18690, 62, 285, 755, 562, 273, 253, 2419, 1735, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] had to [MASK] out [MASK] [MASK] and get out of the house next door"
+  }, {
+    "sentence" : "We [MASK] to [MASK] out of bed and get out of the house next [MASK] ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 544, 18690, 62, 562, 273, 3722, 285, 755, 562, 273, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to [MASK] out of bed and get out of the house next [MASK]"
+  }, {
+    "sentence" : "We had to get [MASK] of bed [MASK] get [MASK] of the house next door ERROR",
+    "tokens" : [ 1231, 574, 281, 755, 544, 18690, 62, 273, 3722, 544, 18690, 62, 755, 544, 18690, 62, 273, 253, 2419, 1735, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to get [MASK] of bed [MASK] get [MASK] of the house next door"
+  }, {
+    "sentence" : "We had to [MASK] out of bed and get out [MASK] the [MASK] next [MASK] ERROR",
+    "tokens" : [ 1231, 574, 281, 544, 18690, 62, 562, 273, 3722, 285, 755, 562, 544, 18690, 62, 253, 544, 18690, 62, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We had to [MASK] out of bed and get out [MASK] the [MASK] next [MASK]"
+  } ],
+  "date" : "2025-09-30T19:19:54.249849400",
+  "time" : 101.141
+}

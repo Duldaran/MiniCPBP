@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to get out of the car in time to open the back door",
+    "perplexity" : 16.961183547973633,
+    "weight" : 0.009186132977725454
+  },
+  "logs" : [ {
+    "sentence" : "We need to get out of the car in time to open the back door",
+    "tokens" : [ 1231, 878, 281, 755, 562, 273, 253, 1113, 275, 673, 281, 1527, 253, 896, 3369, 15 ],
+    "perplexity" : 16.961183547973633,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to get [MASK] of the car in [MASK] to open the back [MASK]"
+  }, {
+    "sentence" : "We need to get out of the car and time to open the car door",
+    "tokens" : [ 1231, 878, 281, 755, 562, 273, 253, 1113, 285, 673, 281, 1527, 253, 1113, 3369, 15 ],
+    "perplexity" : 20.943321228027344,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need [MASK] get out of the car [MASK] time to open the [MASK] door"
+  }, {
+    "sentence" : "We need to get out [MASK] [MASK] car in [MASK] to open the back [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 755, 562, 544, 18690, 62, 544, 18690, 62, 1113, 275, 544, 18690, 62, 281, 1527, 253, 896, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to get out [MASK] [MASK] car in [MASK] to open the back [MASK]"
+  }, {
+    "sentence" : "We need to get out of the car in time to open the back door",
+    "tokens" : [ 1231, 878, 281, 755, 562, 273, 253, 1113, 275, 673, 281, 1527, 253, 896, 3369, 15 ],
+    "perplexity" : 16.961183547973633,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to get out of [MASK] car in time to open the [MASK] [MASK]"
+  }, {
+    "sentence" : "[MASK] need [MASK] get out of the car in time to open the [MASK] [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 544, 18690, 62, 755, 562, 273, 253, 1113, 275, 673, 281, 1527, 253, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need [MASK] get out of the car in time to open the [MASK] [MASK]"
+  }, {
+    "sentence" : "We need to get out of the car [MASK] time to [MASK] the back [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 755, 562, 273, 253, 1113, 544, 18690, 62, 673, 281, 544, 18690, 62, 253, 896, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to get out of the car [MASK] time to [MASK] the back [MASK]"
+  }, {
+    "sentence" : "You had to get out of the car in time to open the back door",
+    "tokens" : [ 1394, 574, 281, 755, 562, 273, 253, 1113, 275, 673, 281, 1527, 253, 896, 3369, 15 ],
+    "perplexity" : 13.23155689239502,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to get [MASK] of the car in time to open the back door"
+  }, {
+    "sentence" : "You had to be out of your car in time to open the back door",
+    "tokens" : [ 1394, 574, 281, 320, 562, 273, 634, 1113, 275, 673, 281, 1527, 253, 896, 3369, 15 ],
+    "perplexity" : 22.038707733154297,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] to [MASK] out of [MASK] [MASK] in time to open the back door"
+  }, {
+    "sentence" : "[MASK] had to get out of the car in time [MASK] open the back [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 574, 281, 755, 562, 273, 253, 1113, 275, 673, 544, 18690, 62, 1527, 253, 896, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] had to get out of the car in time [MASK] open the back [MASK]"
+  }, {
+    "sentence" : "You had to get out of the car [MASK] time to [MASK] [MASK] back [MASK] ERROR",
+    "tokens" : [ 1394, 574, 281, 755, 562, 273, 253, 1113, 544, 18690, 62, 673, 281, 544, 18690, 62, 544, 18690, 62, 896, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You had to get out of the car [MASK] time to [MASK] [MASK] back [MASK]"
+  }, {
+    "sentence" : "[MASK] had to get [MASK] of the car in [MASK] to open [MASK] back door ERROR",
+    "tokens" : [ 60, 18690, 62, 574, 281, 755, 544, 18690, 62, 273, 253, 1113, 275, 544, 18690, 62, 281, 1527, 544, 18690, 62, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] had to get [MASK] of the car in [MASK] to open [MASK] back door"
+  }, {
+    "sentence" : "[MASK] [MASK] to get out of the car in time to [MASK] the back door ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 755, 562, 273, 253, 1113, 275, 673, 281, 544, 18690, 62, 253, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to get out of the car in time to [MASK] the back door"
+  }, {
+    "sentence" : "You [MASK] to [MASK] out of the car [MASK] time to open the back door ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 544, 18690, 62, 562, 273, 253, 1113, 544, 18690, 62, 673, 281, 1527, 253, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] to [MASK] out of the car [MASK] time to open the back door"
+  }, {
+    "sentence" : "You had to get [MASK] of the car [MASK] time to open [MASK] back [MASK] ERROR",
+    "tokens" : [ 1394, 574, 281, 755, 544, 18690, 62, 273, 253, 1113, 544, 18690, 62, 673, 281, 1527, 544, 18690, 62, 896, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You had to get [MASK] of the car [MASK] time to open [MASK] back [MASK]"
+  }, {
+    "sentence" : "You had to [MASK] [MASK] of [MASK] car in time to [MASK] the back door ERROR",
+    "tokens" : [ 1394, 574, 281, 544, 18690, 62, 544, 18690, 62, 273, 544, 18690, 62, 1113, 275, 673, 281, 544, 18690, 62, 253, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You had to [MASK] [MASK] of [MASK] car in time to [MASK] the back door"
+  }, {
+    "sentence" : "You had to [MASK] out [MASK] the [MASK] in [MASK] to open the back door ERROR",
+    "tokens" : [ 1394, 574, 281, 544, 18690, 62, 562, 544, 18690, 62, 253, 544, 18690, 62, 275, 544, 18690, 62, 281, 1527, 253, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You had to [MASK] out [MASK] the [MASK] in [MASK] to open the back door"
+  }, {
+    "sentence" : "You [MASK] to get [MASK] of the car in [MASK] [MASK] open the back door ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 755, 544, 18690, 62, 273, 253, 1113, 275, 544, 18690, 62, 544, 18690, 62, 1527, 253, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] to get [MASK] of the car in [MASK] [MASK] open the back door"
+  }, {
+    "sentence" : "You [MASK] to [MASK] out of [MASK] car in time to open the [MASK] door ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 544, 18690, 62, 562, 273, 544, 18690, 62, 1113, 275, 673, 281, 1527, 253, 544, 18690, 62, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] to [MASK] out of [MASK] car in time to open the [MASK] door"
+  }, {
+    "sentence" : "You had to get out of the car in [MASK] to [MASK] [MASK] back door ERROR",
+    "tokens" : [ 1394, 574, 281, 755, 562, 273, 253, 1113, 275, 544, 18690, 62, 281, 544, 18690, 62, 544, 18690, 62, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You had to get out of the car in [MASK] to [MASK] [MASK] back door"
+  }, {
+    "sentence" : "You had [MASK] get out of the car in time [MASK] [MASK] the back door ERROR",
+    "tokens" : [ 1394, 574, 544, 18690, 62, 755, 562, 273, 253, 1113, 275, 673, 544, 18690, 62, 544, 18690, 62, 253, 896, 3369, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You had [MASK] get out of the car in time [MASK] [MASK] the back door"
+  } ],
+  "date" : "2025-09-30T19:25:33.899965300",
+  "time" : 78.862
+}

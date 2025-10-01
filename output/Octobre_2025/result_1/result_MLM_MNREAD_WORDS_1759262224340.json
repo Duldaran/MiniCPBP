@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to be able to get in and out of the house next time",
+    "perplexity" : 14.19819450378418,
+    "weight" : 0.22684852610268322
+  },
+  "logs" : [ {
+    "sentence" : "We need to be able to get in and out of the house next time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 2419, 1735, 673, 15 ],
+    "perplexity" : 14.19819450378418,
+    "tokens_used" : [ null, null, " to", " be", null, null, null, null, null, " out", null, null, null, null, null ],
+    "original_sentence" : "We need [MASK] [MASK] able to get in and [MASK] of the house next time"
+  }, {
+    "sentence" : "We hope to be able to walk in and out of the room next time",
+    "tokens" : [ 1231, 3524, 281, 320, 2104, 281, 2940, 275, 285, 562, 273, 253, 2316, 1735, 673, 15 ],
+    "perplexity" : 18.312583923339844,
+    "tokens_used" : [ null, " hope", " to", " be", null, null, " walk", null, null, " out", null, null, " room", null, null ],
+    "original_sentence" : "We [MASK] [MASK] be able to [MASK] in and out of the [MASK] next time"
+  }, {
+    "sentence" : "We need to be able to get in and out of this room next time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 436, 2316, 1735, 673, 15 ],
+    "perplexity" : 15.174866676330566,
+    "tokens_used" : [ null, " hope", " to", " be", null, null, " walk", null, " and", " out", null, " this", " room", null, null ],
+    "original_sentence" : "We need to [MASK] able to get in [MASK] out of [MASK] [MASK] next time"
+  }, {
+    "sentence" : "We need not be able to get in and out of the room next time",
+    "tokens" : [ 1231, 878, 417, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 2316, 1735, 673, 15 ],
+    "perplexity" : 26.177692413330078,
+    "tokens_used" : [ null, " hope", " not", " be", null, null, " walk", null, " and", " out", " of", " this", " room", null, null ],
+    "original_sentence" : "We need [MASK] be able to get in and out [MASK] the [MASK] next time"
+  }, {
+    "sentence" : "We need to get able to get in and out of the room next time",
+    "tokens" : [ 1231, 878, 281, 755, 2104, 281, 755, 275, 285, 562, 273, 253, 2316, 1735, 673, 15 ],
+    "perplexity" : 24.638797760009766,
+    "tokens_used" : [ null, " hope", " not", " get", null, null, " walk", " in", " and", " out", " of", " this", " room", null, null ],
+    "original_sentence" : "We need to [MASK] able to get [MASK] and out of the [MASK] next time"
+  }, {
+    "sentence" : "We need to be able to get in and out of this office on time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 436, 3906, 327, 673, 15 ],
+    "perplexity" : 14.117424964904785,
+    "tokens_used" : [ null, " hope", " not", " get", null, " to", " walk", " in", " and", " out", " of", " this", " office", " on", null ],
+    "original_sentence" : "We need to be able [MASK] get in and out of this [MASK] [MASK] time"
+  }, {
+    "sentence" : "We need to be able to get to everyone out of this room in a",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 281, 4130, 562, 273, 436, 2316, 275, 247, 15 ],
+    "perplexity" : 24.48493194580078,
+    "tokens_used" : [ null, " hope", " not", " get", null, " to", " walk", " to", " everyone", " out", " of", " this", " office", " in", " a" ],
+    "original_sentence" : "We need to be able to get [MASK] [MASK] out of this room [MASK] [MASK]"
+  }, {
+    "sentence" : "We need to [MASK] able [MASK] get in and [MASK] of the house next time ERROR",
+    "tokens" : [ 1231, 878, 281, 544, 18690, 62, 2104, 544, 18690, 62, 755, 275, 285, 544, 18690, 62, 273, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " hope", " not", " get", null, " to", " walk", " to", " everyone", " out", " of", " this", " office", " in", " a" ],
+    "original_sentence" : "We need to [MASK] able [MASK] get in and [MASK] of the house next time"
+  }, {
+    "sentence" : "We [MASK] to be [MASK] to get in [MASK] out of the house next time ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 544, 18690, 62, 281, 755, 275, 544, 18690, 62, 562, 273, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " hope", " not", " get", null, " to", " walk", " to", " everyone", " out", " of", " this", " office", " in", " a" ],
+    "original_sentence" : "We [MASK] to be [MASK] to get in [MASK] out of the house next time"
+  }, {
+    "sentence" : "We need to be [MASK] to [MASK] in and out of [MASK] office on [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 544, 18690, 62, 281, 544, 18690, 62, 275, 285, 562, 273, 544, 18690, 62, 3906, 327, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " hope", " not", " get", null, " to", " walk", " to", " everyone", " out", " of", " this", " office", " in", " a" ],
+    "original_sentence" : "We need to be [MASK] to [MASK] in and out of [MASK] office on [MASK]"
+  }, {
+    "sentence" : "We need to be able to get in and out of the house next time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 2419, 1735, 673, 15 ],
+    "perplexity" : 14.19819450378418,
+    "tokens_used" : [ null, " hope", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " a" ],
+    "original_sentence" : "We need to [MASK] able to [MASK] in and out of the [MASK] next time"
+  }, {
+    "sentence" : "We need [MASK] be able to [MASK] in and out of the [MASK] next [MASK] ERROR",
+    "tokens" : [ 1231, 878, 544, 18690, 62, 320, 2104, 281, 544, 18690, 62, 275, 285, 562, 273, 253, 544, 18690, 62, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " hope", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " a" ],
+    "original_sentence" : "We need [MASK] be able to [MASK] in and out of the [MASK] next [MASK]"
+  }, {
+    "sentence" : "We seem to be able to get in and out of this office in time",
+    "tokens" : [ 1231, 1646, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 436, 3906, 275, 673, 15 ],
+    "perplexity" : 19.60162353515625,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "We [MASK] to be able to get in and out of this office [MASK] [MASK]"
+  }, {
+    "sentence" : "We need [MASK] be [MASK] [MASK] get in and out of the house next time ERROR",
+    "tokens" : [ 1231, 878, 544, 18690, 62, 320, 544, 18690, 62, 544, 18690, 62, 755, 275, 285, 562, 273, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "We need [MASK] be [MASK] [MASK] get in and out of the house next time"
+  }, {
+    "sentence" : "We [MASK] to be able to get in and out [MASK] the house [MASK] [MASK] ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 2104, 281, 755, 275, 285, 562, 544, 18690, 62, 253, 2419, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "We [MASK] to be able to get in and out [MASK] the house [MASK] [MASK]"
+  }, {
+    "sentence" : "We need to be able to get in and out of the house in [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 2419, 275, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "We need to be able [MASK] get in and out [MASK] the house [MASK] [MASK]"
+  }, {
+    "sentence" : "We [MASK] to be [MASK] to get in and out of the [MASK] next [MASK] ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 544, 18690, 62, 281, 755, 275, 285, 562, 273, 253, 544, 18690, 62, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "We [MASK] to be [MASK] to get in and out of the [MASK] next [MASK]"
+  }, {
+    "sentence" : "We need to be able [MASK] get [MASK] and out of this office on [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 544, 18690, 62, 755, 544, 18690, 62, 285, 562, 273, 436, 3906, 327, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "We need to be able [MASK] get [MASK] and out of this office on [MASK]"
+  }, {
+    "sentence" : "[MASK] need [MASK] be able [MASK] [MASK] in and out of the house next time ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 544, 18690, 62, 320, 2104, 544, 18690, 62, 544, 18690, 62, 275, 285, 562, 273, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "[MASK] need [MASK] be able [MASK] [MASK] in and out of the house next time"
+  }, {
+    "sentence" : "[MASK] need to [MASK] [MASK] to get in and out of the [MASK] next time ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 544, 18690, 62, 544, 18690, 62, 281, 755, 275, 285, 562, 273, 253, 544, 18690, 62, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " seem", " not", " be", null, " to", " get", " to", " everyone", " out", " of", " this", " house", " in", " time" ],
+    "original_sentence" : "[MASK] need to [MASK] [MASK] to get in and out of the [MASK] next time"
+  } ],
+  "date" : "2025-09-30T15:57:04.338244600",
+  "time" : 38.914
+}

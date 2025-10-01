@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "The sentence must be a complete thought and make sense to a human being while not",
+    "perplexity" : 76.44490051269531,
+    "weight" : 0.0010224859515202292
+  },
+  "logs" : [ {
+    "sentence" : "The sentence must be a complete thought and make sense for a human mind while not",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 323, 247, 1966, 2564, 1223, 417, 15 ],
+    "perplexity" : 137.04685974121094,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, " for", " a", null, " mind", null, null ],
+    "original_sentence" : "The sentence must be a complete thought and make sense [MASK] [MASK] human [MASK] while not"
+  }, {
+    "sentence" : "The sentence must be a complete it and make sense to a human being while complete",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 352, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 3426, 15 ],
+    "perplexity" : 211.49237060546875,
+    "tokens_used" : [ null, null, null, null, null, null, " it", null, null, null, " for", " a", null, " being", null, " complete" ],
+    "original_sentence" : "The sentence must be a complete [MASK] and make sense to a human [MASK] while [MASK]"
+  }, {
+    "sentence" : "The sentence that form a complete thought may make sense to a human but while not",
+    "tokens" : [ 510, 6197, 326, 830, 247, 3426, 1869, 778, 1056, 3282, 281, 247, 1966, 533, 1223, 417, 15 ],
+    "perplexity" : 258.14508056640625,
+    "tokens_used" : [ null, null, " that", " form", null, null, " it", " may", null, null, " for", " a", null, " but", null, " complete" ],
+    "original_sentence" : "The sentence [MASK] [MASK] a complete thought [MASK] make sense to a human [MASK] while not"
+  }, {
+    "sentence" : "The sentence must be a complete thought and make sense to a human being while not",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 417, 15 ],
+    "perplexity" : 76.44490051269531,
+    "tokens_used" : [ null, null, " that", " be", null, null, " it", " may", null, " sense", " for", " a", " human", " but", null, " complete" ],
+    "original_sentence" : "The sentence must [MASK] a complete thought and make [MASK] to a [MASK] being while not"
+  }, {
+    "sentence" : "The sentence must be a complete thought and make sense to a human being while not",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 417, 15 ],
+    "perplexity" : 76.44490051269531,
+    "tokens_used" : [ " The", null, " that", " be", null, null, " it", " may", null, " sense", " for", " a", " human", " but", null, " complete" ],
+    "original_sentence" : "[MASK] sentence must be a complete thought and make sense to [MASK] [MASK] being while not"
+  }, {
+    "sentence" : "The sentence must be a complete word and make sense to a human being while typing",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 3159, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 23629, 15 ],
+    "perplexity" : 104.19966125488281,
+    "tokens_used" : [ " The", null, " that", " be", null, null, " word", " may", " make", " sense", " for", " a", " human", " but", null, " typing" ],
+    "original_sentence" : "The sentence must be a complete [MASK] and [MASK] sense to a [MASK] being while [MASK]"
+  }, {
+    "sentence" : "The statement must be a correct one and make sense to a human being while reading",
+    "tokens" : [ 510, 3908, 1364, 320, 247, 3451, 581, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 4361, 15 ],
+    "perplexity" : 89.70365142822266,
+    "tokens_used" : [ " The", " statement", " that", " be", null, " correct", " one", " may", " make", " sense", " for", " a", " human", " but", null, " reading" ],
+    "original_sentence" : "The [MASK] must be a [MASK] [MASK] and make sense to a human being while [MASK]"
+  }, {
+    "sentence" : "The sentence must be a complete thought and make sense to no human being while it",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 642, 1966, 1146, 1223, 352, 15 ],
+    "perplexity" : 154.98077392578125,
+    "tokens_used" : [ " The", " statement", " that", " be", null, " correct", " one", " may", " make", " sense", " for", " no", " human", " being", null, " it" ],
+    "original_sentence" : "The sentence must be a complete thought and make sense to [MASK] human [MASK] while [MASK]"
+  }, {
+    "sentence" : "The sentence must [MASK] a complete thought and make sense for [MASK] human being while not ERROR",
+    "tokens" : [ 510, 6197, 1364, 544, 18690, 62, 247, 3426, 1869, 285, 1056, 3282, 323, 544, 18690, 62, 1966, 1146, 1223, 417, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " The", " statement", " that", " be", null, " correct", " one", " may", " make", " sense", " for", " no", " human", " being", null, " it" ],
+    "original_sentence" : "The sentence must [MASK] a complete thought and make sense [MASK] [MASK] human [MASK] while not"
+  }, {
+    "sentence" : "The sentence must be a complete truth and make sense to a human being while doing",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 5083, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 2509, 15 ],
+    "perplexity" : 93.43586730957031,
+    "tokens_used" : [ " The", " statement", " that", " be", null, " correct", " truth", " may", " make", " sense", " for", " no", " human", " being", null, " doing" ],
+    "original_sentence" : "[MASK] sentence must be a complete [MASK] and make sense to a human being while [MASK]"
+  }, {
+    "sentence" : "The sentence must be a complete thought and make sense to a human audience or not",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 8446, 390, 417, 15 ],
+    "perplexity" : 120.14984130859375,
+    "tokens_used" : [ " The", " statement", " that", " be", " a", " correct", " truth", " and", " make", " sense", " for", " no", " human", " audience", " or", " doing" ],
+    "original_sentence" : "The sentence must be [MASK] complete thought [MASK] make sense to a human [MASK] [MASK] not"
+  }, {
+    "sentence" : "The sentence should be a complete thought and make sense to a human being to read",
+    "tokens" : [ 510, 6197, 943, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 1146, 281, 1239, 15 ],
+    "perplexity" : 79.16104888916016,
+    "tokens_used" : [ " The", " statement", " should", " be", " a", " correct", " truth", " and", " make", " sense", " for", " no", " human", " audience", " to", " read" ],
+    "original_sentence" : "The sentence [MASK] [MASK] a complete thought and make sense to a human being [MASK] [MASK]"
+  }, {
+    "sentence" : "The sentence could be a complete thought and has sense to a human being while not",
+    "tokens" : [ 510, 6197, 812, 320, 247, 3426, 1869, 285, 556, 3282, 281, 247, 1966, 1146, 1223, 417, 15 ],
+    "perplexity" : 211.8828125,
+    "tokens_used" : [ " The", " statement", " could", " be", " a", " correct", " truth", " and", " has", " sense", " for", " no", " human", " audience", " to", " read" ],
+    "original_sentence" : "The sentence [MASK] be a complete thought and [MASK] sense to a [MASK] being while not"
+  }, {
+    "sentence" : "The sentence must be a complete thought that make sense to a human being while it",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 326, 1056, 3282, 281, 247, 1966, 1146, 1223, 352, 15 ],
+    "perplexity" : 93.49099731445312,
+    "tokens_used" : [ " The", " statement", " could", " be", " a", " correct", " truth", " that", " make", " sense", " for", " a", " human", " audience", " to", " it" ],
+    "original_sentence" : "The sentence must be a complete thought [MASK] [MASK] sense to [MASK] human being while [MASK]"
+  }, {
+    "sentence" : "The sentence must be a complete thought and make sense to a human being while not",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 1146, 1223, 417, 15 ],
+    "perplexity" : 76.44490051269531,
+    "tokens_used" : [ " The", " statement", " must", " be", " a", " correct", " truth", " and", " make", " sense", " for", " a", " human", " audience", " to", " it" ],
+    "original_sentence" : "The sentence [MASK] be a complete thought [MASK] make [MASK] to a human being while not"
+  }, {
+    "sentence" : "The sentence must be a complete sentence and make sense to a human being to [MASK] ERROR",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 6197, 285, 1056, 3282, 281, 247, 1966, 1146, 281, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " The", " statement", " must", " be", " a", " correct", " sentence", " and", " make", " sense", " for", " a", " human", " audience", " to", " it" ],
+    "original_sentence" : "The sentence must be [MASK] complete [MASK] and make sense to a human being [MASK] [MASK]"
+  }, {
+    "sentence" : "The sentence must be a complete one and must belonging to a human being while not",
+    "tokens" : [ 510, 6197, 1364, 320, 247, 3426, 581, 285, 1364, 15823, 281, 247, 1966, 1146, 1223, 417, 15 ],
+    "perplexity" : 80.33325958251953,
+    "tokens_used" : [ " The", " statement", " must", " be", " a", " correct", " one", " and", " must", " belonging", " for", " a", " human", " audience", " to", " it" ],
+    "original_sentence" : "The sentence must be a complete [MASK] and [MASK] [MASK] to a human being while not"
+  }, {
+    "sentence" : "Single sentence must be a complete thought and make sense to a human being or not",
+    "tokens" : [ 21822, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 1146, 390, 417, 15 ],
+    "perplexity" : 71.49431610107422,
+    "tokens_used" : [ " single", " statement", " must", " be", " a", " correct", " one", " and", " must", " belonging", " for", " a", " human", " audience", " or", " it" ],
+    "original_sentence" : "[MASK] sentence [MASK] be a complete thought and make sense to a human being [MASK] not"
+  }, {
+    "sentence" : "Single sentence must be a complete thought and make sense to a human being or not",
+    "tokens" : [ 21822, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 281, 247, 1966, 1146, 390, 417, 15 ],
+    "perplexity" : 71.49431610107422,
+    "tokens_used" : [ " single", " statement", " must", " be", " a", " correct", " one", " and", " must", " belonging", " for", " a", " human", " audience", " or", " it" ],
+    "original_sentence" : "Single sentence must [MASK] a complete thought [MASK] make sense to a [MASK] being or not"
+  }, {
+    "sentence" : "Single sentence must be a complete thought and make sense for a human mind or not",
+    "tokens" : [ 21822, 6197, 1364, 320, 247, 3426, 1869, 285, 1056, 3282, 323, 247, 1966, 2564, 390, 417, 15 ],
+    "perplexity" : 116.98150634765625,
+    "tokens_used" : [ " single", " statement", " must", " be", " a", " correct", " one", " and", " must", " belonging", " for", " a", " human", " mind", " or", " it" ],
+    "original_sentence" : "Single sentence [MASK] be a complete thought and make sense [MASK] a human [MASK] or not"
+  } ],
+  "date" : "2025-09-30T12:51:22.563796800",
+  "time" : 32.231
+}

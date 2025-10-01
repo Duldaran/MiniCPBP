@@ -1,0 +1,125 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "A sentence about a dog named Rocky that loves to play in the park during vacation",
+  "logs" : [ {
+    "sentence" : "A sentence about a dog named Bear that loves to play in the park during vacation.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 25743, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " a", null, null, " Bear", null, null, null, null, " in", null, null, " during", null ],
+    "original_sentence" : "A sentence about <mask> dog named <mask> that loves to play <mask> the park <mask> vacation"
+  }, {
+    "sentence" : "A story about a dog named Lucky that loves the play in the water during vacation.",
+    "tokens" : [ 34, 2926, 670, 247, 4370, 4907, 45023, 326, 14528, 253, 1132, 275, 253, 1824, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, " a", null, null, " Lucky", null, null, " the", null, " in", null, " water", " during", null ],
+    "original_sentence" : "A <mask> about a dog named <mask> that loves <mask> play in the <mask> during vacation"
+  }, {
+    "sentence" : "A sentence about a dog named Rocky that wanted to play in the park during winter.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 37669, 326, 3078, 281, 1132, 275, 253, 5603, 1309, 8986, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, " a", null, null, " Lucky", null, " wanted", " the", null, " in", " the", " water", " during", " winter" ],
+    "original_sentence" : "A sentence about <mask> dog named Rocky that <mask> to play in <mask> park during <mask>"
+  }, {
+    "sentence" : "A sentence about a dog named Bear that wanted to stay in the house during winter.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 25743, 326, 3078, 281, 3297, 275, 253, 2419, 1309, 8986, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " story", null, " a", null, null, " Bear", null, " wanted", " the", " stay", " in", " the", " house", " during", " winter" ],
+    "original_sentence" : "A sentence about a dog named <mask> that wanted to <mask> in the <mask> during winter"
+  }, {
+    "sentence" : "One sentence about a dog named Bear that loves to play in the park during summer.",
+    "tokens" : [ 4041, 6197, 670, 247, 4370, 4907, 25743, 326, 14528, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " one", " story", " about", " a", null, null, " Bear", null, " loves", " the", " stay", " in", " the", " house", " during", " summer" ],
+    "original_sentence" : "<mask> sentence <mask> a dog named Bear that <mask> to play in the park during <mask>"
+  }, {
+    "sentence" : "Sad story about a dog named Lucky that loves the fish in the water during storms.",
+    "tokens" : [ 41052, 2926, 670, 247, 4370, 4907, 45023, 326, 14528, 253, 6773, 275, 253, 1824, 1309, 33387, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sad", " story", " about", " a", null, null, " Bear", null, " loves", " the", " fish", " in", " the", " house", " during", " storms" ],
+    "original_sentence" : "<mask> story about a dog named Lucky that loves the <mask> in the water during <mask>"
+  }, {
+    "sentence" : "A sentence about a dog named Rocky that used to play in the park during vacation.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 37669, 326, 908, 281, 1132, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " sad", " story", " about", " a", null, null, " Bear", " that", " used", " the", " fish", " in", " the", " house", " during", " storms" ],
+    "original_sentence" : "A sentence about a dog named Rocky <mask> <mask> to play in <mask> park during vacation"
+  }, {
+    "sentence" : "A story about a dog named Lucky that loves the fish in the water <mask> him No valid tokens found ERROR",
+    "tokens" : [ 34, 2926, 670, 247, 4370, 4907, 45023, 326, 14528, 253, 6773, 275, 253, 1824, 654, 12477, 31, 779, 1621, 3588, 21761, 1119, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", null, null, " Bear", " that", " used", " the", " fish", " in", " the", " house", " during", " him" ],
+    "original_sentence" : "<mask> story about a dog named Lucky that loves the fish in the water <mask> <mask>"
+  }, {
+    "sentence" : "A sentence about a dog named Chance that loves to play in a pool during vacation.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 42475, 326, 14528, 281, 1132, 275, 247, 6363, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", null, null, " Chance", " that", " used", " to", " fish", " in", " a", " pool", " during", " him" ],
+    "original_sentence" : "A sentence about a dog named <mask> that loves <mask> play in <mask> <mask> during vacation"
+  }, {
+    "sentence" : "A sentence about a dog named cat that has to sleeping in the house during winter.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 5798, 326, 556, 281, 14343, 275, 253, 2419, 1309, 8986, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", null, " named", " cat", " that", " has", " to", " sleeping", " in", " a", " pool", " during", " him" ],
+    "original_sentence" : "A sentence about a dog <mask> <mask> that <mask> to <mask> in the house during winter"
+  }, {
+    "sentence" : "A story about a dog named Rocky that decided to stay in the park during vacation.",
+    "tokens" : [ 34, 2926, 670, 247, 4370, 4907, 37669, 326, 4425, 281, 3297, 275, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", null, " named", " cat", " that", " decided", " to", " stay", " in", " a", " pool", " during", " him" ],
+    "original_sentence" : "A <mask> about a dog named Rocky that <mask> to <mask> in the park <mask> vacation"
+  }, {
+    "sentence" : "A story about their dog named Rocky that decided to stay in the park on vacation.",
+    "tokens" : [ 34, 2926, 670, 616, 4370, 4907, 37669, 326, 4425, 281, 3297, 275, 253, 5603, 327, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " their", null, " named", " cat", " that", " decided", " to", " stay", " in", " a", " pool", " on", " him" ],
+    "original_sentence" : "A story <mask> <mask> dog named Rocky that decided to stay in the park <mask> vacation"
+  }, {
+    "sentence" : "One sentence about a dog named Drew that likes to play in the park during summer.",
+    "tokens" : [ 4041, 6197, 670, 247, 4370, 4907, 30864, 326, 13052, 281, 1132, 275, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", null, " named", " Drew", " that", " likes", " to", " stay", " in", " a", " pool", " on", " him" ],
+    "original_sentence" : "One sentence about <mask> dog named <mask> that <mask> <mask> play in the park during summer"
+  }, {
+    "sentence" : "A story about a dog named Lucky that loves the play in running water on vacation.",
+    "tokens" : [ 34, 2926, 670, 247, 4370, 4907, 45023, 326, 14528, 253, 1132, 275, 3515, 1824, 327, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " story", " about", " a", null, " named", " Drew", " that", " likes", " to", " stay", " in", " running", " pool", " on", " him" ],
+    "original_sentence" : "A <mask> about a dog named Lucky that loves the play in <mask> water <mask> vacation"
+  }, {
+    "sentence" : "One paragraph about a dog named Bear that used to play at the park during summer.",
+    "tokens" : [ 4041, 12494, 670, 247, 4370, 4907, 25743, 326, 908, 281, 1132, 387, 253, 5603, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " paragraph", " about", " a", null, " named", " Drew", " that", " used", " to", " stay", " at", " running", " pool", " on", " him" ],
+    "original_sentence" : "One <mask> about a dog named Bear that <mask> to play <mask> the park during summer"
+  }, {
+    "sentence" : "A story about a dog named Rocky that decided to stay at the park during vacation.",
+    "tokens" : [ 34, 2926, 670, 247, 4370, 4907, 37669, 326, 4425, 281, 3297, 387, 253, 5603, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " paragraph", " about", " a", " dog", " named", " Drew", " that", " used", " to", " stay", " at", " running", " pool", " on", " winter" ],
+    "original_sentence" : "<mask> story about a <mask> named Rocky that decided to stay <mask> the park during vacation"
+  }, {
+    "sentence" : "A dog and baby dog named Lucky that joined the play in running water on vacation.",
+    "tokens" : [ 34, 4370, 285, 6858, 4370, 4907, 45023, 326, 7416, 253, 1132, 275, 3515, 1824, 327, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " dog", " and", " baby", " dog", " named", " Drew", " that", " joined", " to", " stay", " at", " running", " pool", " on", " winter" ],
+    "original_sentence" : "A <mask> <mask> <mask> dog named Lucky that <mask> the play in running water on vacation"
+  }, {
+    "sentence" : "A sentence about a dog named Chance being likes to lay in a pool during vacation.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 42475, 1146, 13052, 281, 2242, 275, 247, 6363, 1309, 18125, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " dog", " and", " baby", " dog", " named", " Drew", " being", " likes", " to", " lay", " at", " running", " pool", " on", " winter" ],
+    "original_sentence" : "A sentence about a dog <mask> Chance <mask> <mask> to <mask> in a pool during vacation"
+  }, {
+    "sentence" : "A sentence about a dog named Thunder that loves to play in the air during summer.",
+    "tokens" : [ 34, 6197, 670, 247, 4370, 4907, 27926, 326, 14528, 281, 1132, 275, 253, 2329, 1309, 5768, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " a", " dog", " and", " baby", " dog", " named", " Thunder", " being", " likes", " to", " lay", " at", " the", " air", " on", " winter" ],
+    "original_sentence" : "<mask> sentence about a dog named <mask> that loves to play in <mask> <mask> during summer"
+  } ],
+  "date" : "2025-09-16T18:43:45.876501400"
+}

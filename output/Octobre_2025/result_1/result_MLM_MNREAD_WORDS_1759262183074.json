@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to be able to tell her what was going on in my life",
+    "perplexity" : 12.746663093566895,
+    "weight" : 0.03187452674549438
+  },
+  "logs" : [ {
+    "sentence" : "We need to be able to tell her what was going on in my life",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 12.746663093566895,
+    "tokens_used" : [ null, null, " to", " be", null, null, null, null, null, null, null, null, null, null, " life" ],
+    "original_sentence" : "We need [MASK] [MASK] able to tell her what was going on in my [MASK]"
+  }, {
+    "sentence" : "We need to be [MASK] to tell [MASK] [MASK] was going on in my [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 544, 18690, 62, 281, 2028, 544, 18690, 62, 544, 18690, 62, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", null, null, null, null, null, null, null, null, null, null, " life" ],
+    "original_sentence" : "We need to be [MASK] to tell [MASK] [MASK] was going on in my [MASK]"
+  }, {
+    "sentence" : "We need to be able to tell her what was going on in my life",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 12.746663093566895,
+    "tokens_used" : [ null, null, " to", " be", " able", null, null, null, null, null, null, null, null, null, " life" ],
+    "original_sentence" : "We need [MASK] [MASK] [MASK] to tell her what was going on in my life"
+  }, {
+    "sentence" : "We need to be able to tell her what is going out in my life",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 752, 310, 1469, 562, 275, 619, 1495, 15 ],
+    "perplexity" : 22.215002059936523,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", null, " out", null, null, " life" ],
+    "original_sentence" : "We need [MASK] be able to [MASK] her what [MASK] going [MASK] in my life"
+  }, {
+    "sentence" : "We need to be able to tell her what is moving on in my life",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 752, 310, 4886, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 24.839384078979492,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to [MASK] able to tell her what [MASK] [MASK] on [MASK] my life"
+  }, {
+    "sentence" : "We need to be [MASK] [MASK] tell [MASK] what was going on in my [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 544, 18690, 62, 544, 18690, 62, 2028, 544, 18690, 62, 752, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to be [MASK] [MASK] tell [MASK] what was going on in my [MASK]"
+  }, {
+    "sentence" : "[MASK] need to be able to tell [MASK] what was going on in my [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 320, 2104, 281, 2028, 544, 18690, 62, 752, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "[MASK] need to be able to tell [MASK] what was going on in my [MASK]"
+  }, {
+    "sentence" : "[MASK] need to [MASK] able to tell her what was going [MASK] in my life ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 544, 18690, 62, 2104, 281, 2028, 617, 752, 369, 1469, 544, 18690, 62, 275, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "[MASK] need to [MASK] able to tell her what was going [MASK] in my life"
+  }, {
+    "sentence" : "We need to be able to tell her [MASK] was [MASK] on in [MASK] life ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 544, 18690, 62, 369, 544, 18690, 62, 327, 275, 544, 18690, 62, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to be able to tell her [MASK] was [MASK] on in [MASK] life"
+  }, {
+    "sentence" : "We [MASK] to be able to tell her what was [MASK] [MASK] in my [MASK] ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 2104, 281, 2028, 617, 752, 369, 544, 18690, 62, 544, 18690, 62, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We [MASK] to be able to tell her what was [MASK] [MASK] in my [MASK]"
+  }, {
+    "sentence" : "We need to be able [MASK] [MASK] her what was going on in my [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 544, 18690, 62, 544, 18690, 62, 617, 752, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", null, " tell", null, null, " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to be able [MASK] [MASK] her what was going on in my [MASK]"
+  }, {
+    "sentence" : "We need to be able to tell her about is going on in my life",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 670, 310, 1469, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 34.03707504272461,
+    "tokens_used" : [ null, null, " to", " be", " able", " to", " tell", null, " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to be able [MASK] tell her [MASK] [MASK] going on [MASK] my life"
+  }, {
+    "sentence" : "We need to be able [MASK] tell her [MASK] [MASK] going on in [MASK] life ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 544, 18690, 62, 2028, 617, 544, 18690, 62, 544, 18690, 62, 1469, 327, 275, 544, 18690, 62, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " be", " able", " to", " tell", null, " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to be able [MASK] tell her [MASK] [MASK] going on in [MASK] life"
+  }, {
+    "sentence" : "We used to be able to tell you what was going on in my life",
+    "tokens" : [ 1231, 908, 281, 320, 2104, 281, 2028, 368, 752, 369, 1469, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 10.0703125,
+    "tokens_used" : [ null, " used", " to", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We [MASK] to be able to [MASK] [MASK] what was going on in my life"
+  }, {
+    "sentence" : "[MASK] used [MASK] be able to tell [MASK] [MASK] was going on in my life ERROR",
+    "tokens" : [ 60, 18690, 62, 908, 544, 18690, 62, 320, 2104, 281, 2028, 544, 18690, 62, 544, 18690, 62, 369, 1469, 327, 275, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " used", " to", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "[MASK] used [MASK] be able to tell [MASK] [MASK] was going on in my life"
+  }, {
+    "sentence" : "We used [MASK] be able [MASK] tell you what was going on in my [MASK] ERROR",
+    "tokens" : [ 1231, 908, 544, 18690, 62, 320, 2104, 544, 18690, 62, 2028, 368, 752, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " used", " to", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We used [MASK] be able [MASK] tell you what was going on in my [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] to [MASK] able to tell her what was [MASK] on in my life ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 544, 18690, 62, 2104, 281, 2028, 617, 752, 369, 544, 18690, 62, 327, 275, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " used", " to", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "[MASK] [MASK] to [MASK] able to tell her what was [MASK] on in my life"
+  }, {
+    "sentence" : "We used to [MASK] able to tell you what was going [MASK] [MASK] my life ERROR",
+    "tokens" : [ 1231, 908, 281, 544, 18690, 62, 2104, 281, 2028, 368, 752, 369, 1469, 544, 18690, 62, 544, 18690, 62, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " used", " to", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We used to [MASK] able to tell you what was going [MASK] [MASK] my life"
+  }, {
+    "sentence" : "We used not be able to tell you what is going on in my life",
+    "tokens" : [ 1231, 908, 417, 320, 2104, 281, 2028, 368, 752, 310, 1469, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 25.491622924804688,
+    "tokens_used" : [ null, " used", " not", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We [MASK] [MASK] be able to tell you what [MASK] going on [MASK] my life"
+  }, {
+    "sentence" : "We need to be able [MASK] [MASK] her [MASK] was going on in my [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 544, 18690, 62, 544, 18690, 62, 617, 544, 18690, 62, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " used", " not", " be", " able", " to", " tell", " you", " about", " is", " moving", " out", " in", null, " life" ],
+    "original_sentence" : "We need to be able [MASK] [MASK] her [MASK] was going on in my [MASK]"
+  } ],
+  "date" : "2025-09-30T15:56:23.072337600",
+  "time" : 40.397
+}

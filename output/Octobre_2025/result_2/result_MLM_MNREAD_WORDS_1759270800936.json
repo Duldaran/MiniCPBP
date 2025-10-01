@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "It made me wonder if it was going to be able to do the work",
+    "perplexity" : 12.056061744689941,
+    "weight" : 0.07447513750384178
+  },
+  "logs" : [ {
+    "sentence" : "Always made me wonder if it was I to be able to do the work",
+    "tokens" : [ 34361, 1160, 479, 4282, 604, 352, 369, 309, 281, 320, 2104, 281, 513, 253, 789, 15 ],
+    "perplexity" : 36.146907806396484,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] made [MASK] wonder if it was [MASK] to be able to do the work"
+  }, {
+    "sentence" : "It made me wonder if he was going to be able to fix the car",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 344, 369, 1469, 281, 320, 2104, 281, 4993, 253, 1113, 15 ],
+    "perplexity" : 14.053139686584473,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if [MASK] was going to be able to [MASK] the [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it was going to [MASK] [MASK] to [MASK] the work ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 544, 18690, 62, 544, 18690, 62, 281, 544, 18690, 62, 253, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it was going to [MASK] [MASK] to [MASK] the work"
+  }, {
+    "sentence" : "[MASK] made me wonder if it was going [MASK] be [MASK] to do [MASK] work ERROR",
+    "tokens" : [ 60, 18690, 62, 1160, 479, 4282, 604, 352, 369, 1469, 544, 18690, 62, 320, 544, 18690, 62, 281, 513, 544, 18690, 62, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] made me wonder if it was going [MASK] be [MASK] to do [MASK] work"
+  }, {
+    "sentence" : "[MASK] made me [MASK] if it [MASK] going to be able to do the work ERROR",
+    "tokens" : [ 60, 18690, 62, 1160, 479, 544, 18690, 62, 604, 352, 544, 18690, 62, 1469, 281, 320, 2104, 281, 513, 253, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] made me [MASK] if it [MASK] going to be able to do the work"
+  }, {
+    "sentence" : "[MASK] made me wonder if [MASK] [MASK] going to be able to do the work ERROR",
+    "tokens" : [ 60, 18690, 62, 1160, 479, 4282, 604, 544, 18690, 62, 544, 18690, 62, 1469, 281, 320, 2104, 281, 513, 253, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] made me wonder if [MASK] [MASK] going to be able to do the work"
+  }, {
+    "sentence" : "It made me wonder if it was going to be safe to do the work",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 320, 4999, 281, 513, 253, 789, 15 ],
+    "perplexity" : 17.442466735839844,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder [MASK] it was going to be [MASK] to do [MASK] work"
+  }, {
+    "sentence" : "It made me wonder if it was [MASK] to [MASK] able to [MASK] the [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 544, 18690, 62, 281, 544, 18690, 62, 2104, 281, 544, 18690, 62, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it was [MASK] to [MASK] able to [MASK] the [MASK]"
+  }, {
+    "sentence" : "It [MASK] me wonder if [MASK] was going to be able [MASK] do the work ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 479, 4282, 604, 544, 18690, 62, 369, 1469, 281, 320, 2104, 544, 18690, 62, 513, 253, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] me wonder if [MASK] was going to be able [MASK] do the work"
+  }, {
+    "sentence" : "It made me [MASK] if it was going [MASK] be able to [MASK] the work ERROR",
+    "tokens" : [ 1147, 1160, 479, 544, 18690, 62, 604, 352, 369, 1469, 544, 18690, 62, 320, 2104, 281, 544, 18690, 62, 253, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me [MASK] if it was going [MASK] be able to [MASK] the work"
+  }, {
+    "sentence" : "It made me wonder if it was [MASK] to be able [MASK] do [MASK] work ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 544, 18690, 62, 281, 320, 2104, 544, 18690, 62, 513, 544, 18690, 62, 789, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it was [MASK] to be able [MASK] do [MASK] work"
+  }, {
+    "sentence" : "It made me wonder if it was going to be able to do the same",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 320, 2104, 281, 513, 253, 1072, 15 ],
+    "perplexity" : 10.045543670654297,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder [MASK] it was going to [MASK] able to do the [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it [MASK] going [MASK] be [MASK] to do the [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 544, 18690, 62, 1469, 544, 18690, 62, 320, 544, 18690, 62, 281, 513, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it [MASK] going [MASK] be [MASK] to do the [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it [MASK] going [MASK] be able to do [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 544, 18690, 62, 1469, 544, 18690, 62, 320, 2104, 281, 513, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it [MASK] going [MASK] be able to do [MASK] [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it was going to be able to [MASK] [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 281, 320, 2104, 281, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it was going to be able to [MASK] [MASK] [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it was good to get able to do the same",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1175, 281, 755, 2104, 281, 513, 253, 1072, 15 ],
+    "perplexity" : 22.7767333984375,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] me wonder if it was [MASK] to [MASK] able to do the same"
+  }, {
+    "sentence" : "It made me wonder if [MASK] was going to be [MASK] to do the [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 544, 18690, 62, 369, 1469, 281, 320, 544, 18690, 62, 281, 513, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if [MASK] was going to be [MASK] to do the [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it was going [MASK] be [MASK] to do the [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 479, 4282, 604, 352, 369, 1469, 544, 18690, 62, 320, 544, 18690, 62, 281, 513, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made me wonder if it was going [MASK] be [MASK] to do the [MASK]"
+  }, {
+    "sentence" : "It made [MASK] wonder if [MASK] was going to be able to do [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 1160, 544, 18690, 62, 4282, 604, 544, 18690, 62, 369, 1469, 281, 320, 2104, 281, 513, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It made [MASK] wonder if [MASK] was going to be able to do [MASK] [MASK]"
+  }, {
+    "sentence" : "It makes me wonder if it was good to be able to do the same",
+    "tokens" : [ 1147, 2789, 479, 4282, 604, 352, 369, 1175, 281, 320, 2104, 281, 513, 253, 1072, 15 ],
+    "perplexity" : 16.2531795501709,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] me wonder if it was [MASK] [MASK] be able to do the same"
+  } ],
+  "date" : "2025-09-30T18:20:00.932548300",
+  "time" : 64.22
+}

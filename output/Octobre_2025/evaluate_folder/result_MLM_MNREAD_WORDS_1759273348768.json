@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "All she wanted was to be able to see me in front of her now",
+    "perplexity" : 14.2118501663208,
+    "weight" : 0.20302021856542163
+  },
+  "logs" : [ {
+    "sentence" : "All you wanted was to be able to see me in front of you now",
+    "tokens" : [ 3074, 368, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 368, 1024, 15 ],
+    "perplexity" : 24.100299835205078,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] wanted was to be able to see me in front of [MASK] now"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of her dog",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 617, 4370, 15 ],
+    "perplexity" : 15.279447555541992,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] she [MASK] was [MASK] be able to see me in front of her [MASK]"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of her now",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 617, 1024, 15 ],
+    "perplexity" : 14.2118501663208,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she [MASK] was to be [MASK] to [MASK] me in front of [MASK] now"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of her now",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 617, 1024, 15 ],
+    "perplexity" : 14.2118501663208,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was [MASK] be able to [MASK] me [MASK] front of her now"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of her now",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 617, 1024, 15 ],
+    "perplexity" : 14.2118501663208,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was [MASK] be [MASK] to see me in [MASK] of her now"
+  }, {
+    "sentence" : "All she wanted was to be [MASK] to see me in front of [MASK] [MASK] ERROR",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 544, 18690, 62, 281, 923, 479, 275, 2914, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was to be [MASK] to see me in front of [MASK] [MASK]"
+  }, {
+    "sentence" : "All she wanted was to be able to see me [MASK] front of [MASK] [MASK] ERROR",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 544, 18690, 62, 2914, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was to be able to see me [MASK] front of [MASK] [MASK]"
+  }, {
+    "sentence" : "[MASK] she wanted was to [MASK] [MASK] to see me in [MASK] of her now ERROR",
+    "tokens" : [ 60, 18690, 62, 703, 3078, 369, 281, 544, 18690, 62, 544, 18690, 62, 281, 923, 479, 275, 544, 18690, 62, 273, 617, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] she wanted was to [MASK] [MASK] to see me in [MASK] of her now"
+  }, {
+    "sentence" : "All she wanted was to be [MASK] [MASK] see me in front of her [MASK] ERROR",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 544, 18690, 62, 544, 18690, 62, 923, 479, 275, 2914, 273, 617, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was to be [MASK] [MASK] see me in front of her [MASK]"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of my eyes",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 619, 2927, 15 ],
+    "perplexity" : 14.650644302368164,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was to be able [MASK] see me in front [MASK] [MASK] [MASK]"
+  }, {
+    "sentence" : "All she [MASK] was [MASK] [MASK] able to see me in front of her now ERROR",
+    "tokens" : [ 3074, 703, 544, 18690, 62, 369, 544, 18690, 62, 544, 18690, 62, 2104, 281, 923, 479, 275, 2914, 273, 617, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she [MASK] was [MASK] [MASK] able to see me in front of her now"
+  }, {
+    "sentence" : "All she [MASK] was to be [MASK] to see me in [MASK] [MASK] my eyes ERROR",
+    "tokens" : [ 3074, 703, 544, 18690, 62, 369, 281, 320, 544, 18690, 62, 281, 923, 479, 275, 544, 18690, 62, 544, 18690, 62, 619, 2927, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she [MASK] was to be [MASK] to see me in [MASK] [MASK] my eyes"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of her car",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 617, 1113, 15 ],
+    "perplexity" : 16.188627243041992,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was to [MASK] able to see me in [MASK] of her [MASK]"
+  }, {
+    "sentence" : "All [MASK] [MASK] was to be able to see [MASK] in front of her [MASK] ERROR",
+    "tokens" : [ 3074, 544, 18690, 62, 544, 18690, 62, 369, 281, 320, 2104, 281, 923, 544, 18690, 62, 275, 2914, 273, 617, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All [MASK] [MASK] was to be able to see [MASK] in front of her [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] wanted was to be able to see me [MASK] front of her [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 3078, 369, 281, 320, 2104, 281, 923, 479, 544, 18690, 62, 2914, 273, 617, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] wanted was to be able to see me [MASK] front of her [MASK]"
+  }, {
+    "sentence" : "All she wanted was [MASK] be able [MASK] see me in front of [MASK] now ERROR",
+    "tokens" : [ 3074, 703, 3078, 369, 544, 18690, 62, 320, 2104, 544, 18690, 62, 923, 479, 275, 2914, 273, 544, 18690, 62, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was [MASK] be able [MASK] see me in front of [MASK] now"
+  }, {
+    "sentence" : "All [MASK] wanted [MASK] to be able [MASK] see me in front of her [MASK] ERROR",
+    "tokens" : [ 3074, 544, 18690, 62, 3078, 544, 18690, 62, 281, 320, 2104, 544, 18690, 62, 923, 479, 275, 2914, 273, 617, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All [MASK] wanted [MASK] to be able [MASK] see me in front of her [MASK]"
+  }, {
+    "sentence" : "All she wanted [MASK] to be able to see me [MASK] front [MASK] her now ERROR",
+    "tokens" : [ 3074, 703, 3078, 544, 18690, 62, 281, 320, 2104, 281, 923, 479, 544, 18690, 62, 2914, 544, 18690, 62, 617, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted [MASK] to be able to see me [MASK] front [MASK] her now"
+  }, {
+    "sentence" : "All she wanted was [MASK] be [MASK] to see me in front [MASK] her [MASK] ERROR",
+    "tokens" : [ 3074, 703, 3078, 369, 544, 18690, 62, 320, 544, 18690, 62, 281, 923, 479, 275, 2914, 544, 18690, 62, 617, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted was [MASK] be [MASK] to see me in front [MASK] her [MASK]"
+  }, {
+    "sentence" : "All she wanted was to be able to see me in front of her dog",
+    "tokens" : [ 3074, 703, 3078, 369, 281, 320, 2104, 281, 923, 479, 275, 2914, 273, 617, 4370, 15 ],
+    "perplexity" : 15.279447555541992,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "All she wanted [MASK] [MASK] be able to see me in [MASK] of her dog"
+  } ],
+  "date" : "2025-09-30T19:02:28.766722500",
+  "time" : 72.227
+}

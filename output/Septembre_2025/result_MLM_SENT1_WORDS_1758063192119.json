@@ -1,0 +1,125 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "An old friend of mine from high school has a daughter your age and they sometimes",
+  "logs" : [ {
+    "sentence" : "An old friend of mine from middle school has a daughter her age and they married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 4766, 2143, 556, 247, 6122, 617, 2363, 285, 597, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " friend", null, null, null, " middle", null, null, null, null, " her", null, null, null, " married" ],
+    "original_sentence" : "An old <mask> of mine from <mask> school has a daughter <mask> age and they <mask>"
+  }, {
+    "sentence" : "An old friend of family in middle school has a daughter her age and they married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 2021, 275, 4766, 2143, 556, 247, 6122, 617, 2363, 285, 597, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " friend", " of", " family", " in", " middle", null, null, " a", null, " her", null, " and", null, " married" ],
+    "original_sentence" : "An old friend of <mask> <mask> middle school has <mask> daughter her age and they married"
+  }, {
+    "sentence" : "Year old friend of family in high school has a daughter her age and they married.",
+    "tokens" : [ 18085, 1711, 3331, 273, 2021, 275, 1029, 2143, 556, 247, 6122, 617, 2363, 285, 597, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " year", null, " friend", " of", " family", " in", " high", null, null, " a", null, " her", null, " and", null, " married" ],
+    "original_sentence" : "<mask> old <mask> of family in <mask> school has a daughter her age and they married"
+  }, {
+    "sentence" : "Year old friend of mine in high school has a daughter named he and they together.",
+    "tokens" : [ 18085, 1711, 3331, 273, 7477, 275, 1029, 2143, 556, 247, 6122, 4907, 344, 285, 597, 2366, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " year", null, " friend", " of", " mine", " in", " high", null, null, " a", null, " named", " he", " and", null, " together" ],
+    "original_sentence" : "Year old friend of <mask> in high school has a daughter <mask> <mask> and they <mask>"
+  }, {
+    "sentence" : "An old friend of family in high school has a grandmother of age and they married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 2021, 275, 1029, 2143, 556, 247, 20606, 273, 2363, 285, 597, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " An", null, " friend", " of", " mine", " in", " high", null, null, " a", " grandmother", " of", " he", " and", null, " married" ],
+    "original_sentence" : "<mask> old friend of family in high school has a <mask> <mask> age and they <mask>"
+  }, {
+    "sentence" : "An old friend of family in middle age has a daughter her age and youngest sister.",
+    "tokens" : [ 1145, 1711, 3331, 273, 2021, 275, 4766, 2363, 556, 247, 6122, 617, 2363, 285, 25423, 7586, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " An", null, " friend", " of", " mine", " in", " high", " age", null, " a", " grandmother", " of", " he", " and", " youngest", " sister" ],
+    "original_sentence" : "An old friend of family <mask> middle <mask> has a daughter her age and <mask> <mask>"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter at home and they sometimes.",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 387, 1728, 285, 597, 4536, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " An", null, " friend", " of", " mine", " in", " high", " school", " has", " a", " grandmother", " at", " home", " and", " youngest", " sister" ],
+    "original_sentence" : "An old friend of mine from high <mask> <mask> a daughter <mask> <mask> and they sometimes"
+  }, {
+    "sentence" : "Another old friend of mine in high school has a daughter named he and they marry.",
+    "tokens" : [ 8195, 1711, 3331, 273, 7477, 275, 1029, 2143, 556, 247, 6122, 4907, 344, 285, 597, 17129, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", null, " friend", " of", " mine", " in", " high", " school", " has", " a", " grandmother", " at", " home", " and", " youngest", " marry" ],
+    "original_sentence" : "<mask> old <mask> of mine in high school has a daughter named he and they <mask>"
+  }, {
+    "sentence" : "An old friend of family in middle school has a baby her age and actually married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 2021, 275, 4766, 2143, 556, 247, 6858, 617, 2363, 285, 2686, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", null, " friend", " of", " mine", " in", " high", " school", " has", " a", " baby", " at", " age", " and", " actually", " marry" ],
+    "original_sentence" : "An old friend of family in middle school has a <mask> her <mask> and <mask> married"
+  }, {
+    "sentence" : "Another close friend of his in high school has a daughter that he and they marry.",
+    "tokens" : [ 8195, 2810, 3331, 273, 521, 275, 1029, 2143, 556, 247, 6122, 326, 344, 285, 597, 17129, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " friend", " of", " his", " in", " high", " school", " has", " a", " baby", " that", " age", " and", " actually", " marry" ],
+    "original_sentence" : "Another <mask> friend of <mask> in high school has a daughter <mask> he and they marry"
+  }, {
+    "sentence" : "Year old girl loving family in high school has a daughter her age that they love.",
+    "tokens" : [ 18085, 1711, 3226, 18248, 2021, 275, 1029, 2143, 556, 247, 6122, 617, 2363, 326, 597, 2389, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " girl", " loving", " his", " in", " high", " school", " has", " a", " baby", " that", " age", " that", " actually", " love" ],
+    "original_sentence" : "Year old <mask> <mask> family in high school has a daughter her age <mask> they <mask>"
+  }, {
+    "sentence" : "An old friend of family in high school has a grandmother of mine I never married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 2021, 275, 1029, 2143, 556, 247, 20606, 273, 7477, 309, 1620, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " girl", " loving", " his", " in", " high", " school", " has", " a", " baby", " that", " mine", " I", " never", " love" ],
+    "original_sentence" : "An old friend of family in high <mask> has a grandmother of <mask> <mask> <mask> married"
+  }, {
+    "sentence" : "Year old friend of family in high school had a daughter her age and her daughter.",
+    "tokens" : [ 18085, 1711, 3331, 273, 2021, 275, 1029, 2143, 574, 247, 6122, 617, 2363, 285, 617, 6122, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " girl", " loving", " his", " in", " high", " school", " had", " a", " baby", " that", " mine", " and", " her", " daughter" ],
+    "original_sentence" : "Year old friend of family in high school <mask> a daughter her age <mask> <mask> <mask>"
+  }, {
+    "sentence" : "Year old very loving couple in high school has a daughter her age that they love.",
+    "tokens" : [ 18085, 1711, 1077, 18248, 4564, 275, 1029, 2143, 556, 247, 6122, 617, 2363, 326, 597, 2389, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " very", " loving", " couple", " in", " high", " school", " had", " a", " baby", " that", " mine", " and", " her", " daughter" ],
+    "original_sentence" : "Year old <mask> loving <mask> in high <mask> has <mask> daughter her age that they love"
+  }, {
+    "sentence" : "An old man of family in high school has a grandmother the age since they married.",
+    "tokens" : [ 1145, 1711, 637, 273, 2021, 275, 1029, 2143, 556, 247, 20606, 253, 2363, 1580, 597, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " man", " loving", " couple", " in", " high", " school", " had", " a", " baby", " the", " mine", " since", " her", " daughter" ],
+    "original_sentence" : "An old <mask> of family in high school has a grandmother <mask> age <mask> they married"
+  }, {
+    "sentence" : "Year old friend of family in high school had a difference her age and her weight.",
+    "tokens" : [ 18085, 1711, 3331, 273, 2021, 275, 1029, 2143, 574, 247, 3064, 617, 2363, 285, 617, 2801, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " man", " loving", " couple", " in", " high", " school", " had", " a", " difference", " the", " mine", " since", " her", " weight" ],
+    "original_sentence" : "Year old friend of family in high school <mask> a <mask> her age and her <mask>"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter from town and they married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 432, 3874, 285, 597, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " man", " loving", " couple", " in", " high", " school", " has", " a", " difference", " from", " town", " since", " her", " married" ],
+    "original_sentence" : "An old friend of mine from high school <mask> a daughter <mask> <mask> and they <mask>"
+  }, {
+    "sentence" : "Year old girl loving family in high school and a daughter her age that they love.",
+    "tokens" : [ 18085, 1711, 3226, 18248, 2021, 275, 1029, 2143, 285, 247, 6122, 617, 2363, 326, 597, 2389, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " man", " loving", " couple", " in", " high", " school", " and", " a", " difference", " her", " town", " since", " her", " married" ],
+    "original_sentence" : "Year old girl loving family <mask> high school <mask> a daughter <mask> age that they love"
+  }, {
+    "sentence" : "An old friend of mine from high schools has a daughter from town and got married.",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 6629, 556, 247, 6122, 432, 3874, 285, 1694, 7028, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " another", " close", " friend", " of", " couple", " in", " high", " schools", " and", " a", " difference", " her", " town", " since", " got", " married" ],
+    "original_sentence" : "An old <mask> <mask> mine from high <mask> has a daughter from town and <mask> married"
+  } ],
+  "date" : "2025-09-16T18:53:12.118227900"
+}

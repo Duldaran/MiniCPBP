@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to be able to get in and out of the house next time",
+    "perplexity" : 14.19819450378418,
+    "weight" : 0.2195758697545744
+  },
+  "logs" : [ {
+    "sentence" : "We need to be able to get a dog out for the house next time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 247, 4370, 562, 323, 253, 2419, 1735, 673, 15 ],
+    "perplexity" : 32.467864990234375,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be able to [MASK] [MASK] [MASK] out [MASK] the house next time"
+  }, {
+    "sentence" : "We need to be able to get in and out of the house next year",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 2419, 1735, 807, 15 ],
+    "perplexity" : 16.674823760986328,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need [MASK] be able to get in and out of [MASK] [MASK] next [MASK]"
+  }, {
+    "sentence" : "We need to be able a get the dog out of the house next time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 247, 755, 253, 4370, 562, 273, 253, 2419, 1735, 673, 15 ],
+    "perplexity" : 49.82818603515625,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be able [MASK] [MASK] [MASK] [MASK] out of the house next time"
+  }, {
+    "sentence" : "We may not be able to get in and out of the house next week",
+    "tokens" : [ 1231, 778, 417, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 2419, 1735, 2129, 15 ],
+    "perplexity" : 13.207056045532227,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] [MASK] be able to get in and out of the house next [MASK]"
+  }, {
+    "sentence" : "We may not be able to get in and out of the office all week",
+    "tokens" : [ 1231, 778, 417, 320, 2104, 281, 755, 275, 285, 562, 273, 253, 3906, 512, 2129, 15 ],
+    "perplexity" : 16.488540649414062,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may not [MASK] able to [MASK] in and out of the [MASK] [MASK] week"
+  }, {
+    "sentence" : "[MASK] may not [MASK] able to get in and out [MASK] the house next [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 778, 417, 544, 18690, 62, 2104, 281, 755, 275, 285, 562, 544, 18690, 62, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] may not [MASK] able to get in and out [MASK] the house next [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] to be able to [MASK] in and out of the house next [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 320, 2104, 281, 544, 18690, 62, 275, 285, 562, 273, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to be able to [MASK] in and out of the house next [MASK]"
+  }, {
+    "sentence" : "We may not be able to [MASK] in [MASK] out of the house [MASK] week ERROR",
+    "tokens" : [ 1231, 778, 417, 320, 2104, 281, 544, 18690, 62, 275, 544, 18690, 62, 562, 273, 253, 2419, 544, 18690, 62, 2129, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may not be able to [MASK] in [MASK] out of the house [MASK] week"
+  }, {
+    "sentence" : "We may [MASK] be able to get in and out of [MASK] house next [MASK] ERROR",
+    "tokens" : [ 1231, 778, 544, 18690, 62, 320, 2104, 281, 755, 275, 285, 562, 273, 544, 18690, 62, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may [MASK] be able to get in and out of [MASK] house next [MASK]"
+  }, {
+    "sentence" : "We need [MASK] be able [MASK] get in [MASK] out [MASK] the house next time ERROR",
+    "tokens" : [ 1231, 878, 544, 18690, 62, 320, 2104, 544, 18690, 62, 755, 275, 544, 18690, 62, 562, 544, 18690, 62, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need [MASK] be able [MASK] get in [MASK] out [MASK] the house next time"
+  }, {
+    "sentence" : "[MASK] may not be able to [MASK] in and out [MASK] the house next [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 778, 417, 320, 2104, 281, 544, 18690, 62, 275, 285, 562, 544, 18690, 62, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] may not be able to [MASK] in and out [MASK] the house next [MASK]"
+  }, {
+    "sentence" : "I may not be able to get in key out of the office next week",
+    "tokens" : [ 42, 778, 417, 320, 2104, 281, 755, 275, 2234, 562, 273, 253, 3906, 1735, 2129, 15 ],
+    "perplexity" : 40.37092208862305,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] may not [MASK] able to get in [MASK] out of the [MASK] next week"
+  }, {
+    "sentence" : "We need to be able to get in key out of the house next time",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 755, 275, 2234, 562, 273, 253, 2419, 1735, 673, 15 ],
+    "perplexity" : 40.38895797729492,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need [MASK] be able to [MASK] in [MASK] out of the house next time"
+  }, {
+    "sentence" : "We [MASK] not be able [MASK] get in and out of the house next [MASK] ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 417, 320, 2104, 544, 18690, 62, 755, 275, 285, 562, 273, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] not be able [MASK] get in and out of the house next [MASK]"
+  }, {
+    "sentence" : "We may not be able to [MASK] in and [MASK] [MASK] the house next [MASK] ERROR",
+    "tokens" : [ 1231, 778, 417, 320, 2104, 281, 544, 18690, 62, 275, 285, 544, 18690, 62, 544, 18690, 62, 253, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may not be able to [MASK] in and [MASK] [MASK] the house next [MASK]"
+  }, {
+    "sentence" : "We [MASK] to be [MASK] to get in and out [MASK] the house next time ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 544, 18690, 62, 281, 755, 275, 285, 562, 544, 18690, 62, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to be [MASK] to get in and out [MASK] the house next time"
+  }, {
+    "sentence" : "We [MASK] to be able to get [MASK] and out [MASK] the house next time ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 2104, 281, 755, 544, 18690, 62, 285, 562, 544, 18690, 62, 253, 2419, 1735, 673, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to be able to get [MASK] and out [MASK] the house next time"
+  }, {
+    "sentence" : "We may not be [MASK] to [MASK] in and out [MASK] [MASK] house next week ERROR",
+    "tokens" : [ 1231, 778, 417, 320, 544, 18690, 62, 281, 544, 18690, 62, 275, 285, 562, 544, 18690, 62, 544, 18690, 62, 2419, 1735, 2129, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may not be [MASK] to [MASK] in and out [MASK] [MASK] house next week"
+  }, {
+    "sentence" : "We may [MASK] be able to get in and out of [MASK] house next [MASK] ERROR",
+    "tokens" : [ 1231, 778, 544, 18690, 62, 320, 2104, 281, 755, 275, 285, 562, 273, 544, 18690, 62, 2419, 1735, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may [MASK] be able to get in and out of [MASK] house next [MASK]"
+  }, {
+    "sentence" : "We may not [MASK] able to get [MASK] and out [MASK] the [MASK] next week ERROR",
+    "tokens" : [ 1231, 778, 417, 544, 18690, 62, 2104, 281, 755, 544, 18690, 62, 285, 562, 544, 18690, 62, 253, 544, 18690, 62, 1735, 2129, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We may not [MASK] able to get [MASK] and out [MASK] the [MASK] next week"
+  } ],
+  "date" : "2025-09-30T18:28:01.481776300",
+  "time" : 53.714
+}

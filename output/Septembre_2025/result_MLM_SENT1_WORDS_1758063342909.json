@@ -1,0 +1,107 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "That means no extra spaces, just the ones in the numbers and the ones between your",
+  "logs" : [ {
+    "sentence" : "That means no extra spaces, just the ones between the numbers and the ones between them.",
+    "tokens" : [ 2773, 2097, 642, 4465, 8470, 13, 816, 253, 4394, 875, 253, 3904, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, " between", null, null, " and", null, null, null, " them" ],
+    "original_sentence" : "That means no extra spaces, just the ones <mask> the numbers <mask> the ones between <mask>"
+  }, {
+    "sentence" : "That means no extra spaces, just the ones <mask> the numbers and the ones with your ERROR",
+    "tokens" : [ 2773, 2097, 642, 4465, 8470, 13, 816, 253, 4394, 654, 12477, 31, 253, 3904, 285, 253, 4394, 342, 634, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, " between", null, null, " and", " the", null, " with", " them" ],
+    "original_sentence" : "That means no extra spaces, just the ones <mask> the numbers and <mask> ones <mask> your"
+  }, {
+    "sentence" : "<mask> means no extra spaces, just the ones in the wall and the ones between your ERROR",
+    "tokens" : [ 29, 12477, 31, 2097, 642, 4465, 8470, 13, 816, 253, 4394, 275, 253, 3402, 285, 253, 4394, 875, 634, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " just", null, null, " between", null, " wall", " and", " the", " ones", " with", " them" ],
+    "original_sentence" : "<mask> means no extra spaces, <mask> the ones in the <mask> and the <mask> between your"
+  }, {
+    "sentence" : "That means no empty spaces, just the ones between the numbers and the ones between them.",
+    "tokens" : [ 2773, 2097, 642, 6325, 8470, 13, 816, 253, 4394, 875, 253, 3904, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " empty", null, " just", null, null, " between", null, " wall", " and", " the", " ones", " with", " them" ],
+    "original_sentence" : "That means no <mask> spaces, just the ones <mask> the numbers and the ones between <mask>"
+  }, {
+    "sentence" : "Really are no empty spaces, just the ones between the numbers and the ones between them.",
+    "tokens" : [ 22582, 403, 642, 6325, 8470, 13, 816, 253, 4394, 875, 253, 3904, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " empty", null, " just", null, null, " between", null, " wall", " and", " the", " ones", " with", " them" ],
+    "original_sentence" : "<mask> <mask> <mask> empty spaces, just the ones between the numbers <mask> the ones between them"
+  }, {
+    "sentence" : "That leaves no empty spaces, just the ones between the blocks and the ones between them.",
+    "tokens" : [ 2773, 6505, 642, 6325, 8470, 13, 816, 253, 4394, 875, 253, 8336, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " leaves", " no", " empty", null, " just", null, null, " between", null, " blocks", " and", " the", " ones", " with", " them" ],
+    "original_sentence" : "That <mask> no <mask> spaces, just the ones between the <mask> and <mask> ones between them"
+  }, {
+    "sentence" : "That is no empty spaces just the ones with the numbers and the ones between them.",
+    "tokens" : [ 2773, 310, 642, 6325, 8470, 816, 253, 4394, 342, 253, 3904, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " is", " no", " empty", " spaces", " just", " the", null, " with", " the", " blocks", " and", " the", " ones", " with", " them" ],
+    "original_sentence" : "That <mask> no empty <mask> just the ones <mask> the numbers and <mask> ones between them"
+  }, {
+    "sentence" : "That are no <mask> spaces between the ones with the numbers and the ones between them ERROR",
+    "tokens" : [ 2773, 403, 642, 654, 12477, 31, 8470, 875, 253, 4394, 342, 253, 3904, 285, 253, 4394, 875, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " empty", " spaces", " between", " the", " ones", " with", " the", " blocks", " and", " the", " ones", " with", " them" ],
+    "original_sentence" : "That <mask> no <mask> spaces <mask> the <mask> with the numbers and the ones between them"
+  }, {
+    "sentence" : "That means no extra spaces, just the spaces between the numbers and the ones below them.",
+    "tokens" : [ 2773, 2097, 642, 4465, 8470, 13, 816, 253, 8470, 875, 253, 3904, 285, 253, 4394, 2708, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " empty", " spaces", " between", " the", " spaces", " with", " the", " blocks", " and", " the", " ones", " below", " them" ],
+    "original_sentence" : "That means <mask> extra spaces, just the <mask> between the numbers and the ones <mask> them"
+  }, {
+    "sentence" : "That means no two spaces, just the spaces between the numbers and the ones between them.",
+    "tokens" : [ 2773, 2097, 642, 767, 8470, 13, 816, 253, 8470, 875, 253, 3904, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " two", " spaces", " between", " the", " spaces", " with", " the", " blocks", " and", " the", " ones", " below", " them" ],
+    "original_sentence" : "That means <mask> <mask> spaces, just the <mask> between the numbers and the ones between them"
+  }, {
+    "sentence" : "That leaves no empty spaces just the ones <mask> the blocks and the ones between them ERROR",
+    "tokens" : [ 2773, 6505, 642, 6325, 8470, 816, 253, 4394, 654, 12477, 31, 253, 8336, 285, 253, 4394, 875, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " two", " spaces", " just", " the", " spaces", " with", " the", " blocks", " and", " the", " ones", " below", " them" ],
+    "original_sentence" : "That leaves no empty <mask> just the ones <mask> <mask> blocks <mask> the ones between them"
+  }, {
+    "sentence" : "That means no empty spaces, just the spaces between the numbers and the ones under them.",
+    "tokens" : [ 2773, 2097, 642, 6325, 8470, 13, 816, 253, 8470, 875, 253, 3904, 285, 253, 4394, 762, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " empty", " spaces", " just", " the", " spaces", " with", " the", " blocks", " and", " the", " ones", " under", " them" ],
+    "original_sentence" : "That means no <mask> spaces, just the <mask> between <mask> numbers and the ones <mask> them"
+  }, {
+    "sentence" : "That means no extra spaces, just the ones in the <mask> and the ones between your ERROR",
+    "tokens" : [ 2773, 2097, 642, 4465, 8470, 13, 816, 253, 4394, 275, 253, 654, 12477, 31, 285, 253, 4394, 875, 634, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " really", " are", " no", " empty", " spaces", " just", " the", " spaces", " with", " the", " blocks", " and", " the", " ones", " between", " them" ],
+    "original_sentence" : "That means no extra spaces, just the ones in the <mask> and the <mask> <mask> your"
+  }, {
+    "sentence" : "Blocks have no empty spaces, just the ones between the blocks and the ones between them.",
+    "tokens" : [ 43865, 452, 642, 6325, 8470, 13, 816, 253, 4394, 875, 253, 8336, 285, 253, 4394, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " blocks", " have", " no", " empty", " spaces", " just", " the", " spaces", " with", " the", " blocks", " and", " the", " ones", " between", " them" ],
+    "original_sentence" : "<mask> <mask> no empty spaces, just the ones between the blocks and the <mask> between them"
+  }, {
+    "sentence" : "That means no two spaces, just the spacing between the numbers and the ones before them.",
+    "tokens" : [ 2773, 2097, 642, 767, 8470, 13, 816, 253, 22735, 875, 253, 3904, 285, 253, 4394, 1078, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " blocks", " have", " no", " empty", " spaces", " just", " the", " spacing", " with", " the", " blocks", " and", " the", " ones", " before", " them" ],
+    "original_sentence" : "That means no two spaces, just the <mask> between the numbers and <mask> ones <mask> them"
+  }, {
+    "sentence" : "That means no empty space just the spaces between the numbers and the <mask> under it ERROR",
+    "tokens" : [ 2773, 2097, 642, 6325, 2317, 816, 253, 8470, 875, 253, 3904, 285, 253, 654, 12477, 31, 762, 352, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " blocks", " have", " no", " empty", " space", " just", " the", " spacing", " with", " the", " blocks", " and", " the", " ones", " before", " it" ],
+    "original_sentence" : "That means no empty <mask> just the spaces between the numbers and the <mask> under <mask>"
+  } ],
+  "date" : "2025-09-16T18:55:42.908709600"
+}

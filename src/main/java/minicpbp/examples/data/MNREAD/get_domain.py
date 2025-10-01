@@ -28,7 +28,7 @@ words = list(set(words))
 print(len(words))
 
 
-model_name = "roberta-base"
+model_name = "answerdotai/ModernBERT-base"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 model = AutoModelForMaskedLM.from_pretrained(model_name).to(device)

@@ -251,7 +251,7 @@ public class MNREAD_words {
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 63;//Verify if you need to count the spaces at the beginning of lines
+        final int NUMBER_CHAR = 60;//Verify if you need to count the spaces at the beginning of lines
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;

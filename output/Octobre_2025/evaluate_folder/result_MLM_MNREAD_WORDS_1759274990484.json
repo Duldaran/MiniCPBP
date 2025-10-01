@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "He ought to get out of the way to get to the bottom of them",
+    "perplexity" : 18.3287410736084,
+    "weight" : 9.264637782213563E-5
+  },
+  "logs" : [ {
+    "sentence" : "He ought to get out of the way and get to the bottom of him",
+    "tokens" : [ 1328, 12758, 281, 755, 562, 273, 253, 1039, 285, 755, 281, 253, 5004, 273, 779, 15 ],
+    "perplexity" : 15.971681594848633,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get out of the way [MASK] get to [MASK] bottom [MASK] [MASK]"
+  }, {
+    "sentence" : "He needs to get out of the way and get to the bottom of him",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 1039, 285, 755, 281, 253, 5004, 273, 779, 15 ],
+    "perplexity" : 12.188401222229004,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He [MASK] to get out [MASK] the way and get to the bottom [MASK] him"
+  }, {
+    "sentence" : "He needs to get out of the way [MASK] get to the [MASK] of [MASK] ERROR",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 1039, 544, 18690, 62, 755, 281, 253, 544, 18690, 62, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get out of the way [MASK] get to the [MASK] of [MASK]"
+  }, {
+    "sentence" : "He needs to get out of the way and get to the bottom of him",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 1039, 285, 755, 281, 253, 5004, 273, 779, 15 ],
+    "perplexity" : 12.188401222229004,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs [MASK] get out of [MASK] way [MASK] get to the bottom of him"
+  }, {
+    "sentence" : "He needs to get out of the bar and get down the rest of him",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 2534, 285, 755, 1066, 253, 1551, 273, 779, 15 ],
+    "perplexity" : 28.81818199157715,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get out of the [MASK] and get [MASK] the [MASK] [MASK] him"
+  }, {
+    "sentence" : "He needs to get out of the way and get to the bottom of him",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 1039, 285, 755, 281, 253, 5004, 273, 779, 15 ],
+    "perplexity" : 12.188401222229004,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to [MASK] out [MASK] the way [MASK] get to the bottom [MASK] him"
+  }, {
+    "sentence" : "He needs to get out of the way and get to the bottom of him",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 1039, 285, 755, 281, 253, 5004, 273, 779, 15 ],
+    "perplexity" : 12.188401222229004,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] [MASK] and get to the bottom of him"
+  }, {
+    "sentence" : "He needs [MASK] get out [MASK] the way and get [MASK] the bottom of [MASK] ERROR",
+    "tokens" : [ 1328, 3198, 544, 18690, 62, 755, 562, 544, 18690, 62, 253, 1039, 285, 755, 544, 18690, 62, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs [MASK] get out [MASK] the way and get [MASK] the bottom of [MASK]"
+  }, {
+    "sentence" : "[MASK] needs to [MASK] out of the way and [MASK] to the [MASK] of him ERROR",
+    "tokens" : [ 60, 18690, 62, 3198, 281, 544, 18690, 62, 562, 273, 253, 1039, 285, 544, 18690, 62, 281, 253, 544, 18690, 62, 273, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] needs to [MASK] out of the way and [MASK] to the [MASK] of him"
+  }, {
+    "sentence" : "He needs to get out [MASK] the way and [MASK] [MASK] the [MASK] of him ERROR",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 544, 18690, 62, 253, 1039, 285, 544, 18690, 62, 544, 18690, 62, 253, 544, 18690, 62, 273, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get out [MASK] the way and [MASK] [MASK] the [MASK] of him"
+  }, {
+    "sentence" : "He needs to get out of the way and get to the bottom of him",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 253, 1039, 285, 755, 281, 253, 5004, 273, 779, 15 ],
+    "perplexity" : 12.188401222229004,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get out of the [MASK] [MASK] get to the bottom [MASK] him"
+  }, {
+    "sentence" : "[MASK] needs to get out of the way and get [MASK] the [MASK] of [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 3198, 281, 755, 562, 273, 253, 1039, 285, 755, 544, 18690, 62, 253, 544, 18690, 62, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] needs to get out of the way and get [MASK] the [MASK] of [MASK]"
+  }, {
+    "sentence" : "[MASK] needs to get out of the [MASK] [MASK] get to the bottom of [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 3198, 281, 755, 562, 273, 253, 544, 18690, 62, 544, 18690, 62, 755, 281, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] needs to get out of the [MASK] [MASK] get to the bottom of [MASK]"
+  }, {
+    "sentence" : "He needs to get [MASK] of [MASK] way [MASK] [MASK] to the bottom of him ERROR",
+    "tokens" : [ 1328, 3198, 281, 755, 544, 18690, 62, 273, 544, 18690, 62, 1039, 544, 18690, 62, 544, 18690, 62, 281, 253, 5004, 273, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get [MASK] of [MASK] way [MASK] [MASK] to the bottom of him"
+  }, {
+    "sentence" : "He needs to get out of [MASK] way and [MASK] to the bottom of [MASK] ERROR",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 273, 544, 18690, 62, 1039, 285, 544, 18690, 62, 281, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get out of [MASK] way and [MASK] to the bottom of [MASK]"
+  }, {
+    "sentence" : "He needs [MASK] get out of the way and [MASK] [MASK] the [MASK] of him ERROR",
+    "tokens" : [ 1328, 3198, 544, 18690, 62, 755, 562, 273, 253, 1039, 285, 544, 18690, 62, 544, 18690, 62, 253, 544, 18690, 62, 273, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs [MASK] get out of the way and [MASK] [MASK] the [MASK] of him"
+  }, {
+    "sentence" : "[MASK] [MASK] to get out of the [MASK] and get to the bottom [MASK] him ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 755, 562, 273, 253, 544, 18690, 62, 285, 755, 281, 253, 5004, 544, 18690, 62, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to get out of the [MASK] and get to the bottom [MASK] him"
+  }, {
+    "sentence" : "He needs to get [MASK] of [MASK] way and get to the bottom of [MASK] ERROR",
+    "tokens" : [ 1328, 3198, 281, 755, 544, 18690, 62, 273, 544, 18690, 62, 1039, 285, 755, 281, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get [MASK] of [MASK] way and get to the bottom of [MASK]"
+  }, {
+    "sentence" : "He [MASK] to get out of the way and [MASK] to [MASK] bottom of him ERROR",
+    "tokens" : [ 1328, 544, 18690, 62, 281, 755, 562, 273, 253, 1039, 285, 544, 18690, 62, 281, 544, 18690, 62, 5004, 273, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He [MASK] to get out of the way and [MASK] to [MASK] bottom of him"
+  }, {
+    "sentence" : "He needs to get out [MASK] [MASK] [MASK] [MASK] get to the bottom of him ERROR",
+    "tokens" : [ 1328, 3198, 281, 755, 562, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 755, 281, 253, 5004, 273, 779, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He needs to get out [MASK] [MASK] [MASK] [MASK] get to the bottom of him"
+  } ],
+  "date" : "2025-09-30T19:29:50.480955300",
+  "time" : 93.382
+}

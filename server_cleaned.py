@@ -49,7 +49,7 @@ app = Flask(__name__)
 
 gc.collect()
 
-mask_string = "<mask>"
+mask_string = "[MASK]" #"<mask>"
 
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
@@ -144,10 +144,10 @@ try:
     #print("Loading model...")
     #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
     print("Loading model with local_files_only=True...")
-    model = AutoModelForCausalLM.from_pretrained(model_name, local_files_only=True).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", local_files_only=True)
 
     print("Loading MLM model...")
-    mlm_model_name = "roberta-base"
+    mlm_model_name = "answerdotai/ModernBERT-base" #"roberta-base"
     mlm_model = AutoModelForMaskedLM.from_pretrained(mlm_model_name).to(device)
     mlm_tokenizer = AutoTokenizer.from_pretrained(mlm_model_name)
     print("MLM model ready")
@@ -199,12 +199,26 @@ try:
 
     print("Printing current time...")
     print(time.time())
+    
+    ppl_model_name = "gpt2"  # could also use "EleutherAI/gpt-neo-1.3B"
+    ppl_tokenizer = AutoTokenizer.from_pretrained(ppl_model_name)
+    ppl_model = AutoModelForCausalLM.from_pretrained(ppl_model_name).to(device)
+    
 
     print("Ready")
 except Exception as e:
     print("Error during model/tokenizer/lemmatizer setup:"+str(e), file=sys.stderr)
     traceback.print_exc(file=sys.stderr)
     sys.exit(1)
+    
+
+
+def calculate_perplexity(sentence: str) -> float:
+    encodings = ppl_tokenizer(sentence, return_tensors="pt").to(device)
+    with torch.no_grad():
+        outputs = ppl_model(**encodings, labels=encodings.input_ids)
+        loss = outputs.loss
+    return torch.exp(loss).item()
 
 
 
@@ -248,6 +262,12 @@ def testing():
 
     probabilities = get_next_word_probabilities("<s>Hello")
     return probabilities
+
+@app.route('/perplexity', methods=['POST'])
+def perplexity():
+    sentence = request.data.decode()
+    return {"perplexity": calculate_perplexity(sentence)}
+
 
 
 @app.route('/token', methods=['POST'])

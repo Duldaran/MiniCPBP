@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "You need to get out of bed to get out of the room right now",
+    "perplexity" : 13.481921195983887,
+    "weight" : 0.9486560946218472
+  },
+  "logs" : [ {
+    "sentence" : "I need to get out of bed to get ready of the room right now",
+    "tokens" : [ 42, 878, 281, 755, 562, 273, 3722, 281, 755, 4704, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 35.17436599731445,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out of [MASK] to get [MASK] of the room [MASK] now"
+  }, {
+    "sentence" : "You need to get to the bed to get out of the room right now",
+    "tokens" : [ 1394, 878, 281, 755, 281, 253, 3722, 281, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 21.55592918395996,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get [MASK] [MASK] bed to [MASK] out of the room right [MASK]"
+  }, {
+    "sentence" : "You need [MASK] get out of bed to [MASK] out of the [MASK] right now ERROR",
+    "tokens" : [ 1394, 878, 544, 18690, 62, 755, 562, 273, 3722, 281, 544, 18690, 62, 562, 273, 253, 544, 18690, 62, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need [MASK] get out of bed to [MASK] out of the [MASK] right now"
+  }, {
+    "sentence" : "You need to [MASK] out of bed to [MASK] out [MASK] the room right now ERROR",
+    "tokens" : [ 1394, 878, 281, 544, 18690, 62, 562, 273, 3722, 281, 544, 18690, 62, 562, 544, 18690, 62, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to [MASK] out of bed to [MASK] out [MASK] the room right now"
+  }, {
+    "sentence" : "You need to get [MASK] of bed to [MASK] out [MASK] the room right now ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 544, 18690, 62, 273, 3722, 281, 544, 18690, 62, 562, 544, 18690, 62, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get [MASK] of bed to [MASK] out [MASK] the room right now"
+  }, {
+    "sentence" : "You need to get out of bed [MASK] [MASK] out of the room [MASK] [MASK] ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 273, 3722, 544, 18690, 62, 544, 18690, 62, 562, 273, 253, 2316, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get out of bed [MASK] [MASK] out of the room [MASK] [MASK]"
+  }, {
+    "sentence" : "You have to be out of bed and get out of the room right now",
+    "tokens" : [ 1394, 452, 281, 320, 562, 273, 3722, 285, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 16.968265533447266,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] to [MASK] out of bed [MASK] get out of the room right now"
+  }, {
+    "sentence" : "You need to [MASK] [MASK] of bed to get out [MASK] the [MASK] right now ERROR",
+    "tokens" : [ 1394, 878, 281, 544, 18690, 62, 544, 18690, 62, 273, 3722, 281, 755, 562, 544, 18690, 62, 253, 544, 18690, 62, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to [MASK] [MASK] of bed to get out [MASK] the [MASK] right now"
+  }, {
+    "sentence" : "[MASK] need to get out of bed to [MASK] out of the room right [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 755, 562, 273, 3722, 281, 544, 18690, 62, 562, 273, 253, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out of bed to [MASK] out of the room right [MASK]"
+  }, {
+    "sentence" : "I need to get out of bed and get out into my room right now",
+    "tokens" : [ 42, 878, 281, 755, 562, 273, 3722, 285, 755, 562, 715, 619, 2316, 987, 1024, 15 ],
+    "perplexity" : 16.031892776489258,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out of bed [MASK] get out [MASK] [MASK] room right now"
+  }, {
+    "sentence" : "You need to get out [MASK] bed to [MASK] out [MASK] [MASK] room right now ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 544, 18690, 62, 3722, 281, 544, 18690, 62, 562, 544, 18690, 62, 544, 18690, 62, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get out [MASK] bed to [MASK] out [MASK] [MASK] room right now"
+  }, {
+    "sentence" : "You need to get out the bed to get out of the bed right [MASK] ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 253, 3722, 281, 755, 562, 273, 253, 3722, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need [MASK] get out [MASK] bed to get out of the [MASK] right [MASK]"
+  }, {
+    "sentence" : "You need to get out a bed to get out of the house right now",
+    "tokens" : [ 1394, 878, 281, 755, 562, 247, 3722, 281, 755, 562, 273, 253, 2419, 987, 1024, 15 ],
+    "perplexity" : 26.134506225585938,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get out [MASK] bed to get out of the [MASK] [MASK] now"
+  }, {
+    "sentence" : "You need [MASK] [MASK] out of bed [MASK] get out of the room right [MASK] ERROR",
+    "tokens" : [ 1394, 878, 544, 18690, 62, 544, 18690, 62, 562, 273, 3722, 544, 18690, 62, 755, 562, 273, 253, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need [MASK] [MASK] out of bed [MASK] get out of the room right [MASK]"
+  }, {
+    "sentence" : "You need to get out [MASK] bed [MASK] get out [MASK] [MASK] room right now ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 544, 18690, 62, 3722, 544, 18690, 62, 755, 562, 544, 18690, 62, 544, 18690, 62, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get out [MASK] bed [MASK] get out [MASK] [MASK] room right now"
+  }, {
+    "sentence" : "You need to get [MASK] of [MASK] to get out [MASK] the room [MASK] now ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 544, 18690, 62, 273, 544, 18690, 62, 281, 755, 562, 544, 18690, 62, 253, 2316, 544, 18690, 62, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get [MASK] of [MASK] to get out [MASK] the room [MASK] now"
+  }, {
+    "sentence" : "You [MASK] to get out [MASK] bed to get out [MASK] the [MASK] right now ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 755, 562, 544, 18690, 62, 3722, 281, 755, 562, 544, 18690, 62, 253, 544, 18690, 62, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] to get out [MASK] bed to get out [MASK] the [MASK] right now"
+  }, {
+    "sentence" : "You need to get out of bed to [MASK] out [MASK] the room [MASK] now ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 273, 3722, 281, 544, 18690, 62, 562, 544, 18690, 62, 253, 2316, 544, 18690, 62, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You need to get out of bed to [MASK] out [MASK] the room [MASK] now"
+  }, {
+    "sentence" : "[MASK] need to get out [MASK] bed to get out of the room [MASK] now ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 755, 562, 544, 18690, 62, 3722, 281, 755, 562, 273, 253, 2316, 544, 18690, 62, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out [MASK] bed to get out of the room [MASK] now"
+  }, {
+    "sentence" : "[MASK] need to get out of bed [MASK] get [MASK] of the room right now ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 755, 562, 273, 3722, 544, 18690, 62, 755, 544, 18690, 62, 273, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to get out of bed [MASK] get [MASK] of the room right now"
+  } ],
+  "date" : "2025-09-30T18:47:30.200706800",
+  "time" : 73.892
+}

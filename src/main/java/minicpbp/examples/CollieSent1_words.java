@@ -171,7 +171,7 @@ public class CollieSent1_words {
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 82;//Verify if you need to count the spaces at the beginning of lines
+        final int NUMBER_CHAR = 82;//Verify if you need to count the spaces at the beginning of line + No period at the end
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
@@ -249,13 +249,15 @@ public class CollieSent1_words {
             int[] tokens = new int[corpusDomains.size()];
             double[] scores = new double[corpusDomains.size()];
 
+            System.out.println("Response: " + request.headers());
+
             ObjectMapper mapper = new ObjectMapper();
             JsonNode jsonNode = mapper.readTree(response);
             ArrayNode tupleList = (ArrayNode) jsonNode.get("prob");
 
             current_sentence = jsonNode.has("sentence") ? jsonNode.get("sentence").asText().replace(instruction, "") : "";
             System.out.println(current_sentence);
-            String[] splitWords = current_sentence.replace(",", "").strip().split("\\s+");
+            String[] splitWords = current_sentence.strip().split("\\s+");
 
             for (String word : splitWords) {
                 word = " " + word;
@@ -530,7 +532,11 @@ public class CollieSent1_words {
             num_tok++;
         }
         double perplexityScore = Math.exp(-logSumProbs / num_tok);
-        if (PRINT_TRACE) System.out.println("solution : " + current_sentence);
+
+        if (!current_sentence.trim().endsWith("ERROR") && !current_sentence.trim().endsWith(".")) {
+            current_sentence = current_sentence.trim() + ".";
+        }
+        System.out.println("solution : " + current_sentence);
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:" + port + "/tokenize"))

@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "I can't promise the word count will be the same as the one before, because halfway",
+    "perplexity" : 42.77223205566406,
+    "weight" : 0.03862416716622882
+  },
+  "logs" : [ {
+    "sentence" : "I can't think the word after will be just same as the one before, because nothing",
+    "tokens" : [ 42, 476, 626, 1158, 253, 3159, 846, 588, 320, 816, 1072, 347, 253, 581, 1078, 13, 984, 2717, 15 ],
+    "perplexity" : 96.43223571777344,
+    "tokens_used" : [ null, null, " think", null, null, " after", null, null, " just", null, null, null, null, null, null, " nothing" ],
+    "original_sentence" : "I can't [MASK] the word [MASK] will be [MASK] same as the one before, because [MASK]"
+  }, {
+    "sentence" : "I can't promise whatever word count will be the same as the one before, because A",
+    "tokens" : [ 42, 476, 626, 9023, 5913, 3159, 1385, 588, 320, 253, 1072, 347, 253, 581, 1078, 13, 984, 329, 15 ],
+    "perplexity" : 71.03889465332031,
+    "tokens_used" : [ null, null, " think", " whatever", null, " after", null, null, " just", null, null, " the", null, null, null, " A" ],
+    "original_sentence" : "I can't promise [MASK] word count will be the same as [MASK] one before, because [MASK]"
+  }, {
+    "sentence" : "I can't believe the word that will be the same as the one written because halfway",
+    "tokens" : [ 42, 476, 626, 2868, 253, 3159, 326, 588, 320, 253, 1072, 347, 253, 581, 3542, 984, 25854, 15 ],
+    "perplexity" : 79.93708801269531,
+    "tokens_used" : [ null, null, " believe", " whatever", null, " that", null, null, " just", null, " as", " the", null, " written", null, " A" ],
+    "original_sentence" : "I can't [MASK] the word [MASK] will be the same [MASK] the one [MASK] because halfway"
+  }, {
+    "sentence" : "I can promise the word count will be the least as the one before, because halfway",
+    "tokens" : [ 42, 476, 9023, 253, 3159, 1385, 588, 320, 253, 1878, 347, 253, 581, 1078, 13, 984, 25854, 15 ],
+    "perplexity" : 180.02593994140625,
+    "tokens_used" : [ null, " can", " believe", " whatever", null, " that", null, null, " just", " least", " as", " the", null, " written", null, " A" ],
+    "original_sentence" : "I [MASK] promise the word count will be the [MASK] as [MASK] one before, because halfway"
+  }, {
+    "sentence" : "I can't promise the word up will look the same as the one before, because halfway",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 598, 588, 1007, 253, 1072, 347, 253, 581, 1078, 13, 984, 25854, 15 ],
+    "perplexity" : 128.06336975097656,
+    "tokens_used" : [ null, " can", " believe", " whatever", null, " up", null, " look", " just", " least", " as", " the", null, " written", null, " A" ],
+    "original_sentence" : "I can't promise the word [MASK] will [MASK] the same as [MASK] one before, because halfway"
+  }, {
+    "sentence" : "I can't promise the word count will be the way as the one before, because halfway",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 253, 1039, 347, 253, 581, 1078, 13, 984, 25854, 15 ],
+    "perplexity" : 134.7628173828125,
+    "tokens_used" : [ " I", " can", " believe", " whatever", null, " up", null, " be", " just", " way", " as", " the", null, " written", null, " A" ],
+    "original_sentence" : "[MASK] can't promise the word count will [MASK] the [MASK] as the one before, because halfway"
+  }, {
+    "sentence" : "I can't promise the word count will be the same as the [MASK] before, because halfway ERROR",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 253, 1072, 347, 253, 544, 18690, 62, 1078, 13, 984, 25854, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " can", " believe", " the", null, " up", " will", " be", " just", " way", " as", " the", null, " written", null, " A" ],
+    "original_sentence" : "[MASK] can't promise [MASK] word count [MASK] be the same as the [MASK] before, because halfway"
+  }, {
+    "sentence" : "I can't promise the word below will be the same as no one before, because halfway",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 2708, 588, 320, 253, 1072, 347, 642, 581, 1078, 13, 984, 25854, 15 ],
+    "perplexity" : 100.3857421875,
+    "tokens_used" : [ " I", " can", " believe", " the", null, " below", " will", " be", " just", " way", " as", " no", null, " written", null, " A" ],
+    "original_sentence" : "I can't promise the word [MASK] [MASK] be the same [MASK] [MASK] one before, because halfway"
+  }, {
+    "sentence" : "I can't [MASK] the word below will be the same as the one before, because no ERROR",
+    "tokens" : [ 42, 476, 626, 544, 18690, 62, 253, 3159, 2708, 588, 320, 253, 1072, 347, 253, 581, 1078, 13, 984, 642, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " can", " believe", " the", null, " below", " will", " be", " just", " way", " as", " no", null, " written", null, " no" ],
+    "original_sentence" : "I can't [MASK] the word [MASK] will be the same [MASK] the one before, because [MASK]"
+  }, {
+    "sentence" : "I can't believe the word [MASK] will be the same as the one before, after all ERROR",
+    "tokens" : [ 42, 476, 626, 2868, 253, 3159, 544, 18690, 62, 588, 320, 253, 1072, 347, 253, 581, 1078, 13, 846, 512, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " can", " believe", " the", null, " below", " will", " be", " just", " way", " as", " no", null, " written", " after", " all" ],
+    "original_sentence" : "I can't [MASK] the word [MASK] will be the same as the one before, [MASK] [MASK]"
+  }, {
+    "sentence" : "I can't promise the word count will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 41.12531280517578,
+    "tokens_used" : [ " I", " can", " believe", " the", null, " below", " will", " be", " the", " way", " without", " no", null, " written", " after", " I" ],
+    "original_sentence" : "I can't promise the word count will [MASK] [MASK] same [MASK] the one before, because [MASK]"
+  }, {
+    "sentence" : "I can't say the word count will start the same as the one before, because halfway",
+    "tokens" : [ 42, 476, 626, 1333, 253, 3159, 1385, 588, 1265, 253, 1072, 347, 253, 581, 1078, 13, 984, 25854, 15 ],
+    "perplexity" : 64.04560852050781,
+    "tokens_used" : [ " I", " can", " say", " the", null, " below", " will", " start", " the", " way", " without", " no", " one", " written", " after", " I" ],
+    "original_sentence" : "I can't [MASK] the word count will [MASK] the same as the [MASK] before, because halfway"
+  }, {
+    "sentence" : "I can't promise the word count will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 41.12531280517578,
+    "tokens_used" : [ " I", " can", " say", " the", " word", " below", " will", " start", " the", " way", " without", " no", " one", " written", " after", " I" ],
+    "original_sentence" : "[MASK] can't promise the [MASK] count will be the same [MASK] the one before, because [MASK]"
+  }, {
+    "sentence" : "I can't remember the word that will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 4456, 253, 3159, 326, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 45.6900749206543,
+    "tokens_used" : [ " I", " can", " remember", " the", " word", " that", " will", " start", " the", " way", " without", " no", " one", " written", " after", " I" ],
+    "original_sentence" : "[MASK] can't [MASK] the word [MASK] will be [MASK] same without the one before, because I"
+  }, {
+    "sentence" : "I can't promise the word count will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 41.12531280517578,
+    "tokens_used" : [ " I", " can", " remember", " the", " word", " that", " will", " start", " the", " same", " without", " no", " one", " written", " after", " I" ],
+    "original_sentence" : "I can't promise the word count will be [MASK] [MASK] [MASK] the one before, because I"
+  }, {
+    "sentence" : "I can't [MASK] the word count will be the same as the one before, because I ERROR",
+    "tokens" : [ 42, 476, 626, 544, 18690, 62, 253, 3159, 1385, 588, 320, 253, 1072, 347, 253, 581, 1078, 13, 984, 309, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " can", " remember", " the", " word", " that", " will", " start", " the", " same", " as", " no", " one", " written", " after", " I" ],
+    "original_sentence" : "[MASK] can't [MASK] the word count will be the same [MASK] the one before, because [MASK]"
+  }, {
+    "sentence" : "I can't believe the vote count will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 2868, 253, 6273, 1385, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 47.11974334716797,
+    "tokens_used" : [ " I", " can", " believe", " the", " vote", " that", " will", " start", " the", " same", " as", " no", " one", " written", " after", " I" ],
+    "original_sentence" : "I can't [MASK] the [MASK] count will be [MASK] same without the one before, because I"
+  }, {
+    "sentence" : "You can't promise the word up will be the same without the one before, because it",
+    "tokens" : [ 1394, 476, 626, 9023, 253, 3159, 598, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 352, 15 ],
+    "perplexity" : 100.67950439453125,
+    "tokens_used" : [ " You", " can", " believe", " the", " vote", " up", " will", " start", " the", " same", " as", " the", " one", " written", " after", " it" ],
+    "original_sentence" : "[MASK] can't promise the word [MASK] will be the same without [MASK] one before, because [MASK]"
+  }, {
+    "sentence" : "I can't believe the word count will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 2868, 253, 3159, 1385, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 42.52980041503906,
+    "tokens_used" : [ " You", " can", " believe", " the", " word", " up", " will", " start", " the", " same", " as", " the", " one", " written", " after", " it" ],
+    "original_sentence" : "I can't [MASK] the [MASK] count will be [MASK] same without the one before, because I"
+  }, {
+    "sentence" : "I can't promise the word count will be the same without the one before, because I",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 253, 1072, 1293, 253, 581, 1078, 13, 984, 309, 15 ],
+    "perplexity" : 41.12531280517578,
+    "tokens_used" : [ " I", " can", " believe", " the", " word", " up", " will", " start", " the", " same", " as", " the", " one", " written", " after", " it" ],
+    "original_sentence" : "[MASK] can't promise the word count [MASK] be the same without the [MASK] before, because I"
+  } ],
+  "date" : "2025-09-30T12:55:36.969625500",
+  "time" : 39.007
+}

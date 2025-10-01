@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "An important message from the boss for all the team members was an important note",
+    "perplexity" : 72.7493667602539,
+    "weight" : 9.425780449390313E-7
+  },
+  "logs" : [ {
+    "sentence" : "An important message from the boss for all the team members was an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 2758, 369, 271, 1774, 3877, 15 ],
+    "perplexity" : 72.7493667602539,
+    "tokens_used" : [ null, " important", " message", null, null, null, null, null, null, null, null, null, null, " important", null ],
+    "original_sentence" : "An [MASK] [MASK] from the boss for all the team members was an [MASK] note"
+  }, {
+    "sentence" : "Another important message from the boss for all the team It was an important note",
+    "tokens" : [ 8195, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 733, 369, 271, 1774, 3877, 15 ],
+    "perplexity" : 139.21539306640625,
+    "tokens_used" : [ " Another", " important", " message", " from", null, null, null, null, " the", null, " It", null, null, " important", null ],
+    "original_sentence" : "[MASK] important message [MASK] the boss for all [MASK] team [MASK] was an important note"
+  }, {
+    "sentence" : "The important message from the boss for all the team members in an important team",
+    "tokens" : [ 510, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 2758, 275, 271, 1774, 2285, 15 ],
+    "perplexity" : 113.75456237792969,
+    "tokens_used" : [ " The", " important", " message", " from", null, null, null, null, " the", null, " It", " in", null, " important", " team" ],
+    "original_sentence" : "[MASK] important message from the boss for all the team members [MASK] an important [MASK]"
+  }, {
+    "sentence" : "An important message from the boss for all the team members and an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 62.75868606567383,
+    "tokens_used" : [ " The", " important", " message", " from", null, null, null, null, " the", null, " It", " and", null, " important", " team" ],
+    "original_sentence" : "An [MASK] message [MASK] the boss for all the team members [MASK] an important note"
+  }, {
+    "sentence" : "An important note [MASK] the day for all the team members and an important note ERROR",
+    "tokens" : [ 1145, 1774, 3877, 544, 18690, 62, 253, 1388, 323, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " The", " important", " note", " from", null, " day", null, null, " the", null, " It", " and", null, " important", " team" ],
+    "original_sentence" : "An important [MASK] [MASK] the [MASK] for all the team members [MASK] an important note"
+  }, {
+    "sentence" : "An important note from the boss for all the team [MASK] is an important note ERROR",
+    "tokens" : [ 1145, 1774, 3877, 432, 253, 12145, 323, 512, 253, 2285, 544, 18690, 62, 310, 271, 1774, 3877, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " The", " important", " note", " from", null, " day", null, " all", " the", null, " It", " is", null, " important", " team" ],
+    "original_sentence" : "An important [MASK] from the boss for [MASK] the team [MASK] [MASK] an important note"
+  }, {
+    "sentence" : "An important message before the boss for all the team members on an important day",
+    "tokens" : [ 1145, 1774, 3935, 1078, 253, 12145, 323, 512, 253, 2285, 2758, 327, 271, 1774, 1388, 15 ],
+    "perplexity" : 125.52186584472656,
+    "tokens_used" : [ " The", " important", " note", " before", null, " day", null, " all", " the", null, " It", " on", null, " important", " day" ],
+    "original_sentence" : "An important message [MASK] the boss for all the team members [MASK] an important [MASK]"
+  }, {
+    "sentence" : "An important message from the boss for all the team members and an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 62.75868606567383,
+    "tokens_used" : [ " The", " important", " note", " from", null, " day", null, " all", " the", null, " members", " on", " an", " important", " day" ],
+    "original_sentence" : "An important message [MASK] the boss for all the team [MASK] and [MASK] important note"
+  }, {
+    "sentence" : "An important question from the boss to all the team members and an important note",
+    "tokens" : [ 1145, 1774, 1953, 432, 253, 12145, 281, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 91.32941436767578,
+    "tokens_used" : [ " The", " important", " question", " from", null, " day", " to", " all", " the", null, " members", " on", " an", " important", " day" ],
+    "original_sentence" : "An important [MASK] from the boss [MASK] all the team [MASK] and an important note"
+  }, {
+    "sentence" : "An important message from the department for all the team members in an open note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 7811, 323, 512, 253, 2285, 2758, 275, 271, 1527, 3877, 15 ],
+    "perplexity" : 110.20408630371094,
+    "tokens_used" : [ " The", " important", " question", " from", " the", " department", " to", " all", " the", null, " members", " in", " an", " open", " day" ],
+    "original_sentence" : "An important message from [MASK] [MASK] for all the team members [MASK] an [MASK] note"
+  }, {
+    "sentence" : "[MASK] a message from the boss to all the team members and an important note ERROR",
+    "tokens" : [ 60, 18690, 62, 247, 3935, 432, 253, 12145, 281, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " The", " a", " question", " from", " the", " department", " to", " all", " the", null, " members", " in", " an", " open", " day" ],
+    "original_sentence" : "[MASK] [MASK] message from the boss [MASK] all [MASK] team members and an important note"
+  }, {
+    "sentence" : "An important message from the team to both the team members and an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 2285, 281, 1097, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 81.60649871826172,
+    "tokens_used" : [ " The", " a", " question", " from", " the", " team", " to", " both", " the", null, " members", " in", " an", " open", " day" ],
+    "original_sentence" : "An important message from the [MASK] [MASK] [MASK] the team members and an important note"
+  }, {
+    "sentence" : "An important message from the boss for all the team members and an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 62.75868606567383,
+    "tokens_used" : [ " The", " a", " question", " from", " the", " team", " to", " both", " the", " team", " members", " in", " an", " important", " day" ],
+    "original_sentence" : "An important message [MASK] the boss for all [MASK] [MASK] members and an [MASK] note"
+  }, {
+    "sentence" : "An important message about the boss for all the team members and an important job",
+    "tokens" : [ 1145, 1774, 3935, 670, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 2628, 15 ],
+    "perplexity" : 124.63070678710938,
+    "tokens_used" : [ " The", " a", " question", " about", " the", " team", " to", " all", " the", " team", " members", " in", " an", " important", " job" ],
+    "original_sentence" : "An important message [MASK] the boss for [MASK] [MASK] team members and an important [MASK]"
+  }, {
+    "sentence" : "An important message from the boss for the new team members and an important gift",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 253, 747, 2285, 2758, 285, 271, 1774, 9140, 15 ],
+    "perplexity" : 88.68170166015625,
+    "tokens_used" : [ " The", " a", " question", " about", " the", " team", " to", " the", " new", " team", " members", " in", " an", " important", " gift" ],
+    "original_sentence" : "An important message from the boss for [MASK] [MASK] team [MASK] and an important [MASK]"
+  }, {
+    "sentence" : "An important message from the boss for all the team members and an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 62.75868606567383,
+    "tokens_used" : [ " The", " a", " message", " about", " the", " team", " to", " the", " new", " team", " members", " and", " an", " important", " gift" ],
+    "original_sentence" : "An important [MASK] from [MASK] boss for all the team [MASK] [MASK] an important note"
+  }, {
+    "sentence" : "An [MASK] letter from the boss for all the team members and an important note ERROR",
+    "tokens" : [ 1145, 544, 18690, 62, 4857, 432, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " The", " a", " letter", " about", " the", " team", " to", " the", " the", " team", " members", " and", " an", " important", " gift" ],
+    "original_sentence" : "An [MASK] [MASK] from the boss for all [MASK] team members and an important note"
+  }, {
+    "sentence" : "An important message from the top with all the team members and an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 1755, 342, 512, 253, 2285, 2758, 285, 271, 1774, 3877, 15 ],
+    "perplexity" : 79.39152526855469,
+    "tokens_used" : [ " The", " a", " letter", " about", " the", " top", " with", " the", " the", " team", " members", " and", " an", " important", " gift" ],
+    "original_sentence" : "An important message from the [MASK] [MASK] all [MASK] team members and an important note"
+  }, {
+    "sentence" : "An important call from the boss for all the team members and an important meeting",
+    "tokens" : [ 1145, 1774, 1067, 432, 253, 12145, 323, 512, 253, 2285, 2758, 285, 271, 1774, 4804, 15 ],
+    "perplexity" : 87.63410949707031,
+    "tokens_used" : [ " The", " important", " call", " about", " the", " top", " with", " the", " the", " team", " members", " and", " an", " important", " meeting" ],
+    "original_sentence" : "An [MASK] [MASK] from the boss for all the team members and an important [MASK]"
+  }, {
+    "sentence" : "An important message from the boss with all the team members in an important note",
+    "tokens" : [ 1145, 1774, 3935, 432, 253, 12145, 342, 512, 253, 2285, 2758, 275, 271, 1774, 3877, 15 ],
+    "perplexity" : 99.9203109741211,
+    "tokens_used" : [ " The", " important", " call", " about", " the", " top", " with", " the", " the", " team", " members", " in", " an", " important", " meeting" ],
+    "original_sentence" : "An important message from the boss [MASK] all [MASK] team members [MASK] an important note"
+  } ],
+  "date" : "2025-09-30T12:56:59.057315700",
+  "time" : 37.594
+}

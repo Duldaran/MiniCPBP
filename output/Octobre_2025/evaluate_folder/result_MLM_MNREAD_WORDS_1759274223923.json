@@ -1,0 +1,262 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "It was like she was trying to make it to the top of my game",
+    "perplexity" : 14.277729988098145,
+    "weight" : 0.9999978840179932
+  },
+  "logs" : [ {
+    "sentence" : "It was like I was trying hard make it to the top of my game",
+    "tokens" : [ 1147, 369, 751, 309, 369, 2820, 1892, 1056, 352, 281, 253, 1755, 273, 619, 2165, 15 ],
+    "perplexity" : 25.98855209350586,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] [MASK] was trying [MASK] make it to the top of my game"
+  }, {
+    "sentence" : "It was like she was trying [MASK] make it to [MASK] top of [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 544, 18690, 62, 1056, 352, 281, 544, 18690, 62, 1755, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying [MASK] make it to [MASK] top of [MASK] [MASK]"
+  }, {
+    "sentence" : "It was like I was trying to make it to the end of the [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 309, 369, 2820, 281, 1056, 352, 281, 253, 990, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like [MASK] was trying to make it to the [MASK] of [MASK] [MASK]"
+  }, {
+    "sentence" : "It [MASK] like she was trying to [MASK] it to the top [MASK] my [MASK] ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 751, 703, 369, 2820, 281, 544, 18690, 62, 352, 281, 253, 1755, 544, 18690, 62, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] like she was trying to [MASK] it to the top [MASK] my [MASK]"
+  }, {
+    "sentence" : "It was like she was going to bring it to the end of my game",
+    "tokens" : [ 1147, 369, 751, 703, 369, 1469, 281, 3324, 352, 281, 253, 990, 273, 619, 2165, 15 ],
+    "perplexity" : 24.91670036315918,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was [MASK] to [MASK] it to the [MASK] of my game"
+  }, {
+    "sentence" : "It was like she was trying [MASK] make [MASK] to the [MASK] of my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 544, 18690, 62, 1056, 544, 18690, 62, 281, 253, 544, 18690, 62, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying [MASK] make [MASK] to the [MASK] of my game"
+  }, {
+    "sentence" : "It [MASK] like [MASK] was [MASK] [MASK] make it to the top of my game ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 751, 544, 18690, 62, 369, 544, 18690, 62, 544, 18690, 62, 1056, 352, 281, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] like [MASK] was [MASK] [MASK] make it to the top of my game"
+  }, {
+    "sentence" : "It was like she was going to make her to the top of my game",
+    "tokens" : [ 1147, 369, 751, 703, 369, 1469, 281, 1056, 617, 281, 253, 1755, 273, 619, 2165, 15 ],
+    "perplexity" : 32.02543258666992,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] she was [MASK] to make [MASK] to the top of my game"
+  }, {
+    "sentence" : "[MASK] was like she was trying to make it to the top of the game ERROR",
+    "tokens" : [ 60, 18690, 62, 369, 751, 703, 369, 2820, 281, 1056, 352, 281, 253, 1755, 273, 253, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] was like she was trying to make it to [MASK] top [MASK] [MASK] game"
+  }, {
+    "sentence" : "It was [MASK] she was [MASK] to make it to the [MASK] of [MASK] game ERROR",
+    "tokens" : [ 1147, 369, 544, 18690, 62, 703, 369, 544, 18690, 62, 281, 1056, 352, 281, 253, 544, 18690, 62, 273, 544, 18690, 62, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] she was [MASK] to make it to the [MASK] of [MASK] game"
+  }, {
+    "sentence" : "It [MASK] [MASK] she was trying to [MASK] it to the top of my game ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 544, 18690, 62, 703, 369, 2820, 281, 544, 18690, 62, 352, 281, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] [MASK] she was trying to [MASK] it to the top of my game"
+  }, {
+    "sentence" : "It was [MASK] she was [MASK] to make it to [MASK] top [MASK] my game ERROR",
+    "tokens" : [ 1147, 369, 544, 18690, 62, 703, 369, 544, 18690, 62, 281, 1056, 352, 281, 544, 18690, 62, 1755, 544, 18690, 62, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] she was [MASK] to make it to [MASK] top [MASK] my game"
+  }, {
+    "sentence" : "It was like she was trying to [MASK] it [MASK] [MASK] top of my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 281, 544, 18690, 62, 352, 544, 18690, 62, 544, 18690, 62, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying to [MASK] it [MASK] [MASK] top of my game"
+  }, {
+    "sentence" : "It was like she was trying to [MASK] it to the top of [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 281, 544, 18690, 62, 352, 281, 253, 1755, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying to [MASK] it to the top of [MASK] [MASK]"
+  }, {
+    "sentence" : "It was like she [MASK] [MASK] to make it [MASK] the [MASK] of my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 544, 18690, 62, 544, 18690, 62, 281, 1056, 352, 544, 18690, 62, 253, 544, 18690, 62, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she [MASK] [MASK] to make it [MASK] the [MASK] of my game"
+  }, {
+    "sentence" : "It was like she [MASK] trying to make it to [MASK] top of my [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 544, 18690, 62, 2820, 281, 1056, 352, 281, 544, 18690, 62, 1755, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she [MASK] trying to make it to [MASK] top of my [MASK]"
+  }, {
+    "sentence" : "It was like she was trying to [MASK] [MASK] to [MASK] top of my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 281, 544, 18690, 62, 544, 18690, 62, 281, 544, 18690, 62, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying to [MASK] [MASK] to [MASK] top of my game"
+  }, {
+    "sentence" : "[MASK] was like she was trying to make it [MASK] the [MASK] of my [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 369, 751, 703, 369, 2820, 281, 1056, 352, 544, 18690, 62, 253, 544, 18690, 62, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] was like she was trying to make it [MASK] the [MASK] of my [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] [MASK] she was trying [MASK] make it to the top of my game ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 544, 18690, 62, 703, 369, 2820, 544, 18690, 62, 1056, 352, 281, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] [MASK] she was trying [MASK] make it to the top of my game"
+  }, {
+    "sentence" : "[MASK] was [MASK] she was trying to make [MASK] [MASK] the top of my game ERROR",
+    "tokens" : [ 60, 18690, 62, 369, 544, 18690, 62, 703, 369, 2820, 281, 1056, 544, 18690, 62, 544, 18690, 62, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] was [MASK] she was trying to make [MASK] [MASK] the top of my game"
+  }, {
+    "sentence" : "It was [MASK] [MASK] was trying to make it to the top of [MASK] game ERROR",
+    "tokens" : [ 1147, 369, 544, 18690, 62, 544, 18690, 62, 369, 2820, 281, 1056, 352, 281, 253, 1755, 273, 544, 18690, 62, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] [MASK] was trying to make it to the top of [MASK] game"
+  }, {
+    "sentence" : "It [MASK] like she [MASK] trying to make it to the top of my [MASK] ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 751, 703, 544, 18690, 62, 2820, 281, 1056, 352, 281, 253, 1755, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] like she [MASK] trying to make it to the top of my [MASK]"
+  }, {
+    "sentence" : "It was like she was trying to make it to [MASK] top [MASK] [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 281, 1056, 352, 281, 544, 18690, 62, 1755, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying to make it to [MASK] top [MASK] [MASK] [MASK]"
+  }, {
+    "sentence" : "It was like she was trying [MASK] make it to the top of [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 544, 18690, 62, 1056, 352, 281, 253, 1755, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying [MASK] make it to the top of [MASK] [MASK]"
+  }, {
+    "sentence" : "It [MASK] like [MASK] was [MASK] to make it to [MASK] top of my game ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 751, 544, 18690, 62, 369, 544, 18690, 62, 281, 1056, 352, 281, 544, 18690, 62, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] like [MASK] was [MASK] to make it to [MASK] top of my game"
+  }, {
+    "sentence" : "It was like she was trying to [MASK] [MASK] to the [MASK] [MASK] my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 2820, 281, 544, 18690, 62, 544, 18690, 62, 281, 253, 544, 18690, 62, 544, 18690, 62, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was trying to [MASK] [MASK] to the [MASK] [MASK] my game"
+  }, {
+    "sentence" : "It was like she was [MASK] to [MASK] it to the top of my [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 544, 18690, 62, 281, 544, 18690, 62, 352, 281, 253, 1755, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was [MASK] to [MASK] it to the top of my [MASK]"
+  }, {
+    "sentence" : "It was [MASK] she [MASK] [MASK] to make it to the top of my game ERROR",
+    "tokens" : [ 1147, 369, 544, 18690, 62, 703, 544, 18690, 62, 544, 18690, 62, 281, 1056, 352, 281, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] she [MASK] [MASK] to make it to the top of my game"
+  }, {
+    "sentence" : "It was [MASK] she [MASK] trying [MASK] make it to the top of my game ERROR",
+    "tokens" : [ 1147, 369, 544, 18690, 62, 703, 544, 18690, 62, 2820, 544, 18690, 62, 1056, 352, 281, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was [MASK] she [MASK] trying [MASK] make it to the top of my game"
+  }, {
+    "sentence" : "It was like she was [MASK] to make [MASK] to the top [MASK] my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 369, 544, 18690, 62, 281, 1056, 544, 18690, 62, 281, 253, 1755, 544, 18690, 62, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she was [MASK] to make [MASK] to the top [MASK] my game"
+  }, {
+    "sentence" : "It [MASK] [MASK] she was trying to make it to the top [MASK] my [MASK] ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 544, 18690, 62, 703, 369, 2820, 281, 1056, 352, 281, 253, 1755, 544, 18690, 62, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] [MASK] she was trying to make it to the top [MASK] my [MASK]"
+  }, {
+    "sentence" : "It [MASK] [MASK] she was [MASK] to make it to the top of my [MASK] ERROR",
+    "tokens" : [ 1147, 544, 18690, 62, 544, 18690, 62, 703, 369, 544, 18690, 62, 281, 1056, 352, 281, 253, 1755, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It [MASK] [MASK] she was [MASK] to make it to the top of my [MASK]"
+  }, {
+    "sentence" : "[MASK] was like [MASK] was trying to make it to the [MASK] of my game ERROR",
+    "tokens" : [ 60, 18690, 62, 369, 751, 544, 18690, 62, 369, 2820, 281, 1056, 352, 281, 253, 544, 18690, 62, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] was like [MASK] was trying to make it to the [MASK] of my game"
+  }, {
+    "sentence" : "It was like [MASK] [MASK] trying to make it to [MASK] top of my [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 544, 18690, 62, 544, 18690, 62, 2820, 281, 1056, 352, 281, 544, 18690, 62, 1755, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like [MASK] [MASK] trying to make it to [MASK] top of my [MASK]"
+  }, {
+    "sentence" : "It was like she [MASK] trying [MASK] make it to the top of [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 544, 18690, 62, 2820, 544, 18690, 62, 1056, 352, 281, 253, 1755, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she [MASK] trying [MASK] make it to the top of [MASK] [MASK]"
+  }, {
+    "sentence" : "[MASK] was like she was [MASK] to make it to the top [MASK] my game ERROR",
+    "tokens" : [ 60, 18690, 62, 369, 751, 703, 369, 544, 18690, 62, 281, 1056, 352, 281, 253, 1755, 544, 18690, 62, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] was like she was [MASK] to make it to the top [MASK] my game"
+  }, {
+    "sentence" : "It was like she [MASK] trying to [MASK] it [MASK] the top of my game ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 544, 18690, 62, 2820, 281, 544, 18690, 62, 352, 544, 18690, 62, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she [MASK] trying to [MASK] it [MASK] the top of my game"
+  }, {
+    "sentence" : "It was like [MASK] was trying to [MASK] it to the top of [MASK] [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 544, 18690, 62, 369, 2820, 281, 544, 18690, 62, 352, 281, 253, 1755, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like [MASK] was trying to [MASK] it to the top of [MASK] [MASK]"
+  }, {
+    "sentence" : "It was like she [MASK] trying to make it [MASK] the top of my [MASK] ERROR",
+    "tokens" : [ 1147, 369, 751, 703, 544, 18690, 62, 2820, 281, 1056, 352, 544, 18690, 62, 253, 1755, 273, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like she [MASK] trying to make it [MASK] the top of my [MASK]"
+  }, {
+    "sentence" : "[MASK] was like she was trying to make it to [MASK] [MASK] of my game ERROR",
+    "tokens" : [ 60, 18690, 62, 369, 751, 703, 369, 2820, 281, 1056, 352, 281, 544, 18690, 62, 544, 18690, 62, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] was like she was trying to make it to [MASK] [MASK] of my game"
+  }, {
+    "sentence" : "It was like [MASK] was [MASK] to make [MASK] to the top of my game ERROR",
+    "tokens" : [ 1147, 369, 751, 544, 18690, 62, 369, 544, 18690, 62, 281, 1056, 544, 18690, 62, 281, 253, 1755, 273, 619, 2165, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "It was like [MASK] was [MASK] to make [MASK] to the top of my game"
+  } ],
+  "date" : "2025-09-30T19:17:03.921920900",
+  "time" : 86.554
+}

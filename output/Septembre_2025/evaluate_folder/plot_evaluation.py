@@ -27,10 +27,14 @@ for json_file in json_files:
         if "MLM" not in json_file:
             fluencies = []
             perplexities = []
+            
             for item in data['results']:
                 if 'LLM_fluency' in item and 'perplexity' in item:
                     fluencies.append(item['LLM_fluency'])
                     perplexities.append(item['perplexity'])
+                    
+                print(item['sentence'])
+                print(len(item['sentence']))
 
             if fluencies and perplexities:
                 avg_fluency = sum(fluencies) / len(fluencies)
@@ -44,6 +48,7 @@ for json_file in json_files:
                     labels.append("no cpbp")
                 else:
                     labels.append("llm+cpbp")
+            print(f"Added data for {json_file} with label {labels[-1]}.")
         else:
             # For MLM files, collect best_LLM_fluency and best_perplexity
             if 'best_LLM_fluency' in data and 'best_perplexity' in data:
@@ -51,6 +56,10 @@ for json_file in json_files:
                 all_fluencies[0].append(data['best_perplexity']['LLM_fluency'])
                 all_perplexities[1].append(data['best_LLM_fluency']['perplexity'])
                 all_perplexities[0].append(data['best_perplexity']['perplexity'])
+                print(data['best_LLM_fluency']['sentence'])
+                print(data['best_perplexity']['sentence'])
+                print(len(data['best_LLM_fluency']['sentence']))
+                print(len(data['best_perplexity']['sentence']))
 
 if all_fluencies and all_perplexities:
     # Perplexity boxplot with logarithmic y-axis

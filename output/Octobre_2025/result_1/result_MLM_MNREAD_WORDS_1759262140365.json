@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "You need to get out of the way to get to the bottom of them",
+    "perplexity" : 13.400574684143066,
+    "weight" : 0.13940339407035676
+  },
+  "logs" : [ {
+    "sentence" : "You need to go out of the way to get to the bottom for them",
+    "tokens" : [ 1394, 878, 281, 564, 562, 273, 253, 1039, 281, 755, 281, 253, 5004, 323, 731, 15 ],
+    "perplexity" : 22.491870880126953,
+    "tokens_used" : [ null, null, " to", " go", null, null, null, null, null, " get", null, null, null, " for", null ],
+    "original_sentence" : "You need [MASK] [MASK] out of the way to [MASK] to the bottom [MASK] them"
+  }, {
+    "sentence" : "You need [MASK] [MASK] out of the way to get to the bottom [MASK] them ERROR",
+    "tokens" : [ 1394, 878, 544, 18690, 62, 544, 18690, 62, 562, 273, 253, 1039, 281, 755, 281, 253, 5004, 544, 18690, 62, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " go", null, null, null, null, null, " get", null, null, null, " for", null ],
+    "original_sentence" : "You need [MASK] [MASK] out of the way to get to the bottom [MASK] them"
+  }, {
+    "sentence" : "You need to get out of the way to get to [MASK] top of it ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 273, 253, 1039, 281, 755, 281, 544, 18690, 62, 1755, 273, 352, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " to", " go", null, null, null, null, null, " get", null, null, " top", " for", " it" ],
+    "original_sentence" : "You need [MASK] get out of the way to get to [MASK] [MASK] of [MASK]"
+  }, {
+    "sentence" : "You need to get out of the way to get to the bottom of them",
+    "tokens" : [ 1394, 878, 281, 755, 562, 273, 253, 1039, 281, 755, 281, 253, 5004, 273, 731, 15 ],
+    "perplexity" : 13.400574684143066,
+    "tokens_used" : [ null, null, " to", " go", null, null, " the", null, null, " get", null, " the", " top", " for", " it" ],
+    "original_sentence" : "You need to get out of [MASK] way to [MASK] to [MASK] bottom of them"
+  }, {
+    "sentence" : "You have to get out of the way to get to either end of them",
+    "tokens" : [ 1394, 452, 281, 755, 562, 273, 253, 1039, 281, 755, 281, 2057, 990, 273, 731, 15 ],
+    "perplexity" : 19.554241180419922,
+    "tokens_used" : [ null, " have", " to", " go", null, " of", " the", null, null, " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You [MASK] to get out [MASK] the way to get to [MASK] [MASK] of them"
+  }, {
+    "sentence" : "You need to get out of the way than get to the bottom of it",
+    "tokens" : [ 1394, 878, 281, 755, 562, 273, 253, 1039, 685, 755, 281, 253, 5004, 273, 352, 15 ],
+    "perplexity" : 18.184961318969727,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You need to [MASK] out [MASK] the way [MASK] get to the bottom of [MASK]"
+  }, {
+    "sentence" : "You have to get out of the way to get to the bottom of them",
+    "tokens" : [ 1394, 452, 281, 755, 562, 273, 253, 1039, 281, 755, 281, 253, 5004, 273, 731, 15 ],
+    "perplexity" : 12.086496353149414,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You [MASK] to get out [MASK] [MASK] way to get to the bottom of them"
+  }, {
+    "sentence" : "You [MASK] to get [MASK] of the way to get [MASK] the bottom of [MASK] ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 755, 544, 18690, 62, 273, 253, 1039, 281, 755, 544, 18690, 62, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You [MASK] to get [MASK] of the way to get [MASK] the bottom of [MASK]"
+  }, {
+    "sentence" : "You [MASK] [MASK] get [MASK] [MASK] the way to get to the bottom of them ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 544, 18690, 62, 755, 544, 18690, 62, 544, 18690, 62, 253, 1039, 281, 755, 281, 253, 5004, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You [MASK] [MASK] get [MASK] [MASK] the way to get to the bottom of them"
+  }, {
+    "sentence" : "You have to [MASK] out of [MASK] way [MASK] get to the bottom of them ERROR",
+    "tokens" : [ 1394, 452, 281, 544, 18690, 62, 562, 273, 544, 18690, 62, 1039, 544, 18690, 62, 755, 281, 253, 5004, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You have to [MASK] out of [MASK] way [MASK] get to the bottom of them"
+  }, {
+    "sentence" : "[MASK] have to get out of the way to [MASK] to the bottom of [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 452, 281, 755, 562, 273, 253, 1039, 281, 544, 18690, 62, 281, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "[MASK] have to get out of the way to [MASK] to the bottom of [MASK]"
+  }, {
+    "sentence" : "You have to [MASK] out of the way to get [MASK] [MASK] bottom of [MASK] ERROR",
+    "tokens" : [ 1394, 452, 281, 544, 18690, 62, 562, 273, 253, 1039, 281, 755, 544, 18690, 62, 544, 18690, 62, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You have to [MASK] out of the way to get [MASK] [MASK] bottom of [MASK]"
+  }, {
+    "sentence" : "You need to get out of [MASK] way to get [MASK] [MASK] [MASK] of them ERROR",
+    "tokens" : [ 1394, 878, 281, 755, 562, 273, 544, 18690, 62, 1039, 281, 755, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You need to get out of [MASK] way to get [MASK] [MASK] [MASK] of them"
+  }, {
+    "sentence" : "You [MASK] to get out of the [MASK] [MASK] get [MASK] the bottom of them ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 755, 562, 273, 253, 544, 18690, 62, 544, 18690, 62, 755, 544, 18690, 62, 253, 5004, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You [MASK] to get out of the [MASK] [MASK] get [MASK] the bottom of them"
+  }, {
+    "sentence" : "You have [MASK] get out of the [MASK] to get to [MASK] [MASK] of them ERROR",
+    "tokens" : [ 1394, 452, 544, 18690, 62, 755, 562, 273, 253, 544, 18690, 62, 281, 755, 281, 544, 18690, 62, 544, 18690, 62, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You have [MASK] get out of the [MASK] to get to [MASK] [MASK] of them"
+  }, {
+    "sentence" : "You have [MASK] get out [MASK] the way [MASK] get to the bottom of [MASK] ERROR",
+    "tokens" : [ 1394, 452, 544, 18690, 62, 755, 562, 544, 18690, 62, 253, 1039, 544, 18690, 62, 755, 281, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " get", null, " of", " the", null, " than", " get", null, " either", " end", " for", " it" ],
+    "original_sentence" : "You have [MASK] get out [MASK] the way [MASK] get to the bottom of [MASK]"
+  }, {
+    "sentence" : "You have to stand out of the way to get to the bottom of it",
+    "tokens" : [ 1394, 452, 281, 1462, 562, 273, 253, 1039, 281, 755, 281, 253, 5004, 273, 352, 15 ],
+    "perplexity" : 18.434091567993164,
+    "tokens_used" : [ null, " have", " to", " stand", null, " of", " the", " way", " than", " get", " to", " either", " end", " for", " it" ],
+    "original_sentence" : "You have to [MASK] out of the [MASK] to get [MASK] the bottom of [MASK]"
+  }, {
+    "sentence" : "You [MASK] to get out [MASK] the way to [MASK] to the [MASK] of them ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 281, 755, 562, 544, 18690, 62, 253, 1039, 281, 544, 18690, 62, 281, 253, 544, 18690, 62, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " stand", null, " of", " the", " way", " than", " get", " to", " either", " end", " for", " it" ],
+    "original_sentence" : "You [MASK] to get out [MASK] the way to [MASK] to the [MASK] of them"
+  }, {
+    "sentence" : "You have to get [MASK] of the way to [MASK] to the bottom of [MASK] ERROR",
+    "tokens" : [ 1394, 452, 281, 755, 544, 18690, 62, 273, 253, 1039, 281, 544, 18690, 62, 281, 253, 5004, 273, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " stand", null, " of", " the", " way", " than", " get", " to", " either", " end", " for", " it" ],
+    "original_sentence" : "You have to get [MASK] of the way to [MASK] to the bottom of [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] to get out [MASK] the way to [MASK] to the bottom of them ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 281, 755, 562, 544, 18690, 62, 253, 1039, 281, 544, 18690, 62, 281, 253, 5004, 273, 731, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " have", " to", " stand", null, " of", " the", " way", " than", " get", " to", " either", " end", " for", " it" ],
+    "original_sentence" : "[MASK] [MASK] to get out [MASK] the way to [MASK] to the bottom of them"
+  } ],
+  "date" : "2025-09-30T15:55:40.361999100",
+  "time" : 43.79
+}

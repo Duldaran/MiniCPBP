@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "An old friend of mine from high school has a daughter your age and they sometimes",
+    "perplexity" : 34.347618103027344,
+    "weight" : 0.008990391061474416
+  },
+  "logs" : [ {
+    "sentence" : "An interesting friend of mine from high school has a sister your age and they are",
+    "tokens" : [ 1145, 4722, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 7586, 634, 2363, 285, 597, 403, 15 ],
+    "perplexity" : 41.36661148071289,
+    "tokens_used" : [ null, " interesting", null, null, null, null, null, " school", null, null, " sister", null, null, null, null, " are" ],
+    "original_sentence" : "An [MASK] friend of mine from high [MASK] has a [MASK] your age and they [MASK]"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter your age and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 634, 2363, 285, 597, 4536, 15 ],
+    "perplexity" : 34.347618103027344,
+    "tokens_used" : [ null, " interesting", " friend", null, null, " from", null, " school", null, null, " daughter", null, null, null, null, " are" ],
+    "original_sentence" : "An old [MASK] of mine [MASK] high school has a [MASK] your age and they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter that age and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 597, 4536, 15 ],
+    "perplexity" : 32.28087615966797,
+    "tokens_used" : [ null, " interesting", " friend", null, null, " from", null, " school", null, null, " daughter", " that", null, " and", null, " are" ],
+    "original_sentence" : "An old friend of mine [MASK] high school has a daughter [MASK] age [MASK] they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school knows a friend your age and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 6057, 247, 3331, 634, 2363, 285, 597, 4536, 15 ],
+    "perplexity" : 42.49536895751953,
+    "tokens_used" : [ null, " interesting", " friend", null, null, " from", " high", " school", " knows", null, " friend", " that", null, " and", null, " are" ],
+    "original_sentence" : "An old friend of mine from [MASK] school [MASK] a [MASK] your age and they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter that age and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 597, 4536, 15 ],
+    "perplexity" : 32.28087615966797,
+    "tokens_used" : [ null, " old", " friend", null, null, " from", " high", " school", " has", null, " friend", " that", null, " and", null, " are" ],
+    "original_sentence" : "An [MASK] [MASK] of mine from high school [MASK] a daughter that age and they sometimes"
+  }, {
+    "sentence" : "An old friend of yours from high school has a [MASK] that age and they are ERROR",
+    "tokens" : [ 1145, 1711, 3331, 273, 13298, 432, 1029, 2143, 556, 247, 544, 18690, 62, 326, 2363, 285, 597, 403, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " old", " friend", null, " yours", " from", " high", " school", " has", null, " friend", " that", null, " and", null, " are" ],
+    "original_sentence" : "An old friend of [MASK] from high [MASK] has a [MASK] that age and they [MASK]"
+  }, {
+    "sentence" : "An old friend of mine from high school has their daughter that age and they dated",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 616, 6122, 326, 2363, 285, 597, 15483, 15 ],
+    "perplexity" : 45.198062896728516,
+    "tokens_used" : [ null, " old", " friend", " of", " yours", " from", " high", " school", " has", " their", " friend", " that", null, " and", null, " dated" ],
+    "original_sentence" : "An old [MASK] [MASK] mine from high school has [MASK] daughter that age and they [MASK]"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter that age and they discussed",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 597, 5469, 15 ],
+    "perplexity" : 35.485748291015625,
+    "tokens_used" : [ " An", " old", " friend", " of", " yours", " from", " high", " school", " has", " their", " friend", " that", null, " and", null, " discussed" ],
+    "original_sentence" : "[MASK] old friend of mine from high school has a daughter that age [MASK] they [MASK]"
+  }, {
+    "sentence" : "An old friend of mine from high school has a [MASK] that he and they sometimes ERROR",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 544, 18690, 62, 326, 344, 285, 597, 4536, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " An", " old", " friend", " of", " yours", " from", " high", " school", " has", " their", " friend", " that", " he", " and", null, " discussed" ],
+    "original_sentence" : "An old friend [MASK] mine [MASK] high school has a [MASK] that [MASK] and they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter that age and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 597, 4536, 15 ],
+    "perplexity" : 32.28087615966797,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " high", " school", " has", " their", " daughter", " that", " he", " and", null, " discussed" ],
+    "original_sentence" : "An old friend of [MASK] from high school has a [MASK] that age [MASK] they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter that age and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 597, 4536, 15 ],
+    "perplexity" : 32.28087615966797,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " high", " school", " has", " their", " daughter", " that", " he", " and", null, " discussed" ],
+    "original_sentence" : "An [MASK] [MASK] of mine [MASK] high [MASK] has a daughter that age and they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school has kids [MASK] that age and they are ERROR",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 5753, 544, 18690, 62, 326, 2363, 285, 597, 403, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " high", " school", " has", " kids", " daughter", " that", " he", " and", null, " are" ],
+    "original_sentence" : "An [MASK] friend of mine from high school has [MASK] [MASK] that age and they [MASK]"
+  }, {
+    "sentence" : "An old friend of yesterday from high school has a daughter that age and they talk",
+    "tokens" : [ 1145, 1711, 3331, 273, 11066, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 597, 2312, 15 ],
+    "perplexity" : 99.20835876464844,
+    "tokens_used" : [ " An", " old", " friend", " of", " yesterday", " from", " high", " school", " has", " a", " daughter", " that", " he", " and", null, " talk" ],
+    "original_sentence" : "An old friend of [MASK] from high school has [MASK] daughter that age and they [MASK]"
+  }, {
+    "sentence" : "An old friend of mine from high school has little daughter my age and I sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 1652, 6122, 619, 2363, 285, 309, 4536, 15 ],
+    "perplexity" : 51.898311614990234,
+    "tokens_used" : [ " An", " old", " friend", " of", " yesterday", " from", " high", " school", " has", " little", " daughter", " my", " he", " and", " I", " talk" ],
+    "original_sentence" : "An old friend of mine from high school has [MASK] daughter [MASK] age and [MASK] sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school had a daughter in there and they sometimes",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 574, 247, 6122, 275, 627, 285, 597, 4536, 15 ],
+    "perplexity" : 34.17610549926758,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " high", " school", " had", " little", " daughter", " in", " there", " and", " I", " talk" ],
+    "original_sentence" : "An old friend of [MASK] from high school [MASK] a daughter [MASK] [MASK] and they sometimes"
+  }, {
+    "sentence" : "An old friend of mine from high school has a daughter that age and my grandfather",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 247, 6122, 326, 2363, 285, 619, 21507, 15 ],
+    "perplexity" : 31.144962310791016,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " high", " school", " had", " little", " daughter", " in", " there", " and", " my", " grandfather" ],
+    "original_sentence" : "An [MASK] friend of mine from high school has a daughter that age and [MASK] [MASK]"
+  }, {
+    "sentence" : "An old friend of mine from middle school has a friend that age and my grandfather",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 4766, 2143, 556, 247, 3331, 326, 2363, 285, 619, 21507, 15 ],
+    "perplexity" : 48.60957717895508,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " middle", " school", " had", " little", " friend", " in", " there", " and", " my", " grandfather" ],
+    "original_sentence" : "An old [MASK] of mine from [MASK] school has a [MASK] that age and my grandfather"
+  }, {
+    "sentence" : "An old friend of mine from high school has died around that age as my grandfather",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 4962, 1475, 326, 2363, 347, 619, 21507, 15 ],
+    "perplexity" : 56.174659729003906,
+    "tokens_used" : [ " An", " old", " friend", " of", " mine", " from", " high", " school", " had", " died", " around", " in", " there", " as", " my", " grandfather" ],
+    "original_sentence" : "An old friend of mine from [MASK] school has [MASK] [MASK] that age [MASK] my grandfather"
+  }, {
+    "sentence" : "An old friend of friend from high school has a daughter that he and a grandfather",
+    "tokens" : [ 1145, 1711, 3331, 273, 3331, 432, 1029, 2143, 556, 247, 6122, 326, 344, 285, 247, 21507, 15 ],
+    "perplexity" : 70.08812713623047,
+    "tokens_used" : [ " An", " old", " friend", " of", " friend", " from", " high", " school", " had", " a", " around", " in", " he", " as", " a", " grandfather" ],
+    "original_sentence" : "An old friend of [MASK] from high school has [MASK] daughter that [MASK] and [MASK] grandfather"
+  }, {
+    "sentence" : "An old friend of mine from high school has two children that age and they laughed",
+    "tokens" : [ 1145, 1711, 3331, 273, 7477, 432, 1029, 2143, 556, 767, 2151, 326, 2363, 285, 597, 12918, 15 ],
+    "perplexity" : 37.63814926147461,
+    "tokens_used" : [ " An", " old", " friend", " of", " friend", " from", " high", " school", " had", " two", " children", " in", " he", " as", " a", " laughed" ],
+    "original_sentence" : "An old friend of mine from high school has [MASK] [MASK] that age and they [MASK]"
+  } ],
+  "date" : "2025-09-30T12:54:13.378463600",
+  "time" : 41.124
+}

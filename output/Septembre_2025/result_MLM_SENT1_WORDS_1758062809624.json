@@ -1,0 +1,125 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "That means no extra spaces, just the ones in the numbers and the ones between your",
+  "logs" : [ {
+    "sentence" : "That means no extra spaces, just the ones in the middle and the ones <mask> your No valid tokens found ERROR",
+    "tokens" : [ 2773, 2097, 642, 4465, 8470, 13, 816, 253, 4394, 275, 253, 4766, 285, 253, 4394, 654, 12477, 31, 634, 1621, 3588, 21761, 1119, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, " the", null, null, null, " middle", " and", null, null, null, null ],
+    "original_sentence" : "That means no extra spaces, just <mask> ones in the <mask> <mask> the ones <mask> your"
+  }, {
+    "sentence" : "That means no extra rows just the ones between the rows and the ones between two.",
+    "tokens" : [ 2773, 2097, 642, 4465, 10175, 816, 253, 4394, 875, 253, 10175, 285, 253, 4394, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " rows", null, " the", null, " between", null, " rows", " and", null, null, null, " two" ],
+    "original_sentence" : "That means no extra <mask> just the ones <mask> the <mask> and the ones between <mask>"
+  }, {
+    "sentence" : "That means no two rows just the ones between the rows and the others between two.",
+    "tokens" : [ 2773, 2097, 642, 767, 10175, 816, 253, 4394, 875, 253, 10175, 285, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", null, " two", " rows", null, " the", null, " between", null, " rows", " and", null, " others", null, " two" ],
+    "original_sentence" : "That <mask> no <mask> rows just the ones between the rows and the <mask> between two"
+  }, {
+    "sentence" : "That means no two rows just the ones between the rows and no others between them.",
+    "tokens" : [ 2773, 2097, 642, 767, 10175, 816, 253, 4394, 875, 253, 10175, 285, 642, 2571, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", null, " two", " rows", null, " the", null, " between", null, " rows", " and", " no", " others", " between", " them" ],
+    "original_sentence" : "That means no two rows just the ones <mask> the rows and <mask> others <mask> <mask>"
+  }, {
+    "sentence" : "That means no extra rows just the ones between two rows and the ones between two.",
+    "tokens" : [ 2773, 2097, 642, 4465, 10175, 816, 253, 4394, 875, 767, 10175, 285, 253, 4394, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " no", " two", " rows", null, " the", null, " between", " two", " rows", " and", " no", " others", " between", " them" ],
+    "original_sentence" : "That means <mask> extra rows just the ones between <mask> rows <mask> the ones between two"
+  }, {
+    "sentence" : "That means no extra rows and the space between the rows and the rows between two.",
+    "tokens" : [ 2773, 2097, 642, 4465, 10175, 285, 253, 2317, 875, 253, 10175, 285, 253, 10175, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " no", " two", " rows", " and", " the", " space", " between", " two", " rows", " and", " no", " rows", " between", " them" ],
+    "original_sentence" : "That means no extra rows <mask> the <mask> between the rows and the <mask> between two"
+  }, {
+    "sentence" : "That means the two rows and the ones between the rows and the others between two.",
+    "tokens" : [ 2773, 2097, 253, 767, 10175, 285, 253, 4394, 875, 253, 10175, 285, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " the", " two", " rows", " and", " the", " space", " between", " two", " rows", " and", " no", " rows", " between", " them" ],
+    "original_sentence" : "That means <mask> two rows <mask> <mask> ones between the rows and the others <mask> two"
+  }, {
+    "sentence" : "That means that the rows are the space between the rows and the rows between two.",
+    "tokens" : [ 2773, 2097, 326, 253, 10175, 403, 253, 2317, 875, 253, 10175, 285, 253, 10175, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " that", " the", " rows", " are", " the", " space", " between", " two", " rows", " and", " no", " rows", " between", " them" ],
+    "original_sentence" : "That means <mask> <mask> rows <mask> the space between the rows and the rows between two"
+  }, {
+    "sentence" : "That means the two rows and the ones between two rows and the others between two.",
+    "tokens" : [ 2773, 2097, 253, 767, 10175, 285, 253, 4394, 875, 767, 10175, 285, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " that", " the", " rows", " are", " the", " space", " between", " two", " rows", " and", " no", " rows", " between", " them" ],
+    "original_sentence" : "That <mask> the two rows and <mask> ones between <mask> rows <mask> the others between two"
+  }, {
+    "sentence" : "That means no two rows just the ones between the four lines no rows between them.",
+    "tokens" : [ 2773, 2097, 642, 767, 10175, 816, 253, 4394, 875, 253, 1740, 3104, 642, 10175, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " that", " the", " rows", " are", " the", " space", " between", " two", " four", " lines", " no", " rows", " between", " them" ],
+    "original_sentence" : "That <mask> no two rows just the ones between the <mask> <mask> no <mask> between them"
+  }, {
+    "sentence" : "That means no two rows are the ones between the rows and no nothing between them.",
+    "tokens" : [ 2773, 2097, 642, 767, 10175, 403, 253, 4394, 875, 253, 10175, 285, 642, 2717, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " that", " the", " rows", " are", " the", " space", " between", " two", " four", " lines", " no", " nothing", " between", " them" ],
+    "original_sentence" : "That means no two <mask> <mask> the ones between the rows and no <mask> between them"
+  }, {
+    "sentence" : "That means no extra rows and the space between the sections and the rows is free.",
+    "tokens" : [ 2773, 2097, 642, 4465, 10175, 285, 253, 2317, 875, 253, 7118, 285, 253, 10175, 310, 1959, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " that", " the", " rows", " are", " the", " space", " between", " two", " sections", " lines", " no", " nothing", " is", " free" ],
+    "original_sentence" : "That means no extra rows and the space <mask> the <mask> and the rows <mask> <mask>"
+  }, {
+    "sentence" : "That means in two rows and the ones between the rows with the others between two.",
+    "tokens" : [ 2773, 2097, 275, 767, 10175, 285, 253, 4394, 875, 253, 10175, 342, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " in", " the", " rows", " are", " the", " space", " between", " two", " sections", " with", " no", " nothing", " is", " free" ],
+    "original_sentence" : "That means <mask> two rows and <mask> ones between the rows <mask> the others between two"
+  }, {
+    "sentence" : "That means no two rows just four ones and the four lines no spacing between them.",
+    "tokens" : [ 2773, 2097, 642, 767, 10175, 816, 1740, 4394, 285, 253, 1740, 3104, 642, 22735, 875, 731, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " in", " the", " rows", " are", " four", " space", " and", " two", " sections", " with", " no", " spacing", " is", " free" ],
+    "original_sentence" : "That means no two rows just <mask> ones <mask> the four lines no <mask> between them"
+  }, {
+    "sentence" : "That means just two rows and the ones between two row and the others between two.",
+    "tokens" : [ 2773, 2097, 816, 767, 10175, 285, 253, 4394, 875, 767, 4194, 285, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " just", " the", " rows", " are", " the", " space", " and", " two", " row", " with", " no", " spacing", " is", " free" ],
+    "original_sentence" : "That means <mask> two rows and <mask> ones between two <mask> and the others between two"
+  }, {
+    "sentence" : "That means that the rows is the space between the rows with the rows between two.",
+    "tokens" : [ 2773, 2097, 326, 253, 10175, 310, 253, 2317, 875, 253, 10175, 342, 253, 10175, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " means", " no", " the", " rows", " is", " the", " ones", " and", " two", " rows", " with", " no", " spacing", " is", " free" ],
+    "original_sentence" : "That means that the rows <mask> the space between the <mask> <mask> the rows between two"
+  }, {
+    "sentence" : "That leaves no two rows and the ones between two rows and the others between two.",
+    "tokens" : [ 2773, 6505, 642, 767, 10175, 285, 253, 4394, 875, 767, 10175, 285, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " leaves", " no", " the", " rows", " and", " the", " ones", " and", " two", " rows", " with", " no", " spacing", " is", " free" ],
+    "original_sentence" : "That <mask> no two rows <mask> <mask> ones between <mask> rows and the others between two"
+  }, {
+    "sentence" : "That leaves no two rows with the one between two rows and the others between two.",
+    "tokens" : [ 2773, 6505, 642, 767, 10175, 342, 253, 581, 875, 767, 10175, 285, 253, 2571, 875, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " leaves", " no", " the", " rows", " with", " the", " one", " and", " two", " rows", " with", " no", " spacing", " is", " free" ],
+    "original_sentence" : "That leaves no two rows <mask> the <mask> between two <mask> and the others between two"
+  }, {
+    "sentence" : "Choice leaves no two rows with the one having two rows and the others having two.",
+    "tokens" : [ 48279, 6505, 642, 767, 10175, 342, 253, 581, 1907, 767, 10175, 285, 253, 2571, 1907, 767, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " choice", " leaves", " no", " the", " rows", " with", " the", " one", " having", " two", " rows", " with", " no", " spacing", " having", " free" ],
+    "original_sentence" : "<mask> leaves no two rows with the one <mask> <mask> rows and the others <mask> two"
+  } ],
+  "date" : "2025-09-16T18:46:49.623217"
+}

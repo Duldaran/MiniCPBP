@@ -1,0 +1,377 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "And he had no idea what to do with the fact that she was in",
+  "logs" : [ {
+    "sentence" : "<mask> he had <mask> idea what to <mask> <mask> the <mask> that she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 654, 12477, 31, 2934, 752, 281, 654, 12477, 31, 654, 12477, 31, 253, 654, 12477, 31, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "<mask> he had <mask> idea what to <mask> <mask> the <mask> that she was in"
+  }, {
+    "sentence" : "And he had no idea what to do with <mask> fact that <mask> was safe ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 342, 654, 12477, 31, 958, 326, 654, 12477, 31, 369, 4999, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, " that", null, null, " safe" ],
+    "original_sentence" : "And he had no idea what to do with <mask> fact <mask> <mask> was <mask>"
+  }, {
+    "sentence" : "And he had no idea what to <mask> with the <mask> that she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 654, 12477, 31, 342, 253, 654, 12477, 31, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea <mask> to <mask> with the <mask> that she <mask> in"
+  }, {
+    "sentence" : "And he had no idea what to do <mask> the fact <mask> she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 654, 12477, 31, 253, 958, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea what to do <mask> the fact <mask> she <mask> in"
+  }, {
+    "sentence" : "And <mask> had no idea what <mask> <mask> with the fact that she was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 654, 12477, 31, 654, 12477, 31, 342, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what <mask> <mask> with the fact that she was in"
+  }, {
+    "sentence" : "And he had no <mask> what to do with <mask> <mask> that <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 281, 513, 342, 654, 12477, 31, 654, 12477, 31, 326, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what to do with <mask> <mask> that <mask> was in"
+  }, {
+    "sentence" : "And he <mask> no <mask> <mask> to do with the <mask> that <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 654, 12477, 31, 642, 654, 12477, 31, 654, 12477, 31, 281, 513, 342, 253, 654, 12477, 31, 326, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> no <mask> <mask> to do with the <mask> that <mask> was in"
+  }, {
+    "sentence" : "And <mask> <mask> no idea what to do with <mask> <mask> <mask> she was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 654, 12477, 31, 642, 2934, 752, 281, 513, 342, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> <mask> no idea what to do with <mask> <mask> <mask> she was in"
+  }, {
+    "sentence" : "And <mask> <mask> no <mask> what to do with the <mask> that she <mask> in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 654, 12477, 31, 642, 654, 12477, 31, 752, 281, 513, 342, 253, 654, 12477, 31, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> <mask> no <mask> what to do with the <mask> that she <mask> in"
+  }, {
+    "sentence" : "<mask> he had no idea what to do with the fact <mask> she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " idea", " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had no <mask> what to do with the fact <mask> she was in"
+  }, {
+    "sentence" : "And he had no <mask> what <mask> <mask> with the <mask> that she was <mask> ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 654, 12477, 31, 654, 12477, 31, 342, 253, 654, 12477, 31, 326, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, " idea", " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what <mask> <mask> with the <mask> that she was <mask>"
+  }, {
+    "sentence" : "And she had no <mask> what to do with the fact that she was <mask> ERROR",
+    "tokens" : [ 1898, 703, 574, 642, 654, 12477, 31, 752, 281, 513, 342, 253, 958, 326, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> <mask> <mask> <mask> what to do with the fact that she was <mask>"
+  }, {
+    "sentence" : "And he <mask> no idea <mask> to do with the fact <mask> she <mask> <mask> ERROR",
+    "tokens" : [ 1898, 344, 654, 12477, 31, 642, 2934, 654, 12477, 31, 281, 513, 342, 253, 958, 654, 12477, 31, 703, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> no idea <mask> to do with the fact <mask> she <mask> <mask>"
+  }, {
+    "sentence" : "And he had no <mask> what <mask> do <mask> the fact <mask> <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 654, 12477, 31, 513, 654, 12477, 31, 253, 958, 654, 12477, 31, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what <mask> do <mask> the fact <mask> <mask> was in"
+  }, {
+    "sentence" : "And he had <mask> idea what to do with <mask> fact that she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 654, 12477, 31, 2934, 752, 281, 513, 342, 654, 12477, 31, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", null, null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had <mask> <mask> <mask> to do with <mask> fact that she was in"
+  }, {
+    "sentence" : "And he had no <mask> what to do with the fact that she <mask> in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 281, 513, 342, 253, 958, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what <mask> do with the fact that she <mask> in"
+  }, {
+    "sentence" : "And he had no idea <mask> <mask> do with <mask> fact that she <mask> in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 654, 12477, 31, 654, 12477, 31, 513, 342, 654, 12477, 31, 958, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea <mask> <mask> do with <mask> fact that she <mask> in"
+  }, {
+    "sentence" : "And <mask> <mask> <mask> idea <mask> to do with the fact that she was <mask> ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 2934, 654, 12477, 31, 281, 513, 342, 253, 958, 326, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> <mask> <mask> idea <mask> to do with the fact that she was <mask>"
+  }, {
+    "sentence" : "And he had no <mask> what to <mask> with the <mask> that she <mask> <mask> ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 281, 654, 12477, 31, 342, 253, 654, 12477, 31, 326, 703, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, null, null, null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what to <mask> with the <mask> that she <mask> <mask>"
+  }, {
+    "sentence" : "And <mask> had no idea what to do <mask> the fact that she was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 281, 513, 654, 12477, 31, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, null, " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what to do <mask> <mask> fact that she was in"
+  }, {
+    "sentence" : "And he had no idea what to do about the fact <mask> she <mask> in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 670, 253, 958, 654, 12477, 31, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea what to do <mask> the fact <mask> she <mask> in"
+  }, {
+    "sentence" : "And he <mask> no idea what to <mask> with the <mask> that <mask> was <mask> ERROR",
+    "tokens" : [ 1898, 344, 654, 12477, 31, 642, 2934, 752, 281, 654, 12477, 31, 342, 253, 654, 12477, 31, 326, 654, 12477, 31, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> no idea what to <mask> with the <mask> that <mask> was <mask>"
+  }, {
+    "sentence" : "And he <mask> no <mask> what to do with the fact that she <mask> <mask> ERROR",
+    "tokens" : [ 1898, 344, 654, 12477, 31, 642, 654, 12477, 31, 752, 281, 513, 342, 253, 958, 326, 703, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> no <mask> what to do with the fact that she <mask> <mask>"
+  }, {
+    "sentence" : "And he had <mask> <mask> what to <mask> with the fact that she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 654, 12477, 31, 654, 12477, 31, 752, 281, 654, 12477, 31, 342, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had <mask> <mask> what to <mask> with the fact that she was in"
+  }, {
+    "sentence" : "And he had no idea what <mask> <mask> with <mask> <mask> that she <mask> in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 654, 12477, 31, 654, 12477, 31, 342, 654, 12477, 31, 654, 12477, 31, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea what <mask> <mask> with <mask> <mask> that she <mask> in"
+  }, {
+    "sentence" : "And <mask> had no idea what to <mask> with <mask> fact that she was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 281, 654, 12477, 31, 342, 654, 12477, 31, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what to <mask> with <mask> fact that she was in"
+  }, {
+    "sentence" : "And he had no idea what <mask> do <mask> the <mask> <mask> <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 654, 12477, 31, 513, 654, 12477, 31, 253, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea what <mask> do <mask> the <mask> <mask> <mask> was in"
+  }, {
+    "sentence" : "And <mask> had no idea what <mask> do with <mask> <mask> that she was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 654, 12477, 31, 513, 342, 654, 12477, 31, 654, 12477, 31, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what <mask> do with <mask> <mask> that she was in"
+  }, {
+    "sentence" : "And she had no idea <mask> to do with the <mask> that she was in ERROR",
+    "tokens" : [ 1898, 703, 574, 642, 2934, 654, 12477, 31, 281, 513, 342, 253, 654, 12477, 31, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea <mask> to do with the <mask> that she was in"
+  }, {
+    "sentence" : "And he had no <mask> <mask> to do <mask> the <mask> <mask> she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 654, 12477, 31, 281, 513, 654, 12477, 31, 253, 654, 12477, 31, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> <mask> to do <mask> the <mask> <mask> she was in"
+  }, {
+    "sentence" : "And he had no <mask> what to do <mask> the <mask> that <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 281, 513, 654, 12477, 31, 253, 654, 12477, 31, 326, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what to do <mask> the <mask> that <mask> was in"
+  }, {
+    "sentence" : "And <mask> had no <mask> <mask> to do with the <mask> that <mask> was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 654, 12477, 31, 654, 12477, 31, 281, 513, 342, 253, 654, 12477, 31, 326, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no <mask> <mask> to do with the <mask> that <mask> was in"
+  }, {
+    "sentence" : "And he had <mask> <mask> what <mask> do with the fact that she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 654, 12477, 31, 654, 12477, 31, 752, 654, 12477, 31, 513, 342, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had <mask> <mask> what <mask> do with the fact that she was in"
+  }, {
+    "sentence" : "<mask> he had no idea what to do with the fact <mask> she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had no idea what to do with <mask> fact <mask> she was in"
+  }, {
+    "sentence" : "And <mask> <mask> no idea what to do with the fact that she <mask> in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 654, 12477, 31, 642, 2934, 752, 281, 513, 342, 253, 958, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> <mask> no idea what to do with the fact that she <mask> in"
+  }, {
+    "sentence" : "And <mask> had <mask> idea what to do with the <mask> that she was in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 654, 12477, 31, 2934, 752, 281, 513, 342, 253, 654, 12477, 31, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had <mask> idea what to do with the <mask> that she was in"
+  }, {
+    "sentence" : "And he had no <mask> <mask> to do with <mask> fact <mask> she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 654, 12477, 31, 281, 513, 342, 654, 12477, 31, 958, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> <mask> to do with <mask> fact <mask> she was in"
+  }, {
+    "sentence" : "And he had no <mask> what to <mask> with the fact that she was <mask> ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 752, 281, 654, 12477, 31, 342, 253, 958, 326, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what to <mask> with the fact that she was <mask>"
+  }, {
+    "sentence" : "<mask> he had <mask> idea what to do with <mask> fact that she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 654, 12477, 31, 2934, 752, 281, 513, 342, 654, 12477, 31, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had <mask> idea what to do with <mask> fact that she was in"
+  }, {
+    "sentence" : "And <mask> had no idea what to do with the fact that she <mask> in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea <mask> to do with the fact that she <mask> in"
+  }, {
+    "sentence" : "<mask> he had no idea what <mask> do with <mask> fact <mask> she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 642, 2934, 752, 654, 12477, 31, 513, 342, 654, 12477, 31, 958, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had no idea what <mask> do with <mask> fact <mask> she was in"
+  }, {
+    "sentence" : "<mask> he had no idea what <mask> do with <mask> fact that she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 642, 2934, 752, 654, 12477, 31, 513, 342, 654, 12477, 31, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had no idea what <mask> do with <mask> fact that she was in"
+  }, {
+    "sentence" : "And he had no <mask> <mask> to do with the fact that she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 654, 12477, 31, 654, 12477, 31, 281, 513, 342, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> <mask> <mask> do with the fact that she was in"
+  }, {
+    "sentence" : "And he had no idea <mask> to do with <mask> <mask> that <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 654, 12477, 31, 281, 513, 342, 654, 12477, 31, 654, 12477, 31, 326, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea <mask> to do with <mask> <mask> that <mask> was in"
+  }, {
+    "sentence" : "And he had no idea what to do with the fact that <mask> <mask> in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 326, 654, 12477, 31, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no <mask> what to do with the fact that <mask> <mask> in"
+  }, {
+    "sentence" : "And <mask> had no idea what to do with the <mask> <mask> she <mask> in ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 281, 513, 342, 253, 654, 12477, 31, 654, 12477, 31, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what to do with the <mask> <mask> she <mask> in"
+  }, {
+    "sentence" : "<mask> he <mask> no idea what to do with the <mask> <mask> she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 654, 12477, 31, 642, 2934, 752, 281, 513, 342, 253, 654, 12477, 31, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he <mask> no idea what to do with the <mask> <mask> she was in"
+  }, {
+    "sentence" : "And he had no idea what to do with <mask> fact that she <mask> in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 342, 654, 12477, 31, 958, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> no idea what to do with <mask> fact that she <mask> in"
+  }, {
+    "sentence" : "And <mask> had no <mask> what to do with the fact that she was <mask> ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 654, 12477, 31, 752, 281, 513, 342, 253, 958, 326, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no <mask> what to do with the fact that she was <mask>"
+  }, {
+    "sentence" : "And he had no idea <mask> to do with <mask> <mask> <mask> she was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 654, 12477, 31, 281, 513, 342, 654, 12477, 31, 654, 12477, 31, 654, 12477, 31, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea <mask> to do with <mask> <mask> <mask> she was in"
+  }, {
+    "sentence" : "And <mask> had no idea what <mask> do with the fact <mask> she was <mask> ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 654, 12477, 31, 513, 342, 253, 958, 654, 12477, 31, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what <mask> do with the fact <mask> she was <mask>"
+  }, {
+    "sentence" : "<mask> he had <mask> <mask> what to do with the <mask> that <mask> was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 654, 12477, 31, 654, 12477, 31, 752, 281, 513, 342, 253, 654, 12477, 31, 326, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had <mask> <mask> what to do with the <mask> that <mask> was in"
+  }, {
+    "sentence" : "<mask> he had <mask> idea what <mask> do with the fact that she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 654, 12477, 31, 2934, 752, 654, 12477, 31, 513, 342, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had <mask> idea what <mask> do with the fact that she was in"
+  }, {
+    "sentence" : "<mask> he had no <mask> what <mask> do <mask> the fact that she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 642, 654, 12477, 31, 752, 654, 12477, 31, 513, 654, 12477, 31, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had no <mask> what <mask> do <mask> the fact that she was in"
+  }, {
+    "sentence" : "And he <mask> <mask> idea what to do with the fact that she <mask> in ERROR",
+    "tokens" : [ 1898, 344, 654, 12477, 31, 654, 12477, 31, 2934, 752, 281, 513, 342, 253, 958, 326, 703, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> <mask> idea what to do with the fact that she <mask> in"
+  }, {
+    "sentence" : "And <mask> had no idea what <mask> do with the fact that she <mask> <mask> ERROR",
+    "tokens" : [ 1898, 654, 12477, 31, 574, 642, 2934, 752, 654, 12477, 31, 513, 342, 253, 958, 326, 703, 654, 12477, 31, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And <mask> had no idea what <mask> do with the fact that she <mask> <mask>"
+  }, {
+    "sentence" : "And he had no idea what to do with the fact <mask> <mask> was in ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 281, 513, 342, 253, 958, 654, 12477, 31, 654, 12477, 31, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had <mask> idea what to do with the fact <mask> <mask> was in"
+  }, {
+    "sentence" : "<mask> he had no <mask> <mask> to do <mask> the fact that she was in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 642, 654, 12477, 31, 654, 12477, 31, 281, 513, 654, 12477, 31, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had no <mask> <mask> to do <mask> the fact that she was in"
+  }, {
+    "sentence" : "<mask> he had <mask> idea <mask> to do with the fact that <mask> <mask> in ERROR",
+    "tokens" : [ 29, 12477, 31, 344, 574, 654, 12477, 31, 2934, 654, 12477, 31, 281, 513, 342, 253, 958, 326, 654, 12477, 31, 654, 12477, 31, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "<mask> he had <mask> idea <mask> to do with the fact that <mask> <mask> in"
+  }, {
+    "sentence" : "And he <mask> no idea what <mask> <mask> with the fact that she was in ERROR",
+    "tokens" : [ 1898, 344, 654, 12477, 31, 642, 2934, 752, 654, 12477, 31, 654, 12477, 31, 342, 253, 958, 326, 703, 369, 275, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he <mask> no idea what <mask> <mask> with the fact that she was in"
+  }, {
+    "sentence" : "And he had no idea what <mask> <mask> with the <mask> that she was <mask> ERROR",
+    "tokens" : [ 1898, 344, 574, 642, 2934, 752, 654, 12477, 31, 654, 12477, 31, 342, 253, 654, 12477, 31, 326, 703, 369, 654, 12477, 31, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " she", " had", " no", " idea", " what", " to", null, " about", " the", null, " that", null, " was", " safe" ],
+    "original_sentence" : "And he had no idea what <mask> <mask> with the <mask> that she was <mask>"
+  } ],
+  "date" : "2025-09-16T17:52:40.050871"
+}

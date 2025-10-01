@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "Aside from the fact that we were in the middle of the night",
+    "perplexity" : 10.843198776245117,
+    "weight" : 0.3530165761462823
+  },
+  "logs" : [ {
+    "sentence" : "Aside from the fact that it was in the [MASK] of the night ERROR",
+    "tokens" : [ 1909, 504, 432, 253, 958, 326, 352, 369, 275, 253, 544, 18690, 62, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from the fact that [MASK] [MASK] in the [MASK] of the night"
+  }, {
+    "sentence" : "Aside from the fact that we were in their middle of the day",
+    "tokens" : [ 1909, 504, 432, 253, 958, 326, 359, 497, 275, 616, 4766, 273, 253, 1388, 15 ],
+    "perplexity" : 22.323781967163086,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from the [MASK] that we were in [MASK] middle [MASK] the [MASK]"
+  }, {
+    "sentence" : "I from the [MASK] that we were in the middle of the night ERROR",
+    "tokens" : [ 42, 432, 253, 544, 18690, 62, 326, 359, 497, 275, 253, 4766, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] from the [MASK] that we were in the middle [MASK] the night"
+  }, {
+    "sentence" : "Apart from the fact that we came in the middle of the night",
+    "tokens" : [ 41618, 432, 253, 958, 326, 359, 2210, 275, 253, 4766, 273, 253, 2360, 15 ],
+    "perplexity" : 12.877795219421387,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] from the fact that we [MASK] [MASK] the middle of the night"
+  }, {
+    "sentence" : "Aside from the [MASK] [MASK] we were in the [MASK] of the night ERROR",
+    "tokens" : [ 1909, 504, 432, 253, 544, 18690, 62, 544, 18690, 62, 359, 497, 275, 253, 544, 18690, 62, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from the [MASK] [MASK] we were in the [MASK] of the night"
+  }, {
+    "sentence" : "Aside [MASK] the fact that [MASK] were in [MASK] middle of the night ERROR",
+    "tokens" : [ 1909, 504, 544, 18690, 62, 253, 958, 326, 544, 18690, 62, 497, 275, 544, 18690, 62, 4766, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside [MASK] the fact that [MASK] were in [MASK] middle of the night"
+  }, {
+    "sentence" : "Aside [MASK] the fact that we were in [MASK] middle of [MASK] night ERROR",
+    "tokens" : [ 1909, 504, 544, 18690, 62, 253, 958, 326, 359, 497, 275, 544, 18690, 62, 4766, 273, 544, 18690, 62, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside [MASK] the fact that we were in [MASK] middle of [MASK] night"
+  }, {
+    "sentence" : "Aside from [MASK] fact that we were in [MASK] middle [MASK] the night ERROR",
+    "tokens" : [ 1909, 504, 432, 544, 18690, 62, 958, 326, 359, 497, 275, 544, 18690, 62, 4766, 544, 18690, 62, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from [MASK] fact that we were in [MASK] middle [MASK] the night"
+  }, {
+    "sentence" : "Aside from the fact [MASK] we were in the [MASK] of the [MASK] ERROR",
+    "tokens" : [ 1909, 504, 432, 253, 958, 544, 18690, 62, 359, 497, 275, 253, 544, 18690, 62, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from the fact [MASK] we were in the [MASK] of the [MASK]"
+  }, {
+    "sentence" : "Apart from the fact that we were in the middle of the night",
+    "tokens" : [ 41618, 432, 253, 958, 326, 359, 497, 275, 253, 4766, 273, 253, 2360, 15 ],
+    "perplexity" : 11.272516250610352,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] from [MASK] fact that we were in the middle [MASK] [MASK] night"
+  }, {
+    "sentence" : "Apart from the fact that we were in the middle of the night",
+    "tokens" : [ 41618, 432, 253, 958, 326, 359, 497, 275, 253, 4766, 273, 253, 2360, 15 ],
+    "perplexity" : 11.272516250610352,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Apart [MASK] [MASK] fact that we were [MASK] the middle of the [MASK]"
+  }, {
+    "sentence" : "Apart from the fact that we were in the middle of the night",
+    "tokens" : [ 41618, 432, 253, 958, 326, 359, 497, 275, 253, 4766, 273, 253, 2360, 15 ],
+    "perplexity" : 11.272516250610352,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Apart from the fact that [MASK] were [MASK] the middle [MASK] the night"
+  }, {
+    "sentence" : "Apart [MASK] the fact that [MASK] were [MASK] the middle of [MASK] night ERROR",
+    "tokens" : [ 41618, 544, 18690, 62, 253, 958, 326, 544, 18690, 62, 497, 544, 18690, 62, 253, 4766, 273, 544, 18690, 62, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Apart [MASK] the fact that [MASK] were [MASK] the middle of [MASK] night"
+  }, {
+    "sentence" : "Apart [MASK] the [MASK] that we were in the middle of the [MASK] ERROR",
+    "tokens" : [ 41618, 544, 18690, 62, 253, 544, 18690, 62, 326, 359, 497, 275, 253, 4766, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Apart [MASK] the [MASK] that we were in the middle of the [MASK]"
+  }, {
+    "sentence" : "Aside from [MASK] [MASK] [MASK] we were in the middle of the night ERROR",
+    "tokens" : [ 1909, 504, 432, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 359, 497, 275, 253, 4766, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from [MASK] [MASK] [MASK] we were in the middle of the night"
+  }, {
+    "sentence" : "[MASK] from the fact that we were [MASK] [MASK] middle of the night ERROR",
+    "tokens" : [ 60, 18690, 62, 432, 253, 958, 326, 359, 497, 544, 18690, 62, 544, 18690, 62, 4766, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] from the fact that we were [MASK] [MASK] middle of the night"
+  }, {
+    "sentence" : "Apart from the fact that we were in the [MASK] [MASK] the [MASK] ERROR",
+    "tokens" : [ 41618, 432, 253, 958, 326, 359, 497, 275, 253, 544, 18690, 62, 544, 18690, 62, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Apart from the fact that we were in the [MASK] [MASK] the [MASK]"
+  }, {
+    "sentence" : "Apart from [MASK] [MASK] [MASK] [MASK] were in the middle of the night ERROR",
+    "tokens" : [ 41618, 432, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 497, 275, 253, 4766, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Apart from [MASK] [MASK] [MASK] [MASK] were in the middle of the night"
+  }, {
+    "sentence" : "[MASK] [MASK] the fact that [MASK] were in the middle of the [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 253, 958, 326, 544, 18690, 62, 497, 275, 253, 4766, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] the fact that [MASK] were in the middle of the [MASK]"
+  }, {
+    "sentence" : "Aside from the fact that [MASK] was in the middle of the night ERROR",
+    "tokens" : [ 1909, 504, 432, 253, 958, 326, 544, 18690, 62, 369, 275, 253, 4766, 273, 253, 2360, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Aside from the fact that [MASK] [MASK] in the middle of the [MASK]"
+  } ],
+  "date" : "2025-09-30T19:01:13.940253600",
+  "time" : 68.289
+}

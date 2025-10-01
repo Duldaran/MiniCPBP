@@ -1,0 +1,125 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I can't promise the word count will be the same as the one before, because halfway",
+  "logs" : [ {
+    "sentence" : "I can't promise the word two will be the same as the word twelve because halfway.",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 767, 588, 320, 253, 1072, 347, 253, 3159, 13265, 984, 25854, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " two", null, null, " the", null, null, null, " word", " twelve", null, null ],
+    "original_sentence" : "I can't promise the word <mask> will be <mask> same as the <mask> <mask> because halfway"
+  }, {
+    "sentence" : "I can't believe the word <mask> will be the same as the one before, because well ERROR",
+    "tokens" : [ 42, 476, 626, 2868, 253, 3159, 654, 12477, 31, 588, 320, 253, 1072, 347, 253, 581, 1078, 13, 984, 973, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " believe", null, null, " two", null, null, " the", null, null, null, " word", " twelve", null, " well" ],
+    "original_sentence" : "I can't <mask> the word <mask> will be <mask> same as the one before, because <mask>"
+  }, {
+    "sentence" : "I can't promise the word eleven will be the same as the word twelve thousand ago.",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 19525, 588, 320, 253, 1072, 347, 253, 3159, 13265, 8014, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " believe", " the", null, " eleven", null, null, " the", null, null, null, " word", " twelve", " thousand", " ago" ],
+    "original_sentence" : "I can't promise <mask> word <mask> will be the same as the word twelve <mask> <mask>"
+  }, {
+    "sentence" : "I can't promise the word count will be <mask> same as the one before, because really ERROR",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 1385, 588, 320, 654, 12477, 31, 1072, 347, 253, 581, 1078, 13, 984, 1663, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " believe", " the", null, " eleven", null, null, " the", null, null, " the", " word", " twelve", " thousand", " really" ],
+    "original_sentence" : "I can't promise the word count will be <mask> same as <mask> one before, because <mask>"
+  }, {
+    "sentence" : "I can't promise the word choice will be the same as the beginning a thousand ago.",
+    "tokens" : [ 42, 476, 626, 9023, 253, 3159, 4327, 588, 320, 253, 1072, 347, 253, 5068, 247, 8014, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " believe", " the", null, " choice", null, null, " the", null, " as", " the", " beginning", " a", " thousand", " really" ],
+    "original_sentence" : "I can't promise the word <mask> will be the same <mask> the <mask> <mask> thousand ago"
+  }, {
+    "sentence" : "I can't <mask> the word count will be as high as the year before, because halfway ERROR",
+    "tokens" : [ 42, 476, 626, 654, 12477, 31, 253, 3159, 1385, 588, 320, 347, 1029, 347, 253, 807, 1078, 13, 984, 25854, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " believe", " the", null, " choice", null, null, " as", " high", " as", " the", " year", " a", " thousand", " really" ],
+    "original_sentence" : "I can't <mask> the word count will be <mask> <mask> as the <mask> before, because halfway"
+  }, {
+    "sentence" : "I can't promise that word two will be exactly same as the word twelve because of.",
+    "tokens" : [ 42, 476, 626, 9023, 326, 3159, 767, 588, 320, 4555, 1072, 347, 253, 3159, 13265, 984, 273, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " believe", " that", null, " choice", null, null, " exactly", " high", " as", " the", " year", " a", " thousand", " of" ],
+    "original_sentence" : "I can't promise <mask> word two will be <mask> same as <mask> word twelve because <mask>"
+  }, {
+    "sentence" : "Still can't promise that word two will be the same as the word twelve because of.",
+    "tokens" : [ 16812, 476, 626, 9023, 326, 3159, 767, 588, 320, 253, 1072, 347, 253, 3159, 13265, 984, 273, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", null, " believe", " that", null, " choice", " will", null, " the", " high", " as", " the", " year", " a", " thousand", " of" ],
+    "original_sentence" : "<mask> can't promise that word two <mask> be <mask> same as the word twelve because of"
+  }, {
+    "sentence" : "Still can't believe that word two will be the same as the word twelve because of.",
+    "tokens" : [ 16812, 476, 626, 2868, 326, 3159, 767, 588, 320, 253, 1072, 347, 253, 3159, 13265, 984, 273, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", null, " believe", " that", null, " choice", " will", null, " the", " high", " as", " the", " year", " a", " thousand", " of" ],
+    "original_sentence" : "Still can't <mask> that word two will be <mask> same <mask> the word twelve because of"
+  }, {
+    "sentence" : "Still I believe whatever word two will be the same as the word twelve because of.",
+    "tokens" : [ 16812, 309, 2868, 5913, 3159, 767, 588, 320, 253, 1072, 347, 253, 3159, 13265, 984, 273, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " I", " believe", " whatever", null, " choice", " will", null, " the", " high", " as", " the", " year", " a", " thousand", " of" ],
+    "original_sentence" : "Still <mask> believe <mask> word two will be <mask> same as the word twelve because of"
+  }, {
+    "sentence" : "I can't promise that the words will be the same as the word several thousand ago.",
+    "tokens" : [ 42, 476, 626, 9023, 326, 253, 3000, 588, 320, 253, 1072, 347, 253, 3159, 2067, 8014, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " I", " believe", " that", " the", " words", " will", null, " the", " high", " as", " the", " year", " several", " thousand", " of" ],
+    "original_sentence" : "I can't promise <mask> <mask> <mask> will be the same as the word <mask> thousand ago"
+  }, {
+    "sentence" : "Still I believe whatever word is will be the same as the <mask> one because of ERROR",
+    "tokens" : [ 16812, 309, 2868, 5913, 3159, 310, 588, 320, 253, 1072, 347, 253, 654, 12477, 31, 581, 984, 273, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " I", " believe", " that", " the", " is", " will", null, " the", " high", " as", " the", " year", " one", " thousand", " of" ],
+    "original_sentence" : "Still I believe whatever word <mask> will be the same as the <mask> <mask> because <mask>"
+  }, {
+    "sentence" : "I can't promise that the words will be the same as the word several messages ago.",
+    "tokens" : [ 42, 476, 626, 9023, 326, 253, 3000, 588, 320, 253, 1072, 347, 253, 3159, 2067, 8169, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " I", " believe", " that", " the", " is", " will", " be", " the", " high", " as", " the", " year", " one", " messages", " of" ],
+    "original_sentence" : "I can't promise that the words will <mask> <mask> same <mask> the word several <mask> ago"
+  }, {
+    "sentence" : "I can't say the word two will be exactly same without the word twelve because of.",
+    "tokens" : [ 42, 476, 626, 1333, 253, 3159, 767, 588, 320, 4555, 1072, 1293, 253, 3159, 13265, 984, 273, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " I", " say", " the", " the", " is", " will", " be", " the", " high", " without", " the", " year", " one", " messages", " of" ],
+    "original_sentence" : "I can't <mask> <mask> word two will be exactly same <mask> <mask> word twelve because of"
+  }, {
+    "sentence" : "Certainly can't make the word two to be the same as the word one because halfway.",
+    "tokens" : [ 43954, 476, 626, 1056, 253, 3159, 767, 281, 320, 253, 1072, 347, 253, 3159, 581, 984, 25854, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " certainly", " I", " make", " the", " the", " is", " to", " be", " the", " high", " without", " the", " year", " one", " messages", " of" ],
+    "original_sentence" : "<mask> can't <mask> the word two <mask> be the same as the word <mask> because halfway"
+  }, {
+    "sentence" : "I can't promise that the word will be the same for the word several thousand ago.",
+    "tokens" : [ 42, 476, 626, 9023, 326, 253, 3159, 588, 320, 253, 1072, 323, 253, 3159, 2067, 8014, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " I", " make", " the", " the", " word", " to", " be", " the", " same", " for", " the", " year", " one", " messages", " of" ],
+    "original_sentence" : "<mask> can't promise that the <mask> will be the <mask> <mask> the word several thousand ago"
+  }, {
+    "sentence" : "I can't promise that the country will be the same as it was several thousand ago.",
+    "tokens" : [ 42, 476, 626, 9023, 326, 253, 2586, 588, 320, 253, 1072, 347, 352, 369, 2067, 8014, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " I", " make", " the", " the", " country", " to", " be", " the", " same", " for", " it", " was", " one", " messages", " of" ],
+    "original_sentence" : "I can't promise that the <mask> will be the same as <mask> <mask> several thousand ago"
+  }, {
+    "sentence" : "I can't promise that the words will be the same after the ones several years ago.",
+    "tokens" : [ 42, 476, 626, 9023, 326, 253, 3000, 588, 320, 253, 1072, 846, 253, 4394, 2067, 1107, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " I", " make", " the", " the", " country", " will", " be", " the", " same", " after", " it", " ones", " one", " years", " of" ],
+    "original_sentence" : "I can't promise that the words <mask> be the same <mask> the <mask> several <mask> ago"
+  }, {
+    "sentence" : "We can't expect that the country will be the same as it was several thousand ago.",
+    "tokens" : [ 1231, 476, 626, 1902, 326, 253, 2586, 588, 320, 253, 1072, 347, 352, 369, 2067, 8014, 3622, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " we", " I", " expect", " the", " the", " country", " will", " be", " the", " same", " as", " it", " ones", " one", " years", " of" ],
+    "original_sentence" : "<mask> can't <mask> that the country will be <mask> same <mask> it was several thousand ago"
+  } ],
+  "date" : "2025-09-16T18:54:56.933841900"
+}

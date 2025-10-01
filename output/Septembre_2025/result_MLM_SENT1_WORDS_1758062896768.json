@@ -1,0 +1,107 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "I can't make any promises about the story, but I can give you some ideas following",
+  "logs" : [ {
+    "sentence" : "I can't make any promises about the story, but I can give you some ideas understanding.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 1918, 368, 690, 5697, 4685, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " about", null, null, null, null, null, null, null, " some", null, " understanding" ],
+    "original_sentence" : "I can't make any promises <mask> the story, but I can give you <mask> ideas <mask>"
+  }, {
+    "sentence" : "I can't make any promises about the story, but I can throwing you some ideas following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 15950, 368, 690, 5697, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " about", null, null, null, " I", " can", " throwing", null, " some", null, " understanding" ],
+    "original_sentence" : "I can't make any promises about the story, but <mask> <mask> <mask> you some ideas following"
+  }, {
+    "sentence" : "I can't make any promises about the future but I can give you some general ideas.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2852, 533, 309, 476, 1918, 368, 690, 2087, 5697, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, " about", null, " future", null, " I", " can", " throwing", null, " some", " general", " ideas" ],
+    "original_sentence" : "I can't make any promises about the <mask> but I can give you some <mask> <mask>"
+  }, {
+    "sentence" : "I can't make any promises about the story, but I can throwing you to discuss following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 15950, 368, 281, 2319, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, null, " any", null, " about", null, " future", null, " I", " can", " throwing", null, " to", " discuss", " ideas" ],
+    "original_sentence" : "<mask> can't make <mask> promises about the story, but I can throwing you <mask> <mask> following"
+  }, {
+    "sentence" : "I can't make enough promises about the future but I can give you some good ideas.",
+    "tokens" : [ 42, 476, 626, 1056, 2217, 16966, 670, 253, 2852, 533, 309, 476, 1918, 368, 690, 1175, 5697, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, null, " enough", null, " about", null, " future", null, " I", " can", " throwing", null, " to", " good", " ideas" ],
+    "original_sentence" : "I can't make <mask> promises about the future but <mask> can give you some <mask> ideas"
+  }, {
+    "sentence" : "I can't make enough promises about the future but I can give you some small ones.",
+    "tokens" : [ 42, 476, 626, 1056, 2217, 16966, 670, 253, 2852, 533, 309, 476, 1918, 368, 690, 1355, 4394, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, null, " enough", null, " about", " the", " future", null, " I", " can", " throwing", null, " to", " small", " ones" ],
+    "original_sentence" : "<mask> can't make enough promises about <mask> future but I can give you some <mask> <mask>"
+  }, {
+    "sentence" : "I can't make any promises about the story, but I can give a sense better understanding.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 1918, 247, 3282, 1805, 4685, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, null, " enough", null, " about", " the", " future", " but", " I", " can", " throwing", " a", " sense", " better", " ones" ],
+    "original_sentence" : "I can't make any promises about the story, <mask> I can give <mask> <mask> <mask> understanding"
+  }, {
+    "sentence" : "I can't make any promises about the <mask> but I am throwing you some ideas following No valid tokens found ERROR",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 654, 12477, 31, 533, 309, 717, 15950, 368, 690, 5697, 1563, 1621, 3588, 21761, 1119, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", null, " make", " enough", null, " about", " the", " future", " but", " I", " am", " throwing", " a", " sense", " better", " ones" ],
+    "original_sentence" : "I can't <mask> any promises about the <mask> but I <mask> throwing you some ideas following"
+  }, {
+    "sentence" : "I cannot make enough promises about the story, but I can give a sense of understanding.",
+    "tokens" : [ 42, 2550, 1056, 2217, 16966, 670, 253, 2926, 13, 533, 309, 476, 1918, 247, 3282, 273, 4685, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " enough", null, " about", " the", " future", " but", " I", " can", " throwing", " a", " sense", " of", " ones" ],
+    "original_sentence" : "I <mask> make <mask> promises about the story, but I can give <mask> sense <mask> understanding"
+  }, {
+    "sentence" : "I can't make any promises at the end but I can throwing you some ideas following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 387, 253, 990, 533, 309, 476, 15950, 368, 690, 5697, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " enough", null, " at", " the", " end", " but", " I", " can", " throwing", " a", " sense", " of", " ones" ],
+    "original_sentence" : "<mask> can't make any promises <mask> the <mask> but I can throwing you some ideas following"
+  }, {
+    "sentence" : "I can't make any promises about the end but I am in a sense better understanding.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 990, 533, 309, 717, 275, 247, 3282, 1805, 4685, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " enough", null, " at", " the", " end", " but", " I", " am", " in", " a", " sense", " of", " ones" ],
+    "original_sentence" : "I can't make any promises about the <mask> but I <mask> <mask> a sense better understanding"
+  }, {
+    "sentence" : "I can't make any promises about the story, but I can promise you my best understanding.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 253, 2926, 13, 533, 309, 476, 9023, 368, 619, 1682, 4685, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " enough", null, " at", " the", " future", " but", " I", " am", " promise", " you", " my", " best", " ones" ],
+    "original_sentence" : "I can't make any promises about the story, but I can <mask> you <mask> <mask> understanding"
+  }, {
+    "sentence" : "I can't make enough promises about the future but you can make you some big ones.",
+    "tokens" : [ 42, 476, 626, 1056, 2217, 16966, 670, 253, 2852, 533, 368, 476, 1056, 368, 690, 1943, 4394, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " make", " enough", " promises", " at", " the", " future", " but", " you", " am", " make", " you", " some", " big", " ones" ],
+    "original_sentence" : "I can't make enough promises about the future but <mask> can <mask> <mask> some <mask> ones"
+  }, {
+    "sentence" : "Still can't make enough promises about the future but I can give you a few ideas.",
+    "tokens" : [ 16812, 476, 626, 1056, 2217, 16966, 670, 253, 2852, 533, 309, 476, 1918, 368, 247, 1643, 5697, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " cannot", " make", " any", " promises", " at", " the", " future", " but", " I", " can", " make", " you", " a", " few", " understanding" ],
+    "original_sentence" : "<mask> can't make enough promises about the future but I <mask> give you <mask> <mask> ideas"
+  }, {
+    "sentence" : "Still can't get enough questions about the future but I can give you a few ideas.",
+    "tokens" : [ 16812, 476, 626, 755, 2217, 3533, 670, 253, 2852, 533, 309, 476, 1918, 368, 247, 1643, 5697, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " still", " cannot", " get", " any", " questions", " at", " the", " future", " but", " I", " can", " make", " you", " a", " few", " understanding" ],
+    "original_sentence" : "Still can't <mask> enough <mask> about the future but <mask> can give you a few ideas"
+  }, {
+    "sentence" : "I can't make any promises about it yet but I can throwing you some the following.",
+    "tokens" : [ 42, 476, 626, 1056, 667, 16966, 670, 352, 2568, 533, 309, 476, 15950, 368, 690, 253, 1563, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " I", " cannot", " get", " any", " questions", " at", " it", " yet", " but", " I", " can", " make", " you", " a", " the", " understanding" ],
+    "original_sentence" : "<mask> can't make any promises about <mask> <mask> but I can throwing you some <mask> following"
+  } ],
+  "date" : "2025-09-16T18:48:16.767043900"
+}

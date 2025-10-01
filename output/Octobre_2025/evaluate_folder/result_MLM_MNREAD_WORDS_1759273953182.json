@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "perplexity" : 17.449989318847656,
+    "weight" : 0.12011962837504779
+  },
+  "logs" : [ {
+    "sentence" : "He had only get out of bed to get out of the room right now",
+    "tokens" : [ 1328, 574, 760, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 34.721439361572266,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He [MASK] [MASK] get out of bed to get out of [MASK] room right [MASK]"
+  }, {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "tokens" : [ 1328, 12758, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 17.449989318847656,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to [MASK] out [MASK] bed to [MASK] out of the room right now"
+  }, {
+    "sentence" : "He ought to [MASK] [MASK] of bed to [MASK] [MASK] of the room right now ERROR",
+    "tokens" : [ 1328, 12758, 281, 544, 18690, 62, 544, 18690, 62, 273, 3722, 281, 544, 18690, 62, 544, 18690, 62, 273, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to [MASK] [MASK] of bed to [MASK] [MASK] of the room right now"
+  }, {
+    "sentence" : "He ought to [MASK] out of bed to get [MASK] of the [MASK] [MASK] now ERROR",
+    "tokens" : [ 1328, 12758, 281, 544, 18690, 62, 562, 273, 3722, 281, 755, 544, 18690, 62, 273, 253, 544, 18690, 62, 544, 18690, 62, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to [MASK] out of bed to get [MASK] of the [MASK] [MASK] now"
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room right now",
+    "tokens" : [ 1328, 12758, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 16.728927612304688,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get [MASK] of bed [MASK] get out of the room right [MASK]"
+  }, {
+    "sentence" : "[MASK] ought to get out of [MASK] [MASK] get out of the room right now ERROR",
+    "tokens" : [ 60, 18690, 62, 12758, 281, 755, 562, 273, 544, 18690, 62, 544, 18690, 62, 755, 562, 273, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] ought to get out of [MASK] [MASK] get out of the room right now"
+  }, {
+    "sentence" : "I need to get out of bed to get out of the window right now",
+    "tokens" : [ 42, 878, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 3497, 987, 1024, 15 ],
+    "perplexity" : 18.184432983398438,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] to get [MASK] of bed to get out of the [MASK] right now"
+  }, {
+    "sentence" : "He ought to get [MASK] [MASK] bed [MASK] get out of the room right now ERROR",
+    "tokens" : [ 1328, 12758, 281, 755, 544, 18690, 62, 544, 18690, 62, 3722, 544, 18690, 62, 755, 562, 273, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get [MASK] [MASK] bed [MASK] get out of the room right now"
+  }, {
+    "sentence" : "I ought to get out of bed or get back of the room right now",
+    "tokens" : [ 42, 12758, 281, 755, 562, 273, 3722, 390, 755, 896, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 42.651187896728516,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] ought to get out [MASK] bed or get [MASK] of [MASK] room right now"
+  }, {
+    "sentence" : "He [MASK] to get out of bed or get out [MASK] the [MASK] right [MASK] ERROR",
+    "tokens" : [ 1328, 544, 18690, 62, 281, 755, 562, 273, 3722, 390, 755, 562, 544, 18690, 62, 253, 544, 18690, 62, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He [MASK] to get out of bed or get out [MASK] the [MASK] right [MASK]"
+  }, {
+    "sentence" : "He ought to [MASK] [MASK] of bed [MASK] get out of the room right now ERROR",
+    "tokens" : [ 1328, 12758, 281, 544, 18690, 62, 544, 18690, 62, 273, 3722, 544, 18690, 62, 755, 562, 273, 253, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to [MASK] [MASK] of bed [MASK] get out of the room right now"
+  }, {
+    "sentence" : "[MASK] ought to get out [MASK] bed or get out of the room right [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 12758, 281, 755, 562, 544, 18690, 62, 3722, 390, 755, 562, 273, 253, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] ought to get out [MASK] bed or get out of the room right [MASK]"
+  }, {
+    "sentence" : "He ought to get [MASK] of bed [MASK] get out of the room right [MASK] ERROR",
+    "tokens" : [ 1328, 12758, 281, 755, 544, 18690, 62, 273, 3722, 544, 18690, 62, 755, 562, 273, 253, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get [MASK] of bed [MASK] get out of the room right [MASK]"
+  }, {
+    "sentence" : "He ought to get [MASK] of [MASK] to get out of the room right [MASK] ERROR",
+    "tokens" : [ 1328, 12758, 281, 755, 544, 18690, 62, 273, 544, 18690, 62, 281, 755, 562, 273, 253, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get [MASK] of [MASK] to get out of the room right [MASK]"
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room right now",
+    "tokens" : [ 1328, 12758, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 16.728927612304688,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get out of bed or get out [MASK] [MASK] room [MASK] now"
+  }, {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "tokens" : [ 1328, 12758, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2316, 987, 1024, 15 ],
+    "perplexity" : 17.449989318847656,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get out of bed to [MASK] [MASK] of [MASK] room right now"
+  }, {
+    "sentence" : "He [MASK] [MASK] get out of bed or get out of [MASK] room right now ERROR",
+    "tokens" : [ 1328, 544, 18690, 62, 544, 18690, 62, 755, 562, 273, 3722, 390, 755, 562, 273, 544, 18690, 62, 2316, 987, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He [MASK] [MASK] get out of bed or get out of [MASK] room right now"
+  }, {
+    "sentence" : "He [MASK] to get out of bed [MASK] get out of [MASK] room right [MASK] ERROR",
+    "tokens" : [ 1328, 544, 18690, 62, 281, 755, 562, 273, 3722, 544, 18690, 62, 755, 562, 273, 544, 18690, 62, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He [MASK] to get out of bed [MASK] get out of [MASK] room right [MASK]"
+  }, {
+    "sentence" : "He ought [MASK] get out of [MASK] or get out [MASK] the room [MASK] now ERROR",
+    "tokens" : [ 1328, 12758, 544, 18690, 62, 755, 562, 273, 544, 18690, 62, 390, 755, 562, 544, 18690, 62, 253, 2316, 544, 18690, 62, 1024, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought [MASK] get out of [MASK] or get out [MASK] the room [MASK] now"
+  }, {
+    "sentence" : "He ought to get out of [MASK] [MASK] get [MASK] of the room right [MASK] ERROR",
+    "tokens" : [ 1328, 12758, 281, 755, 562, 273, 544, 18690, 62, 544, 18690, 62, 755, 544, 18690, 62, 273, 253, 2316, 987, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "He ought to get out of [MASK] [MASK] get [MASK] of the room right [MASK]"
+  } ],
+  "date" : "2025-09-30T19:12:33.179778500",
+  "time" : 62.604
+}

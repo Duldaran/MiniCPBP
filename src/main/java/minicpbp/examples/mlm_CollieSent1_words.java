@@ -69,17 +69,72 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ibm.icu.impl.Pair;
 
 public class mlm_CollieSent1_words {
-    final static String mask_string = "<mask>";
+    final static String mask_string = "[MASK]";
 
-    private static String sentenceBuilder(List<String> bases) {
-        String base = bases.get(new Random().nextInt(bases.size()));
+    private static class ScoredSentence {
+        private String sentence;
+        private double perplexity;
+        private double weight;
+    
+        public ScoredSentence(String sentence, double perplexity) {
+            this.sentence = sentence;
+            this.perplexity = perplexity;
+            this.weight = 0.0;
+        }
+        
+        public String getSentence() { return sentence; }
+        public double getPerplexity() { return perplexity; }
+        public double getWeight() { return weight; }
+        public void setWeight(double weight) { this.weight = weight; }
+        
+        @Override
+        public String toString() {
+            return String.format("%s (Perplexity: %.2f, Weight: %.4f)", 
+                            sentence, perplexity, weight);
+        }
+    }
+
+    private static ScoredSentence selectWeightedRandom(ArrayList<ScoredSentence> sentences, Random random, double temperature) {
+        if (sentences.isEmpty()) return null;
+
+        double totalWeight = 0.0;
+        
+        for (ScoredSentence sent : sentences) {
+            double weight = Math.exp(-sent.getPerplexity() / temperature);
+            sent.setWeight(weight);
+            totalWeight += weight;
+        }
+        
+        for (ScoredSentence sent : sentences) {
+            sent.setWeight(sent.getWeight() / totalWeight);
+        }
+        
+        double randomValue = random.nextDouble(); // 0.0 to 1.0
+        double cumulativeWeight = 0.0;
+        
+        for (ScoredSentence sent : sentences) {
+            cumulativeWeight += sent.getWeight();
+            if (randomValue <= cumulativeWeight) {
+                return sent;
+            }
+        }
+        
+        // Fallback (shouldn't reach here due to normalization)
+        return sentences.get(sentences.size() - 1);
+    }
+        
+    
+
+    private static String sentenceBuilder(ArrayList<ScoredSentence> bases) {
+        ScoredSentence base = selectWeightedRandom(bases, new Random(), 0.8);
         System.out.println("Base sentence: " + base);
-        String[] words = base.split(" ");
+        String[] words = base.getSentence().split(" ");
         Random rand = new Random();
-        int numMasks = rand.nextBoolean() ? 2 : 3;
+        int numMasks = rand.nextBoolean() ? 3 : 4;
         Set<Integer> maskIndices = new HashSet<>();
         while (maskIndices.size() < numMasks) {
-            int idx = rand.nextInt(words.length);
+            int idx = rand.nextInt(words.length + 1);
+            if(idx==words.length) idx--;//Double prob for last word
             maskIndices.add(idx);
         }
         System.out.println("Masking indices: " + maskIndices);
@@ -90,19 +145,22 @@ public class mlm_CollieSent1_words {
     }
 
     public static void main(String[] args) throws Exception {
-        
-            System.out.println("2 septembre");
-            int port = Integer.parseInt(args[1]);
-            final int NUM_ITERATIONS = Integer.parseInt(args[3]);
-            final double weight = Double.parseDouble(args[0]);
-            final int seed = Integer.parseInt(args[4]);
-        try {
+    
+        System.out.println("30 septembre");
+        int port = Integer.parseInt(args[1]);
+        final int NUM_ITERATIONS = Integer.parseInt(args[3]);
+        final double weight = Double.parseDouble(args[0]);
+        final int seed = Integer.parseInt(args[4]);
 
-        // Read initial base sentence from file
-        ArrayList<String> base_sentence = new ArrayList<>();
-        ObjectMapper objectMapper = new ObjectMapper();
+        long startTime = System.currentTimeMillis();
         try {
-            String jsonContent = new String(Files.readAllBytes(Paths.get("./output/Septembre_2025/result_SENT1_WORDS_1756741626069.json")), StandardCharsets.UTF_8);
+        HttpClient client = HttpClient.newHttpClient();
+        // Read initial base sentence from file
+        ArrayList<ScoredSentence> base_sentence = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String initial_sentence = "";
+        try {
+            String jsonContent = new String(Files.readAllBytes(Paths.get("./output/Septembre_2025/result_SENT1_WORDS_1758032592286.json")), StandardCharsets.UTF_8);
             JsonNode rootNode = objectMapper.readTree(jsonContent);
             ArrayNode logsArray = (ArrayNode) rootNode.get("logs");
             if (logsArray != null && logsArray.size() > seed) {
@@ -110,19 +168,26 @@ public class mlm_CollieSent1_words {
                 if (sentence.endsWith(".")) {
                     sentence = sentence.substring(0, sentence.length() - 1);
                 }
-                base_sentence.add(sentence);
+                initial_sentence = sentence;
             } else {
-                base_sentence.add("An sentence about a cat playing with a ball of string could be something special");
+                initial_sentence = "An sentence about a cat playing with a ball of string could be something special";
             }
         } catch (Exception e) {
             e.printStackTrace();
-            base_sentence.add("An sentence about a cat playing with a ball of string could be something special");
+            initial_sentence = "An sentence about a cat playing with a ball of string could be something special";
             System.err.println("Could not read base sentence file, using default.");
         }
 
+        HttpRequest request_init = HttpRequest.newBuilder()
+            .uri(URI.create("http://localhost:" + port + "/perplexity"))
+            .POST(HttpRequest.BodyPublishers.ofString(initial_sentence))
+            .build();
+        String response_init = client.sendAsync(request_init, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+        JsonNode jsonNode_init = objectMapper.readTree(response_init);
+        double ppl_init = jsonNode_init.get("perplexity").asDouble();
+        base_sentence.add(new ScoredSentence(initial_sentence, ppl_init));
 
-
-        final String llm_name="roberta";//
+        final String llm_name="modernBert";//
 
         List<Logging>  logs = new ArrayList<>();
 
@@ -173,7 +238,7 @@ public class mlm_CollieSent1_words {
             e.printStackTrace();
         }
 
-        for (String w : base_sentence.get(0).split(" ")) {
+        for (String w : base_sentence.get(0).getSentence().split(" ")) {
             if (!words.contains(w)) {
                 words.add(w);
             }
@@ -199,10 +264,6 @@ public class mlm_CollieSent1_words {
         for (int i = 0; i < corpusDomains.size(); i++) {
             int domainIndex = corpusDomains.get(i);
             String word = words.get(domainIndex);
-            if(i==corpusDomains.size()-1){
-                charNum[i]=0;
-                continue;
-            }
             charNum[i]=word.length();
             
         }
@@ -214,47 +275,47 @@ public class mlm_CollieSent1_words {
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
-        final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).split(" ").length;
+        final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).getSentence().split(" ").length;
         final int ORACLE_TOP_K = 100;
-        final int NUMBER_CHAR = 82 - 1 - SENTENCE_MAX_NUMBER_TOKENS;//Le point et les espaces enlevés
+        final int NUMBER_CHAR = 82 - SENTENCE_MAX_NUMBER_TOKENS;//Le point et les espaces enlevés
         //final int NUM_ITERATIONS = 8;
 
         String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
 
         
-        Solver cp = makeSolver();
-        IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-        IntVar[] num_char = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
-
-        for (int i=0; i<SENTENCE_MAX_NUMBER_TOKENS; i++){
-            word_index[i].setName("word_index["+i+"]");
-            cp.post(element(charNum, word_index[i], num_char[i]));
-        }
-
-        //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
-        
-        cp.post(sum(num_char, NUMBER_CHAR));
-        //cp.post(sum(num_char, nb_char));
 
 
 
 
-        HttpClient client = HttpClient.newHttpClient();
+
+
         Random rand = new Random();
 
         Double logSumProbs = 0.0;
         int num_tok=1;
 
 
-        StateManager sm = cp.getStateManager();
-        sm.saveState();
+
 
         int l = -1;
         while (l < NUM_ITERATIONS-1 || (base_sentence.size() < 5 && l < 3*NUM_ITERATIONS)) {
+            Solver cp = makeSolver();
+            IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+            IntVar[] num_char = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
+
+            for (int i=0; i<SENTENCE_MAX_NUMBER_TOKENS; i++){
+                word_index[i].setName("word_index["+i+"]");
+                cp.post(element(charNum, word_index[i], num_char[i]));
+            }
+
+            //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
+            
+            cp.post(sum(num_char, NUMBER_CHAR));
+            //cp.post(sum(num_char, nb_char));
+
             l++;
             System.out.println("Iteration: " + l);
-            sm.restoreState();
-            sm.saveState();
+
 
             String current_sentence = sentenceBuilder(base_sentence);
             String original_sentence = current_sentence;
@@ -405,7 +466,7 @@ public class mlm_CollieSent1_words {
                             }
                         }
                         current_sentence = String.join(" ", sentenceWords);
-                        current_sentence += " ERROR";
+                        current_sentence += " INCONSISTENCY! ERROR";
                         break;
                     }
                     if(PRINT_TRACE) 
@@ -434,8 +495,10 @@ public class mlm_CollieSent1_words {
                             }
                         }
                         current_sentence = String.join(" ", sentenceWords);
-                        current_sentence += " ERROR";
-                        break;
+                        current_sentence += e+" INCONSISTENCY during BP! ERROR";
+                        throw e;
+                        //break;
+
                     }
                     if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
                     System.out.println("BP completed for index: " + i);
@@ -516,18 +579,27 @@ public class mlm_CollieSent1_words {
             for (int j = 0; j < tokensArray.size(); j++) {
                 tokens[j] = tokensArray.get(j).asInt();
             }
-            logs.add(new Logging(current_sentence, original_sentence, perplexityScore, tokens, tokens_used.clone()));
 
-            String[] wordsArr = current_sentence.split(" ");
-            /*if (wordsArr.length > 0 && wordsArr[wordsArr.length - 1].equals("ERROR")) {
-                current_sentence = String.join(" ", Arrays.copyOf(wordsArr, wordsArr.length - 1));
-            }*/
+
+
             if(!current_sentence.contains("ERROR")){
                 if (current_sentence.endsWith(".")) {
                     current_sentence = current_sentence.substring(0, current_sentence.length() - 1);
                 }
-                base_sentence.add(current_sentence);
+                HttpRequest request3 = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:" + port + "/perplexity"))
+                    .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+                    .build();
+                String response3 = client.sendAsync(request3, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+                JsonNode jsonNode3 = objectMapper.readTree(response3);
+                double ppl = jsonNode3.get("perplexity").asDouble();
+                if (!base_sentence.contains(current_sentence)) {  
+                    base_sentence.add(new ScoredSentence(current_sentence, ppl));
+                }
+                perplexityScore = ppl;
             }
+            logs.add(new Logging(current_sentence, original_sentence, perplexityScore, tokens, tokens_used.clone()));
+
             }
   
     
@@ -541,6 +613,7 @@ public class mlm_CollieSent1_words {
     result.put("base_sentence", base_sentence.get(0));
     result.put("logs", logs);
     result.put("date", java.time.LocalDateTime.now().toString());
+    result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
     String outputFileName = OUTPUT_DIR + "/result_MLM_SENT1_WORDS_" + System.currentTimeMillis()  + ".json";

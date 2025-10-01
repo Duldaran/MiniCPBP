@@ -1,0 +1,107 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "roberta",
+  "base_sentence" : "This is a sentence about a cat that eats fish and has beautiful fur color because",
+  "logs" : [ {
+    "sentence" : "This is a story about a cat following a fish and his beautiful fur color because.",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 5798, 1563, 247, 6773, 285, 521, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, " story", null, null, null, " following", " a", null, null, " his", null, null, null, null ],
+    "original_sentence" : "This is a <mask> about a cat <mask> <mask> fish and <mask> beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about drinking cat that eats fish and has a fur color because.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 10678, 5798, 326, 40724, 6773, 285, 556, 247, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " a", " story", null, " drinking", null, " following", " a", null, null, " his", " a", null, null, null ],
+    "original_sentence" : "This is <mask> sentence about <mask> cat that eats fish and has <mask> fur color because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats bugs and has its fur color disappearing.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 19775, 285, 556, 697, 11829, 3295, 42689, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " a", " story", null, " drinking", null, " that", " a", " bugs", null, " his", " its", null, null, " disappearing" ],
+    "original_sentence" : "This is a sentence about a cat <mask> eats <mask> and has <mask> fur color <mask>"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats bugs and has its eye color disappearing.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 19775, 285, 556, 697, 5130, 3295, 42689, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " a", " story", null, " a", null, " that", " a", " bugs", null, " his", " its", " eye", null, " disappearing" ],
+    "original_sentence" : "This is a sentence about <mask> cat that eats bugs and has <mask> <mask> color disappearing"
+  }, {
+    "sentence" : "This is a story about a cat following a fish <mask> his own fur is because No valid tokens found ERROR",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 5798, 1563, 247, 6773, 654, 12477, 31, 521, 1211, 11829, 310, 984, 1621, 3588, 21761, 1119, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, " a", " story", null, " a", null, " that", " eats", " bugs", null, " has", " own", " eye", " is", " disappearing" ],
+    "original_sentence" : "This is a story about a cat following a fish <mask> his <mask> fur <mask> because"
+  }, {
+    "sentence" : "This describes a sentence about a cat that eats bugs and has its own color green.",
+    "tokens" : [ 1552, 8631, 247, 6197, 670, 247, 5798, 326, 40724, 19775, 285, 556, 697, 1211, 3295, 4759, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " describes", " a", " story", null, " a", null, " that", " eats", " bugs", null, " has", " own", " own", " is", " green" ],
+    "original_sentence" : "This <mask> a sentence about a cat that eats bugs and has its <mask> color <mask>"
+  }, {
+    "sentence" : "This is a picture inside a cat that eats bugs and has its eye color disappearing.",
+    "tokens" : [ 1552, 310, 247, 5406, 3304, 247, 5798, 326, 40724, 19775, 285, 556, 697, 5130, 3295, 42689, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, " describes", " a", " picture", " inside", " a", null, " that", " eats", " bugs", null, " has", " own", " own", " is", " green" ],
+    "original_sentence" : "This is a <mask> <mask> a cat that eats bugs and <mask> its eye color disappearing"
+  }, {
+    "sentence" : "Game is a picture inside a cat that eats bugs and sometimes its eye color change.",
+    "tokens" : [ 18237, 310, 247, 5406, 3304, 247, 5798, 326, 40724, 19775, 285, 4536, 697, 5130, 3295, 1818, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " game", " is", " a", " picture", " inside", " a", null, " that", " eats", " bugs", " and", " sometimes", " own", " own", " is", " change" ],
+    "original_sentence" : "<mask> is a picture inside a cat that eats bugs <mask> <mask> its eye color <mask>"
+  }, {
+    "sentence" : "It is a sentence about drinking milk that eats sugar and has a red color because.",
+    "tokens" : [ 1147, 310, 247, 6197, 670, 10678, 8463, 326, 40724, 8618, 285, 556, 247, 2502, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " it", " is", " a", " picture", " inside", " a", " milk", " that", " eats", " sugar", " and", " sometimes", " own", " red", " is", " change" ],
+    "original_sentence" : "<mask> is a sentence about drinking <mask> that eats <mask> and has a <mask> color because"
+  }, {
+    "sentence" : "Also describes a sentence about a cat that eats bugs and has its own color green.",
+    "tokens" : [ 9917, 8631, 247, 6197, 670, 247, 5798, 326, 40724, 19775, 285, 556, 697, 1211, 3295, 4759, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " also", " is", " a", " picture", " inside", " a", " milk", " that", " eats", " sugar", " and", " sometimes", " own", " red", " color", " change" ],
+    "original_sentence" : "<mask> describes a sentence about a cat that <mask> bugs and has its own <mask> green"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats fish and everything beautiful fur on it.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 3253, 5389, 11829, 327, 352, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " this", " is", " a", " picture", " inside", " a", " milk", " that", " eats", " sugar", " and", " everything", " its", " red", " on", " it" ],
+    "original_sentence" : "<mask> is a sentence about a cat that eats fish and <mask> beautiful fur <mask> <mask>"
+  }, {
+    "sentence" : "Cat is a sentence about a cat that eats fish and has beautiful fur color because.",
+    "tokens" : [ 23475, 310, 247, 6197, 670, 247, 5798, 326, 40724, 6773, 285, 556, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " cat", " is", " a", " picture", " about", " a", " milk", " that", " eats", " sugar", " and", " everything", " its", " red", " on", " it" ],
+    "original_sentence" : "<mask> is a sentence <mask> a cat <mask> eats fish and has beautiful fur color because"
+  }, {
+    "sentence" : "This is a sentence about a cat that eats cats and everything beautiful fur on it.",
+    "tokens" : [ 1552, 310, 247, 6197, 670, 247, 5798, 326, 40724, 16581, 285, 3253, 5389, 11829, 327, 352, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " cat", " is", " a", " picture", " about", " a", " milk", " that", " eats", " cats", " and", " everything", " its", " red", " on", " it" ],
+    "original_sentence" : "This is a sentence about a cat that eats <mask> <mask> everything beautiful fur on <mask>"
+  }, {
+    "sentence" : "This is a story about a A following sea fish and his beautiful fur color because.",
+    "tokens" : [ 1552, 310, 247, 2926, 670, 247, 329, 1563, 6150, 6773, 285, 521, 5389, 11829, 3295, 984, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " cat", " is", " a", " picture", " about", " a", " A", " that", " sea", " cats", " and", " everything", " its", " red", " on", " it" ],
+    "original_sentence" : "This is <mask> story about <mask> <mask> following <mask> fish and his beautiful fur color because"
+  }, {
+    "sentence" : "Game is a picture inside a cat that eats bugs and experience an eye color change.",
+    "tokens" : [ 18237, 310, 247, 5406, 3304, 247, 5798, 326, 40724, 19775, 285, 2793, 271, 5130, 3295, 1818, 15 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " cat", " is", " a", " picture", " about", " a", " A", " that", " sea", " cats", " and", " experience", " an", " red", " on", " it" ],
+    "original_sentence" : "Game is a picture inside a cat that eats bugs <mask> <mask> <mask> eye color change"
+  }, {
+    "sentence" : "This is a picture of a <mask> that eats bugs and has its eye color change No valid tokens found ERROR",
+    "tokens" : [ 1552, 310, 247, 5406, 273, 247, 654, 12477, 31, 326, 40724, 19775, 285, 556, 697, 5130, 3295, 1818, 1621, 3588, 21761, 1119, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ " cat", " is", " a", " picture", " of", " a", " A", " that", " sea", " cats", " and", " experience", " an", " red", " on", " change" ],
+    "original_sentence" : "This is a picture <mask> a <mask> that eats bugs and has its eye color <mask>"
+  } ],
+  "date" : "2025-09-16T18:45:24.053960900"
+}

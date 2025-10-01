@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "You should be able to get out of bed to get out of the room",
+    "perplexity" : 11.544129371643066,
+    "weight" : 0.20122264343607127
+  },
+  "logs" : [ {
+    "sentence" : "You should be able to get out of bed or get out of the room",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 2316, 15 ],
+    "perplexity" : 11.422832489013672,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able [MASK] get out [MASK] bed [MASK] [MASK] out of the room"
+  }, {
+    "sentence" : "You should be able to get out of bed or even out of the car",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 755, 562, 273, 3722, 390, 1014, 562, 273, 253, 1113, 15 ],
+    "perplexity" : 13.255270004272461,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able to get out of bed or [MASK] out of [MASK] [MASK]"
+  }, {
+    "sentence" : "You should be able to get [MASK] of bed or [MASK] out of [MASK] [MASK] ERROR",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 755, 544, 18690, 62, 273, 3722, 390, 544, 18690, 62, 562, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able to get [MASK] of bed or [MASK] out of [MASK] [MASK]"
+  }, {
+    "sentence" : "You [MASK] be able to get out [MASK] bed [MASK] get out of the room ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 320, 2104, 281, 755, 562, 544, 18690, 62, 3722, 544, 18690, 62, 755, 562, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] be able to get out [MASK] bed [MASK] get out of the room"
+  }, {
+    "sentence" : "You should be ready to get out of bed or get out of the car",
+    "tokens" : [ 1394, 943, 320, 4704, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 1113, 15 ],
+    "perplexity" : 12.360018730163574,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be [MASK] to get out of bed or get out of [MASK] [MASK]"
+  }, {
+    "sentence" : "You [MASK] be able to get [MASK] of bed or [MASK] out of the [MASK] ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 320, 2104, 281, 755, 544, 18690, 62, 273, 3722, 390, 544, 18690, 62, 562, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] be able to get [MASK] of bed or [MASK] out of the [MASK]"
+  }, {
+    "sentence" : "[MASK] should be able to [MASK] [MASK] of bed or [MASK] out of the room ERROR",
+    "tokens" : [ 60, 18690, 62, 943, 320, 2104, 281, 544, 18690, 62, 544, 18690, 62, 273, 3722, 390, 544, 18690, 62, 562, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] should be able to [MASK] [MASK] of bed or [MASK] out of the room"
+  }, {
+    "sentence" : "I should be needed to get out of bed to get out of the room",
+    "tokens" : [ 42, 943, 320, 3058, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2316, 15 ],
+    "perplexity" : 25.878314971923828,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] be [MASK] [MASK] get out of bed to get out of the room"
+  }, {
+    "sentence" : "You must be able to get out of doors to get out of the room",
+    "tokens" : [ 1394, 1364, 320, 2104, 281, 755, 562, 273, 11008, 281, 755, 562, 273, 253, 2316, 15 ],
+    "perplexity" : 19.737136840820312,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] be able to get out of [MASK] to get [MASK] of the room"
+  }, {
+    "sentence" : "[MASK] [MASK] be able to get out of bed [MASK] get out of the room ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 320, 2104, 281, 755, 562, 273, 3722, 544, 18690, 62, 755, 562, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] be able to get out of bed [MASK] get out of the room"
+  }, {
+    "sentence" : "You should be able to [MASK] out of [MASK] or [MASK] out of [MASK] room ERROR",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 544, 18690, 62, 562, 273, 544, 18690, 62, 390, 544, 18690, 62, 562, 273, 544, 18690, 62, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able to [MASK] out of [MASK] or [MASK] out of [MASK] room"
+  }, {
+    "sentence" : "You [MASK] be ready [MASK] get out [MASK] bed or [MASK] out of the car ERROR",
+    "tokens" : [ 1394, 544, 18690, 62, 320, 4704, 544, 18690, 62, 755, 562, 544, 18690, 62, 3722, 390, 544, 18690, 62, 562, 273, 253, 1113, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] be ready [MASK] get out [MASK] bed or [MASK] out of the car"
+  }, {
+    "sentence" : "You should be able to get [MASK] of [MASK] or [MASK] out of the [MASK] ERROR",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 755, 544, 18690, 62, 273, 544, 18690, 62, 390, 544, 18690, 62, 562, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able to get [MASK] of [MASK] or [MASK] out of the [MASK]"
+  }, {
+    "sentence" : "You should be able to get out of bed or get out of the room",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 2316, 15 ],
+    "perplexity" : 11.422832489013672,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able [MASK] get out of [MASK] or get out [MASK] the room"
+  }, {
+    "sentence" : "You should be able to [MASK] out [MASK] bed or [MASK] [MASK] of the room ERROR",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 544, 18690, 62, 562, 544, 18690, 62, 3722, 390, 544, 18690, 62, 544, 18690, 62, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able to [MASK] out [MASK] bed or [MASK] [MASK] of the room"
+  }, {
+    "sentence" : "You should be able [MASK] get out [MASK] bed to [MASK] out of the room ERROR",
+    "tokens" : [ 1394, 943, 320, 2104, 544, 18690, 62, 755, 562, 544, 18690, 62, 3722, 281, 544, 18690, 62, 562, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able [MASK] get out [MASK] bed to [MASK] out of the room"
+  }, {
+    "sentence" : "You would not ready to get out of bed or get out of the car",
+    "tokens" : [ 1394, 651, 417, 4704, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 1113, 15 ],
+    "perplexity" : 24.016407012939453,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You [MASK] [MASK] ready to get out of [MASK] or get out of the car"
+  }, {
+    "sentence" : "You should be [MASK] to [MASK] out of bed to [MASK] out of the room ERROR",
+    "tokens" : [ 1394, 943, 320, 544, 18690, 62, 281, 544, 18690, 62, 562, 273, 3722, 281, 544, 18690, 62, 562, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be [MASK] to [MASK] out of bed to [MASK] out of the room"
+  }, {
+    "sentence" : "You should be able to get out of bed or get out of the room",
+    "tokens" : [ 1394, 943, 320, 2104, 281, 755, 562, 273, 3722, 390, 755, 562, 273, 253, 2316, 15 ],
+    "perplexity" : 11.422832489013672,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be able to get out of bed or get out [MASK] [MASK] [MASK]"
+  }, {
+    "sentence" : "You should be [MASK] to [MASK] out of bed to [MASK] out of the room ERROR",
+    "tokens" : [ 1394, 943, 320, 544, 18690, 62, 281, 544, 18690, 62, 562, 273, 3722, 281, 544, 18690, 62, 562, 273, 253, 2316, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "You should be [MASK] to [MASK] out of bed to [MASK] out of the room"
+  } ],
+  "date" : "2025-09-30T18:20:55.588578400",
+  "time" : 51.96
+}
