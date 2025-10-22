@@ -64,7 +64,7 @@ def can_greedy_split(sentence: str, char_cost: dict) -> bool:
     """
     space_min = 410
     space_max = 640
-    target = 15986
+    target = 15896
     words = sentence.split()
     line_count = 0
     char_sum = 0  # sum of non-space char costs

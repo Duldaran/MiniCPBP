@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "Like she was trying to get out of bed to get out of my room",
+    "perplexity" : 14.797077178955078,
+    "weight" : 0.007377126031007657
+  },
+  "logs" : [ {
+    "sentence" : "Like she was going to get out of bed to get out of the room",
+    "tokens" : [ 9817, 703, 369, 1469, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 2316, 15 ],
+    "perplexity" : 15.500258445739746,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Like she was [MASK] to get out of bed to [MASK] out of [MASK] room"
+  }, {
+    "sentence" : "Like she was trying to get into of bed to get out of my way",
+    "tokens" : [ 9817, 703, 369, 2820, 281, 755, 715, 273, 3722, 281, 755, 562, 273, 619, 1039, 15 ],
+    "perplexity" : 41.079681396484375,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Like she was trying to get [MASK] [MASK] bed to get [MASK] of my [MASK]"
+  }, {
+    "sentence" : "Like they was trying to get out of bed to get out of my bed",
+    "tokens" : [ 9817, 597, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 619, 3722, 15 ],
+    "perplexity" : 30.988832473754883,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Like [MASK] was trying to [MASK] out of bed to get out of my [MASK]"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to get out of the bed",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 3722, 15 ],
+    "perplexity" : 12.307347297668457,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] she [MASK] [MASK] to get out of bed to get out of the [MASK]"
+  }, {
+    "sentence" : "[MASK] [MASK] was trying to [MASK] out [MASK] bed to get out of the bed ERROR",
+    "tokens" : [ 60, 18690, 62, 544, 18690, 62, 369, 2820, 281, 544, 18690, 62, 562, 544, 18690, 62, 3722, 281, 755, 562, 273, 253, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] [MASK] was trying to [MASK] out [MASK] bed to get out of the bed"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to get out of the bed",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 3722, 15 ],
+    "perplexity" : 12.307347297668457,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was trying [MASK] get out of bed to [MASK] out [MASK] the bed"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to [MASK] [MASK] of [MASK] bed ERROR",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 544, 18690, 62, 544, 18690, 62, 273, 544, 18690, 62, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was trying to get out of bed to [MASK] [MASK] of [MASK] bed"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to get out of the bed",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 3722, 15 ],
+    "perplexity" : 12.307347297668457,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she [MASK] trying to get [MASK] of [MASK] to get out of the bed"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to get out of the way",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 1039, 15 ],
+    "perplexity" : 11.991068840026855,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was [MASK] to get [MASK] of bed to get out of the [MASK]"
+  }, {
+    "sentence" : "Then [MASK] was trying to get out [MASK] bed [MASK] get out of the bed ERROR",
+    "tokens" : [ 5872, 544, 18690, 62, 369, 2820, 281, 755, 562, 544, 18690, 62, 3722, 544, 18690, 62, 755, 562, 273, 253, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then [MASK] was trying to get out [MASK] bed [MASK] get out of the bed"
+  }, {
+    "sentence" : "Then she [MASK] trying to get out of bed to [MASK] out of [MASK] bed ERROR",
+    "tokens" : [ 5872, 703, 544, 18690, 62, 2820, 281, 755, 562, 273, 3722, 281, 544, 18690, 62, 562, 273, 544, 18690, 62, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she [MASK] trying to get out of bed to [MASK] out of [MASK] bed"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to get out of the way",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 562, 273, 253, 1039, 15 ],
+    "perplexity" : 11.991068840026855,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] she was trying to get out of bed [MASK] get [MASK] of the [MASK]"
+  }, {
+    "sentence" : "Then she was trying to get [MASK] [MASK] [MASK] to get out of the [MASK] ERROR",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 281, 755, 562, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was trying to get [MASK] [MASK] [MASK] to get out of the [MASK]"
+  }, {
+    "sentence" : "Then she was trying to get out of [MASK] [MASK] get out [MASK] the way ERROR",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 544, 18690, 62, 544, 18690, 62, 755, 562, 544, 18690, 62, 253, 1039, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was trying to get out of [MASK] [MASK] get out [MASK] the way"
+  }, {
+    "sentence" : "Then she [MASK] trying to get [MASK] of bed to get out [MASK] [MASK] way ERROR",
+    "tokens" : [ 5872, 703, 544, 18690, 62, 2820, 281, 755, 544, 18690, 62, 273, 3722, 281, 755, 562, 544, 18690, 62, 544, 18690, 62, 1039, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she [MASK] trying to get [MASK] of bed to get out [MASK] [MASK] way"
+  }, {
+    "sentence" : "Then she [MASK] trying to get [MASK] of bed to [MASK] out of the bed ERROR",
+    "tokens" : [ 5872, 703, 544, 18690, 62, 2820, 281, 755, 544, 18690, 62, 273, 3722, 281, 544, 18690, 62, 562, 273, 253, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she [MASK] trying to get [MASK] of bed to [MASK] out of the bed"
+  }, {
+    "sentence" : "Then she was [MASK] to get out of bed to [MASK] out of the [MASK] ERROR",
+    "tokens" : [ 5872, 703, 369, 544, 18690, 62, 281, 755, 562, 273, 3722, 281, 544, 18690, 62, 562, 273, 253, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was [MASK] to get out of bed to [MASK] out of the [MASK]"
+  }, {
+    "sentence" : "Then she was trying to get out of [MASK] to [MASK] out of [MASK] bed ERROR",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 544, 18690, 62, 281, 544, 18690, 62, 562, 273, 544, 18690, 62, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was trying to get out of [MASK] to [MASK] out of [MASK] bed"
+  }, {
+    "sentence" : "Then she was trying to get out of bed to get [MASK] of [MASK] [MASK] ERROR",
+    "tokens" : [ 5872, 703, 369, 2820, 281, 755, 562, 273, 3722, 281, 755, 544, 18690, 62, 273, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "Then she was trying to get out of bed to get [MASK] of [MASK] [MASK]"
+  }, {
+    "sentence" : "[MASK] she was [MASK] [MASK] get out of [MASK] to get out of the bed ERROR",
+    "tokens" : [ 60, 18690, 62, 703, 369, 544, 18690, 62, 544, 18690, 62, 755, 562, 273, 544, 18690, 62, 281, 755, 562, 273, 253, 3722, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] she was [MASK] [MASK] get out of [MASK] to get out of the bed"
+  } ],
+  "date" : "2025-10-01T09:56:52.898282500",
+  "time" : 32.734
+}

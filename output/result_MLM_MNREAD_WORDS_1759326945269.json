@@ -1,0 +1,136 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 20,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "We need to be able to tell her what was going on in my life",
+    "perplexity" : 12.746663093566895,
+    "weight" : 0.18376165564732622
+  },
+  "logs" : [ {
+    "sentence" : "We need to be able to tell her [MASK] is going on in my life ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 617, 544, 18690, 62, 310, 1469, 327, 275, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be able to [MASK] her [MASK] [MASK] going [MASK] in my life"
+  }, {
+    "sentence" : "We need to be able to tell [MASK] [MASK] [MASK] going on [MASK] my life ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 281, 2028, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 1469, 327, 544, 18690, 62, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be able to tell [MASK] [MASK] [MASK] going on [MASK] my life"
+  }, {
+    "sentence" : "We need to be told to tell her what was going on in my mind",
+    "tokens" : [ 1231, 878, 281, 320, 2183, 281, 2028, 617, 752, 369, 1469, 327, 275, 619, 2564, 15 ],
+    "perplexity" : 26.63600730895996,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be [MASK] to [MASK] her what was going on in my [MASK]"
+  }, {
+    "sentence" : "I need to be able to tell her what was going on in my brain",
+    "tokens" : [ 42, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 619, 3998, 15 ],
+    "perplexity" : 12.108338356018066,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to be able [MASK] tell her what was going on in my [MASK]"
+  }, {
+    "sentence" : "I need to be able to tell her what was going on in my brain",
+    "tokens" : [ 42, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 619, 3998, 15 ],
+    "perplexity" : 12.108338356018066,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I need to be able to [MASK] her what was [MASK] on in [MASK] brain"
+  }, {
+    "sentence" : "We need to be able [MASK] tell her what was going [MASK] in my [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 2104, 544, 18690, 62, 2028, 617, 752, 369, 1469, 544, 18690, 62, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be able [MASK] tell her what was going [MASK] in my [MASK]"
+  }, {
+    "sentence" : "I [MASK] [MASK] be able to tell her what was [MASK] on in my [MASK] ERROR",
+    "tokens" : [ 42, 544, 18690, 62, 544, 18690, 62, 320, 2104, 281, 2028, 617, 752, 369, 544, 18690, 62, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I [MASK] [MASK] be able to tell her what was [MASK] on in my [MASK]"
+  }, {
+    "sentence" : "I need to be [MASK] [MASK] [MASK] her what was going [MASK] in my brain ERROR",
+    "tokens" : [ 42, 878, 281, 320, 544, 18690, 62, 544, 18690, 62, 544, 18690, 62, 617, 752, 369, 1469, 544, 18690, 62, 275, 619, 3998, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I need to be [MASK] [MASK] [MASK] her what was going [MASK] in my brain"
+  }, {
+    "sentence" : "I need [MASK] be [MASK] to tell her [MASK] was going on in [MASK] brain ERROR",
+    "tokens" : [ 42, 878, 544, 18690, 62, 320, 544, 18690, 62, 281, 2028, 617, 544, 18690, 62, 369, 1469, 327, 275, 544, 18690, 62, 3998, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I need [MASK] be [MASK] to tell her [MASK] was going on in [MASK] brain"
+  }, {
+    "sentence" : "I need to be able to tell her what is going mad in my brain",
+    "tokens" : [ 42, 878, 281, 320, 2104, 281, 2028, 617, 752, 310, 1469, 10279, 275, 619, 3998, 15 ],
+    "perplexity" : 30.227157592773438,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I need to be able to tell her what [MASK] going [MASK] [MASK] my brain"
+  }, {
+    "sentence" : "[MASK] need to be able to tell her what was [MASK] on in my [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 320, 2104, 281, 2028, 617, 752, 369, 544, 18690, 62, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to be able to tell her what was [MASK] on in my [MASK]"
+  }, {
+    "sentence" : "I [MASK] to be able to tell her [MASK] was going on in my [MASK] ERROR",
+    "tokens" : [ 42, 544, 18690, 62, 281, 320, 2104, 281, 2028, 617, 544, 18690, 62, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I [MASK] to be able to tell her [MASK] was going on in my [MASK]"
+  }, {
+    "sentence" : "We [MASK] to be able to tell her what was [MASK] on [MASK] my life ERROR",
+    "tokens" : [ 1231, 544, 18690, 62, 281, 320, 2104, 281, 2028, 617, 752, 369, 544, 18690, 62, 327, 544, 18690, 62, 619, 1495, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We [MASK] to be able to tell her what was [MASK] on [MASK] my life"
+  }, {
+    "sentence" : "I need [MASK] be able to tell her [MASK] was [MASK] on in my brain ERROR",
+    "tokens" : [ 42, 878, 544, 18690, 62, 320, 2104, 281, 2028, 617, 544, 18690, 62, 369, 544, 18690, 62, 327, 275, 619, 3998, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I need [MASK] be able to tell her [MASK] was [MASK] on in my brain"
+  }, {
+    "sentence" : "[MASK] need to be able to tell her what [MASK] going on in my [MASK] ERROR",
+    "tokens" : [ 60, 18690, 62, 878, 281, 320, 2104, 281, 2028, 617, 752, 544, 18690, 62, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to be able to tell her what [MASK] going on in my [MASK]"
+  }, {
+    "sentence" : "We need to be [MASK] to tell [MASK] what was going on in my [MASK] ERROR",
+    "tokens" : [ 1231, 878, 281, 320, 544, 18690, 62, 281, 2028, 544, 18690, 62, 752, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "We need to be [MASK] to tell [MASK] what was going on in my [MASK]"
+  }, {
+    "sentence" : "I need [MASK] [MASK] able to tell her what was going on in [MASK] [MASK] ERROR",
+    "tokens" : [ 42, 878, 544, 18690, 62, 544, 18690, 62, 2104, 281, 2028, 617, 752, 369, 1469, 327, 275, 544, 18690, 62, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I need [MASK] [MASK] able to tell her what was going on in [MASK] [MASK]"
+  }, {
+    "sentence" : "I need to be able and tell you what was going on in my life",
+    "tokens" : [ 42, 878, 281, 320, 2104, 285, 2028, 368, 752, 369, 1469, 327, 275, 619, 1495, 15 ],
+    "perplexity" : 20.510921478271484,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "[MASK] need to be able [MASK] tell [MASK] what was going on [MASK] my life"
+  }, {
+    "sentence" : "I [MASK] to be [MASK] [MASK] tell her what was going on in my [MASK] ERROR",
+    "tokens" : [ 42, 544, 18690, 62, 281, 320, 544, 18690, 62, 544, 18690, 62, 2028, 617, 752, 369, 1469, 327, 275, 619, 544, 18690, 62, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I [MASK] to be [MASK] [MASK] tell her what was going on in my [MASK]"
+  }, {
+    "sentence" : "I [MASK] to be [MASK] [MASK] tell her what was going on in [MASK] brain ERROR",
+    "tokens" : [ 42, 544, 18690, 62, 281, 320, 544, 18690, 62, 544, 18690, 62, 2028, 617, 752, 369, 1469, 327, 275, 544, 18690, 62, 3998, 33246 ],
+    "perplexity" : 1.0,
+    "tokens_used" : [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+    "original_sentence" : "I [MASK] to be [MASK] [MASK] tell her what was going on in [MASK] brain"
+  } ],
+  "date" : "2025-10-01T09:55:45.268690",
+  "time" : 34.859
+}

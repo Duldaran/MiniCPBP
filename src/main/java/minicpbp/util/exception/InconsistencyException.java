@@ -29,6 +29,6 @@ public class InconsistencyException extends RuntimeException {
 
     @Override
     public synchronized Throwable fillInStackTrace() {
-        return this;
+        return super.fillInStackTrace();
     }
 }

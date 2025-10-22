@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.io.ObjectInputFilter.Config;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -59,6 +60,7 @@ import java.util.stream.Collectors;
 
 import static minicpbp.cp.BranchingScheme.*;
 import static minicpbp.cp.Factory.*;
+import minicpbp.examples.config.*;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -66,15 +68,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.ibm.icu.impl.Pair;
 
-public class MNREAD_words {
+public class NLP_v4_2 {
     public static void main(String[] args) throws Exception {
-        try {
-            System.out.println("14 août");
-            int port = args.length > 1 ? Integer.parseInt(args[1]) : 5000;
-            final double weight = args.length > 0 ? Double.parseDouble(args[0]) : 1.2;
-            final int NUM_ITERATIONS = args.length > 2 ? Integer.parseInt(args[3]) : 40;
+        
+            int port = Integer.parseInt(args[1]);
+            final int NUM_ITERATIONS = Integer.parseInt(args[3]);
+            final double weight = Double.parseDouble(args[0]);
+            final String llm_name = args.length > 4 ? args[4] : "zephyr";
+            final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
 
-        final String llm_name="zephyr";//
+
+        try {
+
+        ConstraintBuilder cb;
+        switch (configArg) {
+            case "CollieSent1Config":
+                cb = new CollieSent1Config();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown config: " + configArg);
+        }
+
+        long startTime = System.currentTimeMillis();
 
         List<Logging>  logs = new ArrayList<>();
 
@@ -97,21 +112,29 @@ public class MNREAD_words {
                  corrected_lines[Integer.parseInt(line[0])]=line[1];
              }
          }
+ 
         final List<String> tokens_list = Arrays.asList(corrected_lines);
         ArrayList<String> words = new ArrayList<>();
         Map<Integer, List<Integer>> corpusDomainsSet = new HashMap<>();
+        Map<Integer, Integer> corpusDomainToIndex = new HashMap<>();
         ObjectMapper objectMapper = new ObjectMapper();
+        int k = 0;
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             final List<List<Integer>> parsedCorpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
             for (int i = 0; i < parsedCorpusDomains.size(); i++) {
                 List<Integer> sublist = parsedCorpusDomains.get(i);
-                words.add(sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining("")));
+                String word_string = sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining(""));
+                if (words.contains(word_string)) {
+                    continue;
+                }
+                words.add(word_string);
                 if (!corpusDomainsSet.containsKey(sublist.get(0)))
-                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(Collections.singletonList(i)));
+                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(List.of(k)));
                 else
-                    corpusDomainsSet.get(sublist.get(0)).add(i);
-
+                    corpusDomainsSet.get(sublist.get(0)).add(k);
+                corpusDomainToIndex.put(k, sublist.get(0));
+                k++;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -123,11 +146,14 @@ public class MNREAD_words {
         words.add("<END>");
         corpusDomainsSet.put(sentence_end, new ArrayList<>(Collections.singletonList(words.size()-2)));
         corpusDomainsSet.put(tokens_list.size()-1, new ArrayList<>(Collections.singletonList(words.size()-1)));
+        corpusDomainToIndex.put(words.size()-2, sentence_end);
+        corpusDomainToIndex.put(words.size()-1, tokens_list.size()-1);
 
         List<Integer> corpusDomains = new ArrayList<>();
         for (int idx = 0; idx < words.size(); idx++) {
             corpusDomains.add(idx);
         }
+
 
         System.out.println("corpusDomains size: " + corpusDomains.size());
         final int final_sentence_end = corpusDomains.get(corpusDomains.size()-2);
@@ -141,7 +167,7 @@ public class MNREAD_words {
                 start_words[i]=1;
             }
         }
-
+        
         String charToIntFilePath = "./src/main/java/minicpbp/examples/data/MNREAD/TimesCost_modified.json";
         Map<String, Integer> charToIntMap = new HashMap<>();
         try {
@@ -151,18 +177,17 @@ public class MNREAD_words {
             e.printStackTrace();
         }
 
-        int[] lengthTokens = new int[corpusDomains.size()];
-        int[] charNum = new int[corpusDomains.size()];
+        List<Integer> listCharNum = new ArrayList<>();
+        List<Integer> listLengthTokens = new ArrayList<>();
         for (int i = 0; i < corpusDomains.size(); i++) {
             int domainIndex = corpusDomains.get(i);
             String word = words.get(domainIndex);
             int charSum = 0;
-            if(i==corpusDomains.size()-1){
-                charNum[i]=0;
-                lengthTokens[i]=0;
+            if(i==pad_token){
+                listCharNum.add(0);
                 continue;
             }
-            charNum[i]=word.length();
+            listCharNum.add(word.length());
             for (char c : word.toCharArray()) {
                 if(word.length()==0){
                     break;
@@ -176,26 +201,29 @@ public class MNREAD_words {
                     throw new Exception("Character not found");
                 }
             }
-            lengthTokens[i]=charSum;
+            listLengthTokens.add(charSum);
         }
 
-
-        final int LINE_SIZE = 15896;
-        final int SPACE_SIZE =512;
-        final int MIN_SPACE_SIZE =410;
-        final int MAX_SPACE_SIZE =640;
+ 
         final int MAX_NUMBER_SPACE = 5;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
-        final int NUMBER_CHAR = 60;//Verify if you need to count the spaces at the beginning of lines
+
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
+        final int SENTENCE_MAX_NUMBER_TOKENS = MAX_NUMBER_WORD +1;
         final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
-        for (int k = 0; k < NUM_ITERATIONS; k += 1) {
         
+        double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
+        System.out.println("Initialization time (s): " + initTime);
+
+        String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
+        for (int z = 0; z < NUM_ITERATIONS; z += 1) {
+        
+        tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
         String[] commonWords = {
         "I",
         "You",
@@ -226,100 +254,109 @@ public class MNREAD_words {
             words.add(selectedWord);
             corpusDomains.add(words.size()-1);
             index_word = words.size()-1;
+            listCharNum.add(selectedWord.length());
         }
-
-        Solver cp = makeSolver();
-        IntVar[] sizes = makeIntVarArray(cp, MAX_NUMBER_WORD+1, Arrays.stream(lengthTokens).min().getAsInt(), Arrays.stream(lengthTokens).max().getAsInt());
-        IntVar[] word_index = makeIntVarArray(cp, sizes.length, 0, corpusDomains.size()-1);
-        IntVar[] has_space = makeIntVarArray(cp, sizes.length, 0, 1);
-        IntVar[] num_char = makeIntVarArray(cp, sizes.length, Arrays.stream(charNum).min().getAsInt(), Arrays.stream(charNum).max().getAsInt());
         
-        for (int i=0; i<sizes.length; i++){
-            sizes[i].setName("size["+i+"]");
-            word_index[i].setName("word_index["+i+"]");
-            cp.post(element(lengthTokens, word_index[i], sizes[i]));
-            cp.post(element(start_words, word_index[i], has_space[i]));
-            cp.post(element(charNum, word_index[i], num_char[i]));
-        }
 
-        IntVar nb_words = makeIntVar(cp,MIN_NUMBER_WORD,MAX_NUMBER_WORD);
-        //IntVar nb_char = makeIntVar(cp, (int)Math.round(NUMBER_CHAR - 0.05 * NUMBER_CHAR), (int)Math.round(NUMBER_CHAR + 0.05 * NUMBER_CHAR));
-        
-        cp.post(sum(has_space, nb_words));
-        cp.post(sum(num_char, NUMBER_CHAR));
-        //cp.post(sum(num_char, nb_char));
-
-        int nbLines = 3;
-        IntVar[] line = makeIntVarArray(cp, sizes.length, nbLines);
-        for (int i=0; i<line.length; i++)
-            line[i].setName("line["+i+"]");
-
-        IntVar[] lineSize = makeIntVarArray(cp, nbLines, LINE_SIZE+SPACE_SIZE-MAX_NUMBER_SPACE*(MAX_SPACE_SIZE-SPACE_SIZE), LINE_SIZE+SPACE_SIZE+MAX_NUMBER_SPACE*(SPACE_SIZE-MIN_SPACE_SIZE));
-        /*IntVar[] lineSize = makeIntVarArray(
-            cp, 
-            nbLines,  
-            (int)Math.round(LINE_SIZE + SPACE_SIZE - MAX_NUMBER_SPACE * (MAX_SPACE_SIZE - SPACE_SIZE) - 0.2 * LINE_SIZE),
-            (int)Math.round(LINE_SIZE + SPACE_SIZE + MAX_NUMBER_SPACE * (SPACE_SIZE - MIN_SPACE_SIZE) + 0.2 * LINE_SIZE)
-        );*/
-
-        for (int i=0; i<lineSize.length; i++)
-            lineSize[i].setName("lineSize["+i+"]");
-
-        line[0].assign(0);
-        line[line.length-1].assign(nbLines-1);
-        for (int i=0; i<line.length-1; i++) {
-            cp.post(lessOrEqual(line[i], line[i + 1]));
-            cp.post(lessOrEqual(line[i + 1],plus(line[i],1)));
-            cp.post(notEqual(word_index[i], word_index[i + 1]));
-            BoolVar[] changeLine = new BoolVar[2];
-            changeLine[0]= Factory.isEqual(line[i], line[i + 1]);
-            changeLine[1]= Factory.isEqual(has_space[i+1], 1);
-            cp.post(Factory.or(changeLine));
-        }
-        cp.post(binPacking(line,sizes,lineSize));
-
-        List<Integer> acceptedState = new ArrayList<>();
-        int[][] A = new int[2][corpusDomains.size()];
-        acceptedState.add(1);
-        Arrays.fill(A[0], 0);
-        A[0][final_sentence_end]=1;
-        A[0][pad_token]=-1;
-        Arrays.fill(A[1], -1);
-        A[1][pad_token]=1;
-        cp.post(Factory.regular(word_index, A, 0, acceptedState));
-
-
-        //Words regular
-        //cp.post(Factory.regular(word_index, table, 0,List.of(1) ));
 
         HttpClient client = HttpClient.newHttpClient();
 
 
+
+        String instruction = cb.getInstruction();
         String current_sentence = selectedWord;
         Double logSumProbs = 0.0;
-        int num_tok = 1;
-        for (int i=1; i < sizes.length; i++) {
+        int num_tok=1;
+        while(num_tok<SENTENCE_MAX_NUMBER_TOKENS){
+            int i = num_tok;
+            System.out.println(num_tok);
+            System.out.println(current_sentence);
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:" + port + "/token"))
-                .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+                .POST(HttpRequest.BodyPublishers.ofString(instruction + current_sentence))
                 .build();
             String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
 
             int[] tokens = new int[corpusDomains.size()];
             double[] scores = new double[corpusDomains.size()];
 
+            System.out.println("Response: " + request.headers());
+
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonNode = mapper.readTree(response);
+            ArrayNode tupleList = (ArrayNode) jsonNode.get("prob");
+
+            current_sentence = jsonNode.has("sentence") ? jsonNode.get("sentence").asText().replace(instruction, "") : "";
+            System.out.println(current_sentence);
+            String[] splitWords = current_sentence.strip().split("\\s+");
+
+            for (String word : splitWords) {
+                word = " " + word;
+                if (!words.contains(word)) {
+                    words.add(word);
+                    corpusDomains.add(words.size() - 1);
+                    listCharNum.add(word.length());
+                    int charSum = 0;
+                    for (char c : word.toCharArray()) {
+                        if(word.length()==0){
+                            break;
+                        }
+                        String charStr = String.valueOf(c);
+                        charSum += charToIntMap.getOrDefault(charStr, 1000000);
+                        if (charToIntMap.getOrDefault(charStr, 1000000) == 1000000) {
+                            System.err.println("Character not found in mapping: " + charStr);
+                            System.err.println("Word: " + word);
+                            //throw new Exception("Character not found");
+                        }
+                    }
+                    listLengthTokens.add(charSum);
+                }
+            }
+
+            int[] charNum = listCharNum.stream().mapToInt(Integer::intValue).toArray();
+            int[] lengthTokens = listLengthTokens.stream().mapToInt(Integer::intValue).toArray();
+
+
+            Solver cp = makeSolver();
+            IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+
+            
+            cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index));
+
+            System.out.println("Words in the sentence: " + Arrays.toString(splitWords));
+
+            // Assign each word in splitWords to word_index
+            for (int idx = 0; idx < splitWords.length; idx++) {
+                String word = " " + splitWords[idx];
+                int corpusIdx = words.indexOf(word);
+                if (corpusIdx == -1) {
+                    System.out.println("Word not in corpus: " + word);
+                    current_sentence += " ERROR";
+                    break;
+                }
+                int domainIdx = corpusDomains.indexOf(corpusIdx);
+                try {
+                    word_index[idx].assign(domainIdx);
+                } catch (Exception e) {
+                    current_sentence += " ERROR";
+                    System.out.println("Inconsistency detected when assigning word: " + word);
+                    System.out.println(Arrays.toString(splitWords));
+                    break;
+                }
+            }
+
+
             int max_token = -1;
             double max_score = 0;
             double total_score = 0;
 
+
+
             List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
-            for (String tuple : response.split("\\],\\[")) {
+            for (JsonNode tuple : tupleList) {
                 try {
-                    String[] token_score = tuple.split(",");
-                    token_score[1]=token_score[1].replaceAll("\\]","");
-                    token_score[0]=token_score[0].replaceAll("\\[","");
-                    int token = Integer.parseInt(token_score[0]);
-                    double score = Double.parseDouble(token_score[1]);
+                    int token = ( tuple.get(0)).asInt();
+                    double score = ( tuple.get(1)).asDouble();
                     if (!corpusDomainsSet.containsKey(token)) continue;
                     if (score < 0) continue;
                     tokenScoreList.add(Pair.of(token, score));
@@ -334,6 +371,11 @@ public class MNREAD_words {
             tokenScoreList.sort((a, b) -> Double.compare(
                 b.second, a.second
             ));
+            for (int t = 0; t < Math.min(5, tokenScoreList.size()); t++) {
+                Pair<Integer, Double> pair = tokenScoreList.get(t);
+                System.out.println("Top " + (t + 1) + ": token=" + tokens_list.get(pair.first) + ", score=" + pair.second);
+            }
+
             int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
             for (int l = 0; l < limit; l++) {
                 int token = tokenScoreList.get(l).first;
@@ -359,18 +401,20 @@ public class MNREAD_words {
                 else if (score == 0) {
                     if (PRINT_TRACE) {
                         System.out.println("Score is zero: " + score);
-                        System.out.println("Token: " + corpusDomains.get(tokens[j]));
+                        System.out.println("Word: " + words.get(j));
+                        System.out.println("Token: " + j);
                     }
                 }
                 else {
                     if (PRINT_TRACE) {
                         System.out.println("Score is negative: " + score);
-                        System.out.println("Token: " + corpusDomains.get(tokens[j]));
+                        System.out.println("Word: " + words.get(j));
+                        System.out.println("Token: " + j);
                     }
                     throw new RuntimeException("Score is negative or zero");
                 }
             }
-            if(PRINT_TRACE)max_score /= total_score;
+            max_score /= total_score;
 
             if(PRINT_TRACE) System.out.println("token "+i);
 
@@ -441,42 +485,124 @@ public class MNREAD_words {
                     System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
                 }
             }
-
-            int chosen = word_index[i].biasedWheelValue();
-            word_index[i].assign(chosen);
-            num_tok++;
-            if (0<=chosen && chosen<scores.length) {
-                logSumProbs += Math.log(scores[chosen]);
-            } else {
-                if (PRINT_TRACE) {
-                    System.out.println("index chosen: " + chosen);
-                    System.out.println(scores.length);
-                    System.out.println("Chose a value not in the nlp model");
+            int chosen;
+            try {
+                if (word_index[i].maxMarginal() == 0.0) {
+                            System.out.println("No valid tokens found");
+                            current_sentence += " ERROR";
+                            break;
                 }
-                logSumProbs = -Double.MAX_VALUE;
-            } 
-            if(chosen == sentence_end){
-                    System.out.println("sentence end reached");
-                    StateManager sm = cp.getStateManager();
-                    try {
-                        sm.saveState();
-                        word_index[i+1].assign(pad_token);
-                        cp.fixPoint();
-                        break;
-                    } catch (InconsistencyException e) {
-                        sm.restoreState();
-                        System.out.println("Inconsistency detected, state restored");
+                
+                Map<Integer, List<Double>> marginalsMap = new HashMap<>();
+                int TOP_K = Math.min(ORACLE_TOP_K, word_index[i].size());
+                for (int j = 0; j < TOP_K; j++) {
+                    int token = corpusDomainToIndex.get(word_index[i].valueWithMaxMarginal());
+                    if (marginalsMap.containsKey(token)) {
+                        marginalsMap.get(token).add(word_index[i].maxMarginal());
+                    } else {
+                        marginalsMap.put(token, new ArrayList<>(Collections.singletonList(word_index[i].maxMarginal())));
+                    }
+                    word_index[i].remove(word_index[i].valueWithMaxMarginal());
+                }
+
+                Map<Integer, Double> avgMarginals = new HashMap<>();
+                double totalAvg = 0.0;
+                for (Entry<Integer, List<Double>> e : marginalsMap.entrySet()) {
+                    List<Double> vals = e.getValue();
+                    double sum = 0.0;
+                    for (double v : vals) sum += v;
+                    double avg = vals.isEmpty() ? 0.0 : sum / vals.size();
+                    avgMarginals.put(e.getKey(), avg);
+                    totalAvg += avg;
+                    if(vals.size()>1 ){
+                        System.out.println("Token "+e.getKey()+", '"+tokens_list.get(e.getKey())+"', avg marginal over "+vals.size()+" corpus domains: "+avg+", vals: "+vals.toString());
                     }
                 }
-            current_sentence += words.get(corpusDomains.get(chosen));
+
+                if (totalAvg == 0.0) {
+                    throw new Exception("No signal from marginals");
+                } else {
+                    // sample a token according to averaged marginals
+                    double r = Math.random() * totalAvg;
+                    double cum = 0.0;
+                    int sampledToken = -1;
+                    for (Entry<Integer, Double> e : avgMarginals.entrySet()) {
+                        cum += e.getValue();
+                        if (r <= cum) {
+                            sampledToken = e.getKey();
+                            break;
+                        }
+                    }
+                    if (sampledToken == -1) {
+                        // numerical fallback: pick last token key
+                        sampledToken = avgMarginals.keySet().iterator().next();
+                    }
+
+                    System.out.println("sampled token: "+sampledToken + ", token: '"+tokens_list.get(sampledToken)+"', marginal: "+avgMarginals.get(sampledToken));
+                    chosen = corpusDomainsSet.get(sampledToken).get(0);
+                }
+                
+            } catch (Exception e) {
+                System.out.println("Inconsistency detected");
+                current_sentence += " ERROR";
+                break;
+            }
+            //word_index[i].assign(chosen);
+            try
+            {
+                System.out.println(tokens_list.get(corpusDomainToIndex.get(chosen)));
+            }
+            catch (Exception e) {
+                System.out.println("not in original corpus");
+            }
             
+        
+            if(chosen == final_sentence_end && i<SENTENCE_MAX_NUMBER_TOKENS-1){
+                System.out.println("sentence end reached");
+                StateManager sm = cp.getStateManager();
+                try {
+                    sm.saveState();
+                    word_index[i].assign(chosen);
+                    word_index[i+1].assign(pad_token);
+                    cp.fixPoint();
+                    current_sentence += words.get(corpusDomains.get(chosen));
+                    try
+                    {
+                        tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
+                    }
+                    catch (NullPointerException e) {
+                        tokens_used[num_tok] = words.get(corpusDomains.get(chosen))+ " (not in original corpus)";
+                    }
+                    break;
+                } catch (InconsistencyException e) {
+                    sm.restoreState();
+                    System.out.println("Inconsistency detected, state restored");
+                    while(chosen == final_sentence_end)
+                        chosen = word_index[i].biasedWheelValue();
+                }
+            }
+            try
+            {
+                current_sentence += tokens_list.get(corpusDomainToIndex.get(chosen));
+                tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
+            }
+            catch (Exception e) {
+                current_sentence += words.get(corpusDomains.get(chosen));
+                tokens_used[num_tok] = words.get(corpusDomains.get(chosen))+ " (not in original corpus)";
+            }
+
             if (PRINT_TRACE) {
                 System.out.println("sentence so far: " + current_sentence);
                 System.out.println("index chosen: " + corpusDomains.get(chosen));
             }
+            num_tok++;
         }
-        double perplexityScore = Math.exp(-logSumProbs / num_tok);
-        if (PRINT_TRACE) System.out.println("solution : " + current_sentence);
+        double perplexityScore = 0;
+
+        if (!current_sentence.trim().endsWith("ERROR") && !current_sentence.trim().endsWith(".")) {
+            current_sentence = current_sentence.trim() + ".";
+        }
+        System.out.println("solution : " + current_sentence);
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:" + port + "/tokenize"))
@@ -487,7 +613,7 @@ public class MNREAD_words {
         int[] tokens= Arrays.copyOfRange(split_response, 1, split_response.length);
 
         
-        logs.add(new Logging(current_sentence, perplexityScore, tokens));
+        logs.add(new Logging(current_sentence, perplexityScore, tokens, tokens_used.clone()));
 
         }
     
@@ -502,21 +628,20 @@ public class MNREAD_words {
     result.put("date", java.time.LocalDateTime.now().toString());
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result_MNREAD_WORDS_" + System.currentTimeMillis()  + ".json";
+    String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_v4-2_" + System.currentTimeMillis()  + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
             // Write error to output file
-            String OUTPUT_DIR = args.length > 3 ? args[2] : "./output";
+            String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result_MNREAD_WORDS_error_" + System.currentTimeMillis()  + ".json";
+            String outputFileName = OUTPUT_DIR + "/result_" + configArg + "_v4-2_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
-            errorResult.put("date", java.time.LocalDateTime.now().toString());
             ObjectMapper errorMapper = new ObjectMapper();
             try {
                 errorMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), errorResult);
@@ -533,14 +658,16 @@ public class MNREAD_words {
         public String sentence;
         public int[] tokens;
         public double perplexity;
+        public String[] tokens_used;
 
         public Logging() {
         }
 
-        public Logging(String sentence, double perplexityScore, int[] tokens) {
+        public Logging(String sentence, double perplexityScore, int[] tokens, String[] tokens_used) {
             this.sentence = sentence;
             this.perplexity = perplexityScore;
             this.tokens = tokens;
+            this.tokens_used = tokens_used;
         }
     }
 }

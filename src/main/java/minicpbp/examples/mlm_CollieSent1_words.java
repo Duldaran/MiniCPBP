@@ -278,7 +278,7 @@ public class mlm_CollieSent1_words {
         final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).getSentence().split(" ").length;
         final int ORACLE_TOP_K = 100;
         final int NUMBER_CHAR = 82 - SENTENCE_MAX_NUMBER_TOKENS;//Le point et les espaces enlevés
-        //final int NUM_ITERATIONS = 8;
+
 
         String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
 

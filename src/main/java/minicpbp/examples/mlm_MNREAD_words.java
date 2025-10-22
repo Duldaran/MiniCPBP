@@ -278,11 +278,6 @@ public class mlm_MNREAD_words {
             int domainIndex = corpusDomains.get(i);
             String word = words.get(domainIndex);
             int charSum = 0;
-            if(i==corpusDomains.size()-1){
-                charNum[i]=0;
-                lengthTokens[i]=0;
-                continue;
-            }
             charNum[i]=word.length();
             for (char c : word.toCharArray()) {
                 if(word.length()==0){
@@ -333,7 +328,7 @@ public class mlm_MNREAD_words {
         final int SPACE_SIZE =512;
         final int MIN_SPACE_SIZE =410;
         final int MAX_SPACE_SIZE =640;
-        final int MAX_NUMBER_SPACE = 3;
+        final int MAX_NUMBER_SPACE = 4;
         final int MIN_NUMBER_WORD = 9;
         final int MAX_NUMBER_WORD = 15;
         final int NUMBER_CHAR = 60;//Verify if you need to count the spaces at the beginning of lines
@@ -419,7 +414,7 @@ public class mlm_MNREAD_words {
         sm.saveState();
 
         int l = -1;
-        while (l < NUM_ITERATIONS-1 || (base_sentence.size() < 5 && l < 2*NUM_ITERATIONS)) {
+        while (l < NUM_ITERATIONS-1 || (base_sentence.size() < 5 && l < 3*NUM_ITERATIONS)) {
             l++;
             System.out.println("Iteration: " + l);
             sm.restoreState();
@@ -699,13 +694,17 @@ public class mlm_MNREAD_words {
                 String response3 = client.sendAsync(request3, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
                 JsonNode jsonNode3 = objectMapper.readTree(response3);
                 double ppl = jsonNode3.get("perplexity").asDouble();
-                if (!base_sentence.contains(current_sentence)) {  
-                    base_sentence.add(new ScoredSentence(current_sentence, ppl));
+                ScoredSentence currentSentence = new ScoredSentence(current_sentence, ppl);
+                Logging new_log = new Logging(current_sentence, original_sentence, ppl, tokens, new String[tokens_used.length]);
+                if (!base_sentence.contains(currentSentence)) {
+                    logs.add(new_log);
+                    base_sentence.add(currentSentence);
                 }
-                perplexityScore = ppl;
             }
-            Logging new_log = new Logging(current_sentence, original_sentence, perplexityScore, tokens, new String[tokens_used.length]);
-            if(!base_sentence.contains(current_sentence)) logs.add(new_log);
+            else {
+                Logging new_log = new Logging(current_sentence, original_sentence, perplexityScore, tokens, new String[tokens_used.length]);
+                logs.add(new_log);
+            }
 
             }
   
