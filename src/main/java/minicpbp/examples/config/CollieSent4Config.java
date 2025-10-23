@@ -1,0 +1,73 @@
+package minicpbp.examples.config;
+
+import com.ibm.icu.impl.Pair;
+
+import minicpbp.cp.Factory;
+import minicpbp.engine.core.*;
+
+public class CollieSent4Config implements ConstraintBuilder {
+
+    final static private int MAX_WORDS = 20;
+    final static private int MIN_WORDS = 5;
+
+    @Override
+    public String getInstruction() {
+        return "Generate a sentence but be sure to include the words “soft”, “beach” and “math”.";
+    }
+
+    
+
+    @Override
+    public void build(SolverContext ctx) {
+        int idxBeach = -1, idxSoft = -1, idxWater = -1;
+        int count = 0;
+        while ((idxBeach == -1 || idxSoft == -1 || idxWater == -1) && count < ctx.words.size()) {
+            String word = ctx.words.get(count);
+            switch (word) {
+                case " beach":
+                    if (idxBeach != -1) throw new RuntimeException("The word 'beach' appears multiple times in the corpus.");
+                    idxBeach = count;
+                    break;
+                case " soft":
+                    if (idxSoft != -1) throw new RuntimeException("The word 'soft' appears multiple times in the corpus.");
+                    idxSoft = count;
+                    break;
+                case " water":
+                    if (idxWater != -1) throw new RuntimeException("The word 'water' appears multiple times in the corpus.");
+                    idxWater = count;
+                    break;
+                default:
+                    break;
+            }
+            count++;
+        }
+        if(idxBeach == -1 || idxSoft == -1 || idxWater == -1) {
+            throw new RuntimeException("Could not find all required words in the corpus.");
+        }
+
+        ctx.cp.post(Factory.atleast(ctx.word_index, idxSoft, 1));
+        ctx.cp.post(Factory.atleast(ctx.word_index, idxBeach, 1));
+        ctx.cp.post(Factory.atleast(ctx.word_index, idxWater, 1));
+        ctx.cp.post(Factory.atleast(ctx.word_index, new int[]{idxSoft,idxBeach,idxWater}, 3));
+
+        ctx.cp.post(Factory.atmost(ctx.word_index, ctx.pad_token, MAX_WORDS-MIN_WORDS-1));
+
+        java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
+        int[][] A = new int[2][ctx.corpusDomains_size];
+        acceptedState.add(1);
+        acceptedState.add(0);
+        java.util.Arrays.fill(A[0], 0);
+        A[0][ctx.end_sentence] = 1;
+        java.util.Arrays.fill(A[1], -1);
+        A[1][ctx.pad_token] = 1;
+        ctx.cp.post(Factory.regular(ctx.word_index, A, 0, acceptedState));
+    }
+
+
+
+    @Override
+    public Pair<Integer, Integer> getWordCountRange() {
+        return Pair.of(MIN_WORDS, MAX_WORDS);
+    }
+    
+}

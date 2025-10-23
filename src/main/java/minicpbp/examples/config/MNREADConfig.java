@@ -1,6 +1,18 @@
 package minicpbp.examples.config;
 
+import com.ibm.icu.impl.Pair;
+
+import minicpbp.cp.Factory;
+
 public class MNREADConfig implements ConstraintBuilder {
+    final static private int NUMBER_CHAR = 60; // Verify if you need to count the spaces at the beginning of line + No period at the end
+    final static private int LINE_SIZE = 15896;
+    final static private int SPACE_SIZE =512;
+    final static private int MIN_SPACE_SIZE =410;
+    final static private int MAX_SPACE_SIZE =640;
+    final static private int MAX_NUMBER_SPACE = 5;
+    final static private int MIN_NUMBER_WORD = 9;
+    final static private int MAX_NUMBER_WORD = 15;
 
     @Override
     public String getInstruction() {
@@ -9,14 +21,7 @@ public class MNREADConfig implements ConstraintBuilder {
 
     @Override
     public void build(SolverContext ctx) {
-        final int NUMBER_CHAR = 60; // Verify if you need to count the spaces at the beginning of line + No period at the end
-        final int LINE_SIZE = 15896;
-        final int SPACE_SIZE =512;
-        final int MIN_SPACE_SIZE =410;
-        final int MAX_SPACE_SIZE =640;
-        final int MAX_NUMBER_SPACE = 5;
-        final int MIN_NUMBER_WORD = 9;
-        final int MAX_NUMBER_WORD = 15;
+       
 
         // sizes, word_index, has_space, num_char
         minicpbp.engine.core.IntVar[] sizes = minicpbp.cp.Factory.makeIntVarArray(
@@ -72,6 +77,8 @@ public class MNREADConfig implements ConstraintBuilder {
 
         ctx.cp.post(minicpbp.cp.Factory.binPacking(line, sizes, lineSize));
 
+        ctx.cp.post(Factory.atmost(ctx.word_index, ctx.pad_token, MAX_NUMBER_WORD - MIN_NUMBER_WORD-1));
+
         // regular constraint (automaton) on word_index
         java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
         int[][] A = new int[2][ctx.corpusDomains_size];
@@ -81,6 +88,11 @@ public class MNREADConfig implements ConstraintBuilder {
         java.util.Arrays.fill(A[1], -1);
         A[1][ctx.pad_token] = 1;
         ctx.cp.post(minicpbp.cp.Factory.regular(word_index, A, 0, acceptedState));
+    }
+
+    @Override
+    public Pair<Integer, Integer> getWordCountRange() {
+        return Pair.of(MIN_NUMBER_WORD, MAX_NUMBER_WORD);
     }
     
 }

@@ -241,10 +241,11 @@ public class NLP_v5 {
 
  
         final int MAX_NUMBER_SPACE = 5;
-        final int MIN_NUMBER_WORD = 9;
-        final int MAX_NUMBER_WORD = 20;
+        Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
+        final int MIN_NUMBER_WORD = wordCountRange.first;
+        final int MAX_NUMBER_WORD = wordCountRange.second;
 
-        final boolean PRINT_TRACE = true;
+        final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
         final int SENTENCE_MAX_NUMBER_TOKENS = MAX_NUMBER_WORD +1;
@@ -263,7 +264,7 @@ public class NLP_v5 {
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
 
         
-        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index));
+        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words));
         
         double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
         System.out.println("Initialization time (s): " + initTime);
@@ -287,6 +288,7 @@ public class NLP_v5 {
         String current_sentence = selectedWord;
         int num_tok=1;
         while(num_tok<SENTENCE_MAX_NUMBER_TOKENS){
+            
             int i = num_tok;
             System.out.println(num_tok);
             System.out.println(current_sentence);
@@ -369,30 +371,24 @@ public class NLP_v5 {
                     String[] split_word = current_sentence.trim().split(" ");
                     assert split_word.length==i;
                     for (int j = 0; j < i; j++) {
-                        try {
-                            word_index[j].assign(words.indexOf(" " + split_word[j]));
-                        } catch (InconsistencyException e) {
-                            System.out.println("Sentence so far: "+Arrays.toString(split_word));
-                            System.out.println("Inconsistency detected with assign in end_sentence, state restored");
-                        }
+                        word_index[j].assign(words.indexOf(" " + split_word[j]));
                     }
+                    
                     word_index[i].assign(final_sentence_end);
                     cp.fixPoint();
                     current_sentence += words.get(corpusDomains.get(final_sentence_end));
-                    try
-                    {
-                        List<Integer> list_sub = new ArrayList<>(corpusDomainToIndex.get(final_sentence_end));
-                        list_sub.removeAll(last_word);
-                        tokens_used[num_tok] = tokens_list.get(list_sub.get(0));
-                    }
-                    catch (NullPointerException e) {
-                        tokens_used[num_tok] = words.get(corpusDomains.get(final_sentence_end))+ " (not in original corpus)";
-                    }
+
+                    List<Integer> list_sub = new ArrayList<>(corpusDomainToIndex.get(final_sentence_end));
+                    list_sub.removeAll(last_word);
+                    tokens_used[num_tok] = tokens_list.get(list_sub.get(0));
+
                     sm.restoreState();
                     break;
-                } catch (InconsistencyException e) {
+                } catch (Exception e) {
                     sm.restoreState();
                     System.out.println("Not able to end sentence yet, continuing");
+                    e.printStackTrace();
+                    System.out.println(e instanceof InconsistencyException);
                 }
             }
 
@@ -451,6 +447,8 @@ public class NLP_v5 {
                     }
                 }
             }
+
+            System.out.println("Total_score_continue: "+total_score_continue);
             for (int j=0; j<tokensContinue.length; j++) {
                 double score=scoresContinue[j];
                 if (score > 0) {
@@ -464,6 +462,7 @@ public class NLP_v5 {
 
             Map<Integer, Double> marginalsMap = new HashMap<>();
             double total_score = total_score_new + total_score_continue;
+            System.out.println("total_score: "+total_score);
 
             if(total_score_continue>0){
                 sm.saveState();
@@ -518,6 +517,7 @@ public class NLP_v5 {
                 sm.restoreState();
             }
 
+            System.out.println("Processing new tokens");
             sm.restoreState();
             sm.saveState();
             String last_word_string = last_word.stream()
@@ -656,6 +656,11 @@ public class NLP_v5 {
             
             double sum = marginalsMap.values().stream().mapToDouble(Double::doubleValue).sum();
             System.out.println("Sum of marginals before normalization: "+sum);
+            if(sum==0.0){
+                System.out.println("All marginals are zero, inconsistency detected");
+                current_sentence += " ERROR";
+                break;
+            }
             for (Map.Entry<Integer, Double> entry : marginalsMap.entrySet()) {
                 entry.setValue(entry.getValue() / sum);
             }
@@ -667,10 +672,11 @@ public class NLP_v5 {
                     break;
                 }
             }
-            System.out.println("chosen: "+chosen+", '"+tokens_list.get(chosen)+"', "+marginalsMap.get(chosen));
             if (chosen == -1) {
                 throw new Exception("No token chosen, inconsistency detected");
             }
+            System.out.println("chosen: "+chosen+", '"+tokens_list.get(chosen)+"', "+marginalsMap.get(chosen));
+
 
             current_sentence += tokens_list.get(chosen);
             tokens_used[num_tok] += ", " + tokens_list.get(chosen);

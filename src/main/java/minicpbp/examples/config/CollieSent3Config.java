@@ -5,14 +5,14 @@ import com.ibm.icu.impl.Pair;
 import minicpbp.cp.Factory;
 import minicpbp.engine.core.*;
 
-public class CollieSent1Config implements ConstraintBuilder {
+public class CollieSent3Config implements ConstraintBuilder {
 
-    final static private int MAX_WORDS = 20;
-    final static private int MIN_WORDS = 5;
+    final static private int MAX_WORDS = 30;
+    final static private int MIN_WORDS = 20;
 
     @Override
     public String getInstruction() {
-        return "Please generate a sentence with exactly 82 characters. Include whitespace into your character count.";
+        return "Generate a sentence with at least 20 words, and each word less than six characters.";
     }
 
     
@@ -23,7 +23,7 @@ public class CollieSent1Config implements ConstraintBuilder {
         // create num_char array using the solver from the provided context and the word_index length
         IntVar[] num_char = Factory.makeIntVarArray(ctx.cp, ctx.word_index.length,
                 java.util.Arrays.stream(ctx.charNum).min().getAsInt(),
-                java.util.Arrays.stream(ctx.charNum).max().getAsInt());
+                6);
 
         for (int j = 0; j < ctx.word_index.length; j++) {
             ctx.word_index[j].setName("word_index[" + j + "]");
@@ -31,7 +31,6 @@ public class CollieSent1Config implements ConstraintBuilder {
         }
 
         // use the sum of the provided lengthTokens as the target total number of chars (adjust if you have a dedicated IntVar)
-        ctx.cp.post(Factory.sum(num_char, NUMBER_CHAR));
 
         ctx.cp.post(Factory.atmost(ctx.word_index, ctx.pad_token, MAX_WORDS-MIN_WORDS-1));
 

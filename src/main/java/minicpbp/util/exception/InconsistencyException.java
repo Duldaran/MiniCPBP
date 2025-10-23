@@ -18,7 +18,21 @@ package minicpbp.util.exception;
 
 public class InconsistencyException extends RuntimeException {
 
-    public static final InconsistencyException INCONSISTENCY = new InconsistencyException();
+    private static InconsistencyException instance;
+
+
+    public static final InconsistencyException INCONSISTENCY = get();
+
+    public InconsistencyException() {
+        super();
+    }
+
+    public static InconsistencyException get() {
+        if (instance == null)
+            instance = new InconsistencyException();
+        return instance;
+    }
+
 
     private static final long serialVersionUID = 1240061199250453776L;
 

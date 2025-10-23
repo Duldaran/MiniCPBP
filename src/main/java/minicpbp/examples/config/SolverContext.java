@@ -1,6 +1,9 @@
 package minicpbp.examples.config;
 
 import minicpbp.engine.core.Solver;
+
+import java.util.ArrayList;
+
 import minicpbp.engine.core.IntVar;
 
 public class SolverContext {
@@ -11,8 +14,9 @@ public class SolverContext {
     public final int[] charNum;
     public final int[] lengthTokens;
     public final IntVar[] word_index;
+    public final ArrayList<String> words;
 
-    public SolverContext(Solver cp, int corpusDomains_size, int end_sentence, int pad_token, int[] charNum , int[] lengthTokens, IntVar[] word_index) {
+    public SolverContext(Solver cp, int corpusDomains_size, int end_sentence, int pad_token, int[] charNum , int[] lengthTokens, IntVar[] word_index, ArrayList<String> words) {
         this.cp = cp;
         this.corpusDomains_size = corpusDomains_size;
         this.end_sentence = end_sentence;
@@ -20,5 +24,6 @@ public class SolverContext {
         this.charNum = charNum;
         this.lengthTokens = lengthTokens;
         this.word_index = word_index;
+        this.words = words;
     }
 }

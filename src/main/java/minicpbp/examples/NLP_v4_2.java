@@ -74,8 +74,8 @@ public class NLP_v4_2 {
             int port = Integer.parseInt(args[1]);
             final int NUM_ITERATIONS = Integer.parseInt(args[3]);
             final double weight = Double.parseDouble(args[0]);
-            final String llm_name = args.length > 4 ? args[4] : "zephyr";
-            final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
+            final String llm_name = args.length > 5 ? args[5] : "zephyr";
+            final String configArg = args.length > 4 ? args[4] : "CollieSent1Config";
 
 
         try {
@@ -84,6 +84,15 @@ public class NLP_v4_2 {
         switch (configArg) {
             case "CollieSent1Config":
                 cb = new CollieSent1Config();
+                break;
+            case "CollieSent2Config":
+                cb = new CollieSent2Config();
+                break; 
+            case "CollieSent3Config":
+                cb = new CollieSent3Config();
+                break;
+            case "CollieSent4Config":
+                cb = new CollieSent4Config();
                 break;
             default:
                 throw new IllegalArgumentException("Unknown config: " + configArg);
@@ -206,8 +215,9 @@ public class NLP_v4_2 {
 
  
         final int MAX_NUMBER_SPACE = 5;
-        final int MIN_NUMBER_WORD = 9;
-        final int MAX_NUMBER_WORD = 15;
+        Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
+        final int MIN_NUMBER_WORD = wordCountRange.first;
+        final int MAX_NUMBER_WORD = wordCountRange.second;
 
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
@@ -321,7 +331,7 @@ public class NLP_v4_2 {
             IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
 
             
-            cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index));
+            cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words));
 
             System.out.println("Words in the sentence: " + Arrays.toString(splitWords));
 

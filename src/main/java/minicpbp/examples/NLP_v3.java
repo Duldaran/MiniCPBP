@@ -68,14 +68,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.ibm.icu.impl.Pair;
 
-public class NLP_v4_1 {
+import fzn.test;
+
+public class NLP_v3 {
     public static void main(String[] args) throws Exception {
         
             int port = Integer.parseInt(args[1]);
             final int NUM_ITERATIONS = Integer.parseInt(args[3]);
             final double weight = Double.parseDouble(args[0]);
-            final String llm_name = args.length > 4 ? args[4] : "zephyr";
-            final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
+            final String llm_name = args.length > 5 ? args[5] : "zephyr";
+            final String configArg = args.length > 4 ? args[4] : "CollieSent1Config";
 
 
         try {
@@ -84,6 +86,15 @@ public class NLP_v4_1 {
         switch (configArg) {
             case "CollieSent1Config":
                 cb = new CollieSent1Config();
+                break;
+            case "CollieSent2Config":
+                cb = new CollieSent2Config();
+                break;  
+            case "CollieSent3Config":
+                cb = new CollieSent3Config();   
+                break;
+            case "CollieSent4Config":
+                cb = new CollieSent4Config();   
                 break;
             default:
                 throw new IllegalArgumentException("Unknown config: " + configArg);
@@ -101,7 +112,7 @@ public class NLP_v4_1 {
              e.printStackTrace();
          }
 
-    
+        int sentence_end_index = -1;
          int token_size = Integer.parseInt(lines.get(lines.size()-1).split(":")[0]);
 
          String[] corrected_lines = new String[token_size];
@@ -109,7 +120,10 @@ public class NLP_v4_1 {
          for(int i=0;i<lines.size();i++){
              String[] line = lines.get(i).split("::");
              if(line.length>1){
-                 corrected_lines[Integer.parseInt(line[0])]=line[1];
+                corrected_lines[Integer.parseInt(line[0])]=line[1];
+                if(line[1].equals(".") && sentence_end_index==-1){
+                    sentence_end_index = i;
+                }
              }
          }
  
@@ -129,10 +143,12 @@ public class NLP_v4_1 {
                     continue;
                 }
                 words.add(word_string);
+                
                 if (!corpusDomainsSet.containsKey(sublist.get(0)))
                     corpusDomainsSet.put(sublist.get(0), new ArrayList<>(List.of(k)));
                 else
                     corpusDomainsSet.get(sublist.get(0)).add(k);
+
                 corpusDomainToIndex.put(k, sublist.get(0));
                 k++;
             }
@@ -140,14 +156,14 @@ public class NLP_v4_1 {
             e.printStackTrace();
         }
 
-        int sentence_end=15;
+
 
         words.add(".");
-        words.add("<END>");
-        corpusDomainsSet.put(sentence_end, new ArrayList<>(Collections.singletonList(words.size()-2)));
-        corpusDomainsSet.put(tokens_list.size()-1, new ArrayList<>(Collections.singletonList(words.size()-1)));
-        corpusDomainToIndex.put(words.size()-2, sentence_end);
-        corpusDomainToIndex.put(words.size()-1, tokens_list.size()-1);
+        words.add("<PAD>");
+        corpusDomainsSet.put(sentence_end_index, new ArrayList<>(Collections.singletonList(words.size()-2)));
+        corpusDomainsSet.put(-1, new ArrayList<>(Collections.singletonList(words.size()-1)));
+        corpusDomainToIndex.put(words.size()-2, sentence_end_index);
+        corpusDomainToIndex.put(words.size()-1, -1);
 
         List<Integer> corpusDomains = new ArrayList<>();
         for (int idx = 0; idx < words.size(); idx++) {
@@ -177,6 +193,32 @@ public class NLP_v4_1 {
             e.printStackTrace();
         }
 
+                String[] commonWords = {
+        "I",
+        "You",
+        "He",
+        "She",
+        "It",
+        "We",
+        "They",
+        "The",
+        "A",
+        "An",
+        "This",
+        "That",
+        "These",
+        "Those",
+        "There"};
+
+        for (String word : commonWords) {
+            if (!words.contains(" "+word)) {
+                System.out.println("Adding common word to vocabulary: " + word);
+                words.add(" "+word);
+                corpusDomains.add(words.size()-1);
+            }
+        }
+
+
         List<Integer> listCharNum = new ArrayList<>();
         List<Integer> listLengthTokens = new ArrayList<>();
         for (int i = 0; i < corpusDomains.size(); i++) {
@@ -185,11 +227,12 @@ public class NLP_v4_1 {
             int charSum = 0;
             if(i==pad_token){
                 listCharNum.add(0);
+                listLengthTokens.add(0);
                 continue;
             }
             listCharNum.add(word.length());
             for (char c : word.toCharArray()) {
-                if(word.length()==0){
+                if(word.length()==0 || word.equals(".")){
                     break;
                 }
                 String charStr = String.valueOf(c);
@@ -217,62 +260,49 @@ public class NLP_v4_1 {
         final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
+
+
+
+
+        int[] charNum = listCharNum.stream().mapToInt(Integer::intValue).toArray();
+        int[] lengthTokens = listLengthTokens.stream().mapToInt(Integer::intValue).toArray();
+
+
+       
         
         double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
         System.out.println("Initialization time (s): " + initTime);
 
-        String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
-        for (int z = 0; z < NUM_ITERATIONS; z += 1) {
-        
-        tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
-        String[] commonWords = {
-        "I",
-        "You",
-        "He",
-        "She",
-        "It",
-        "We",
-        "They",
-        "The",
-        "A",
-        "An",
-        "This",
-        "That",
-        "These",
-        "Those",
-        "There"};
-
-        String selectedWord = " "+commonWords[new Random().nextInt(commonWords.length)];
-        
-        int index_word=-1;
-        for (int i=0; i<words.size(); i++) {
-            if (words.get(i).equals(selectedWord)) {
-                index_word = i;
-                break;
-            }
-        }
-        if (index_word == -1) {
-            words.add(selectedWord);
-            corpusDomains.add(words.size()-1);
-            index_word = words.size()-1;
-            listCharNum.add(selectedWord.length());
-        }
-        
-
 
         HttpClient client = HttpClient.newHttpClient();
 
+       
 
-
+        for (int z = 0; z < NUM_ITERATIONS; z += 1) {//For loop
+        
+        Solver cp = makeSolver();
+        IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+         String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
+        StateManager sm = cp.getStateManager();
+        sm.saveState();
         String instruction = cb.getInstruction();
+
+        
+        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words));
+        
+
+
+        String selectedWord = " "+commonWords[new Random().nextInt(commonWords.length)];
+        word_index[0].assign(corpusDomains.indexOf(words.indexOf(selectedWord)));
+
         String current_sentence = selectedWord;
-        Double logSumProbs = 0.0;
         int num_tok=1;
         while(num_tok<SENTENCE_MAX_NUMBER_TOKENS){
-            int i = num_tok;
+            
+            final int i = num_tok;
             System.out.println(num_tok);
             System.out.println(current_sentence);
-            HttpRequest request = HttpRequest.newBuilder()
+            HttpRequest request = HttpRequest.newBuilder()    
                 .uri(URI.create("http://localhost:" + port + "/token"))
                 .POST(HttpRequest.BodyPublishers.ofString(instruction + current_sentence))
                 .build();
@@ -286,67 +316,9 @@ public class NLP_v4_1 {
             JsonNode jsonNode = mapper.readTree(response);
             ArrayNode tupleList = (ArrayNode) jsonNode.get("prob");
 
-            current_sentence = jsonNode.has("sentence") ? jsonNode.get("sentence").asText().replace(instruction, "") : "";
-
-            String[] splitWords = current_sentence.strip().split("\\s+");
-
-            for (String word : splitWords) {
-                word = " " + word;
-                if (!words.contains(word)) {
-                    words.add(word);
-                    corpusDomains.add(words.size() - 1);
-                    listCharNum.add(word.length());
-                    int charSum = 0;
-                    for (char c : word.toCharArray()) {
-                        if(word.length()==0){
-                            break;
-                        }
-                        String charStr = String.valueOf(c);
-                        charSum += charToIntMap.getOrDefault(charStr, 1000000);
-                        if (charToIntMap.getOrDefault(charStr, 1000000) == 1000000) {
-                            System.err.println("Character not found in mapping: " + charStr);
-                            System.err.println("Word: " + word);
-                            //throw new Exception("Character not found");
-                        }
-                    }
-                    listLengthTokens.add(charSum);
-                }
-            }
-
-            int[] charNum = listCharNum.stream().mapToInt(Integer::intValue).toArray();
-            int[] lengthTokens = listLengthTokens.stream().mapToInt(Integer::intValue).toArray();
 
 
-            Solver cp = makeSolver();
-            IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-
-            
-            cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words));
-
-            System.out.println("Words in the sentence: " + Arrays.toString(splitWords));
-
-            // Assign each word in splitWords to word_index
-            for (int idx = 0; idx < splitWords.length; idx++) {
-                String word = " " + splitWords[idx];
-                int corpusIdx = words.indexOf(word);
-                if (corpusIdx == -1) {
-                    System.out.println("Word not in corpus: " + word);
-                    current_sentence += " ERROR";
-                    break;
-                }
-                int domainIdx = corpusDomains.indexOf(corpusIdx);
-                try {
-                    word_index[idx].assign(domainIdx);
-                } catch (Exception e) {
-                    current_sentence += " ERROR";
-                    System.out.println("Inconsistency detected when assigning word: " + word);
-                    System.out.println(Arrays.toString(splitWords));
-                    break;
-                }
-            }
-
-
-            int max_token = -1;
+            int max_token= -1;
             double max_score = 0;
             double total_score = 0;
 
@@ -371,12 +343,30 @@ public class NLP_v4_1 {
             tokenScoreList.sort((a, b) -> Double.compare(
                 b.second, a.second
             ));
-            for (int t = 0; t < Math.min(5, tokenScoreList.size()); t++) {
-                Pair<Integer, Double> pair = tokenScoreList.get(t);
-                System.out.println("Top " + (t + 1) + ": token=" + tokens_list.get(pair.first) + ", score=" + pair.second);
+
+
+            if(tokenScoreList.get(0).first==sentence_end_index && i<word_index.length-1){
+                System.out.println("sentence end reached");
+                try {
+                    sm.saveState();
+                    
+                    word_index[i].assign(final_sentence_end);
+                    cp.fixPoint();
+                    current_sentence += words.get(corpusDomains.get(final_sentence_end));
+
+                    List<Integer> list_sub = new ArrayList<>(corpusDomainToIndex.get(final_sentence_end));
+                    tokens_used[num_tok] = tokens_list.get(list_sub.get(0));
+                    System.out.println("End reached successfully");
+                    sm.restoreState();
+                    break;
+                } catch (Exception e) {
+                    sm.restoreState();
+                    System.out.println("Not able to end sentence yet, continuing");
+                }
             }
 
             int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+
             for (int l = 0; l < limit; l++) {
                 int token = tokenScoreList.get(l).first;
                 double score = tokenScoreList.get(l).second;
@@ -388,33 +378,29 @@ public class NLP_v4_1 {
                 }
                 if (PRINT_TRACE) {
                     if (score > max_score) {
+                        System.out.println("New max score found: " + score);
+                        System.out.println("Token Strong: " + tokens_list.get(token));
+                        System.out.println("Token: " + token);
+                        System.out.println("Corpus indexs: " + Arrays.toString(token_indexs));
+                        for(int idx: token_indexs){
+                            System.out.println("Corresponding word: " + words.get(idx));
+                        }
                         max_score = score;
-                        max_token = token_indexs[0];
+                        max_token= token_indexs[0];
                     }
                 }
             }
             for (int j=0; j<tokens.length; j++) {
                 double score=scores[j];
                 if (score > 0) {
-                    score /= total_score;
+                    scores[j] /= total_score;
                 }
-                else if (score == 0) {
-                    if (PRINT_TRACE) {
-                        System.out.println("Score is zero: " + score);
-                        System.out.println("Word: " + words.get(j));
-                        System.out.println("Token: " + j);
-                    }
-                }
-                else {
-                    if (PRINT_TRACE) {
-                        System.out.println("Score is negative: " + score);
-                        System.out.println("Word: " + words.get(j));
-                        System.out.println("Token: " + j);
-                    }
+                else if(score<0){
                     throw new RuntimeException("Score is negative or zero");
                 }
             }
-            max_score /= total_score;
+
+
 
             if(PRINT_TRACE) System.out.println("token "+i);
 
@@ -484,70 +470,37 @@ public class NLP_v4_1 {
                     int token = bestTokens.remove(prob);
                     System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
                 }
+                System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].marginal(word_index[i].valueWithMaxMarginal()));
             }
-            int chosen;
-            try {
-                if (word_index[i].maxMarginal() == 0.0) {
-                            System.out.println("No valid tokens found");
-                            current_sentence += " ERROR";
-                            break;
-                }
-                chosen = word_index[i].biasedWheelValue();
-            } catch (Exception e) {
-                System.out.println("Inconsistency detected");
-                current_sentence += " ERROR";
-                break;
-            }
-            //word_index[i].assign(chosen);
-            System.out.println("chosen: "+chosen+", '"+words.get(chosen)+"', "+word_index[i].marginal(chosen));
-            try
-            {
-                System.out.println(tokens_list.get(corpusDomainToIndex.get(chosen)));
-            }
-            catch (Exception e) {
-                System.out.println("not in original corpus");
-            }
-            
         
-            if(chosen == final_sentence_end && i<SENTENCE_MAX_NUMBER_TOKENS-1){
-                System.out.println("sentence end reached");
-                StateManager sm = cp.getStateManager();
-                try {
-                    sm.saveState();
-                    word_index[i].assign(chosen);
-                    word_index[i+1].assign(pad_token);
-                    cp.fixPoint();
-                    current_sentence += words.get(corpusDomains.get(chosen));
-                    try
-                    {
-                        tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
-                    }
-                    catch (NullPointerException e) {
-                        tokens_used[num_tok] = words.get(corpusDomains.get(chosen))+ " (not in original corpus)";
-                    }
-                    break;
-                } catch (InconsistencyException e) {
-                    sm.restoreState();
-                    System.out.println("Inconsistency detected, state restored");
-                    while(chosen == final_sentence_end)
-                        chosen = word_index[i].biasedWheelValue();
-                }
+        
+        
+            if (word_index[i].maxMarginal() == 0.0) {
+                        System.out.println("No valid tokens found");
+                        current_sentence += " ERROR";
+                        break;
             }
-            try
-            {
-                current_sentence += tokens_list.get(corpusDomainToIndex.get(chosen));
-                tokens_used[num_tok] = tokens_list.get(corpusDomainToIndex.get(chosen));
-            }
-            catch (Exception e) {
-                current_sentence += words.get(corpusDomains.get(chosen));
-                tokens_used[num_tok] = words.get(corpusDomains.get(chosen))+ " (not in original corpus)";
-            }
+
+            
+            int chosen = word_index[i].biasedWheelValue();
+    
+            word_index[i].assign(chosen);
+
+            System.out.println("chosen: "+chosen+", '"+words.get(chosen)+"', "+word_index[i].marginal(chosen));
+
+            num_tok+=1;
+            current_sentence += words.get(chosen);
+            tokens_used[i] += ", " + words.get(chosen);
+
+
 
             if (PRINT_TRACE) {
                 System.out.println("sentence so far: " + current_sentence);
-                System.out.println("index chosen: " + corpusDomains.get(chosen));
+                System.out.println("index chosen: " + chosen);
             }
-            num_tok++;
+
+
+
         }
         double perplexityScore = 0;
 
@@ -580,20 +533,20 @@ public class NLP_v4_1 {
     result.put("date", java.time.LocalDateTime.now().toString());
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_v4-1_" + System.currentTimeMillis()  + ".json";
+    String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_v3_" + System.currentTimeMillis()  + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error: " + e.getMessage());
             // Write error to output file
             String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result_" + configArg + "_v4-1_" + System.currentTimeMillis()  + "_error.json";
+            String outputFileName = OUTPUT_DIR + "/result_" + configArg + "_v3_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
+            errorResult.put("date", java.time.LocalDateTime.now().toString());
             ObjectMapper errorMapper = new ObjectMapper();
             try {
                 errorMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), errorResult);
