@@ -321,7 +321,7 @@ public class NLP_MLM_v1 {
         Double logSumProbs = 0.0;
 
 
-        DFSearch dfs = makeDfs(cp, firstFail(word_index));
+        DFSearch dfs = makeDfs(cp, maxMarginalStrength(word_index));
         int l=-1;
 
         String[] current_sentence= new String[1];
@@ -329,7 +329,16 @@ public class NLP_MLM_v1 {
 
         dfs.onSolution(() -> {
             double perplexityScore = -1;
+            // build sentence from assigned word_index values
+            String solution="";
+            for (int i = 0; i < word_index.length; i++) {
+                int assigned = word_index[i].min(); // value assigned at solution
+                solution += words.get(assigned);             
+            }
+            current_sentence[0] = solution.trim();
             if (!current_sentence[0].isEmpty() && Character.isLowerCase(current_sentence[0].charAt(0))) {
+                current_sentence[0] = Character.toUpperCase(current_sentence[0].charAt(0)) + current_sentence[0].substring(1);
+            }{
                 current_sentence[0] = Character.toUpperCase(current_sentence[0].charAt(0)) + current_sentence[0].substring(1);
             }
             if (base_sentence.contains(current_sentence[0])) {
@@ -337,7 +346,7 @@ public class NLP_MLM_v1 {
                 return;
             }
             current_sentence[0] = current_sentence[0].endsWith("ERROR") ? current_sentence[0] : current_sentence[0] + ".";
-            System.out.println("solution : " + current_sentence[0]);
+            //System.out.println("solution : " + current_sentence[0]);
 
             HttpRequest request2 = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:" + port + "/mlm_tokenize"))
@@ -398,108 +407,115 @@ public class NLP_MLM_v1 {
         while (l < NUM_ITERATIONS-1 || (base_sentence.size() < 5 && l < 3*NUM_ITERATIONS)) {
             l++;
 
-            dfs.solveSubjectTo(statistics -> statistics.numberOfFailures() >= failureLimit, () -> {
-                        // Assign the fragment 5% of the variables randomly chosen
-                        current_sentence[0] = sentenceBuilder(base_sentence);
-                        original_sentence[0] = current_sentence[0];
+            dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= 1, () -> {
+                    current_sentence[0] = sentenceBuilder(base_sentence);
+                    original_sentence[0] = current_sentence[0];
 
-                        System.out.println("Current sentence: " + current_sentence[0]);
+                    System.out.println("Current sentence: " + current_sentence[0]);
 
-                        String[] sentenceWords = current_sentence[0].split(" ");
-                        List<Integer> masked_indexs = new ArrayList<>();
-                        for (int idx = 0; idx < sentenceWords.length; idx++) {
-                            if (!sentenceWords[idx].equals(mask_string)) {
-                                try {
-                                    word_index[idx].assign(words.indexOf(" " + sentenceWords[idx]));
-                                } catch (Exception e) {
-                                    System.out.println(e);
-                                    System.err.println("Error assigning index " + idx + " to word " + sentenceWords[idx]);
-                                    System.err.println(words.contains(" " + sentenceWords[idx]));
-                                }
-                            } else {
-                                masked_indexs.add(idx);
+                    String[] sentenceWords = current_sentence[0].split(" ");
+                    List<Integer> masked_indexs = new ArrayList<>();
+                    for (int idx = 0; idx < sentenceWords.length; idx++) {
+                        if (!sentenceWords[idx].equals(mask_string)) {
+                            try {
+                                word_index[idx].assign(words.indexOf(" " + sentenceWords[idx]));
+                            } catch (Exception e) {
+                                System.out.println(e);
+                                System.err.println("Error assigning index " + idx + " to word " + sentenceWords[idx]);
+                                System.err.println(words.contains(" " + sentenceWords[idx]));
+                            }
+                        } else {
+                            masked_indexs.add(idx);
+                        }
+                    }
+                    int i = -1;
+                    while (current_sentence[0].contains(mask_string)) {
+                        i++;
+                        HttpRequest request = HttpRequest.newBuilder()
+                            .uri(URI.create("http://localhost:" + port + "/mlm"))
+                            .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
+                            .build();
+                        String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+                        System.out.println("Response: Received");
+
+                        JsonNode jsonNode = null;
+                        try {
+                            jsonNode = objectMapper.readTree(response);
+                        } catch (JsonMappingException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } catch (JsonProcessingException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+                        System.out.println("Masked tokens found: " + maskedTokens.size());
+
+                        Iterator<Constraint> iteratorC = cp.getConstraints().iterator();
+                        while (iteratorC.hasNext()) {
+                            Constraint c = iteratorC.next();
+                            if (c.getName().equals("Oracle")) {
+                                c.setActive(false);
                             }
                         }
-                        int i = -1;
-                        while (current_sentence[0].contains(mask_string)) {
-                            i++;
-                            HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:" + port + "/mlm"))
-                                .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
-                                .build();
-                            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
 
-                            System.out.println("Response: Received");
+                        for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                            String fieldName = it.next();
+                            JsonNode tok = maskedTokens.get(fieldName);
+                            System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
 
-                            JsonNode jsonNode = null;
-                            try {
-                                jsonNode = objectMapper.readTree(response);
-                            } catch (JsonMappingException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            } catch (JsonProcessingException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }
-                            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
-                            System.out.println("Masked tokens found: " + maskedTokens.size());
+                            int z = tok.get("mask_word_position").asInt();
+                            ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                            ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                            List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                            for (int idx = 0; idx < probsNode.size(); idx++) {
+                                try {
+                                double prob = probsNode.get(idx).asDouble();
+                                int token = tokensNode.get(idx).asInt();
+                                if (!corpusDomainsSet.containsKey(token)) continue;
+                                if (prob < 0) continue;
 
-                            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
-                                String fieldName = it.next();
-                                JsonNode tok = maskedTokens.get(fieldName);
-                                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
-
-                                int z = tok.get("mask_word_position").asInt();
-                                ArrayNode probsNode = (ArrayNode) tok.get("probs");
-                                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
-                                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
-                                for (int idx = 0; idx < probsNode.size(); idx++) {
-                                    try {
-                                    double prob = probsNode.get(idx).asDouble();
-                                    int token = tokensNode.get(idx).asInt();
-                                    if (!corpusDomainsSet.containsKey(token)) continue;
-                                    if (prob < 0) continue;
-
-                                    Pair<Integer, Double> tuple = Pair.of(token, prob);
-                                    tokenScoreList.add(tuple);
-                                    } catch (Exception e) {
-                                        if (PRINT_TRACE) {
-                                            System.err.println(idx);
-                                            System.err.println(e);
-                                        }
-                                    }
-                                }
-
-                                int[] tokens = new int[corpusDomains.size()];
-                                double[] scores = new double[corpusDomains.size()];
-
-                                int max_token = -1;
-                                double max_score = 0;
-                                double total_score = 0;
-                
-
-                                tokenScoreList.sort((a, b) -> Double.compare(
-                                    b.second, a.second
-                                ));
-
-
-                                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
-                                for (int k = 0; k < limit; k++) {
-                                    int token = tokenScoreList.get(k).first;
-                                    double score = tokenScoreList.get(k).second;
-                                    int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
-                                    for (int token_index : token_indexes) {
-                                        tokens[token_index] = token_index;
-                                        scores[token_index] = score;
-                                        total_score += score;
-                                    }
+                                Pair<Integer, Double> tuple = Pair.of(token, prob);
+                                tokenScoreList.add(tuple);
+                                } catch (Exception e) {
                                     if (PRINT_TRACE) {
-                                        if (score > max_score) {
-                                            max_score = score;
-                                            max_token = token_indexes[0];
-                                        }
+                                        System.err.println(idx);
+                                        System.err.println(e);
                                     }
                                 }
+                            }
+
+                            int[] tokens = new int[corpusDomains.size()];
+                            double[] scores = new double[corpusDomains.size()];
+
+                            int max_token = -1;
+                            double max_score = 0;
+                            double total_score = 0;
+            
+
+                            tokenScoreList.sort((a, b) -> Double.compare(
+                                b.second, a.second
+                            ));
+
+
+                            int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                            for (int k = 0; k < limit; k++) {
+                                int token = tokenScoreList.get(k).first;
+                                double score = tokenScoreList.get(k).second;
+                                int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                                for (int token_index : token_indexes) {
+                                    tokens[token_index] = token_index;
+                                    scores[token_index] = score;
+                                    total_score += score;
+                                }
+                                if (PRINT_TRACE) {
+                                    if (score > max_score) {
+                                        max_score = score;
+                                        max_token = token_indexes[0];
+                                    }
+                                }
+                            }
                             for (int j=0; j<tokens.length; j++) {
                                 double score=scores[j];
                                 if (score > 0) {
@@ -526,122 +542,112 @@ public class NLP_MLM_v1 {
                             if(PRINT_TRACE) System.out.println("token "+z);
 
                             Constraint c = Factory.oracle(word_index[z], tokens, scores);
-
                             c.setWeight(w);
-                            if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
                             cp.post(c);
-                            if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token+", '"+words.get(max_token)+"', "+max_score);
-                            if(PRINT_TRACE) 
-                            {
-                                double[] temp = scores.clone();
-                                Arrays.sort(temp);
-                                for(int n=1; n<=5; n++){
-                                    for(int m=0; m<temp.length; m++){
-                                        if(temp[temp.length-n]==scores[m]){
-                                            System.out.println("GPT, before BP (max token, 'the word', its probability) "+m+", '"+words.get(m)+"', "+scores[m]);
-                                        }
-                                    }
-                                }
-                            }
                             }   
                             List<Integer> masked_indexs_copy = new ArrayList<>(masked_indexs);
                             
-                                System.out.println("Processing masked index: " + i);
-                                try {
-                                    cp.fixPoint();
-                                }
-                                catch (InconsistencyException e) {
-                                    if (PRINT_TRACE) {
-                                        System.out.println("INCONSISTENCY!");
-                                        for(int j=0; j<word_index.length; j++){
-                                            System.out.println(word_index[j].getName()+word_index[j].toString());
-                                        }
-                                    }
-                                    current_sentence[0] = String.join(" ", sentenceWords);
-                                    current_sentence[0] += " ERROR";
-                                    break;
-                                }
-                                if(PRINT_TRACE) 
-                                {
-                                    TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                                    for(int j=0; j<word_index[i].size(); j++){
-                                        bestTokens.put(word_index[i].marginal(j), j);
-                                    }
-                                    for(int j=0; j<5; j++){
-                                        if(bestTokens.isEmpty()){
-                                            break;
-                                        }
-                                        double prob = bestTokens.lastKey();
-                                        int token = bestTokens.remove(prob);
-                                        System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                            System.out.println("Processing masked index: " + i);
+                            try {
+                                cp.fixPoint();
+                            }
+                            catch (InconsistencyException e) {
+                                if (PRINT_TRACE) {
+                                    System.out.println("INCONSISTENCY!");
+                                    for(int j=0; j<word_index.length; j++){
+                                        System.out.println(word_index[j].getName()+word_index[j].toString());
                                     }
                                 }
-
-                                if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
-                                try{cp.vanillaBP(NUM_PB);}
-                                catch (Exception e) {
-                                    if (PRINT_TRACE) {
-                                        System.out.println("INCONSISTENCY during BP!");
-                                        for(int j=0; j<word_index.length; j++){
-                                            System.out.println(word_index[j].getName()+word_index[j].toString());
-                                        }
-                                    }
-                                    current_sentence[0] = String.join(" ", sentenceWords);
-                                    current_sentence[0] += " ERROR";
-                                    break;
+                                current_sentence[0] = String.join(" ", sentenceWords);
+                                current_sentence[0] += " ERROR";
+                                break;
+                            }
+                            if(PRINT_TRACE) 
+                            {
+                                TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                                for(int j=0; j<word_index[i].size(); j++){
+                                    bestTokens.put(word_index[i].marginal(j), j);
                                 }
-                                if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
-                                System.out.println("BP completed for index: " + i);
-                                if(PRINT_TRACE) 
-                                {
-                                    TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                                    for(int j=0; j<word_index[i].size(); j++){
-                                        bestTokens.put(word_index[i].marginal(j), j);
-                                    }
-                                    for(int j=0; j<5; j++){
-                                        if(bestTokens.isEmpty()){
-                                            break;
-                                        }
-                                        double prob = bestTokens.lastKey();
-                                        int token = bestTokens.remove(prob);
-                                        System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
-                                    }
-                                }
-                                int chosen;
-                                int index = masked_indexs_copy.remove(rand.nextInt(masked_indexs_copy.size()));
-                                try {
-                                    if (word_index[index].maxMarginal() == 0.0) {
-                                        System.out.println("No valid tokens found");
-                                        current_sentence[0] = String.join(" ", sentenceWords);
-                                        current_sentence[0] += " ERROR";
+                                for(int j=0; j<5; j++){
+                                    if(bestTokens.isEmpty()){
                                         break;
                                     }
-                                    chosen = word_index[index].biasedWheelValue();
-                                } catch (Exception e) {
-                                    System.out.println("Inconsistency detected");
+                                    double prob = bestTokens.lastKey();
+                                    int token = bestTokens.remove(prob);
+                                    System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                                }
+                            }
+
+                            if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
+                            try{cp.vanillaBP(NUM_PB);}
+                            catch (Exception e) {
+                                if (PRINT_TRACE) {
+                                    System.out.println("INCONSISTENCY during BP!");
+                                    for(int j=0; j<word_index.length; j++){
+                                        System.out.println(word_index[j].getName()+word_index[j].toString());
+                                    }
+                                }
+                                current_sentence[0] = String.join(" ", sentenceWords);
+                                current_sentence[0] += " ERROR";
+                                break;
+                            }
+                            if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
+                            System.out.println("BP completed for index: " + i);
+                            if(PRINT_TRACE) 
+                            {
+                                TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                                for(int j=0; j<word_index[i].size(); j++){
+                                    bestTokens.put(word_index[i].marginal(j), j);
+                                }
+                                for(int j=0; j<5; j++){
+                                    if(bestTokens.isEmpty()){
+                                        break;
+                                    }
+                                    double prob = bestTokens.lastKey();
+                                    int token = bestTokens.remove(prob);
+                                    System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                                }
+                            }
+                            if(masked_indexs_copy.isEmpty() || masked_indexs_copy.size()==1){
+                                break;
+                            }
+                            int chosen;
+                            int index = masked_indexs_copy.remove(rand.nextInt(masked_indexs_copy.size()));
+                            try {
+                                if (word_index[index].maxMarginal() == 0.0) {
+                                    System.out.println("No valid tokens found");
+                                    current_sentence[0] = String.join(" ", sentenceWords);
+                                    current_sentence[0] += " ERROR";
                                     break;
                                 }
-                                System.out.println("Chosen index: " + index +", chosen: " + chosen +", chosen word: " + words.get(corpusDomains.get(chosen)) + ", probability: " + word_index[index].marginal(chosen));
-                                word_index[index].assign(chosen);
+                                chosen = word_index[index].biasedWheelValue();
+                            } catch (Exception e) {
+                                System.out.println("Inconsistency detected");
+                                break;
+                            }
+                            System.out.println("Chosen index: " + index +", chosen: " + chosen +", chosen word: " + words.get(corpusDomains.get(chosen)) + ", probability: " + word_index[index].marginal(chosen));
+                            word_index[index].assign(chosen);
+                        
                             
-                                
-                                sentenceWords[index] = words.get(corpusDomains.get(chosen)).strip();
-                                System.out.println("Assigning index " + index + " to word " + sentenceWords[index]);
-                                System.out.println(words.contains(sentenceWords[index]));
-                                current_sentence[0] = String.join(" ", sentenceWords);
-                                try
-                                {
-                                    tokens_used[index] = tokens_list.get(corpusDomainToIndex.get(chosen));
-                                }
-                                catch (Exception e)
-                                {
-                                    tokens_used[index] = "ORIGINAL WORD";
-                                }
+                            sentenceWords[index] = words.get(corpusDomains.get(chosen)).strip();
+                            System.out.println("Assigning index " + index + " to word " + sentenceWords[index]);
+                            System.out.println(words.contains(sentenceWords[index]));
+                            current_sentence[0] = String.join(" ", sentenceWords);
+                            try
+                            {
+                                tokens_used[index] = tokens_list.get(corpusDomainToIndex.get(chosen));
+                            }
+                            catch (Exception e)
+                            {
+                                tokens_used[index] = "ORIGINAL WORD";
+                            }
 
-                                if (PRINT_TRACE) {
-                                    System.out.println("sentence so far: " + current_sentence[0]);
-                                    System.out.println("index chosen: " + corpusDomains.get(chosen));
-                                }
+                            if (PRINT_TRACE) {
+                                System.out.println("sentence so far: " + current_sentence[0]);
+                                System.out.println("index chosen: " + corpusDomains.get(chosen));
+                            }
+
+                            
                                 
                         }
                     }

@@ -317,7 +317,10 @@ public class MiniCP implements Solver {
                 }
                  Iterator<Constraint> iteratorC = constraints.iterator();
                 while (iteratorC.hasNext()) {
-                    iteratorC.next().resetLocalBelief();
+                    Constraint c = iteratorC.next();
+                    if(c.isActive()) {
+                        c.resetLocalBelief();
+                    }
                 }
                 prevOutsideBeliefRecorded = false;
             }
