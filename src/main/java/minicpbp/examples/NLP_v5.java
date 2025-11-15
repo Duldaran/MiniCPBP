@@ -725,7 +725,7 @@ public class NLP_v5 {
     result.put("date", java.time.LocalDateTime.now().toString());
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_v5_" + System.currentTimeMillis()  + ".json";
+    String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_NLP_v5_" + System.currentTimeMillis()  + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
@@ -733,7 +733,7 @@ public class NLP_v5 {
             // Write error to output file
             String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result_" + configArg + "_v5_" + System.currentTimeMillis()  + "_error.json";
+            String outputFileName = OUTPUT_DIR + "/result_" + configArg + "_NLP_v5_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
             errorResult.put("error_message", e.getMessage());

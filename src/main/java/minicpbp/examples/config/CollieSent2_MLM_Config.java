@@ -1,11 +1,13 @@
 package minicpbp.examples.config;
 
+import static minicpbp.cp.Factory.equal;
+
 import com.ibm.icu.impl.Pair;
 
 import minicpbp.cp.Factory;
 import minicpbp.engine.core.*;
 
-public class CollieSent2Config implements ConstraintBuilder {
+public class CollieSent2_MLM_Config implements ConstraintBuilder {
 
     final static private int MAX_WORDS = 10;
     final static private int MIN_WORDS = 10;
@@ -48,18 +50,6 @@ public class CollieSent2Config implements ConstraintBuilder {
             throw new RuntimeException("Could not find all required words in the corpus.");
         }
 
-
-        ctx.cp.post(Factory.atmost(ctx.word_index, ctx.pad_token, Math.max(MAX_WORDS-MIN_WORDS-1, 0)));
-
-        java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
-        int[][] A = new int[2][ctx.corpusDomains_size];
-        acceptedState.add(1);
-        acceptedState.add(0);
-        java.util.Arrays.fill(A[0], 0);
-        A[0][ctx.end_sentence] = 1;
-        java.util.Arrays.fill(A[1], -1);
-        A[1][ctx.pad_token] = 1;
-        ctx.cp.post(Factory.regular(ctx.word_index, A, 0, acceptedState));
     }
 
 
@@ -73,8 +63,7 @@ public class CollieSent2Config implements ConstraintBuilder {
 
     @Override
     public String fileRef() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fileRef'");
+        return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\result_CollieSent2Config_v3_1761221684360_sentences.txt";
     }
     
 }

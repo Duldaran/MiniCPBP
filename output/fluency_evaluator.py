@@ -6,13 +6,20 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import numpy as np
 import time
 from tqdm import tqdm
+import argparse
 
 device_gpu = "cuda" if torch.cuda.is_available() else "cpu"
 device_cpu = "cpu"
 
 start_time = time.time()    
 
+parser = argparse.ArgumentParser(description="Fluency Evaluator")
+parser.add_argument("--configName", type=str, required=True, help="Configuration name for evaluation")
+args = parser.parse_args()
+
 path = os.path.join("..","src", "main", "java", "minicpbp", "examples", "data", "MNREAD", "TimesCost_modified.json")
+
+folder_path = Path("Novembre_2025/evaluate_folder/")
 
 # Read and parse the file
 with open(path, "r", encoding="utf-8") as f:
@@ -126,7 +133,7 @@ def can_greedy_split(sentence: str, char_cost: dict) -> bool:
 
     return is_valid
 
-folder_path = Path("Octobre_2025/evaluate_folder/")
+
 
 
 
@@ -147,6 +154,7 @@ for file_path in folder_path.glob("*.json"):
     ]
 
 
+
     if not sentences:        
         print("No valid sentences found, skipping.")
         continue
@@ -160,7 +168,7 @@ for file_path in folder_path.glob("*.json"):
             ppl_score = calculate_perplexity(s)
         else:
             ppl_score = sent["perplexity"]
-        if "MNREAD" in file_path.stem:
+        if "MNREAD" in file_path.stem or "MNREAD" in args.configName:
             results.append({"sentence": s,  "perplexity": ppl_score, "is_valid": can_greedy_split(s, char_cost)})
         else:
             results.append({"sentence": s, "perplexity": ppl_score})
@@ -168,6 +176,8 @@ for file_path in folder_path.glob("*.json"):
     # --- 5. Summary stats ---
     #llm_scores = [r["LLM_fluency"] for r in results if r["LLM_fluency"] is not None]
     ppl_scores = [r["perplexity"] for r in results]
+    
+    results.sort(key=lambda r: r["perplexity"])
 
     summary = {
         #"LLM_avg": float(np.mean(llm_scores)) if llm_scores else None,

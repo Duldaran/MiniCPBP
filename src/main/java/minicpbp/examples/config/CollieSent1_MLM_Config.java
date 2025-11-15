@@ -5,7 +5,7 @@ import com.ibm.icu.impl.Pair;
 import minicpbp.cp.Factory;
 import minicpbp.engine.core.*;
 
-public class CollieSent1Config implements ConstraintBuilder {
+public class CollieSent1_MLM_Config implements ConstraintBuilder {
 
     final static private int MAX_WORDS = 20;
     final static private int MIN_WORDS = 5;
@@ -33,17 +33,7 @@ public class CollieSent1Config implements ConstraintBuilder {
         // use the sum of the provided lengthTokens as the target total number of chars (adjust if you have a dedicated IntVar)
         ctx.cp.post(Factory.sum(num_char, NUMBER_CHAR));
 
-        ctx.cp.post(Factory.atmost(ctx.word_index, ctx.pad_token, MAX_WORDS-MIN_WORDS-1));
 
-        java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
-        int[][] A = new int[2][ctx.corpusDomains_size];
-        acceptedState.add(1);
-        acceptedState.add(0);
-        java.util.Arrays.fill(A[0], 0);
-        A[0][ctx.end_sentence] = 1;
-        java.util.Arrays.fill(A[1], -1);
-        A[1][ctx.pad_token] = 1;
-        ctx.cp.post(Factory.regular(ctx.word_index, A, 0, acceptedState));
     }
 
 
@@ -57,8 +47,7 @@ public class CollieSent1Config implements ConstraintBuilder {
 
     @Override
     public String fileRef() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fileRef'");
+        return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\result_CollieSent1Config_v3_1761184263207_sentences.txt";
     }
     
 }

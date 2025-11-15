@@ -6,6 +6,7 @@ public interface ConstraintBuilder {
     void build(SolverContext ctx);
     String getInstruction();
     Pair<Integer, Integer> getWordCountRange();
+    String fileRef();
 }
 
 

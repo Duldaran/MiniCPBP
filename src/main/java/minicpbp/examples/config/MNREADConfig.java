@@ -94,5 +94,11 @@ public class MNREADConfig implements ConstraintBuilder {
     public Pair<Integer, Integer> getWordCountRange() {
         return Pair.of(MIN_NUMBER_WORD, MAX_NUMBER_WORD);
     }
+
+    @Override
+    public String fileRef() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'fileRef'");
+    }
     
 }

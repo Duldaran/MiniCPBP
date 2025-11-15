@@ -82,5 +82,9 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
     public Pair<Integer, Integer> getWordCountRange() {
         return Pair.of(MIN_NUMBER_WORD, MAX_NUMBER_WORD);
     }
+
+    public String fileRef() {
+        return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\IJCAI2023_EN_BENCH_SORTED.txt";
+    }
     
 }

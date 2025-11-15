@@ -43,6 +43,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.LineNumberReader;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -51,6 +53,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -75,78 +78,7 @@ import com.ibm.icu.impl.Pair;
 public class NLP_MLM_v2 {
     final static String mask_string = "[MASK]";
 
-    private static class ScoredSentence {
-        private String sentence;
-        private double perplexity;
-        private double weight;
-    
-        public ScoredSentence(String sentence, double perplexity) {
-            this.sentence = sentence;
-            this.perplexity = perplexity;
-            this.weight = 0.0;
-        }
-        
-        public String getSentence() { return sentence; }
-        public double getPerplexity() { return perplexity; }
-        public double getWeight() { return weight; }
-        public void setWeight(double weight) { this.weight = weight; }
-        
-        @Override
-        public String toString() {
-            return String.format("%s (Perplexity: %.2f, Weight: %.4f)", 
-                            sentence, perplexity, weight);
-        }
-    }
 
-    private static ScoredSentence selectWeightedRandom(ArrayList<ScoredSentence> sentences, Random random, double temperature) {
-        if (sentences.isEmpty()) return null;
-
-        double totalWeight = 0.0;
-        
-        for (ScoredSentence sent : sentences) {
-            double weight = Math.exp(-sent.getPerplexity() / temperature);
-            sent.setWeight(weight);
-            totalWeight += weight;
-        }
-        
-        for (ScoredSentence sent : sentences) {
-            sent.setWeight(sent.getWeight() / totalWeight);
-        }
-        
-        double randomValue = random.nextDouble(); // 0.0 to 1.0
-        double cumulativeWeight = 0.0;
-        
-        for (ScoredSentence sent : sentences) {
-            cumulativeWeight += sent.getWeight();
-            if (randomValue <= cumulativeWeight) {
-                return sent;
-            }
-        }
-        
-        // Fallback (shouldn't reach here due to normalization)
-        return sentences.get(sentences.size() - 1);
-    }
-        
-    
-
-    private static String sentenceBuilder(ArrayList<ScoredSentence> bases) {
-        ScoredSentence base = selectWeightedRandom(bases, new Random(), 0.8);
-        System.out.println("Base sentence: " + base);
-        String[] words = base.getSentence().split(" ");
-        Random rand = new Random();
-        int numMasks = rand.nextBoolean() ? 3 : 4;
-        Set<Integer> maskIndices = new HashSet<>();
-        while (maskIndices.size() < numMasks) {
-            int idx = rand.nextInt(words.length + 1);
-            if(idx==words.length) idx--;//Double prob for last word
-            maskIndices.add(idx);
-        }
-        System.out.println("Masking indices: " + maskIndices);
-        for (int idx : maskIndices) {
-            words[idx] = mask_string;
-        }
-        return String.join(" ", words);
-    }
    public static void main(String[] args) throws Exception {
     
         System.out.println("3 novembre");
@@ -154,6 +86,41 @@ public class NLP_MLM_v2 {
         final int NUM_ITERATIONS = Integer.parseInt(args[3]);
         final double weight = Double.parseDouble(args[0]);
         final int seed = Integer.parseInt(args[4]);
+        final String configArg = args.length > 5 ? args[5] : "MNREAD_MLM_Config";
+        final String sentenceBuilderArg = args.length > 6 ? args[6] : "randomSentenceBuilder";
+
+        SentenceBuilder sentenceBuilder;
+        switch (sentenceBuilderArg) {
+            case "randomSentenceBuilder":
+                sentenceBuilder = new randomSentenceBuilder();
+                break;
+            case "perplexitySentenceBuilder":
+                sentenceBuilder = new perplexitySentenceBuilder();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown sentence builder: " + sentenceBuilderArg);
+        }
+
+         ConstraintBuilder cb;
+         switch (configArg) {
+             case "MNREAD_MLM_Config":
+                 cb = new MNREAD_MLM_Config();
+                 break;
+            case "CollieSent1_MLM_Config":
+                cb = new CollieSent1_MLM_Config();
+                break;
+            case "CollieSent2_MLM_Config":
+                cb = new CollieSent2_MLM_Config();
+                break;      
+            case "CollieSent3_MLM_Config":  
+                cb = new CollieSent3_MLM_Config();
+                break;
+            case "CollieSent4_MLM_Config":  
+                cb = new CollieSent4_MLM_Config();
+                break;
+             default:
+                 throw new IllegalArgumentException("Unknown config: " + configArg);
+         }
 
         long startTime = System.currentTimeMillis();
         try {
@@ -163,7 +130,7 @@ public class NLP_MLM_v2 {
         ObjectMapper objectMapper = new ObjectMapper();
         String initial_sentence = "And he had no idea what to do with the fact that she was in";
         try {
-            BufferedReader br = Files.newBufferedReader(Paths.get("IJCAI2023_EN_BENCH_SORTED"), StandardCharsets.UTF_8);
+            BufferedReader br = Files.newBufferedReader(Paths.get(cb.fileRef()), StandardCharsets.UTF_8);
             String line;
             int lineNumber = 0;
             while ((line = br.readLine()) != null) {
@@ -189,7 +156,6 @@ public class NLP_MLM_v2 {
         JsonNode jsonNode_init = objectMapper.readTree(response_init);
         double ppl_init = jsonNode_init.get("perplexity").asDouble();
         base_sentence.add(new ScoredSentence(initial_sentence, ppl_init));
-
 
 
 
@@ -244,6 +210,7 @@ public class NLP_MLM_v2 {
         }
 
         for (String w : base_sentence.get(0).getSentence().split(" ")) {
+            w= " "+ w;
             if (!words.contains(w)) {
                 words.add(w);
             }
@@ -298,16 +265,14 @@ public class NLP_MLM_v2 {
             lengthTokens[i]=charSum;
         }
 
-        ConstraintBuilder cb = new MNREAD_MLM_Config();
+
 
         final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).getSentence().split(" ").length;
         final int ORACLE_TOP_K = 10;
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
-        final int failureLimit = 10;
-
-        String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
+        final int solutionLimit = 5;
 
         System.out.println("Building model...");
         
@@ -320,36 +285,40 @@ public class NLP_MLM_v2 {
 
 
 
-        DFSearch dfs = makeDfs(cp, firstFailMaxMarginalValue(word_index));
+        DFSearch dfs = makeDfs(cp, maxMarginalStrength(word_index));
         int l=-1;
 
         String[] current_sentence= new String[1];
         String[] original_sentence= new String[1];
 
+        ArrayList<Pair<Double, Long>> best_perplexity_time = new ArrayList<>();
+        final Double[] bestPerplexity = new Double[] { Double.MAX_VALUE };
+
         dfs.onSolution(() -> {
             double perplexityScore = -1;
+            String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
             // build sentence from assigned word_index values
             String solution="";
+            int[] true_tokens = new int[word_index.length];
             for (int i = 0; i < word_index.length; i++) {
+                if(word_index[i].isBound()==false){
+                    throw new RuntimeException("Variable not assigned at solution for index "+i);
+                }
                 int assigned = word_index[i].min(); // value assigned at solution
-                solution += words.get(assigned);             
+                solution += words.get(assigned);
+                tokens_used[i] = words.get(assigned);
+                true_tokens[i] = assigned;
             }
-            current_sentence[0] = solution.trim();
-            if (!current_sentence[0].isEmpty() && Character.isLowerCase(current_sentence[0].charAt(0))) {
-                current_sentence[0] = Character.toUpperCase(current_sentence[0].charAt(0)) + current_sentence[0].substring(1);
-            }{
-                current_sentence[0] = Character.toUpperCase(current_sentence[0].charAt(0)) + current_sentence[0].substring(1);
+            solution = solution.trim();
+            if (!solution.isEmpty() && Character.isLowerCase(solution.charAt(0))) {
+                solution = solution.substring(0, 1).toUpperCase() + solution.substring(1);
             }
-            if (base_sentence.contains(current_sentence[0])) {
-                System.out.println("Duplicate sentence, skipping: " + current_sentence[0]);
-                return;
-            }
-            current_sentence[0] = current_sentence[0].endsWith("ERROR") ? current_sentence[0] : current_sentence[0] + ".";
-            //System.out.println("solution : " + current_sentence[0]);
+
+            solution += ".";
 
             HttpRequest request2 = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:" + port + "/mlm_tokenize"))
-                .POST(HttpRequest.BodyPublishers.ofString(current_sentence[0]))
+                .POST(HttpRequest.BodyPublishers.ofString(solution))
                 .build();
             String response2 = client.sendAsync(request2, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
             JsonNode jsonNode2 = null;
@@ -368,15 +337,10 @@ public class NLP_MLM_v2 {
                 tokens[j] = tokensArray.get(j).asInt();
             }
 
-
-
-            if(!current_sentence[0].contains("ERROR")){
-                if (current_sentence[0].endsWith(".")) {
-                    current_sentence[0] = current_sentence[0].substring(0, current_sentence[0].length() - 1);
-                }
+            if(!solution.contains("ERROR")){
                 HttpRequest request3 = HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:" + port + "/perplexity"))
-                    .POST(HttpRequest.BodyPublishers.ofString(current_sentence[0]))
+                    .POST(HttpRequest.BodyPublishers.ofString(solution))
                     .build();
                 String response3 = client.sendAsync(request3, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
                 JsonNode jsonNode3 = null;
@@ -389,16 +353,28 @@ public class NLP_MLM_v2 {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                if (solution.endsWith(".")) {
+                    solution = solution.substring(0, solution.length() - 1);
+                }
                 double ppl = jsonNode3.get("perplexity").asDouble();
-                ScoredSentence currentSentence = new ScoredSentence(current_sentence[0], ppl);
-                Logging new_log = new Logging(current_sentence[0], original_sentence[0], ppl, tokens, new String[tokens_used.length]);
-                if (!base_sentence.contains(currentSentence)) {
+                ScoredSentence currentSentence = new ScoredSentence(solution, ppl);
+                if (base_sentence.contains(currentSentence)) {
+                    System.out.println("Duplicate sentence, skipping: " + solution);
+                    return;
+                }
+
+                if (ppl < bestPerplexity[0]) {
+                    bestPerplexity[0] = ppl;
+                    best_perplexity_time.add(Pair.of(ppl, System.currentTimeMillis() - startTime));
+                }
+                if(ppl<= bestPerplexity[0]*2){
+                    Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used);
                     logs.add(new_log);
                     base_sentence.add(currentSentence);
                 }
             }
             else {
-                Logging new_log = new Logging(current_sentence[0], original_sentence[0], perplexityScore, tokens, new String[tokens_used.length]);
+                Logging new_log = new Logging(solution, original_sentence[0], perplexityScore, tokens, new String[tokens_used.length]);
                 logs.add(new_log);
             }
         });
@@ -406,8 +382,8 @@ public class NLP_MLM_v2 {
         while (l < NUM_ITERATIONS-1) {
             l++;
 
-            dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= failureLimit, () -> {
-                        current_sentence[0] = sentenceBuilder(base_sentence);
+            dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= solutionLimit, () -> {
+                        current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port);
                         original_sentence[0] = current_sentence[0];
 
                         System.out.println("Current sentence: " + current_sentence[0]);
@@ -527,13 +503,15 @@ public class NLP_MLM_v2 {
     result.put("num_pb", NUM_PB);
     result.put("weight", w);
     result.put("llm_name", llm_name);
-    result.put("base_sentence", base_sentence.get(0));
-    result.put("logs", logs);
+    result.put("config", configArg);
     result.put("date", java.time.LocalDateTime.now().toString());  
     result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
+    result.put("best_perplexity_evolution", best_perplexity_time);
+    result.put("base_sentence", base_sentence.get(0));
+    result.put("logs", logs);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result_NLP_MLM_v2_" + System.currentTimeMillis()  + ".json";
+    String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_" + System.currentTimeMillis()  + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
@@ -542,9 +520,12 @@ public class NLP_MLM_v2 {
             // Write error to output file
             String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result_NLP_MLM_v2_" + System.currentTimeMillis()  + "_error.json";
+            String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
+            errorResult.put("config", configArg);   
+            errorResult.put("date", java.time.LocalDateTime.now().toString());  
+            errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
             ObjectMapper errorMapper = new ObjectMapper();

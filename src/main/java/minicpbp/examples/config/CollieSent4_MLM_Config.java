@@ -5,7 +5,7 @@ import com.ibm.icu.impl.Pair;
 import minicpbp.cp.Factory;
 import minicpbp.engine.core.*;
 
-public class CollieSent4Config implements ConstraintBuilder {
+public class CollieSent4_MLM_Config implements ConstraintBuilder {
 
     final static private int MAX_WORDS = 20;
     final static private int MIN_WORDS = 5;
@@ -50,17 +50,7 @@ public class CollieSent4Config implements ConstraintBuilder {
         ctx.cp.post(Factory.atleast(ctx.word_index, idxWater, 1));
         ctx.cp.post(Factory.atleast(ctx.word_index, new int[]{idxSoft,idxBeach,idxWater}, 3));
 
-        ctx.cp.post(Factory.atmost(ctx.word_index, ctx.pad_token, MAX_WORDS-MIN_WORDS-1));
 
-        java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
-        int[][] A = new int[2][ctx.corpusDomains_size];
-        acceptedState.add(1);
-        acceptedState.add(0);
-        java.util.Arrays.fill(A[0], 0);
-        A[0][ctx.end_sentence] = 1;
-        java.util.Arrays.fill(A[1], -1);
-        A[1][ctx.pad_token] = 1;
-        ctx.cp.post(Factory.regular(ctx.word_index, A, 0, acceptedState));
     }
 
 
@@ -74,8 +64,7 @@ public class CollieSent4Config implements ConstraintBuilder {
 
     @Override
     public String fileRef() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fileRef'");
+        return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\result_CollieSent4Config_v3_1761225545879_sentences.txt";
     }
     
 }

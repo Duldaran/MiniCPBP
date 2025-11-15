@@ -1,0 +1,28 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 5,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "base_sentence" : {
+    "sentence" : "It made me wonder if it was going to be able to do the work",
+    "perplexity" : 12.056061744689941,
+    "weight" : 0.999999999618349
+  },
+  "logs" : [ {
+    "sentence" : "It made me wonder [MASK] it was [MASK] to be able to do the [MASK]",
+    "tokens" : [ 2051, 4581, 994, 4457, 5201, 2050, 1557, 4424, 2461, 1392, 4464, 2461, 3473, 394, 4352 ],
+    "perplexity" : 29.4052734375,
+    "tokens_used" : [ " It", " made", " me", " wonder", "it", " it", " was", " like", " to", " be", " able", " to", " do", " the", " dishes" ],
+    "original_sentence" : "It made me wonder [MASK] it was [MASK] to be able to do the [MASK]"
+  }, {
+    "sentence" : "It made me wonder if it was going [MASK] be [MASK] [MASK] do the work",
+    "tokens" : [ 2051, 4581, 994, 4457, 2108, 2050, 1557, 1996, 5201, 1392, 1404, 215, 3473, 394, 1348 ],
+    "perplexity" : 45.328857421875,
+    "tokens_used" : [ " It", " made", " me", " wonder", " if", " it", " was", " going", "it", " be", " easy", " and", " do", " the", " work" ],
+    "original_sentence" : "It made me wonder if it was going [MASK] be [MASK] [MASK] do the work"
+  } ],
+  "date" : "2025-11-12T17:07:10.882674500",
+  "time" : 34.069
+}

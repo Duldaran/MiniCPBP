@@ -174,6 +174,80 @@ def mlm_tokenize():
     except Exception as e:
         traceback.print_exc()
         return {"error": str(e)}, 500
+    
+@app.route('/mlm_perplexity', methods=['POST'])
+def mlm_perplexity():
+    try:
+        sentence = request.data.decode()
+
+        # Tokenize once (keep fast tokenizer encoding for word alignment)
+        encoded = mlm_tokenizer(sentence, return_tensors="pt", return_offsets_mapping=True)
+        input_ids = encoded["input_ids"].to(device)
+        attention_mask = encoded["attention_mask"].to(device)
+
+        tokens = mlm_tokenizer.convert_ids_to_tokens(input_ids[0].tolist())
+        special_ids = set(mlm_tokenizer.all_special_ids)
+        mask_token_id = mlm_tokenizer.mask_token_id
+
+        # Map tokens to word indices (fast tokenizer)
+        enc0 = encoded.encodings[0] if hasattr(encoded, "encodings") and encoded.encodings else None
+        word_ids = enc0.word_ids() if enc0 is not None else [None] * input_ids.shape[1]
+        offsets = enc0.offsets if enc0 is not None else [(0, 0)] * input_ids.shape[1]
+
+        token_probs = []
+        word_products = {}
+
+        with torch.no_grad():
+            seq_len = input_ids.shape[1]
+            for pos in range(seq_len):
+                orig_id = int(input_ids[0, pos].item())
+                if orig_id in special_ids:
+                    continue
+
+                masked_ids = input_ids.clone()
+                masked_ids[0, pos] = mask_token_id
+
+                outputs = mlm_model(input_ids=masked_ids, attention_mask=attention_mask)
+                logits = outputs.logits[0, pos]
+                prob = torch.softmax(logits, dim=-1)[orig_id].item()
+
+                wid = word_ids[pos]
+                token_probs.append({
+                    "index": pos,
+                    "token": tokens[pos],
+                    "prob": prob,
+                    "word_id": wid
+                })
+                if wid is not None:
+                    # Product of sub-token probabilities for the word
+                    word_products[wid] = word_products.get(wid, 1.0) * max(prob, 1e-12)
+
+        # Extract word texts from offsets
+        word_info = {}
+        for pos, wid in enumerate(word_ids):
+            if wid is None:
+                continue
+            s, e = offsets[pos]
+            if wid not in word_info:
+                word_info[wid] = [s, e]
+            else:
+                word_info[wid][0] = min(word_info[wid][0], s)
+                word_info[wid][1] = max(word_info[wid][1], e)
+
+        word_probs = []
+        for wid in sorted(word_products.keys()):
+            s, e = word_info.get(wid, (0, 0))
+            word_text = sentence[s:e] if e > s else ""
+            word_probs.append({
+                "word_id": wid,
+                "word": word_text,
+                "prob": word_products[wid]
+            })
+
+        return {"tokens": tokens, "token_probs": token_probs, "word_probs": word_probs}, 200
+    except Exception as e:
+        traceback.print_exc()
+        return {"error": str(e)}, 500
 
 if __name__ == '__main__':
     print("Starting server...")
