@@ -147,7 +147,7 @@ public class NLP_MLM_v2_2 {
 
         HttpRequest request_init = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:" + port + "/perplexity"))
-            .POST(HttpRequest.BodyPublishers.ofString(initial_sentence))
+            .POST(HttpRequest.BodyPublishers.ofString(initial_sentence+"."))
             .build();
         String response_init = client.sendAsync(request_init, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
         JsonNode jsonNode_init = objectMapper.readTree(response_init);
@@ -505,6 +505,7 @@ public class NLP_MLM_v2_2 {
     result.put("weight", w);
     result.put("llm_name", llm_name);
     result.put("config", configArg);
+    result.put("sentence_builder", sentenceBuilderArg);
     result.put("date", java.time.LocalDateTime.now().toString());  
     result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
     result.put("best_perplexity_evolution", best_perplexity_time);
@@ -524,7 +525,8 @@ public class NLP_MLM_v2_2 {
             String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_2_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
-            errorResult.put("config", configArg);   
+            errorResult.put("config", configArg);  
+            errorResult.put("sentence_builder", sentenceBuilderArg);
             errorResult.put("date", java.time.LocalDateTime.now().toString());  
             errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
             errorResult.put("error_message", e.getMessage());

@@ -3,6 +3,7 @@ package minicpbp.examples.config;
 import com.ibm.icu.impl.Pair;
 
 import minicpbp.cp.Factory;
+import minicpbp.engine.core.IntVar;
 
 public class MNREADConfig implements ConstraintBuilder {
     final static private int NUMBER_CHAR = 60; // Verify if you need to count the spaces at the beginning of line + No period at the end
@@ -99,6 +100,12 @@ public class MNREADConfig implements ConstraintBuilder {
     public String fileRef() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'fileRef'");
+    }
+
+    @Override
+    public Boolean isValid() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isValid'");
     }
     
 }

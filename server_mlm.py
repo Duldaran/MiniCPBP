@@ -191,11 +191,12 @@ def mlm_perplexity():
 
         # Map tokens to word indices (fast tokenizer)
         enc0 = encoded.encodings[0] if hasattr(encoded, "encodings") and encoded.encodings else None
-        word_ids = enc0.word_ids() if enc0 is not None else [None] * input_ids.shape[1]
+        word_ids = enc0.word_ids if enc0 is not None else [None] * input_ids.shape[1]
         offsets = enc0.offsets if enc0 is not None else [(0, 0)] * input_ids.shape[1]
 
         token_probs = []
         word_products = {}
+        word_token_counts = {}
 
         with torch.no_grad():
             seq_len = input_ids.shape[1]
@@ -221,6 +222,7 @@ def mlm_perplexity():
                 if wid is not None:
                     # Product of sub-token probabilities for the word
                     word_products[wid] = word_products.get(wid, 1.0) * max(prob, 1e-12)
+                    word_token_counts[wid] = word_token_counts.get(wid, 0) + 1  # ← Count tokens
 
         # Extract word texts from offsets
         word_info = {}
@@ -238,10 +240,14 @@ def mlm_perplexity():
         for wid in sorted(word_products.keys()):
             s, e = word_info.get(wid, (0, 0))
             word_text = sentence[s:e] if e > s else ""
+            
+            token_count = word_token_counts[wid]
+            geometric_mean_prob = word_products[wid] ** (1.0 / token_count)
+            
             word_probs.append({
                 "word_id": wid,
                 "word": word_text,
-                "prob": word_products[wid]
+                "prob": geometric_mean_prob
             })
 
         return {"tokens": tokens, "token_probs": token_probs, "word_probs": word_probs}, 200

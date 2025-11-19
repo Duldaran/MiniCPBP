@@ -150,7 +150,7 @@ public class NLP_MLM_v2 {
 
         HttpRequest request_init = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:" + port + "/perplexity"))
-            .POST(HttpRequest.BodyPublishers.ofString(initial_sentence))
+            .POST(HttpRequest.BodyPublishers.ofString(initial_sentence+"."))
             .build();
         String response_init = client.sendAsync(request_init, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
         JsonNode jsonNode_init = objectMapper.readTree(response_init);
@@ -279,20 +279,30 @@ public class NLP_MLM_v2 {
         Solver cp = makeSolver();
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-        cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words));
+        IntVar[] line = makeIntVarArray(cp, word_index.length, 0, 3 - 1);
+        cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
         Random rand = new Random();
 
 
 
-        DFSearch dfs = makeDfs(cp, maxMarginalStrength(word_index));
-        int l=-1;
+
+
+        IntVar[] allVars = new IntVar[word_index.length + line.length];
+        System.arraycopy(word_index, 0, allVars, 0, word_index.length);
+        System.arraycopy(line, 0, allVars, word_index.length, line.length);
+        DFSearch dfs = makeDfs(cp, maxMarginalStrength(allVars));
+        final int[] l = new int[]{-1};
 
         String[] current_sentence= new String[1];
         String[] original_sentence= new String[1];
 
-        ArrayList<Pair<Double, Long>> best_perplexity_time = new ArrayList<>();
+
+        ArrayList<CycleScoredSentence> best_perplexity_time = new ArrayList<>();
         final Double[] bestPerplexity = new Double[] { Double.MAX_VALUE };
+
+        
+        ArrayList<ScoredSentence> candidateSentences = new ArrayList<>();
 
         dfs.onSolution(() -> {
             double perplexityScore = -1;
@@ -337,6 +347,7 @@ public class NLP_MLM_v2 {
                 tokens[j] = tokensArray.get(j).asInt();
             }
 
+
             if(!solution.contains("ERROR")){
                 HttpRequest request3 = HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:" + port + "/perplexity"))
@@ -358,20 +369,39 @@ public class NLP_MLM_v2 {
                 }
                 double ppl = jsonNode3.get("perplexity").asDouble();
                 ScoredSentence currentSentence = new ScoredSentence(solution, ppl);
+                System.out.println("Solution found: " + solution + " with perplexity " + ppl);
                 if (base_sentence.contains(currentSentence)) {
                     System.out.println("Duplicate sentence, skipping: " + solution);
                     return;
                 }
 
-                if (ppl < bestPerplexity[0]) {
-                    bestPerplexity[0] = ppl;
-                    best_perplexity_time.add(Pair.of(ppl, System.currentTimeMillis() - startTime));
+                
+                if(configArg.equals("MNREAD_MLM_Config") ){ 
+                    System.out.println(word_index[0]);
+                    if (cb.isValid()) {
+                        if (ppl < bestPerplexity[0]) {
+                            bestPerplexity[0] = ppl;
+                            best_perplexity_time.add(new CycleScoredSentence(solution, ppl, System.currentTimeMillis() - startTime, l[0]));
+                        }
+                        Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used);
+                        logs.add(new_log);
+                        
+                    } 
+                    base_sentence.add(currentSentence);
+                    candidateSentences.add(currentSentence);
+                    return;
                 }
-                if(ppl<= bestPerplexity[0]*2){
+                else {
+                    if (ppl < bestPerplexity[0]) {
+                        bestPerplexity[0] = ppl;
+                        best_perplexity_time.add(new CycleScoredSentence(solution, ppl, System.currentTimeMillis() - startTime, l[0]));
+                    }
                     Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used);
                     logs.add(new_log);
                     base_sentence.add(currentSentence);
+                    candidateSentences.add(currentSentence);
                 }
+
             }
             else {
                 Logging new_log = new Logging(solution, original_sentence[0], perplexityScore, tokens, new String[tokens_used.length]);
@@ -379,12 +409,16 @@ public class NLP_MLM_v2 {
             }
         });
 
-        while (l < NUM_ITERATIONS-1) {
-            l++;
+        while (l[0] < NUM_ITERATIONS-1) {
+            l[0]++;
 
-            dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= solutionLimit, () -> {
-                        current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port);
+            dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= solutionLimit || statistics.numberOfFailures() >= solutionLimit, () -> {
+                        if (candidateSentences.isEmpty()) {
+                            candidateSentences.add(base_sentence.get(base_sentence.size() - 1));
+                        }
+                        current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port);
                         original_sentence[0] = current_sentence[0];
+                        candidateSentences.clear();
 
                         System.out.println("Current sentence: " + current_sentence[0]);
 
@@ -403,6 +437,10 @@ public class NLP_MLM_v2 {
                                 masked_indexs.add(idx);
                             }
                         }
+
+                        IntVar[] masked_word_probability = makeIntVarArray(cp, masked_indexs.size(), 0, 100);
+                        IntVar lower_bound = makeIntVar(cp, 20* masked_indexs.size(), 100* masked_indexs.size());
+                        cp.post(Factory.sum(masked_word_probability, lower_bound));
                         
                         HttpRequest request = HttpRequest.newBuilder()
                             .uri(URI.create("http://localhost:" + port + "/mlm"))
@@ -424,7 +462,7 @@ public class NLP_MLM_v2 {
                         }
                         ObjectNode  maskedTokens = (ObjectNode) jsonNode;
                         System.out.println("Masked tokens found: " + maskedTokens.size());
-
+                        int i=0;
                         for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
                             String fieldName = it.next();
                             JsonNode tok = maskedTokens.get(fieldName);
@@ -484,6 +522,14 @@ public class NLP_MLM_v2 {
 
                             c.setWeight(w);
                             cp.post(c);
+
+                            int[] percentage = new int[scores.length];
+                            for (int j = 0; j < scores.length; j++) {
+                                percentage[j] = (int) (scores[j] * 100);
+                            }
+                            cp.post(Factory.element(percentage,word_index[z], masked_word_probability[i]));
+                            i++;
+
                         }                                                       
                     }
             );
@@ -504,6 +550,7 @@ public class NLP_MLM_v2 {
     result.put("weight", w);
     result.put("llm_name", llm_name);
     result.put("config", configArg);
+    result.put("sentence_builder", sentenceBuilderArg);
     result.put("date", java.time.LocalDateTime.now().toString());  
     result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
     result.put("best_perplexity_evolution", best_perplexity_time);
@@ -523,7 +570,8 @@ public class NLP_MLM_v2 {
             String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
-            errorResult.put("config", configArg);   
+            errorResult.put("config", configArg);
+            errorResult.put("sentence_builder", sentenceBuilderArg);
             errorResult.put("date", java.time.LocalDateTime.now().toString());  
             errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
             errorResult.put("error_message", e.getMessage());
@@ -559,5 +607,6 @@ public class NLP_MLM_v2 {
         }
     }
 }
-    
+
+
 

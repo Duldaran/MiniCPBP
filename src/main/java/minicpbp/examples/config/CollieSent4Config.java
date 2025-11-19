@@ -77,5 +77,13 @@ public class CollieSent4Config implements ConstraintBuilder {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'fileRef'");
     }
+
+
+
+    @Override
+    public Boolean isValid() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isValid'");
+    }
     
 }

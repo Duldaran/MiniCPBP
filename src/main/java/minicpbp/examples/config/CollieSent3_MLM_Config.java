@@ -44,5 +44,13 @@ public class CollieSent3_MLM_Config implements ConstraintBuilder {
     public String fileRef() {
         return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\result_CollieSent3Config_v3_1761223994666_sentences.txt";
     }
+
+
+
+    @Override
+    public Boolean isValid() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isValid'");
+    }
     
 }

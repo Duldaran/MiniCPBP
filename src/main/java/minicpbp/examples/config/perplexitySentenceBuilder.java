@@ -44,11 +44,8 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
             ex.printStackTrace();
         }
         Set<Integer> maskIndices = new HashSet<>();
-        int i = 0;
-        while (maskIndices.size() < numMasks) {
-            maskIndices.add(leastToMostProbWords.get(i).first);
-            i++;
-        }
+        maskIndices.addAll(selectIndexByProbability(leastToMostProbWords, rand, numMasks));
+
         System.out.println("Masking indices: " + maskIndices);
         for (int idx : maskIndices) {
             words[idx] = mask_string;
@@ -83,6 +80,35 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         
         // Fallback (shouldn't reach here due to normalization)
         return sentences.get(sentences.size() - 1);
+    }
+
+    private static Set<Integer> selectIndexByProbability(List<Pair<Integer, Double>> probList, Random random, int numMask) {
+        if (probList.isEmpty()) return new HashSet<>();
+        
+        double totalProb = 0.0;
+        for (Pair<Integer, Double> pair : probList) {
+            totalProb += pair.second; 
+        }
+        
+        Set<Integer> selectedIndices = new HashSet<>();
+        
+        while (selectedIndices.size() < numMask && selectedIndices.size() < probList.size()) {
+            double randomValue = random.nextDouble() * totalProb;
+            double cumulativeProb = 0.0;
+            
+            for (int i = 0; i < probList.size(); i++) {
+                if (selectedIndices.contains(i)) continue;
+                
+                cumulativeProb += 1.0 - probList.get(i).second;
+                if (randomValue <= cumulativeProb) {
+                    selectedIndices.add(i);
+                    totalProb -= probList.get(i).second;
+                    break;
+                }
+            }
+        }
+        
+        return selectedIndices;
     }
     
 }

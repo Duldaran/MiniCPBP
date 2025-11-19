@@ -3,6 +3,7 @@ package minicpbp.examples.config;
 import com.ibm.icu.impl.Pair;
 
 import minicpbp.cp.Factory;
+import minicpbp.engine.core.IntVar;
 
 public class MNREAD_MLM_Config implements ConstraintBuilder {
     final static private int NUMBER_CHAR = 60; // Verify if you need to count the spaces at the beginning of line + No period at the end
@@ -10,9 +11,11 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
     final static private int SPACE_SIZE =512;
     final static private int MIN_SPACE_SIZE =410;
     final static private int MAX_SPACE_SIZE =640;
-    final static private int MAX_NUMBER_SPACE = 5;
+    final static private int MAX_NUMBER_SPACE = 4;
     final static private int MIN_NUMBER_WORD = 9;
     final static private int MAX_NUMBER_WORD = 15;
+    IntVar[] lines;
+    IntVar[] sizes;
 
     @Override
     public String getInstruction() {
@@ -51,7 +54,8 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
 
         // lines and packing
         int nbLines = 3;
-        minicpbp.engine.core.IntVar[] line = minicpbp.cp.Factory.makeIntVarArray(ctx.cp, sizes.length, 0, nbLines - 1);
+        //minicpbp.engine.core.IntVar[] line = minicpbp.cp.Factory.makeIntVarArray(ctx.cp, sizes.length, 0, nbLines - 1);
+        minicpbp.engine.core.IntVar[] line = ctx.line;
         for (int i = 0; i < line.length; i++)
             line[i].setName("line[" + i + "]");
 
@@ -75,6 +79,9 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
 
         ctx.cp.post(minicpbp.cp.Factory.binPacking(line, sizes, lineSize));
 
+        this.lines = line;
+        this.sizes = sizes;
+
 
     }
 
@@ -85,6 +92,44 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
 
     public String fileRef() {
         return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\IJCAI2023_EN_BENCH_SORTED.txt";
+    }
+
+    @Override
+    public Boolean isValid() {
+        IntVar[] line = this.lines;
+        IntVar[] sizes = this.sizes;
+        int totalSize1 = 0, totalSize2 = 0, totalSize3 = 0;
+        int numWords1 = 0, numWords2 = 0, numWords3 = 0;
+        for (int i = 0; i < sizes.length; i++) {
+            System.out.println("Line var: " + line[i] + ", size var: " + sizes[i]);
+            if(!line[i].isBound() || !sizes[i].isBound()) System.out.println("Line or size variable is not bound");
+            if (line[i].valueWithMaxMarginal() == 0) {
+                totalSize1 += sizes[i].valueWithMaxMarginal();
+                numWords1++;
+            } else if (line[i].valueWithMaxMarginal() == 1) {
+                totalSize2 += sizes[i].valueWithMaxMarginal();
+                numWords2++;
+            } else if (line[i].valueWithMaxMarginal() == 2) {
+                totalSize3 += sizes[i].valueWithMaxMarginal();
+                numWords3++;
+            }
+        }
+        if(LINE_SIZE > totalSize1 - SPACE_SIZE + (numWords1-1) * (MAX_SPACE_SIZE - SPACE_SIZE)  ||
+           LINE_SIZE < totalSize1 - SPACE_SIZE + (numWords1-1) * (MIN_SPACE_SIZE - SPACE_SIZE)) {
+            System.out.println("Invalid line 1: totalSize=" + totalSize1 + ", numWords=" + numWords1);
+            return false;
+        }
+        if(LINE_SIZE > totalSize2 - SPACE_SIZE + (numWords2-1) * (MAX_SPACE_SIZE - SPACE_SIZE)  ||
+           LINE_SIZE < totalSize2 - SPACE_SIZE + (numWords2-1) * (MIN_SPACE_SIZE - SPACE_SIZE)) {
+            System.out.println("Invalid line 2: totalSize=" + totalSize2 + ", numWords=" + numWords2);
+            return false;
+        }
+        if(LINE_SIZE > totalSize3 - SPACE_SIZE + (numWords3-1) * (MAX_SPACE_SIZE - SPACE_SIZE)  ||
+           LINE_SIZE < totalSize3 - SPACE_SIZE + (numWords3-1) * (MIN_SPACE_SIZE - SPACE_SIZE)) {
+            System.out.println("Invalid line 3: totalSize=" + totalSize3 + ", numWords=" + numWords3);
+            return false;
+        }
+        return true;
     }
     
 }
