@@ -377,16 +377,19 @@ public class NLP_MLM_v2 {
 
                 
                 if(configArg.equals("MNREAD_MLM_Config") ){ 
-                    System.out.println(word_index[0]);
+                    if (ppl > bestPerplexity[0]*2) {
+                        return;
+                    }
                     if (cb.isValid()) {
                         if (ppl < bestPerplexity[0]) {
                             bestPerplexity[0] = ppl;
                             best_perplexity_time.add(new CycleScoredSentence(solution, ppl, System.currentTimeMillis() - startTime, l[0]));
                         }
-                        Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used);
+                        Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
                         logs.add(new_log);
                         
                     } 
+                    
                     base_sentence.add(currentSentence);
                     candidateSentences.add(currentSentence);
                     return;
@@ -396,15 +399,17 @@ public class NLP_MLM_v2 {
                         bestPerplexity[0] = ppl;
                         best_perplexity_time.add(new CycleScoredSentence(solution, ppl, System.currentTimeMillis() - startTime, l[0]));
                     }
-                    Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used);
-                    logs.add(new_log);
-                    base_sentence.add(currentSentence);
-                    candidateSentences.add(currentSentence);
+                    if (ppl < bestPerplexity[0]*2) {
+                        Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
+                        logs.add(new_log);
+                        base_sentence.add(currentSentence);
+                        candidateSentences.add(currentSentence);
+                    }
                 }
 
             }
             else {
-                Logging new_log = new Logging(solution, original_sentence[0], perplexityScore, tokens, new String[tokens_used.length]);
+                Logging new_log = new Logging(solution, original_sentence[0], perplexityScore, tokens, new String[tokens_used.length], System.currentTimeMillis() - startTime);
                 logs.add(new_log);
             }
         });
@@ -438,9 +443,6 @@ public class NLP_MLM_v2 {
                             }
                         }
 
-                        IntVar[] masked_word_probability = makeIntVarArray(cp, masked_indexs.size(), 0, 100);
-                        IntVar lower_bound = makeIntVar(cp, 20* masked_indexs.size(), 100* masked_indexs.size());
-                        cp.post(Factory.sum(masked_word_probability, lower_bound));
                         
                         HttpRequest request = HttpRequest.newBuilder()
                             .uri(URI.create("http://localhost:" + port + "/mlm"))
@@ -523,12 +525,6 @@ public class NLP_MLM_v2 {
                             c.setWeight(w);
                             cp.post(c);
 
-                            int[] percentage = new int[scores.length];
-                            for (int j = 0; j < scores.length; j++) {
-                                percentage[j] = (int) (scores[j] * 100);
-                            }
-                            cp.post(Factory.element(percentage,word_index[z], masked_word_probability[i]));
-                            i++;
 
                         }                                                       
                     }
@@ -550,6 +546,7 @@ public class NLP_MLM_v2 {
     result.put("weight", w);
     result.put("llm_name", llm_name);
     result.put("config", configArg);
+    result.put("seed", seed);
     result.put("sentence_builder", sentenceBuilderArg);
     result.put("date", java.time.LocalDateTime.now().toString());  
     result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
@@ -572,6 +569,7 @@ public class NLP_MLM_v2 {
             errorResult.put("status", "error");
             errorResult.put("config", configArg);
             errorResult.put("sentence_builder", sentenceBuilderArg);
+            errorResult.put("seed", seed);  
             errorResult.put("date", java.time.LocalDateTime.now().toString());  
             errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
             errorResult.put("error_message", e.getMessage());
@@ -594,16 +592,18 @@ public class NLP_MLM_v2 {
         public double perplexity;
         public String[] tokens_used;
         public String original_sentence;
+        public long timestamp;
 
         public Logging() {
         }
 
-        public Logging(String sentence, String original_sentence, double perplexityScore, int[] tokens, String[] tokens_used) {
+        public Logging(String sentence, String original_sentence, double perplexityScore, int[] tokens, String[] tokens_used, long timestamp) {
             this.sentence = sentence;
             this.original_sentence = original_sentence;
             this.perplexity = perplexityScore;
             this.tokens = tokens;
             this.tokens_used = tokens_used;
+            this.timestamp = timestamp;
         }
     }
 }

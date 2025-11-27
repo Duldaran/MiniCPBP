@@ -263,8 +263,8 @@ public class NLP_v5 {
         Solver cp = makeSolver();
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
 
-        
-        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words));
+        IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);        
+        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words, line));
         
         double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
         System.out.println("Initialization time (s): " + initTime);

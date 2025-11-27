@@ -26,7 +26,19 @@ public class Production {
     int length;
     int[] right;		// There are "length" elements in this vector
 
+    // Should be removed in the future to ensure the safer constructors are used
     public Production() {}
+
+    public Production(int left, int[] right) {
+        this.length = right.length;
+        this.left = left;
+        this.right = right;
+    }
+
+    public Production(int length) {
+        this.length = length;
+    }
+
     public int left() {return left;}
 
     public int length() {return length;}

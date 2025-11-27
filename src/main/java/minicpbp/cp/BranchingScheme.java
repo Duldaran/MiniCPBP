@@ -18,6 +18,7 @@
 
 package minicpbp.cp;
 
+import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
 import minicpbp.engine.core.Solver.ConstraintWeighingScheme;
@@ -30,6 +31,24 @@ import minicpbp.util.exception.NotImplementedException;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.ibm.icu.impl.Pair;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import static minicpbp.cp.Factory.*;
@@ -827,6 +846,228 @@ public final class BranchingScheme {
                             if (tracing)
                                 System.out.println("### branching on " + xs.getName() + "!=" + v);
                             branchNotEqual(xs, v);
+                        });
+            }
+        };
+    }
+
+
+    public static Supplier<Procedure[]> maxMarginalStrengthWithOracle(IntVar[] x, int port, IntVar[] word_index, String[] current_sentence, Map<Integer, List<Integer>> corpusDomainsSet, List<Integer> corpusDomains, double w, int ORACLE_TOP_K, ArrayList<String> words) {
+        boolean tracing = x[0].getSolver().tracingSearch();
+        Belief beliefRep = x[0].getSolver().getBeliefRep();
+        for(IntVar a: x)
+            a.setForBranching(true);
+        if(x[0].getSolver().getWeighingScheme() == ConstraintWeighingScheme.ARITY)
+            x[0].getSolver().computeMinArity();
+        return () -> {
+            IntVar xs = selectMin(x,
+                    xi -> xi.size() > 1,
+                    xi -> 1.0 / xi.size() - beliefRep.rep2std(xi.maxMarginal()));
+            if (xs == null)
+                return EMPTY;
+            else {
+                int v = xs.valueWithMaxMarginal();
+                return branch(
+                        () -> {
+                            if (tracing)
+                                System.out.println("### branching on " + xs.getName() + "=" + v + "; marginal=" + beliefRep.rep2std(xs.maxMarginal()) + "; strength=" + (beliefRep.rep2std(xs.maxMarginal()) - 1.0 / xs.size()));
+                            branchEqual(xs, v);
+                            Iterator<Constraint> iteratorC = x[0].getSolver().getConstraints().iterator();
+                            while (iteratorC.hasNext()) {
+                                Constraint c = iteratorC.next();
+                                if (c.getName().equals("Oracle")) {
+                                    c.setActive(false);
+                                }
+                            }
+                            
+                            String[] split_sentence = current_sentence[0].split(" ");
+                            int index =-1;
+                            for(int i =0; i < word_index.length; i++) 
+                                if (word_index[i].getName().equals(xs.getName()))
+                                    index = i;
+                            if (index == -1) {
+                                System.out.println("Error: could not find index for variable " + xs.getName());
+                                return;
+                            }
+                            split_sentence[index] = words.get(v);
+                            current_sentence[0] = String.join(" ", split_sentence);
+                            
+                            HttpClient client = HttpClient.newHttpClient(); 
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            HttpRequest request = HttpRequest.newBuilder()
+                                .uri(URI.create("http://localhost:" + port + "/mlm"))
+                                .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
+                                .build();
+                            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+                            System.out.println("Response: Received");
+
+                            JsonNode jsonNode = null;
+                            try {
+                                jsonNode = objectMapper.readTree(response);
+                            } catch (JsonMappingException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            } catch (JsonProcessingException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+                            System.out.println("Masked tokens found: " + maskedTokens.size());
+                            int i=0;
+                            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                                String fieldName = it.next();
+                                JsonNode tok = maskedTokens.get(fieldName);
+                                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                                int z = tok.get("mask_word_position").asInt();
+                                ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                                for (int idx = 0; idx < probsNode.size(); idx++) {
+                                    try {
+                                    double prob = probsNode.get(idx).asDouble();
+                                    int token = tokensNode.get(idx).asInt();
+                                    if (!corpusDomainsSet.containsKey(token)) continue;
+                                    if (prob < 0) continue;
+
+                                    Pair<Integer, Double> tuple = Pair.of(token, prob);
+                                    tokenScoreList.add(tuple);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                int[] tokens = new int[corpusDomains.size()];
+                                double[] scores = new double[corpusDomains.size()];
+
+                                double total_score = 0;
+                
+
+                                tokenScoreList.sort((a, b) -> Double.compare(
+                                    b.second, a.second
+                                ));
+
+
+                                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                                for (int k = 0; k < limit; k++) {
+                                    int token = tokenScoreList.get(k).first;
+                                    double score = tokenScoreList.get(k).second;
+                                    int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                                    for (int token_index : token_indexes) {
+                                        tokens[token_index] = token_index;
+                                        scores[token_index] = score;
+                                        total_score += score;
+                                    }
+                                }
+                                for (int j=0; j<tokens.length; j++) {
+                                    double score=scores[j];
+                                    if (score > 0) {
+                                        score /= total_score;
+                                    }
+                                }
+
+                                Constraint c = Factory.oracle(word_index[z], tokens, scores);
+
+                                c.setWeight(w);
+                                x[0].getSolver().post(c);
+
+
+                            }   
+                        },
+                        () -> {
+                            if (tracing)
+                                System.out.println("### branching on " + xs.getName() + "!=" + v);
+                            branchNotEqual(xs, v);
+                            Iterator<Constraint> iteratorC = x[0].getSolver().getConstraints().iterator();
+                            while (iteratorC.hasNext()) {
+                                Constraint c = iteratorC.next();
+                                if (c.getName().equals("Oracle")) {
+                                    c.setActive(false);
+                                }
+                            }
+                            HttpClient client = HttpClient.newHttpClient(); 
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            HttpRequest request = HttpRequest.newBuilder()
+                                .uri(URI.create("http://localhost:" + port + "/mlm"))
+                                .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
+                                .build();
+                            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+                            System.out.println("Response: Received");
+
+                            JsonNode jsonNode = null;
+                            try {
+                                jsonNode = objectMapper.readTree(response);
+                            } catch (JsonMappingException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            } catch (JsonProcessingException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+                            System.out.println("Masked tokens found: " + maskedTokens.size());
+                            int i=0;
+                            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                                String fieldName = it.next();
+                                JsonNode tok = maskedTokens.get(fieldName);
+                                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                                int z = tok.get("mask_word_position").asInt();
+                                ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                                for (int idx = 0; idx < probsNode.size(); idx++) {
+                                    try {
+                                    double prob = probsNode.get(idx).asDouble();
+                                    int token = tokensNode.get(idx).asInt();
+                                    if (!corpusDomainsSet.containsKey(token)) continue;
+                                    if (prob < 0) continue;
+
+                                    Pair<Integer, Double> tuple = Pair.of(token, prob);
+                                    tokenScoreList.add(tuple);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                int[] tokens = new int[corpusDomains.size()];
+                                double[] scores = new double[corpusDomains.size()];
+
+                                double total_score = 0;
+                
+
+                                tokenScoreList.sort((a, b) -> Double.compare(
+                                    b.second, a.second
+                                ));
+
+
+                                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                                for (int k = 0; k < limit; k++) {
+                                    int token = tokenScoreList.get(k).first;
+                                    double score = tokenScoreList.get(k).second;
+                                    int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                                    for (int token_index : token_indexes) {
+                                        tokens[token_index] = token_index;
+                                        scores[token_index] = score;
+                                        total_score += score;
+                                    }
+                                }
+                                for (int j=0; j<tokens.length; j++) {
+                                    double score=scores[j];
+                                    if (score > 0) {
+                                        score /= total_score;
+                                    }
+                                }
+
+                                Constraint c = Factory.oracle(word_index[z], tokens, scores);
+
+                                c.setWeight(w);
+                                x[0].getSolver().post(c);
+
+
+                            }
                         });
             }
         };

@@ -87,7 +87,7 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         
         double totalProb = 0.0;
         for (Pair<Integer, Double> pair : probList) {
-            totalProb += pair.second; 
+            totalProb += (1-pair.second); 
         }
         
         Set<Integer> selectedIndices = new HashSet<>();

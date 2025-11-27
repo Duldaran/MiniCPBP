@@ -278,7 +278,8 @@ public class NLP_MLM_v2_2 {
         Solver cp = makeSolver();
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-        cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words));
+        IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);
+        cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
         IntVar perplexityVar = makeIntVar(cp,0, 1000);
         Objective objectif = cp.maximize(perplexityVar);
 

@@ -287,8 +287,8 @@ public class NLP_v3 {
         sm.saveState();
         String instruction = cb.getInstruction();
 
-        
-        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words));
+        IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);
+        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words, line));
         
 
 
