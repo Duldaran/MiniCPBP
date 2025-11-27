@@ -871,7 +871,6 @@ public final class BranchingScheme {
                         () -> {
                             if (tracing)
                                 System.out.println("### branching on " + xs.getName() + "=" + v + "; marginal=" + beliefRep.rep2std(xs.maxMarginal()) + "; strength=" + (beliefRep.rep2std(xs.maxMarginal()) - 1.0 / xs.size()));
-                            branchEqual(xs, v);
                             Iterator<Constraint> iteratorC = x[0].getSolver().getConstraints().iterator();
                             while (iteratorC.hasNext()) {
                                 Constraint c = iteratorC.next();
@@ -971,14 +970,12 @@ public final class BranchingScheme {
 
                                 c.setWeight(w);
                                 x[0].getSolver().post(c);
-
-
                             }   
+                            branchEqual(xs, v);
                         },
                         () -> {
                             if (tracing)
                                 System.out.println("### branching on " + xs.getName() + "!=" + v);
-                            branchNotEqual(xs, v);
                             Iterator<Constraint> iteratorC = x[0].getSolver().getConstraints().iterator();
                             while (iteratorC.hasNext()) {
                                 Constraint c = iteratorC.next();
@@ -1065,9 +1062,8 @@ public final class BranchingScheme {
 
                                 c.setWeight(w);
                                 x[0].getSolver().post(c);
-
-
                             }
+                            branchNotEqual(xs, v);
                         });
             }
         };

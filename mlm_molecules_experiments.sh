@@ -8,7 +8,7 @@
 module load java/21.0.1
 export JAVA_TOOL_OPTIONS="-Xmx6g"
 
-python server_mlm.py &
+python server_molecules.py &
 SERVER_PID=$!
 
 sleep 30
@@ -20,7 +20,7 @@ TASK_CONFIG_LIST=("v1" "v2")
 SENTENCE_BUILDER_LIST=("random" "perplexity")
 
 # Maximum parallel jobs (CPU-bound, adjust based on available CPUs)
-MAX_PARALLEL=2
+MAX_PARALLEL=4
 
 # Counter for parallel jobs
 job_count=0
@@ -32,7 +32,7 @@ for seed in "${SEED_LIST[@]}"; do
             for sentenceBuilder in "${SENTENCE_BUILDER_LIST[@]}"; do
                 echo "Running experiments with seed: ${seed}, ref: ${ref}, taskConfig: ${taskConfig}, and sentenceBuilder: ${sentenceBuilder}"
                 
-                java -cp target/minicpbp-1.0.jar minicpbp.examples.molecules.TestGenOracle ${taskConfig} 1.2  output ${sentenceBuilder} ${seed} 100 ${ref}  &
+                java -cp target/minicpbp-1.0.jar minicpbp.examples.molecules.TestGenOracle ${taskConfig} 1.2  output ${sentenceBuilder} ${seed} 50 ${ref}  &
                 
                 job_count=$((job_count + 1))
                 

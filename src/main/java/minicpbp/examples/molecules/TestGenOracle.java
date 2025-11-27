@@ -48,7 +48,7 @@ import java.nio.file.Paths;
 public class TestGenOracle {
     static String TOKEN_ADDRESS = "http://localhost:5001/mlm";
     static String PPL_ADDRESS = "http://localhost:5001/perplexity";
-    static String FILE_PATH = "src\\main\\java\\minicpbp\\examples\\data\\Molecules\\moleculeCNF_v7.txt";
+    static String FILE_PATH = "src/main/java/minicpbp/examples/data/Molecules/moleculeCNF_v7.txt";
     static int WORD_LENGTH = 40;
     static int MIN_MOL_WEIGHT = 2500;
     static int MAX_MOL_WEIGHT = 2750;
@@ -85,10 +85,10 @@ public class TestGenOracle {
 
         switch(ref_file) {
             case "gpt":
-                ref_file = "src\\main\\java\\minicpbp\\examples\\data\\Molecules\\gpt_ref.txt";
+                ref_file = "src/main/java/minicpbp/examples/data/Molecules/gpt_ref.txt";
                 break;
             case "no_gpt":
-                ref_file = "src\\main\\java\\minicpbp\\examples\\data\\Molecules\\no_gpt_ref.txt";
+                ref_file = "src/main/java/minicpbp/examples/data/Molecules/no_gpt_ref.txt";
                 break;
             default:
                 System.out.println("Unrecognized reference file. The recognized files are: gpt and bert");

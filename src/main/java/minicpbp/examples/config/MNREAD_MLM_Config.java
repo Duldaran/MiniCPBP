@@ -91,7 +91,7 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
     }
 
     public String fileRef() {
-        return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\IJCAI2023_EN_BENCH_SORTED.txt";
+        return "src/main/java/minicpbp/examples/config/files_references/IJCAI2023_EN_BENCH_SORTED.txt";
     }
 
     @Override

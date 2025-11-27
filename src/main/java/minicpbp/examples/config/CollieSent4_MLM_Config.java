@@ -64,7 +64,7 @@ public class CollieSent4_MLM_Config implements ConstraintBuilder {
 
     @Override
     public String fileRef() {
-        return "src\\main\\java\\minicpbp\\examples\\config\\files_references\\result_CollieSent4Config_v3_1761225545879_sentences.txt";
+        return "src/main/java/minicpbp/examples/config/files_references/result_CollieSent4Config_v3_1761225545879_sentences.txt";
     }
 
 

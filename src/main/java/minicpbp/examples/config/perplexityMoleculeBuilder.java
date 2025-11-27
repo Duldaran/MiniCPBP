@@ -53,7 +53,6 @@ public class perplexityMoleculeBuilder implements MoleculeBuilder {
         } catch (Exception ex) {
             ex.printStackTrace();
             // Fallback to random masking if perplexity request fails
-            System.err.println("Failed to get character perplexities, using random masking");
             throw new RuntimeException("Failed to get character perplexities", ex);
         }
         
