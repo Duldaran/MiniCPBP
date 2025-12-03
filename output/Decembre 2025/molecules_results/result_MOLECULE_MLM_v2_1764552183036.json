@@ -1,0 +1,482 @@
+{
+  "status" : "ok",
+  "port" : 5001,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "config" : "v2",
+  "seed" : 7,
+  "sentence_builder" : "random",
+  "reference_file" : "src/main/java/minicpbp/examples/data/Molecules/gpt_ref.txt",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.3,
+  "date" : "2025-11-30T20:23:03.034905580",
+  "time" : 128.404,
+  "best_perplexity_evolution" : [ {
+    "molecule" : "C[C@H]1C(O)C(C(O)C)C(C)C(O)C1(ON=C(C)CO)",
+    "score" : 9.627174377441406,
+    "time" : 33370,
+    "cycle" : 1
+  }, {
+    "molecule" : "C[C@H]1C(O)C(C(O)C)N(C)C(O)C1(ON=C(C)CO)",
+    "score" : 9.135711669921875,
+    "time" : 33388,
+    "cycle" : 1
+  }, {
+    "molecule" : "C[C@H]1C(O)C(C(O)C)C(C)C(O)C1(O)(C(C)CO)",
+    "score" : 8.447809219360352,
+    "time" : 33531,
+    "cycle" : 1
+  }, {
+    "molecule" : "C[C@H]1C(O)C(C(O)C)N(C)C(O)C1(O)(C(C)CO)",
+    "score" : 8.421143531799316,
+    "time" : 33549,
+    "cycle" : 1
+  } ],
+  "base_sentence" : {
+    "molecule" : "C[C@H]1C(O)C(C(C)C)C(C)C(C)C1(C)(C(C)CO)",
+    "score" : 11.392617034479581,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)C(C)C(O)C1(ON=C(C)CO)",
+    "perplexity" : 9.627174377441406,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33370
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)N(C)C(O)C1(ON=C(C)CO)",
+    "perplexity" : 9.135711669921875,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33388
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)C(C)C(O)C1(OC=C(C)CO)",
+    "perplexity" : 11.367883682250977,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33465
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)N(C)C(O)C1(OC=C(C)CO)",
+    "perplexity" : 10.965190887451172,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33486
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)C(C)C(O)C1(O)(C(C)CO)",
+    "perplexity" : 8.447809219360352,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33531
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)N(C)C(O)C1(O)(C(C)CO)",
+    "perplexity" : 8.421143531799316,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33549
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)C(C)C(O)C1(O)(N(C)CO)",
+    "perplexity" : 8.89941120147705,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33607
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)C)N(C)C(O)C1(O)(N(C)CO)",
+    "perplexity" : 8.577168464660645,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33630
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)C)C(C)C(O)C1(ON=C(C)CO)",
+    "perplexity" : 9.48342514038086,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33800
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)C)N(C)C(O)C1(ON=C(C)CO)",
+    "perplexity" : 8.829765319824219,
+    "original_sentence" : "C<mask>C<mask>H]1C(<mask>)C(C(<mask>)C)<mask>(C)C(<mask><mask>C1(<mask><mask><mask><mask>(C)CO<mask>",
+    "timestamp" : 33817
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(O)O)N(C)C(O)C1(OC=C(C)CO)",
+    "perplexity" : 11.401141166687012,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 38866
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)O)N(C)C(O)C1(OC=C(O)CO)",
+    "perplexity" : 12.405803680419922,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 38955
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)O)N(C)C(O)C1(ON=C(N)CO)",
+    "perplexity" : 11.638279914855957,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39016
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)O)N(C)C(O)C1(ON=C(C)CO)",
+    "perplexity" : 12.461969375610352,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39055
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)O)N(C)C(O)C1(OC=C(N)CO)",
+    "perplexity" : 13.283306121826172,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39086
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(C)O)N(C)C(O)C1(OC=C(C)CO)",
+    "perplexity" : 15.096504211425781,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39121
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(N)O)N(C)C(O)C1(OC=C(C)CO)",
+    "perplexity" : 12.135416030883789,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39194
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(N)O)N(C)C(O)C1(ON=C(C)CO)",
+    "perplexity" : 10.483823776245117,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39222
+  }, {
+    "sentence" : "C[C@H]1C(O)C(C(N)O)N(C)C(O)C1(OC=C(N)CO)",
+    "perplexity" : 10.857232093811035,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39254
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(C)C(O)C1(OC=C(C)CO)",
+    "perplexity" : 9.859209060668945,
+    "original_sentence" : "C[C@H<mask>1C<mask><mask>)C<mask><mask>(<mask>)<mask>)N(C)C(O)<mask>1(O<mask>=C<mask><mask><mask>CO)",
+    "timestamp" : 39341
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(C)CO)",
+    "perplexity" : 15.580948829650879,
+    "original_sentence" : "C[C<mask><mask><mask><mask>C(O)C(<mask>(C)O)N(<mask><mask><mask><mask>O)C<mask>(<mask>C=C(C)CO<mask>",
+    "timestamp" : 40479
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(O)OO)",
+    "perplexity" : 13.159829139709473,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42466
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(O)CO)",
+    "perplexity" : 12.19064998626709,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42502
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(O)NO)",
+    "perplexity" : 12.69930648803711,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42607
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(N)OO)",
+    "perplexity" : 13.373272895812988,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42681
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(C)OO)",
+    "perplexity" : 16.24342918395996,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42738
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(N)CO)",
+    "perplexity" : 12.644790649414062,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42832
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(N)NO)",
+    "perplexity" : 11.854354858398438,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 42904
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(F)NO)",
+    "perplexity" : 15.157013893127441,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 43107
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(F)CO)",
+    "perplexity" : 13.300704002380371,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 43169
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=O)C1(=C=C(C)NO)",
+    "perplexity" : 14.584304809570312,
+    "original_sentence" : "<mask><mask>C@H]1C<mask>O<mask>C(N(C)O)N(COC=O<mask><mask>1(<mask>C=<mask><mask><mask>)<mask>O<mask>",
+    "timestamp" : 43250
+  }, {
+    "sentence" : "C[C@H]1N(O)C(N(C)O)N(COC=O)C1(=C=C(O)NO)",
+    "perplexity" : 11.638688087463379,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46288
+  }, {
+    "sentence" : "C[C@H]1N(O)C(N(C)O)N(COC=C)C1(=C=C(O)NO)",
+    "perplexity" : 14.512303352355957,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46351
+  }, {
+    "sentence" : "C[C@H]1N(O)C(N(C)O)N(COC=N)C1(=C=C(O)NO)",
+    "perplexity" : 12.3524808883667,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46380
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=C)C1(=C=C(O)NO)",
+    "perplexity" : 16.411510467529297,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46435
+  }, {
+    "sentence" : "C[C@H]1C(O)C(N(C)O)N(COC=N)C1(=C=C(O)NO)",
+    "perplexity" : 14.179976463317871,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46472
+  }, {
+    "sentence" : "C[C@H]1N(O)C(N(C)O)N(COC=O)C1(=C=C(C)NO)",
+    "perplexity" : 13.624320030212402,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46539
+  }, {
+    "sentence" : "C[C@H]1N(O)C(N(C)O)N(COC=N)C1(=C=C(C)NO)",
+    "perplexity" : 14.849870681762695,
+    "original_sentence" : "C<mask>C@H]1<mask>(O<mask>C(N(C)O<mask>N(C<mask>C=<mask><mask>C<mask><mask><mask>C=C(<mask>)NO<mask>",
+    "timestamp" : 46605
+  }, {
+    "sentence" : "C[C@H](N(O)C(N(C=O))(COC=N)C1C=COC(N)N1)",
+    "perplexity" : 16.485130310058594,
+    "original_sentence" : "<mask>[C<mask>H]<mask>N(O)C<mask><mask>(C<mask>O)<mask>(COC=N)C1<mask>=C<mask>C<mask><mask>)N<mask>)",
+    "timestamp" : 52013
+  }, {
+    "sentence" : "C[C@H](N(O)C(N(C=O))(COC=N)C1N=CCC(N)N1)",
+    "perplexity" : 16.148616790771484,
+    "original_sentence" : "<mask>[<mask>@H<mask><mask>N<mask><mask>)<mask>(N(<mask>=O))<mask>COC=N)C1<mask>=C<mask><mask>(N)N1)",
+    "timestamp" : 52248
+  }, {
+    "sentence" : "C[C@H](N(O)C(N(C=O))(COC=N)C1C=CCC(N)N1)",
+    "perplexity" : 15.546335220336914,
+    "original_sentence" : "<mask>[<mask>@H<mask><mask>N<mask><mask>)<mask>(N(<mask>=O))<mask>COC=N)C1<mask>=C<mask><mask>(N)N1)",
+    "timestamp" : 52361
+  }, {
+    "sentence" : "C[C@H](N(O)C(N(C=O))(COC=N)C1C=CCN(N)N1)",
+    "perplexity" : 16.308809280395508,
+    "original_sentence" : "<mask>[<mask>@H<mask><mask>N<mask><mask>)<mask>(N(<mask>=O))<mask>COC=N)C1<mask>=C<mask><mask>(N)N1)",
+    "timestamp" : 52606
+  }, {
+    "sentence" : "C[C@H](N(O)C(N(C=O))(COC=O)C1C=NCN(N)N1)",
+    "perplexity" : 16.039722442626953,
+    "original_sentence" : "C[<mask>@H<mask>(N(<mask>)C(N(C=<mask>))(COC=<mask>)C<mask>C=<mask><mask><mask>(N<mask><mask>1<mask>",
+    "timestamp" : 73112
+  }, {
+    "sentence" : "C[C@H](N(O)C(NO)=O)O(C(C=O)C1C=NCC(N)N1)",
+    "perplexity" : 13.693982124328613,
+    "original_sentence" : "C[<mask><mask>H]<mask>N(<mask>)C(N<mask><mask>=O<mask><mask>(<mask><mask>C=O<mask>C1C=NC<mask>(N)N1)",
+    "timestamp" : 77587
+  }, {
+    "sentence" : "C[C@H](N(O)C(NO)=O)O(C(C=O)C1C=NCN(N)N1)",
+    "perplexity" : 14.726738929748535,
+    "original_sentence" : "C[<mask><mask>H]<mask>N(<mask>)C(N<mask><mask>=O<mask><mask>(<mask><mask>C=O<mask>C1C=NC<mask>(N)N1)",
+    "timestamp" : 77618
+  }, {
+    "sentence" : "C[C@H](N(O)C(NO)=O)O(N(C=O)C1C=NCC(N)N1)",
+    "perplexity" : 12.77808952331543,
+    "original_sentence" : "C[<mask><mask>H]<mask>N(<mask>)C(N<mask><mask>=O<mask><mask>(<mask><mask>C=O<mask>C1C=NC<mask>(N)N1)",
+    "timestamp" : 77651
+  }, {
+    "sentence" : "C[C@H](N(O)C(NO)=O)O(N(C=O)C1C=NCN(N)N1)",
+    "perplexity" : 13.84736442565918,
+    "original_sentence" : "C[<mask><mask>H]<mask>N(<mask>)C(N<mask><mask>=O<mask><mask>(<mask><mask>C=O<mask>C1C=NC<mask>(N)N1)",
+    "timestamp" : 77684
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC)=O)O(C(C=N)C1CN=CN(N)N1)",
+    "perplexity" : 15.605340957641602,
+    "original_sentence" : "<mask><mask><mask><mask>H](N(O)<mask>(N<mask>)=O)O(C(C=<mask>)C1C<mask><mask><mask>N(N)N<mask><mask>",
+    "timestamp" : 78753
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(C=N)C1CC=CC(N)N1)",
+    "perplexity" : 15.417370796203613,
+    "original_sentence" : "<mask><mask>C<mask>H]<mask>N(O)C(NC<mask><mask><mask>)O(C(<mask>=<mask>)C1C<mask>=C<mask>(N)N1<mask>",
+    "timestamp" : 79189
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(C=O)C1CN=CC(N)N1)",
+    "perplexity" : 14.495771408081055,
+    "original_sentence" : "<mask><mask>C<mask>H]<mask>N(O)C(NC<mask><mask><mask>)O(C(<mask>=<mask>)C1C<mask>=C<mask>(N)N1<mask>",
+    "timestamp" : 79320
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(C=O)C1CC=CC(N)N1)",
+    "perplexity" : 13.236687660217285,
+    "original_sentence" : "<mask><mask>C<mask>H]<mask>N(O)C(NC<mask><mask><mask>)O(C(<mask>=<mask>)C1C<mask>=C<mask>(N)N1<mask>",
+    "timestamp" : 79343
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(N=O)C1CC=CC(N)N1)",
+    "perplexity" : 15.45144271850586,
+    "original_sentence" : "<mask><mask>C<mask>H]<mask>N(O)C(NC<mask><mask><mask>)O(C(<mask>=<mask>)C1C<mask>=C<mask>(N)N1<mask>",
+    "timestamp" : 79417
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(N=O)C1CN=CC(N)N1)",
+    "perplexity" : 16.658960342407227,
+    "original_sentence" : "<mask><mask>C<mask>H]<mask>N(O)C(NC<mask><mask><mask>)O(C(<mask>=<mask>)C1C<mask>=C<mask>(N)N1<mask>",
+    "timestamp" : 79440
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(N=O)N1CN=NC(N)N1)",
+    "perplexity" : 16.821577072143555,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85534
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(N(N=O)N1CC=NC(N)N1)",
+    "perplexity" : 15.596603393554688,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85613
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(N(N=O)N1CN=NC(N)N1)",
+    "perplexity" : 15.278664588928223,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85655
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(N=O)N1CN=CC(N)N1)",
+    "perplexity" : 16.59825897216797,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85732
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(C(N=O)N1CC=CC(N)N1)",
+    "perplexity" : 15.963067054748535,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85772
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(N(N=O)N1CC=CC(N)N1)",
+    "perplexity" : 14.778295516967773,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85851
+  }, {
+    "sentence" : "C[C@H](N(O)C(NC=O))O(N(N=O)N1CN=CC(N)N1)",
+    "perplexity" : 14.7981595993042,
+    "original_sentence" : "<mask><mask>C<mask>H<mask>(N(O<mask>C(NC=O))O(<mask>(N<mask>O<mask><mask>1C<mask>=<mask>C(N)N<mask>)",
+    "timestamp" : 85904
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(O)N(N(O)C1CN=CC[N+]1)",
+    "perplexity" : 12.87840461730957,
+    "original_sentence" : "<mask>[C@H]<mask>N<mask><mask>)C<mask>NC=O)<mask>O<mask>N(N<mask>O)<mask>1CN=CC<mask>N<mask><mask>1)",
+    "timestamp" : 93641
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(O)N(N(O)N1CN=CC[N+]1)",
+    "perplexity" : 13.64202880859375,
+    "original_sentence" : "<mask>[C@H]<mask>N<mask><mask>)C<mask>NC=O)<mask>O<mask>N(N<mask>O)<mask>1CN=CC<mask>N<mask><mask>1)",
+    "timestamp" : 93677
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(O)N(N(O)CC1N=CO[N+]1)",
+    "perplexity" : 14.641641616821289,
+    "original_sentence" : "<mask>[C<mask>H](<mask>=O)<mask>(NC=O)<mask><mask>)N(N(O)C<mask><mask>N=<mask><mask>[<mask>+<mask>1)",
+    "timestamp" : 94496
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(O)N(N(O)CC1N=NO[N+]1)",
+    "perplexity" : 16.06905746459961,
+    "original_sentence" : "<mask>[C<mask>H](<mask>=O)<mask>(NC=O)<mask><mask>)N(N(O)C<mask><mask>N=<mask><mask>[<mask>+<mask>1)",
+    "timestamp" : 94522
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(O)N(N(O)CN1N=NO[N+]1)",
+    "perplexity" : 14.478519439697266,
+    "original_sentence" : "<mask>[C<mask>H](<mask>=O)<mask>(NC=O)<mask><mask>)N(N(O)C<mask><mask>N=<mask><mask>[<mask>+<mask>1)",
+    "timestamp" : 94551
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(O)N(N(O)CN1N=CO[N+]1)",
+    "perplexity" : 12.861018180847168,
+    "original_sentence" : "<mask>[C<mask>H](<mask>=O)<mask>(NC=O)<mask><mask>)N(N(O)C<mask><mask>N=<mask><mask>[<mask>+<mask>1)",
+    "timestamp" : 94581
+  }, {
+    "sentence" : "C[C@H](N=O)C(NC=O)(F)N(N(O)CN1N=CO[N+]1)",
+    "perplexity" : 15.103355407714844,
+    "original_sentence" : "<mask>[C<mask>H](<mask>=O)<mask>(NC=O)<mask><mask>)N(N(O)C<mask><mask>N=<mask><mask>[<mask>+<mask>1)",
+    "timestamp" : 94668
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(C(O)CN1N=NO[N+]1)",
+    "perplexity" : 14.541791915893555,
+    "original_sentence" : "C[C<mask>H](<mask>=O)C<mask><mask>C=O<mask>(<mask><mask>N(<mask>(O)CN1<mask>=<mask><mask>[<mask>+]1)",
+    "timestamp" : 97192
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(C(O)CN1N=CO[N+]1)",
+    "perplexity" : 12.505553245544434,
+    "original_sentence" : "C[C<mask>H](<mask>=O)C<mask><mask>C=O<mask>(<mask><mask>N(<mask>(O)CN1<mask>=<mask><mask>[<mask>+]1)",
+    "timestamp" : 97226
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(N(O)CN1N=NO[N+]1)",
+    "perplexity" : 14.833820343017578,
+    "original_sentence" : "C[C<mask>H](<mask>=O)C<mask><mask>C=O<mask>(<mask><mask>N(<mask>(O)CN1<mask>=<mask><mask>[<mask>+]1)",
+    "timestamp" : 97380
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(N(O)CN1N=CO[N+]1)",
+    "perplexity" : 12.931058883666992,
+    "original_sentence" : "C[C<mask>H](<mask>=O)C<mask><mask>C=O<mask>(<mask><mask>N(<mask>(O)CN1<mask>=<mask><mask>[<mask>+]1)",
+    "timestamp" : 97432
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(C(O)CN1C=NO[N+]1)",
+    "perplexity" : 14.35917854309082,
+    "original_sentence" : "C[C<mask>H](<mask>=O)C<mask><mask>C=O<mask>(<mask><mask>N(<mask>(O)CN1<mask>=<mask><mask>[<mask>+]1)",
+    "timestamp" : 97589
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(C(O)CN1C=CO[N+]1)",
+    "perplexity" : 13.571825981140137,
+    "original_sentence" : "C[C<mask>H](<mask>=O)C<mask><mask>C=O<mask>(<mask><mask>N(<mask>(O)CN1<mask>=<mask><mask>[<mask>+]1)",
+    "timestamp" : 97631
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(O)N(C(O)ON1N=CO[N+]1)",
+    "perplexity" : 14.652731895446777,
+    "original_sentence" : "<mask>[<mask>@<mask>](C=O)CC(C=<mask><mask>(O)N(C(<mask><mask><mask>N<mask>N<mask><mask>O[N+<mask>1)",
+    "timestamp" : 98373
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(OOC=C(O)ON1C=CO[N+]1)",
+    "perplexity" : 16.523792266845703,
+    "original_sentence" : "<mask><mask>C@<mask>](C=O)CC(C=O)<mask>O<mask><mask><mask><mask>(O)ON1<mask><mask>CO[N+<mask>1<mask>",
+    "timestamp" : 108542
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(OON=C(O)ON1N=CO[N+]1)",
+    "perplexity" : 16.781946182250977,
+    "original_sentence" : "<mask><mask>C@<mask>](C=O)CC(C=O)<mask>O<mask><mask><mask><mask>(O)ON1<mask><mask>CO[N+<mask>1<mask>",
+    "timestamp" : 108820
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(OON=C(O)ON1C=CO[N+]1)",
+    "perplexity" : 16.429866790771484,
+    "original_sentence" : "<mask><mask>C@<mask>](C=O)CC(C=O)<mask>O<mask><mask><mask><mask>(O)ON1<mask><mask>CO[N+<mask>1<mask>",
+    "timestamp" : 108847
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C=O)(CON=C(O)ON1C=CO[C@]1)",
+    "perplexity" : 16.82953453063965,
+    "original_sentence" : "C[<mask>@H<mask>(<mask>=<mask><mask>CC(C=<mask>)(<mask>ON=C(O)O<mask><mask>C=CO[<mask><mask>]1<mask>",
+    "timestamp" : 110184
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)(COC=C=O)ON1C=NO[C@]1)",
+    "perplexity" : 15.416555404663086,
+    "original_sentence" : "<mask><mask>C@H](<mask>=<mask>)CC(C<mask><mask>)(CO<mask>=C<mask><mask>)ON1<mask>=<mask>O[C@<mask>1)",
+    "timestamp" : 121551
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OC(C=C=O)ON1C=NO[C@]1)",
+    "perplexity" : 13.23137092590332,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 123780
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OC(N=C=O)ON1C=NO[C@]1)",
+    "perplexity" : 13.590843200683594,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 123804
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OC(N=C=N)ON1C=NO[C@]1)",
+    "perplexity" : 16.312335968017578,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 123873
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OC(C=C=N)ON1C=NO[C@]1)",
+    "perplexity" : 15.631052017211914,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 123908
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OCC(=C=C)ON1C=NO[C@]1)",
+    "perplexity" : 16.670005798339844,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 123994
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OCC(=C=O)ON1C=NO[C@]1)",
+    "perplexity" : 13.101547241210938,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 124028
+  }, {
+    "sentence" : "C[C@H](C=O)CC(C(O)OCC(=C=N)ON1C=NO[C@]1)",
+    "perplexity" : 15.036696434020996,
+    "original_sentence" : "C<mask>C@<mask>](C=O<mask>CC<mask>C(<mask>)<mask>C<mask><mask>=C=<mask>)ON1C<mask>NO[C@<mask>1<mask>",
+    "timestamp" : 124056
+  }, {
+    "sentence" : "C[C@H](C=O)OC(C(O)OC(N=C=O)ON1C=NO[C@]1)",
+    "perplexity" : 16.8266544342041,
+    "original_sentence" : "<mask>[<mask>@<mask>](C=O)<mask><mask>(<mask>(O)<mask>C(N=<mask>=O)<mask>N1C=<mask>O<mask>C@]<mask>)",
+    "timestamp" : 124565
+  }, {
+    "sentence" : "C[C@H](C=O)OC(C(O)OC(N=C=O)ON1C=CO[C@]1)",
+    "perplexity" : 16.2923526763916,
+    "original_sentence" : "<mask>[<mask>@<mask>](C=O)<mask><mask>(<mask>(O)<mask>C(N=<mask>=O)<mask>N1C=<mask>O<mask>C@]<mask>)",
+    "timestamp" : 124605
+  } ]
+}

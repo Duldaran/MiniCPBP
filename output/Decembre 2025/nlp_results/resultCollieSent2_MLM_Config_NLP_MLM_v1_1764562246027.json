@@ -1,0 +1,684 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T23:10:46.024403856",
+  "time" : 148.422,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This is soft beach water can beach be aunts water",
+    "score" : 1988.802978515625,
+    "time" : 2983,
+    "cycle" : 0
+  }, {
+    "sentence" : "This is soft sea water can beach in aunts water",
+    "score" : 1279.0281982421875,
+    "time" : 5985,
+    "cycle" : 2
+  }, {
+    "sentence" : "This is soft sea you can beach in aunts water",
+    "score" : 707.8482055664062,
+    "time" : 7723,
+    "cycle" : 3
+  }, {
+    "sentence" : "It a soft sea that will beach your aunts water",
+    "score" : 573.5115356445312,
+    "time" : 16315,
+    "cycle" : 9
+  }, {
+    "sentence" : "It a soft drink that will beach your aunts water",
+    "score" : 336.4754943847656,
+    "time" : 17406,
+    "cycle" : 10
+  }, {
+    "sentence" : "It is soft water and will beach your drinking water",
+    "score" : 273.3097229003906,
+    "time" : 23892,
+    "cycle" : 15
+  }, {
+    "sentence" : "It is soft water that will beach your hot water",
+    "score" : 232.5,
+    "time" : 27902,
+    "cycle" : 18
+  }, {
+    "sentence" : "It is soft water that can beach your hot water",
+    "score" : 224.50662231445312,
+    "time" : 29156,
+    "cycle" : 19
+  }, {
+    "sentence" : "It is soft water that can beach in hot water",
+    "score" : 168.63330078125,
+    "time" : 30402,
+    "cycle" : 20
+  }, {
+    "sentence" : "It is soft water that can beach in the water",
+    "score" : 146.90402221679688,
+    "time" : 31937,
+    "cycle" : 21
+  }, {
+    "sentence" : "There is soft water that can beach in the water",
+    "score" : 130.76890563964844,
+    "time" : 34482,
+    "cycle" : 23
+  }, {
+    "sentence" : "This is soft rock that can beach in the water",
+    "score" : 127.65677642822266,
+    "time" : 38599,
+    "cycle" : 26
+  }, {
+    "sentence" : "This a soft rock that can beach in the water",
+    "score" : 111.8099136352539,
+    "time" : 39681,
+    "cycle" : 27
+  }, {
+    "sentence" : "It is soft sand and sandy beach by the water",
+    "score" : 86.28106689453125,
+    "time" : 93682,
+    "cycle" : 64
+  }, {
+    "sentence" : "This is soft rock and sandy beach by the water",
+    "score" : 85.76565551757812,
+    "time" : 97142,
+    "cycle" : 66
+  }, {
+    "sentence" : "There is soft rock and sandy beach by the water",
+    "score" : 76.30607604980469,
+    "time" : 98259,
+    "cycle" : 67
+  }, {
+    "sentence" : "There is soft rock and a beach by the water",
+    "score" : 74.56336975097656,
+    "time" : 99625,
+    "cycle" : 68
+  }, {
+    "sentence" : "There is soft rock on a beach by the water",
+    "score" : 68.96365356445312,
+    "time" : 101435,
+    "cycle" : 69
+  }, {
+    "sentence" : "There is soft rock on the beach by the water",
+    "score" : 53.89468765258789,
+    "time" : 102964,
+    "cycle" : 70
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This is soft beach water can beach be aunts water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 3408, 1358, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1988.802978515625,
+    "tokens_used" : [ " This", " is", " soft", " beach", " water", " can", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This [MASK] soft beach water can beach be aunts water",
+    "timestamp" : 2983
+  }, {
+    "sentence" : "This is soft sea water can beach be aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 3408, 1358, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 2248.875244140625,
+    "tokens_used" : [ " This", " is", " soft", " sea", " water", " can", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This is soft [MASK] water can beach be aunts water",
+    "timestamp" : 4264
+  }, {
+    "sentence" : "This is soft sea water can beach in aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 3408, 1358, 5075, 2515, 5196, 3408 ],
+    "perplexity" : 1279.0281982421875,
+    "tokens_used" : [ " This", " is", " soft", " sea", " water", " can", " beach", " in", " aunts", " water" ],
+    "original_sentence" : "This is soft sea water can beach [MASK] aunts water",
+    "timestamp" : 5985
+  }, {
+    "sentence" : "This is soft sea you can beach in aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 919, 1358, 5075, 2515, 5196, 3408 ],
+    "perplexity" : 707.8482055664062,
+    "tokens_used" : [ " This", " is", " soft", " sea", " you", " can", " beach", " in", " aunts", " water" ],
+    "original_sentence" : "This is soft sea [MASK] can beach in aunts water",
+    "timestamp" : 7723
+  }, {
+    "sentence" : "This is soft sea you can beach with aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 919, 1358, 5075, 2342, 5196, 3408 ],
+    "perplexity" : 1078.5087890625,
+    "tokens_used" : [ " This", " is", " soft", " sea", " you", " can", " beach", " with", " aunts", " water" ],
+    "original_sentence" : "This is soft sea you can beach [MASK] aunts water",
+    "timestamp" : 8840
+  }, {
+    "sentence" : "This is soft sea you can beach your aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 919, 1358, 5075, 164, 5196, 3408 ],
+    "perplexity" : 768.8372192382812,
+    "tokens_used" : [ " This", " is", " soft", " sea", " you", " can", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "This is soft sea you can beach [MASK] aunts water",
+    "timestamp" : 10602
+  }, {
+    "sentence" : "This is soft sea you will beach your aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 919, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 951.48876953125,
+    "tokens_used" : [ " This", " is", " soft", " sea", " you", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "This is soft sea you [MASK] beach your aunts water",
+    "timestamp" : 11792
+  }, {
+    "sentence" : "This is soft sea that will beach your aunts water",
+    "tokens" : [ 1228, 2713, 2489, 4715, 1321, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 1007.3507080078125,
+    "tokens_used" : [ " This", " is", " soft", " sea", " that", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "This is soft sea [MASK] will beach your aunts water",
+    "timestamp" : 13425
+  }, {
+    "sentence" : "It is soft sea that will beach your aunts water",
+    "tokens" : [ 2051, 2713, 2489, 4715, 1321, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 919.6693725585938,
+    "tokens_used" : [ " It", " is", " soft", " sea", " that", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "[MASK] is soft sea that will beach your aunts water",
+    "timestamp" : 14796
+  }, {
+    "sentence" : "It a soft sea that will beach your aunts water",
+    "tokens" : [ 2051, 4646, 2489, 4715, 1321, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 573.5115356445312,
+    "tokens_used" : [ " It", " a", " soft", " sea", " that", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "It [MASK] soft sea that will beach your aunts water",
+    "timestamp" : 16315
+  }, {
+    "sentence" : "It a soft drink that will beach your aunts water",
+    "tokens" : [ 2051, 4646, 2489, 4825, 1321, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 336.4754943847656,
+    "tokens_used" : [ " It", " a", " soft", " drink", " that", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "It a soft [MASK] that will beach your aunts water",
+    "timestamp" : 17406
+  }, {
+    "sentence" : "It a soft water that will beach your aunts water",
+    "tokens" : [ 2051, 4646, 2489, 3408, 1321, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 570.8826293945312,
+    "tokens_used" : [ " It", " a", " soft", " water", " that", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "It a soft [MASK] that will beach your aunts water",
+    "timestamp" : 18539
+  }, {
+    "sentence" : "It is soft water that will beach your aunts water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 1321, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 534.6447143554688,
+    "tokens_used" : [ " It", " is", " soft", " water", " that", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "It [MASK] soft water that will beach your aunts water",
+    "timestamp" : 21410
+  }, {
+    "sentence" : "It is soft water and will beach your aunts water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 215, 1714, 5075, 164, 5196, 3408 ],
+    "perplexity" : 630.41162109375,
+    "tokens_used" : [ " It", " is", " soft", " water", " and", " will", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "It is soft water [MASK] will beach your aunts water",
+    "timestamp" : 22909
+  }, {
+    "sentence" : "It is soft water and will beach your drinking water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 215, 1714, 5075, 164, 2264, 3408 ],
+    "perplexity" : 273.3097229003906,
+    "tokens_used" : [ " It", " is", " soft", " water", " and", " will", " beach", " your", " drinking", " water" ],
+    "original_sentence" : "It is soft water and will beach your [MASK] water",
+    "timestamp" : 23892
+  }, {
+    "sentence" : "It is soft water and will beach your body water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 215, 1714, 5075, 164, 4053, 3408 ],
+    "perplexity" : 292.46966552734375,
+    "tokens_used" : [ " It", " is", " soft", " water", " and", " will", " beach", " your", " body", " water" ],
+    "original_sentence" : "It is soft water and will beach your [MASK] water",
+    "timestamp" : 25435
+  }, {
+    "sentence" : "It is soft water and will beach your hot water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 215, 1714, 5075, 164, 293, 3408 ],
+    "perplexity" : 306.9099426269531,
+    "tokens_used" : [ " It", " is", " soft", " water", " and", " will", " beach", " your", " hot", " water" ],
+    "original_sentence" : "It is soft water and will beach your [MASK] water",
+    "timestamp" : 26635
+  }, {
+    "sentence" : "It is soft water that will beach your hot water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 1321, 1714, 5075, 164, 293, 3408 ],
+    "perplexity" : 232.5,
+    "tokens_used" : [ " It", " is", " soft", " water", " that", " will", " beach", " your", " hot", " water" ],
+    "original_sentence" : "It is soft water [MASK] will beach your hot water",
+    "timestamp" : 27902
+  }, {
+    "sentence" : "It is soft water that can beach your hot water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 1321, 1358, 5075, 164, 293, 3408 ],
+    "perplexity" : 224.50662231445312,
+    "tokens_used" : [ " It", " is", " soft", " water", " that", " can", " beach", " your", " hot", " water" ],
+    "original_sentence" : "It is soft water that [MASK] beach your hot water",
+    "timestamp" : 29156
+  }, {
+    "sentence" : "It is soft water that can beach in hot water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 1321, 1358, 5075, 2515, 293, 3408 ],
+    "perplexity" : 168.63330078125,
+    "tokens_used" : [ " It", " is", " soft", " water", " that", " can", " beach", " in", " hot", " water" ],
+    "original_sentence" : "It is soft water that can beach [MASK] hot water",
+    "timestamp" : 30402
+  }, {
+    "sentence" : "It is soft water that can beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 3408, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 146.90402221679688,
+    "tokens_used" : [ " It", " is", " soft", " water", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "It is soft water that can beach in [MASK] water",
+    "timestamp" : 31937
+  }, {
+    "sentence" : "This is soft water that can beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 3408, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 158.5123748779297,
+    "tokens_used" : [ " This", " is", " soft", " water", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft water that can beach in the water",
+    "timestamp" : 33285
+  }, {
+    "sentence" : "There is soft water that can beach in the water",
+    "tokens" : [ 5181, 2713, 2489, 3408, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 130.76890563964844,
+    "tokens_used" : [ " There", " is", " soft", " water", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft water that can beach in the water",
+    "timestamp" : 34483
+  }, {
+    "sentence" : "There is soft rock that can beach in the water",
+    "tokens" : [ 5181, 2713, 2489, 535, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 139.1985321044922,
+    "tokens_used" : [ " There", " is", " soft", " rock", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "There is soft [MASK] that can beach in the water",
+    "timestamp" : 35817
+  }, {
+    "sentence" : "It is soft rock that can beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 132.18040466308594,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock that can beach in the water",
+    "timestamp" : 36877
+  }, {
+    "sentence" : "This is soft rock that can beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 535, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 127.65677642822266,
+    "tokens_used" : [ " This", " is", " soft", " rock", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock that can beach in the water",
+    "timestamp" : 38599
+  }, {
+    "sentence" : "This a soft rock that can beach in the water",
+    "tokens" : [ 1228, 4646, 2489, 535, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 111.8099136352539,
+    "tokens_used" : [ " This", " a", " soft", " rock", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "This [MASK] soft rock that can beach in the water",
+    "timestamp" : 39681
+  }, {
+    "sentence" : "This a soft rock that will beach in the water",
+    "tokens" : [ 1228, 4646, 2489, 535, 1321, 1714, 5075, 2515, 394, 3408 ],
+    "perplexity" : 129.62330627441406,
+    "tokens_used" : [ " This", " a", " soft", " rock", " that", " will", " beach", " in", " the", " water" ],
+    "original_sentence" : "This a soft rock that [MASK] beach in the water",
+    "timestamp" : 41454
+  }, {
+    "sentence" : "This is soft rock that will beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 535, 1321, 1714, 5075, 2515, 394, 3408 ],
+    "perplexity" : 145.33633422851562,
+    "tokens_used" : [ " This", " is", " soft", " rock", " that", " will", " beach", " in", " the", " water" ],
+    "original_sentence" : "This [MASK] soft rock that will beach in the water",
+    "timestamp" : 42676
+  }, {
+    "sentence" : "It is soft rock that will beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1714, 5075, 2515, 394, 3408 ],
+    "perplexity" : 154.81480407714844,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " will", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock that will beach in the water",
+    "timestamp" : 44119
+  }, {
+    "sentence" : "It is soft rock that will beach into the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1714, 5075, 980, 394, 3408 ],
+    "perplexity" : 207.2850799560547,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " will", " beach", " into", " the", " water" ],
+    "original_sentence" : "It is soft rock that will beach [MASK] the water",
+    "timestamp" : 45331
+  }, {
+    "sentence" : "It is soft rock that can beach into the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1358, 5075, 980, 394, 3408 ],
+    "perplexity" : 167.9601593017578,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " can", " beach", " into", " the", " water" ],
+    "original_sentence" : "It is soft rock that [MASK] beach into the water",
+    "timestamp" : 46511
+  }, {
+    "sentence" : "It is soft rock that can beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1358, 5075, 710, 394, 3408 ],
+    "perplexity" : 142.77157592773438,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " can", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft rock that can beach [MASK] the water",
+    "timestamp" : 48111
+  }, {
+    "sentence" : "It is soft rock that is beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 2713, 5075, 710, 394, 3408 ],
+    "perplexity" : 149.31507873535156,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " is", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft rock that [MASK] beach on the water",
+    "timestamp" : 49378
+  }, {
+    "sentence" : "It is soft rock that forms beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 2631, 5075, 710, 394, 3408 ],
+    "perplexity" : 185.49488830566406,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " forms", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft rock that [MASK] beach on the water",
+    "timestamp" : 50508
+  }, {
+    "sentence" : "It is soft rock that will beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1714, 5075, 710, 394, 3408 ],
+    "perplexity" : 164.27195739746094,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " will", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft rock that [MASK] beach on the water",
+    "timestamp" : 52200
+  }, {
+    "sentence" : "It is soft rock that will beach on salt water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1714, 5075, 710, 3029, 3408 ],
+    "perplexity" : 208.883544921875,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " will", " beach", " on", " salt", " water" ],
+    "original_sentence" : "It is soft rock that will beach on [MASK] water",
+    "timestamp" : 53724
+  }, {
+    "sentence" : "It is soft rock that can beach on salt water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1358, 5075, 710, 3029, 3408 ],
+    "perplexity" : 169.1084747314453,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " can", " beach", " on", " salt", " water" ],
+    "original_sentence" : "It is soft rock that [MASK] beach on salt water",
+    "timestamp" : 55174
+  }, {
+    "sentence" : "It is soft rock that can beach on sea water",
+    "tokens" : [ 2051, 2713, 2489, 535, 1321, 1358, 5075, 710, 4715, 3408 ],
+    "perplexity" : 211.1553192138672,
+    "tokens_used" : [ " It", " is", " soft", " rock", " that", " can", " beach", " on", " sea", " water" ],
+    "original_sentence" : "It is soft rock that can beach on [MASK] water",
+    "timestamp" : 56332
+  }, {
+    "sentence" : "It is soft sand that can beach on sea water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 1321, 1358, 5075, 710, 4715, 3408 ],
+    "perplexity" : 205.0075225830078,
+    "tokens_used" : [ " It", " is", " soft", " sand", " that", " can", " beach", " on", " sea", " water" ],
+    "original_sentence" : "It is soft [MASK] that can beach on sea water",
+    "timestamp" : 61998
+  }, {
+    "sentence" : "It is soft sand that can beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 1321, 1358, 5075, 710, 394, 3408 ],
+    "perplexity" : 133.83642578125,
+    "tokens_used" : [ " It", " is", " soft", " sand", " that", " can", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft sand that can beach on [MASK] water",
+    "timestamp" : 65242
+  }, {
+    "sentence" : "It is soft sand that is beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 1321, 2713, 5075, 710, 394, 3408 ],
+    "perplexity" : 161.89382934570312,
+    "tokens_used" : [ " It", " is", " soft", " sand", " that", " is", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft sand that [MASK] beach on the water",
+    "timestamp" : 66433
+  }, {
+    "sentence" : "It is soft sand that will beach on the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 1321, 1714, 5075, 710, 394, 3408 ],
+    "perplexity" : 140.57371520996094,
+    "tokens_used" : [ " It", " is", " soft", " sand", " that", " will", " beach", " on", " the", " water" ],
+    "original_sentence" : "It is soft sand that [MASK] beach on the water",
+    "timestamp" : 68018
+  }, {
+    "sentence" : "It is soft sand that will beach on your water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 1321, 1714, 5075, 710, 164, 3408 ],
+    "perplexity" : 177.56910705566406,
+    "tokens_used" : [ " It", " is", " soft", " sand", " that", " will", " beach", " on", " your", " water" ],
+    "original_sentence" : "It is soft sand that will beach on [MASK] water",
+    "timestamp" : 69580
+  }, {
+    "sentence" : "It is soft sand that will beach on salt water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 1321, 1714, 5075, 710, 3029, 3408 ],
+    "perplexity" : 198.58843994140625,
+    "tokens_used" : [ " It", " is", " soft", " sand", " that", " will", " beach", " on", " salt", " water" ],
+    "original_sentence" : "It is soft sand that will beach on [MASK] water",
+    "timestamp" : 71354
+  }, {
+    "sentence" : "This is soft sand that will beach on salt water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 1321, 1714, 5075, 710, 3029, 3408 ],
+    "perplexity" : 200.185791015625,
+    "tokens_used" : [ " This", " is", " soft", " sand", " that", " will", " beach", " on", " salt", " water" ],
+    "original_sentence" : "[MASK] is soft sand that will beach on salt water",
+    "timestamp" : 72946
+  }, {
+    "sentence" : "This is soft sand that will beach on the water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 1321, 1714, 5075, 710, 394, 3408 ],
+    "perplexity" : 144.9436492919922,
+    "tokens_used" : [ " This", " is", " soft", " sand", " that", " will", " beach", " on", " the", " water" ],
+    "original_sentence" : "This is soft sand that will beach on [MASK] water",
+    "timestamp" : 74302
+  }, {
+    "sentence" : "This is soft sand that will beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 1321, 1714, 5075, 2515, 394, 3408 ],
+    "perplexity" : 131.9996337890625,
+    "tokens_used" : [ " This", " is", " soft", " sand", " that", " will", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft sand that will beach [MASK] the water",
+    "timestamp" : 76203
+  }, {
+    "sentence" : "This is soft plastic that will beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1020, 1321, 1714, 5075, 2515, 394, 3408 ],
+    "perplexity" : 131.45774841308594,
+    "tokens_used" : [ " This", " is", " soft", " plastic", " that", " will", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] that will beach in the water",
+    "timestamp" : 77908
+  }, {
+    "sentence" : "This is soft plastic that can beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1020, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 122.87408447265625,
+    "tokens_used" : [ " This", " is", " soft", " plastic", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft plastic that [MASK] beach in the water",
+    "timestamp" : 78807
+  }, {
+    "sentence" : "It is soft plastic that can beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 1020, 1321, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 113.92707061767578,
+    "tokens_used" : [ " It", " is", " soft", " plastic", " that", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft plastic that can beach in the water",
+    "timestamp" : 80157
+  }, {
+    "sentence" : "It is soft plastic that is beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 1020, 1321, 2713, 5075, 2515, 394, 3408 ],
+    "perplexity" : 146.08909606933594,
+    "tokens_used" : [ " It", " is", " soft", " plastic", " that", " is", " beach", " in", " the", " water" ],
+    "original_sentence" : "It is soft plastic that [MASK] beach in the water",
+    "timestamp" : 81684
+  }, {
+    "sentence" : "This is soft plastic that is beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1020, 1321, 2713, 5075, 2515, 394, 3408 ],
+    "perplexity" : 153.37158203125,
+    "tokens_used" : [ " This", " is", " soft", " plastic", " that", " is", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft plastic that is beach in the water",
+    "timestamp" : 83677
+  }, {
+    "sentence" : "This is soft plastic and is beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1020, 215, 2713, 5075, 2515, 394, 3408 ],
+    "perplexity" : 152.40489196777344,
+    "tokens_used" : [ " This", " is", " soft", " plastic", " and", " is", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft plastic [MASK] is beach in the water",
+    "timestamp" : 85321
+  }, {
+    "sentence" : "It is soft plastic and is beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 1020, 215, 2713, 5075, 2515, 394, 3408 ],
+    "perplexity" : 144.74514770507812,
+    "tokens_used" : [ " It", " is", " soft", " plastic", " and", " is", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft plastic and is beach in the water",
+    "timestamp" : 88418
+  }, {
+    "sentence" : "It is soft plastic and is beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 1020, 215, 2713, 5075, 2029, 394, 3408 ],
+    "perplexity" : 161.34259033203125,
+    "tokens_used" : [ " It", " is", " soft", " plastic", " and", " is", " beach", " by", " the", " water" ],
+    "original_sentence" : "It is soft plastic and is beach [MASK] the water",
+    "timestamp" : 89805
+  }, {
+    "sentence" : "It is soft sand and is beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 215, 2713, 5075, 2029, 394, 3408 ],
+    "perplexity" : 139.59388732910156,
+    "tokens_used" : [ " It", " is", " soft", " sand", " and", " is", " beach", " by", " the", " water" ],
+    "original_sentence" : "It is soft [MASK] and is beach by the water",
+    "timestamp" : 92605
+  }, {
+    "sentence" : "It is soft sand and sandy beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 215, 422, 5075, 2029, 394, 3408 ],
+    "perplexity" : 86.28106689453125,
+    "tokens_used" : [ " It", " is", " soft", " sand", " and", " sandy", " beach", " by", " the", " water" ],
+    "original_sentence" : "It is soft sand and [MASK] beach by the water",
+    "timestamp" : 93682
+  }, {
+    "sentence" : "It is soft rock and sandy beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 215, 422, 5075, 2029, 394, 3408 ],
+    "perplexity" : 91.3441390991211,
+    "tokens_used" : [ " It", " is", " soft", " rock", " and", " sandy", " beach", " by", " the", " water" ],
+    "original_sentence" : "It is soft [MASK] and sandy beach by the water",
+    "timestamp" : 95343
+  }, {
+    "sentence" : "This is soft rock and sandy beach by the water",
+    "tokens" : [ 1228, 2713, 2489, 535, 215, 422, 5075, 2029, 394, 3408 ],
+    "perplexity" : 85.76565551757812,
+    "tokens_used" : [ " This", " is", " soft", " rock", " and", " sandy", " beach", " by", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock and sandy beach by the water",
+    "timestamp" : 97142
+  }, {
+    "sentence" : "There is soft rock and sandy beach by the water",
+    "tokens" : [ 5181, 2713, 2489, 535, 215, 422, 5075, 2029, 394, 3408 ],
+    "perplexity" : 76.30607604980469,
+    "tokens_used" : [ " There", " is", " soft", " rock", " and", " sandy", " beach", " by", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock and sandy beach by the water",
+    "timestamp" : 98259
+  }, {
+    "sentence" : "There is soft rock and a beach by the water",
+    "tokens" : [ 5181, 2713, 2489, 535, 215, 4646, 5075, 2029, 394, 3408 ],
+    "perplexity" : 74.56336975097656,
+    "tokens_used" : [ " There", " is", " soft", " rock", " and", " a", " beach", " by", " the", " water" ],
+    "original_sentence" : "There is soft rock and [MASK] beach by the water",
+    "timestamp" : 99625
+  }, {
+    "sentence" : "There is soft rock on a beach by the water",
+    "tokens" : [ 5181, 2713, 2489, 535, 710, 4646, 5075, 2029, 394, 3408 ],
+    "perplexity" : 68.96365356445312,
+    "tokens_used" : [ " There", " is", " soft", " rock", " on", " a", " beach", " by", " the", " water" ],
+    "original_sentence" : "There is soft rock [MASK] a beach by the water",
+    "timestamp" : 101435
+  }, {
+    "sentence" : "There is soft rock on the beach by the water",
+    "tokens" : [ 5181, 2713, 2489, 535, 710, 394, 5075, 2029, 394, 3408 ],
+    "perplexity" : 53.89468765258789,
+    "tokens_used" : [ " There", " is", " soft", " rock", " on", " the", " beach", " by", " the", " water" ],
+    "original_sentence" : "There is soft rock on [MASK] beach by the water",
+    "timestamp" : 102964
+  }, {
+    "sentence" : "There was soft rock on the beach by the water",
+    "tokens" : [ 5181, 1557, 2489, 535, 710, 394, 5075, 2029, 394, 3408 ],
+    "perplexity" : 57.83906173706055,
+    "tokens_used" : [ " There", " was", " soft", " rock", " on", " the", " beach", " by", " the", " water" ],
+    "original_sentence" : "There [MASK] soft rock on the beach by the water",
+    "timestamp" : 104382
+  }, {
+    "sentence" : "It was soft rock on the beach by the water",
+    "tokens" : [ 2051, 1557, 2489, 535, 710, 394, 5075, 2029, 394, 3408 ],
+    "perplexity" : 60.380863189697266,
+    "tokens_used" : [ " It", " was", " soft", " rock", " on", " the", " beach", " by", " the", " water" ],
+    "original_sentence" : "[MASK] was soft rock on the beach by the water",
+    "timestamp" : 105714
+  }, {
+    "sentence" : "It is soft rock on the beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 710, 394, 5075, 2029, 394, 3408 ],
+    "perplexity" : 78.46343994140625,
+    "tokens_used" : [ " It", " is", " soft", " rock", " on", " the", " beach", " by", " the", " water" ],
+    "original_sentence" : "It [MASK] soft rock on the beach by the water",
+    "timestamp" : 107132
+  }, {
+    "sentence" : "It is soft sand on the beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 710, 394, 5075, 2029, 394, 3408 ],
+    "perplexity" : 64.98213195800781,
+    "tokens_used" : [ " It", " is", " soft", " sand", " on", " the", " beach", " by", " the", " water" ],
+    "original_sentence" : "It is soft [MASK] on the beach by the water",
+    "timestamp" : 108870
+  }, {
+    "sentence" : "It is soft sand on a beach by the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 710, 4646, 5075, 2029, 394, 3408 ],
+    "perplexity" : 74.95356750488281,
+    "tokens_used" : [ " It", " is", " soft", " sand", " on", " a", " beach", " by", " the", " water" ],
+    "original_sentence" : "It is soft sand on [MASK] beach by the water",
+    "timestamp" : 110578
+  }, {
+    "sentence" : "It is soft sand on a beach near the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 93.12194061279297,
+    "tokens_used" : [ " It", " is", " soft", " sand", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "It is soft sand on a beach [MASK] the water",
+    "timestamp" : 111885
+  }, {
+    "sentence" : "It is soft rock on a beach near the water",
+    "tokens" : [ 2051, 2713, 2489, 535, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 95.27904510498047,
+    "tokens_used" : [ " It", " is", " soft", " rock", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "It is soft [MASK] on a beach near the water",
+    "timestamp" : 113533
+  }, {
+    "sentence" : "This is soft rock on a beach near the water",
+    "tokens" : [ 1228, 2713, 2489, 535, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 83.11064147949219,
+    "tokens_used" : [ " This", " is", " soft", " rock", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock on a beach near the water",
+    "timestamp" : 117193
+  }, {
+    "sentence" : "There is soft rock on a beach near the water",
+    "tokens" : [ 5181, 2713, 2489, 535, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 69.93946838378906,
+    "tokens_used" : [ " There", " is", " soft", " rock", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock on a beach near the water",
+    "timestamp" : 118392
+  }, {
+    "sentence" : "Rock is soft rock on a beach near the water",
+    "tokens" : [ 535, 2713, 2489, 535, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 95.51517486572266,
+    "tokens_used" : [ " rock", " is", " soft", " rock", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "[MASK] is soft rock on a beach near the water",
+    "timestamp" : 120123
+  }, {
+    "sentence" : "Rock is soft rock on a beach in the water",
+    "tokens" : [ 536, 2713, 2489, 535, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 92.58575439453125,
+    "tokens_used" : [ " Rock", " is", " soft", " rock", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Rock is soft rock on a beach [MASK] the water",
+    "timestamp" : 124461
+  }, {
+    "sentence" : "Rock is soft sand on a beach in the water",
+    "tokens" : [ 536, 2713, 2489, 1752, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 83.83960723876953,
+    "tokens_used" : [ " Rock", " is", " soft", " sand", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Rock is soft [MASK] on a beach in the water",
+    "timestamp" : 126165
+  }, {
+    "sentence" : "Rock was soft sand on a beach in the water",
+    "tokens" : [ 536, 1557, 2489, 1752, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 92.25527954101562,
+    "tokens_used" : [ " Rock", " was", " soft", " sand", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Rock [MASK] soft sand on a beach in the water",
+    "timestamp" : 129067
+  }, {
+    "sentence" : "Rock was soft sand and a beach in the water",
+    "tokens" : [ 536, 1557, 2489, 1752, 215, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 97.76160430908203,
+    "tokens_used" : [ " Rock", " was", " soft", " sand", " and", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Rock was soft sand [MASK] a beach in the water",
+    "timestamp" : 130359
+  }, {
+    "sentence" : "This was soft sand and a beach in the water",
+    "tokens" : [ 1228, 1557, 2489, 1752, 215, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 93.43533325195312,
+    "tokens_used" : [ " This", " was", " soft", " sand", " and", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] was soft sand and a beach in the water",
+    "timestamp" : 137132
+  }, {
+    "sentence" : "This is soft sand and a beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 215, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 91.3342056274414,
+    "tokens_used" : [ " This", " is", " soft", " sand", " and", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "This [MASK] soft sand and a beach in the water",
+    "timestamp" : 145343
+  }, {
+    "sentence" : "It is soft sand and a beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 215, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 92.74495697021484,
+    "tokens_used" : [ " It", " is", " soft", " sand", " and", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft sand and a beach in the water",
+    "timestamp" : 148380
+  } ]
+}

@@ -1,0 +1,600 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T18:01:29.190368369",
+  "time" : 747.014,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She paused outside the door at the back of my left shoulder",
+    "score" : 58.243438720703125,
+    "time" : 29736,
+    "cycle" : 0
+  }, {
+    "sentence" : "She paused outside the door at the base of my left shoulder",
+    "score" : 50.63981628417969,
+    "time" : 35474,
+    "cycle" : 1
+  }, {
+    "sentence" : "Few points forward and rear of the right side of the window",
+    "score" : 45.255126953125,
+    "time" : 674184,
+    "cycle" : 88
+  }, {
+    "sentence" : "The corner left and left below the right side of the window",
+    "score" : 45.047977447509766,
+    "time" : 736363,
+    "cycle" : 98
+  }, {
+    "sentence" : "The second left and left below the right side of the window",
+    "score" : 43.206298828125,
+    "time" : 746627,
+    "cycle" : 99
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She paused outside the door at the back of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 58.243438720703125,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the door [MASK] the back of my left [MASK]",
+    "timestamp" : 29736
+  }, {
+    "sentence" : "She paused outside the door in the back of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2515, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 79.51927185058594,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " in", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the door [MASK] the back of my left [MASK]",
+    "timestamp" : 30294
+  }, {
+    "sentence" : "She paused outside the door is the back of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2713, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 97.9764633178711,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " is", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the door [MASK] the back of my left [MASK]",
+    "timestamp" : 31084
+  }, {
+    "sentence" : "She paused outside the door at the side of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 68.78784942626953,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused [MASK] the door at the [MASK] of my left shoulder",
+    "timestamp" : 34920
+  }, {
+    "sentence" : "She paused outside the door at the base of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 4841, 5194, 938, 1608, 2549 ],
+    "perplexity" : 50.63981628417969,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " base", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused [MASK] the door at the [MASK] of my left shoulder",
+    "timestamp" : 35474
+  }, {
+    "sentence" : "She paused outside the door at the edge of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 51.46430206298828,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused [MASK] the door at the [MASK] of my left shoulder",
+    "timestamp" : 36001
+  }, {
+    "sentence" : "She paused outside the door at the foot of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 1838, 5194, 938, 1608, 2549 ],
+    "perplexity" : 55.86213302612305,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " foot", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused [MASK] the door at the [MASK] of my left shoulder",
+    "timestamp" : 36599
+  }, {
+    "sentence" : "She paused outside the door at the bend of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 63.307151794433594,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused [MASK] the door at the [MASK] of my left shoulder",
+    "timestamp" : 37431
+  }, {
+    "sentence" : "You paused outside the door at the bend of my left shoulder",
+    "tokens" : [ 919, 3634, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 73.79891204833984,
+    "tokens_used" : [ " you", " paused", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside the door at the bend [MASK] my left shoulder",
+    "timestamp" : 47260
+  }, {
+    "sentence" : "Was paused outside the door at the bend of my left shoulder",
+    "tokens" : [ 1557, 3634, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 73.81742095947266,
+    "tokens_used" : [ " was", " paused", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside the door at the bend [MASK] my left shoulder",
+    "timestamp" : 47731
+  }, {
+    "sentence" : "You paused outside the door at the bend of my left shoulder",
+    "tokens" : [ 919, 3634, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 73.79891204833984,
+    "tokens_used" : [ " you", " paused", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside [MASK] door at the bend of my left shoulder",
+    "timestamp" : 51684
+  }, {
+    "sentence" : "Was paused outside the door at the bend of my left shoulder",
+    "tokens" : [ 1557, 3634, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 73.81742095947266,
+    "tokens_used" : [ " was", " paused", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside [MASK] door at the bend of my left shoulder",
+    "timestamp" : 52069
+  }, {
+    "sentence" : "The paused outside the door at the bend of my left shoulder",
+    "tokens" : [ 395, 3634, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 86.28999328613281,
+    "tokens_used" : [ " The", " paused", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside [MASK] door at the bend of my left shoulder",
+    "timestamp" : 52803
+  }, {
+    "sentence" : "Had looked outside the door at the bend of my left shoulder",
+    "tokens" : [ 4961, 592, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 59.620262145996094,
+    "tokens_used" : [ " Had", " looked", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Had [MASK] outside the door at the bend of my [MASK] shoulder",
+    "timestamp" : 56574
+  }, {
+    "sentence" : "Had landed outside the door at the bend of my left shoulder",
+    "tokens" : [ 4961, 242, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 67.10607147216797,
+    "tokens_used" : [ " Had", " landed", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Had [MASK] outside the door at the bend of my [MASK] shoulder",
+    "timestamp" : 57156
+  }, {
+    "sentence" : "Had myself outside the door at the bend of my left shoulder",
+    "tokens" : [ 4961, 2843, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 75.06920623779297,
+    "tokens_used" : [ " Had", " myself", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Had [MASK] outside the door at the bend of my [MASK] shoulder",
+    "timestamp" : 58614
+  }, {
+    "sentence" : "Had parked outside the door at the bend of my left shoulder",
+    "tokens" : [ 4961, 2222, 803, 394, 4455, 302, 394, 1736, 5194, 938, 1608, 2549 ],
+    "perplexity" : 57.56480026245117,
+    "tokens_used" : [ " Had", " parked", " outside", " the", " door", " at", " the", " bend", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Had [MASK] outside the door at the bend of my [MASK] shoulder",
+    "timestamp" : 59166
+  }, {
+    "sentence" : "Had parked outside the door at the bend of my rear shoulder",
+    "tokens" : [ 4961, 2222, 803, 394, 4455, 302, 394, 1736, 5194, 938, 3612, 2549 ],
+    "perplexity" : 99.16106414794922,
+    "tokens_used" : [ " Had", " parked", " outside", " the", " door", " at", " the", " bend", " of", " my", " rear", " shoulder" ],
+    "original_sentence" : "Had parked outside the door at [MASK] bend of my [MASK] shoulder",
+    "timestamp" : 60806
+  }, {
+    "sentence" : "Was parked outside the door at the bend of my rear shoulder",
+    "tokens" : [ 1557, 2222, 803, 394, 4455, 302, 394, 1736, 5194, 938, 3612, 2549 ],
+    "perplexity" : 86.92593383789062,
+    "tokens_used" : [ " was", " parked", " outside", " the", " door", " at", " the", " bend", " of", " my", " rear", " shoulder" ],
+    "original_sentence" : "[MASK] parked outside the door at [MASK] bend of my rear shoulder",
+    "timestamp" : 65207
+  }, {
+    "sentence" : "Was parked outside her seat at the back of my rear shoulder",
+    "tokens" : [ 1557, 2222, 803, 3730, 5014, 302, 394, 954, 5194, 938, 3612, 2549 ],
+    "perplexity" : 97.50495147705078,
+    "tokens_used" : [ " was", " parked", " outside", " her", " seat", " at", " the", " back", " of", " my", " rear", " shoulder" ],
+    "original_sentence" : "[MASK] parked outside her seat at [MASK] back of my rear shoulder",
+    "timestamp" : 80126
+  }, {
+    "sentence" : "Was parked outside the seat on the back of my rear shoulder",
+    "tokens" : [ 1557, 2222, 803, 394, 5014, 710, 394, 954, 5194, 938, 3612, 2549 ],
+    "perplexity" : 66.71656799316406,
+    "tokens_used" : [ " was", " parked", " outside", " the", " seat", " on", " the", " back", " of", " my", " rear", " shoulder" ],
+    "original_sentence" : "[MASK] parked outside [MASK] seat on the back of my rear shoulder",
+    "timestamp" : 90217
+  }, {
+    "sentence" : "You parked outside the seat on the back of my rear shoulder",
+    "tokens" : [ 920, 2222, 803, 394, 5014, 710, 394, 954, 5194, 938, 3612, 2549 ],
+    "perplexity" : 92.3048324584961,
+    "tokens_used" : [ " You", " parked", " outside", " the", " seat", " on", " the", " back", " of", " my", " rear", " shoulder" ],
+    "original_sentence" : "[MASK] parked outside [MASK] seat on the back of my rear shoulder",
+    "timestamp" : 92382
+  }, {
+    "sentence" : "Was parked outside the seat on the side of left rear window",
+    "tokens" : [ 1557, 2222, 803, 394, 5014, 710, 394, 400, 5194, 1608, 3612, 5078 ],
+    "perplexity" : 84.16665649414062,
+    "tokens_used" : [ " was", " parked", " outside", " the", " seat", " on", " the", " side", " of", " left", " rear", " window" ],
+    "original_sentence" : "[MASK] parked outside the seat [MASK] the side of left rear window",
+    "timestamp" : 104841
+  }, {
+    "sentence" : "Box parked outside the seat on the side of left rear window",
+    "tokens" : [ 1011, 2222, 803, 394, 5014, 710, 394, 400, 5194, 1608, 3612, 5078 ],
+    "perplexity" : 86.63267517089844,
+    "tokens_used" : [ " Box", " parked", " outside", " the", " seat", " on", " the", " side", " of", " left", " rear", " window" ],
+    "original_sentence" : "[MASK] parked outside the seat [MASK] the side of left rear window",
+    "timestamp" : 106270
+  }, {
+    "sentence" : "Dog parked outside the seat on the side of left rear window",
+    "tokens" : [ 876, 2222, 803, 394, 5014, 710, 394, 400, 5194, 1608, 3612, 5078 ],
+    "perplexity" : 87.70830535888672,
+    "tokens_used" : [ " Dog", " parked", " outside", " the", " seat", " on", " the", " side", " of", " left", " rear", " window" ],
+    "original_sentence" : "[MASK] parked outside the seat [MASK] the side of left rear window",
+    "timestamp" : 106730
+  }, {
+    "sentence" : "Was parked outside and left on the side of left rear window",
+    "tokens" : [ 1557, 2222, 803, 215, 1608, 710, 394, 400, 5194, 1608, 3612, 5078 ],
+    "perplexity" : 88.92123413085938,
+    "tokens_used" : [ " was", " parked", " outside", " and", " left", " on", " the", " side", " of", " left", " rear", " window" ],
+    "original_sentence" : "[MASK] parked outside and left on the side [MASK] left rear window",
+    "timestamp" : 112987
+  }, {
+    "sentence" : "Was parked outside then left on the side of the rear window",
+    "tokens" : [ 1557, 2222, 803, 2226, 1608, 710, 394, 400, 5194, 394, 3612, 5078 ],
+    "perplexity" : 76.62920379638672,
+    "tokens_used" : [ " was", " parked", " outside", " then", " left", " on", " the", " side", " of", " the", " rear", " window" ],
+    "original_sentence" : "[MASK] parked outside then left on the side of [MASK] rear window",
+    "timestamp" : 120348
+  }, {
+    "sentence" : "Dog parked outside then left on the side of the rear window",
+    "tokens" : [ 876, 2222, 803, 2226, 1608, 710, 394, 400, 5194, 394, 3612, 5078 ],
+    "perplexity" : 89.66486358642578,
+    "tokens_used" : [ " Dog", " parked", " outside", " then", " left", " on", " the", " side", " of", " the", " rear", " window" ],
+    "original_sentence" : "[MASK] parked outside then left on the side of [MASK] rear window",
+    "timestamp" : 122395
+  }, {
+    "sentence" : "Was placed outside then left on the roof of the rear window",
+    "tokens" : [ 1558, 2926, 803, 2226, 1608, 710, 394, 4776, 5194, 394, 3612, 5078 ],
+    "perplexity" : 93.64153289794922,
+    "tokens_used" : [ " Was", " placed", " outside", " then", " left", " on", " the", " roof", " of", " the", " rear", " window" ],
+    "original_sentence" : "Was [MASK] outside then left on the roof of the [MASK] window",
+    "timestamp" : 132356
+  }, {
+    "sentence" : "Was turned outside and left at the front in the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 302, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 78.15123748779297,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " at", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left at [MASK] front [MASK] the shop window",
+    "timestamp" : 188573
+  }, {
+    "sentence" : "Was turned outside and left at the front to the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 302, 394, 2216, 2461, 394, 4667, 5078 ],
+    "perplexity" : 85.70498657226562,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " at", " the", " front", " to", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left at [MASK] front [MASK] the shop window",
+    "timestamp" : 188898
+  }, {
+    "sentence" : "Was turned outside and left in the front in the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 2515, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 79.39791870117188,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " in", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left [MASK] [MASK] front in the shop window",
+    "timestamp" : 191238
+  }, {
+    "sentence" : "Was turned outside and left to the front in the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 2461, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 64.61888122558594,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " to", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left [MASK] [MASK] front in the shop window",
+    "timestamp" : 191852
+  }, {
+    "sentence" : "Was turned outside and left on the front in the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 710, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 81.39869689941406,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " on", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left [MASK] [MASK] front in the shop window",
+    "timestamp" : 192222
+  }, {
+    "sentence" : "Was turned outside and left by the front in the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 2029, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 81.30403900146484,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " by", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left [MASK] [MASK] front in the shop window",
+    "timestamp" : 192628
+  }, {
+    "sentence" : "Was turned outside and left up the front in the shop window",
+    "tokens" : [ 1558, 1448, 803, 215, 1608, 1840, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 89.74955749511719,
+    "tokens_used" : [ " Was", " turned", " outside", " and", " left", " up", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was turned outside and left [MASK] [MASK] front in the shop window",
+    "timestamp" : 193208
+  }, {
+    "sentence" : "Was placed outside and left to the front in the shop window",
+    "tokens" : [ 1558, 2926, 803, 215, 1608, 2461, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 81.80168914794922,
+    "tokens_used" : [ " Was", " placed", " outside", " and", " left", " to", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was [MASK] outside and left to the front in the shop [MASK]",
+    "timestamp" : 195183
+  }, {
+    "sentence" : "Was posted outside and left to the front in the shop window",
+    "tokens" : [ 1558, 4041, 803, 215, 1608, 2461, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 93.29998779296875,
+    "tokens_used" : [ " Was", " posted", " outside", " and", " left", " to", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was [MASK] outside and left to the front in the shop [MASK]",
+    "timestamp" : 197162
+  }, {
+    "sentence" : "Was folded outside and left to the front in the shop window",
+    "tokens" : [ 1558, 1079, 803, 215, 1608, 2461, 394, 2216, 2515, 394, 4667, 5078 ],
+    "perplexity" : 94.78498077392578,
+    "tokens_used" : [ " Was", " folded", " outside", " and", " left", " to", " the", " front", " in", " the", " shop", " window" ],
+    "original_sentence" : "Was [MASK] outside and left to the front in the shop [MASK]",
+    "timestamp" : 197784
+  }, {
+    "sentence" : "Run around outside and rear to the right to find the window",
+    "tokens" : [ 2808, 1294, 803, 215, 3612, 2461, 394, 5022, 2461, 4072, 394, 5078 ],
+    "perplexity" : 60.04433822631836,
+    "tokens_used" : [ " Run", " around", " outside", " and", " rear", " to", " the", " right", " to", " find", " the", " window" ],
+    "original_sentence" : "[MASK] around outside and rear to [MASK] right to find the window",
+    "timestamp" : 340493
+  }, {
+    "sentence" : "Tip around forward and rear to the right to find the window",
+    "tokens" : [ 3522, 1294, 2705, 215, 3612, 2461, 394, 5022, 2461, 4072, 394, 5078 ],
+    "perplexity" : 68.7040023803711,
+    "tokens_used" : [ " Tip", " around", " forward", " and", " rear", " to", " the", " right", " to", " find", " the", " window" ],
+    "original_sentence" : "Tip around [MASK] and rear to the [MASK] to find the window",
+    "timestamp" : 350777
+  }, {
+    "sentence" : "And easily forward and rear to the third side of the window",
+    "tokens" : [ 216, 2857, 2705, 215, 3612, 2461, 394, 5160, 400, 5194, 394, 5078 ],
+    "perplexity" : 85.16512298583984,
+    "tokens_used" : [ " And", " easily", " forward", " and", " rear", " to", " the", " third", " side", " of", " the", " window" ],
+    "original_sentence" : "And [MASK] forward and rear to [MASK] third side of the window",
+    "timestamp" : 613518
+  }, {
+    "sentence" : "And likely forward and rear to the third side of the window",
+    "tokens" : [ 216, 757, 2705, 215, 3612, 2461, 394, 5160, 400, 5194, 394, 5078 ],
+    "perplexity" : 84.46929168701172,
+    "tokens_used" : [ " And", " likely", " forward", " and", " rear", " to", " the", " third", " side", " of", " the", " window" ],
+    "original_sentence" : "And [MASK] forward and rear to [MASK] third side of the window",
+    "timestamp" : 613855
+  }, {
+    "sentence" : "And safely forward and rear to the third side of the window",
+    "tokens" : [ 216, 3002, 2705, 215, 3612, 2461, 394, 5160, 400, 5194, 394, 5078 ],
+    "perplexity" : 88.0835952758789,
+    "tokens_used" : [ " And", " safely", " forward", " and", " rear", " to", " the", " third", " side", " of", " the", " window" ],
+    "original_sentence" : "And [MASK] forward and rear to [MASK] third side of the window",
+    "timestamp" : 614288
+  }, {
+    "sentence" : "And likely forward and rear to the right side of the window",
+    "tokens" : [ 216, 757, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 55.44038772583008,
+    "tokens_used" : [ " And", " likely", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "And likely [MASK] and rear to the [MASK] side of the window",
+    "timestamp" : 617206
+  }, {
+    "sentence" : "And likely because and rear to the right side of the window",
+    "tokens" : [ 216, 757, 3821, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 95.00448608398438,
+    "tokens_used" : [ " And", " likely", " because", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "And likely [MASK] and rear to the [MASK] side of the window",
+    "timestamp" : 621706
+  }, {
+    "sentence" : "And either forward and rear to the right side of the window",
+    "tokens" : [ 216, 3561, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 52.07160568237305,
+    "tokens_used" : [ " And", " either", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "And [MASK] forward and rear [MASK] the right side of the window",
+    "timestamp" : 626102
+  }, {
+    "sentence" : "And sights forward and rear to the right side of the window",
+    "tokens" : [ 216, 4714, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 98.33573150634766,
+    "tokens_used" : [ " And", " sights", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "And [MASK] forward and rear [MASK] the right side of the window",
+    "timestamp" : 628350
+  }, {
+    "sentence" : "And safely forward and rear to the right side of the window",
+    "tokens" : [ 216, 3002, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 52.32611846923828,
+    "tokens_used" : [ " And", " safely", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "And [MASK] forward and rear [MASK] the right side of the window",
+    "timestamp" : 628727
+  }, {
+    "sentence" : "And safely through and rear to the right side of the window",
+    "tokens" : [ 216, 3002, 3941, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 61.312896728515625,
+    "tokens_used" : [ " And", " safely", " through", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "And safely [MASK] and rear to [MASK] right side of the window",
+    "timestamp" : 632039
+  }, {
+    "sentence" : "Run safely through and rear to the right side of the window",
+    "tokens" : [ 2808, 3002, 3941, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 63.76909255981445,
+    "tokens_used" : [ " Run", " safely", " through", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] safely through and rear to the right side [MASK] the window",
+    "timestamp" : 638627
+  }, {
+    "sentence" : "Age safely through and rear to the right side of the window",
+    "tokens" : [ 4495, 3002, 3941, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 98.59810638427734,
+    "tokens_used" : [ " Age", " safely", " through", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] safely through and rear to the right side [MASK] the window",
+    "timestamp" : 642352
+  }, {
+    "sentence" : "Few safely through and rear to the right side of the window",
+    "tokens" : [ 979, 3002, 3941, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 73.1956558227539,
+    "tokens_used" : [ " Few", " safely", " through", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] safely through and rear to the right side [MASK] the window",
+    "timestamp" : 643111
+  }, {
+    "sentence" : "Few safely through and rear of the right side of the window",
+    "tokens" : [ 979, 3002, 3941, 215, 3612, 5194, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 82.50225067138672,
+    "tokens_used" : [ " Few", " safely", " through", " and", " rear", " of", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few safely through and rear [MASK] [MASK] right side of the window",
+    "timestamp" : 657068
+  }, {
+    "sentence" : "Few safely towards and rear of the right side of the window",
+    "tokens" : [ 979, 3002, 4869, 215, 3612, 5194, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 78.48514556884766,
+    "tokens_used" : [ " Few", " safely", " towards", " and", " rear", " of", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few safely [MASK] and rear of the right [MASK] of the window",
+    "timestamp" : 665132
+  }, {
+    "sentence" : "Few safely forward and rear of the right side of the window",
+    "tokens" : [ 979, 3002, 2705, 215, 3612, 5194, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 64.83094024658203,
+    "tokens_used" : [ " Few", " safely", " forward", " and", " rear", " of", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few safely [MASK] and rear of the right [MASK] of the window",
+    "timestamp" : 665569
+  }, {
+    "sentence" : "Few points forward and rear of the right side of the window",
+    "tokens" : [ 979, 3706, 2705, 215, 3612, 5194, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 45.255126953125,
+    "tokens_used" : [ " Few", " points", " forward", " and", " rear", " of", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few [MASK] forward and rear of the right side of the [MASK]",
+    "timestamp" : 674184
+  }, {
+    "sentence" : "Few points forward and rear to the right side of the window",
+    "tokens" : [ 979, 3706, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 46.29365158081055,
+    "tokens_used" : [ " Few", " points", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few points [MASK] and rear [MASK] the right side of the window",
+    "timestamp" : 682101
+  }, {
+    "sentence" : "Few points forward and rear at the right side of the window",
+    "tokens" : [ 979, 3706, 2705, 215, 3612, 302, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 55.55794143676758,
+    "tokens_used" : [ " Few", " points", " forward", " and", " rear", " at", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few points [MASK] and rear [MASK] the right side of the window",
+    "timestamp" : 682691
+  }, {
+    "sentence" : "Few points forward and rear in the right side of the window",
+    "tokens" : [ 979, 3706, 2705, 215, 3612, 2515, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 55.966758728027344,
+    "tokens_used" : [ " Few", " points", " forward", " and", " rear", " in", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few points [MASK] and rear [MASK] the right side of the window",
+    "timestamp" : 683058
+  }, {
+    "sentence" : "Few points forward and rear as the right side of the window",
+    "tokens" : [ 979, 3706, 2705, 215, 3612, 560, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 86.60227966308594,
+    "tokens_used" : [ " Few", " points", " forward", " and", " rear", " as", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few points [MASK] and rear [MASK] the right side of the window",
+    "timestamp" : 684130
+  }, {
+    "sentence" : "Few points forward and rear or the right side of the window",
+    "tokens" : [ 979, 3706, 2705, 215, 3612, 1860, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 66.4364013671875,
+    "tokens_used" : [ " Few", " points", " forward", " and", " rear", " or", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Few points [MASK] and rear [MASK] the right side of the window",
+    "timestamp" : 684751
+  }, {
+    "sentence" : "The points forward and rear to the right side of the window",
+    "tokens" : [ 395, 3706, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 58.032554626464844,
+    "tokens_used" : [ " The", " points", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] points forward and rear to the right side of [MASK] window",
+    "timestamp" : 688543
+  }, {
+    "sentence" : "Now points forward and rear to the right side of the window",
+    "tokens" : [ 2187, 3706, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 66.83495330810547,
+    "tokens_used" : [ " now", " points", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] points forward and rear to the right side of [MASK] window",
+    "timestamp" : 689375
+  }, {
+    "sentence" : "Eye points forward and rear to the right side of the window",
+    "tokens" : [ 3949, 3706, 2705, 215, 3612, 2461, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 50.26667785644531,
+    "tokens_used" : [ " Eye", " points", " forward", " and", " rear", " to", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] points forward and rear to the right side of [MASK] window",
+    "timestamp" : 689744
+  }, {
+    "sentence" : "Eye points forward and rear of the right side of the window",
+    "tokens" : [ 3949, 3706, 2705, 215, 3612, 5194, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 58.01661682128906,
+    "tokens_used" : [ " Eye", " points", " forward", " and", " rear", " of", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Eye points forward and rear [MASK] the right [MASK] of the window",
+    "timestamp" : 692626
+  }, {
+    "sentence" : "Eye points forward and rear at the right side of the window",
+    "tokens" : [ 3949, 3706, 2705, 215, 3612, 302, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 59.56970977783203,
+    "tokens_used" : [ " Eye", " points", " forward", " and", " rear", " at", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Eye points forward and rear [MASK] the right [MASK] of the window",
+    "timestamp" : 693904
+  }, {
+    "sentence" : "Eye points forward and rear in the right side of the window",
+    "tokens" : [ 3949, 3706, 2705, 215, 3612, 2515, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 64.10530853271484,
+    "tokens_used" : [ " Eye", " points", " forward", " and", " rear", " in", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Eye points forward and rear [MASK] the right [MASK] of the window",
+    "timestamp" : 694678
+  }, {
+    "sentence" : "Eye points forward and rear or the right side of the window",
+    "tokens" : [ 3949, 3706, 2705, 215, 3612, 1860, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 82.82306671142578,
+    "tokens_used" : [ " Eye", " points", " forward", " and", " rear", " or", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "Eye points forward and rear [MASK] the right [MASK] of the window",
+    "timestamp" : 696268
+  }, {
+    "sentence" : "The points forward and rear at the right side of the window",
+    "tokens" : [ 395, 3706, 2705, 215, 3612, 302, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 68.3085708618164,
+    "tokens_used" : [ " The", " points", " forward", " and", " rear", " at", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] points forward and rear at the right [MASK] of the window",
+    "timestamp" : 701839
+  }, {
+    "sentence" : "Now points forward and rear at the right side of the window",
+    "tokens" : [ 2187, 3706, 2705, 215, 3612, 302, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 79.13326263427734,
+    "tokens_used" : [ " now", " points", " forward", " and", " rear", " at", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] points forward and rear at the right [MASK] of the window",
+    "timestamp" : 703063
+  }, {
+    "sentence" : "Sun points forward and rear at the right side of the window",
+    "tokens" : [ 2093, 3706, 2705, 215, 3612, 302, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 77.89534759521484,
+    "tokens_used" : [ " Sun", " points", " forward", " and", " rear", " at", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] points forward and rear at the right [MASK] of the window",
+    "timestamp" : 703503
+  }, {
+    "sentence" : "The corner left and left below the right side of the window",
+    "tokens" : [ 395, 4835, 1608, 215, 1608, 4938, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 45.047977447509766,
+    "tokens_used" : [ " The", " corner", " left", " and", " left", " below", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "[MASK] corner left and left below the right [MASK] of the window",
+    "timestamp" : 736363
+  }, {
+    "sentence" : "The corner left and left below the right wall of the window",
+    "tokens" : [ 395, 4835, 1608, 215, 1608, 4938, 394, 5022, 1241, 5194, 394, 5078 ],
+    "perplexity" : 58.762672424316406,
+    "tokens_used" : [ " The", " corner", " left", " and", " left", " below", " the", " right", " wall", " of", " the", " window" ],
+    "original_sentence" : "[MASK] corner left and left below the right [MASK] of the window",
+    "timestamp" : 736844
+  }, {
+    "sentence" : "The corner left and left below the right part of the window",
+    "tokens" : [ 395, 4835, 1608, 215, 1608, 4938, 394, 5022, 2292, 5194, 394, 5078 ],
+    "perplexity" : 58.52023696899414,
+    "tokens_used" : [ " The", " corner", " left", " and", " left", " below", " the", " right", " part", " of", " the", " window" ],
+    "original_sentence" : "[MASK] corner left and left below the right [MASK] of the window",
+    "timestamp" : 737631
+  }, {
+    "sentence" : "The corner left and left below the right half of the window",
+    "tokens" : [ 395, 4835, 1608, 215, 1608, 4938, 394, 5022, 1466, 5194, 394, 5078 ],
+    "perplexity" : 66.1819076538086,
+    "tokens_used" : [ " The", " corner", " left", " and", " left", " below", " the", " right", " half", " of", " the", " window" ],
+    "original_sentence" : "[MASK] corner left and left below the right [MASK] of the window",
+    "timestamp" : 738400
+  }, {
+    "sentence" : "The corner left and left below the right face of the window",
+    "tokens" : [ 395, 4835, 1608, 215, 1608, 4938, 394, 5022, 4383, 5194, 394, 5078 ],
+    "perplexity" : 64.63259887695312,
+    "tokens_used" : [ " The", " corner", " left", " and", " left", " below", " the", " right", " face", " of", " the", " window" ],
+    "original_sentence" : "[MASK] corner left and left below the right [MASK] of the window",
+    "timestamp" : 740321
+  }, {
+    "sentence" : "The spaces left and left below the right side of the window",
+    "tokens" : [ 395, 2376, 1608, 215, 1608, 4938, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 58.27530288696289,
+    "tokens_used" : [ " The", " spaces", " left", " and", " left", " below", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "The [MASK] left and left below the right side of the [MASK]",
+    "timestamp" : 745734
+  }, {
+    "sentence" : "The second left and left below the right side of the window",
+    "tokens" : [ 395, 4102, 1608, 215, 1608, 4938, 394, 5022, 400, 5194, 394, 5078 ],
+    "perplexity" : 43.206298828125,
+    "tokens_used" : [ " The", " second", " left", " and", " left", " below", " the", " right", " side", " of", " the", " window" ],
+    "original_sentence" : "The [MASK] left and left below the right side of the [MASK]",
+    "timestamp" : 746627
+  } ]
+}

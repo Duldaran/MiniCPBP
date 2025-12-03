@@ -1,0 +1,415 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 20,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T17:14:49.090866617",
+  "time" : 324.474,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "He ought to get out of bed to get out of the room right way",
+    "score" : 27.55006217956543,
+    "time" : 63223,
+    "cycle" : 0
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room right way",
+    "score" : 26.342195510864258,
+    "time" : 66577,
+    "cycle" : 1
+  }, {
+    "sentence" : "He needs to get out of bed or get out of the room their way",
+    "score" : 22.598730087280273,
+    "time" : 92382,
+    "cycle" : 8
+  } ],
+  "base_sentence" : {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "perplexity" : 15.805083274841309,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "He ought to get out of bed to get out of the room right way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 27.55006217956543,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "He ought [MASK] get out of bed to get out of the room right [MASK]",
+    "timestamp" : 63223
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room right way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 26.342195510864258,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "He ought to get out of bed [MASK] get out of [MASK] room right way",
+    "timestamp" : 66577
+  }, {
+    "sentence" : "He ought to get out of bed he get out of the room right way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2228, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 43.210899353027344,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " he", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "He ought to get out of bed [MASK] get out of [MASK] room right way",
+    "timestamp" : 67474
+  }, {
+    "sentence" : "He ought to get out of bed so get out of the room right way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1513, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 39.02111053466797,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " so", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "He ought to get out of bed [MASK] get out of [MASK] room right way",
+    "timestamp" : 67777
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room other way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 3915, 3608 ],
+    "perplexity" : 27.50994300842285,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " other", " way" ],
+    "original_sentence" : "He ought to get [MASK] of bed or get out of the room [MASK] way",
+    "timestamp" : 69813
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room their way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 27.931100845336914,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "He ought to get [MASK] of bed or get out of the room [MASK] way",
+    "timestamp" : 70009
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room gives way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 650, 3608 ],
+    "perplexity" : 39.76029968261719,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " gives", " way" ],
+    "original_sentence" : "He ought to get [MASK] of bed or get out of the room [MASK] way",
+    "timestamp" : 71070
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room three way",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 515, 3608 ],
+    "perplexity" : 38.621517181396484,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " three", " way" ],
+    "original_sentence" : "He ought to get [MASK] of bed or get out of the room [MASK] way",
+    "timestamp" : 71858
+  }, {
+    "sentence" : "He ought to get out of bed or get out of the room their why",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 325, 2323 ],
+    "perplexity" : 52.59579849243164,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " their", " why" ],
+    "original_sentence" : "He ought to get out of bed or get [MASK] of the room their [MASK]",
+    "timestamp" : 74872
+  }, {
+    "sentence" : "He wants to get out of bed or get out of the room their why",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 325, 2323 ],
+    "perplexity" : 51.137939453125,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " their", " why" ],
+    "original_sentence" : "He [MASK] to get out of bed [MASK] get out of the room their why",
+    "timestamp" : 88444
+  }, {
+    "sentence" : "He needs to get out of bed or get out of the room their why",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 325, 2323 ],
+    "perplexity" : 41.40633010864258,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " their", " why" ],
+    "original_sentence" : "He [MASK] to get out of bed [MASK] get out of the room their why",
+    "timestamp" : 88965
+  }, {
+    "sentence" : "He needs to get out of bed or get out of the room their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 22.598730087280273,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "He needs to get out of bed or get [MASK] of the room their [MASK]",
+    "timestamp" : 92382
+  }, {
+    "sentence" : "He needs to get out of bed or get out of the room their men",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 325, 1581 ],
+    "perplexity" : 39.02999496459961,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " their", " men" ],
+    "original_sentence" : "He needs to get out of bed or get [MASK] of the room their [MASK]",
+    "timestamp" : 93622
+  }, {
+    "sentence" : "He needs to get out of bed or get out of the game their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 2701, 325, 3608 ],
+    "perplexity" : 26.514869689941406,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " game", " their", " way" ],
+    "original_sentence" : "He needs [MASK] get out of bed or get out of the [MASK] their way",
+    "timestamp" : 94524
+  }, {
+    "sentence" : "He needs to get out of bed or get out of the dawn their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3009, 325, 3608 ],
+    "perplexity" : 44.28146743774414,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " dawn", " their", " way" ],
+    "original_sentence" : "He needs [MASK] get out of bed or get out of the [MASK] their way",
+    "timestamp" : 95994
+  }, {
+    "sentence" : "He needs to get out of bed to get out of the game their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 2701, 325, 3608 ],
+    "perplexity" : 25.29625129699707,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " game", " their", " way" ],
+    "original_sentence" : "He needs to get [MASK] of bed [MASK] get out of the game their way",
+    "timestamp" : 96996
+  }, {
+    "sentence" : "He needs to get out of bed so get out of the game their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1513, 3912, 518, 5194, 394, 2701, 325, 3608 ],
+    "perplexity" : 37.90330123901367,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " so", " get", " out", " of", " the", " game", " their", " way" ],
+    "original_sentence" : "He needs to get [MASK] of bed [MASK] get out of the game their way",
+    "timestamp" : 98133
+  }, {
+    "sentence" : "He needs to get out of bed to and out of the game their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 2461, 215, 518, 5194, 394, 2701, 325, 3608 ],
+    "perplexity" : 43.25636672973633,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " to", " and", " out", " of", " the", " game", " their", " way" ],
+    "original_sentence" : "He needs to get out [MASK] bed to [MASK] out of the game their way",
+    "timestamp" : 100341
+  }, {
+    "sentence" : "He needs to get out of bed to run out of the game their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 2461, 2807, 518, 5194, 394, 2701, 325, 3608 ],
+    "perplexity" : 39.742095947265625,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " to", " run", " out", " of", " the", " game", " their", " way" ],
+    "original_sentence" : "He needs to get out [MASK] bed to [MASK] out of the game their way",
+    "timestamp" : 100802
+  }, {
+    "sentence" : "He needs to get out of bed to run out of the room their way",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 2461, 2807, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 33.03340148925781,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " to", " run", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "[MASK] needs to get out of bed to run out of the [MASK] their way",
+    "timestamp" : 103181
+  }, {
+    "sentence" : "Go needs to get out of bed to run out of the room their way",
+    "tokens" : [ 3106, 3478, 2461, 3912, 518, 5194, 3225, 2461, 2807, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 40.0737419128418,
+    "tokens_used" : [ " go", " needs", " to", " get", " out", " of", " bed", " to", " run", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "[MASK] needs to get out of bed to run out of the [MASK] their way",
+    "timestamp" : 104090
+  }, {
+    "sentence" : "Or needs to get out of bed to run out of the room their way",
+    "tokens" : [ 1861, 3478, 2461, 3912, 518, 5194, 3225, 2461, 2807, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 35.71955871582031,
+    "tokens_used" : [ " Or", " needs", " to", " get", " out", " of", " bed", " to", " run", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "[MASK] needs to get out of bed to run out of the [MASK] their way",
+    "timestamp" : 104468
+  }, {
+    "sentence" : "Us needs to get out of bed to run out of the room their way",
+    "tokens" : [ 1369, 3478, 2461, 3912, 518, 5194, 3225, 2461, 2807, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 39.85997772216797,
+    "tokens_used" : [ " Us", " needs", " to", " get", " out", " of", " bed", " to", " run", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "[MASK] needs to get out of bed to run out of the [MASK] their way",
+    "timestamp" : 105055
+  }, {
+    "sentence" : "Of needs to get out of bed to run out of the room their way",
+    "tokens" : [ 5195, 3478, 2461, 3912, 518, 5194, 3225, 2461, 2807, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 43.16988754272461,
+    "tokens_used" : [ " Of", " needs", " to", " get", " out", " of", " bed", " to", " run", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "[MASK] needs to get out of bed to run out of the [MASK] their way",
+    "timestamp" : 105808
+  }, {
+    "sentence" : "Of needs to get out of bed to get out of the room right way",
+    "tokens" : [ 5195, 3478, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 28.5093994140625,
+    "tokens_used" : [ " Of", " needs", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Of needs to get out of bed to [MASK] out of the room [MASK] way",
+    "timestamp" : 110687
+  }, {
+    "sentence" : "Of needs to get out of bed to get out of the room their way",
+    "tokens" : [ 5195, 3478, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 325, 3608 ],
+    "perplexity" : 29.834762573242188,
+    "tokens_used" : [ " Of", " needs", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " their", " way" ],
+    "original_sentence" : "Of needs to get out of bed to [MASK] out of the room [MASK] way",
+    "timestamp" : 111444
+  }, {
+    "sentence" : "Of needs to get out of bed to get out of the room other way",
+    "tokens" : [ 5195, 3478, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 3915, 3608 ],
+    "perplexity" : 32.4548225402832,
+    "tokens_used" : [ " Of", " needs", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " other", " way" ],
+    "original_sentence" : "Of needs to get out of bed to [MASK] out of the room [MASK] way",
+    "timestamp" : 111648
+  }, {
+    "sentence" : "Of wants to get out of bed to get out of the room right way",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 32.9052848815918,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Of [MASK] to get [MASK] of bed to get out of the room right way",
+    "timestamp" : 113103
+  }, {
+    "sentence" : "Of wants to get out of bed or get out of the room right way",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 32.17899703979492,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Of wants to get [MASK] of bed [MASK] get out of the room right way",
+    "timestamp" : 115912
+  }, {
+    "sentence" : "Of wants to get out of bed so get out of the room right way",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 1513, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 38.152610778808594,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " so", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Of wants to get [MASK] of bed [MASK] get out of the room right way",
+    "timestamp" : 117002
+  }, {
+    "sentence" : "Of wants to get out of bed do get out of the room right way",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 3473, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 44.816307067871094,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " do", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Of wants to get [MASK] of bed [MASK] get out of the room right way",
+    "timestamp" : 117355
+  }, {
+    "sentence" : "Of wants to get out of bed go get out of the room right way",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 3106, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 44.63298034667969,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " go", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Of wants to get [MASK] of bed [MASK] get out of the room right way",
+    "timestamp" : 118117
+  }, {
+    "sentence" : "Or wants to get out of bed go get out of the room right way",
+    "tokens" : [ 1861, 2014, 2461, 3912, 518, 5194, 3225, 3106, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 39.007381439208984,
+    "tokens_used" : [ " Or", " wants", " to", " get", " out", " of", " bed", " go", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "[MASK] wants to get [MASK] of bed go get out of the room right way",
+    "timestamp" : 122849
+  }, {
+    "sentence" : "Do wants to get out of bed go get out of the room right way",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 3106, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 43.659183502197266,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " go", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "[MASK] wants to get out of bed go get out [MASK] the room right way",
+    "timestamp" : 129098
+  }, {
+    "sentence" : "Do wants to get out of bed to get out of the room right way",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 29.579402923583984,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Do wants to get out of bed [MASK] get out [MASK] the room right way",
+    "timestamp" : 147413
+  }, {
+    "sentence" : "Do wants to get out of bed or get out of the room right way",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 29.15351676940918,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Do wants to get out of bed [MASK] get out [MASK] the room right way",
+    "timestamp" : 148179
+  }, {
+    "sentence" : "Do wants to get out of bed so get out of the room right way",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 1513, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 32.5307502746582,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " so", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Do wants to get out of bed [MASK] get out [MASK] the room right way",
+    "timestamp" : 148866
+  }, {
+    "sentence" : "Do wants to get out of bed he get out of the room right way",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 2228, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 41.33297348022461,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " he", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Do wants to get out of bed [MASK] get out [MASK] the room right way",
+    "timestamp" : 149570
+  }, {
+    "sentence" : "Do wants to get out of bed do get out of the room right way",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 3473, 3912, 518, 5194, 394, 3465, 5022, 3608 ],
+    "perplexity" : 40.86672592163086,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " do", " get", " out", " of", " the", " room", " right", " way" ],
+    "original_sentence" : "Do wants to get out of bed [MASK] get out [MASK] the room right way",
+    "timestamp" : 150346
+  }, {
+    "sentence" : "Do wants to get out of bed or get out of the room that Time",
+    "tokens" : [ 3474, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 1321, 4738 ],
+    "perplexity" : 41.315921783447266,
+    "tokens_used" : [ " Do", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " that", " Time" ],
+    "original_sentence" : "Do wants to get out of bed or get out of the room [MASK] [MASK]",
+    "timestamp" : 152543
+  }, {
+    "sentence" : "He wants to get out of bed or get out of the room that Time",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 1321, 4738 ],
+    "perplexity" : 40.089088439941406,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " that", " Time" ],
+    "original_sentence" : "[MASK] wants to [MASK] out of bed or get out of the room that Time",
+    "timestamp" : 169498
+  }, {
+    "sentence" : "Or wants to get out of bed or get out of the room that Time",
+    "tokens" : [ 1861, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 1321, 4738 ],
+    "perplexity" : 39.78084945678711,
+    "tokens_used" : [ " Or", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " that", " Time" ],
+    "original_sentence" : "[MASK] wants to [MASK] out of bed or get out of the room that Time",
+    "timestamp" : 171175
+  }, {
+    "sentence" : "Of wants to get out of bed or get out of the room that Time",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 1321, 4738 ],
+    "perplexity" : 42.55436706542969,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " that", " Time" ],
+    "original_sentence" : "[MASK] wants to [MASK] out of bed or get out of the room that Time",
+    "timestamp" : 171548
+  }, {
+    "sentence" : "Of wants to get out of bed to get out of the room with view",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3465, 2342, 144 ],
+    "perplexity" : 37.80952835083008,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " room", " with", " view" ],
+    "original_sentence" : "Of wants to get [MASK] of bed to get out of the room [MASK] view",
+    "timestamp" : 209711
+  }, {
+    "sentence" : "Of wants to get out of bed to get out of the way with Smart",
+    "tokens" : [ 5195, 2014, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 5194, 394, 3608, 2342, 1224 ],
+    "perplexity" : 42.06822967529297,
+    "tokens_used" : [ " Of", " wants", " to", " get", " out", " of", " bed", " to", " get", " out", " of", " the", " way", " with", " Smart" ],
+    "original_sentence" : "Of wants to get out of bed to get out of the [MASK] with [MASK]",
+    "timestamp" : 219014
+  }, {
+    "sentence" : "An wants to run out of way to get out of the way of jumping",
+    "tokens" : [ 3356, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 1588 ],
+    "perplexity" : 31.426864624023438,
+    "tokens_used" : [ " An", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " jumping" ],
+    "original_sentence" : "An wants to run out of way to get out of the way [MASK] [MASK]",
+    "timestamp" : 264723
+  }, {
+    "sentence" : "An wants to run out of way to get out of the way of hopping",
+    "tokens" : [ 3356, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 566 ],
+    "perplexity" : 35.05146026611328,
+    "tokens_used" : [ " An", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " hopping" ],
+    "original_sentence" : "An wants to run out of way to get out of the way [MASK] [MASK]",
+    "timestamp" : 265029
+  }, {
+    "sentence" : "An wants to run out of way to get out of the way of problem",
+    "tokens" : [ 3356, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 2957 ],
+    "perplexity" : 30.619068145751953,
+    "tokens_used" : [ " An", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " problem" ],
+    "original_sentence" : "An wants to run out of way to get out of the way [MASK] [MASK]",
+    "timestamp" : 265513
+  }, {
+    "sentence" : "An wants to run out of way to get out of the way of whether",
+    "tokens" : [ 3356, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 4564 ],
+    "perplexity" : 39.995330810546875,
+    "tokens_used" : [ " An", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " whether" ],
+    "original_sentence" : "An wants to run out of way to get out of the way [MASK] [MASK]",
+    "timestamp" : 265750
+  }, {
+    "sentence" : "He wants to run out of way to get out of the way of problem",
+    "tokens" : [ 2229, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 2957 ],
+    "perplexity" : 33.31298065185547,
+    "tokens_used" : [ " He", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " problem" ],
+    "original_sentence" : "[MASK] [MASK] to run out of way to get out of the way of problem",
+    "timestamp" : 266739
+  }, {
+    "sentence" : "He wants to run out of way to get out of the way of husband",
+    "tokens" : [ 2229, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 2469 ],
+    "perplexity" : 37.62520980834961,
+    "tokens_used" : [ " He", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " husband" ],
+    "original_sentence" : "He wants to run [MASK] of way to get out of the way of [MASK]",
+    "timestamp" : 274237
+  }, {
+    "sentence" : "He wants to run out of way to get out of the way of missing",
+    "tokens" : [ 2229, 2014, 2461, 2807, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 4172 ],
+    "perplexity" : 38.72428894042969,
+    "tokens_used" : [ " He", " wants", " to", " run", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " missing" ],
+    "original_sentence" : "He wants to run [MASK] of way to get out of the way of [MASK]",
+    "timestamp" : 274606
+  }, {
+    "sentence" : "He wants to get out of way to get out of the way of missing",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 4172 ],
+    "perplexity" : 33.886070251464844,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " missing" ],
+    "original_sentence" : "He wants [MASK] [MASK] out of way to get out of the way of missing",
+    "timestamp" : 280351
+  }, {
+    "sentence" : "He waves to get out of way to get out of the way of missing",
+    "tokens" : [ 2229, 2504, 2461, 3912, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 3608, 5194, 4172 ],
+    "perplexity" : 42.68704605102539,
+    "tokens_used" : [ " He", " waves", " to", " get", " out", " of", " way", " to", " get", " out", " of", " the", " way", " of", " missing" ],
+    "original_sentence" : "He [MASK] to get out of way to [MASK] out of the way of missing",
+    "timestamp" : 287649
+  } ]
+}

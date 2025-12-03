@@ -1,0 +1,247 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T23:07:10.642717189",
+  "time" : 300.826,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She felt like he was going to make it to the top of my mind",
+    "score" : 14.629791259765625,
+    "time" : 63990,
+    "cycle" : 0
+  }, {
+    "sentence" : "Up felt like he was going to make it to the top of his game",
+    "score" : 10.436375617980957,
+    "time" : 111913,
+    "cycle" : 16
+  }, {
+    "sentence" : "Up felt like he was going to make it to the end of the game",
+    "score" : 9.667647361755371,
+    "time" : 195021,
+    "cycle" : 51
+  } ],
+  "base_sentence" : {
+    "sentence" : "She felt like he was going to make it to the top of my game",
+    "perplexity" : 12.041910171508789,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She felt like he was going to make it to the top of my mind",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 14.629791259765625,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "She felt like he was going to make it to the [MASK] of my [MASK]",
+    "timestamp" : 63990
+  }, {
+    "sentence" : "She felt like he was going to make it to the top of My mind",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 939, 2878 ],
+    "perplexity" : 28.145320892333984,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " My", " mind" ],
+    "original_sentence" : "She felt [MASK] he was going to make it to the top of [MASK] mind",
+    "timestamp" : 69996
+  }, {
+    "sentence" : "She felt like he was going to make it to the top of My game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 939, 2701 ],
+    "perplexity" : 24.792739868164062,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " My", " game" ],
+    "original_sentence" : "She felt like he was [MASK] to make it to the top of My [MASK]",
+    "timestamp" : 106192
+  }, {
+    "sentence" : "Up felt like he was going to make it to the top of his game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 3882, 2701 ],
+    "perplexity" : 10.436375617980957,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " his", " game" ],
+    "original_sentence" : "[MASK] felt like he was going to make it to the top of [MASK] game",
+    "timestamp" : 111913
+  }, {
+    "sentence" : "Up felt like he was going to make it on the top of his game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 710, 394, 770, 5194, 3882, 2701 ],
+    "perplexity" : 15.579937934875488,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " on", " the", " top", " of", " his", " game" ],
+    "original_sentence" : "Up felt like he was going to make it [MASK] the top of his [MASK]",
+    "timestamp" : 122517
+  }, {
+    "sentence" : "Up felt like he was going to make it on the end of his game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 710, 394, 2135, 5194, 3882, 2701 ],
+    "perplexity" : 19.01059913635254,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " on", " the", " end", " of", " his", " game" ],
+    "original_sentence" : "Up felt like he was [MASK] to make it on the [MASK] of his game",
+    "timestamp" : 130716
+  }, {
+    "sentence" : "Up felt like he was going to make it to the end of his game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3882, 2701 ],
+    "perplexity" : 11.66011905670166,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " his", " game" ],
+    "original_sentence" : "Up felt like he was [MASK] to make it [MASK] the end of his game",
+    "timestamp" : 132922
+  }, {
+    "sentence" : "Up felt like he was dying to make it to the end of his game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 730, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3882, 2701 ],
+    "perplexity" : 15.972911834716797,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " dying", " to", " make", " it", " to", " the", " end", " of", " his", " game" ],
+    "original_sentence" : "Up [MASK] like he was [MASK] to make it to the end of his game",
+    "timestamp" : 135039
+  }, {
+    "sentence" : "Up felt like he was dying to make it to the top of his game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 730, 2461, 2127, 2050, 2461, 394, 770, 5194, 3882, 2701 ],
+    "perplexity" : 13.280275344848633,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " dying", " to", " make", " it", " to", " the", " top", " of", " his", " game" ],
+    "original_sentence" : "Up felt like he was dying to make it to the [MASK] of his [MASK]",
+    "timestamp" : 137517
+  }, {
+    "sentence" : "Up felt like he was dying to make it to the top of the game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 730, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2701 ],
+    "perplexity" : 14.46755599975586,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " dying", " to", " make", " it", " to", " the", " top", " of", " the", " game" ],
+    "original_sentence" : "Up felt like he was [MASK] to make it to the top of [MASK] game",
+    "timestamp" : 146020
+  }, {
+    "sentence" : "Up felt like he was going to make it to the top of the game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2701 ],
+    "perplexity" : 11.241555213928223,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " the", " game" ],
+    "original_sentence" : "Up [MASK] like he was [MASK] to make it to the top of the game",
+    "timestamp" : 148506
+  }, {
+    "sentence" : "Up felt like he was going to make it to the top of our game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 3369, 2701 ],
+    "perplexity" : 14.144452095031738,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " our", " game" ],
+    "original_sentence" : "[MASK] felt like he was going to make it to the top of [MASK] game",
+    "timestamp" : 150421
+  }, {
+    "sentence" : "Up felt like he was going to make it to the top of her game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 3730, 2701 ],
+    "perplexity" : 13.939726829528809,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " her", " game" ],
+    "original_sentence" : "Up [MASK] like he was going to make it to the top of [MASK] game",
+    "timestamp" : 160331
+  }, {
+    "sentence" : "Up felt like he was going to make it to the end of her game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3730, 2701 ],
+    "perplexity" : 16.0841007232666,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " her", " game" ],
+    "original_sentence" : "Up [MASK] like he was going to make it to the [MASK] of her game",
+    "timestamp" : 162310
+  }, {
+    "sentence" : "Up felt like he was dying to make it to the end of her game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 730, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3730, 2701 ],
+    "perplexity" : 20.72402000427246,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " dying", " to", " make", " it", " to", " the", " end", " of", " her", " game" ],
+    "original_sentence" : "[MASK] felt like he was [MASK] to make it to the end of her game",
+    "timestamp" : 165518
+  }, {
+    "sentence" : "Up felt like he was dying to make it to the end of the game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 730, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 12.584908485412598,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " dying", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Up felt like he was [MASK] to make it to the end of [MASK] game",
+    "timestamp" : 181868
+  }, {
+    "sentence" : "Up felt like he was going to make it to the end of the game",
+    "tokens" : [ 1841, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 9.667647361755371,
+    "tokens_used" : [ " Up", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Up felt like he was [MASK] to make it to the end of the [MASK]",
+    "timestamp" : 195021
+  }, {
+    "sentence" : "Up sure like he was going to make it to the end of the game",
+    "tokens" : [ 1841, 3383, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 19.304033279418945,
+    "tokens_used" : [ " Up", " sure", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Up [MASK] like he was going to make it to the end of the [MASK]",
+    "timestamp" : 202392
+  }, {
+    "sentence" : "Up sure that he was going to make it to the end of the game",
+    "tokens" : [ 1841, 3383, 1321, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 13.250754356384277,
+    "tokens_used" : [ " Up", " sure", " that", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "[MASK] sure [MASK] he was going to make it to the end of the game",
+    "timestamp" : 214242
+  }, {
+    "sentence" : "Up sure that we are going to make it to the end of the game",
+    "tokens" : [ 1841, 3383, 1321, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 14.09601879119873,
+    "tokens_used" : [ " Up", " sure", " that", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Up sure that [MASK] [MASK] going to make it to the end of the game",
+    "timestamp" : 220793
+  }, {
+    "sentence" : "Up sign that we are going to make it to the end of the game",
+    "tokens" : [ 1841, 377, 1321, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 16.711076736450195,
+    "tokens_used" : [ " Up", " sign", " that", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Up [MASK] that we are going to make it to the end of the [MASK]",
+    "timestamp" : 223584
+  }, {
+    "sentence" : "Up feel that we are going to make it to the end of the game",
+    "tokens" : [ 1841, 1180, 1321, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 18.724533081054688,
+    "tokens_used" : [ " Up", " feel", " that", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "[MASK] [MASK] that we are going to make it to the end of the game",
+    "timestamp" : 228217
+  }, {
+    "sentence" : "Up feel like we are going to make it to the end of the game",
+    "tokens" : [ 1841, 1180, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 14.697958946228027,
+    "tokens_used" : [ " Up", " feel", " like", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Up feel [MASK] we are going to make it to the end of the [MASK]",
+    "timestamp" : 231467
+  }, {
+    "sentence" : "Up feel like we are going to make it to the top of the game",
+    "tokens" : [ 1841, 1180, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2701 ],
+    "perplexity" : 17.71836280822754,
+    "tokens_used" : [ " Up", " feel", " like", " we", " are", " going", " to", " make", " it", " to", " the", " top", " of", " the", " game" ],
+    "original_sentence" : "Up [MASK] like we are going to make it to the [MASK] of the game",
+    "timestamp" : 236298
+  }, {
+    "sentence" : "Up look like we are going to make it to the top of the game",
+    "tokens" : [ 1841, 3647, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2701 ],
+    "perplexity" : 18.719310760498047,
+    "tokens_used" : [ " Up", " look", " like", " we", " are", " going", " to", " make", " it", " to", " the", " top", " of", " the", " game" ],
+    "original_sentence" : "[MASK] [MASK] like we are going to make it to the top of the game",
+    "timestamp" : 249233
+  }, {
+    "sentence" : "Up look like we are going to make it to the end of the game",
+    "tokens" : [ 1841, 3647, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 15.32590389251709,
+    "tokens_used" : [ " Up", " look", " like", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "[MASK] look like we are going to make it to the [MASK] of the game",
+    "timestamp" : 253341
+  }, {
+    "sentence" : "Up look like we are going to make it to the end of the week",
+    "tokens" : [ 1841, 3647, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2294 ],
+    "perplexity" : 15.24832820892334,
+    "tokens_used" : [ " Up", " look", " like", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " week" ],
+    "original_sentence" : "[MASK] look like we are going to make it to the end of the [MASK]",
+    "timestamp" : 259523
+  }, {
+    "sentence" : "Up feel like we are going to make it to the end of the week",
+    "tokens" : [ 1841, 1180, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2294 ],
+    "perplexity" : 15.332372665405273,
+    "tokens_used" : [ " Up", " feel", " like", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " week" ],
+    "original_sentence" : "Up [MASK] like we are going to make it to the end of the [MASK]",
+    "timestamp" : 265015
+  }, {
+    "sentence" : "Up feel like we are going to make it to the end of the show",
+    "tokens" : [ 1841, 1180, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2535 ],
+    "perplexity" : 15.757997512817383,
+    "tokens_used" : [ " Up", " feel", " like", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " show" ],
+    "original_sentence" : "[MASK] feel like we are going to make it to the end of the [MASK]",
+    "timestamp" : 272203
+  }, {
+    "sentence" : "Up look like we are going to make it to the end of the show",
+    "tokens" : [ 1841, 3647, 4424, 1778, 5158, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2535 ],
+    "perplexity" : 16.652801513671875,
+    "tokens_used" : [ " Up", " look", " like", " we", " are", " going", " to", " make", " it", " to", " the", " end", " of", " the", " show" ],
+    "original_sentence" : "[MASK] [MASK] like we are going to make it to the end of the show",
+    "timestamp" : 278431
+  } ]
+}

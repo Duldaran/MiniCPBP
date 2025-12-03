@@ -1,0 +1,566 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 20,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T18:10:05.164956233",
+  "time" : 501.118,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "I have to get out of Law and get out of the water right now",
+    "score" : 29.93537712097168,
+    "time" : 75564,
+    "cycle" : 3
+  }, {
+    "sentence" : "I need to get out of Law and get out of the water right now",
+    "score" : 25.970911026000977,
+    "time" : 85235,
+    "cycle" : 5
+  }, {
+    "sentence" : "I need to get out of Law and get out of his house right now",
+    "score" : 24.486974716186523,
+    "time" : 102055,
+    "cycle" : 9
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and May",
+    "score" : 24.0468692779541,
+    "time" : 140619,
+    "cycle" : 18
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Now",
+    "score" : 23.903087615966797,
+    "time" : 141900,
+    "cycle" : 18
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Man",
+    "score" : 23.273595809936523,
+    "time" : 145582,
+    "cycle" : 19
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and he",
+    "score" : 19.289932250976562,
+    "time" : 170589,
+    "cycle" : 25
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and do",
+    "score" : 16.001602172851562,
+    "time" : 171161,
+    "cycle" : 25
+  } ],
+  "base_sentence" : {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "perplexity" : 15.805083274841309,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "I have to get out of Law and get out of the water right now",
+    "tokens" : [ 1092, 3313, 2461, 3912, 518, 5194, 4865, 215, 3912, 518, 5194, 394, 3408, 5022, 2187 ],
+    "perplexity" : 29.93537712097168,
+    "tokens_used" : [ " I", " have", " to", " get", " out", " of", " Law", " and", " get", " out", " of", " the", " water", " right", " now" ],
+    "original_sentence" : "I have to get out of Law [MASK] get out of the [MASK] right [MASK]",
+    "timestamp" : 75564
+  }, {
+    "sentence" : "I need to get out of Law and get out of the water right now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 4865, 215, 3912, 518, 5194, 394, 3408, 5022, 2187 ],
+    "perplexity" : 25.970911026000977,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Law", " and", " get", " out", " of", " the", " water", " right", " now" ],
+    "original_sentence" : "I need to get out [MASK] Law [MASK] get out of the [MASK] right now",
+    "timestamp" : 85235
+  }, {
+    "sentence" : "I want to get out of Mad and get out of his house right now",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 3764, 215, 3912, 518, 5194, 3882, 1080, 5022, 2187 ],
+    "perplexity" : 31.312253952026367,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " Mad", " and", " get", " out", " of", " his", " house", " right", " now" ],
+    "original_sentence" : "[MASK] want to get out of Mad [MASK] get out of [MASK] house right now",
+    "timestamp" : 96858
+  }, {
+    "sentence" : "I want to get out of Mad and get out of its house right now",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 3764, 215, 3912, 518, 5194, 2426, 1080, 5022, 2187 ],
+    "perplexity" : 42.58649826049805,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " Mad", " and", " get", " out", " of", " its", " house", " right", " now" ],
+    "original_sentence" : "[MASK] want to get out of Mad [MASK] get out of [MASK] house right now",
+    "timestamp" : 97272
+  }, {
+    "sentence" : "I need to get out of Mad and get out of his house right now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 3764, 215, 3912, 518, 5194, 3882, 1080, 5022, 2187 ],
+    "perplexity" : 28.0078125,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Mad", " and", " get", " out", " of", " his", " house", " right", " now" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of his [MASK] right now",
+    "timestamp" : 101699
+  }, {
+    "sentence" : "I need to get out of Law and get out of his house right now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 4865, 215, 3912, 518, 5194, 3882, 1080, 5022, 2187 ],
+    "perplexity" : 24.486974716186523,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Law", " and", " get", " out", " of", " his", " house", " right", " now" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of his [MASK] right now",
+    "timestamp" : 102055
+  }, {
+    "sentence" : "I need to get out of Men and get out of his house right now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 1582, 215, 3912, 518, 5194, 3882, 1080, 5022, 2187 ],
+    "perplexity" : 31.260696411132812,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Men", " and", " get", " out", " of", " his", " house", " right", " now" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of his [MASK] right now",
+    "timestamp" : 102448
+  }, {
+    "sentence" : "I need to get out of Way and get out of his house right now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 3609, 215, 3912, 518, 5194, 3882, 1080, 5022, 2187 ],
+    "perplexity" : 30.95488739013672,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Way", " and", " get", " out", " of", " his", " house", " right", " now" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of his [MASK] right now",
+    "timestamp" : 102591
+  }, {
+    "sentence" : "I need to get out of Arm and get out of his house right now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 3551, 215, 3912, 518, 5194, 3882, 1080, 5022, 2187 ],
+    "perplexity" : 29.731046676635742,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Arm", " and", " get", " out", " of", " his", " house", " right", " now" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of his [MASK] right now",
+    "timestamp" : 102913
+  }, {
+    "sentence" : "I need to get out of Law and get out of my house right fast",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 4865, 215, 3912, 518, 5194, 938, 1080, 5022, 1451 ],
+    "perplexity" : 41.1850700378418,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Law", " and", " get", " out", " of", " my", " house", " right", " fast" ],
+    "original_sentence" : "I need to get out of Law and get out of [MASK] [MASK] right [MASK]",
+    "timestamp" : 106553
+  }, {
+    "sentence" : "I need to get out of there and get out of my house right Me",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 1080, 5022, 995 ],
+    "perplexity" : 29.441043853759766,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " house", " right", " Me" ],
+    "original_sentence" : "I need to get out of [MASK] [MASK] get out of my house right [MASK]",
+    "timestamp" : 110727
+  }, {
+    "sentence" : "I need to get out of there and get out of my house right Am",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 1080, 5022, 2308 ],
+    "perplexity" : 36.56011199951172,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " house", " right", " Am" ],
+    "original_sentence" : "I need to get out of [MASK] [MASK] get out of my house right [MASK]",
+    "timestamp" : 110961
+  }, {
+    "sentence" : "I need to get out of there and get out of my house right We",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 1080, 5022, 1779 ],
+    "perplexity" : 38.21038055419922,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " house", " right", " We" ],
+    "original_sentence" : "I need to get out of [MASK] [MASK] get out of my house right [MASK]",
+    "timestamp" : 111121
+  }, {
+    "sentence" : "I need to get out of there and get out of my house right My",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 1080, 5022, 939 ],
+    "perplexity" : 36.19847106933594,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " house", " right", " My" ],
+    "original_sentence" : "I need to get out of [MASK] [MASK] get out of my house right [MASK]",
+    "timestamp" : 111504
+  }, {
+    "sentence" : "I need to get out of there and get out of My house right my",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 939, 1080, 5022, 938 ],
+    "perplexity" : 42.46347427368164,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " My", " house", " right", " my" ],
+    "original_sentence" : "I need to get out of there [MASK] get out of [MASK] [MASK] right my",
+    "timestamp" : 115256
+  }, {
+    "sentence" : "I need to get out of there and get out of the house down my",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 4343, 938 ],
+    "perplexity" : 31.7200870513916,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " down", " my" ],
+    "original_sentence" : "I need to [MASK] out of there and get out of [MASK] house [MASK] my",
+    "timestamp" : 123707
+  }, {
+    "sentence" : "I need to get out of there and get out of the house Grow my",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 4241, 938 ],
+    "perplexity" : 45.811710357666016,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " Grow", " my" ],
+    "original_sentence" : "I need to [MASK] out of there and get out of [MASK] house [MASK] my",
+    "timestamp" : 124134
+  }, {
+    "sentence" : "I need to get out of there and get out of the house Cake my",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 2433, 938 ],
+    "perplexity" : 45.825199127197266,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " Cake", " my" ],
+    "original_sentence" : "I need to [MASK] out of there and get out of [MASK] house [MASK] my",
+    "timestamp" : 124461
+  }, {
+    "sentence" : "I need to get out of there and get out of the house My soon",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 939, 4292 ],
+    "perplexity" : 40.9453239440918,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " My", " soon" ],
+    "original_sentence" : "I need to get out of there and get out of the [MASK] [MASK] [MASK]",
+    "timestamp" : 128601
+  }, {
+    "sentence" : "I need to get out of there and get out of the house We soon",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 1779, 4292 ],
+    "perplexity" : 41.46931838989258,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " We", " soon" ],
+    "original_sentence" : "I need to get out of there and get out of the [MASK] [MASK] [MASK]",
+    "timestamp" : 128945
+  }, {
+    "sentence" : "I need to get out of there and get out of the house Am soon",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 2308, 4292 ],
+    "perplexity" : 35.754173278808594,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " Am", " soon" ],
+    "original_sentence" : "I need to get out of there and get out of the [MASK] [MASK] [MASK]",
+    "timestamp" : 129219
+  }, {
+    "sentence" : "I want to get out of there and get out of the house and Arm",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3551 ],
+    "perplexity" : 32.77490997314453,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Arm" ],
+    "original_sentence" : "I want to get out of there [MASK] get out of the house [MASK] [MASK]",
+    "timestamp" : 136716
+  }, {
+    "sentence" : "I want to get out of there and get out of the house and Row",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 4728 ],
+    "perplexity" : 32.9465217590332,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Row" ],
+    "original_sentence" : "I want to get out of there [MASK] get out of the house [MASK] [MASK]",
+    "timestamp" : 136874
+  }, {
+    "sentence" : "I want to get out of there and get out of the house and Now",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 2188 ],
+    "perplexity" : 26.97077178955078,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Now" ],
+    "original_sentence" : "I want to get out of there [MASK] get out of the house [MASK] [MASK]",
+    "timestamp" : 137148
+  }, {
+    "sentence" : "I want to get out of there and get out of the house and Raw",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3068 ],
+    "perplexity" : 27.254344940185547,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Raw" ],
+    "original_sentence" : "I want to get out of there [MASK] get out of the house [MASK] [MASK]",
+    "timestamp" : 137258
+  }, {
+    "sentence" : "I want to get out of there and get out of the house and Man",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 846 ],
+    "perplexity" : 26.20990562438965,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Man" ],
+    "original_sentence" : "I want to get out of there [MASK] get out of the house [MASK] [MASK]",
+    "timestamp" : 137496
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and May",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 548 ],
+    "perplexity" : 24.0468692779541,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " May" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the house and [MASK]",
+    "timestamp" : 140619
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Arm",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3551 ],
+    "perplexity" : 29.20409393310547,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Arm" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the house and [MASK]",
+    "timestamp" : 141099
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Row",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 4728 ],
+    "perplexity" : 29.690126419067383,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Row" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the house and [MASK]",
+    "timestamp" : 141392
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Now",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 2188 ],
+    "perplexity" : 23.903087615966797,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Now" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the house and [MASK]",
+    "timestamp" : 141900
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Raw",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3068 ],
+    "perplexity" : 25.07018280029297,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Raw" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the house and [MASK]",
+    "timestamp" : 142223
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Man",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 846 ],
+    "perplexity" : 23.273595809936523,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Man" ],
+    "original_sentence" : "[MASK] need to get out of there and get out of the house [MASK] [MASK]",
+    "timestamp" : 145582
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Why",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 2324 ],
+    "perplexity" : 28.716453552246094,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Why" ],
+    "original_sentence" : "[MASK] need to get out of there and get out of the house [MASK] [MASK]",
+    "timestamp" : 146058
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Won",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 4195 ],
+    "perplexity" : 33.282352447509766,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Won" ],
+    "original_sentence" : "[MASK] need to get out of there and get out of the house [MASK] [MASK]",
+    "timestamp" : 146677
+  }, {
+    "sentence" : "I need to get out of Raw and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 3068, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 29.002084732055664,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Raw", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "I need to get out of [MASK] and get out of the house [MASK] [MASK]",
+    "timestamp" : 153992
+  }, {
+    "sentence" : "I need to get out of Him and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 2016, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 29.38079833984375,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Him", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "I need to get out of [MASK] and get out of the house [MASK] [MASK]",
+    "timestamp" : 154352
+  }, {
+    "sentence" : "I need to get out of Arm and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 3551, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 34.713565826416016,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Arm", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "I need to get out of [MASK] and get out of the house [MASK] [MASK]",
+    "timestamp" : 154583
+  }, {
+    "sentence" : "I need to get out of Mad and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 3764, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 33.0834846496582,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Mad", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "I need to get out of [MASK] and get out of the house [MASK] [MASK]",
+    "timestamp" : 155020
+  }, {
+    "sentence" : "I need to get out of Now and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 2188, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 37.062843322753906,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Now", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "I need to get out of [MASK] and get out of the house [MASK] [MASK]",
+    "timestamp" : 155228
+  }, {
+    "sentence" : "I need to get out of Won and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 4195, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 38.60052490234375,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Won", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 157855
+  }, {
+    "sentence" : "I need to get out of Why and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 2324, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 43.9228515625,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Why", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 158185
+  }, {
+    "sentence" : "I need to get out of Men and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 1582, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 37.915592193603516,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Men", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 158576
+  }, {
+    "sentence" : "I need to get out of May and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 548, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 28.474788665771484,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " May", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 158834
+  }, {
+    "sentence" : "I need to get out of Dim and get out of the house and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 2872, 215, 3912, 518, 5194, 394, 1080, 215, 5180 ],
+    "perplexity" : 38.41184997558594,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " Dim", " and", " get", " out", " of", " the", " house", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 159142
+  }, {
+    "sentence" : "I need to get out of there and get out of the Mom and there",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1625, 215, 5180 ],
+    "perplexity" : 31.833192825317383,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " Mom", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 162323
+  }, {
+    "sentence" : "We need to get out of there and get out of the am and there",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2307, 215, 5180 ],
+    "perplexity" : 24.361671447753906,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " am", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 162629
+  }, {
+    "sentence" : "We need to get out of there and get out of the We and there",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1779, 215, 5180 ],
+    "perplexity" : 29.314163208007812,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " We", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 162891
+  }, {
+    "sentence" : "We need to get out of there and get out of the My and there",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 939, 215, 5180 ],
+    "perplexity" : 35.393741607666016,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " My", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 163128
+  }, {
+    "sentence" : "We need to get out of there and get out of the my and there",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 938, 215, 5180 ],
+    "perplexity" : 26.690622329711914,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " my", " and", " there" ],
+    "original_sentence" : "[MASK] need to get out of [MASK] and get out of the [MASK] and there",
+    "timestamp" : 163487
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and he",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 2228 ],
+    "perplexity" : 19.289932250976562,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " he" ],
+    "original_sentence" : "We need to get out of there [MASK] get out of the [MASK] and [MASK]",
+    "timestamp" : 170589
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and by",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 2029 ],
+    "perplexity" : 21.238746643066406,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " by" ],
+    "original_sentence" : "We need to get out of there [MASK] get out of the [MASK] and [MASK]",
+    "timestamp" : 170840
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and do",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3473 ],
+    "perplexity" : 16.001602172851562,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " do" ],
+    "original_sentence" : "We need to get out of there [MASK] get out of the [MASK] and [MASK]",
+    "timestamp" : 171161
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and Of",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 5195 ],
+    "perplexity" : 31.785625457763672,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Of" ],
+    "original_sentence" : "We need to get out of there [MASK] get out of the [MASK] and [MASK]",
+    "timestamp" : 171619
+  }, {
+    "sentence" : "We need to get out of there and get out of the house and Or",
+    "tokens" : [ 1779, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 1861 ],
+    "perplexity" : 31.25925636291504,
+    "tokens_used" : [ " We", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Or" ],
+    "original_sentence" : "We need to get out of there [MASK] get out of the [MASK] and [MASK]",
+    "timestamp" : 171935
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Two",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 2457 ],
+    "perplexity" : 29.04825782775879,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Two" ],
+    "original_sentence" : "[MASK] need to get out of there and [MASK] out of the house and [MASK]",
+    "timestamp" : 174675
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Map",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3005 ],
+    "perplexity" : 28.112272262573242,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Map" ],
+    "original_sentence" : "[MASK] need to get out of there and [MASK] out of the house and [MASK]",
+    "timestamp" : 174807
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Men",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 1582 ],
+    "perplexity" : 27.493295669555664,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Men" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of the house and [MASK]",
+    "timestamp" : 189729
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Own",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 1685 ],
+    "perplexity" : 28.829713821411133,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Own" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of the house and [MASK]",
+    "timestamp" : 190144
+  }, {
+    "sentence" : "I need to get out of there and get out of the house and Way",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 215, 3609 ],
+    "perplexity" : 29.78412437438965,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " and", " Way" ],
+    "original_sentence" : "I [MASK] to get out of [MASK] and get out of the house and [MASK]",
+    "timestamp" : 190461
+  }, {
+    "sentence" : "I need to get out of there and get out of the house mom out",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 1080, 1624, 518 ],
+    "perplexity" : 31.491275787353516,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " house", " mom", " out" ],
+    "original_sentence" : "I [MASK] to get out of there and get out of the house [MASK] [MASK]",
+    "timestamp" : 212593
+  }, {
+    "sentence" : "I want to get out of there and get out of the Woods and say",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 4395, 215, 4217 ],
+    "perplexity" : 30.18625831604004,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " Woods", " and", " say" ],
+    "original_sentence" : "I want to get out of there and [MASK] out of the Woods [MASK] [MASK]",
+    "timestamp" : 365689
+  }, {
+    "sentence" : "I have to get out of there and get out of the woman and out",
+    "tokens" : [ 1092, 3313, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2463, 215, 518 ],
+    "perplexity" : 27.269065856933594,
+    "tokens_used" : [ " I", " have", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " woman", " and", " out" ],
+    "original_sentence" : "I have to get out of [MASK] and get out of [MASK] [MASK] and out",
+    "timestamp" : 383515
+  }, {
+    "sentence" : "I want to get out of there and get out of the woman and out",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2463, 215, 518 ],
+    "perplexity" : 28.257278442382812,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " woman", " and", " out" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the woman [MASK] out",
+    "timestamp" : 395645
+  }, {
+    "sentence" : "I need to get out of there and get out of the woman and out",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2463, 215, 518 ],
+    "perplexity" : 24.784244537353516,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " woman", " and", " out" ],
+    "original_sentence" : "I [MASK] to get out of there [MASK] get out of the woman [MASK] out",
+    "timestamp" : 395974
+  }, {
+    "sentence" : "I need to get out of there and get out to the woman and out",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2461, 394, 2463, 215, 518 ],
+    "perplexity" : 28.090986251831055,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " to", " the", " woman", " and", " out" ],
+    "original_sentence" : "I need to get out of there and get out [MASK] [MASK] woman [MASK] out",
+    "timestamp" : 416366
+  }, {
+    "sentence" : "I need to get out of there and get out to the women and out",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2461, 394, 3129, 215, 518 ],
+    "perplexity" : 26.585918426513672,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " to", " the", " women", " and", " out" ],
+    "original_sentence" : "I need to get out of [MASK] and get out to the [MASK] and [MASK]",
+    "timestamp" : 422372
+  }, {
+    "sentence" : "I need to get out of there and get out of the women and out",
+    "tokens" : [ 1092, 4782, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 3129, 215, 518 ],
+    "perplexity" : 28.118263244628906,
+    "tokens_used" : [ " I", " need", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " women", " and", " out" ],
+    "original_sentence" : "I [MASK] [MASK] get out of there and get out [MASK] the women and out",
+    "timestamp" : 426622
+  }, {
+    "sentence" : "I have to get out of there and get out of the women and out",
+    "tokens" : [ 1092, 3313, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 3129, 215, 518 ],
+    "perplexity" : 30.71153450012207,
+    "tokens_used" : [ " I", " have", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " women", " and", " out" ],
+    "original_sentence" : "I [MASK] [MASK] get out of there and get out [MASK] the women and out",
+    "timestamp" : 427110
+  }, {
+    "sentence" : "I have to get out of there and get out to the women and out",
+    "tokens" : [ 1092, 3313, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2461, 394, 3129, 215, 518 ],
+    "perplexity" : 29.381195068359375,
+    "tokens_used" : [ " I", " have", " to", " get", " out", " of", " there", " and", " get", " out", " to", " the", " women", " and", " out" ],
+    "original_sentence" : "I have to get out of there [MASK] get [MASK] [MASK] the women and out",
+    "timestamp" : 441083
+  }, {
+    "sentence" : "I have to get out of there and get out to the woman and out",
+    "tokens" : [ 1092, 3313, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2461, 394, 2463, 215, 518 ],
+    "perplexity" : 30.832542419433594,
+    "tokens_used" : [ " I", " have", " to", " get", " out", " of", " there", " and", " get", " out", " to", " the", " woman", " and", " out" ],
+    "original_sentence" : "I have to get out of there [MASK] [MASK] out to the [MASK] and out",
+    "timestamp" : 445008
+  }, {
+    "sentence" : "I want to get out of there and get out to the woman and out",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2461, 394, 2463, 215, 518 ],
+    "perplexity" : 31.5396671295166,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " to", " the", " woman", " and", " out" ],
+    "original_sentence" : "I [MASK] to get out of there and [MASK] out [MASK] the woman and out",
+    "timestamp" : 449936
+  }, {
+    "sentence" : "I want to get out of there and get out to the women and out",
+    "tokens" : [ 1092, 2315, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2461, 394, 3129, 215, 518 ],
+    "perplexity" : 29.480876922607422,
+    "tokens_used" : [ " I", " want", " to", " get", " out", " of", " there", " and", " get", " out", " to", " the", " women", " and", " out" ],
+    "original_sentence" : "I [MASK] to get out of there and get [MASK] to the [MASK] and out",
+    "timestamp" : 454331
+  } ]
+}

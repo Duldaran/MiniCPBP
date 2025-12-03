@@ -1,0 +1,471 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T13:57:32.817300936",
+  "time" : 504.471,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She felt like he was going to keep me at the top of my game",
+    "score" : 16.531482696533203,
+    "time" : 67941,
+    "cycle" : 0
+  }, {
+    "sentence" : "A felt like that was going to keep me at the top of my game",
+    "score" : 14.13724422454834,
+    "time" : 99279,
+    "cycle" : 5
+  }, {
+    "sentence" : "A movie like this is going to take me to the end of my rope",
+    "score" : 12.957358360290527,
+    "time" : 270293,
+    "cycle" : 45
+  } ],
+  "base_sentence" : {
+    "sentence" : "She felt like he was going to make it to the top of my game",
+    "perplexity" : 12.041910171508789,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She felt like he was going to keep me at the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 16.531482696533203,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " keep", " me", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt like he was going to [MASK] [MASK] [MASK] the top of my game",
+    "timestamp" : 67942
+  }, {
+    "sentence" : "She felt like he was there to keep me at the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 5180, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 19.70913314819336,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " there", " to", " keep", " me", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She [MASK] like he was [MASK] to keep me at the top of my [MASK]",
+    "timestamp" : 76893
+  }, {
+    "sentence" : "A felt like that was there to keep me at the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1321, 1557, 5180, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 22.37541961669922,
+    "tokens_used" : [ " A", " felt", " like", " that", " was", " there", " to", " keep", " me", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] [MASK] like [MASK] was there to keep me at the top of my game",
+    "timestamp" : 91133
+  }, {
+    "sentence" : "A felt like that was there to keep me on the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1321, 1557, 5180, 2461, 4010, 994, 710, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 23.902700424194336,
+    "tokens_used" : [ " A", " felt", " like", " that", " was", " there", " to", " keep", " me", " on", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "A felt [MASK] [MASK] was there to keep me [MASK] the top of my game",
+    "timestamp" : 95321
+  }, {
+    "sentence" : "A felt like that was going to keep me at the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1321, 1557, 1996, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 14.13724422454834,
+    "tokens_used" : [ " A", " felt", " like", " that", " was", " going", " to", " keep", " me", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "A felt [MASK] that was [MASK] to keep me [MASK] the top of my game",
+    "timestamp" : 99279
+  }, {
+    "sentence" : "A felt like this was going to keep me at the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 14.626461029052734,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " keep", " me", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] [MASK] like [MASK] was going to keep me at the top of my game",
+    "timestamp" : 104527
+  }, {
+    "sentence" : "A felt like this was going to have me at the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 3313, 994, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 15.978008270263672,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " have", " me", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] felt like this was [MASK] to [MASK] me at the top of my game",
+    "timestamp" : 108053
+  }, {
+    "sentence" : "A felt like this was going to have me at the top of my mind",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 3313, 994, 302, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 21.286945343017578,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " have", " me", " at", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "[MASK] felt like this [MASK] going to have me at the top of my [MASK]",
+    "timestamp" : 110955
+  }, {
+    "sentence" : "A post like this was going to have me at the top of my mind",
+    "tokens" : [ 4647, 3081, 4424, 1227, 1557, 1996, 2461, 3313, 994, 302, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 22.542448043823242,
+    "tokens_used" : [ " A", " post", " like", " this", " was", " going", " to", " have", " me", " at", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "A [MASK] like this was going to [MASK] [MASK] at the top of my mind",
+    "timestamp" : 114096
+  }, {
+    "sentence" : "A post like this was going to keep me at the top of my mind",
+    "tokens" : [ 4647, 3081, 4424, 1227, 1557, 1996, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 27.25928497314453,
+    "tokens_used" : [ " A", " post", " like", " this", " was", " going", " to", " keep", " me", " at", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "[MASK] post like this was [MASK] to [MASK] me at the top of my mind",
+    "timestamp" : 119784
+  }, {
+    "sentence" : "A felt like this was going to keep me at the top of my mind",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 4010, 994, 302, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 21.87603187561035,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " keep", " me", " at", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "[MASK] [MASK] like this was [MASK] to keep me at the top of my mind",
+    "timestamp" : 145371
+  }, {
+    "sentence" : "A felt like this was going to keep me in the top of my mind",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 4010, 994, 2515, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 26.83731460571289,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " keep", " me", " in", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "A felt like this [MASK] going to keep me [MASK] the top of my [MASK]",
+    "timestamp" : 152853
+  }, {
+    "sentence" : "A felt like that was going to keep me in the top of my mind",
+    "tokens" : [ 4647, 2774, 4424, 1321, 1557, 1996, 2461, 4010, 994, 2515, 394, 770, 5194, 938, 2878 ],
+    "perplexity" : 25.90616798400879,
+    "tokens_used" : [ " A", " felt", " like", " that", " was", " going", " to", " keep", " me", " in", " the", " top", " of", " my", " mind" ],
+    "original_sentence" : "A [MASK] like [MASK] was [MASK] to keep me in the top of my mind",
+    "timestamp" : 167220
+  }, {
+    "sentence" : "A felt like that was going to keep me in the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1321, 1557, 1996, 2461, 4010, 994, 2515, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 21.075580596923828,
+    "tokens_used" : [ " A", " felt", " like", " that", " was", " going", " to", " keep", " me", " in", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "A felt like that [MASK] going to keep me in the top of [MASK] [MASK]",
+    "timestamp" : 172933
+  }, {
+    "sentence" : "A felt like this was going to keep me in the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 4010, 994, 2515, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 21.951202392578125,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " keep", " me", " in", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] felt like [MASK] was going to keep me [MASK] the top of my game",
+    "timestamp" : 177409
+  }, {
+    "sentence" : "A felt like this was going to put me off the top of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 1536, 994, 2828, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 25.420488357543945,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " put", " me", " off", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "A felt like this [MASK] going to [MASK] me [MASK] the top of my game",
+    "timestamp" : 180496
+  }, {
+    "sentence" : "A felt like this was going to put me off the end of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 1536, 994, 2828, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 22.69672203063965,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " put", " me", " off", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "A felt like this [MASK] going to put me [MASK] the [MASK] of my game",
+    "timestamp" : 183794
+  }, {
+    "sentence" : "A felt like this was going to get me off the end of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 3912, 994, 2828, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 24.45853042602539,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " get", " me", " off", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "[MASK] [MASK] like this was going to [MASK] me off the end of my game",
+    "timestamp" : 191112
+  }, {
+    "sentence" : "A felt like this was going to kill me by the end of my game",
+    "tokens" : [ 4647, 2774, 4424, 1227, 1557, 1996, 2461, 2491, 994, 2029, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 20.33493995666504,
+    "tokens_used" : [ " A", " felt", " like", " this", " was", " going", " to", " kill", " me", " by", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "A felt like [MASK] was going to [MASK] me [MASK] the end of my game",
+    "timestamp" : 194481
+  }, {
+    "sentence" : "A feel like this was going to kill me by the end of my game",
+    "tokens" : [ 4647, 1180, 4424, 1227, 1557, 1996, 2461, 2491, 994, 2029, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 26.808486938476562,
+    "tokens_used" : [ " A", " feel", " like", " this", " was", " going", " to", " kill", " me", " by", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "[MASK] [MASK] like this was going to [MASK] me by the end of my game",
+    "timestamp" : 197928
+  }, {
+    "sentence" : "A world like this is going to kill me by the end of my game",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 2491, 994, 2029, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 24.17264175415039,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " kill", " me", " by", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "A [MASK] like [MASK] [MASK] going to kill me by the end of my game",
+    "timestamp" : 206114
+  }, {
+    "sentence" : "A world like this is going to take me to the end of my game",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 22.601940155029297,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "A world like this is going to [MASK] me [MASK] the end of my [MASK]",
+    "timestamp" : 213373
+  }, {
+    "sentence" : "A world like this is going to take me to the end of my days",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 18.294219970703125,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A world like [MASK] is [MASK] to take me to the end of my [MASK]",
+    "timestamp" : 219579
+  }, {
+    "sentence" : "A world like this is going to drag me to the end of my days",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 2793, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 20.747804641723633,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " drag", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A world like [MASK] is going to [MASK] me to the end of my [MASK]",
+    "timestamp" : 223927
+  }, {
+    "sentence" : "A movie like this is going to drag me to the end of my days",
+    "tokens" : [ 4647, 3193, 4424, 1227, 2713, 1996, 2461, 2793, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 17.036375045776367,
+    "tokens_used" : [ " A", " movie", " like", " this", " is", " going", " to", " drag", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] like this is [MASK] to drag me to the end of my [MASK]",
+    "timestamp" : 228884
+  }, {
+    "sentence" : "A movie like this is going to take me to the end of my days",
+    "tokens" : [ 4647, 3193, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 15.108773231506348,
+    "tokens_used" : [ " A", " movie", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] like this is going to [MASK] me to the end of my [MASK]",
+    "timestamp" : 233504
+  }, {
+    "sentence" : "A month like this is going to take me to the end of my days",
+    "tokens" : [ 4647, 3328, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 19.5072078704834,
+    "tokens_used" : [ " A", " month", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] like this is going to [MASK] me to the end of my [MASK]",
+    "timestamp" : 238318
+  }, {
+    "sentence" : "A month like this is going to lead me to the end of my days",
+    "tokens" : [ 4647, 3328, 4424, 1227, 2713, 1996, 2461, 3544, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 23.01113510131836,
+    "tokens_used" : [ " A", " month", " like", " this", " is", " going", " to", " lead", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A month like this is [MASK] to [MASK] me to the end of [MASK] days",
+    "timestamp" : 246094
+  }, {
+    "sentence" : "A month like this is going to drag me to the end of my days",
+    "tokens" : [ 4647, 3328, 4424, 1227, 2713, 1996, 2461, 2793, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 23.725034713745117,
+    "tokens_used" : [ " A", " month", " like", " this", " is", " going", " to", " drag", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] [MASK] this is going to [MASK] me to the end of my days",
+    "timestamp" : 250789
+  }, {
+    "sentence" : "A movie like this is going to take me to the end of my rope",
+    "tokens" : [ 4647, 3193, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 12.957358360290527,
+    "tokens_used" : [ " A", " movie", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A [MASK] like this is going to [MASK] me to the end of my [MASK]",
+    "timestamp" : 270293
+  }, {
+    "sentence" : "A world like this is going to take me to the end of my rope",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 16.83077049255371,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A [MASK] like this is [MASK] to take me to the end of my [MASK]",
+    "timestamp" : 274561
+  }, {
+    "sentence" : "A world like this is going to drag me to the end of my rope",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 2793, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 17.88959312438965,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " drag", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A world like this is [MASK] to [MASK] me to the end of [MASK] rope",
+    "timestamp" : 278645
+  }, {
+    "sentence" : "A world like this is going to lead me to the end of my rope",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 3544, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 21.95169448852539,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " lead", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A world like this is [MASK] to [MASK] me to the end of [MASK] rope",
+    "timestamp" : 282357
+  }, {
+    "sentence" : "A world like this is going to push me to the end of my rope",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 2182, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 17.54518699645996,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " push", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A [MASK] like this is [MASK] to [MASK] me to the end of my rope",
+    "timestamp" : 287737
+  }, {
+    "sentence" : "A world like this is going to send me to the end of my rope",
+    "tokens" : [ 4647, 3710, 4424, 1227, 2713, 1996, 2461, 1152, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 18.991857528686523,
+    "tokens_used" : [ " A", " world", " like", " this", " is", " going", " to", " send", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A world like this is going to [MASK] me to the end of [MASK] [MASK]",
+    "timestamp" : 291262
+  }, {
+    "sentence" : "A sound like this is going to send me to the end of my rope",
+    "tokens" : [ 4647, 1424, 4424, 1227, 2713, 1996, 2461, 1152, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 18.151702880859375,
+    "tokens_used" : [ " A", " sound", " like", " this", " is", " going", " to", " send", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is [MASK] to send me to the end of my rope",
+    "timestamp" : 298675
+  }, {
+    "sentence" : "A seems like this is going to send me to the end of my rope",
+    "tokens" : [ 4647, 2345, 4424, 1227, 2713, 1996, 2461, 1152, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 17.176658630371094,
+    "tokens_used" : [ " A", " seems", " like", " this", " is", " going", " to", " send", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this [MASK] going to send me to the end of my rope",
+    "timestamp" : 302951
+  }, {
+    "sentence" : "A seems like this is going to take me to the end of my rope",
+    "tokens" : [ 4647, 2345, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 15.340043067932129,
+    "tokens_used" : [ " A", " seems", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is going to [MASK] me to the end of my rope",
+    "timestamp" : 308419
+  }, {
+    "sentence" : "A sound like this is going to take me to the end of my rope",
+    "tokens" : [ 4647, 1424, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 17.416677474975586,
+    "tokens_used" : [ " A", " sound", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is [MASK] to take me to the end of my rope",
+    "timestamp" : 312938
+  }, {
+    "sentence" : "A Looks like this is going to take me to the end of my rope",
+    "tokens" : [ 4647, 114, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 20.097681045532227,
+    "tokens_used" : [ " A", " Looks", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is going to take me to the end of my [MASK]",
+    "timestamp" : 317017
+  }, {
+    "sentence" : "A seems like this is going to lead me to the end of my rope",
+    "tokens" : [ 4647, 2345, 4424, 1227, 2713, 1996, 2461, 3544, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 19.542631149291992,
+    "tokens_used" : [ " A", " seems", " like", " this", " is", " going", " to", " lead", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is going to [MASK] me to the end of my rope",
+    "timestamp" : 322119
+  }, {
+    "sentence" : "A dream like this is going to lead me to the end of my rope",
+    "tokens" : [ 4647, 5010, 4424, 1227, 2713, 1996, 2461, 3544, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 19.94724464416504,
+    "tokens_used" : [ " A", " dream", " like", " this", " is", " going", " to", " lead", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A [MASK] like this is going to lead me to the end of [MASK] [MASK]",
+    "timestamp" : 326097
+  }, {
+    "sentence" : "A month like this is going to take me to the end of my rope",
+    "tokens" : [ 4647, 3328, 4424, 1227, 2713, 1996, 2461, 1266, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 17.583839416503906,
+    "tokens_used" : [ " A", " month", " like", " this", " is", " going", " to", " take", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A [MASK] like this is going to [MASK] me to the end of my [MASK]",
+    "timestamp" : 331423
+  }, {
+    "sentence" : "A month like this is going to drag me to the end of my rope",
+    "tokens" : [ 4647, 3328, 4424, 1227, 2713, 1996, 2461, 2793, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 20.613323211669922,
+    "tokens_used" : [ " A", " month", " like", " this", " is", " going", " to", " drag", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A [MASK] like this is going to [MASK] me to the end of my [MASK]",
+    "timestamp" : 336641
+  }, {
+    "sentence" : "A month like this is going to lead me to the end of my rope",
+    "tokens" : [ 4647, 3328, 4424, 1227, 2713, 1996, 2461, 3544, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 23.77792739868164,
+    "tokens_used" : [ " A", " month", " like", " this", " is", " going", " to", " lead", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A month like this is [MASK] to [MASK] me to the end of my [MASK]",
+    "timestamp" : 347880
+  }, {
+    "sentence" : "A sound like this is going to lead me to the end of my rope",
+    "tokens" : [ 4647, 1424, 4424, 1227, 2713, 1996, 2461, 3544, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 21.301546096801758,
+    "tokens_used" : [ " A", " sound", " like", " this", " is", " going", " to", " lead", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is [MASK] to lead me to the end of my rope",
+    "timestamp" : 357269
+  }, {
+    "sentence" : "A sound like this is enough to get me to the end of my rope",
+    "tokens" : [ 4647, 1424, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 19.373937606811523,
+    "tokens_used" : [ " A", " sound", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A sound like this is [MASK] to [MASK] me to the end of my [MASK]",
+    "timestamp" : 361544
+  }, {
+    "sentence" : "A words like this is enough to get me to the end of my rope",
+    "tokens" : [ 4647, 4670, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 23.0797176361084,
+    "tokens_used" : [ " A", " words", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this [MASK] enough to get me to the end of my rope",
+    "timestamp" : 365976
+  }, {
+    "sentence" : "A words like that is enough to get me to the end of my rope",
+    "tokens" : [ 4647, 4670, 4424, 1321, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 22.219345092773438,
+    "tokens_used" : [ " A", " words", " like", " that", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "A words [MASK] [MASK] is enough to [MASK] me to the end of my rope",
+    "timestamp" : 370679
+  }, {
+    "sentence" : "A words like that is enough to get me to the end of my days",
+    "tokens" : [ 4647, 4670, 4424, 1321, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 24.715465545654297,
+    "tokens_used" : [ " A", " words", " like", " that", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "[MASK] words like that is enough to [MASK] me to the end of my [MASK]",
+    "timestamp" : 392680
+  }, {
+    "sentence" : "A words like this is enough to get me to the end of my days",
+    "tokens" : [ 4647, 4670, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 25.565336227416992,
+    "tokens_used" : [ " A", " words", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A words [MASK] [MASK] is enough to get me to the end of [MASK] days",
+    "timestamp" : 396543
+  }, {
+    "sentence" : "A laugh like this is enough to get me to the end of my days",
+    "tokens" : [ 4647, 1561, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 22.135730743408203,
+    "tokens_used" : [ " A", " laugh", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] like this is enough to get me to the [MASK] of my [MASK]",
+    "timestamp" : 410624
+  }, {
+    "sentence" : "A music like this is enough to get me to the end of my days",
+    "tokens" : [ 4647, 5090, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 25.530380249023438,
+    "tokens_used" : [ " A", " music", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "[MASK] [MASK] like this is enough to get me to the [MASK] of my days",
+    "timestamp" : 428547
+  }, {
+    "sentence" : "A laugh like that is enough to get me to the end of my days",
+    "tokens" : [ 4647, 1561, 4424, 1321, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 20.56669044494629,
+    "tokens_used" : [ " A", " laugh", " like", " that", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] like [MASK] is enough to get me to the end of my [MASK]",
+    "timestamp" : 433010
+  }, {
+    "sentence" : "A sound like that is enough to get me to the end of my days",
+    "tokens" : [ 4647, 1424, 4424, 1321, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 21.566564559936523,
+    "tokens_used" : [ " A", " sound", " like", " that", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] like that is enough to [MASK] me to the end of my [MASK]",
+    "timestamp" : 441801
+  }, {
+    "sentence" : "A smile like that is enough to get me to the end of my days",
+    "tokens" : [ 4647, 2335, 4424, 1321, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 23.078336715698242,
+    "tokens_used" : [ " A", " smile", " like", " that", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A [MASK] [MASK] [MASK] is enough to get me to the end of my days",
+    "timestamp" : 447486
+  }, {
+    "sentence" : "A smile like that is enough to get me at the end of my days",
+    "tokens" : [ 4647, 2335, 4424, 1321, 2713, 2796, 2461, 3912, 994, 302, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 25.42998504638672,
+    "tokens_used" : [ " A", " smile", " like", " that", " is", " enough", " to", " get", " me", " at", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A smile like that [MASK] enough to get me [MASK] the end of my [MASK]",
+    "timestamp" : 454573
+  }, {
+    "sentence" : "A seems like that is enough to get me at the end of my days",
+    "tokens" : [ 4647, 2345, 4424, 1321, 2713, 2796, 2461, 3912, 994, 302, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 25.824586868286133,
+    "tokens_used" : [ " A", " seems", " like", " that", " is", " enough", " to", " get", " me", " at", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "[MASK] [MASK] like that is enough to get [MASK] at the end of my days",
+    "timestamp" : 458587
+  }, {
+    "sentence" : "A seems like this is enough to get me at the end of my days",
+    "tokens" : [ 4647, 2345, 4424, 1227, 2713, 2796, 2461, 3912, 994, 302, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 24.541160583496094,
+    "tokens_used" : [ " A", " seems", " like", " this", " is", " enough", " to", " get", " me", " at", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A seems [MASK] [MASK] is enough to get me at the end of [MASK] days",
+    "timestamp" : 468658
+  }, {
+    "sentence" : "A seems like this is enough to get me to the end of my days",
+    "tokens" : [ 4647, 2345, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 407 ],
+    "perplexity" : 23.229965209960938,
+    "tokens_used" : [ " A", " seems", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " days" ],
+    "original_sentence" : "A seems like this is enough to [MASK] me [MASK] the end of my [MASK]",
+    "timestamp" : 474911
+  }, {
+    "sentence" : "A seems like this is enough to get me to the end of my rope",
+    "tokens" : [ 4647, 2345, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 938, 2370 ],
+    "perplexity" : 20.72061538696289,
+    "tokens_used" : [ " A", " seems", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " my", " rope" ],
+    "original_sentence" : "[MASK] seems like this is enough to [MASK] me to the end of my [MASK]",
+    "timestamp" : 478205
+  }, {
+    "sentence" : "A moment like this is enough to get me to the end of a rope",
+    "tokens" : [ 4647, 4136, 4424, 1227, 2713, 2796, 2461, 3912, 994, 2461, 394, 2135, 5194, 4646, 2370 ],
+    "perplexity" : 23.266357421875,
+    "tokens_used" : [ " A", " moment", " like", " this", " is", " enough", " to", " get", " me", " to", " the", " end", " of", " a", " rope" ],
+    "original_sentence" : "[MASK] [MASK] like this is enough to get me to the end of [MASK] rope",
+    "timestamp" : 480800
+  } ]
+}

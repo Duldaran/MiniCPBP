@@ -1,0 +1,584 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T23:29:16.357807695",
+  "time" : 149.099,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft beach water grass beach a soft water comes",
+    "score" : 6784.5224609375,
+    "time" : 2596,
+    "cycle" : 0
+  }, {
+    "sentence" : "The sentence soft beach water grass beach a soft water beach",
+    "score" : 2964.03857421875,
+    "time" : 4362,
+    "cycle" : 1
+  }, {
+    "sentence" : "The sentence soft beach water grass beach and soft water beach",
+    "score" : 1948.78271484375,
+    "time" : 5757,
+    "cycle" : 2
+  }, {
+    "sentence" : "The sentence soft beach water and beach and soft water beach",
+    "score" : 1010.480224609375,
+    "time" : 7647,
+    "cycle" : 3
+  }, {
+    "sentence" : "The sentence soft of water and beach and excused water excused",
+    "score" : 992.8792114257812,
+    "time" : 81263,
+    "cycle" : 49
+  }, {
+    "sentence" : "The sentence soft of water excused beach and excused water excused",
+    "score" : 902.3019409179688,
+    "time" : 84622,
+    "cycle" : 51
+  }, {
+    "sentence" : "The sentence soft of water excused beach excused beach water excused",
+    "score" : 830.5283813476562,
+    "time" : 93507,
+    "cycle" : 58
+  }, {
+    "sentence" : "The sentence soft excused water excused beach excused beach water excused",
+    "score" : 505.33551025390625,
+    "time" : 94674,
+    "cycle" : 59
+  }, {
+    "sentence" : "The sentence soft excused beach excused beach excused beach water excused",
+    "score" : 341.9810791015625,
+    "time" : 100934,
+    "cycle" : 64
+  }, {
+    "sentence" : "The sentence soft excused beach excused beach excused excused water excused",
+    "score" : 245.93115234375,
+    "time" : 103477,
+    "cycle" : 66
+  }, {
+    "sentence" : "The Of soft excused beach excused beach excused excused water excused",
+    "score" : 203.99008178710938,
+    "time" : 105331,
+    "cycle" : 67
+  }, {
+    "sentence" : "The of soft excused beach excused beach excused excused water excused",
+    "score" : 122.020751953125,
+    "time" : 105686,
+    "cycle" : 67
+  }, {
+    "sentence" : "The excused soft excused beach excused beach excused excused water excused",
+    "score" : 100.01927185058594,
+    "time" : 105785,
+    "cycle" : 67
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft beach water grass beach a soft water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 0, 5075, 4646, 2489, 3408, 291 ],
+    "perplexity" : 6784.5224609375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " grass", " beach", " a", " soft", " water", " comes" ],
+    "original_sentence" : "The sentence soft beach water [MASK] beach a [MASK] water comes",
+    "timestamp" : 2596
+  }, {
+    "sentence" : "The sentence soft beach water grass beach a soft water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 0, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 2964.03857421875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " grass", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] water grass beach a soft water [MASK]",
+    "timestamp" : 4362
+  }, {
+    "sentence" : "The sentence soft beach water grass beach and soft water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 0, 5075, 215, 2489, 3408, 5075 ],
+    "perplexity" : 1948.78271484375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " grass", " beach", " and", " soft", " water", " beach" ],
+    "original_sentence" : "The [MASK] soft beach water grass beach [MASK] soft water beach",
+    "timestamp" : 5757
+  }, {
+    "sentence" : "The sentence soft beach water and beach and soft water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 215, 5075, 215, 2489, 3408, 5075 ],
+    "perplexity" : 1010.480224609375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " and", " beach", " and", " soft", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] water [MASK] beach and soft water beach",
+    "timestamp" : 7647
+  }, {
+    "sentence" : "The sentence soft beach water and beach and beach water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 215, 5075, 215, 5075, 3408, 5075 ],
+    "perplexity" : 1080.9449462890625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " and", " beach", " and", " beach", " water", " beach" ],
+    "original_sentence" : "The sentence soft beach water and beach [MASK] [MASK] water beach",
+    "timestamp" : 9299
+  }, {
+    "sentence" : "The sentence soft beach water and beach water beach water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 215, 5075, 3408, 5075, 3408, 5075 ],
+    "perplexity" : 1010.79638671875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " and", " beach", " water", " beach", " water", " beach" ],
+    "original_sentence" : "The sentence soft beach [MASK] and beach [MASK] beach water beach",
+    "timestamp" : 10971
+  }, {
+    "sentence" : "The sentence soft beach water and beach water beach water sand",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 215, 5075, 3408, 5075, 3408, 1752 ],
+    "perplexity" : 1149.0430908203125,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " and", " beach", " water", " beach", " water", " sand" ],
+    "original_sentence" : "The sentence soft beach water [MASK] beach water beach water [MASK]",
+    "timestamp" : 12979
+  }, {
+    "sentence" : "The sentence soft beach water and beach soft beach water sand",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 215, 5075, 2489, 5075, 3408, 1752 ],
+    "perplexity" : 1324.87646484375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " and", " beach", " soft", " beach", " water", " sand" ],
+    "original_sentence" : "The [MASK] soft beach water and beach [MASK] beach water sand",
+    "timestamp" : 14169
+  }, {
+    "sentence" : "The sentence soft beach water sand beach soft beach water sand",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 1752, 5075, 2489, 5075, 3408, 1752 ],
+    "perplexity" : 1605.5125732421875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " sand", " beach", " soft", " beach", " water", " sand" ],
+    "original_sentence" : "The sentence soft [MASK] water [MASK] beach soft beach water sand",
+    "timestamp" : 15436
+  }, {
+    "sentence" : "The sentence soft beach water sandy beach soft beach water sand",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 422, 5075, 2489, 5075, 3408, 1752 ],
+    "perplexity" : 1716.596923828125,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " sandy", " beach", " soft", " beach", " water", " sand" ],
+    "original_sentence" : "The [MASK] soft beach water [MASK] beach soft beach water sand",
+    "timestamp" : 16711
+  }, {
+    "sentence" : "The sentence soft beach water sandy beach soft beach water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 422, 5075, 2489, 5075, 3408, 5075 ],
+    "perplexity" : 1787.23974609375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " sandy", " beach", " soft", " beach", " water", " beach" ],
+    "original_sentence" : "The [MASK] soft beach water sandy beach soft beach water [MASK]",
+    "timestamp" : 18313
+  }, {
+    "sentence" : "The sentence soft beach beach sandy beach soft beach water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 5075, 422, 5075, 2489, 5075, 3408, 5075 ],
+    "perplexity" : 1484.617919921875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " beach", " sandy", " beach", " soft", " beach", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] sandy beach soft beach water beach",
+    "timestamp" : 20076
+  }, {
+    "sentence" : "The sentence soft beach beach sandy beach soft sea water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 5075, 422, 5075, 2489, 4715, 3408, 5075 ],
+    "perplexity" : 1819.166259765625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " beach", " sandy", " beach", " soft", " sea", " water", " beach" ],
+    "original_sentence" : "The [MASK] soft beach beach sandy beach soft [MASK] water beach",
+    "timestamp" : 21308
+  }, {
+    "sentence" : "The sentence soft beach beach sandy beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 5075, 422, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 1120.7943115234375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " beach", " sandy", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] beach sandy beach [MASK] sea water beach",
+    "timestamp" : 25537
+  }, {
+    "sentence" : "The sentence soft beach water sandy beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 422, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 1171.5103759765625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " sandy", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] sandy beach and sea water beach",
+    "timestamp" : 27182
+  }, {
+    "sentence" : "The sentence soft beach of sandy beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 5194, 422, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 1447.0064697265625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " of", " sandy", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] sandy beach and sea water beach",
+    "timestamp" : 27427
+  }, {
+    "sentence" : "The sentence soft beach excused sandy beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 5193, 422, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 1713.4886474609375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " excused", " sandy", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] sandy beach and sea water beach",
+    "timestamp" : 27787
+  }, {
+    "sentence" : "The sentence soft beach worn sandy beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5075, 5191, 422, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 2013.6275634765625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " worn", " sandy", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] sandy beach and sea water beach",
+    "timestamp" : 28339
+  }, {
+    "sentence" : "The sentence soft of worn sandy beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 5191, 422, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 1870.780517578125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " worn", " sandy", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The [MASK] soft [MASK] worn sandy beach and sea water beach",
+    "timestamp" : 34864
+  }, {
+    "sentence" : "The sentence soft of worn sandy beach and worn water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 5191, 422, 5075, 215, 5191, 3408, 5075 ],
+    "perplexity" : 1861.7542724609375,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " worn", " sandy", " beach", " and", " worn", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft of worn sandy beach and [MASK] water beach",
+    "timestamp" : 40960
+  }, {
+    "sentence" : "The sentence soft of worn sandy beach and worn water sand",
+    "tokens" : [ 395, 775, 2489, 5194, 5191, 422, 5075, 215, 5191, 3408, 1752 ],
+    "perplexity" : 1920.0047607421875,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " worn", " sandy", " beach", " and", " worn", " water", " sand" ],
+    "original_sentence" : "The [MASK] soft of worn sandy beach and worn water [MASK]",
+    "timestamp" : 46074
+  }, {
+    "sentence" : "The sentence soft of water sandy beach and worn water sand",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 422, 5075, 215, 5191, 3408, 1752 ],
+    "perplexity" : 1918.070068359375,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " sandy", " beach", " and", " worn", " water", " sand" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] sandy beach and worn water sand",
+    "timestamp" : 50305
+  }, {
+    "sentence" : "The sentence soft of water sandy beach and worn water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 422, 5075, 215, 5191, 3408, 5075 ],
+    "perplexity" : 1913.1768798828125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " sandy", " beach", " and", " worn", " water", " beach" ],
+    "original_sentence" : "The sentence soft of [MASK] sandy beach and worn water [MASK]",
+    "timestamp" : 55929
+  }, {
+    "sentence" : "The sentence soft of water and beach and worn water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5191, 3408, 5075 ],
+    "perplexity" : 1886.142822265625,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " worn", " water", " beach" ],
+    "original_sentence" : "The [MASK] soft of water [MASK] beach and worn water beach",
+    "timestamp" : 74138
+  }, {
+    "sentence" : "The sentence soft of water and beach and beach water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5075, 3408, 5075 ],
+    "perplexity" : 1292.2969970703125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " beach", " water", " beach" ],
+    "original_sentence" : "The sentence soft of water and beach [MASK] [MASK] water beach",
+    "timestamp" : 78048
+  }, {
+    "sentence" : "The sentence soft of water and beach and sea water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 4715, 3408, 5075 ],
+    "perplexity" : 1212.2593994140625,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " sea", " water", " beach" ],
+    "original_sentence" : "The sentence soft of water and beach [MASK] [MASK] water beach",
+    "timestamp" : 78361
+  }, {
+    "sentence" : "The sentence soft of water and beach and of water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5194, 3408, 5075 ],
+    "perplexity" : 1134.5579833984375,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " of", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft of water and beach and [MASK] water beach",
+    "timestamp" : 79574
+  }, {
+    "sentence" : "The sentence soft of water and beach and excused water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5193, 3408, 5075 ],
+    "perplexity" : 1413.715087890625,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " excused", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft of water and beach and [MASK] water beach",
+    "timestamp" : 80104
+  }, {
+    "sentence" : "The sentence soft of water and beach and excused water sand",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5193, 3408, 1752 ],
+    "perplexity" : 1463.250244140625,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " excused", " water", " sand" ],
+    "original_sentence" : "[MASK] sentence soft of water and beach and excused water [MASK]",
+    "timestamp" : 80887
+  }, {
+    "sentence" : "The sentence soft of water and beach and excused water of",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5193, 3408, 5194 ],
+    "perplexity" : 1615.899658203125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " excused", " water", " of" ],
+    "original_sentence" : "[MASK] sentence soft of water and beach and excused water [MASK]",
+    "timestamp" : 81014
+  }, {
+    "sentence" : "The sentence soft of water and beach and excused water excused",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5193, 3408, 5193 ],
+    "perplexity" : 992.8792114257812,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " excused", " water", " excused" ],
+    "original_sentence" : "[MASK] sentence soft of water and beach and excused water [MASK]",
+    "timestamp" : 81263
+  }, {
+    "sentence" : "The sentence soft of water and beach and excused water worn",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 215, 5075, 215, 5193, 3408, 5191 ],
+    "perplexity" : 1746.0631103515625,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " and", " beach", " and", " excused", " water", " worn" ],
+    "original_sentence" : "[MASK] sentence soft of water and beach and excused water [MASK]",
+    "timestamp" : 81600
+  }, {
+    "sentence" : "The sentence soft of water excused beach and excused water worn",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5193, 3408, 5191 ],
+    "perplexity" : 1907.5555419921875,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " excused", " water", " worn" ],
+    "original_sentence" : "The sentence soft [MASK] water [MASK] beach and excused water worn",
+    "timestamp" : 82584
+  }, {
+    "sentence" : "The sentence soft of water excused beach and excused water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5193, 3408, 5075 ],
+    "perplexity" : 1229.08251953125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " excused", " water", " beach" ],
+    "original_sentence" : "The sentence soft of water excused beach [MASK] excused water [MASK]",
+    "timestamp" : 83649
+  }, {
+    "sentence" : "The sentence soft of water excused beach and excused water sand",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5193, 3408, 1752 ],
+    "perplexity" : 1472.1348876953125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " excused", " water", " sand" ],
+    "original_sentence" : "The sentence soft of water excused beach [MASK] excused water [MASK]",
+    "timestamp" : 84106
+  }, {
+    "sentence" : "The sentence soft of water excused beach and excused water excused",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5193, 3408, 5193 ],
+    "perplexity" : 902.3019409179688,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " excused", " water", " excused" ],
+    "original_sentence" : "The sentence soft of water excused beach [MASK] excused water [MASK]",
+    "timestamp" : 84622
+  }, {
+    "sentence" : "The sentence soft of water excused beach and excused water works",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5193, 3408, 5188 ],
+    "perplexity" : 1400.6328125,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " excused", " water", " works" ],
+    "original_sentence" : "[MASK] sentence soft of water excused beach and excused water [MASK]",
+    "timestamp" : 86028
+  }, {
+    "sentence" : "The sentence soft of water excused beach and beach water works",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5075, 3408, 5188 ],
+    "perplexity" : 1802.1591796875,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " beach", " water", " works" ],
+    "original_sentence" : "The sentence soft of [MASK] excused beach and [MASK] water works",
+    "timestamp" : 86791
+  }, {
+    "sentence" : "The sentence soft of water excused beach and beach water excused",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5075, 3408, 5193 ],
+    "perplexity" : 1027.603515625,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " beach", " water", " excused" ],
+    "original_sentence" : "The sentence soft of water [MASK] beach and beach water [MASK]",
+    "timestamp" : 87846
+  }, {
+    "sentence" : "The sentence soft of water excused beach and beach water beach",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 215, 5075, 3408, 5075 ],
+    "perplexity" : 1716.8197021484375,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " and", " beach", " water", " beach" ],
+    "original_sentence" : "The sentence soft of water [MASK] beach and beach water [MASK]",
+    "timestamp" : 88122
+  }, {
+    "sentence" : "The sentence soft of water excused beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5194, 3408, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 830.5283813476562,
+    "tokens_used" : [ " The", " sentence", " soft", " of", " water", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "The sentence soft of water excused beach [MASK] beach water [MASK]",
+    "timestamp" : 93507
+  }, {
+    "sentence" : "The sentence soft beach water excused beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 933.5509033203125,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] water excused beach excused beach water excused",
+    "timestamp" : 94228
+  }, {
+    "sentence" : "The sentence soft Of water excused beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5195, 3408, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 1134.737060546875,
+    "tokens_used" : [ " The", " sentence", " soft", " Of", " water", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] water excused beach excused beach water excused",
+    "timestamp" : 94336
+  }, {
+    "sentence" : "The sentence soft excused water excused beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 3408, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 505.33551025390625,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " water", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] water excused beach excused beach water excused",
+    "timestamp" : 94674
+  }, {
+    "sentence" : "The sentence soft excused water and beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 3408, 215, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 793.3067626953125,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " water", " and", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "[MASK] sentence soft excused water [MASK] beach excused beach water excused",
+    "timestamp" : 95446
+  }, {
+    "sentence" : "The sentence soft excused water and beach and beach water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 3408, 215, 5075, 215, 5075, 3408, 5193 ],
+    "perplexity" : 835.6632080078125,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " water", " and", " beach", " and", " beach", " water", " excused" ],
+    "original_sentence" : "[MASK] sentence soft excused water and beach [MASK] beach water excused",
+    "timestamp" : 96836
+  }, {
+    "sentence" : "The sentence soft excused beach and beach and beach water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 5075, 215, 5075, 215, 5075, 3408, 5193 ],
+    "perplexity" : 813.9939575195312,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " beach", " and", " beach", " and", " beach", " water", " excused" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] and beach and beach water excused",
+    "timestamp" : 98259
+  }, {
+    "sentence" : "The sentence soft excused beach and beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 5075, 215, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 666.8126220703125,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " beach", " and", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft excused beach and beach [MASK] beach water excused",
+    "timestamp" : 99516
+  }, {
+    "sentence" : "The sentence soft excused beach excused beach excused beach water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 5075, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 341.9810791015625,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " beach", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft excused beach [MASK] beach excused beach water excused",
+    "timestamp" : 100934
+  }, {
+    "sentence" : "The sentence soft excused beach excused beach excused excused water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 5075, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 245.93115234375,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " beach", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "The sentence soft excused beach [MASK] beach excused [MASK] water excused",
+    "timestamp" : 103477
+  }, {
+    "sentence" : "The sentence soft excused beach excused beach excused sea water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 5075, 5193, 5075, 5193, 4715, 3408, 5193 ],
+    "perplexity" : 404.3861999511719,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " beach", " excused", " beach", " excused", " sea", " water", " excused" ],
+    "original_sentence" : "The sentence soft excused beach [MASK] beach excused [MASK] water excused",
+    "timestamp" : 103853
+  }, {
+    "sentence" : "The sentence soft excused beach excused beach excused of water excused",
+    "tokens" : [ 395, 775, 2489, 5193, 5075, 5193, 5075, 5193, 5194, 3408, 5193 ],
+    "perplexity" : 365.0622253417969,
+    "tokens_used" : [ " The", " sentence", " soft", " excused", " beach", " excused", " beach", " excused", " of", " water", " excused" ],
+    "original_sentence" : "The sentence soft excused beach [MASK] beach excused [MASK] water excused",
+    "timestamp" : 104619
+  }, {
+    "sentence" : "The Of soft excused beach excused beach excused excused water excused",
+    "tokens" : [ 395, 5195, 2489, 5193, 5075, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 203.99008178710938,
+    "tokens_used" : [ " The", " Of", " soft", " excused", " beach", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft excused beach excused beach excused excused water excused",
+    "timestamp" : 105331
+  }, {
+    "sentence" : "The of soft excused beach excused beach excused excused water excused",
+    "tokens" : [ 395, 5194, 2489, 5193, 5075, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 122.020751953125,
+    "tokens_used" : [ " The", " of", " soft", " excused", " beach", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft excused beach excused beach excused excused water excused",
+    "timestamp" : 105686
+  }, {
+    "sentence" : "The excused soft excused beach excused beach excused excused water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5075, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 100.01927185058594,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " beach", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft excused beach excused beach excused excused water excused",
+    "timestamp" : 105785
+  }, {
+    "sentence" : "The youngest soft excused beach excused beach excused excused water excused",
+    "tokens" : [ 395, 5192, 2489, 5193, 5075, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 187.04486083984375,
+    "tokens_used" : [ " The", " youngest", " soft", " excused", " beach", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft excused beach excused beach excused excused water excused",
+    "timestamp" : 105936
+  }, {
+    "sentence" : "The worn soft excused beach excused beach excused excused water excused",
+    "tokens" : [ 395, 5191, 2489, 5193, 5075, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 171.5363006591797,
+    "tokens_used" : [ " The", " worn", " soft", " excused", " beach", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft excused beach excused beach excused excused water excused",
+    "timestamp" : 106168
+  }, {
+    "sentence" : "The excused soft excused beach excused beach excused beach water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5075, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 129.047607421875,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " beach", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "The excused soft excused beach excused beach [MASK] [MASK] water excused",
+    "timestamp" : 106977
+  }, {
+    "sentence" : "The excused soft excused beach excused beach excused sea water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5075, 5193, 5075, 5193, 4715, 3408, 5193 ],
+    "perplexity" : 142.9838104248047,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " beach", " excused", " beach", " excused", " sea", " water", " excused" ],
+    "original_sentence" : "The excused soft excused beach excused beach [MASK] [MASK] water excused",
+    "timestamp" : 107537
+  }, {
+    "sentence" : "The excused soft excused beach excused beach and beach water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5075, 5193, 5075, 215, 5075, 3408, 5193 ],
+    "perplexity" : 195.15567016601562,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " beach", " excused", " beach", " and", " beach", " water", " excused" ],
+    "original_sentence" : "The excused soft [MASK] beach excused beach [MASK] beach water excused",
+    "timestamp" : 108442
+  }, {
+    "sentence" : "The excused soft excused beach excused beach and excused water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5075, 5193, 5075, 215, 5193, 3408, 5193 ],
+    "perplexity" : 152.55984497070312,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " beach", " excused", " beach", " and", " excused", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft excused beach excused beach and [MASK] water excused",
+    "timestamp" : 109982
+  }, {
+    "sentence" : "The excused soft excused water excused beach and excused water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 3408, 5193, 5075, 215, 5193, 3408, 5193 ],
+    "perplexity" : 193.10511779785156,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " water", " excused", " beach", " and", " excused", " water", " excused" ],
+    "original_sentence" : "The excused soft [MASK] [MASK] excused beach and excused water excused",
+    "timestamp" : 112233
+  }, {
+    "sentence" : "The excused soft excused of excused beach and excused water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5194, 5193, 5075, 215, 5193, 3408, 5193 ],
+    "perplexity" : 190.4390869140625,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " of", " excused", " beach", " and", " excused", " water", " excused" ],
+    "original_sentence" : "The excused soft [MASK] [MASK] excused beach and excused water excused",
+    "timestamp" : 112465
+  }, {
+    "sentence" : "The excused soft excused excused excused beach and excused water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5193, 5193, 5075, 215, 5193, 3408, 5193 ],
+    "perplexity" : 130.3108367919922,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " excused", " excused", " beach", " and", " excused", " water", " excused" ],
+    "original_sentence" : "The excused soft [MASK] [MASK] excused beach and excused water excused",
+    "timestamp" : 112835
+  }, {
+    "sentence" : "The excused soft excused excused excused beach and beach water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5193, 5193, 5075, 215, 5075, 3408, 5193 ],
+    "perplexity" : 148.43792724609375,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " excused", " excused", " beach", " and", " beach", " water", " excused" ],
+    "original_sentence" : "The excused soft excused excused excused beach [MASK] [MASK] water excused",
+    "timestamp" : 121141
+  }, {
+    "sentence" : "The excused soft excused excused excused beach and sea water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5193, 5193, 5075, 215, 4715, 3408, 5193 ],
+    "perplexity" : 166.8871307373047,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " excused", " excused", " beach", " and", " sea", " water", " excused" ],
+    "original_sentence" : "The excused soft excused excused excused beach [MASK] [MASK] water excused",
+    "timestamp" : 121704
+  }, {
+    "sentence" : "The excused soft excused excused excused beach excused beach water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 5193, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 112.60858917236328,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " excused", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft excused excused excused beach [MASK] beach water excused",
+    "timestamp" : 122233
+  }, {
+    "sentence" : "The excused soft excused water excused beach excused beach water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 3408, 5193, 5075, 5193, 5075, 3408, 5193 ],
+    "perplexity" : 144.68890380859375,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " water", " excused", " beach", " excused", " beach", " water", " excused" ],
+    "original_sentence" : "[MASK] excused soft excused [MASK] excused beach excused beach water excused",
+    "timestamp" : 127452
+  }, {
+    "sentence" : "The excused soft excused water excused beach excused excused water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 3408, 5193, 5075, 5193, 5193, 3408, 5193 ],
+    "perplexity" : 116.678955078125,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " water", " excused", " beach", " excused", " excused", " water", " excused" ],
+    "original_sentence" : "The excused soft [MASK] water excused beach excused [MASK] water excused",
+    "timestamp" : 134757
+  }, {
+    "sentence" : "The excused soft excused water excused beach excused of water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 3408, 5193, 5075, 5193, 5194, 3408, 5193 ],
+    "perplexity" : 182.1118927001953,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " water", " excused", " beach", " excused", " of", " water", " excused" ],
+    "original_sentence" : "The excused soft [MASK] water excused beach excused [MASK] water excused",
+    "timestamp" : 135262
+  }, {
+    "sentence" : "The excused soft excused water excused beach excused sea water excused",
+    "tokens" : [ 395, 5193, 2489, 5193, 3408, 5193, 5075, 5193, 4715, 3408, 5193 ],
+    "perplexity" : 175.7538604736328,
+    "tokens_used" : [ " The", " excused", " soft", " excused", " water", " excused", " beach", " excused", " sea", " water", " excused" ],
+    "original_sentence" : "[MASK] excused soft excused water excused beach excused [MASK] water excused",
+    "timestamp" : 136142
+  } ]
+}

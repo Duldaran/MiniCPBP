@@ -1,0 +1,199 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T00:47:25.217780908",
+  "time" : 469.754,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "You cannot be able to get in and out of the room to the bed",
+    "score" : 24.746503829956055,
+    "time" : 75596,
+    "cycle" : 2
+  }, {
+    "sentence" : "You cannot be able to get in and out of the room in the bed",
+    "score" : 24.69193458557129,
+    "time" : 101972,
+    "cycle" : 7
+  }, {
+    "sentence" : "You should be able to get in and out of the room in the bed",
+    "score" : 17.237895965576172,
+    "time" : 105758,
+    "cycle" : 8
+  }, {
+    "sentence" : "You should be able to get in and out of the room at an time",
+    "score" : 16.413619995117188,
+    "time" : 131356,
+    "cycle" : 13
+  }, {
+    "sentence" : "You should be able to log in and out of the box at any time",
+    "score" : 11.499756813049316,
+    "time" : 162365,
+    "cycle" : 19
+  }, {
+    "sentence" : "You should be able to get a card out of the box at any time",
+    "score" : 10.656046867370605,
+    "time" : 181408,
+    "cycle" : 23
+  } ],
+  "base_sentence" : {
+    "sentence" : "You should be able to get in and out of the room to the bed",
+    "perplexity" : 14.631485939025879,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "You cannot be able to get in and out of the room to the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 3225 ],
+    "perplexity" : 24.746503829956055,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " to", " the", " bed" ],
+    "original_sentence" : "You [MASK] be able to get in [MASK] out of [MASK] room to the bed",
+    "timestamp" : 75596
+  }, {
+    "sentence" : "You cannot be able to get up and out of the room to the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 1840, 215, 518, 5194, 394, 3465, 2461, 394, 3225 ],
+    "perplexity" : 30.402938842773438,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " up", " and", " out", " of", " the", " room", " to", " the", " bed" ],
+    "original_sentence" : "You cannot be able to [MASK] [MASK] and out of the [MASK] to the bed",
+    "timestamp" : 81859
+  }, {
+    "sentence" : "You cannot be able to get to and out of the room to the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2461, 215, 518, 5194, 394, 3465, 2461, 394, 3225 ],
+    "perplexity" : 37.834590911865234,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " to", " and", " out", " of", " the", " room", " to", " the", " bed" ],
+    "original_sentence" : "You [MASK] be able to get [MASK] and out of the [MASK] to the bed",
+    "timestamp" : 91526
+  }, {
+    "sentence" : "You cannot be able to get in and out of the room in the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2515, 394, 3225 ],
+    "perplexity" : 24.69193458557129,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " in", " the", " bed" ],
+    "original_sentence" : "You cannot be able to get [MASK] and out of the room [MASK] the [MASK]",
+    "timestamp" : 101972
+  }, {
+    "sentence" : "You should be able to get in and out of the room in the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2515, 394, 3225 ],
+    "perplexity" : 17.237895965576172,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " in", " the", " bed" ],
+    "original_sentence" : "You [MASK] be able to get [MASK] and out of the room in the [MASK]",
+    "timestamp" : 105758
+  }, {
+    "sentence" : "You should be able to get in and out of the bed in your bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3225, 2515, 164, 3225 ],
+    "perplexity" : 17.992313385009766,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " bed", " in", " your", " bed" ],
+    "original_sentence" : "You [MASK] be able to get in and out of the [MASK] in [MASK] bed",
+    "timestamp" : 108851
+  }, {
+    "sentence" : "You should be able to get in and out of the room in an time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2515, 3355, 4737 ],
+    "perplexity" : 20.999691009521484,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " in", " an", " time" ],
+    "original_sentence" : "You should be able to get in and out of the [MASK] in [MASK] [MASK]",
+    "timestamp" : 127667
+  }, {
+    "sentence" : "You should be able to get in and out of the room at an time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 302, 3355, 4737 ],
+    "perplexity" : 16.413619995117188,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " at", " an", " time" ],
+    "original_sentence" : "You should be able to [MASK] in and out of [MASK] room [MASK] an time",
+    "timestamp" : 131356
+  }, {
+    "sentence" : "You should be able to log in and out of the room at an time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2, 2515, 215, 518, 5194, 394, 3465, 302, 3355, 4737 ],
+    "perplexity" : 26.768936157226562,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " log", " in", " and", " out", " of", " the", " room", " at", " an", " time" ],
+    "original_sentence" : "You [MASK] be able to [MASK] in and out of the [MASK] at an time",
+    "timestamp" : 134850
+  }, {
+    "sentence" : "You should be able to log in and out of the page at no time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2, 2515, 215, 518, 5194, 394, 2130, 302, 2144, 4737 ],
+    "perplexity" : 21.904985427856445,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " log", " in", " and", " out", " of", " the", " page", " at", " no", " time" ],
+    "original_sentence" : "You should be able to log in [MASK] out of the page [MASK] [MASK] time",
+    "timestamp" : 158786
+  }, {
+    "sentence" : "You should be able to log in and out of the box at any time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2, 2515, 215, 518, 5194, 394, 1010, 302, 1047, 4737 ],
+    "perplexity" : 11.499756813049316,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " log", " in", " and", " out", " of", " the", " box", " at", " any", " time" ],
+    "original_sentence" : "[MASK] should be able to log in and out of the [MASK] at [MASK] time",
+    "timestamp" : 162365
+  }, {
+    "sentence" : "You should be able to pop a card out of the box at any time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3439, 4646, 1013, 518, 5194, 394, 1010, 302, 1047, 4737 ],
+    "perplexity" : 12.462747573852539,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " pop", " a", " card", " out", " of", " the", " box", " at", " any", " time" ],
+    "original_sentence" : "You should be able to [MASK] [MASK] [MASK] out of the box at any time",
+    "timestamp" : 177622
+  }, {
+    "sentence" : "You should be able to get a card out of the box at any time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 1013, 518, 5194, 394, 1010, 302, 1047, 4737 ],
+    "perplexity" : 10.656046867370605,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " card", " out", " of", " the", " box", " at", " any", " time" ],
+    "original_sentence" : "You should be able to [MASK] a card out of [MASK] [MASK] at any time",
+    "timestamp" : 181408
+  }, {
+    "sentence" : "You should be able to get a card out of the box at one time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 1013, 518, 5194, 394, 1010, 302, 1820, 4737 ],
+    "perplexity" : 14.680262565612793,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " card", " out", " of", " the", " box", " at", " one", " time" ],
+    "original_sentence" : "You [MASK] be able to get a card out of the [MASK] at [MASK] time",
+    "timestamp" : 185264
+  }, {
+    "sentence" : "You should be able to get a book out of the box at one time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 2989, 518, 5194, 394, 1010, 302, 1820, 4737 ],
+    "perplexity" : 15.321990013122559,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " book", " out", " of", " the", " box", " at", " one", " time" ],
+    "original_sentence" : "You should be able to get [MASK] [MASK] out of the box at one [MASK]",
+    "timestamp" : 196439
+  }, {
+    "sentence" : "You should be able to get a page out of the box at one time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 2130, 518, 5194, 394, 1010, 302, 1820, 4737 ],
+    "perplexity" : 17.06878662109375,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " page", " out", " of", " the", " box", " at", " one", " time" ],
+    "original_sentence" : "You should be able to get a [MASK] out of the [MASK] at one [MASK]",
+    "timestamp" : 199257
+  }, {
+    "sentence" : "You should be able to get a copy out of the box at one time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 3651, 518, 5194, 394, 1010, 302, 1820, 4737 ],
+    "perplexity" : 15.215712547302246,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " copy", " out", " of", " the", " box", " at", " one", " time" ],
+    "original_sentence" : "[MASK] should be able to get a [MASK] out of the box at one [MASK]",
+    "timestamp" : 204086
+  }, {
+    "sentence" : "You should be able to get a copy out of the box at any time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 3651, 518, 5194, 394, 1010, 302, 1047, 4737 ],
+    "perplexity" : 10.883646965026855,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " copy", " out", " of", " the", " box", " at", " any", " time" ],
+    "original_sentence" : "You [MASK] be able to get [MASK] copy out of the box at [MASK] time",
+    "timestamp" : 206629
+  }, {
+    "sentence" : "You will be able to get a copy out from the box at any time",
+    "tokens" : [ 920, 1714, 1392, 4464, 2461, 3912, 4646, 3651, 518, 3605, 394, 1010, 302, 1047, 4737 ],
+    "perplexity" : 16.69699478149414,
+    "tokens_used" : [ " You", " will", " be", " able", " to", " get", " a", " copy", " out", " from", " the", " box", " at", " any", " time" ],
+    "original_sentence" : "[MASK] [MASK] be able to get a copy out [MASK] the box at any time",
+    "timestamp" : 215925
+  }, {
+    "sentence" : "You should be able to get a copy out in the box at any time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 3651, 518, 2515, 394, 1010, 302, 1047, 4737 ],
+    "perplexity" : 15.985435485839844,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " copy", " out", " in", " the", " box", " at", " any", " time" ],
+    "original_sentence" : "You [MASK] be able to get a copy [MASK] [MASK] the box at any time",
+    "timestamp" : 220360
+  }, {
+    "sentence" : "You should be able to get a copy my in the mail at any time",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 4646, 3651, 938, 2515, 394, 1614, 302, 1047, 4737 ],
+    "perplexity" : 18.795129776000977,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " a", " copy", " my", " in", " the", " mail", " at", " any", " time" ],
+    "original_sentence" : "You [MASK] be able to get a copy [MASK] in the [MASK] at any time",
+    "timestamp" : 226114
+  } ]
+}

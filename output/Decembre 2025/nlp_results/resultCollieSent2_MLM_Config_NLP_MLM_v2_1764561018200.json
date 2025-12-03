@@ -1,0 +1,404 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T22:50:18.198393296",
+  "time" : 202.79,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That grass soft beach water could beach be aunts water",
+    "score" : 8324.318359375,
+    "time" : 2297,
+    "cycle" : 0
+  }, {
+    "sentence" : "That grass soft beach water could beach your aunts water",
+    "score" : 3522.09423828125,
+    "time" : 4416,
+    "cycle" : 1
+  }, {
+    "sentence" : "That grass soft beach water could beach your drinking water",
+    "score" : 1933.837646484375,
+    "time" : 6567,
+    "cycle" : 2
+  }, {
+    "sentence" : "That grass soft drink water could beach your drinking water",
+    "score" : 991.7337036132812,
+    "time" : 8895,
+    "cycle" : 3
+  }, {
+    "sentence" : "That grass soft drink that could beach your drinking water",
+    "score" : 731.3760986328125,
+    "time" : 10989,
+    "cycle" : 4
+  }, {
+    "sentence" : "Is grass soft soil that could beach your drinking water",
+    "score" : 461.8568115234375,
+    "time" : 19377,
+    "cycle" : 8
+  }, {
+    "sentence" : "Is grass soft drink that could beach the drinking water",
+    "score" : 452.7535095214844,
+    "time" : 26128,
+    "cycle" : 11
+  }, {
+    "sentence" : "Is grass soft drink that can beach the drinking water",
+    "score" : 393.09320068359375,
+    "time" : 28616,
+    "cycle" : 12
+  }, {
+    "sentence" : "Is grass soft drink that is beach in salt water",
+    "score" : 391.9256896972656,
+    "time" : 34709,
+    "cycle" : 15
+  }, {
+    "sentence" : "Is a soft drink that is beach with salt water",
+    "score" : 171.3131561279297,
+    "time" : 38758,
+    "cycle" : 17
+  }, {
+    "sentence" : "Is a soft drink that is beach in salt water",
+    "score" : 121.26432800292969,
+    "time" : 41088,
+    "cycle" : 18
+  }, {
+    "sentence" : "Is a soft drink that can beach in salt water",
+    "score" : 116.52955627441406,
+    "time" : 66500,
+    "cycle" : 30
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That grass soft beach water could beach be aunts water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 8324.318359375,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That [MASK] soft beach water could beach be aunts water",
+    "timestamp" : 2298
+  }, {
+    "sentence" : "That grass soft beach water could beach your aunts water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 164, 5196, 3408 ],
+    "perplexity" : 3522.09423828125,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " your", " aunts", " water" ],
+    "original_sentence" : "That grass soft beach water could beach [MASK] aunts water",
+    "timestamp" : 4416
+  }, {
+    "sentence" : "That grass soft beach water could beach your drinking water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 164, 2264, 3408 ],
+    "perplexity" : 1933.837646484375,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " your", " drinking", " water" ],
+    "original_sentence" : "That grass soft beach water could beach your [MASK] water",
+    "timestamp" : 6567
+  }, {
+    "sentence" : "That grass soft drink water could beach your drinking water",
+    "tokens" : [ 1322, 0, 2489, 4825, 3408, 4439, 5075, 164, 2264, 3408 ],
+    "perplexity" : 991.7337036132812,
+    "tokens_used" : [ " That", " grass", " soft", " drink", " water", " could", " beach", " your", " drinking", " water" ],
+    "original_sentence" : "That grass soft [MASK] water could beach your drinking water",
+    "timestamp" : 8895
+  }, {
+    "sentence" : "That grass soft drink that could beach your drinking water",
+    "tokens" : [ 1322, 0, 2489, 4825, 1321, 4439, 5075, 164, 2264, 3408 ],
+    "perplexity" : 731.3760986328125,
+    "tokens_used" : [ " That", " grass", " soft", " drink", " that", " could", " beach", " your", " drinking", " water" ],
+    "original_sentence" : "That grass soft drink [MASK] could beach your drinking water",
+    "timestamp" : 10989
+  }, {
+    "sentence" : "That grass soft soil that could beach your drinking water",
+    "tokens" : [ 1322, 0, 2489, 3477, 1321, 4439, 5075, 164, 2264, 3408 ],
+    "perplexity" : 970.1039428710938,
+    "tokens_used" : [ " That", " grass", " soft", " soil", " that", " could", " beach", " your", " drinking", " water" ],
+    "original_sentence" : "That grass soft [MASK] that could beach your drinking water",
+    "timestamp" : 13222
+  }, {
+    "sentence" : "Is grass soft soil that could beach your drinking water",
+    "tokens" : [ 2713, 0, 2489, 3477, 1321, 4439, 5075, 164, 2264, 3408 ],
+    "perplexity" : 461.8568115234375,
+    "tokens_used" : [ " is", " grass", " soft", " soil", " that", " could", " beach", " your", " drinking", " water" ],
+    "original_sentence" : "[MASK] grass soft soil that could beach your drinking water",
+    "timestamp" : 19377
+  }, {
+    "sentence" : "Is grass soft soil that could beach the drinking water",
+    "tokens" : [ 2714, 0, 2489, 3477, 1321, 4439, 5075, 394, 2264, 3408 ],
+    "perplexity" : 528.1682739257812,
+    "tokens_used" : [ " Is", " grass", " soft", " soil", " that", " could", " beach", " the", " drinking", " water" ],
+    "original_sentence" : "Is grass soft soil that could beach [MASK] drinking water",
+    "timestamp" : 23582
+  }, {
+    "sentence" : "Is grass soft drink that could beach the drinking water",
+    "tokens" : [ 2714, 0, 2489, 4825, 1321, 4439, 5075, 394, 2264, 3408 ],
+    "perplexity" : 452.7535095214844,
+    "tokens_used" : [ " Is", " grass", " soft", " drink", " that", " could", " beach", " the", " drinking", " water" ],
+    "original_sentence" : "Is grass soft [MASK] that could beach the drinking water",
+    "timestamp" : 26128
+  }, {
+    "sentence" : "Is grass soft drink that can beach the drinking water",
+    "tokens" : [ 2714, 0, 2489, 4825, 1321, 1358, 5075, 394, 2264, 3408 ],
+    "perplexity" : 393.09320068359375,
+    "tokens_used" : [ " Is", " grass", " soft", " drink", " that", " can", " beach", " the", " drinking", " water" ],
+    "original_sentence" : "Is grass soft drink that [MASK] beach the drinking water",
+    "timestamp" : 28616
+  }, {
+    "sentence" : "Is grass soft drink that can beach the salt water",
+    "tokens" : [ 2714, 0, 2489, 4825, 1321, 1358, 5075, 394, 3029, 3408 ],
+    "perplexity" : 539.7109985351562,
+    "tokens_used" : [ " Is", " grass", " soft", " drink", " that", " can", " beach", " the", " salt", " water" ],
+    "original_sentence" : "Is grass soft drink that can beach the [MASK] water",
+    "timestamp" : 30130
+  }, {
+    "sentence" : "Is grass soft drink that can beach in salt water",
+    "tokens" : [ 2714, 0, 2489, 4825, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 404.61285400390625,
+    "tokens_used" : [ " Is", " grass", " soft", " drink", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is grass soft drink that can beach [MASK] salt water",
+    "timestamp" : 32141
+  }, {
+    "sentence" : "Is grass soft drink that is beach in salt water",
+    "tokens" : [ 2714, 0, 2489, 4825, 1321, 2713, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 391.9256896972656,
+    "tokens_used" : [ " Is", " grass", " soft", " drink", " that", " is", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is grass soft drink that [MASK] beach in salt water",
+    "timestamp" : 34709
+  }, {
+    "sentence" : "Is grass soft drink that is beach with salt water",
+    "tokens" : [ 2714, 0, 2489, 4825, 1321, 2713, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 495.8190612792969,
+    "tokens_used" : [ " Is", " grass", " soft", " drink", " that", " is", " beach", " with", " salt", " water" ],
+    "original_sentence" : "Is grass soft drink that is beach [MASK] salt water",
+    "timestamp" : 37145
+  }, {
+    "sentence" : "Is a soft drink that is beach with salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 2713, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 171.3131561279297,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " is", " beach", " with", " salt", " water" ],
+    "original_sentence" : "Is [MASK] soft drink that is beach with salt water",
+    "timestamp" : 38758
+  }, {
+    "sentence" : "Is a soft drink that is beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 2713, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 121.26432800292969,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " is", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft drink that is beach [MASK] salt water",
+    "timestamp" : 41088
+  }, {
+    "sentence" : "Is a soft rock that is beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 535, 1321, 2713, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 142.79908752441406,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " that", " is", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft [MASK] that is beach in salt water",
+    "timestamp" : 43420
+  }, {
+    "sentence" : "Is a soft rock that can beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 535, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 123.80355072021484,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft rock that [MASK] beach in salt water",
+    "timestamp" : 45549
+  }, {
+    "sentence" : "Is a soft rock that can beach in drinking water",
+    "tokens" : [ 2714, 4646, 2489, 535, 1321, 1358, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 161.11639404296875,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " that", " can", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is a soft rock that can beach in [MASK] water",
+    "timestamp" : 47670
+  }, {
+    "sentence" : "Is a soft rock that can beach in of water",
+    "tokens" : [ 2714, 4646, 2489, 535, 1321, 1358, 5075, 2515, 5194, 3408 ],
+    "perplexity" : 198.5457305908203,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " that", " can", " beach", " in", " of", " water" ],
+    "original_sentence" : "Is a soft rock that can beach in [MASK] water",
+    "timestamp" : 48230
+  }, {
+    "sentence" : "Is a soft drink that can beach in of water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 1358, 5075, 2515, 5194, 3408 ],
+    "perplexity" : 197.13755798339844,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " can", " beach", " in", " of", " water" ],
+    "original_sentence" : "Is a soft [MASK] that can beach in of water",
+    "timestamp" : 52038
+  }, {
+    "sentence" : "Is a soft drink you can beach in of water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 919, 1358, 5075, 2515, 5194, 3408 ],
+    "perplexity" : 208.76126098632812,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " you", " can", " beach", " in", " of", " water" ],
+    "original_sentence" : "Is a soft drink [MASK] can beach in of water",
+    "timestamp" : 56443
+  }, {
+    "sentence" : "Is a soft drink you can beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 919, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 162.68362426757812,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " you", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft drink you can beach in [MASK] water",
+    "timestamp" : 64559
+  }, {
+    "sentence" : "Is a soft drink that can beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 116.52955627441406,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft drink [MASK] can beach in salt water",
+    "timestamp" : 66500
+  }, {
+    "sentence" : "Is a soft drink that can beach with salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 1358, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 173.36154174804688,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " can", " beach", " with", " salt", " water" ],
+    "original_sentence" : "Is a soft drink that can beach [MASK] salt water",
+    "timestamp" : 68712
+  }, {
+    "sentence" : "Is a soft rock that can beach with salt water",
+    "tokens" : [ 2714, 4646, 2489, 535, 1321, 1358, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 171.2321319580078,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " that", " can", " beach", " with", " salt", " water" ],
+    "original_sentence" : "Is a soft [MASK] that can beach with salt water",
+    "timestamp" : 70489
+  }, {
+    "sentence" : "Is a soft rock that will beach with salt water",
+    "tokens" : [ 2714, 4646, 2489, 535, 1321, 1714, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 230.2659149169922,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " that", " will", " beach", " with", " salt", " water" ],
+    "original_sentence" : "Is a soft rock that [MASK] beach with salt water",
+    "timestamp" : 74416
+  }, {
+    "sentence" : "Is a soft drink that will beach with salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 1714, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 219.05831909179688,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " will", " beach", " with", " salt", " water" ],
+    "original_sentence" : "Is a soft [MASK] that will beach with salt water",
+    "timestamp" : 86520
+  }, {
+    "sentence" : "Is a soft drink that will beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 1714, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 146.90423583984375,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " will", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft drink that will beach [MASK] salt water",
+    "timestamp" : 92482
+  }, {
+    "sentence" : "Is a soft drink you will beach in salt water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 919, 1714, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 184.9312286376953,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " you", " will", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is a soft drink [MASK] will beach in salt water",
+    "timestamp" : 95272
+  }, {
+    "sentence" : "Is a soft drink you will beach in drinking water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 919, 1714, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 181.08102416992188,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " you", " will", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is a soft drink you will beach in [MASK] water",
+    "timestamp" : 97312
+  }, {
+    "sentence" : "Is the soft drink you will beach in drinking water",
+    "tokens" : [ 2714, 394, 2489, 4825, 919, 1714, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 222.94142150878906,
+    "tokens_used" : [ " Is", " the", " soft", " drink", " you", " will", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is [MASK] soft drink you will beach in drinking water",
+    "timestamp" : 105706
+  }, {
+    "sentence" : "Is the soft drink that will beach in drinking water",
+    "tokens" : [ 2714, 394, 2489, 4825, 1321, 1714, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 222.15528869628906,
+    "tokens_used" : [ " Is", " the", " soft", " drink", " that", " will", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is the soft drink [MASK] will beach in drinking water",
+    "timestamp" : 133027
+  }, {
+    "sentence" : "Is the soft drink that is beach in drinking water",
+    "tokens" : [ 2714, 394, 2489, 4825, 1321, 2713, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 224.32406616210938,
+    "tokens_used" : [ " Is", " the", " soft", " drink", " that", " is", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is the soft drink that [MASK] beach in drinking water",
+    "timestamp" : 135931
+  }, {
+    "sentence" : "Is the soft drink that can beach in drinking water",
+    "tokens" : [ 2714, 394, 2489, 4825, 1321, 1358, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 212.52049255371094,
+    "tokens_used" : [ " Is", " the", " soft", " drink", " that", " can", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is the soft drink that [MASK] beach in drinking water",
+    "timestamp" : 136313
+  }, {
+    "sentence" : "Is the soft drink that can beach in salt water",
+    "tokens" : [ 2714, 394, 2489, 4825, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 215.2925567626953,
+    "tokens_used" : [ " Is", " the", " soft", " drink", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is the soft drink that can beach in [MASK] water",
+    "timestamp" : 139467
+  }, {
+    "sentence" : "Is the soft rock that can beach in salt water",
+    "tokens" : [ 2714, 394, 2489, 535, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 224.28318786621094,
+    "tokens_used" : [ " Is", " the", " soft", " rock", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is the soft [MASK] that can beach in salt water",
+    "timestamp" : 156309
+  }, {
+    "sentence" : "Is of soft rock that can beach in salt water",
+    "tokens" : [ 2714, 5194, 2489, 535, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 169.72752380371094,
+    "tokens_used" : [ " Is", " of", " soft", " rock", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is [MASK] soft rock that can beach in salt water",
+    "timestamp" : 159368
+  }, {
+    "sentence" : "Is of soft drink that can beach in salt water",
+    "tokens" : [ 2714, 5194, 2489, 4825, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 179.66883850097656,
+    "tokens_used" : [ " Is", " of", " soft", " drink", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Is of soft [MASK] that can beach in salt water",
+    "timestamp" : 160513
+  }, {
+    "sentence" : "Is of soft drink that can beach in drinking water",
+    "tokens" : [ 2714, 5194, 2489, 4825, 1321, 1358, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 176.89801025390625,
+    "tokens_used" : [ " Is", " of", " soft", " drink", " that", " can", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is of soft drink that can beach in [MASK] water",
+    "timestamp" : 165241
+  }, {
+    "sentence" : "Is a soft drink that can beach in drinking water",
+    "tokens" : [ 2714, 4646, 2489, 4825, 1321, 1358, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 119.67504119873047,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " that", " can", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Is [MASK] soft drink that can beach in drinking water",
+    "timestamp" : 175730
+  }, {
+    "sentence" : "Of a soft drink that can beach in drinking water",
+    "tokens" : [ 5195, 4646, 2489, 4825, 1321, 1358, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 132.2382049560547,
+    "tokens_used" : [ " Of", " a", " soft", " drink", " that", " can", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "[MASK] a soft drink that can beach in drinking water",
+    "timestamp" : 178742
+  }, {
+    "sentence" : "Of the soft drink that can beach in drinking water",
+    "tokens" : [ 5195, 394, 2489, 4825, 1321, 1358, 5075, 2515, 2264, 3408 ],
+    "perplexity" : 220.3713836669922,
+    "tokens_used" : [ " Of", " the", " soft", " drink", " that", " can", " beach", " in", " drinking", " water" ],
+    "original_sentence" : "Of [MASK] soft drink that can beach in drinking water",
+    "timestamp" : 180806
+  }, {
+    "sentence" : "Of the soft drink that can beach in salt water",
+    "tokens" : [ 5195, 394, 2489, 4825, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 218.8413848876953,
+    "tokens_used" : [ " Of", " the", " soft", " drink", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Of the soft drink that can beach in [MASK] water",
+    "timestamp" : 182932
+  }, {
+    "sentence" : "Of the soft rock that can beach in salt water",
+    "tokens" : [ 5195, 394, 2489, 535, 1321, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 210.6519775390625,
+    "tokens_used" : [ " Of", " the", " soft", " rock", " that", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Of the soft [MASK] that can beach in salt water",
+    "timestamp" : 185071
+  }, {
+    "sentence" : "Of the soft rock you can beach in salt water",
+    "tokens" : [ 5195, 394, 2489, 535, 919, 1358, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 224.34095764160156,
+    "tokens_used" : [ " Of", " the", " soft", " rock", " you", " can", " beach", " in", " salt", " water" ],
+    "original_sentence" : "Of the soft rock [MASK] can beach in salt water",
+    "timestamp" : 191989
+  } ]
+}

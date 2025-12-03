@@ -1,0 +1,306 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T13:04:09.117204800",
+  "time" : 631.043,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Pen paused outside the door to the back of my left shoulder",
+    "score" : 106.24494171142578,
+    "time" : 34892,
+    "cycle" : 0
+  }, {
+    "sentence" : "Am mother pushed the ball towards the back of his left foot",
+    "score" : 67.95954895019531,
+    "time" : 144464,
+    "cycle" : 18
+  }, {
+    "sentence" : "Am quickly moved the ball towards the back of her left foot",
+    "score" : 62.63667678833008,
+    "time" : 268790,
+    "cycle" : 38
+  }, {
+    "sentence" : "Am quickly moved the ball towards the back of his left foot",
+    "score" : 50.36608123779297,
+    "time" : 276059,
+    "cycle" : 39
+  }, {
+    "sentence" : "We quickly pushed the ball through the box on the left side",
+    "score" : 37.40740966796875,
+    "time" : 356341,
+    "cycle" : 50
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Pen paused outside the door to the back of my left shoulder",
+    "tokens" : [ 2483, 3634, 803, 394, 4455, 2461, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 106.24494171142578,
+    "tokens_used" : [ " Pen", " paused", " outside", " the", " door", " to", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside the door to the back of my left [MASK]",
+    "timestamp" : 34892
+  }, {
+    "sentence" : "She paused outside the door to the back of me left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 954, 5194, 994, 1608, 2549 ],
+    "perplexity" : 158.925537109375,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " back", " of", " me", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside the door to the back of [MASK] left shoulder",
+    "timestamp" : 43518
+  }, {
+    "sentence" : "My waking outside the door to the back of her left shoulder",
+    "tokens" : [ 939, 247, 803, 394, 4455, 2461, 394, 954, 5194, 3730, 1608, 2549 ],
+    "perplexity" : 128.26162719726562,
+    "tokens_used" : [ " My", " waking", " outside", " the", " door", " to", " the", " back", " of", " her", " left", " shoulder" ],
+    "original_sentence" : "My [MASK] outside the door to the back of [MASK] left shoulder",
+    "timestamp" : 50885
+  }, {
+    "sentence" : "My Speech outside the door to the back of her left shoulder",
+    "tokens" : [ 939, 693, 803, 394, 4455, 2461, 394, 954, 5194, 3730, 1608, 2549 ],
+    "perplexity" : 159.6886444091797,
+    "tokens_used" : [ " My", " Speech", " outside", " the", " door", " to", " the", " back", " of", " her", " left", " shoulder" ],
+    "original_sentence" : "My [MASK] outside the door to the back of [MASK] left shoulder",
+    "timestamp" : 51460
+  }, {
+    "sentence" : "Am mother outside the door to the back of her left shoulder",
+    "tokens" : [ 2308, 1833, 803, 394, 4455, 2461, 394, 954, 5194, 3730, 1608, 2549 ],
+    "perplexity" : 111.6455078125,
+    "tokens_used" : [ " Am", " mother", " outside", " the", " door", " to", " the", " back", " of", " her", " left", " shoulder" ],
+    "original_sentence" : "[MASK] mother outside the door to the back of her [MASK] shoulder",
+    "timestamp" : 58167
+  }, {
+    "sentence" : "Am mother outside the door to the side of her left shoulder",
+    "tokens" : [ 2308, 1833, 803, 394, 4455, 2461, 394, 400, 5194, 3730, 1608, 2549 ],
+    "perplexity" : 123.12593841552734,
+    "tokens_used" : [ " Am", " mother", " outside", " the", " door", " to", " the", " side", " of", " her", " left", " shoulder" ],
+    "original_sentence" : "[MASK] mother outside the door to the side of her left [MASK]",
+    "timestamp" : 74645
+  }, {
+    "sentence" : "My mother shadow the door against the side of her left foot",
+    "tokens" : [ 939, 1833, 405, 394, 4455, 1846, 394, 400, 5194, 3730, 1608, 1838 ],
+    "perplexity" : 144.08270263671875,
+    "tokens_used" : [ " My", " mother", " shadow", " the", " door", " against", " the", " side", " of", " her", " left", " foot" ],
+    "original_sentence" : "My mother [MASK] the door against the side [MASK] her left foot",
+    "timestamp" : 90911
+  }, {
+    "sentence" : "My mother seemed the door against the side of her left foot",
+    "tokens" : [ 939, 1833, 1458, 394, 4455, 1846, 394, 400, 5194, 3730, 1608, 1838 ],
+    "perplexity" : 165.0592803955078,
+    "tokens_used" : [ " My", " mother", " seemed", " the", " door", " against", " the", " side", " of", " her", " left", " foot" ],
+    "original_sentence" : "My mother [MASK] the door against the side [MASK] her left foot",
+    "timestamp" : 91187
+  }, {
+    "sentence" : "Am mother pushed the ball towards the back of his left foot",
+    "tokens" : [ 2308, 1833, 4764, 394, 3661, 4869, 394, 954, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 67.95954895019531,
+    "tokens_used" : [ " Am", " mother", " pushed", " the", " ball", " towards", " the", " back", " of", " his", " left", " foot" ],
+    "original_sentence" : "[MASK] mother pushed the [MASK] towards the back of his left foot",
+    "timestamp" : 144464
+  }, {
+    "sentence" : "The mother pushed the bag towards the back of his left foot",
+    "tokens" : [ 395, 1833, 4764, 394, 3036, 4869, 394, 954, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 73.86358642578125,
+    "tokens_used" : [ " The", " mother", " pushed", " the", " bag", " towards", " the", " back", " of", " his", " left", " foot" ],
+    "original_sentence" : "[MASK] mother pushed the [MASK] towards the back of his left foot",
+    "timestamp" : 147067
+  }, {
+    "sentence" : "His weights moved the tent towards the base of my left foot",
+    "tokens" : [ 3883, 4230, 576, 394, 3012, 4869, 394, 4841, 5194, 938, 1608, 1838 ],
+    "perplexity" : 120.76697540283203,
+    "tokens_used" : [ " His", " weights", " moved", " the", " tent", " towards", " the", " base", " of", " my", " left", " foot" ],
+    "original_sentence" : "His [MASK] [MASK] the tent towards the base of my left foot",
+    "timestamp" : 216534
+  }, {
+    "sentence" : "The models moved the tent towards the base of his left foot",
+    "tokens" : [ 395, 2153, 576, 394, 3012, 4869, 394, 4841, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 122.78289794921875,
+    "tokens_used" : [ " The", " models", " moved", " the", " tent", " towards", " the", " base", " of", " his", " left", " foot" ],
+    "original_sentence" : "The [MASK] moved the tent towards the base of [MASK] left foot",
+    "timestamp" : 232931
+  }, {
+    "sentence" : "The models moved the ball towards the base of his left foot",
+    "tokens" : [ 395, 2153, 576, 394, 3661, 4869, 394, 4841, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 73.10169219970703,
+    "tokens_used" : [ " The", " models", " moved", " the", " ball", " towards", " the", " base", " of", " his", " left", " foot" ],
+    "original_sentence" : "The models moved the [MASK] [MASK] the base of his left foot",
+    "timestamp" : 240698
+  }, {
+    "sentence" : "The models moved the ball through the base of his left foot",
+    "tokens" : [ 395, 2153, 576, 394, 3661, 3941, 394, 4841, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 72.49633026123047,
+    "tokens_used" : [ " The", " models", " moved", " the", " ball", " through", " the", " base", " of", " his", " left", " foot" ],
+    "original_sentence" : "The models moved the [MASK] [MASK] the base of his left foot",
+    "timestamp" : 241170
+  }, {
+    "sentence" : "End models moved the ball towards the base of his left foot",
+    "tokens" : [ 2136, 2153, 576, 394, 3661, 4869, 394, 4841, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 95.64835357666016,
+    "tokens_used" : [ " End", " models", " moved", " the", " ball", " towards", " the", " base", " of", " his", " left", " foot" ],
+    "original_sentence" : "[MASK] models moved the ball [MASK] the base of his left foot",
+    "timestamp" : 248714
+  }, {
+    "sentence" : "Am quickly moved the ball towards the back of her left foot",
+    "tokens" : [ 2308, 102, 576, 394, 3661, 4869, 394, 954, 5194, 3730, 1608, 1838 ],
+    "perplexity" : 62.63667678833008,
+    "tokens_used" : [ " Am", " quickly", " moved", " the", " ball", " towards", " the", " back", " of", " her", " left", " foot" ],
+    "original_sentence" : "[MASK] [MASK] moved the ball towards the back of her left foot",
+    "timestamp" : 268790
+  }, {
+    "sentence" : "Am quickly moved the ball towards the back of his left foot",
+    "tokens" : [ 2308, 102, 576, 394, 3661, 4869, 394, 954, 5194, 3882, 1608, 1838 ],
+    "perplexity" : 50.36608123779297,
+    "tokens_used" : [ " Am", " quickly", " moved", " the", " ball", " towards", " the", " back", " of", " his", " left", " foot" ],
+    "original_sentence" : "[MASK] quickly moved the ball towards the back of [MASK] left foot",
+    "timestamp" : 276059
+  }, {
+    "sentence" : "And quickly moved the ball towards the back of my left foot",
+    "tokens" : [ 215, 102, 576, 394, 3661, 4869, 394, 954, 5194, 938, 1608, 1838 ],
+    "perplexity" : 53.817649841308594,
+    "tokens_used" : [ " and", " quickly", " moved", " the", " ball", " towards", " the", " back", " of", " my", " left", " foot" ],
+    "original_sentence" : "[MASK] quickly moved the ball towards the back of [MASK] left foot",
+    "timestamp" : 279328
+  }, {
+    "sentence" : "Am quickly moved the ball towards the back to his left foot",
+    "tokens" : [ 2308, 102, 576, 394, 3661, 4869, 394, 954, 2461, 3882, 1608, 1838 ],
+    "perplexity" : 76.68312072753906,
+    "tokens_used" : [ " Am", " quickly", " moved", " the", " ball", " towards", " the", " back", " to", " his", " left", " foot" ],
+    "original_sentence" : "[MASK] quickly moved the ball towards the back [MASK] his left foot",
+    "timestamp" : 286065
+  }, {
+    "sentence" : "We chances played the ball through the box on the left foot",
+    "tokens" : [ 1779, 39, 1225, 394, 3661, 3941, 394, 1010, 710, 394, 1608, 1838 ],
+    "perplexity" : 84.05772399902344,
+    "tokens_used" : [ " We", " chances", " played", " the", " ball", " through", " the", " box", " on", " the", " left", " foot" ],
+    "original_sentence" : "We [MASK] played the ball [MASK] the box on the left foot",
+    "timestamp" : 351379
+  }, {
+    "sentence" : "We quickly pushed the ball through the box on the left side",
+    "tokens" : [ 1779, 102, 4764, 394, 3661, 3941, 394, 1010, 710, 394, 1608, 400 ],
+    "perplexity" : 37.40740966796875,
+    "tokens_used" : [ " We", " quickly", " pushed", " the", " ball", " through", " the", " box", " on", " the", " left", " side" ],
+    "original_sentence" : "We quickly [MASK] the ball through the box on the left [MASK]",
+    "timestamp" : 356341
+  }, {
+    "sentence" : "We quickly pushed the ball towards the box on the left side",
+    "tokens" : [ 1779, 102, 4764, 394, 3661, 4869, 394, 1010, 710, 394, 1608, 400 ],
+    "perplexity" : 43.39362335205078,
+    "tokens_used" : [ " We", " quickly", " pushed", " the", " ball", " towards", " the", " box", " on", " the", " left", " side" ],
+    "original_sentence" : "We quickly [MASK] the ball [MASK] the box on the left side",
+    "timestamp" : 360657
+  }, {
+    "sentence" : "We quickly pushed the ball towards the box on her left side",
+    "tokens" : [ 1779, 102, 4764, 394, 3661, 4869, 394, 1010, 710, 3730, 1608, 400 ],
+    "perplexity" : 74.09986877441406,
+    "tokens_used" : [ " We", " quickly", " pushed", " the", " ball", " towards", " the", " box", " on", " her", " left", " side" ],
+    "original_sentence" : "We quickly [MASK] the ball towards the box on her [MASK] side",
+    "timestamp" : 376272
+  }, {
+    "sentence" : "We quickly pushed the cart towards the box on the left side",
+    "tokens" : [ 1779, 102, 4764, 394, 34, 4869, 394, 1010, 710, 394, 1608, 400 ],
+    "perplexity" : 57.42136764526367,
+    "tokens_used" : [ " We", " quickly", " pushed", " the", " cart", " towards", " the", " box", " on", " the", " left", " side" ],
+    "original_sentence" : "We quickly pushed the [MASK] towards the box on [MASK] left side",
+    "timestamp" : 380176
+  }, {
+    "sentence" : "We quickly pushed the fire towards the box on the left side",
+    "tokens" : [ 1779, 102, 4764, 394, 3668, 4869, 394, 1010, 710, 394, 1608, 400 ],
+    "perplexity" : 74.64913940429688,
+    "tokens_used" : [ " We", " quickly", " pushed", " the", " fire", " towards", " the", " box", " on", " the", " left", " side" ],
+    "original_sentence" : "We quickly pushed the [MASK] towards [MASK] box on the left side",
+    "timestamp" : 392613
+  }, {
+    "sentence" : "We quickly pushed the fire towards the one on the left side",
+    "tokens" : [ 1779, 102, 4764, 394, 3668, 4869, 394, 1820, 710, 394, 1608, 400 ],
+    "perplexity" : 68.41650390625,
+    "tokens_used" : [ " We", " quickly", " pushed", " the", " fire", " towards", " the", " one", " on", " the", " left", " side" ],
+    "original_sentence" : "[MASK] quickly pushed the fire towards the [MASK] on the left side",
+    "timestamp" : 401570
+  }, {
+    "sentence" : "Me quickly pushed the car towards the wall on the left side",
+    "tokens" : [ 995, 102, 4764, 394, 2223, 4869, 394, 1241, 710, 394, 1608, 400 ],
+    "perplexity" : 44.12955093383789,
+    "tokens_used" : [ " Me", " quickly", " pushed", " the", " car", " towards", " the", " wall", " on", " the", " left", " side" ],
+    "original_sentence" : "Me quickly pushed the [MASK] towards the [MASK] on the left side",
+    "timestamp" : 411182
+  }, {
+    "sentence" : "Me quickly pushed the bag towards the wall on the left side",
+    "tokens" : [ 995, 102, 4764, 394, 3036, 4869, 394, 1241, 710, 394, 1608, 400 ],
+    "perplexity" : 54.20927047729492,
+    "tokens_used" : [ " Me", " quickly", " pushed", " the", " bag", " towards", " the", " wall", " on", " the", " left", " side" ],
+    "original_sentence" : "Me quickly pushed the [MASK] towards the [MASK] on the left side",
+    "timestamp" : 411676
+  }, {
+    "sentence" : "Me quickly pushed the ball towards the wall on the left arm",
+    "tokens" : [ 995, 102, 4764, 394, 3661, 4869, 394, 1241, 710, 394, 1608, 3550 ],
+    "perplexity" : 62.113948822021484,
+    "tokens_used" : [ " Me", " quickly", " pushed", " the", " ball", " towards", " the", " wall", " on", " the", " left", " arm" ],
+    "original_sentence" : "Me quickly pushed the [MASK] towards the wall on the left [MASK]",
+    "timestamp" : 415189
+  }, {
+    "sentence" : "Move quickly from the ball holding the ball on the left arm",
+    "tokens" : [ 4264, 102, 3605, 394, 3661, 2654, 394, 3661, 710, 394, 1608, 3550 ],
+    "perplexity" : 58.173133850097656,
+    "tokens_used" : [ " Move", " quickly", " from", " the", " ball", " holding", " the", " ball", " on", " the", " left", " arm" ],
+    "original_sentence" : "[MASK] quickly [MASK] the ball holding the ball on the left arm",
+    "timestamp" : 457050
+  }, {
+    "sentence" : "Move quickly from the ball holding the ball by the left arm",
+    "tokens" : [ 4264, 102, 3605, 394, 3661, 2654, 394, 3661, 2029, 394, 1608, 3550 ],
+    "perplexity" : 65.963134765625,
+    "tokens_used" : [ " Move", " quickly", " from", " the", " ball", " holding", " the", " ball", " by", " the", " left", " arm" ],
+    "original_sentence" : "Move quickly [MASK] the ball holding the [MASK] by the left arm",
+    "timestamp" : 488025
+  }, {
+    "sentence" : "Move forward with the ball holding the ball by the left arm",
+    "tokens" : [ 4264, 2705, 2342, 394, 3661, 2654, 394, 3661, 2029, 394, 1608, 3550 ],
+    "perplexity" : 47.68071365356445,
+    "tokens_used" : [ " Move", " forward", " with", " the", " ball", " holding", " the", " ball", " by", " the", " left", " arm" ],
+    "original_sentence" : "Move [MASK] [MASK] the ball holding the ball by the left arm",
+    "timestamp" : 493283
+  }, {
+    "sentence" : "Move forward onto the ball holding the ball by the left arm",
+    "tokens" : [ 4264, 2705, 2326, 394, 3661, 2654, 394, 3661, 2029, 394, 1608, 3550 ],
+    "perplexity" : 64.61530303955078,
+    "tokens_used" : [ " Move", " forward", " onto", " the", " ball", " holding", " the", " ball", " by", " the", " left", " arm" ],
+    "original_sentence" : "Move [MASK] [MASK] the ball holding the ball by the left arm",
+    "timestamp" : 494724
+  }, {
+    "sentence" : "Move forward with the ball holding the ball by the left paw",
+    "tokens" : [ 4264, 2705, 2342, 394, 3661, 2654, 394, 3661, 2029, 394, 1608, 3160 ],
+    "perplexity" : 62.0472297668457,
+    "tokens_used" : [ " Move", " forward", " with", " the", " ball", " holding", " the", " ball", " by", " the", " left", " paw" ],
+    "original_sentence" : "Move [MASK] with the ball holding the ball by the left [MASK]",
+    "timestamp" : 500907
+  }, {
+    "sentence" : "Move forward with the foot holding the ball by the left arm",
+    "tokens" : [ 4264, 2705, 2342, 394, 1838, 2654, 394, 3661, 2029, 394, 1608, 3550 ],
+    "perplexity" : 66.8210220336914,
+    "tokens_used" : [ " Move", " forward", " with", " the", " foot", " holding", " the", " ball", " by", " the", " left", " arm" ],
+    "original_sentence" : "Move forward with the [MASK] holding the ball by the left [MASK]",
+    "timestamp" : 506205
+  }, {
+    "sentence" : "Move forward with the foot holding the ball on the left arm",
+    "tokens" : [ 4264, 2705, 2342, 394, 1838, 2654, 394, 3661, 710, 394, 1608, 3550 ],
+    "perplexity" : 57.725955963134766,
+    "tokens_used" : [ " Move", " forward", " with", " the", " foot", " holding", " the", " ball", " on", " the", " left", " arm" ],
+    "original_sentence" : "Move forward with the foot [MASK] the ball [MASK] the left arm",
+    "timestamp" : 521831
+  }, {
+    "sentence" : "Walk forward from the ball holding the ball on his left arm",
+    "tokens" : [ 1949, 2705, 3605, 394, 3661, 2654, 394, 3661, 710, 3882, 1608, 3550 ],
+    "perplexity" : 57.74955368041992,
+    "tokens_used" : [ " Walk", " forward", " from", " the", " ball", " holding", " the", " ball", " on", " his", " left", " arm" ],
+    "original_sentence" : "Walk forward [MASK] the ball holding the ball [MASK] his left arm",
+    "timestamp" : 588850
+  } ]
+}

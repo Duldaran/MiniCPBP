@@ -1,0 +1,615 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T15:27:52.166894016",
+  "time" : 749.383,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She paused outside the door to the side of my left shoulder",
+    "score" : 104.1950454711914,
+    "time" : 30867,
+    "cycle" : 0
+  }, {
+    "sentence" : "She walked outside the door to the side of my left shoulder",
+    "score" : 69.2230453491211,
+    "time" : 37764,
+    "cycle" : 1
+  }, {
+    "sentence" : "She walked outside the door on the side of my left shoulder",
+    "score" : 47.84035873413086,
+    "time" : 62863,
+    "cycle" : 5
+  }, {
+    "sentence" : "And walked outside the door on the side of my left shoulder",
+    "score" : 45.09424591064453,
+    "time" : 68818,
+    "cycle" : 6
+  }, {
+    "sentence" : "They would put the knife on the ground on the left shoulder",
+    "score" : 38.71157455444336,
+    "time" : 310361,
+    "cycle" : 43
+  }, {
+    "sentence" : "They would put the knife on the ground on his left shoulder",
+    "score" : 38.33624267578125,
+    "time" : 317801,
+    "cycle" : 44
+  }, {
+    "sentence" : "They would set the knife on the ground on his left shoulder",
+    "score" : 37.213844299316406,
+    "time" : 318938,
+    "cycle" : 44
+  }, {
+    "sentence" : "They would see the knife on the ground on his left shoulder",
+    "score" : 34.34718322753906,
+    "time" : 319717,
+    "cycle" : 44
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She paused outside the door to the side of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 104.1950454711914,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the [MASK] to the [MASK] of my left shoulder",
+    "timestamp" : 30867
+  }, {
+    "sentence" : "She paused outside the door to the rear of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 3612, 5194, 938, 1608, 2549 ],
+    "perplexity" : 107.44438934326172,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " rear", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the [MASK] to the [MASK] of my left shoulder",
+    "timestamp" : 31567
+  }, {
+    "sentence" : "She paused outside the door to the east of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 4157, 5194, 938, 1608, 2549 ],
+    "perplexity" : 107.9573745727539,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " east", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the [MASK] to the [MASK] of my left shoulder",
+    "timestamp" : 32159
+  }, {
+    "sentence" : "She paused outside the door to the pain of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 2214, 5194, 938, 1608, 2549 ],
+    "perplexity" : 112.90445709228516,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " pain", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the [MASK] to the [MASK] of my left shoulder",
+    "timestamp" : 33231
+  }, {
+    "sentence" : "She paused outside the door to the west of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 1926, 5194, 938, 1608, 2549 ],
+    "perplexity" : 107.2698745727539,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " west", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the [MASK] to the [MASK] of my left shoulder",
+    "timestamp" : 34071
+  }, {
+    "sentence" : "She walked outside the door to the side of my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 4455, 2461, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 69.2230453491211,
+    "tokens_used" : [ " She", " walked", " outside", " the", " door", " to", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She [MASK] outside the door to the side of my [MASK] shoulder",
+    "timestamp" : 37764
+  }, {
+    "sentence" : "She walked outside the door on the side of my left followed",
+    "tokens" : [ 1962, 4308, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 4981 ],
+    "perplexity" : 109.93792724609375,
+    "tokens_used" : [ " She", " walked", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " followed" ],
+    "original_sentence" : "She [MASK] outside the [MASK] on the side of my left followed",
+    "timestamp" : 56876
+  }, {
+    "sentence" : "She walked outside the door on the side of my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 47.84035873413086,
+    "tokens_used" : [ " She", " walked", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked [MASK] the door on the side of my left [MASK]",
+    "timestamp" : 62863
+  }, {
+    "sentence" : "She walked against the door on the side of my left shoulder",
+    "tokens" : [ 1962, 4308, 1846, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 56.642784118652344,
+    "tokens_used" : [ " She", " walked", " against", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked [MASK] the door on the side of my left [MASK]",
+    "timestamp" : 63812
+  }, {
+    "sentence" : "And walked outside the door on the side of my left shoulder",
+    "tokens" : [ 215, 4308, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 45.09424591064453,
+    "tokens_used" : [ " and", " walked", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] walked outside [MASK] door on the side of my left shoulder",
+    "timestamp" : 68818
+  }, {
+    "sentence" : "Had walked outside the door on the side of my left shoulder",
+    "tokens" : [ 4960, 4308, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 56.93695068359375,
+    "tokens_used" : [ " had", " walked", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] walked outside [MASK] door on the side of my left shoulder",
+    "timestamp" : 70427
+  }, {
+    "sentence" : "You walked outside the door on the side of my left shoulder",
+    "tokens" : [ 919, 4308, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 48.212242126464844,
+    "tokens_used" : [ " you", " walked", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] walked outside [MASK] door on the side of my left shoulder",
+    "timestamp" : 71524
+  }, {
+    "sentence" : "And leaned outside the door on the side of my left shoulder",
+    "tokens" : [ 216, 3735, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 72.3523178100586,
+    "tokens_used" : [ " And", " leaned", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "And [MASK] outside the door [MASK] the side of my left shoulder",
+    "timestamp" : 77009
+  }, {
+    "sentence" : "And curves outside the door on the side of my left shoulder",
+    "tokens" : [ 216, 2734, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 88.60021209716797,
+    "tokens_used" : [ " And", " curves", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "And [MASK] outside the door [MASK] the side of my left shoulder",
+    "timestamp" : 78144
+  }, {
+    "sentence" : "And closed outside the door on the side of my left shoulder",
+    "tokens" : [ 216, 2966, 803, 394, 4455, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 67.19707489013672,
+    "tokens_used" : [ " And", " closed", " outside", " the", " door", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "And [MASK] outside the door [MASK] the side of my left shoulder",
+    "timestamp" : 79520
+  }, {
+    "sentence" : "Dam stands outside the tent on the side of my left shoulder",
+    "tokens" : [ 4957, 371, 803, 394, 3012, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 59.465213775634766,
+    "tokens_used" : [ " Dam", " stands", " outside", " the", " tent", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] stands outside the tent on the side of my left [MASK]",
+    "timestamp" : 109228
+  }, {
+    "sentence" : "Dad helped putting the tent on the side of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 3012, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 62.32138442993164,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " tent", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad [MASK] [MASK] the tent on the side of my left shoulder",
+    "timestamp" : 113130
+  }, {
+    "sentence" : "Dad helped putting our tent on the side of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 3369, 3012, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 83.12783813476562,
+    "tokens_used" : [ " Dad", " helped", " putting", " our", " tent", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad [MASK] putting [MASK] tent on the side of my left shoulder",
+    "timestamp" : 122022
+  }, {
+    "sentence" : "Dad helped putting one tent on the side of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 1820, 3012, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 89.50774383544922,
+    "tokens_used" : [ " Dad", " helped", " putting", " one", " tent", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad [MASK] putting [MASK] tent on the side of my left shoulder",
+    "timestamp" : 122622
+  }, {
+    "sentence" : "Dad helped putting her tent on the side of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 3730, 3012, 710, 394, 400, 5194, 938, 1608, 2549 ],
+    "perplexity" : 88.96309661865234,
+    "tokens_used" : [ " Dad", " helped", " putting", " her", " tent", " on", " the", " side", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad [MASK] putting [MASK] tent on the side of my left shoulder",
+    "timestamp" : 123560
+  }, {
+    "sentence" : "Dad helped putting her tent on the back of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 3730, 3012, 710, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 87.17486572265625,
+    "tokens_used" : [ " Dad", " helped", " putting", " her", " tent", " on", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting her tent on the [MASK] of my left [MASK]",
+    "timestamp" : 137207
+  }, {
+    "sentence" : "Dad helped putting her tent on the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 3730, 3012, 710, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 89.1159439086914,
+    "tokens_used" : [ " Dad", " helped", " putting", " her", " tent", " on", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting her tent on the [MASK] of my left [MASK]",
+    "timestamp" : 137584
+  }, {
+    "sentence" : "Dad helped putting her hair on the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 3730, 363, 710, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 68.29225158691406,
+    "tokens_used" : [ " Dad", " helped", " putting", " her", " hair", " on", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting her [MASK] on the edge of my left [MASK]",
+    "timestamp" : 157681
+  }, {
+    "sentence" : "Dad helped putting the hair on the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 363, 710, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 65.72783660888672,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " hair", " on", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting [MASK] hair on the edge of my left [MASK]",
+    "timestamp" : 163230
+  }, {
+    "sentence" : "Dad helped putting the hair on the edge of my left forehead",
+    "tokens" : [ 1221, 767, 2940, 394, 363, 710, 394, 759, 5194, 938, 1608, 3415 ],
+    "perplexity" : 83.1497573852539,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " hair", " on", " the", " edge", " of", " my", " left", " forehead" ],
+    "original_sentence" : "Dad helped putting [MASK] hair on the edge of my left [MASK]",
+    "timestamp" : 163829
+  }, {
+    "sentence" : "Dad helped putting the hair at the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 363, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 76.47808074951172,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " hair", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad [MASK] putting the hair [MASK] the edge of my left shoulder",
+    "timestamp" : 169560
+  }, {
+    "sentence" : "Dad helped putting the tape at the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 1006, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 74.8812255859375,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " tape", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting the [MASK] at the edge of my left [MASK]",
+    "timestamp" : 173966
+  }, {
+    "sentence" : "Dad helped putting the ball at the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 3661, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 61.76679229736328,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " ball", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting the [MASK] at the edge of my left [MASK]",
+    "timestamp" : 174345
+  }, {
+    "sentence" : "Dad helped putting the ring at the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 2309, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 65.88249969482422,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " ring", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting the [MASK] at the edge of my left [MASK]",
+    "timestamp" : 174734
+  }, {
+    "sentence" : "Dad helped putting the wire at the edge of my left shoulder",
+    "tokens" : [ 1221, 767, 2940, 394, 1868, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 80.78072357177734,
+    "tokens_used" : [ " Dad", " helped", " putting", " the", " wire", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "Dad helped putting the [MASK] at the edge of my left [MASK]",
+    "timestamp" : 175146
+  }, {
+    "sentence" : "That helped remove the wire at the edge of my left shoulder",
+    "tokens" : [ 1321, 767, 1212, 394, 1868, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 57.61246871948242,
+    "tokens_used" : [ " that", " helped", " remove", " the", " wire", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] helped [MASK] the wire at the edge of my left shoulder",
+    "timestamp" : 189555
+  }, {
+    "sentence" : "Also helped remove the wire at the edge of my left shoulder",
+    "tokens" : [ 4118, 767, 1212, 394, 1868, 302, 394, 759, 5194, 938, 1608, 2549 ],
+    "perplexity" : 55.46329116821289,
+    "tokens_used" : [ " also", " helped", " remove", " the", " wire", " at", " the", " edge", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] helped [MASK] the wire at the edge of my left shoulder",
+    "timestamp" : 191508
+  }, {
+    "sentence" : "This helped wound the hair at the back of the left shoulder",
+    "tokens" : [ 1228, 767, 3121, 394, 363, 302, 394, 954, 5194, 394, 1608, 2549 ],
+    "perplexity" : 69.09261322021484,
+    "tokens_used" : [ " This", " helped", " wound", " the", " hair", " at", " the", " back", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "[MASK] helped wound [MASK] hair at the back of the left shoulder",
+    "timestamp" : 208446
+  }, {
+    "sentence" : "That helped wound the hair at the back of the left shoulder",
+    "tokens" : [ 1322, 767, 3121, 394, 363, 302, 394, 954, 5194, 394, 1608, 2549 ],
+    "perplexity" : 62.44453430175781,
+    "tokens_used" : [ " That", " helped", " wound", " the", " hair", " at", " the", " back", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "[MASK] helped wound [MASK] hair at the back of the left shoulder",
+    "timestamp" : 209545
+  }, {
+    "sentence" : "They would wound the fired on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 1367, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 79.29175567626953,
+    "tokens_used" : [ " They", " would", " wound", " the", " fired", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 224167
+  }, {
+    "sentence" : "They would wound the third on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 5160, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 51.073883056640625,
+    "tokens_used" : [ " They", " would", " wound", " the", " third", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 224564
+  }, {
+    "sentence" : "They would wound the raise on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 3510, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 88.5811996459961,
+    "tokens_used" : [ " They", " would", " wound", " the", " raise", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 225046
+  }, {
+    "sentence" : "They would wound the faint on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 787, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 86.2278823852539,
+    "tokens_used" : [ " They", " would", " wound", " the", " faint", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 225425
+  }, {
+    "sentence" : "They would wound the start on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 2467, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 82.85945129394531,
+    "tokens_used" : [ " They", " would", " wound", " the", " start", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 225830
+  }, {
+    "sentence" : "They would wound the balls on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 1403, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 55.895626068115234,
+    "tokens_used" : [ " They", " would", " wound", " the", " balls", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 228887
+  }, {
+    "sentence" : "They would wound the shirt on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 3377, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 50.05630874633789,
+    "tokens_used" : [ " They", " would", " wound", " the", " shirt", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 229269
+  }, {
+    "sentence" : "They would wound the stiff on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 1767, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 71.65357208251953,
+    "tokens_used" : [ " They", " would", " wound", " the", " stiff", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 229549
+  }, {
+    "sentence" : "They would wound the shell on the side of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 1215, 710, 394, 400, 5194, 394, 1608, 2549 ],
+    "perplexity" : 54.33930969238281,
+    "tokens_used" : [ " They", " would", " wound", " the", " shell", " on", " the", " side", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the [MASK] on the side of the left shoulder",
+    "timestamp" : 230177
+  }, {
+    "sentence" : "They would wound the shirt on the left of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 3377, 710, 394, 1608, 5194, 394, 1608, 2549 ],
+    "perplexity" : 57.14764404296875,
+    "tokens_used" : [ " They", " would", " wound", " the", " shirt", " on", " the", " left", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the shirt on the [MASK] of the left shoulder",
+    "timestamp" : 240271
+  }, {
+    "sentence" : "They would wound the shirt on the skin of the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 3377, 710, 394, 4475, 5194, 394, 1608, 2549 ],
+    "perplexity" : 75.07717895507812,
+    "tokens_used" : [ " They", " would", " wound", " the", " shirt", " on", " the", " skin", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "They [MASK] wound the shirt on the [MASK] of the left shoulder",
+    "timestamp" : 241247
+  }, {
+    "sentence" : "They would wound the shirt on the left on the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 3377, 710, 394, 1608, 710, 394, 1608, 2549 ],
+    "perplexity" : 72.29652404785156,
+    "tokens_used" : [ " They", " would", " wound", " the", " shirt", " on", " the", " left", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "They would wound the shirt [MASK] the left [MASK] the left shoulder",
+    "timestamp" : 244869
+  }, {
+    "sentence" : "They would wound the shirt on the left or the left shoulder",
+    "tokens" : [ 4154, 2288, 3121, 394, 3377, 710, 394, 1608, 1860, 394, 1608, 2549 ],
+    "perplexity" : 62.06698989868164,
+    "tokens_used" : [ " They", " would", " wound", " the", " shirt", " on", " the", " left", " or", " the", " left", " shoulder" ],
+    "original_sentence" : "They would wound the shirt [MASK] the left [MASK] the left shoulder",
+    "timestamp" : 246360
+  }, {
+    "sentence" : "Poor would put the knife down the left of the left shoulder",
+    "tokens" : [ 1070, 2288, 1536, 394, 751, 4343, 394, 1608, 5194, 394, 1608, 2549 ],
+    "perplexity" : 66.8827133178711,
+    "tokens_used" : [ " Poor", " would", " put", " the", " knife", " down", " the", " left", " of", " the", " left", " shoulder" ],
+    "original_sentence" : "Poor would [MASK] the knife [MASK] the left of the left shoulder",
+    "timestamp" : 274165
+  }, {
+    "sentence" : "Poor would put the knife down the left on the left shoulder",
+    "tokens" : [ 1070, 2288, 1536, 394, 751, 4343, 394, 1608, 710, 394, 1608, 2549 ],
+    "perplexity" : 75.31031799316406,
+    "tokens_used" : [ " Poor", " would", " put", " the", " knife", " down", " the", " left", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "Poor would put the knife [MASK] the left [MASK] the left shoulder",
+    "timestamp" : 279197
+  }, {
+    "sentence" : "They would put the knife down the left on the left shoulder",
+    "tokens" : [ 4154, 2288, 1536, 394, 751, 4343, 394, 1608, 710, 394, 1608, 2549 ],
+    "perplexity" : 58.04060745239258,
+    "tokens_used" : [ " They", " would", " put", " the", " knife", " down", " the", " left", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "[MASK] would put the knife down the left on the [MASK] shoulder",
+    "timestamp" : 294686
+  }, {
+    "sentence" : "They would put the knife on the ground on the left shoulder",
+    "tokens" : [ 4154, 2288, 1536, 394, 751, 710, 394, 3597, 710, 394, 1608, 2549 ],
+    "perplexity" : 38.71157455444336,
+    "tokens_used" : [ " They", " would", " put", " the", " knife", " on", " the", " ground", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "They would put the knife [MASK] the [MASK] on the left shoulder",
+    "timestamp" : 310361
+  }, {
+    "sentence" : "They would put the knife on the pillow on the left shoulder",
+    "tokens" : [ 4154, 2288, 1536, 394, 751, 710, 394, 292, 710, 394, 1608, 2549 ],
+    "perplexity" : 52.188907623291016,
+    "tokens_used" : [ " They", " would", " put", " the", " knife", " on", " the", " pillow", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "They would put the knife [MASK] the [MASK] on the left shoulder",
+    "timestamp" : 311084
+  }, {
+    "sentence" : "They would put the knife on the pocket on the left shoulder",
+    "tokens" : [ 4154, 2288, 1536, 394, 751, 710, 394, 94, 710, 394, 1608, 2549 ],
+    "perplexity" : 51.188438415527344,
+    "tokens_used" : [ " They", " would", " put", " the", " knife", " on", " the", " pocket", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "They would put the knife [MASK] the [MASK] on the left shoulder",
+    "timestamp" : 312031
+  }, {
+    "sentence" : "They would lay the knife on the ground on his left shoulder",
+    "tokens" : [ 4154, 2288, 2741, 394, 751, 710, 394, 3597, 710, 3882, 1608, 2549 ],
+    "perplexity" : 39.970619201660156,
+    "tokens_used" : [ " They", " would", " lay", " the", " knife", " on", " the", " ground", " on", " his", " left", " shoulder" ],
+    "original_sentence" : "They would [MASK] the knife on the ground on [MASK] left shoulder",
+    "timestamp" : 317089
+  }, {
+    "sentence" : "They would put the knife on the ground on his left shoulder",
+    "tokens" : [ 4154, 2288, 1536, 394, 751, 710, 394, 3597, 710, 3882, 1608, 2549 ],
+    "perplexity" : 38.33624267578125,
+    "tokens_used" : [ " They", " would", " put", " the", " knife", " on", " the", " ground", " on", " his", " left", " shoulder" ],
+    "original_sentence" : "They would [MASK] the knife on the ground on [MASK] left shoulder",
+    "timestamp" : 317801
+  }, {
+    "sentence" : "They would set the knife on the ground on his left shoulder",
+    "tokens" : [ 4154, 2288, 1034, 394, 751, 710, 394, 3597, 710, 3882, 1608, 2549 ],
+    "perplexity" : 37.213844299316406,
+    "tokens_used" : [ " They", " would", " set", " the", " knife", " on", " the", " ground", " on", " his", " left", " shoulder" ],
+    "original_sentence" : "They would [MASK] the knife on the ground on [MASK] left shoulder",
+    "timestamp" : 318938
+  }, {
+    "sentence" : "They would see the knife on the ground on his left shoulder",
+    "tokens" : [ 4154, 2288, 3387, 394, 751, 710, 394, 3597, 710, 3882, 1608, 2549 ],
+    "perplexity" : 34.34718322753906,
+    "tokens_used" : [ " They", " would", " see", " the", " knife", " on", " the", " ground", " on", " his", " left", " shoulder" ],
+    "original_sentence" : "They would [MASK] the knife on the ground on [MASK] left shoulder",
+    "timestamp" : 319717
+  }, {
+    "sentence" : "They would use the knife on the ground on his left shoulder",
+    "tokens" : [ 4154, 2288, 20, 394, 751, 710, 394, 3597, 710, 3882, 1608, 2549 ],
+    "perplexity" : 42.81678009033203,
+    "tokens_used" : [ " They", " would", " use", " the", " knife", " on", " the", " ground", " on", " his", " left", " shoulder" ],
+    "original_sentence" : "They would [MASK] the knife on the ground on [MASK] left shoulder",
+    "timestamp" : 320347
+  }, {
+    "sentence" : "They would see the light on the ground by his left shoulder",
+    "tokens" : [ 4154, 2288, 3387, 394, 3207, 710, 394, 3597, 2029, 3882, 1608, 2549 ],
+    "perplexity" : 59.446048736572266,
+    "tokens_used" : [ " They", " would", " see", " the", " light", " on", " the", " ground", " by", " his", " left", " shoulder" ],
+    "original_sentence" : "They would see the [MASK] on the ground [MASK] his left shoulder",
+    "timestamp" : 328681
+  }, {
+    "sentence" : "Front would be the mark on the ground for his left shoulder",
+    "tokens" : [ 2217, 2288, 1392, 394, 4974, 710, 394, 3597, 3548, 3882, 1608, 2549 ],
+    "perplexity" : 53.8028678894043,
+    "tokens_used" : [ " Front", " would", " be", " the", " mark", " on", " the", " ground", " for", " his", " left", " shoulder" ],
+    "original_sentence" : "Front would [MASK] the [MASK] on the ground for his left shoulder",
+    "timestamp" : 407235
+  }, {
+    "sentence" : "Front would be the same on the ground for his left shoulder",
+    "tokens" : [ 2217, 2288, 1392, 394, 1969, 710, 394, 3597, 3548, 3882, 1608, 2549 ],
+    "perplexity" : 58.88039016723633,
+    "tokens_used" : [ " Front", " would", " be", " the", " same", " on", " the", " ground", " for", " his", " left", " shoulder" ],
+    "original_sentence" : "Front would [MASK] the [MASK] on the ground for his left shoulder",
+    "timestamp" : 407743
+  }, {
+    "sentence" : "Front would be the word on the ground for his left shoulder",
+    "tokens" : [ 2217, 2288, 1392, 394, 4940, 710, 394, 3597, 3548, 3882, 1608, 2549 ],
+    "perplexity" : 53.8096923828125,
+    "tokens_used" : [ " Front", " would", " be", " the", " word", " on", " the", " ground", " for", " his", " left", " shoulder" ],
+    "original_sentence" : "Front would [MASK] the [MASK] on the ground for his left shoulder",
+    "timestamp" : 408131
+  }, {
+    "sentence" : "Players must be the players of the Bow on the left shoulder",
+    "tokens" : [ 1988, 2521, 1392, 394, 1987, 5194, 394, 4930, 710, 394, 1608, 2549 ],
+    "perplexity" : 68.19339752197266,
+    "tokens_used" : [ " Players", " must", " be", " the", " players", " of", " the", " Bow", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "[MASK] must be the players of the [MASK] on the left shoulder",
+    "timestamp" : 578483
+  }, {
+    "sentence" : "Players must be the players of the Bow on the left shoulder",
+    "tokens" : [ 1987, 2521, 1392, 394, 1987, 5194, 394, 4930, 710, 394, 1608, 2549 ],
+    "perplexity" : 68.19339752197266,
+    "tokens_used" : [ " players", " must", " be", " the", " players", " of", " the", " Bow", " on", " the", " left", " shoulder" ],
+    "original_sentence" : "[MASK] must be the players [MASK] the Bow on the left shoulder",
+    "timestamp" : 632615
+  }, {
+    "sentence" : "Players must be the players of the team on the red shoulder",
+    "tokens" : [ 1988, 2521, 1392, 394, 1987, 5194, 394, 4381, 710, 394, 4226, 2549 ],
+    "perplexity" : 54.501869201660156,
+    "tokens_used" : [ " Players", " must", " be", " the", " players", " of", " the", " team", " on", " the", " red", " shoulder" ],
+    "original_sentence" : "Players must be the players of the [MASK] on the [MASK] shoulder",
+    "timestamp" : 682467
+  }, {
+    "sentence" : "Players must be the players of the team on the top shoulder",
+    "tokens" : [ 1988, 2521, 1392, 394, 1987, 5194, 394, 4381, 710, 394, 770, 2549 ],
+    "perplexity" : 58.506622314453125,
+    "tokens_used" : [ " Players", " must", " be", " the", " players", " of", " the", " team", " on", " the", " top", " shoulder" ],
+    "original_sentence" : "Players must be the players of the [MASK] on the [MASK] shoulder",
+    "timestamp" : 683114
+  }, {
+    "sentence" : "Players must be the captain of the team on the top shoulder",
+    "tokens" : [ 1988, 2521, 1392, 394, 1880, 5194, 394, 4381, 710, 394, 770, 2549 ],
+    "perplexity" : 53.39419937133789,
+    "tokens_used" : [ " Players", " must", " be", " the", " captain", " of", " the", " team", " on", " the", " top", " shoulder" ],
+    "original_sentence" : "Players must be the [MASK] of the team [MASK] the top shoulder",
+    "timestamp" : 697433
+  }, {
+    "sentence" : "Players must be the captain of the team of the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1880, 5194, 394, 4381, 5194, 394, 4012, 707 ],
+    "perplexity" : 44.84653091430664,
+    "tokens_used" : [ " Players", " must", " be", " the", " captain", " of", " the", " team", " of", " the", " new", " princess" ],
+    "original_sentence" : "Players must be the captain of the team [MASK] the [MASK] princess",
+    "timestamp" : 715781
+  }, {
+    "sentence" : "Players must be the captain of the team or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1880, 5194, 394, 4381, 1860, 394, 4012, 707 ],
+    "perplexity" : 44.420196533203125,
+    "tokens_used" : [ " Players", " must", " be", " the", " captain", " of", " the", " team", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must be the captain of the team [MASK] the [MASK] princess",
+    "timestamp" : 716494
+  }, {
+    "sentence" : "Players must be the captain of the team as the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1880, 5194, 394, 4381, 560, 394, 4012, 707 ],
+    "perplexity" : 57.868526458740234,
+    "tokens_used" : [ " Players", " must", " be", " the", " captain", " of", " the", " team", " as", " the", " new", " princess" ],
+    "original_sentence" : "Players must be the captain of the team [MASK] the [MASK] princess",
+    "timestamp" : 717320
+  }, {
+    "sentence" : "Players must be the captain of the team in the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1880, 5194, 394, 4381, 2515, 394, 4012, 707 ],
+    "perplexity" : 64.60785675048828,
+    "tokens_used" : [ " Players", " must", " be", " the", " captain", " of", " the", " team", " in", " the", " new", " princess" ],
+    "original_sentence" : "Players must be the captain of the team [MASK] the [MASK] princess",
+    "timestamp" : 717853
+  }, {
+    "sentence" : "Players must be the captain of the team to the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1880, 5194, 394, 4381, 2461, 394, 4012, 707 ],
+    "perplexity" : 58.71259689331055,
+    "tokens_used" : [ " Players", " must", " be", " the", " captain", " of", " the", " team", " to", " the", " new", " princess" ],
+    "original_sentence" : "Players must be the captain of the team [MASK] the [MASK] princess",
+    "timestamp" : 718355
+  }, {
+    "sentence" : "Players must be the leaders of the team or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 4997, 5194, 394, 4381, 1860, 394, 4012, 707 ],
+    "perplexity" : 53.19272994995117,
+    "tokens_used" : [ " Players", " must", " be", " the", " leaders", " of", " the", " team", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must be [MASK] [MASK] of the team or the new princess",
+    "timestamp" : 723063
+  }, {
+    "sentence" : "Players must be the Captain of the team or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1881, 5194, 394, 4381, 1860, 394, 4012, 707 ],
+    "perplexity" : 62.451683044433594,
+    "tokens_used" : [ " Players", " must", " be", " the", " Captain", " of", " the", " team", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must be [MASK] [MASK] of the team or the new princess",
+    "timestamp" : 723941
+  }, {
+    "sentence" : "Players must be the players of the team or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 1987, 5194, 394, 4381, 1860, 394, 4012, 707 ],
+    "perplexity" : 61.07735061645508,
+    "tokens_used" : [ " Players", " must", " be", " the", " players", " of", " the", " team", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must be [MASK] [MASK] of the team or the new princess",
+    "timestamp" : 724741
+  }, {
+    "sentence" : "Players must be the leaders of the army or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 4997, 5194, 394, 3353, 1860, 394, 4012, 707 ],
+    "perplexity" : 49.847007751464844,
+    "tokens_used" : [ " Players", " must", " be", " the", " leaders", " of", " the", " army", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must [MASK] the leaders of the [MASK] or the new princess",
+    "timestamp" : 729355
+  }, {
+    "sentence" : "Players must be the leaders of the town or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 4997, 5194, 394, 2089, 1860, 394, 4012, 707 ],
+    "perplexity" : 63.825889587402344,
+    "tokens_used" : [ " Players", " must", " be", " the", " leaders", " of", " the", " town", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must [MASK] the leaders of the [MASK] or the new princess",
+    "timestamp" : 730211
+  }, {
+    "sentence" : "Players must be the leaders of the game or the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 4997, 5194, 394, 2701, 1860, 394, 4012, 707 ],
+    "perplexity" : 60.602420806884766,
+    "tokens_used" : [ " Players", " must", " be", " the", " leaders", " of", " the", " game", " or", " the", " new", " princess" ],
+    "original_sentence" : "Players must [MASK] the leaders of the [MASK] or the new princess",
+    "timestamp" : 730900
+  }, {
+    "sentence" : "Players must be the leaders of the army of the new princess",
+    "tokens" : [ 1988, 2521, 1392, 394, 4997, 5194, 394, 3353, 5194, 394, 4012, 707 ],
+    "perplexity" : 45.795162200927734,
+    "tokens_used" : [ " Players", " must", " be", " the", " leaders", " of", " the", " army", " of", " the", " new", " princess" ],
+    "original_sentence" : "Players [MASK] be the leaders of the army [MASK] the new princess",
+    "timestamp" : 735486
+  } ]
+}

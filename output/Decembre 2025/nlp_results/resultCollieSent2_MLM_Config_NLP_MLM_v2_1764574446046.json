@@ -1,0 +1,126 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T02:34:06.044261407",
+  "time" : 296.465,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Grass sentence soft beach is soft beach is place water comes",
+    "score" : 1907.12890625,
+    "time" : 3526,
+    "cycle" : 0
+  }, {
+    "sentence" : "Grass sentence soft beach is soft beach is no water comes",
+    "score" : 1330.530029296875,
+    "time" : 6333,
+    "cycle" : 1
+  }, {
+    "sentence" : "Grass is soft beach is soft beach is no water surface",
+    "score" : 200.19618225097656,
+    "time" : 10018,
+    "cycle" : 2
+  }, {
+    "sentence" : "Grass is soft beach and soft beach is soft water surface",
+    "score" : 132.56297302246094,
+    "time" : 13199,
+    "cycle" : 3
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "Grass sentence soft beach is soft beach is place water comes",
+    "tokens" : [ 0, 775, 2489, 5075, 2713, 2489, 5075, 2713, 2703, 3408, 291 ],
+    "perplexity" : 1907.12890625,
+    "tokens_used" : [ " grass", " sentence", " soft", " beach", " is", " soft", " beach", " is", " place", " water", " comes" ],
+    "original_sentence" : "[MASK] sentence soft beach [MASK] [MASK] beach [MASK] place water comes",
+    "timestamp" : 3526
+  }, {
+    "sentence" : "Grass sentence soft beach is soft beach is no water comes",
+    "tokens" : [ 1, 775, 2489, 5075, 2713, 2489, 5075, 2713, 2144, 3408, 291 ],
+    "perplexity" : 1330.530029296875,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " is", " soft", " beach", " is", " no", " water", " comes" ],
+    "original_sentence" : "Grass [MASK] soft beach [MASK] [MASK] beach is [MASK] water comes",
+    "timestamp" : 6333
+  }, {
+    "sentence" : "Grass is soft beach is soft beach is no water surface",
+    "tokens" : [ 1, 2713, 2489, 5075, 2713, 2489, 5075, 2713, 2144, 3408, 2035 ],
+    "perplexity" : 200.19618225097656,
+    "tokens_used" : [ " Grass", " is", " soft", " beach", " is", " soft", " beach", " is", " no", " water", " surface" ],
+    "original_sentence" : "[MASK] [MASK] soft beach [MASK] soft beach is no water [MASK]",
+    "timestamp" : 10018
+  }, {
+    "sentence" : "Grass is soft beach and soft beach is soft water surface",
+    "tokens" : [ 1, 2713, 2489, 5075, 215, 2489, 5075, 2713, 2489, 3408, 2035 ],
+    "perplexity" : 132.56297302246094,
+    "tokens_used" : [ " Grass", " is", " soft", " beach", " and", " soft", " beach", " is", " soft", " water", " surface" ],
+    "original_sentence" : "[MASK] is soft beach [MASK] [MASK] beach is [MASK] water surface",
+    "timestamp" : 13199
+  }, {
+    "sentence" : "Grass is soft beach a soft beach is a water surface",
+    "tokens" : [ 1, 2713, 2489, 5075, 4646, 2489, 5075, 2713, 4646, 3408, 2035 ],
+    "perplexity" : 204.06996154785156,
+    "tokens_used" : [ " Grass", " is", " soft", " beach", " a", " soft", " beach", " is", " a", " water", " surface" ],
+    "original_sentence" : "Grass is soft [MASK] [MASK] soft beach is [MASK] water [MASK]",
+    "timestamp" : 16463
+  }, {
+    "sentence" : "Grass is soft beach a soft beach with a water surface",
+    "tokens" : [ 1, 2713, 2489, 5075, 4646, 2489, 5075, 2342, 4646, 3408, 2035 ],
+    "perplexity" : 190.5514678955078,
+    "tokens_used" : [ " Grass", " is", " soft", " beach", " a", " soft", " beach", " with", " a", " water", " surface" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] [MASK] soft beach [MASK] a water surface",
+    "timestamp" : 19686
+  }, {
+    "sentence" : "Grass is soft beach a soft beach with a water beach",
+    "tokens" : [ 1, 2713, 2489, 5075, 4646, 2489, 5075, 2342, 4646, 3408, 5075 ],
+    "perplexity" : 216.44923400878906,
+    "tokens_used" : [ " Grass", " is", " soft", " beach", " a", " soft", " beach", " with", " a", " water", " beach" ],
+    "original_sentence" : "Grass [MASK] soft beach [MASK] [MASK] beach with a water [MASK]",
+    "timestamp" : 22948
+  }, {
+    "sentence" : "Grass a soft beach a soft beach with a water beach",
+    "tokens" : [ 1, 4646, 2489, 5075, 4646, 2489, 5075, 2342, 4646, 3408, 5075 ],
+    "perplexity" : 219.45603942871094,
+    "tokens_used" : [ " Grass", " a", " soft", " beach", " a", " soft", " beach", " with", " a", " water", " beach" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] a [MASK] beach with a water beach",
+    "timestamp" : 26333
+  }, {
+    "sentence" : "Grass a soft beach and soft beach with a water beach",
+    "tokens" : [ 1, 4646, 2489, 5075, 215, 2489, 5075, 2342, 4646, 3408, 5075 ],
+    "perplexity" : 239.4630889892578,
+    "tokens_used" : [ " Grass", " a", " soft", " beach", " and", " soft", " beach", " with", " a", " water", " beach" ],
+    "original_sentence" : "[MASK] a soft [MASK] [MASK] [MASK] beach with a water beach",
+    "timestamp" : 30229
+  }, {
+    "sentence" : "Grass a soft beach and soft beach with a water surface",
+    "tokens" : [ 1, 4646, 2489, 5075, 215, 2489, 5075, 2342, 4646, 3408, 2035 ],
+    "perplexity" : 234.1892547607422,
+    "tokens_used" : [ " Grass", " a", " soft", " beach", " and", " soft", " beach", " with", " a", " water", " surface" ],
+    "original_sentence" : "Grass a soft [MASK] [MASK] soft beach with [MASK] water [MASK]",
+    "timestamp" : 32544
+  }, {
+    "sentence" : "Grass a soft beach of soft beach with a water surface",
+    "tokens" : [ 1, 4646, 2489, 5075, 5194, 2489, 5075, 2342, 4646, 3408, 2035 ],
+    "perplexity" : 253.12890625,
+    "tokens_used" : [ " Grass", " a", " soft", " beach", " of", " soft", " beach", " with", " a", " water", " surface" ],
+    "original_sentence" : "[MASK] a soft beach [MASK] soft beach [MASK] a water [MASK]",
+    "timestamp" : 152629
+  }, {
+    "sentence" : "Grass a soft beach of soft beach with a water beach",
+    "tokens" : [ 1, 4646, 2489, 5075, 5194, 2489, 5075, 2342, 4646, 3408, 5075 ],
+    "perplexity" : 260.0198669433594,
+    "tokens_used" : [ " Grass", " a", " soft", " beach", " of", " soft", " beach", " with", " a", " water", " beach" ],
+    "original_sentence" : "Grass a soft beach [MASK] soft beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 171776
+  } ]
+}

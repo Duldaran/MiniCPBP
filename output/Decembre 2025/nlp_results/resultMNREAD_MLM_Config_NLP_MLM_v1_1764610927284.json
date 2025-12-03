@@ -1,0 +1,240 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 100,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:42:07.282414387",
+  "time" : 257.198,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "They were going to be here and the rest that they were dead",
+    "score" : 47.871620178222656,
+    "time" : 54800,
+    "cycle" : 1
+  }, {
+    "sentence" : "They were going to be dead and the rest that were also dead",
+    "score" : 37.490142822265625,
+    "time" : 63940,
+    "cycle" : 5
+  }, {
+    "sentence" : "They were going to be born and the rest they were just dead",
+    "score" : 36.89691162109375,
+    "time" : 92010,
+    "cycle" : 19
+  } ],
+  "base_sentence" : {
+    "sentence" : "They were going to be here and the fact that they were dead",
+    "perplexity" : 28.172584533691406,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "They were going to be here and the rest that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 215, 394, 4989, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 47.871620178222656,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " and", " the", " rest", " that", " they", " were", " dead" ],
+    "original_sentence" : "[MASK] were going to be here and the [MASK] that they were dead",
+    "timestamp" : 54800
+  }, {
+    "sentence" : "They were going to be dead and the rest that were with dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1818, 215, 394, 4989, 1321, 2113, 2342, 1818 ],
+    "perplexity" : 78.94903564453125,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " dead", " and", " the", " rest", " that", " were", " with", " dead" ],
+    "original_sentence" : "They were going to be dead and the rest that were [MASK] [MASK]",
+    "timestamp" : 62230
+  }, {
+    "sentence" : "They were going to be dead and the rest that were also dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1818, 215, 394, 4989, 1321, 2113, 4118, 1818 ],
+    "perplexity" : 37.490142822265625,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " dead", " and", " the", " rest", " that", " were", " also", " dead" ],
+    "original_sentence" : "They were [MASK] to be dead and the rest that were [MASK] dead",
+    "timestamp" : 63940
+  }, {
+    "sentence" : "They were going to be fine and the rest that were also dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 215, 394, 4989, 1321, 2113, 4118, 1818 ],
+    "perplexity" : 56.96071243286133,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " and", " the", " rest", " that", " were", " also", " dead" ],
+    "original_sentence" : "They were going to be fine and the rest [MASK] were also [MASK]",
+    "timestamp" : 75218
+  }, {
+    "sentence" : "They were going to be born and the rest they were just dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3703, 215, 394, 4989, 4153, 2113, 3678, 1818 ],
+    "perplexity" : 36.89691162109375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " born", " and", " the", " rest", " they", " were", " just", " dead" ],
+    "original_sentence" : "They were going to be [MASK] and the rest [MASK] were just dead",
+    "timestamp" : 92010
+  }, {
+    "sentence" : "They were going to be born and the last they were just dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3703, 215, 394, 1165, 4153, 2113, 3678, 1818 ],
+    "perplexity" : 54.24362564086914,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " born", " and", " the", " last", " they", " were", " just", " dead" ],
+    "original_sentence" : "[MASK] were going to be born and the [MASK] they were just dead",
+    "timestamp" : 97736
+  }, {
+    "sentence" : "They were going to be born and the last ones were just dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3703, 215, 394, 1165, 500, 2113, 3678, 1818 ],
+    "perplexity" : 38.06464385986328,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " born", " and", " the", " last", " ones", " were", " just", " dead" ],
+    "original_sentence" : "They were going to be [MASK] and the last [MASK] were just dead",
+    "timestamp" : 99362
+  }, {
+    "sentence" : "They were going to be born and the last kids were just dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3703, 215, 394, 1165, 4324, 2113, 3678, 1818 ],
+    "perplexity" : 52.81197738647461,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " born", " and", " the", " last", " kids", " were", " just", " dead" ],
+    "original_sentence" : "They were going to be born and the [MASK] [MASK] were just dead",
+    "timestamp" : 102988
+  }, {
+    "sentence" : "They were going to be born and the last days were just dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3703, 215, 394, 1165, 407, 2113, 3678, 1818 ],
+    "perplexity" : 52.72463607788086,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " born", " and", " the", " last", " days", " were", " just", " dead" ],
+    "original_sentence" : "They were going to be born and [MASK] last [MASK] were just dead",
+    "timestamp" : 104827
+  }, {
+    "sentence" : "They were going to be born and the last days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3703, 215, 394, 1165, 407, 2113, 230, 1321 ],
+    "perplexity" : 55.8476448059082,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " born", " and", " the", " last", " days", " were", " only", " that" ],
+    "original_sentence" : "[MASK] were going to be born and the last days were [MASK] that",
+    "timestamp" : 119308
+  }, {
+    "sentence" : "They were going to be fine and the last days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 215, 394, 1165, 407, 2113, 230, 1321 ],
+    "perplexity" : 58.51886749267578,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " and", " the", " last", " days", " were", " only", " that" ],
+    "original_sentence" : "They were going to be [MASK] and [MASK] last days were only that",
+    "timestamp" : 121375
+  }, {
+    "sentence" : "They were going to be fine and the next days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 215, 394, 288, 407, 2113, 230, 1321 ],
+    "perplexity" : 51.76624298095703,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " and", " the", " next", " days", " were", " only", " that" ],
+    "original_sentence" : "They were going to be [MASK] and the [MASK] days were only that",
+    "timestamp" : 127204
+  }, {
+    "sentence" : "They were going to be fine but the team guys were like that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 2922, 394, 4381, 1229, 2113, 4424, 1321 ],
+    "perplexity" : 46.45159912109375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " but", " the", " team", " guys", " were", " like", " that" ],
+    "original_sentence" : "They were going to be fine but the team [MASK] were like [MASK]",
+    "timestamp" : 147942
+  }, {
+    "sentence" : "They were going to be fine but the poor guys were like that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 2922, 394, 1069, 1229, 2113, 4424, 1321 ],
+    "perplexity" : 39.108760833740234,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " but", " the", " poor", " guys", " were", " like", " that" ],
+    "original_sentence" : "They were going to be fine [MASK] the [MASK] guys were like that",
+    "timestamp" : 151720
+  }, {
+    "sentence" : "They were going to be fine but the next guys were like that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 2922, 394, 288, 1229, 2113, 4424, 1321 ],
+    "perplexity" : 44.62601089477539,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " but", " the", " next", " guys", " were", " like", " that" ],
+    "original_sentence" : "They were going to be fine but [MASK] [MASK] guys were like that",
+    "timestamp" : 159533
+  }, {
+    "sentence" : "They were going to be fine and the best days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 215, 394, 3809, 407, 2113, 230, 1321 ],
+    "perplexity" : 53.174652099609375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " and", " the", " best", " days", " were", " only", " that" ],
+    "original_sentence" : "They were going to be fine and the [MASK] days were [MASK] that",
+    "timestamp" : 177079
+  }, {
+    "sentence" : "They were going to be fine but the best days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 552, 2922, 394, 3809, 407, 2113, 230, 1321 ],
+    "perplexity" : 58.90751647949219,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " fine", " but", " the", " best", " days", " were", " only", " that" ],
+    "original_sentence" : "They were going to be fine [MASK] the best days were only [MASK]",
+    "timestamp" : 178638
+  }, {
+    "sentence" : "They were going to be here but the best days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 2922, 394, 3809, 407, 2113, 230, 1321 ],
+    "perplexity" : 61.47196960449219,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " but", " the", " best", " days", " were", " only", " that" ],
+    "original_sentence" : "They were going to be [MASK] but the best days were only [MASK]",
+    "timestamp" : 184699
+  }, {
+    "sentence" : "They were going to be hard but the best days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1170, 2922, 394, 3809, 407, 2113, 230, 1321 ],
+    "perplexity" : 63.226722717285156,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " hard", " but", " the", " best", " days", " were", " only", " that" ],
+    "original_sentence" : "[MASK] were going to be [MASK] but the best days were only that",
+    "timestamp" : 189217
+  }, {
+    "sentence" : "They were going to be hard but our best days were only that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1170, 2922, 3369, 3809, 407, 2113, 230, 1321 ],
+    "perplexity" : 66.85739135742188,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " hard", " but", " our", " best", " days", " were", " only", " that" ],
+    "original_sentence" : "They were going to be hard but [MASK] best days were only [MASK]",
+    "timestamp" : 196947
+  }, {
+    "sentence" : "They were going to go hard but the best ones were past that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 500, 2113, 2636, 1321 ],
+    "perplexity" : 68.91766357421875,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " ones", " were", " past", " that" ],
+    "original_sentence" : "They were going to [MASK] hard but the best ones were [MASK] that",
+    "timestamp" : 224181
+  }, {
+    "sentence" : "They were going to go hard but the best days were past that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 407, 2113, 2636, 1321 ],
+    "perplexity" : 65.9100570678711,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " days", " were", " past", " that" ],
+    "original_sentence" : "[MASK] were going to go hard but the best [MASK] were past that",
+    "timestamp" : 225737
+  }, {
+    "sentence" : "They were going to go hard but the best guys were like that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 1229, 2113, 4424, 1321 ],
+    "perplexity" : 62.5275764465332,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " guys", " were", " like", " that" ],
+    "original_sentence" : "They were going to go [MASK] but the best [MASK] were like that",
+    "timestamp" : 231842
+  }, {
+    "sentence" : "They were going to go hard but the best guys went like that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 1229, 3746, 4424, 1321 ],
+    "perplexity" : 61.457401275634766,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " guys", " went", " like", " that" ],
+    "original_sentence" : "They were going to go hard [MASK] the best guys [MASK] like that",
+    "timestamp" : 236298
+  }, {
+    "sentence" : "They were going to go hard but the best guys went past that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 1229, 3746, 2636, 1321 ],
+    "perplexity" : 71.70257568359375,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " guys", " went", " past", " that" ],
+    "original_sentence" : "They were going to go hard but [MASK] best guys went [MASK] that",
+    "timestamp" : 237922
+  }, {
+    "sentence" : "They were going to be hard but the best guys went past that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1170, 2922, 394, 3809, 1229, 3746, 2636, 1321 ],
+    "perplexity" : 62.32872772216797,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " hard", " but", " the", " best", " guys", " went", " past", " that" ],
+    "original_sentence" : "They were going to [MASK] hard but the best guys went past [MASK]",
+    "timestamp" : 240066
+  }, {
+    "sentence" : "They were going to be hard but the best guys went with that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1170, 2922, 394, 3809, 1229, 3746, 2342, 1321 ],
+    "perplexity" : 62.28190612792969,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " hard", " but", " the", " best", " guys", " went", " with", " that" ],
+    "original_sentence" : "They were [MASK] to be hard but the best guys went [MASK] that",
+    "timestamp" : 242114
+  }, {
+    "sentence" : "They were going to go hard but the best guys went with that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 1229, 3746, 2342, 1321 ],
+    "perplexity" : 68.03587341308594,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " guys", " went", " with", " that" ],
+    "original_sentence" : "They were going to [MASK] hard but the best guys went with [MASK]",
+    "timestamp" : 243867
+  }, {
+    "sentence" : "They were going to go hard but the best part came with that",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3106, 1170, 2922, 394, 3809, 2292, 3845, 2342, 1321 ],
+    "perplexity" : 66.4505386352539,
+    "tokens_used" : [ " They", " were", " going", " to", " go", " hard", " but", " the", " best", " part", " came", " with", " that" ],
+    "original_sentence" : "[MASK] were going to go hard but the best part [MASK] with that",
+    "timestamp" : 257181
+  } ]
+}

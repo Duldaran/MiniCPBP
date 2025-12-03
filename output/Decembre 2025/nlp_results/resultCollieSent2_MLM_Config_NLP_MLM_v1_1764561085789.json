@@ -1,0 +1,443 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T22:51:25.787861807",
+  "time" : 162.813,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That sentence soft beach water soft beach be aunts water",
+    "score" : 5347.03857421875,
+    "time" : 3783,
+    "cycle" : 0
+  }, {
+    "sentence" : "That sentence soft beach water soft beach be soft water",
+    "score" : 3735.5234375,
+    "time" : 5050,
+    "cycle" : 1
+  }, {
+    "sentence" : "That sentence soft beach water and beach be soft water",
+    "score" : 2951.1640625,
+    "time" : 8657,
+    "cycle" : 3
+  }, {
+    "sentence" : "That sentence soft beach water and beach is soft water",
+    "score" : 1941.395263671875,
+    "time" : 10102,
+    "cycle" : 4
+  }, {
+    "sentence" : "That sentence soft beach water and beach is not water",
+    "score" : 1396.345703125,
+    "time" : 11297,
+    "cycle" : 5
+  }, {
+    "sentence" : "That is soft beach water and beach is not water",
+    "score" : 181.7645263671875,
+    "time" : 12743,
+    "cycle" : 6
+  }, {
+    "sentence" : "That is soft beach sand and beach is not water",
+    "score" : 164.6973876953125,
+    "time" : 14223,
+    "cycle" : 7
+  }, {
+    "sentence" : "Sand is soft as mud and beach is not water",
+    "score" : 127.71066284179688,
+    "time" : 23144,
+    "cycle" : 13
+  }, {
+    "sentence" : "Sand is soft as water and beach is not water",
+    "score" : 123.95098876953125,
+    "time" : 38419,
+    "cycle" : 24
+  }, {
+    "sentence" : "Beach is soft as water and beach is not water",
+    "score" : 80.62687683105469,
+    "time" : 39690,
+    "cycle" : 25
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That sentence soft beach water soft beach be aunts water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 2489, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 5347.03857421875,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " soft", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That sentence soft beach water [MASK] beach be aunts water",
+    "timestamp" : 3783
+  }, {
+    "sentence" : "That sentence soft beach water soft beach be soft water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 2489, 5075, 1392, 2489, 3408 ],
+    "perplexity" : 3735.5234375,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " soft", " beach", " be", " soft", " water" ],
+    "original_sentence" : "That sentence soft beach water soft beach be [MASK] water",
+    "timestamp" : 5050
+  }, {
+    "sentence" : "That sentence soft beach water must beach be soft water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 2521, 5075, 1392, 2489, 3408 ],
+    "perplexity" : 5384.3369140625,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " must", " beach", " be", " soft", " water" ],
+    "original_sentence" : "That sentence soft beach water [MASK] beach be soft water",
+    "timestamp" : 6593
+  }, {
+    "sentence" : "That sentence soft beach water and beach be soft water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 215, 5075, 1392, 2489, 3408 ],
+    "perplexity" : 2951.1640625,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " and", " beach", " be", " soft", " water" ],
+    "original_sentence" : "That sentence soft beach water [MASK] beach be soft water",
+    "timestamp" : 8657
+  }, {
+    "sentence" : "That sentence soft beach water and beach is soft water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 1941.395263671875,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "That sentence soft beach water and beach [MASK] soft water",
+    "timestamp" : 10102
+  }, {
+    "sentence" : "That sentence soft beach water and beach is not water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 1396.345703125,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "That sentence soft beach water and beach is [MASK] water",
+    "timestamp" : 11297
+  }, {
+    "sentence" : "That is soft beach water and beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 3408, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 181.7645263671875,
+    "tokens_used" : [ " That", " is", " soft", " beach", " water", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "That [MASK] soft beach water and beach is not water",
+    "timestamp" : 12743
+  }, {
+    "sentence" : "That is soft beach sand and beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 1752, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 164.6973876953125,
+    "tokens_used" : [ " That", " is", " soft", " beach", " sand", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "That is soft beach [MASK] and beach is not water",
+    "timestamp" : 14223
+  }, {
+    "sentence" : "That is soft beach sand but beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 1752, 2922, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 213.13648986816406,
+    "tokens_used" : [ " That", " is", " soft", " beach", " sand", " but", " beach", " is", " not", " water" ],
+    "original_sentence" : "That is soft beach sand [MASK] beach is not water",
+    "timestamp" : 15832
+  }, {
+    "sentence" : "That is soft beach sand because beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 1752, 3821, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 249.82843017578125,
+    "tokens_used" : [ " That", " is", " soft", " beach", " sand", " because", " beach", " is", " not", " water" ],
+    "original_sentence" : "That is soft beach sand [MASK] beach is not water",
+    "timestamp" : 17266
+  }, {
+    "sentence" : "That is soft as sand because beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 560, 1752, 3821, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 193.39012145996094,
+    "tokens_used" : [ " That", " is", " soft", " as", " sand", " because", " beach", " is", " not", " water" ],
+    "original_sentence" : "That is soft [MASK] sand because beach is not water",
+    "timestamp" : 18375
+  }, {
+    "sentence" : "That is soft as mud because beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 560, 4688, 3821, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 192.6345977783203,
+    "tokens_used" : [ " That", " is", " soft", " as", " mud", " because", " beach", " is", " not", " water" ],
+    "original_sentence" : "That is soft as [MASK] because beach is not water",
+    "timestamp" : 20080
+  }, {
+    "sentence" : "That is soft as mud and beach is not water",
+    "tokens" : [ 1322, 2713, 2489, 560, 4688, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 169.28282165527344,
+    "tokens_used" : [ " That", " is", " soft", " as", " mud", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "That is soft as mud [MASK] beach is not water",
+    "timestamp" : 21261
+  }, {
+    "sentence" : "Sand is soft as mud and beach is not water",
+    "tokens" : [ 1753, 2713, 2489, 560, 4688, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 127.71066284179688,
+    "tokens_used" : [ " Sand", " is", " soft", " as", " mud", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "[MASK] is soft as mud and beach is not water",
+    "timestamp" : 23144
+  }, {
+    "sentence" : "Sand is soft as mud but beach is not water",
+    "tokens" : [ 1753, 2713, 2489, 560, 4688, 2922, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 194.0061798095703,
+    "tokens_used" : [ " Sand", " is", " soft", " as", " mud", " but", " beach", " is", " not", " water" ],
+    "original_sentence" : "Sand is soft as mud [MASK] beach is not water",
+    "timestamp" : 27219
+  }, {
+    "sentence" : "Sand is soft as mud because beach is not water",
+    "tokens" : [ 1753, 2713, 2489, 560, 4688, 3821, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 195.54457092285156,
+    "tokens_used" : [ " Sand", " is", " soft", " as", " mud", " because", " beach", " is", " not", " water" ],
+    "original_sentence" : "Sand is soft as mud [MASK] beach is not water",
+    "timestamp" : 28299
+  }, {
+    "sentence" : "Sand is soft as sand because beach is not water",
+    "tokens" : [ 1753, 2713, 2489, 560, 1752, 3821, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 177.05380249023438,
+    "tokens_used" : [ " Sand", " is", " soft", " as", " sand", " because", " beach", " is", " not", " water" ],
+    "original_sentence" : "Sand is soft as [MASK] because beach is not water",
+    "timestamp" : 30094
+  }, {
+    "sentence" : "It is soft as sand because beach is not water",
+    "tokens" : [ 2051, 2713, 2489, 560, 1752, 3821, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 215.388671875,
+    "tokens_used" : [ " It", " is", " soft", " as", " sand", " because", " beach", " is", " not", " water" ],
+    "original_sentence" : "[MASK] is soft as sand because beach is not water",
+    "timestamp" : 31303
+  }, {
+    "sentence" : "It is soft as sand and beach is not water",
+    "tokens" : [ 2051, 2713, 2489, 560, 1752, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 170.4036865234375,
+    "tokens_used" : [ " It", " is", " soft", " as", " sand", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "It is soft as sand [MASK] beach is not water",
+    "timestamp" : 32790
+  }, {
+    "sentence" : "It is soft like sand and beach is not water",
+    "tokens" : [ 2051, 2713, 2489, 4424, 1752, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 217.5198211669922,
+    "tokens_used" : [ " It", " is", " soft", " like", " sand", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "It is soft [MASK] sand and beach is not water",
+    "timestamp" : 34013
+  }, {
+    "sentence" : "It is soft like water and beach is not water",
+    "tokens" : [ 2051, 2713, 2489, 4424, 3408, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 188.67807006835938,
+    "tokens_used" : [ " It", " is", " soft", " like", " water", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "It is soft like [MASK] and beach is not water",
+    "timestamp" : 35221
+  }, {
+    "sentence" : "Sand is soft like water and beach is not water",
+    "tokens" : [ 1753, 2713, 2489, 4424, 3408, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 137.7754669189453,
+    "tokens_used" : [ " Sand", " is", " soft", " like", " water", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "[MASK] is soft like water and beach is not water",
+    "timestamp" : 36924
+  }, {
+    "sentence" : "Sand is soft as water and beach is not water",
+    "tokens" : [ 1753, 2713, 2489, 560, 3408, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 123.95098876953125,
+    "tokens_used" : [ " Sand", " is", " soft", " as", " water", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "Sand is soft [MASK] water and beach is not water",
+    "timestamp" : 38419
+  }, {
+    "sentence" : "Beach is soft as water and beach is not water",
+    "tokens" : [ 5076, 2713, 2489, 560, 3408, 215, 5075, 2713, 2081, 3408 ],
+    "perplexity" : 80.62687683105469,
+    "tokens_used" : [ " Beach", " is", " soft", " as", " water", " and", " beach", " is", " not", " water" ],
+    "original_sentence" : "[MASK] is soft as water and beach is not water",
+    "timestamp" : 39690
+  }, {
+    "sentence" : "Beach is soft as water and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 560, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 93.29887390136719,
+    "tokens_used" : [ " Beach", " is", " soft", " as", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft as water and beach is [MASK] water",
+    "timestamp" : 41034
+  }, {
+    "sentence" : "Beach is soft sea water and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 4715, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 97.82997131347656,
+    "tokens_used" : [ " Beach", " is", " soft", " sea", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft [MASK] water and beach is soft water",
+    "timestamp" : 42414
+  }, {
+    "sentence" : "Beach is soft running water and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 2076, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 87.4699935913086,
+    "tokens_used" : [ " Beach", " is", " soft", " running", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft [MASK] water and beach is soft water",
+    "timestamp" : 43989
+  }, {
+    "sentence" : "Beach is soft running water and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 2076, 3408, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 99.9725341796875,
+    "tokens_used" : [ " Beach", " is", " soft", " running", " water", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft running water and beach is [MASK] water",
+    "timestamp" : 45465
+  }, {
+    "sentence" : "Beach is soft sandy water and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 422, 3408, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 121.4917221069336,
+    "tokens_used" : [ " Beach", " is", " soft", " sandy", " water", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft [MASK] water and beach is hard water",
+    "timestamp" : 47008
+  }, {
+    "sentence" : "Beach is soft sandy water and beach is sandy water",
+    "tokens" : [ 5076, 2713, 2489, 422, 3408, 215, 5075, 2713, 422, 3408 ],
+    "perplexity" : 87.17926788330078,
+    "tokens_used" : [ " Beach", " is", " soft", " sandy", " water", " and", " beach", " is", " sandy", " water" ],
+    "original_sentence" : "Beach is soft sandy water and beach is [MASK] water",
+    "timestamp" : 49067
+  }, {
+    "sentence" : "Beach is soft sandy water or beach is sandy water",
+    "tokens" : [ 5076, 2713, 2489, 422, 3408, 1860, 5075, 2713, 422, 3408 ],
+    "perplexity" : 111.46794128417969,
+    "tokens_used" : [ " Beach", " is", " soft", " sandy", " water", " or", " beach", " is", " sandy", " water" ],
+    "original_sentence" : "Beach is soft sandy water [MASK] beach is sandy water",
+    "timestamp" : 50577
+  }, {
+    "sentence" : "Beach is soft sandy water or beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 422, 3408, 1860, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 136.6265869140625,
+    "tokens_used" : [ " Beach", " is", " soft", " sandy", " water", " or", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft sandy water or beach is [MASK] water",
+    "timestamp" : 52121
+  }, {
+    "sentence" : "Beach is soft sandy water and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 422, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 112.17262268066406,
+    "tokens_used" : [ " Beach", " is", " soft", " sandy", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft sandy water [MASK] beach is soft water",
+    "timestamp" : 53163
+  }, {
+    "sentence" : "Beach is soft rock water and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 535, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 128.7367401123047,
+    "tokens_used" : [ " Beach", " is", " soft", " rock", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft [MASK] water and beach is soft water",
+    "timestamp" : 55042
+  }, {
+    "sentence" : "Beach is soft surface water and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 2035, 3408, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 122.05421447753906,
+    "tokens_used" : [ " Beach", " is", " soft", " surface", " water", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft [MASK] water and beach is soft water",
+    "timestamp" : 56412
+  }, {
+    "sentence" : "Beach is soft surface water and beach is deep water",
+    "tokens" : [ 5076, 2713, 2489, 2035, 3408, 215, 5075, 2713, 747, 3408 ],
+    "perplexity" : 120.18319702148438,
+    "tokens_used" : [ " Beach", " is", " soft", " surface", " water", " and", " beach", " is", " deep", " water" ],
+    "original_sentence" : "Beach is soft surface water and beach is [MASK] water",
+    "timestamp" : 58369
+  }, {
+    "sentence" : "Beach is soft surface beach and beach is deep water",
+    "tokens" : [ 5076, 2713, 2489, 2035, 5075, 215, 5075, 2713, 747, 3408 ],
+    "perplexity" : 159.83255004882812,
+    "tokens_used" : [ " Beach", " is", " soft", " surface", " beach", " and", " beach", " is", " deep", " water" ],
+    "original_sentence" : "Beach is soft surface [MASK] and beach is deep water",
+    "timestamp" : 59767
+  }, {
+    "sentence" : "Beach is soft surface area and beach is deep water",
+    "tokens" : [ 5076, 2713, 2489, 2035, 2606, 215, 5075, 2713, 747, 3408 ],
+    "perplexity" : 135.58644104003906,
+    "tokens_used" : [ " Beach", " is", " soft", " surface", " area", " and", " beach", " is", " deep", " water" ],
+    "original_sentence" : "Beach is soft surface [MASK] and beach is deep water",
+    "timestamp" : 61414
+  }, {
+    "sentence" : "Beach is soft surface area and beach is open water",
+    "tokens" : [ 5076, 2713, 2489, 2035, 2606, 215, 5075, 2713, 4520, 3408 ],
+    "perplexity" : 145.42388916015625,
+    "tokens_used" : [ " Beach", " is", " soft", " surface", " area", " and", " beach", " is", " open", " water" ],
+    "original_sentence" : "Beach is soft surface area and beach is [MASK] water",
+    "timestamp" : 66655
+  }, {
+    "sentence" : "Beach is soft surface area and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 2035, 2606, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 149.03823852539062,
+    "tokens_used" : [ " Beach", " is", " soft", " surface", " area", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft surface area and beach is [MASK] water",
+    "timestamp" : 69709
+  }, {
+    "sentence" : "Beach is soft water area and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 2606, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 121.99480438232422,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " area", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft [MASK] area and beach is soft water",
+    "timestamp" : 73070
+  }, {
+    "sentence" : "Beach is soft water area or beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 2606, 1860, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 159.8073272705078,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " area", " or", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft water area [MASK] beach is soft water",
+    "timestamp" : 75926
+  }, {
+    "sentence" : "Beach is soft water beach or beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 5075, 1860, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 153.2465057373047,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " beach", " or", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] or beach is soft water",
+    "timestamp" : 91669
+  }, {
+    "sentence" : "Beach is soft water beach or beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 5075, 1860, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 157.6516876220703,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " beach", " or", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft water beach or beach is [MASK] water",
+    "timestamp" : 93548
+  }, {
+    "sentence" : "Beach is soft water beach and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 5075, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 135.0714874267578,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " beach", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft water beach [MASK] beach is hard water",
+    "timestamp" : 95174
+  }, {
+    "sentence" : "Beach is soft water lake and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 2283, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 131.93588256835938,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " lake", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] and beach is hard water",
+    "timestamp" : 98396
+  }, {
+    "sentence" : "Beach is soft water ocean and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 446, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 153.53057861328125,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " ocean", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] and beach is hard water",
+    "timestamp" : 100561
+  }, {
+    "sentence" : "Beach is soft water pool and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 458, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 140.27609252929688,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " pool", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] and beach is hard water",
+    "timestamp" : 102136
+  }, {
+    "sentence" : "Beach is soft water sand and beach is hard water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 1752, 215, 5075, 2713, 1170, 3408 ],
+    "perplexity" : 117.44669342041016,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " sand", " and", " beach", " is", " hard", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] and beach is hard water",
+    "timestamp" : 104179
+  }, {
+    "sentence" : "Beach is soft water sand and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 1752, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 113.64558410644531,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " sand", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft water sand and beach is [MASK] water",
+    "timestamp" : 107428
+  }, {
+    "sentence" : "Beach is soft water beach and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 5075, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 126.31291961669922,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " beach", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] and beach is soft water",
+    "timestamp" : 110917
+  }, {
+    "sentence" : "Beach is soft water lake and beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 2283, 215, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 123.9558334350586,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " lake", " and", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft water [MASK] and beach is soft water",
+    "timestamp" : 112513
+  }, {
+    "sentence" : "Beach is soft water lake or beach is soft water",
+    "tokens" : [ 5076, 2713, 2489, 3408, 2283, 1860, 5075, 2713, 2489, 3408 ],
+    "perplexity" : 156.38157653808594,
+    "tokens_used" : [ " Beach", " is", " soft", " water", " lake", " or", " beach", " is", " soft", " water" ],
+    "original_sentence" : "Beach is soft water lake [MASK] beach is soft water",
+    "timestamp" : 113966
+  } ]
+}

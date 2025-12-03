@@ -1,0 +1,247 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T23:27:47.217756827",
+  "time" : 288.264,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "You should be able to get in and out of the room at the bed",
+    "score" : 17.996044158935547,
+    "time" : 79049,
+    "cycle" : 5
+  }, {
+    "sentence" : "You should be able to get in and out of the area of the map",
+    "score" : 15.365043640136719,
+    "time" : 155288,
+    "cycle" : 35
+  }, {
+    "sentence" : "You should be able to get in and out of any area of the map",
+    "score" : 14.151259422302246,
+    "time" : 157777,
+    "cycle" : 36
+  } ],
+  "base_sentence" : {
+    "sentence" : "You should be able to get in and out of the room to the bed",
+    "perplexity" : 14.631485939025879,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "You should be able to get in and out of the room at the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 302, 394, 3225 ],
+    "perplexity" : 17.996044158935547,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " at", " the", " bed" ],
+    "original_sentence" : "You should be able to get in and out of the room [MASK] the [MASK]",
+    "timestamp" : 79049
+  }, {
+    "sentence" : "You cannot be able to get in and out of the room at the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 302, 394, 3225 ],
+    "perplexity" : 26.373371124267578,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " at", " the", " bed" ],
+    "original_sentence" : "You [MASK] be able to get in and out [MASK] the room at the bed",
+    "timestamp" : 82625
+  }, {
+    "sentence" : "You cannot be able to see in and out of the room at the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 3465, 302, 394, 3225 ],
+    "perplexity" : 34.77126693725586,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " see", " in", " and", " out", " of", " the", " room", " at", " the", " bed" ],
+    "original_sentence" : "[MASK] cannot be able to [MASK] in and out of the room at the bed",
+    "timestamp" : 92950
+  }, {
+    "sentence" : "You cannot be able to see in and out of the room of the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 3465, 5194, 394, 3225 ],
+    "perplexity" : 32.00553894042969,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " see", " in", " and", " out", " of", " the", " room", " of", " the", " bed" ],
+    "original_sentence" : "You cannot be able to see in and out of the room [MASK] the [MASK]",
+    "timestamp" : 96020
+  }, {
+    "sentence" : "You cannot be able to see in and out of the room or the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 3465, 1860, 394, 3225 ],
+    "perplexity" : 28.259729385375977,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " see", " in", " and", " out", " of", " the", " room", " or", " the", " bed" ],
+    "original_sentence" : "[MASK] cannot be able to see in and out of the room [MASK] the bed",
+    "timestamp" : 100546
+  }, {
+    "sentence" : "You cannot be able to get in and out of the room or the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 1860, 394, 3225 ],
+    "perplexity" : 22.526195526123047,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " or", " the", " bed" ],
+    "original_sentence" : "You cannot be able to [MASK] in and out of the room or the [MASK]",
+    "timestamp" : 107039
+  }, {
+    "sentence" : "You cannot be able to get in and out of the room is the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2713, 394, 3225 ],
+    "perplexity" : 33.40985107421875,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " is", " the", " bed" ],
+    "original_sentence" : "You cannot be able to get in and out of [MASK] room [MASK] the bed",
+    "timestamp" : 108875
+  }, {
+    "sentence" : "You cannot be able to get in and out of the room of the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 5194, 394, 3225 ],
+    "perplexity" : 25.853776931762695,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " of", " the", " bed" ],
+    "original_sentence" : "You cannot be able to get in and out of the [MASK] [MASK] the bed",
+    "timestamp" : 110827
+  }, {
+    "sentence" : "You cannot be able to get in and out of the back of the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 954, 5194, 394, 3225 ],
+    "perplexity" : 22.549301147460938,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " back", " of", " the", " bed" ],
+    "original_sentence" : "You cannot be [MASK] to get in and out of the back of the [MASK]",
+    "timestamp" : 131307
+  }, {
+    "sentence" : "You cannot be able to see in and out of the back of the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 5194, 394, 3225 ],
+    "perplexity" : 28.393146514892578,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " of", " the", " bed" ],
+    "original_sentence" : "You cannot be able to [MASK] in and out of the back of the [MASK]",
+    "timestamp" : 133193
+  }, {
+    "sentence" : "You cannot be able to see in and out of the head of the bed",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 2968, 5194, 394, 3225 ],
+    "perplexity" : 34.38703155517578,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " see", " in", " and", " out", " of", " the", " head", " of", " the", " bed" ],
+    "original_sentence" : "You [MASK] be able to see in and out of the [MASK] of the bed",
+    "timestamp" : 135813
+  }, {
+    "sentence" : "You should be able to see in and out of the head of the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 2968, 5194, 394, 3225 ],
+    "perplexity" : 22.29356575012207,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " head", " of", " the", " bed" ],
+    "original_sentence" : "[MASK] [MASK] be able to see in and out of the head of the bed",
+    "timestamp" : 140460
+  }, {
+    "sentence" : "You should be able to see in and out of the back of the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 5194, 394, 3225 ],
+    "perplexity" : 18.8000545501709,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " of", " the", " bed" ],
+    "original_sentence" : "[MASK] should be able to see in and out of the [MASK] of the bed",
+    "timestamp" : 142993
+  }, {
+    "sentence" : "You should be able to see in and out of the edge of the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 759, 5194, 394, 3225 ],
+    "perplexity" : 20.405471801757812,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " edge", " of", " the", " bed" ],
+    "original_sentence" : "You should be able to [MASK] in and out of the [MASK] of the bed",
+    "timestamp" : 145515
+  }, {
+    "sentence" : "You should be able to see in and out of the edge of the box",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 759, 5194, 394, 1010 ],
+    "perplexity" : 18.508024215698242,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " edge", " of", " the", " box" ],
+    "original_sentence" : "[MASK] should be able to see in and out of the edge of the [MASK]",
+    "timestamp" : 147257
+  }, {
+    "sentence" : "You should be able to see in and out of the edge of the map",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 759, 5194, 394, 3004 ],
+    "perplexity" : 18.79344940185547,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " edge", " of", " the", " map" ],
+    "original_sentence" : "You [MASK] be able to see in and out of the edge of the [MASK]",
+    "timestamp" : 150441
+  }, {
+    "sentence" : "You should be able to see in and out of the area of the map",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 2606, 5194, 394, 3004 ],
+    "perplexity" : 19.642066955566406,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " area", " of", " the", " map" ],
+    "original_sentence" : "You should be able to [MASK] in and out of the [MASK] of the map",
+    "timestamp" : 153035
+  }, {
+    "sentence" : "You should be able to get in and out of the area of the map",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 2606, 5194, 394, 3004 ],
+    "perplexity" : 15.365043640136719,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " area", " of", " the", " map" ],
+    "original_sentence" : "You should be able to [MASK] in and out of the area of the [MASK]",
+    "timestamp" : 155288
+  }, {
+    "sentence" : "You should be able to get in and out of any area of the map",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 2606, 5194, 394, 3004 ],
+    "perplexity" : 14.151259422302246,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " any", " area", " of", " the", " map" ],
+    "original_sentence" : "You should be able to get [MASK] and out of [MASK] area of the map",
+    "timestamp" : 157777
+  }, {
+    "sentence" : "You cannot be able to get in and out of any area of the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 2606, 5194, 394, 3004 ],
+    "perplexity" : 20.916431427001953,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " any", " area", " of", " the", " map" ],
+    "original_sentence" : "You [MASK] be able to get in and out of any area of the [MASK]",
+    "timestamp" : 159963
+  }, {
+    "sentence" : "You cannot be able to get in and out of the area of the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 2606, 5194, 394, 3004 ],
+    "perplexity" : 23.20840072631836,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " area", " of", " the", " map" ],
+    "original_sentence" : "You cannot be able to get [MASK] and out of [MASK] area of the map",
+    "timestamp" : 161924
+  }, {
+    "sentence" : "You cannot be able to get in and out of the area on the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 2606, 710, 394, 3004 ],
+    "perplexity" : 22.774948120117188,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " area", " on", " the", " map" ],
+    "original_sentence" : "You cannot be able to get in and out of [MASK] area [MASK] the map",
+    "timestamp" : 168867
+  }, {
+    "sentence" : "You cannot be able to get in and out of the area in the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 2606, 2515, 394, 3004 ],
+    "perplexity" : 27.407188415527344,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " the", " area", " in", " the", " map" ],
+    "original_sentence" : "You cannot be able to get in and out of the [MASK] [MASK] the map",
+    "timestamp" : 171521
+  }, {
+    "sentence" : "You cannot be able to get in and out of any area in the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 2606, 2515, 394, 3004 ],
+    "perplexity" : 23.594375610351562,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " any", " area", " in", " the", " map" ],
+    "original_sentence" : "You cannot be able to get in and out of [MASK] area in the [MASK]",
+    "timestamp" : 173541
+  }, {
+    "sentence" : "You cannot be able to get in and out of any cell in the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 3435, 2515, 394, 3004 ],
+    "perplexity" : 27.667287826538086,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " any", " cell", " in", " the", " map" ],
+    "original_sentence" : "You cannot be able to [MASK] in and out of any [MASK] in the map",
+    "timestamp" : 175281
+  }, {
+    "sentence" : "You cannot be able to get in and out of any cell on the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 3435, 710, 394, 3004 ],
+    "perplexity" : 24.338275909423828,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " any", " cell", " on", " the", " map" ],
+    "original_sentence" : "You [MASK] be able to get in and out of any cell [MASK] the map",
+    "timestamp" : 186849
+  }, {
+    "sentence" : "You cannot be able to get in and out of any city on the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 2973, 710, 394, 3004 ],
+    "perplexity" : 21.720455169677734,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " get", " in", " and", " out", " of", " any", " city", " on", " the", " map" ],
+    "original_sentence" : "You cannot be able to get in [MASK] out of any [MASK] on the map",
+    "timestamp" : 188918
+  }, {
+    "sentence" : "You cannot be free to get in and out of any city on the map",
+    "tokens" : [ 920, 5037, 1392, 3649, 2461, 3912, 2515, 215, 518, 5194, 1047, 2973, 710, 394, 3004 ],
+    "perplexity" : 27.0416316986084,
+    "tokens_used" : [ " You", " cannot", " be", " free", " to", " get", " in", " and", " out", " of", " any", " city", " on", " the", " map" ],
+    "original_sentence" : "You [MASK] be [MASK] to get in and out of any city on the map",
+    "timestamp" : 227416
+  }, {
+    "sentence" : "You cannot be free to hop in and out of any city on the map",
+    "tokens" : [ 920, 5037, 1392, 3649, 2461, 2764, 2515, 215, 518, 5194, 1047, 2973, 710, 394, 3004 ],
+    "perplexity" : 28.29732322692871,
+    "tokens_used" : [ " You", " cannot", " be", " free", " to", " hop", " in", " and", " out", " of", " any", " city", " on", " the", " map" ],
+    "original_sentence" : "You cannot [MASK] free to [MASK] in and out of any city on the map",
+    "timestamp" : 237817
+  }, {
+    "sentence" : "You cannot be able to hop in and out of any city on the map",
+    "tokens" : [ 920, 5037, 1392, 4464, 2461, 2764, 2515, 215, 518, 5194, 1047, 2973, 710, 394, 3004 ],
+    "perplexity" : 25.261220932006836,
+    "tokens_used" : [ " You", " cannot", " be", " able", " to", " hop", " in", " and", " out", " of", " any", " city", " on", " the", " map" ],
+    "original_sentence" : "You cannot [MASK] [MASK] to hop in and out of any city on the map",
+    "timestamp" : 242419
+  } ]
+}

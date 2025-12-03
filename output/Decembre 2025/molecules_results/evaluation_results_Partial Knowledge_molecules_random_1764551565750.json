@@ -1,0 +1,757 @@
+{
+  "characteristics": {
+    "architecture": "Partial Knowledge",
+    "problem": "molecules",
+    "sentenceBuilder": "random",
+    "top_k": 10,
+    "number_iterations": 100,
+    "mask_percentage": 0.2,
+    "ref": "molecules_gpt",
+    "seed": 1,
+    "base_sentence": {
+      "molecule": "C=C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C",
+      "score": 39.412329661728776,
+      "weight": 1.0
+    }
+  },
+  "summary": {
+    "PPL_avg": 35.25790387359113,
+    "PPL_min": 21.130868911743164,
+    "PPL_max": 48.28327178955078,
+    "PPL_median": 35.41047668457031,
+    "PPL_first_quartile": 29.10089683532715,
+    "PPL_third_quartile": 40.83818817138672,
+    "total_sentences": 181,
+    "total_time_seconds": 85.406
+  },
+  "best_perplexity": {
+    "sentence": "O=C(Br)C(Br)C(Br)(Br)CCC#CC(NC#CCC#CCl)C",
+    "perplexity": 21.130868911743164
+  },
+  "results": [
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Br)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 21.130868911743164
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCC#CCl)C",
+      "perplexity": 21.789995193481445
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCN)",
+      "perplexity": 22.074188232421875
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCO)",
+      "perplexity": 22.257532119750977
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(C)NCC#CC(NC#CCC#CCl)C",
+      "perplexity": 23.302330017089844
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 23.774904251098633
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(I)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 23.944595336914062
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(O)NCC#CC(NC#CCC#CCl)C",
+      "perplexity": 24.1138916015625
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCBr)",
+      "perplexity": 24.2169246673584
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N(C)C(C)C(C)C(O)C",
+      "perplexity": 24.404300689697266
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(F)NCC#CC(NC#CCC#CCl)C",
+      "perplexity": 24.665775299072266
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCF)",
+      "perplexity": 24.798870086669922
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(O)C",
+      "perplexity": 24.986665725708008
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCI)",
+      "perplexity": 25.151779174804688
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCC)",
+      "perplexity": 25.302865982055664
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCNCCF)",
+      "perplexity": 25.313329696655273
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OC)N(C)C(C)CCCCC(O)C",
+      "perplexity": 25.705005645751953
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCS)",
+      "perplexity": 25.787904739379883
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N(C)C(C)C(C)C(C)C",
+      "perplexity": 26.01490020751953
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(CO)N(C)C(C)C(C)C(C)C",
+      "perplexity": 26.245210647583008
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 26.247337341308594
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(C)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 26.298751831054688
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(OF)N(C)C(C)C(C)C(C)C",
+      "perplexity": 26.317781448364258
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 26.521968841552734
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(O)NCC#CC(NC#CCC#CCl)C",
+      "perplexity": 26.81659698486328
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Cl)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 26.894559860229492
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(F)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 26.98964500427246
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(S)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 27.005403518676758
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N(C)C(C)C(C)C(I)C",
+      "perplexity": 27.353710174560547
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(S)C",
+      "perplexity": 27.362823486328125
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(C)C",
+      "perplexity": 27.407503128051758
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#CCC#CF)C",
+      "perplexity": 27.691652297973633
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(F)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 27.86833953857422
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(N)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 27.936735153198242
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N(C)C(C)C(C)C(Cl)C",
+      "perplexity": 27.980091094970703
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OC)N(C)C(C)CNCCC(O)C",
+      "perplexity": 28.009416580200195
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#CCC#CF)C",
+      "perplexity": 28.116308212280273
+    },
+    {
+      "sentence": "C=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)C",
+      "perplexity": 28.216978073120117
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OO)N(C)C(C)CCCCC(O)C",
+      "perplexity": 28.37049102783203
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(Br)C",
+      "perplexity": 28.553096771240234
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCNCCC)",
+      "perplexity": 28.637887954711914
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N(C)C(C)C(C)C(N)C",
+      "perplexity": 28.779600143432617
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CO)C",
+      "perplexity": 28.865154266357422
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(OO)N(C)C(C)C(C)C(C)C",
+      "perplexity": 28.883060455322266
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)C",
+      "perplexity": 28.966289520263672
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)C(C)CCCCC(O)C",
+      "perplexity": 29.10089683532715
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)C(C)CNCCC(O)C",
+      "perplexity": 29.137083053588867
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(I)C",
+      "perplexity": 29.185319900512695
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N(C)C(C)C(C)C(F)C",
+      "perplexity": 29.222139358520508
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(Cl)C",
+      "perplexity": 29.414987564086914
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(N)C",
+      "perplexity": 29.52281379699707
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#CCC#CCl)C",
+      "perplexity": 29.570594787597656
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OC)N(C)C(C)C(C)C(F)C",
+      "perplexity": 29.903966903686523
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#CCC#CC)C",
+      "perplexity": 30.104555130004883
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(O)CC",
+      "perplexity": 30.258697509765625
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)O",
+      "perplexity": 30.342281341552734
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#CCC#CCl)C",
+      "perplexity": 30.378341674804688
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(C)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 30.38892364501953
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(S)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 30.823253631591797
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)",
+      "perplexity": 30.906644821166992
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CBr)C",
+      "perplexity": 30.98964500427246
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CBr)C",
+      "perplexity": 31.039777755737305
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(Cl)NCC#CC(NC#CCCCCCCl)",
+      "perplexity": 31.075210571289062
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OBr)N(C)C(C)CCCCC(O)C",
+      "perplexity": 31.16501808166504
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CCCCC#COC(CO)I",
+      "perplexity": 31.219566345214844
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)N",
+      "perplexity": 31.321617126464844
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC#CC#COC(CO)I",
+      "perplexity": 31.501279830932617
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(ON)N(C)C(C)CCCCC(O)C",
+      "perplexity": 31.865291595458984
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#CCC#CC)C",
+      "perplexity": 32.21403121948242
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(I)(O)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 32.31720733642578
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CF)C",
+      "perplexity": 32.68586730957031
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CF)C",
+      "perplexity": 32.757049560546875
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(OC)N(C)C(C)C(C)C(C)C",
+      "perplexity": 32.783260345458984
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCO)CC",
+      "perplexity": 32.836585998535156
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NCCCCC#CC)C",
+      "perplexity": 32.92976379394531
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(Cl)CC",
+      "perplexity": 33.213443756103516
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)S",
+      "perplexity": 33.82639694213867
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NCCCC#CCC(CO)C",
+      "perplexity": 33.87175750732422
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CN)C",
+      "perplexity": 34.025447845458984
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(I)CC",
+      "perplexity": 34.4593505859375
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(CF)N(C)C(C)C(C)C(C)C",
+      "perplexity": 34.47174072265625
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(Br)CC",
+      "perplexity": 34.541053771972656
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CS)C",
+      "perplexity": 34.5911750793457
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)CC=NOCCC#CCC(CO)C",
+      "perplexity": 34.61077880859375
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)OCCCC#CCC(O)C",
+      "perplexity": 34.805938720703125
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CN)C",
+      "perplexity": 35.09746170043945
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)CC=NCCCC#CCC(CO)C",
+      "perplexity": 35.14481735229492
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CCl)C",
+      "perplexity": 35.24404525756836
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CCl)C",
+      "perplexity": 35.25457763671875
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(S)CC",
+      "perplexity": 35.289024353027344
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)I",
+      "perplexity": 35.41047668457031
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)Br",
+      "perplexity": 35.42439651489258
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(N)CCC#CC(NC#CCC#CCl)C",
+      "perplexity": 35.592185974121094
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CS)C",
+      "perplexity": 35.678287506103516
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OS)N(C)C(C)CCCCC(O)C",
+      "perplexity": 35.83158493041992
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)F",
+      "perplexity": 36.412750244140625
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)Cl",
+      "perplexity": 36.47360610961914
+    },
+    {
+      "sentence": "C=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CO)F",
+      "perplexity": 36.548526763916016
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OBr)CC=NCCCC#CCC(CO)C",
+      "perplexity": 36.65207290649414
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(Cl)NCC#CC(NC#CCCC)CO",
+      "perplexity": 36.693912506103516
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CCCCCC#CC)C",
+      "perplexity": 36.749290466308594
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CCSCC#COC(CO)I",
+      "perplexity": 36.83711624145508
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NNCCC#CCC(CO)C",
+      "perplexity": 37.19212341308594
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCS)CC",
+      "perplexity": 37.25045394897461
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC=CCC#CC)C",
+      "perplexity": 37.328922271728516
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CC)C",
+      "perplexity": 37.421630859375
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COCNCO)I",
+      "perplexity": 37.42943572998047
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CCNCC#COC(CO)I",
+      "perplexity": 37.52082061767578
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(O)(OO)N(CCOCCCC=CCCCO)C",
+      "perplexity": 37.713531494140625
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OI)CC=NCCCC#CCC(CO)C",
+      "perplexity": 37.95082473754883
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OI)N(C)C(C)CCCCC(O)C",
+      "perplexity": 38.02627944946289
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OC)CC=NCCCC#CCC(CO)C",
+      "perplexity": 38.048091888427734
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCF)CC",
+      "perplexity": 38.0788459777832
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CCOCC#COC(CO)I",
+      "perplexity": 38.33388900756836
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(N)CC",
+      "perplexity": 38.63028335571289
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)CCC#CC(CC#CCCl)N",
+      "perplexity": 38.98466873168945
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(ON)N(C)C(C)C(C)C(C)C",
+      "perplexity": 38.989009857177734
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCC)CC",
+      "perplexity": 39.224266052246094
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(CC#CCCl)NC",
+      "perplexity": 39.45528793334961
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NOCCC#CCC(CO)I",
+      "perplexity": 39.553436279296875
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(O)(OF)N(CCOCCCC=CCCCO)C",
+      "perplexity": 39.57024383544922
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)CCC#CC(CC#CCCl)NC",
+      "perplexity": 39.73185348510742
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CC)C",
+      "perplexity": 39.82305908203125
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCCl)CC",
+      "perplexity": 40.05237579345703
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCN)CC",
+      "perplexity": 40.17427444458008
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)OCCCCSCCC(O)C",
+      "perplexity": 40.19715118408203
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OCl)N(C)C(C)CCCCC(O)C",
+      "perplexity": 40.2284049987793
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(OS)N(C)C(C)C(C)C(C)C",
+      "perplexity": 40.24357223510742
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(CC)N(C)C(C)C(C)C(C)C",
+      "perplexity": 40.36290740966797
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)OCCCCCCCC(O)C",
+      "perplexity": 40.38003158569336
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CCSCCC#CC)C",
+      "perplexity": 40.393165588378906
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(CN)N(C)C(C)C(C)C(C)C",
+      "perplexity": 40.39828872680664
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OC)CC=NNCCC#CCC(CO)C",
+      "perplexity": 40.44678497314453
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)OCCCC=CCC(O)C",
+      "perplexity": 40.63575744628906
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NCCCC#CCC(CO)I",
+      "perplexity": 40.80484390258789
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CCNCCC#CC)C",
+      "perplexity": 40.83818817138672
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(Br)(OF)N(CCOCCCC=CCCCO)C",
+      "perplexity": 40.91778564453125
+    },
+    {
+      "sentence": "O=C(C)C(C)C(C)(CCl)N(C)C(C)C(C)C(C)C",
+      "perplexity": 40.95063400268555
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(ON)CC=NCCCC#CCC(CO)C",
+      "perplexity": 41.0085334777832
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCCl)NC",
+      "perplexity": 41.02250671386719
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC=CCC(Br)CC",
+      "perplexity": 41.084041595458984
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COCCCO)I",
+      "perplexity": 41.192081451416016
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(Br)(OI)N(CCOCCCC=CCCCO)C",
+      "perplexity": 41.30690002441406
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N=CNC(C)C(C)C(C)C",
+      "perplexity": 41.44302749633789
+    },
+    {
+      "sentence": "O=C(Br)C(=C)C(Br)(CO)NCC#CC(NC#CCF)NC",
+      "perplexity": 41.87891387939453
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(O)(OC)N(CCOCCCC=CCCCO)C",
+      "perplexity": 42.027469635009766
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)NCC=C(C)C(C)C(C)C",
+      "perplexity": 42.05476379394531
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)N(CCOCCCC#CCCCO)C",
+      "perplexity": 42.24766540527344
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CCOCCC#CC)C",
+      "perplexity": 42.34476852416992
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(O)(ON)N(CCOCCCC=CCCCO)C",
+      "perplexity": 42.77017593383789
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)OOCCOCCC#CCC(CO)C",
+      "perplexity": 42.81984329223633
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)NNC=C(C)C(C)C(C)C",
+      "perplexity": 42.98049545288086
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(Br)(OC)N(CCOCCCC=CCCCO)C",
+      "perplexity": 43.065513610839844
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCCOCCC#CCC(F)CC",
+      "perplexity": 43.2613525390625
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(Br)(OF)N(CCOCCCC=CCCCO)C",
+      "perplexity": 43.61763000488281
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NC#COC#CI)C",
+      "perplexity": 43.74424743652344
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)OOCCOCCC#CCC(CO)O",
+      "perplexity": 43.809959411621094
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(O)(OI)N(CCOCCCC=CCCCO)C",
+      "perplexity": 43.9803581237793
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N=CCC(C)C(C)C(C)C",
+      "perplexity": 44.058937072753906
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NCNCCC#CC)C",
+      "perplexity": 44.071868896484375
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COC#CI)C",
+      "perplexity": 44.177825927734375
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(O)(OBr)N(CCOCCCC=CCCCO)C",
+      "perplexity": 44.361488342285156
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)OOCCOCCC#CCC(CO)",
+      "perplexity": 44.57712936401367
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COCOCO)I",
+      "perplexity": 44.67024230957031
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)NCC=C(C)C(C)C(N)C",
+      "perplexity": 44.72527313232422
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)N(CCOCCCCCCCCCO)C",
+      "perplexity": 44.9449577331543
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NNCCC#CCC(CO)I",
+      "perplexity": 45.46039962768555
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NNCCC#CCC(CO)Cl",
+      "perplexity": 45.98899459838867
+    },
+    {
+      "sentence": "O=C(Br)C(O)C(I)(OF)N(CCOCCCC=CCCCO)C",
+      "perplexity": 46.02003479003906
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NOCCC#COC(CO)I",
+      "perplexity": 46.639408111572266
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NCOCCC#CC)C",
+      "perplexity": 46.862388610839844
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC=NNCCC#CCC(CO)F",
+      "perplexity": 47.07772445678711
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(NCSCCC#CC)C",
+      "perplexity": 47.111141204833984
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)N(CCOCNCCCCCCCO)C",
+      "perplexity": 47.46808624267578
+    },
+    {
+      "sentence": "O=C(C)C(O)C(C)(OF)N(C)OCCCCOCCC(O)C",
+      "perplexity": 47.48419189453125
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)CCCNOCCC#CCC(CO)C",
+      "perplexity": 47.62997055053711
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OF)CC#CC(CC#COCSCO)I",
+      "perplexity": 47.954383850097656
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)OOCCOCCC#CCC(CO)I",
+      "perplexity": 47.9870491027832
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(O)(OO)COCNOCCC#CCC(Br)CC",
+      "perplexity": 48.15971755981445
+    },
+    {
+      "sentence": "O=C(Br)C(Br)C(F)(OF)N(CCOCCCC=CCCCO)C",
+      "perplexity": 48.238834381103516
+    },
+    {
+      "sentence": "O=C(C)N(O)C(C)(OF)N=CCC(C)C(C)C(N)C",
+      "perplexity": 48.28327178955078
+    }
+  ]
+}

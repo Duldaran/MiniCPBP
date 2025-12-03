@@ -1,0 +1,130 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T23:10:55.208804336",
+  "time" : 157.562,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This sentence soft Cause water can beach be aunts water",
+    "score" : 13755.8125,
+    "time" : 3177,
+    "cycle" : 0
+  }, {
+    "sentence" : "This build soft Cause water hide beach be aunts water",
+    "score" : 12650.7373046875,
+    "time" : 8154,
+    "cycle" : 2
+  }, {
+    "sentence" : "Views build soft Cause water hide beach be aunts water",
+    "score" : 9467.2060546875,
+    "time" : 10635,
+    "cycle" : 3
+  }, {
+    "sentence" : "Views build soft Cause water Sweet beach be aunts water",
+    "score" : 9243.7099609375,
+    "time" : 12795,
+    "cycle" : 4
+  }, {
+    "sentence" : "Views build soft Cause water Cause beach be aunts water",
+    "score" : 6910.033203125,
+    "time" : 17803,
+    "cycle" : 6
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This sentence soft Cause water can beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 253, 3408, 1358, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 13755.8125,
+    "tokens_used" : [ " This", " sentence", " soft", " Cause", " water", " can", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft [MASK] water can beach be aunts water",
+    "timestamp" : 3178
+  }, {
+    "sentence" : "This sentence soft Cause water hide beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 253, 3408, 285, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 14729.388671875,
+    "tokens_used" : [ " This", " sentence", " soft", " Cause", " water", " hide", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft Cause water [MASK] beach be aunts water",
+    "timestamp" : 5831
+  }, {
+    "sentence" : "This build soft Cause water hide beach be aunts water",
+    "tokens" : [ 1228, 310, 2489, 253, 3408, 285, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 12650.7373046875,
+    "tokens_used" : [ " This", " build", " soft", " Cause", " water", " hide", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This [MASK] soft Cause water hide beach be aunts water",
+    "timestamp" : 8154
+  }, {
+    "sentence" : "Views build soft Cause water hide beach be aunts water",
+    "tokens" : [ 281, 310, 2489, 253, 3408, 285, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 9467.2060546875,
+    "tokens_used" : [ " views", " build", " soft", " Cause", " water", " hide", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "[MASK] build soft Cause water hide beach be aunts water",
+    "timestamp" : 10635
+  }, {
+    "sentence" : "Views build soft Cause water Sweet beach be aunts water",
+    "tokens" : [ 282, 310, 2489, 253, 3408, 275, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 9243.7099609375,
+    "tokens_used" : [ " Views", " build", " soft", " Cause", " water", " Sweet", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "Views build soft Cause water [MASK] beach be aunts water",
+    "timestamp" : 12795
+  }, {
+    "sentence" : "Views build soft Cause water views beach be aunts water",
+    "tokens" : [ 282, 310, 2489, 253, 3408, 281, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 9793.396484375,
+    "tokens_used" : [ " Views", " build", " soft", " Cause", " water", " views", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "Views build soft Cause water [MASK] beach be aunts water",
+    "timestamp" : 15581
+  }, {
+    "sentence" : "Views build soft Cause water Cause beach be aunts water",
+    "tokens" : [ 282, 310, 2489, 253, 3408, 253, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 6910.033203125,
+    "tokens_used" : [ " Views", " build", " soft", " Cause", " water", " Cause", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "Views build soft Cause water [MASK] beach be aunts water",
+    "timestamp" : 17803
+  }, {
+    "sentence" : "Views build soft Cause water Cause beach be Sweet water",
+    "tokens" : [ 282, 310, 2489, 253, 3408, 253, 5075, 1392, 275, 3408 ],
+    "perplexity" : 9292.1103515625,
+    "tokens_used" : [ " Views", " build", " soft", " Cause", " water", " Cause", " beach", " be", " Sweet", " water" ],
+    "original_sentence" : "Views build soft Cause water Cause beach be [MASK] water",
+    "timestamp" : 27226
+  }, {
+    "sentence" : "Views taller soft Cause water Cause beach be Sweet water",
+    "tokens" : [ 282, 273, 2489, 253, 3408, 253, 5075, 1392, 275, 3408 ],
+    "perplexity" : 12771.6328125,
+    "tokens_used" : [ " Views", " taller", " soft", " Cause", " water", " Cause", " beach", " be", " Sweet", " water" ],
+    "original_sentence" : "Views [MASK] soft Cause water Cause beach be Sweet water",
+    "timestamp" : 29407
+  }, {
+    "sentence" : "Views taller soft Cause water Cause beach be Cause water",
+    "tokens" : [ 282, 273, 2489, 253, 3408, 253, 5075, 1392, 253, 3408 ],
+    "perplexity" : 7762.30078125,
+    "tokens_used" : [ " Views", " taller", " soft", " Cause", " water", " Cause", " beach", " be", " Cause", " water" ],
+    "original_sentence" : "Views taller soft Cause water Cause beach be [MASK] water",
+    "timestamp" : 34377
+  }, {
+    "sentence" : "Views taller soft Cause water Cause beach packing Cause water",
+    "tokens" : [ 282, 273, 2489, 253, 3408, 253, 5075, 1824, 253, 3408 ],
+    "perplexity" : 8250.25,
+    "tokens_used" : [ " Views", " taller", " soft", " Cause", " water", " Cause", " beach", " packing", " Cause", " water" ],
+    "original_sentence" : "Views taller soft Cause water Cause beach [MASK] Cause water",
+    "timestamp" : 38877
+  }, {
+    "sentence" : "Linking taller soft Cause water Cause beach packing Cause water",
+    "tokens" : [ 2847, 273, 2489, 253, 3408, 253, 5075, 1824, 253, 3408 ],
+    "perplexity" : 11632.4755859375,
+    "tokens_used" : [ " linking", " taller", " soft", " Cause", " water", " Cause", " beach", " packing", " Cause", " water" ],
+    "original_sentence" : "[MASK] taller soft Cause water Cause beach packing Cause water",
+    "timestamp" : 41416
+  } ]
+}

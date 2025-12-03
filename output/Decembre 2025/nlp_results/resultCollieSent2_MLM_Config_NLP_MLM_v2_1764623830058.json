@@ -1,0 +1,430 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T16:17:10.056040705",
+  "time" : 523.801,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Grass sentence soft drinking water makes beach and place water cooler",
+    "score" : 1601.135009765625,
+    "time" : 6059,
+    "cycle" : 0
+  }, {
+    "sentence" : "Grass sentence soft drinking on the beach and place water sports",
+    "score" : 1081.76123046875,
+    "time" : 10999,
+    "cycle" : 1
+  }, {
+    "sentence" : "Grass for soft drinking on the beach and the water sports",
+    "score" : 109.1176528930664,
+    "time" : 15726,
+    "cycle" : 2
+  }, {
+    "sentence" : "Grass for soft sand at the beach and other water sports",
+    "score" : 106.96025085449219,
+    "time" : 26431,
+    "cycle" : 4
+  }, {
+    "sentence" : "Grass and soft drinks at the beach and other water sports",
+    "score" : 70.92851257324219,
+    "time" : 30388,
+    "cycle" : 5
+  }, {
+    "sentence" : "Grass for soft drinks on the beach and other water sports",
+    "score" : 68.69783782958984,
+    "time" : 58319,
+    "cycle" : 11
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "Grass sentence soft drinking water makes beach and place water cooler",
+    "tokens" : [ 0, 775, 2489, 2264, 3408, 2250, 5075, 215, 2703, 3408, 2439 ],
+    "perplexity" : 1601.135009765625,
+    "tokens_used" : [ " grass", " sentence", " soft", " drinking", " water", " makes", " beach", " and", " place", " water", " cooler" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] water makes beach [MASK] place water [MASK]",
+    "timestamp" : 6059
+  }, {
+    "sentence" : "Grass sentence soft drinking on the beach and place water sports",
+    "tokens" : [ 0, 775, 2489, 2264, 710, 394, 5075, 215, 2703, 3408, 1415 ],
+    "perplexity" : 1081.76123046875,
+    "tokens_used" : [ " grass", " sentence", " soft", " drinking", " on", " the", " beach", " and", " place", " water", " sports" ],
+    "original_sentence" : "[MASK] sentence soft drinking [MASK] [MASK] beach and place water [MASK]",
+    "timestamp" : 10999
+  }, {
+    "sentence" : "Grass for soft drinking on the beach and the water sports",
+    "tokens" : [ 0, 3548, 2489, 2264, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 109.1176528930664,
+    "tokens_used" : [ " grass", " for", " soft", " drinking", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft drinking on the beach and [MASK] water [MASK]",
+    "timestamp" : 15726
+  }, {
+    "sentence" : "Grass for soft sand on the beach and the water sports",
+    "tokens" : [ 1, 3548, 2489, 1752, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 110.65055084228516,
+    "tokens_used" : [ " Grass", " for", " soft", " sand", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on the beach [MASK] the water [MASK]",
+    "timestamp" : 21509
+  }, {
+    "sentence" : "Grass for soft sand at the beach and other water sports",
+    "tokens" : [ 1, 3548, 2489, 1752, 302, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 106.96025085449219,
+    "tokens_used" : [ " Grass", " for", " soft", " sand", " at", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft sand [MASK] the beach [MASK] [MASK] water sports",
+    "timestamp" : 26431
+  }, {
+    "sentence" : "Grass and soft drinks at the beach and other water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 302, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 70.92851257324219,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " at", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] at the beach and other water [MASK]",
+    "timestamp" : 30388
+  }, {
+    "sentence" : "Grass and soft water at the beach and other water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 302, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 91.48139953613281,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " at", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] at the beach [MASK] other water sports",
+    "timestamp" : 34218
+  }, {
+    "sentence" : "Grass for soft water at the beach and other water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 302, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 94.00354766845703,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " at", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft water at [MASK] beach and [MASK] water sports",
+    "timestamp" : 39478
+  }, {
+    "sentence" : "Grass for soft water at a beach and other water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 302, 4646, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 127.48323059082031,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " at", " a", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft water at [MASK] beach [MASK] other water [MASK]",
+    "timestamp" : 42974
+  }, {
+    "sentence" : "Grass for soft water on a beach and other water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 710, 4646, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 114.97265625,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " on", " a", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] [MASK] a beach [MASK] other water sports",
+    "timestamp" : 47269
+  }, {
+    "sentence" : "Grass for soft water on the beach and other water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 710, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 83.16704559326172,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " on", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on [MASK] beach and other water [MASK]",
+    "timestamp" : 52390
+  }, {
+    "sentence" : "Grass for soft drinks on the beach and other water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 710, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 68.69783782958984,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " on", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] on the beach and other water [MASK]",
+    "timestamp" : 58319
+  }, {
+    "sentence" : "Grass and soft water on the beach and other water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 710, 394, 5075, 215, 3915, 3408, 1415 ],
+    "perplexity" : 86.10072326660156,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " on", " the", " beach", " and", " other", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] [MASK] the beach and other water sports",
+    "timestamp" : 63046
+  }, {
+    "sentence" : "Grass for soft water on the beach and the water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 109.91350555419922,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft water on the beach and [MASK] water [MASK]",
+    "timestamp" : 66396
+  }, {
+    "sentence" : "Grass for soft water on the beach or the water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 710, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 108.46086883544922,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " on", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft water on the beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 71076
+  }, {
+    "sentence" : "Grass for soft drinks on the beach and the water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 88.26283264160156,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] on the beach [MASK] the water [MASK]",
+    "timestamp" : 75355
+  }, {
+    "sentence" : "Grass for soft drinks on the beach or the water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 710, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 90.96282196044922,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " on", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft drinks on the beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 79587
+  }, {
+    "sentence" : "Grass for soft water at the beach or the water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 302, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 119.6544418334961,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " at", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] [MASK] the beach or [MASK] water sports",
+    "timestamp" : 83093
+  }, {
+    "sentence" : "Grass for soft drinks at the beach or the water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 302, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 95.6985855102539,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " at", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] [MASK] the beach or [MASK] water sports",
+    "timestamp" : 87343
+  }, {
+    "sentence" : "Grass for soft water on the beach or in water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 710, 394, 5075, 1860, 2515, 3408, 1415 ],
+    "perplexity" : 77.45935821533203,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " on", " the", " beach", " or", " in", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] [MASK] the beach or [MASK] water sports",
+    "timestamp" : 91239
+  }, {
+    "sentence" : "Grass for soft water on the beach and in water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 710, 394, 5075, 215, 2515, 3408, 1415 ],
+    "perplexity" : 94.72370910644531,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " on", " the", " beach", " and", " in", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] [MASK] the beach [MASK] in water sports",
+    "timestamp" : 95704
+  }, {
+    "sentence" : "Grass for soft water at the beach and the water sports",
+    "tokens" : [ 1, 3548, 2489, 3408, 302, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 125.70154571533203,
+    "tokens_used" : [ " Grass", " for", " soft", " water", " at", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass for soft [MASK] [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 100332
+  }, {
+    "sentence" : "Grass for soft drinks at the beach and the water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 302, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 93.52247619628906,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " at", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] at the beach [MASK] [MASK] water sports",
+    "timestamp" : 104236
+  }, {
+    "sentence" : "Grass for soft drinks at the beach and in water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 302, 394, 5075, 215, 2515, 3408, 1415 ],
+    "perplexity" : 87.87828063964844,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " at", " the", " beach", " and", " in", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft drinks [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 107651
+  }, {
+    "sentence" : "Grass and soft drinks at the beach and in water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 302, 394, 5075, 215, 2515, 3408, 1415 ],
+    "perplexity" : 76.96533966064453,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " at", " the", " beach", " and", " in", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] at the beach and in water [MASK]",
+    "timestamp" : 111960
+  }, {
+    "sentence" : "Grass for soft drinks on the beach and in water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 710, 394, 5075, 215, 2515, 3408, 1415 ],
+    "perplexity" : 84.56420135498047,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " on", " the", " beach", " and", " in", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft drinks [MASK] the beach and in water [MASK]",
+    "timestamp" : 118010
+  }, {
+    "sentence" : "Grass for soft drinks on the beach or in water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 710, 394, 5075, 1860, 2515, 3408, 1415 ],
+    "perplexity" : 76.91008758544922,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " on", " the", " beach", " or", " in", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on the beach [MASK] in water [MASK]",
+    "timestamp" : 121475
+  }, {
+    "sentence" : "Grass for soft rock on the beach or in water sports",
+    "tokens" : [ 1, 3548, 2489, 535, 710, 394, 5075, 1860, 2515, 3408, 1415 ],
+    "perplexity" : 98.28945922851562,
+    "tokens_used" : [ " Grass", " for", " soft", " rock", " on", " the", " beach", " or", " in", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on the beach [MASK] in water [MASK]",
+    "timestamp" : 125617
+  }, {
+    "sentence" : "Grass for soft rock on the beach and the water sports",
+    "tokens" : [ 1, 3548, 2489, 535, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 121.20478057861328,
+    "tokens_used" : [ " Grass", " for", " soft", " rock", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft rock [MASK] the beach [MASK] [MASK] water sports",
+    "timestamp" : 130690
+  }, {
+    "sentence" : "Grass for soft drinks on the beach and some water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 710, 394, 5075, 215, 3459, 3408, 1415 ],
+    "perplexity" : 81.21260070800781,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " on", " the", " beach", " and", " some", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft [MASK] on the beach and [MASK] water [MASK]",
+    "timestamp" : 139964
+  }, {
+    "sentence" : "Grass for soft drinks at the beach and some water sports",
+    "tokens" : [ 1, 3548, 2489, 3284, 302, 394, 5075, 215, 3459, 3408, 1415 ],
+    "perplexity" : 93.62242126464844,
+    "tokens_used" : [ " Grass", " for", " soft", " drinks", " at", " the", " beach", " and", " some", " water", " sports" ],
+    "original_sentence" : "[MASK] for soft drinks [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 144419
+  }, {
+    "sentence" : "Grass and soft drinks at the beach and some water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 302, 394, 5075, 215, 3459, 3408, 1415 ],
+    "perplexity" : 78.89259338378906,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " at", " the", " beach", " and", " some", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] at the beach and some water [MASK]",
+    "timestamp" : 148745
+  }, {
+    "sentence" : "Grass and soft drinks on the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 84.22760009765625,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft drinks [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 152591
+  }, {
+    "sentence" : "Grass with soft drinks on the beach and the water sports",
+    "tokens" : [ 1, 2342, 2489, 3284, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 114.58706665039062,
+    "tokens_used" : [ " Grass", " with", " soft", " drinks", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft drinks on the beach [MASK] [MASK] water sports",
+    "timestamp" : 157456
+  }, {
+    "sentence" : "Grass with soft drinks at the beach and the water sports",
+    "tokens" : [ 1, 2342, 2489, 3284, 302, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 116.03013610839844,
+    "tokens_used" : [ " Grass", " with", " soft", " drinks", " at", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft drinks [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 162404
+  }, {
+    "sentence" : "Grass and soft drinks at the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 302, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 78.02672576904297,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " at", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] at the beach and the water [MASK]",
+    "timestamp" : 166700
+  }, {
+    "sentence" : "Grass and soft drinks at a beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 302, 4646, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 135.88560485839844,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " at", " a", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft drinks at [MASK] beach [MASK] [MASK] water sports",
+    "timestamp" : 171798
+  }, {
+    "sentence" : "Grass and soft drinks on a beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 710, 4646, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 120.79473114013672,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " on", " a", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] [MASK] a beach and the water sports",
+    "timestamp" : 175622
+  }, {
+    "sentence" : "Grass and soft water on the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 96.57096099853516,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft [MASK] on [MASK] beach and the water [MASK]",
+    "timestamp" : 180381
+  }, {
+    "sentence" : "Grass and soft water at the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 302, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 105.41944885253906,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " at", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass and soft [MASK] [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 185180
+  }, {
+    "sentence" : "Grass and soft water at the beach or the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 302, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 114.09571075439453,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " at", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft water at the beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 189276
+  }, {
+    "sentence" : "Grass and soft water for the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 3548, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 86.44590759277344,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " for", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass and soft [MASK] [MASK] the beach [MASK] [MASK] water sports",
+    "timestamp" : 203868
+  }, {
+    "sentence" : "Grass and soft water in the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 2515, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 124.11475372314453,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " in", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass and soft [MASK] [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 212010
+  }, {
+    "sentence" : "Grass and soft water near the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 1852, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 129.66751098632812,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " near", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft [MASK] [MASK] the beach and [MASK] water sports",
+    "timestamp" : 216814
+  }, {
+    "sentence" : "Grass and soft water from the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 3605, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 95.22440338134766,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " from", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft water [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 225134
+  }, {
+    "sentence" : "Grass and soft water to the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 2461, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 122.01807403564453,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " to", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] the beach and [MASK] water [MASK]",
+    "timestamp" : 230211
+  }, {
+    "sentence" : "Grass and soft water to the beach or the water sports",
+    "tokens" : [ 1, 215, 2489, 3408, 2461, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 129.25013732910156,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " to", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "Grass and soft [MASK] to the beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 238516
+  }, {
+    "sentence" : "Grass and soft rock to the beach or the water sports",
+    "tokens" : [ 1, 215, 2489, 535, 2461, 394, 5075, 1860, 394, 3408, 1415 ],
+    "perplexity" : 110.73246765136719,
+    "tokens_used" : [ " Grass", " and", " soft", " rock", " to", " the", " beach", " or", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft [MASK] to the beach or [MASK] water [MASK]",
+    "timestamp" : 247089
+  }, {
+    "sentence" : "Grass and soft rock on the beach and the water sports",
+    "tokens" : [ 1, 215, 2489, 535, 710, 394, 5075, 215, 394, 3408, 1415 ],
+    "perplexity" : 91.93041229248047,
+    "tokens_used" : [ " Grass", " and", " soft", " rock", " on", " the", " beach", " and", " the", " water", " sports" ],
+    "original_sentence" : "[MASK] and soft rock [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 251091
+  }, {
+    "sentence" : "Grass and soft rock on the beach and the water excused",
+    "tokens" : [ 1, 215, 2489, 535, 710, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 129.52166748046875,
+    "tokens_used" : [ " Grass", " and", " soft", " rock", " on", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "[MASK] and soft rock [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 251847
+  }, {
+    "sentence" : "Grass and soft water on the beach and the water excused",
+    "tokens" : [ 1, 215, 2489, 3408, 710, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 133.37905883789062,
+    "tokens_used" : [ " Grass", " and", " soft", " water", " on", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] [MASK] the beach and the water excused",
+    "timestamp" : 262868
+  }, {
+    "sentence" : "Grass and soft drinks on the beach and the water excused",
+    "tokens" : [ 1, 215, 2489, 3284, 710, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 133.62095642089844,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " on", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "[MASK] and soft [MASK] [MASK] the beach and [MASK] water excused",
+    "timestamp" : 325549
+  }, {
+    "sentence" : "Grass and soft drinks on the beach and of water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 710, 394, 5075, 215, 5194, 3408, 1415 ],
+    "perplexity" : 130.84912109375,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " on", " the", " beach", " and", " of", " water", " sports" ],
+    "original_sentence" : "Grass [MASK] soft drinks on the beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 487731
+  }, {
+    "sentence" : "Grass and soft drinks on the beach and in water sports",
+    "tokens" : [ 1, 215, 2489, 3284, 710, 394, 5075, 215, 2515, 3408, 1415 ],
+    "perplexity" : 84.19596099853516,
+    "tokens_used" : [ " Grass", " and", " soft", " drinks", " on", " the", " beach", " and", " in", " water", " sports" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] on the beach and [MASK] water sports",
+    "timestamp" : 516919
+  } ]
+}

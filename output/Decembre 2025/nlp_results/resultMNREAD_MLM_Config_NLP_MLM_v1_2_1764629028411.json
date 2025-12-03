@@ -1,0 +1,696 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 100,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T17:43:48.409502873",
+  "time" : 551.709,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "They were going to be here for the fact that they were dead",
+    "score" : 21.036026000976562,
+    "time" : 51328,
+    "cycle" : 0
+  }, {
+    "sentence" : "They were going to be here all the time and they were there",
+    "score" : 18.068016052246094,
+    "time" : 80380,
+    "cycle" : 4
+  }, {
+    "sentence" : "They were going to be here all the time and they were great",
+    "score" : 17.11744499206543,
+    "time" : 85873,
+    "cycle" : 5
+  }, {
+    "sentence" : "They were going to be there all the time but they were gone",
+    "score" : 15.65953540802002,
+    "time" : 95142,
+    "cycle" : 8
+  }, {
+    "sentence" : "They were going to be there all the time and they were gone",
+    "score" : 15.452042579650879,
+    "time" : 102440,
+    "cycle" : 10
+  }, {
+    "sentence" : "They were going to be there all the time and they were good",
+    "score" : 15.151294708251953,
+    "time" : 394177,
+    "cycle" : 71
+  } ],
+  "base_sentence" : {
+    "sentence" : "They were going to be here and the fact that they were dead",
+    "perplexity" : 28.172584533691406,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "They were going to be here for the fact that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 3548, 394, 3238, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 21.036026000976562,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " for", " the", " fact", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be here [MASK] the fact that [MASK] were dead",
+    "timestamp" : 51328
+  }, {
+    "sentence" : "They were going to be here was the fact that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1557, 394, 3238, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 32.02579879760742,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " was", " the", " fact", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be here [MASK] the fact that [MASK] were dead",
+    "timestamp" : 51876
+  }, {
+    "sentence" : "They were going to be here but the fact that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 2922, 394, 3238, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 28.95123863220215,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " but", " the", " fact", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be here [MASK] the fact that [MASK] were dead",
+    "timestamp" : 52807
+  }, {
+    "sentence" : "They were going to be here all the time that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 24.376758575439453,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be here [MASK] the [MASK] that they were dead",
+    "timestamp" : 59304
+  }, {
+    "sentence" : "They were going to be here for the time that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 3548, 394, 4737, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 28.056074142456055,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " for", " the", " time", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be here [MASK] the [MASK] that they were dead",
+    "timestamp" : 59853
+  }, {
+    "sentence" : "They were going to be here but the time that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 2922, 394, 4737, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 39.48027801513672,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " but", " the", " time", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be here [MASK] the [MASK] that they were dead",
+    "timestamp" : 61394
+  }, {
+    "sentence" : "They were going to be here all the time that kids were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 1321, 4324, 2113, 1818 ],
+    "perplexity" : 40.904911041259766,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " that", " kids", " were", " dead" ],
+    "original_sentence" : "[MASK] were going to be here all the time that [MASK] were dead",
+    "timestamp" : 66873
+  }, {
+    "sentence" : "They were going to be here all the time the kids were there",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 394, 4324, 2113, 5180 ],
+    "perplexity" : 27.51358413696289,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " the", " kids", " were", " there" ],
+    "original_sentence" : "They were going to be here all the time [MASK] kids were [MASK]",
+    "timestamp" : 73777
+  }, {
+    "sentence" : "They were going to be here all the time the kids were three",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 394, 4324, 2113, 515 ],
+    "perplexity" : 38.87586975097656,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " the", " kids", " were", " three" ],
+    "original_sentence" : "They were going to be here all the time [MASK] kids were [MASK]",
+    "timestamp" : 74525
+  }, {
+    "sentence" : "They were going to be here all the time the kids were older",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 394, 4324, 2113, 3572 ],
+    "perplexity" : 33.72440719604492,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " the", " kids", " were", " older" ],
+    "original_sentence" : "They were going to be here all the time [MASK] kids were [MASK]",
+    "timestamp" : 76259
+  }, {
+    "sentence" : "They were going to be here all the time the kids were ready",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 394, 4324, 2113, 43 ],
+    "perplexity" : 34.819435119628906,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " the", " kids", " were", " ready" ],
+    "original_sentence" : "They were going to be here all the time [MASK] kids were [MASK]",
+    "timestamp" : 76942
+  }, {
+    "sentence" : "They were going to be here all the time and they were there",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 215, 4153, 2113, 5180 ],
+    "perplexity" : 18.068016052246094,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " and", " they", " were", " there" ],
+    "original_sentence" : "They were going to be here all the time [MASK] [MASK] were there",
+    "timestamp" : 80380
+  }, {
+    "sentence" : "They were going to be here all the time but they were there",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 2922, 4153, 2113, 5180 ],
+    "perplexity" : 22.333045959472656,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " but", " they", " were", " there" ],
+    "original_sentence" : "They were going to be here all the time [MASK] [MASK] were there",
+    "timestamp" : 80883
+  }, {
+    "sentence" : "They were going to be here all the time for they were there",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 3548, 4153, 2113, 5180 ],
+    "perplexity" : 28.699308395385742,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " for", " they", " were", " there" ],
+    "original_sentence" : "They were going to be here all the time [MASK] [MASK] were there",
+    "timestamp" : 82409
+  }, {
+    "sentence" : "They were going to be here all the time and they were right",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 215, 4153, 2113, 5022 ],
+    "perplexity" : 19.794294357299805,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " and", " they", " were", " right" ],
+    "original_sentence" : "They were [MASK] to be here all the time and they were [MASK]",
+    "timestamp" : 85229
+  }, {
+    "sentence" : "They were going to be here all the time and they were tired",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 215, 4153, 2113, 2495 ],
+    "perplexity" : 19.036500930786133,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " and", " they", " were", " tired" ],
+    "original_sentence" : "They were [MASK] to be here all the time and they were [MASK]",
+    "timestamp" : 85560
+  }, {
+    "sentence" : "They were going to be here all the time and they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 215, 4153, 2113, 4741 ],
+    "perplexity" : 17.11744499206543,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " and", " they", " were", " great" ],
+    "original_sentence" : "They were [MASK] to be here all the time and they were [MASK]",
+    "timestamp" : 85873
+  }, {
+    "sentence" : "They were going to be here all the time and they were risks",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 215, 4153, 2113, 3530 ],
+    "perplexity" : 32.826534271240234,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " and", " they", " were", " risks" ],
+    "original_sentence" : "They were [MASK] to be here all the time and they were [MASK]",
+    "timestamp" : 86884
+  }, {
+    "sentence" : "They were going to be good all the time and they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 933, 1634, 394, 4737, 215, 4153, 2113, 4741 ],
+    "perplexity" : 18.6662654876709,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " good", " all", " the", " time", " and", " they", " were", " great" ],
+    "original_sentence" : "[MASK] were going to be [MASK] all the time and they were great",
+    "timestamp" : 88923
+  }, {
+    "sentence" : "They were going to be back all the time and they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 954, 1634, 394, 4737, 215, 4153, 2113, 4741 ],
+    "perplexity" : 22.190853118896484,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " back", " all", " the", " time", " and", " they", " were", " great" ],
+    "original_sentence" : "[MASK] were going to be [MASK] all the time and they were great",
+    "timestamp" : 89270
+  }, {
+    "sentence" : "They were going to be busy all the time and they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 921, 1634, 394, 4737, 215, 4153, 2113, 4741 ],
+    "perplexity" : 23.804058074951172,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " busy", " all", " the", " time", " and", " they", " were", " great" ],
+    "original_sentence" : "[MASK] were going to be [MASK] all the time and they were great",
+    "timestamp" : 89387
+  }, {
+    "sentence" : "They were going to be open all the time and they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4520, 1634, 394, 4737, 215, 4153, 2113, 4741 ],
+    "perplexity" : 19.704490661621094,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " open", " all", " the", " time", " and", " they", " were", " great" ],
+    "original_sentence" : "[MASK] were going to be [MASK] all the time and they were great",
+    "timestamp" : 89743
+  }, {
+    "sentence" : "They were going to be sick all the time and they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 3675, 1634, 394, 4737, 215, 4153, 2113, 4741 ],
+    "perplexity" : 24.524023056030273,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " sick", " all", " the", " time", " and", " they", " were", " great" ],
+    "original_sentence" : "[MASK] were going to be [MASK] all the time and they were great",
+    "timestamp" : 90017
+  }, {
+    "sentence" : "They were going to be good all the time but they were great",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 933, 1634, 394, 4737, 2922, 4153, 2113, 4741 ],
+    "perplexity" : 24.837738037109375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " good", " all", " the", " time", " but", " they", " were", " great" ],
+    "original_sentence" : "They were [MASK] to be good all the time [MASK] they were great",
+    "timestamp" : 91689
+  }, {
+    "sentence" : "They were going to be there all the time but they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2113, 5012 ],
+    "perplexity" : 15.65953540802002,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time but they were [MASK]",
+    "timestamp" : 95142
+  }, {
+    "sentence" : "They were going to be there all the time but they were none",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2113, 4178 ],
+    "perplexity" : 28.74220848083496,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " were", " none" ],
+    "original_sentence" : "They were going to be [MASK] all the time but they were [MASK]",
+    "timestamp" : 95471
+  }, {
+    "sentence" : "They were going to be there all the time but they were away",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2113, 2048 ],
+    "perplexity" : 21.72686195373535,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " were", " away" ],
+    "original_sentence" : "They were going to be [MASK] all the time but they were [MASK]",
+    "timestamp" : 95719
+  }, {
+    "sentence" : "They were going to be there all the time but they were busy",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2113, 921 ],
+    "perplexity" : 18.42264747619629,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " were", " busy" ],
+    "original_sentence" : "They were going to be [MASK] all the time but they were [MASK]",
+    "timestamp" : 96136
+  }, {
+    "sentence" : "They were going to be there all the time but they were slow",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2113, 396 ],
+    "perplexity" : 20.000288009643555,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " were", " slow" ],
+    "original_sentence" : "They were going to be [MASK] all the time but they were [MASK]",
+    "timestamp" : 96285
+  }, {
+    "sentence" : "They were going to be here all the time that they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4401, 1634, 394, 4737, 1321, 4153, 2113, 5012 ],
+    "perplexity" : 22.784561157226562,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " here", " all", " the", " time", " that", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 98304
+  }, {
+    "sentence" : "They were going to be gone all the time that they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5012, 1634, 394, 4737, 1321, 4153, 2113, 5012 ],
+    "perplexity" : 23.732446670532227,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " gone", " all", " the", " time", " that", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 99183
+  }, {
+    "sentence" : "They were going to be dead all the time that they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 1818, 1634, 394, 4737, 1321, 4153, 2113, 5012 ],
+    "perplexity" : 26.742839813232422,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " dead", " all", " the", " time", " that", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 99463
+  }, {
+    "sentence" : "They were going to be over all the time that they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 116, 1634, 394, 4737, 1321, 4153, 2113, 5012 ],
+    "perplexity" : 23.07996940612793,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " over", " all", " the", " time", " that", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 99885
+  }, {
+    "sentence" : "They were going to be busy all the time that they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 921, 1634, 394, 4737, 1321, 4153, 2113, 5012 ],
+    "perplexity" : 29.68972396850586,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " busy", " all", " the", " time", " that", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 100228
+  }, {
+    "sentence" : "They were going to be there all the time and they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 5012 ],
+    "perplexity" : 15.452042579650879,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 102440
+  }, {
+    "sentence" : "They were going to be there all the time But they were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2923, 4153, 2113, 5012 ],
+    "perplexity" : 26.925193786621094,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " But", " they", " were", " gone" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were gone",
+    "timestamp" : 104120
+  }, {
+    "sentence" : "They were about to be there all the time and they were gone",
+    "tokens" : [ 4154, 2113, 2949, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 5012 ],
+    "perplexity" : 27.921499252319336,
+    "tokens_used" : [ " They", " were", " about", " to", " be", " there", " all", " the", " time", " and", " they", " were", " gone" ],
+    "original_sentence" : "They were [MASK] to be [MASK] all the time and they were gone",
+    "timestamp" : 107148
+  }, {
+    "sentence" : "They were ready to be there all the time and they were gone",
+    "tokens" : [ 4154, 2113, 43, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 5012 ],
+    "perplexity" : 29.909378051757812,
+    "tokens_used" : [ " They", " were", " ready", " to", " be", " there", " all", " the", " time", " and", " they", " were", " gone" ],
+    "original_sentence" : "They were [MASK] to be [MASK] all the time and they were gone",
+    "timestamp" : 107469
+  }, {
+    "sentence" : "They were going to be there all the time and then were gone",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 2113, 5012 ],
+    "perplexity" : 22.48378562927246,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " were", " gone" ],
+    "original_sentence" : "They were [MASK] to be there all the time and [MASK] were gone",
+    "timestamp" : 112125
+  }, {
+    "sentence" : "They were going to be there all the time and then were done",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 2113, 3884 ],
+    "perplexity" : 27.541963577270508,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " were", " done" ],
+    "original_sentence" : "They were going to be [MASK] all the time and then were [MASK]",
+    "timestamp" : 118323
+  }, {
+    "sentence" : "They were going to be there all the time and then were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 2113, 1818 ],
+    "perplexity" : 29.064973831176758,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " were", " dead" ],
+    "original_sentence" : "They were going to be [MASK] all the time and then were [MASK]",
+    "timestamp" : 125723
+  }, {
+    "sentence" : "They were going to be there all the time and then they were",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 4153, 2113 ],
+    "perplexity" : 20.71825408935547,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " they", " were" ],
+    "original_sentence" : "They were going to be there all the time and then [MASK] [MASK]",
+    "timestamp" : 129531
+  }, {
+    "sentence" : "They were going to be there all the time and then they went",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 4153, 3746 ],
+    "perplexity" : 19.942052841186523,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " they", " went" ],
+    "original_sentence" : "They were going to be there all the time and then [MASK] [MASK]",
+    "timestamp" : 129933
+  }, {
+    "sentence" : "They were going to be there all the time and then they came",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 4153, 3845 ],
+    "perplexity" : 17.921628952026367,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " they", " came" ],
+    "original_sentence" : "They were going to be there all the time and then [MASK] [MASK]",
+    "timestamp" : 130467
+  }, {
+    "sentence" : "They were going to be there all the time and then they knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 2226, 4153, 115 ],
+    "perplexity" : 21.387855529785156,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " then", " they", " knew" ],
+    "original_sentence" : "They were going to be there all the time and then [MASK] [MASK]",
+    "timestamp" : 131273
+  }, {
+    "sentence" : "They were going to be there all the time and they both knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 942, 115 ],
+    "perplexity" : 21.424734115600586,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " both", " knew" ],
+    "original_sentence" : "They were going to be there all the time and [MASK] [MASK] knew",
+    "timestamp" : 156144
+  }, {
+    "sentence" : "They were going to be there all the time and they only knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 230, 115 ],
+    "perplexity" : 24.5404052734375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " only", " knew" ],
+    "original_sentence" : "They were going to be there all the time and [MASK] [MASK] knew",
+    "timestamp" : 156390
+  }, {
+    "sentence" : "They were going to be there all the time and they also knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 4118, 115 ],
+    "perplexity" : 24.095048904418945,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " also", " knew" ],
+    "original_sentence" : "They were going to be there all the time and [MASK] [MASK] knew",
+    "timestamp" : 156680
+  }, {
+    "sentence" : "They were going to be there all the time and they well knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3026, 115 ],
+    "perplexity" : 23.836618423461914,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " well", " knew" ],
+    "original_sentence" : "They were going to be there all the time and [MASK] [MASK] knew",
+    "timestamp" : 157085
+  }, {
+    "sentence" : "They were going to be there all the time and they sure knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3383, 115 ],
+    "perplexity" : 24.87836456298828,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " sure", " knew" ],
+    "original_sentence" : "They were going to be there [MASK] the time and they [MASK] knew",
+    "timestamp" : 196619
+  }, {
+    "sentence" : "They were going to be there all the time and they ever knew",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 4663, 115 ],
+    "perplexity" : 27.847816467285156,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " ever", " knew" ],
+    "original_sentence" : "They were going to be there [MASK] the time and they [MASK] knew",
+    "timestamp" : 197221
+  }, {
+    "sentence" : "They were going to be there all the time and they would not",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2288, 2081 ],
+    "perplexity" : 17.841379165649414,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " would", " not" ],
+    "original_sentence" : "They were going to be there all the time and they [MASK] [MASK]",
+    "timestamp" : 219183
+  }, {
+    "sentence" : "They were going to be there all the time and they might win",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2176, 5056 ],
+    "perplexity" : 22.085391998291016,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " might", " win" ],
+    "original_sentence" : "They were going to be there [MASK] the time and they might [MASK]",
+    "timestamp" : 224831
+  }, {
+    "sentence" : "They were going to be there all the time and they might run",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2176, 2807 ],
+    "perplexity" : 25.64490509033203,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " might", " run" ],
+    "original_sentence" : "They were going to be there [MASK] the time and they might [MASK]",
+    "timestamp" : 225310
+  }, {
+    "sentence" : "They were going to be there all the time and they might ask",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2176, 4046 ],
+    "perplexity" : 25.311840057373047,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " might", " ask" ],
+    "original_sentence" : "They were going to be there [MASK] the time and they might [MASK]",
+    "timestamp" : 225546
+  }, {
+    "sentence" : "They were going to be right all the time and they might win",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5022, 1634, 394, 4737, 215, 4153, 2176, 5056 ],
+    "perplexity" : 30.191007614135742,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " right", " all", " the", " time", " and", " they", " might", " win" ],
+    "original_sentence" : "They were [MASK] to be [MASK] all the time and they might win",
+    "timestamp" : 229362
+  }, {
+    "sentence" : "They were going to be right all the time and they would not",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5022, 1634, 394, 4737, 215, 4153, 2288, 2081 ],
+    "perplexity" : 24.015501022338867,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " right", " all", " the", " time", " and", " they", " would", " not" ],
+    "original_sentence" : "[MASK] were going to be right all the time and they [MASK] not",
+    "timestamp" : 251739
+  }, {
+    "sentence" : "They were going to be quiet all the time and they would not",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5064, 1634, 394, 4737, 215, 4153, 2288, 2081 ],
+    "perplexity" : 27.735042572021484,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " quiet", " all", " the", " time", " and", " they", " would", " not" ],
+    "original_sentence" : "They [MASK] going to be [MASK] all the time and they would not",
+    "timestamp" : 266114
+  }, {
+    "sentence" : "They were going to be alive all the time and they would not",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4914, 1634, 394, 4737, 215, 4153, 2288, 2081 ],
+    "perplexity" : 28.209047317504883,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " alive", " all", " the", " time", " and", " they", " would", " not" ],
+    "original_sentence" : "They [MASK] going to be [MASK] all the time and they would not",
+    "timestamp" : 266415
+  }, {
+    "sentence" : "They were going to be there all the time but they maybe not",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2563, 2081 ],
+    "perplexity" : 30.131181716918945,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " maybe", " not" ],
+    "original_sentence" : "They were going to be [MASK] all the time but they [MASK] not",
+    "timestamp" : 285486
+  }, {
+    "sentence" : "They were going to be there all the time and they maybe not",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2563, 2081 ],
+    "perplexity" : 25.868968963623047,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " maybe", " not" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they maybe [MASK]",
+    "timestamp" : 287851
+  }, {
+    "sentence" : "They were going to be there all the time and they maybe are",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2563, 5158 ],
+    "perplexity" : 30.07016372680664,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " maybe", " are" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they maybe [MASK]",
+    "timestamp" : 288501
+  }, {
+    "sentence" : "They were going to be there all the time and they maybe did",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2563, 3737 ],
+    "perplexity" : 26.735151290893555,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " maybe", " did" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they maybe [MASK]",
+    "timestamp" : 288870
+  }, {
+    "sentence" : "They were going to be there all the time And they never did",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 216, 4153, 2809, 3737 ],
+    "perplexity" : 27.085121154785156,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " And", " they", " never", " did" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they [MASK] did",
+    "timestamp" : 307722
+  }, {
+    "sentence" : "They were going to be there all the time was they were here",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 1557, 4153, 2113, 4401 ],
+    "perplexity" : 26.981281280517578,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " was", " they", " were", " here" ],
+    "original_sentence" : "They were going to be there all the time was they [MASK] [MASK]",
+    "timestamp" : 338257
+  }, {
+    "sentence" : "They were going to be there all the time was they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 1557, 4153, 2113, 1818 ],
+    "perplexity" : 30.515451431274414,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " was", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be [MASK] all the time was they were [MASK]",
+    "timestamp" : 344030
+  }, {
+    "sentence" : "They were going to be there all the time and they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 1818 ],
+    "perplexity" : 17.476524353027344,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were dead",
+    "timestamp" : 388781
+  }, {
+    "sentence" : "They were going to be there all the time but they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2922, 4153, 2113, 1818 ],
+    "perplexity" : 19.049163818359375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " but", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] they were dead",
+    "timestamp" : 389270
+  }, {
+    "sentence" : "They were going to be there all the time and they were good",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 933 ],
+    "perplexity" : 15.151294708251953,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " good" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they were [MASK]",
+    "timestamp" : 394177
+  }, {
+    "sentence" : "They were going to be there all the time and they were here",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 4401 ],
+    "perplexity" : 15.931941986083984,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " here" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they were [MASK]",
+    "timestamp" : 394499
+  }, {
+    "sentence" : "They were going to be there all the time and they were none",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 4178 ],
+    "perplexity" : 26.54757308959961,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " none" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they were [MASK]",
+    "timestamp" : 394913
+  }, {
+    "sentence" : "They were going to be there all the time and they were done",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 3884 ],
+    "perplexity" : 17.001220703125,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " done" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they were [MASK]",
+    "timestamp" : 395116
+  }, {
+    "sentence" : "They were going to be there all the time and they were paid",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 2113, 2635 ],
+    "perplexity" : 20.213891983032227,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " were", " paid" ],
+    "original_sentence" : "They were going to be there all the time [MASK] they were [MASK]",
+    "timestamp" : 395456
+  }, {
+    "sentence" : "They were going to be there all the time and they came here",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3845, 4401 ],
+    "perplexity" : 18.18077850341797,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " came", " here" ],
+    "original_sentence" : "[MASK] were going to be there all the time and they [MASK] here",
+    "timestamp" : 398467
+  }, {
+    "sentence" : "They were going to be there all the time and they come here",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3846, 4401 ],
+    "perplexity" : 22.009355545043945,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " come", " here" ],
+    "original_sentence" : "[MASK] were going to be there all the time and they [MASK] here",
+    "timestamp" : 398798
+  }, {
+    "sentence" : "They were going to be there all the time and they went here",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3746, 4401 ],
+    "perplexity" : 23.19405174255371,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " went", " here" ],
+    "original_sentence" : "[MASK] were going to be there all the time and they [MASK] here",
+    "timestamp" : 399941
+  }, {
+    "sentence" : "They were going to be there all the time and they went back",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3746, 954 ],
+    "perplexity" : 20.06541633605957,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " went", " back" ],
+    "original_sentence" : "[MASK] were going to be there all the time and they went [MASK]",
+    "timestamp" : 420833
+  }, {
+    "sentence" : "They were going to be there all the time and they went well",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3746, 3026 ],
+    "perplexity" : 22.209091186523438,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " went", " well" ],
+    "original_sentence" : "[MASK] were going to be there all the time and they went [MASK]",
+    "timestamp" : 421428
+  }, {
+    "sentence" : "They were going to be there all the time and they went over",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 215, 4153, 3746, 116 ],
+    "perplexity" : 23.305402755737305,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " and", " they", " went", " over" ],
+    "original_sentence" : "[MASK] were going to be there all the time and they went [MASK]",
+    "timestamp" : 421705
+  }, {
+    "sentence" : "They were going to be there all the time until we went back",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 714, 1778, 3746, 954 ],
+    "perplexity" : 22.247360229492188,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " until", " we", " went", " back" ],
+    "original_sentence" : "They were going to be there all the time [MASK] [MASK] went back",
+    "timestamp" : 427000
+  }, {
+    "sentence" : "They were going to be quiet all the time until he went home",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5064, 1634, 394, 4737, 714, 2228, 3746, 1724 ],
+    "perplexity" : 29.812179565429688,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " quiet", " all", " the", " time", " until", " he", " went", " home" ],
+    "original_sentence" : "They were [MASK] to be quiet all the time until [MASK] went home",
+    "timestamp" : 451024
+  }, {
+    "sentence" : "They were going to be there all the time until he went home",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 714, 2228, 3746, 1724 ],
+    "perplexity" : 21.507661819458008,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " until", " he", " went", " home" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] he went home",
+    "timestamp" : 456923
+  }, {
+    "sentence" : "They were going to be there all the time after he went home",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 2526, 2228, 3746, 1724 ],
+    "perplexity" : 23.076547622680664,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " after", " he", " went", " home" ],
+    "original_sentence" : "They were going to be [MASK] all the time [MASK] he went home",
+    "timestamp" : 457179
+  }, {
+    "sentence" : "They were going to be there all the time until he went away",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 714, 2228, 3746, 2048 ],
+    "perplexity" : 20.793527603149414,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " until", " he", " went", " away" ],
+    "original_sentence" : "They were going to [MASK] there all the time until he went [MASK]",
+    "timestamp" : 461611
+  }, {
+    "sentence" : "They were going to be there all the time until he went down",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 714, 2228, 3746, 4343 ],
+    "perplexity" : 19.884075164794922,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " until", " he", " went", " down" ],
+    "original_sentence" : "They were going to [MASK] there all the time until he went [MASK]",
+    "timestamp" : 461973
+  }, {
+    "sentence" : "They were going to be quiet all the time until he went down",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5064, 1634, 394, 4737, 714, 2228, 3746, 4343 ],
+    "perplexity" : 28.402040481567383,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " quiet", " all", " the", " time", " until", " he", " went", " down" ],
+    "original_sentence" : "They were going to be [MASK] all the time until [MASK] went down",
+    "timestamp" : 467649
+  }, {
+    "sentence" : "They were going to be right all the time until he went down",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5022, 1634, 394, 4737, 714, 2228, 3746, 4343 ],
+    "perplexity" : 26.908397674560547,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " right", " all", " the", " time", " until", " he", " went", " down" ],
+    "original_sentence" : "They were going to be [MASK] all the time until [MASK] went down",
+    "timestamp" : 468241
+  }, {
+    "sentence" : "They were going to be alive all the time until he went down",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4914, 1634, 394, 4737, 714, 2228, 3746, 4343 ],
+    "perplexity" : 30.174213409423828,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " alive", " all", " the", " time", " until", " he", " went", " down" ],
+    "original_sentence" : "They were going to be [MASK] all the time until [MASK] went down",
+    "timestamp" : 468616
+  }, {
+    "sentence" : "They were going to be great all the time until he went down",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4741, 1634, 394, 4737, 714, 2228, 3746, 4343 ],
+    "perplexity" : 26.28038787841797,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " great", " all", " the", " time", " until", " he", " went", " down" ],
+    "original_sentence" : "They were going to be [MASK] all the time until [MASK] went down",
+    "timestamp" : 469495
+  }, {
+    "sentence" : "They were going to be great all the time until he went away",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4741, 1634, 394, 4737, 714, 2228, 3746, 2048 ],
+    "perplexity" : 29.103118896484375,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " great", " all", " the", " time", " until", " he", " went", " away" ],
+    "original_sentence" : "They were going to be great all the [MASK] until he went [MASK]",
+    "timestamp" : 473523
+  }, {
+    "sentence" : "They were going to be great all the time until we went away",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4741, 1634, 394, 4737, 714, 1778, 3746, 2048 ],
+    "perplexity" : 29.40481948852539,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " great", " all", " the", " time", " until", " we", " went", " away" ],
+    "original_sentence" : "They were [MASK] to be great all the time until [MASK] went away",
+    "timestamp" : 483836
+  }, {
+    "sentence" : "They were going to be there all the time until we went away",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 5180, 1634, 394, 4737, 714, 1778, 3746, 2048 ],
+    "perplexity" : 22.40074348449707,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " there", " all", " the", " time", " until", " we", " went", " away" ],
+    "original_sentence" : "[MASK] were going to be [MASK] all the time until we went away",
+    "timestamp" : 495117
+  } ]
+}

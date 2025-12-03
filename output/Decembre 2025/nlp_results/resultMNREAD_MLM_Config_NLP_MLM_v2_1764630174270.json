@@ -1,0 +1,544 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 20,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T18:02:54.267612299",
+  "time" : 333.492,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "He ought to get out of bed to get out to the room right now",
+    "score" : 27.996212005615234,
+    "time" : 60127,
+    "cycle" : 0
+  }, {
+    "sentence" : "He ought to get out of way to get out of the game right now",
+    "score" : 27.16423988342285,
+    "time" : 77598,
+    "cycle" : 6
+  }, {
+    "sentence" : "He ought to get out of him to get out of the game right now",
+    "score" : 22.52985954284668,
+    "time" : 78085,
+    "cycle" : 6
+  }, {
+    "sentence" : "He needs to get out of him and is out of the game right now",
+    "score" : 20.14760398864746,
+    "time" : 95686,
+    "cycle" : 13
+  }, {
+    "sentence" : "He needs to get rid of him and is out of the game right now",
+    "score" : 14.537351608276367,
+    "time" : 106157,
+    "cycle" : 17
+  } ],
+  "base_sentence" : {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "perplexity" : 15.805083274841309,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "He ought to get out of bed to get out to the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 3465, 5022, 2187 ],
+    "perplexity" : 27.996212005615234,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " to", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get out [MASK] bed to get [MASK] [MASK] the room right now",
+    "timestamp" : 60128
+  }, {
+    "sentence" : "He ought to get out of bed to get out in the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 2515, 394, 3465, 5022, 2187 ],
+    "perplexity" : 34.322853088378906,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " in", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get out [MASK] bed to get [MASK] [MASK] the room right now",
+    "timestamp" : 60461
+  }, {
+    "sentence" : "He ought to get out of bed to get out on the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 710, 394, 3465, 5022, 2187 ],
+    "perplexity" : 41.625553131103516,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " on", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get out [MASK] bed to get [MASK] [MASK] the room right now",
+    "timestamp" : 60821
+  }, {
+    "sentence" : "He ought to get out of bed to get out up the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 1840, 394, 3465, 5022, 2187 ],
+    "perplexity" : 43.45132827758789,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " up", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get out [MASK] bed to get [MASK] [MASK] the room right now",
+    "timestamp" : 61203
+  }, {
+    "sentence" : "He ought to get out of bed to get out at the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 302, 394, 3465, 5022, 2187 ],
+    "perplexity" : 46.048187255859375,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " at", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get out [MASK] bed to get [MASK] [MASK] the room right now",
+    "timestamp" : 61573
+  }, {
+    "sentence" : "He ought to got out of bed to get out to the room right now",
+    "tokens" : [ 2229, 829, 2461, 1104, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 3465, 5022, 2187 ],
+    "perplexity" : 45.21003723144531,
+    "tokens_used" : [ " He", " ought", " to", " got", " out", " of", " bed", " to", " get", " out", " to", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought [MASK] [MASK] out of bed to get out to the room right [MASK]",
+    "timestamp" : 63193
+  }, {
+    "sentence" : "He ought to run out of bed to get out to the room right now",
+    "tokens" : [ 2229, 829, 2461, 2807, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 3465, 5022, 2187 ],
+    "perplexity" : 51.72348403930664,
+    "tokens_used" : [ " He", " ought", " to", " run", " out", " of", " bed", " to", " get", " out", " to", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought [MASK] [MASK] out of bed to get out to the room right [MASK]",
+    "timestamp" : 63577
+  }, {
+    "sentence" : "He ought to fly out of bed to get out to the room right now",
+    "tokens" : [ 2229, 829, 2461, 1004, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 3465, 5022, 2187 ],
+    "perplexity" : 48.7938117980957,
+    "tokens_used" : [ " He", " ought", " to", " fly", " out", " of", " bed", " to", " get", " out", " to", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought [MASK] [MASK] out of bed to get out to the room right [MASK]",
+    "timestamp" : 63981
+  }, {
+    "sentence" : "He ought to got out of bed to get out to the news right now",
+    "tokens" : [ 2229, 829, 2461, 1104, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 2758, 5022, 2187 ],
+    "perplexity" : 51.83571243286133,
+    "tokens_used" : [ " He", " ought", " to", " got", " out", " of", " bed", " to", " get", " out", " to", " the", " news", " right", " now" ],
+    "original_sentence" : "He ought to got out of bed to [MASK] [MASK] to the [MASK] right now",
+    "timestamp" : 66377
+  }, {
+    "sentence" : "He ought to got out of bed to get out to the show right now",
+    "tokens" : [ 2229, 829, 2461, 1104, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 2535, 5022, 2187 ],
+    "perplexity" : 54.40153121948242,
+    "tokens_used" : [ " He", " ought", " to", " got", " out", " of", " bed", " to", " get", " out", " to", " the", " show", " right", " now" ],
+    "original_sentence" : "He ought to got out of bed to [MASK] [MASK] to the [MASK] right now",
+    "timestamp" : 66962
+  }, {
+    "sentence" : "He ought to got out of bed to get out to the game right now",
+    "tokens" : [ 2229, 829, 2461, 1104, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 50.037696838378906,
+    "tokens_used" : [ " He", " ought", " to", " got", " out", " of", " bed", " to", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to got out of bed to [MASK] [MASK] to the [MASK] right now",
+    "timestamp" : 67426
+  }, {
+    "sentence" : "He ought to get out of bed to get out to the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 2461, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 29.700597763061523,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " to", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to [MASK] out of bed [MASK] get out to the game right [MASK]",
+    "timestamp" : 72002
+  }, {
+    "sentence" : "He ought to get out of bed or get out to the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 30.063783645629883,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " or", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to [MASK] out of bed [MASK] get out to the game right [MASK]",
+    "timestamp" : 72389
+  }, {
+    "sentence" : "He ought to get out of bed so get out to the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3225, 1513, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 45.84776306152344,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " bed", " so", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to [MASK] out of bed [MASK] get out to the game right [MASK]",
+    "timestamp" : 73055
+  }, {
+    "sentence" : "He ought to get out of way to get out to the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3608, 2461, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 47.320613861083984,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " way", " to", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out to [MASK] game right [MASK]",
+    "timestamp" : 75147
+  }, {
+    "sentence" : "He ought to get out of him to get out to the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 2015, 2461, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 38.78297805786133,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " him", " to", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out to [MASK] game right [MASK]",
+    "timestamp" : 75500
+  }, {
+    "sentence" : "He ought to get out of way to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 3608, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 27.16423988342285,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " way", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out [MASK] [MASK] game right now",
+    "timestamp" : 77598
+  }, {
+    "sentence" : "He ought to get out of him to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 22.52985954284668,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out [MASK] [MASK] game right now",
+    "timestamp" : 78085
+  }, {
+    "sentence" : "He ought to get out of Six to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 4410, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 37.50721740722656,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " Six", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out [MASK] [MASK] game right now",
+    "timestamp" : 78394
+  }, {
+    "sentence" : "He ought to get out of she to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 1961, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 41.273075103759766,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " she", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out [MASK] [MASK] game right now",
+    "timestamp" : 78601
+  }, {
+    "sentence" : "He ought to get out of rod to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 5194, 599, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 37.5616455078125,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " of", " rod", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to get out of [MASK] to get out [MASK] [MASK] game right now",
+    "timestamp" : 78775
+  }, {
+    "sentence" : "He ought to run out of him to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 2807, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 29.993207931518555,
+    "tokens_used" : [ " He", " ought", " to", " run", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to [MASK] out [MASK] him to get out of the game right [MASK]",
+    "timestamp" : 79970
+  }, {
+    "sentence" : "He ought to fly out of him to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 1004, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 40.289676666259766,
+    "tokens_used" : [ " He", " ought", " to", " fly", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to [MASK] out [MASK] him to get out of the game right [MASK]",
+    "timestamp" : 80667
+  }, {
+    "sentence" : "He ought to got out of him to get out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 1104, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 36.84293746948242,
+    "tokens_used" : [ " He", " ought", " to", " got", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He ought to [MASK] out [MASK] him to get out of the game right [MASK]",
+    "timestamp" : 81014
+  }, {
+    "sentence" : "We ought to run out of him to get out of the game right now",
+    "tokens" : [ 1778, 829, 2461, 2807, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 34.48087692260742,
+    "tokens_used" : [ " we", " ought", " to", " run", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] ought to run [MASK] of him to [MASK] out of the game right now",
+    "timestamp" : 83450
+  }, {
+    "sentence" : "So ought to run out of him to get out of the game right now",
+    "tokens" : [ 1514, 829, 2461, 2807, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 43.5909423828125,
+    "tokens_used" : [ " So", " ought", " to", " run", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] ought to run [MASK] of him to [MASK] out of the game right now",
+    "timestamp" : 83979
+  }, {
+    "sentence" : "Us ought to run out of him to get out of the game right now",
+    "tokens" : [ 1368, 829, 2461, 2807, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 38.70112609863281,
+    "tokens_used" : [ " us", " ought", " to", " run", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] ought to run [MASK] of him to [MASK] out of the game right now",
+    "timestamp" : 84191
+  }, {
+    "sentence" : "We tried to run out of him to get out of the game right now",
+    "tokens" : [ 1779, 879, 2461, 2807, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 39.937896728515625,
+    "tokens_used" : [ " We", " tried", " to", " run", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to run out [MASK] him to [MASK] out of the game right now",
+    "timestamp" : 85531
+  }, {
+    "sentence" : "We stand to run out of him to get out of the game right now",
+    "tokens" : [ 1779, 1774, 2461, 2807, 518, 5194, 2015, 2461, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 43.34238052368164,
+    "tokens_used" : [ " We", " stand", " to", " run", " out", " of", " him", " to", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to run out [MASK] him to [MASK] out of the game right now",
+    "timestamp" : 85744
+  }, {
+    "sentence" : "We stand to run out of him and is out of the game right now",
+    "tokens" : [ 1779, 1774, 2461, 2807, 518, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 43.02169418334961,
+    "tokens_used" : [ " We", " stand", " to", " run", " out", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We stand to run out of him [MASK] [MASK] [MASK] of the game right now",
+    "timestamp" : 92073
+  }, {
+    "sentence" : "We ought to get out of him and is out of the game right now",
+    "tokens" : [ 1779, 829, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 39.0054817199707,
+    "tokens_used" : [ " We", " ought", " to", " get", " out", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to [MASK] out of him and is out of the game [MASK] now",
+    "timestamp" : 93621
+  }, {
+    "sentence" : "We needs to get out of him and is out of the game right now",
+    "tokens" : [ 1779, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 28.983510971069336,
+    "tokens_used" : [ " We", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to [MASK] out of him and is out of the game [MASK] now",
+    "timestamp" : 93817
+  }, {
+    "sentence" : "He needs to get out of him and is out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 20.14760398864746,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] and is out of [MASK] game right now",
+    "timestamp" : 95686
+  }, {
+    "sentence" : "He needs to get out of but and is out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2922, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 33.5303955078125,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " but", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] and is out of [MASK] game right now",
+    "timestamp" : 95986
+  }, {
+    "sentence" : "He needs to get out of out and is out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 518, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 26.49431800842285,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " out", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] and is out of [MASK] game right now",
+    "timestamp" : 96216
+  }, {
+    "sentence" : "He needs to get out of hid and is out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2827, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 38.87864685058594,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " hid", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] and is out of [MASK] game right now",
+    "timestamp" : 96486
+  }, {
+    "sentence" : "He need to get hold of him and is out of the game right now",
+    "tokens" : [ 2229, 4782, 2461, 3912, 4110, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 22.817825317382812,
+    "tokens_used" : [ " He", " need", " to", " get", " hold", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] of him and is out of the game right [MASK]",
+    "timestamp" : 99078
+  }, {
+    "sentence" : "He need to get both of him and is out of the game right now",
+    "tokens" : [ 2229, 4782, 2461, 3912, 942, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 31.518964767456055,
+    "tokens_used" : [ " He", " need", " to", " get", " both", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] of him and is out of the game right [MASK]",
+    "timestamp" : 99428
+  }, {
+    "sentence" : "He need to get sick of him and is out of the game right now",
+    "tokens" : [ 2229, 4782, 2461, 3912, 3675, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 26.64434814453125,
+    "tokens_used" : [ " He", " need", " to", " get", " sick", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] of him and is out of the game right [MASK]",
+    "timestamp" : 99569
+  }, {
+    "sentence" : "He need to get free of him and is out of the game right now",
+    "tokens" : [ 2229, 4782, 2461, 3912, 3649, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 30.093833923339844,
+    "tokens_used" : [ " He", " need", " to", " get", " free", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] of him and is out of the game right [MASK]",
+    "timestamp" : 99888
+  }, {
+    "sentence" : "He needs to get rid of him and is out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 14.537351608276367,
+    "tokens_used" : [ " He", " needs", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] [MASK] him and is out of the game right now",
+    "timestamp" : 106157
+  }, {
+    "sentence" : "He ought to get rid of him and is out of the game right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 21.93838119506836,
+    "tokens_used" : [ " He", " ought", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] [MASK] him and is out of the game right now",
+    "timestamp" : 106515
+  }, {
+    "sentence" : "He ought to get rid of him and is out of the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 22.328519821166992,
+    "tokens_used" : [ " He", " ought", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought [MASK] get rid of him and is out [MASK] the [MASK] right now",
+    "timestamp" : 110970
+  }, {
+    "sentence" : "He ought to get rid of him and is out of the show right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 394, 2535, 5022, 2187 ],
+    "perplexity" : 28.409046173095703,
+    "tokens_used" : [ " He", " ought", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " the", " show", " right", " now" ],
+    "original_sentence" : "He ought [MASK] get rid of him and is out [MASK] the [MASK] right now",
+    "timestamp" : 111322
+  }, {
+    "sentence" : "He ought to get rid of him and is out of the news right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 394, 2758, 5022, 2187 ],
+    "perplexity" : 27.513761520385742,
+    "tokens_used" : [ " He", " ought", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " the", " news", " right", " now" ],
+    "original_sentence" : "He ought [MASK] get rid of him and is out [MASK] the [MASK] right now",
+    "timestamp" : 111874
+  }, {
+    "sentence" : "He needs to get rid of him and is out of the room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 16.77510643005371,
+    "tokens_used" : [ " He", " needs", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "He [MASK] [MASK] [MASK] rid of him and is out of the room right now",
+    "timestamp" : 112967
+  }, {
+    "sentence" : "He needs to get out of him and is out of the room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 20.833782196044922,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get [MASK] of him and is out of the room right now",
+    "timestamp" : 119938
+  }, {
+    "sentence" : "Me needs to get out of him and is out of the room right now",
+    "tokens" : [ 995, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 23.9229736328125,
+    "tokens_used" : [ " Me", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get [MASK] of him and is out of the room right now",
+    "timestamp" : 120866
+  }, {
+    "sentence" : "Me needs to get out of him and is out of his room right now",
+    "tokens" : [ 995, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 3882, 3465, 5022, 2187 ],
+    "perplexity" : 26.6190185546875,
+    "tokens_used" : [ " Me", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " his", " room", " right", " now" ],
+    "original_sentence" : "Me [MASK] to get out of him and is out [MASK] [MASK] room right now",
+    "timestamp" : 129304
+  }, {
+    "sentence" : "He needs to get out of him and is out of his game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 3882, 2701, 5022, 2187 ],
+    "perplexity" : 23.62592124938965,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " his", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs [MASK] get out of him and is out of his [MASK] right now",
+    "timestamp" : 138076
+  }, {
+    "sentence" : "He needs to get rid of him and is out of his game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 3882, 2701, 5022, 2187 ],
+    "perplexity" : 18.325220108032227,
+    "tokens_used" : [ " He", " needs", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " his", " game", " right", " now" ],
+    "original_sentence" : "He needs to [MASK] [MASK] of him and is out of his game right [MASK]",
+    "timestamp" : 148079
+  }, {
+    "sentence" : "He needs to get off of him and is out of his game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 5194, 2015, 215, 2713, 518, 5194, 3882, 2701, 5022, 2187 ],
+    "perplexity" : 22.544408798217773,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " of", " him", " and", " is", " out", " of", " his", " game", " right", " now" ],
+    "original_sentence" : "He needs to [MASK] [MASK] of him and is out of his game right [MASK]",
+    "timestamp" : 148471
+  }, {
+    "sentence" : "He needs to get off of him and is out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 5194, 2015, 215, 2713, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 18.48883056640625,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " of", " him", " and", " is", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs to get off [MASK] him and is out [MASK] [MASK] game right now",
+    "timestamp" : 153913
+  }, {
+    "sentence" : "He needs to get off of him and is out of our game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 5194, 2015, 215, 2713, 518, 5194, 3369, 2701, 5022, 2187 ],
+    "perplexity" : 25.953487396240234,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " of", " him", " and", " is", " out", " of", " our", " game", " right", " now" ],
+    "original_sentence" : "He needs to get off [MASK] him and is out [MASK] [MASK] game right now",
+    "timestamp" : 154158
+  }, {
+    "sentence" : "He needs to get rid of him and is out of our game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2743, 5194, 2015, 215, 2713, 518, 5194, 3369, 2701, 5022, 2187 ],
+    "perplexity" : 20.66453742980957,
+    "tokens_used" : [ " He", " needs", " to", " get", " rid", " of", " him", " and", " is", " out", " of", " our", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs [MASK] get [MASK] of him and is out of our game right now",
+    "timestamp" : 163676
+  }, {
+    "sentence" : "He needs to get out of him and is out of our game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2015, 215, 2713, 518, 5194, 3369, 2701, 5022, 2187 ],
+    "perplexity" : 26.577463150024414,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " him", " and", " is", " out", " of", " our", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs [MASK] get [MASK] of him and is out of our game right now",
+    "timestamp" : 164109
+  }, {
+    "sentence" : "He needs to get out of to and get out of our game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2461, 215, 3912, 518, 5194, 3369, 2701, 5022, 2187 ],
+    "perplexity" : 27.38965606689453,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " to", " and", " get", " out", " of", " our", " game", " right", " now" ],
+    "original_sentence" : "He needs [MASK] get out of [MASK] and [MASK] out of our game right now",
+    "timestamp" : 229773
+  }, {
+    "sentence" : "He needs to get out of to and get out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2461, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 20.554407119750977,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " to", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs to get out of to and get out [MASK] [MASK] game [MASK] now",
+    "timestamp" : 232220
+  }, {
+    "sentence" : "He needs to get rid of to and get out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2743, 5194, 2461, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 28.127592086791992,
+    "tokens_used" : [ " He", " needs", " to", " get", " rid", " of", " to", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs [MASK] get [MASK] of to and get out of [MASK] game right now",
+    "timestamp" : 234500
+  }, {
+    "sentence" : "He needs to get off of to and get out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 5194, 2461, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 27.841615676879883,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " of", " to", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs [MASK] get [MASK] of to and get out of [MASK] game right now",
+    "timestamp" : 234742
+  }, {
+    "sentence" : "He needs to get off of an and get out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 5194, 3355, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 28.325477600097656,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " of", " an", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs to get off of [MASK] and get [MASK] of the game right [MASK]",
+    "timestamp" : 244761
+  }, {
+    "sentence" : "He needs to get rid of an and get out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2743, 5194, 3355, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 28.731048583984375,
+    "tokens_used" : [ " He", " needs", " to", " get", " rid", " of", " an", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get [MASK] of an and [MASK] out of the game right now",
+    "timestamp" : 249748
+  }, {
+    "sentence" : "He needs to get out of an and get out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3355, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 22.054845809936523,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " an", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get [MASK] of an and [MASK] out of the game right now",
+    "timestamp" : 250022
+  }, {
+    "sentence" : "We needs to get out of an and get out of the game right now",
+    "tokens" : [ 1779, 3478, 2461, 3912, 518, 5194, 3355, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 25.046255111694336,
+    "tokens_used" : [ " We", " needs", " to", " get", " out", " of", " an", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get out [MASK] an and get out of the game right now",
+    "timestamp" : 257570
+  }, {
+    "sentence" : "We do to get out of there and get out of the game right now",
+    "tokens" : [ 1779, 3473, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 19.750925064086914,
+    "tokens_used" : [ " We", " do", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to get out [MASK] [MASK] and get out of the game right now",
+    "timestamp" : 293122
+  }, {
+    "sentence" : "We or to get out of there and get out of the game right now",
+    "tokens" : [ 1779, 1860, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 24.062652587890625,
+    "tokens_used" : [ " We", " or", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to get out [MASK] [MASK] and get out of the game right now",
+    "timestamp" : 293414
+  }, {
+    "sentence" : "We In to get out of there and get out of the game right now",
+    "tokens" : [ 1779, 2516, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 22.103839874267578,
+    "tokens_used" : [ " We", " In", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to get out [MASK] [MASK] and get out of the game right now",
+    "timestamp" : 294202
+  }, {
+    "sentence" : "We In to get out of there and get out in the game right now",
+    "tokens" : [ 1779, 2516, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 2515, 394, 2701, 5022, 2187 ],
+    "perplexity" : 28.384231567382812,
+    "tokens_used" : [ " We", " In", " to", " get", " out", " of", " there", " and", " get", " out", " in", " the", " game", " right", " now" ],
+    "original_sentence" : "We In to [MASK] out of there [MASK] get out [MASK] the game right now",
+    "timestamp" : 299938
+  }, {
+    "sentence" : "We go to get out of there and get out of the game right now",
+    "tokens" : [ 1779, 3106, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 15.180866241455078,
+    "tokens_used" : [ " We", " go", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to get out of there and get out [MASK] the game right [MASK]",
+    "timestamp" : 313558
+  }, {
+    "sentence" : "We by to get out of there and get out of the game right now",
+    "tokens" : [ 1779, 2029, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 23.65264129638672,
+    "tokens_used" : [ " We", " by", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We [MASK] to get out of there and get out [MASK] the game right [MASK]",
+    "timestamp" : 313986
+  }, {
+    "sentence" : "We go in get out of there and get out of the game right now",
+    "tokens" : [ 1779, 3106, 2515, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 26.611221313476562,
+    "tokens_used" : [ " We", " go", " in", " get", " out", " of", " there", " and", " get", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "We go [MASK] get out of [MASK] and get out of the game right [MASK]",
+    "timestamp" : 316450
+  } ]
+}

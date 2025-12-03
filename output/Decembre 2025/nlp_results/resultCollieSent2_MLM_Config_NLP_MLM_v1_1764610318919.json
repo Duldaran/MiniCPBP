@@ -1,0 +1,394 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:31:58.917333921",
+  "time" : 435.018,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft beach waves makes beach beautiful place water comes",
+    "score" : 13672.1494140625,
+    "time" : 10007,
+    "cycle" : 0
+  }, {
+    "sentence" : "The big soft beach sand makes beach beautiful place water comes",
+    "score" : 2968.900390625,
+    "time" : 15435,
+    "cycle" : 1
+  }, {
+    "sentence" : "The big soft beach sand makes beach beautiful and water cool",
+    "score" : 594.3760375976562,
+    "time" : 21396,
+    "cycle" : 2
+  }, {
+    "sentence" : "A big soft beach sand makes beach sand and water cool",
+    "score" : 396.125244140625,
+    "time" : 27242,
+    "cycle" : 3
+  }, {
+    "sentence" : "A dry soft beach sand makes beach air and water cool",
+    "score" : 347.07012939453125,
+    "time" : 32363,
+    "cycle" : 4
+  }, {
+    "sentence" : "The soft soft green sand makes beach soft and water cool",
+    "score" : 324.12567138671875,
+    "time" : 65369,
+    "cycle" : 11
+  }, {
+    "sentence" : "The thick soft beach sand made beach soft and water soft",
+    "score" : 314.9308776855469,
+    "time" : 116572,
+    "cycle" : 20
+  }, {
+    "sentence" : "The thick soft beach sand made beach sand and water soft",
+    "score" : 300.04736328125,
+    "time" : 128958,
+    "cycle" : 21
+  }, {
+    "sentence" : "On a soft beach is between beach sand and water sand",
+    "score" : 193.02197265625,
+    "time" : 148236,
+    "cycle" : 24
+  }, {
+    "sentence" : "On this soft beach is both beach sand and water sand",
+    "score" : 189.94021606445312,
+    "time" : 153642,
+    "cycle" : 25
+  }, {
+    "sentence" : "On a soft beach is both beach sand and water sand",
+    "score" : 148.8017578125,
+    "time" : 158541,
+    "cycle" : 26
+  }, {
+    "sentence" : "Is a soft beach or hard beach with high water level",
+    "score" : 101.976806640625,
+    "time" : 213246,
+    "cycle" : 34
+  }, {
+    "sentence" : "Is a soft beach or hard beach with high water levels",
+    "score" : 91.32624053955078,
+    "time" : 231710,
+    "cycle" : 37
+  }, {
+    "sentence" : "Is a soft sand or sandy beach with low water levels",
+    "score" : 60.695396423339844,
+    "time" : 258684,
+    "cycle" : 41
+  }, {
+    "sentence" : "Sea of soft sand or sandy beach with low water levels",
+    "score" : 54.96864700317383,
+    "time" : 264205,
+    "cycle" : 42
+  }, {
+    "sentence" : "Finding a soft beach or a beach with low water levels",
+    "score" : 54.821537017822266,
+    "time" : 281620,
+    "cycle" : 46
+  }, {
+    "sentence" : "Is a soft beach or a beach with low water levels",
+    "score" : 48.80308532714844,
+    "time" : 306893,
+    "cycle" : 51
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft beach waves makes beach beautiful place water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 2504, 2250, 5075, 651, 2703, 3408, 291 ],
+    "perplexity" : 13672.1494140625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " waves", " makes", " beach", " beautiful", " place", " water", " comes" ],
+    "original_sentence" : "The sentence soft beach [MASK] makes beach [MASK] place water comes",
+    "timestamp" : 10007
+  }, {
+    "sentence" : "The big soft beach sand makes beach beautiful place water comes",
+    "tokens" : [ 395, 2039, 2489, 5075, 1752, 2250, 5075, 651, 2703, 3408, 291 ],
+    "perplexity" : 2968.900390625,
+    "tokens_used" : [ " The", " big", " soft", " beach", " sand", " makes", " beach", " beautiful", " place", " water", " comes" ],
+    "original_sentence" : "The [MASK] soft beach [MASK] makes beach beautiful place water comes",
+    "timestamp" : 15435
+  }, {
+    "sentence" : "The big soft beach sand makes beach beautiful and water cool",
+    "tokens" : [ 395, 2039, 2489, 5075, 1752, 2250, 5075, 651, 215, 3408, 3421 ],
+    "perplexity" : 594.3760375976562,
+    "tokens_used" : [ " The", " big", " soft", " beach", " sand", " makes", " beach", " beautiful", " and", " water", " cool" ],
+    "original_sentence" : "The big soft beach sand makes beach beautiful [MASK] water [MASK]",
+    "timestamp" : 21396
+  }, {
+    "sentence" : "A big soft beach sand makes beach sand and water cool",
+    "tokens" : [ 4646, 2039, 2489, 5075, 1752, 2250, 5075, 1752, 215, 3408, 3421 ],
+    "perplexity" : 396.125244140625,
+    "tokens_used" : [ " a", " big", " soft", " beach", " sand", " makes", " beach", " sand", " and", " water", " cool" ],
+    "original_sentence" : "[MASK] big soft beach sand makes beach [MASK] and water cool",
+    "timestamp" : 27242
+  }, {
+    "sentence" : "A dry soft beach sand makes beach air and water cool",
+    "tokens" : [ 4647, 2070, 2489, 5075, 1752, 2250, 5075, 949, 215, 3408, 3421 ],
+    "perplexity" : 347.07012939453125,
+    "tokens_used" : [ " A", " dry", " soft", " beach", " sand", " makes", " beach", " air", " and", " water", " cool" ],
+    "original_sentence" : "A [MASK] soft beach sand makes beach [MASK] and water cool",
+    "timestamp" : 32363
+  }, {
+    "sentence" : "A dry soft sandy sand makes beach soft and water cool",
+    "tokens" : [ 4647, 2070, 2489, 422, 1752, 2250, 5075, 2489, 215, 3408, 3421 ],
+    "perplexity" : 428.53192138671875,
+    "tokens_used" : [ " A", " dry", " soft", " sandy", " sand", " makes", " beach", " soft", " and", " water", " cool" ],
+    "original_sentence" : "A dry soft [MASK] sand makes beach [MASK] and water cool",
+    "timestamp" : 36005
+  }, {
+    "sentence" : "A good soft sandy sand make beach soft and water cool",
+    "tokens" : [ 4647, 933, 2489, 422, 1752, 2127, 5075, 2489, 215, 3408, 3421 ],
+    "perplexity" : 430.99285888671875,
+    "tokens_used" : [ " A", " good", " soft", " sandy", " sand", " make", " beach", " soft", " and", " water", " cool" ],
+    "original_sentence" : "A [MASK] soft sandy sand [MASK] beach soft and water cool",
+    "timestamp" : 44737
+  }, {
+    "sentence" : "A good soft sandy sand makes beach pleasant and water cool",
+    "tokens" : [ 4647, 933, 2489, 422, 1752, 2250, 5075, 3172, 215, 3408, 3421 ],
+    "perplexity" : 422.94281005859375,
+    "tokens_used" : [ " A", " good", " soft", " sandy", " sand", " makes", " beach", " pleasant", " and", " water", " cool" ],
+    "original_sentence" : "A good soft sandy sand [MASK] beach [MASK] and water cool",
+    "timestamp" : 49974
+  }, {
+    "sentence" : "A soft soft sandy sand makes beach pleasant and water cool",
+    "tokens" : [ 4647, 2489, 2489, 422, 1752, 2250, 5075, 3172, 215, 3408, 3421 ],
+    "perplexity" : 425.7149963378906,
+    "tokens_used" : [ " A", " soft", " soft", " sandy", " sand", " makes", " beach", " pleasant", " and", " water", " cool" ],
+    "original_sentence" : "A [MASK] soft [MASK] sand makes beach pleasant and water cool",
+    "timestamp" : 54868
+  }, {
+    "sentence" : "The soft soft green sand makes beach pleasant and water cool",
+    "tokens" : [ 395, 2489, 2489, 3479, 1752, 2250, 5075, 3172, 215, 3408, 3421 ],
+    "perplexity" : 489.2002868652344,
+    "tokens_used" : [ " The", " soft", " soft", " green", " sand", " makes", " beach", " pleasant", " and", " water", " cool" ],
+    "original_sentence" : "[MASK] soft soft [MASK] sand makes beach pleasant and water cool",
+    "timestamp" : 59116
+  }, {
+    "sentence" : "The soft soft green sand makes beach soft and water cool",
+    "tokens" : [ 395, 2489, 2489, 3479, 1752, 2250, 5075, 2489, 215, 3408, 3421 ],
+    "perplexity" : 324.12567138671875,
+    "tokens_used" : [ " The", " soft", " soft", " green", " sand", " makes", " beach", " soft", " and", " water", " cool" ],
+    "original_sentence" : "The [MASK] soft green sand makes beach [MASK] and water cool",
+    "timestamp" : 65369
+  }, {
+    "sentence" : "The soft soft green sand makes beach soft and water easy",
+    "tokens" : [ 395, 2489, 2489, 3479, 1752, 2250, 5075, 2489, 215, 3408, 1404 ],
+    "perplexity" : 401.53668212890625,
+    "tokens_used" : [ " The", " soft", " soft", " green", " sand", " makes", " beach", " soft", " and", " water", " easy" ],
+    "original_sentence" : "The soft soft green sand makes beach soft [MASK] water [MASK]",
+    "timestamp" : 71983
+  }, {
+    "sentence" : "The thick soft green sand makes beach soft and water easy",
+    "tokens" : [ 395, 156, 2489, 3479, 1752, 2250, 5075, 2489, 215, 3408, 1404 ],
+    "perplexity" : 458.8512268066406,
+    "tokens_used" : [ " The", " thick", " soft", " green", " sand", " makes", " beach", " soft", " and", " water", " easy" ],
+    "original_sentence" : "The [MASK] soft green [MASK] makes beach soft and water easy",
+    "timestamp" : 82650
+  }, {
+    "sentence" : "The thick soft beach sand make beach soft and water easy",
+    "tokens" : [ 395, 156, 2489, 5075, 1752, 2127, 5075, 2489, 215, 3408, 1404 ],
+    "perplexity" : 634.3213500976562,
+    "tokens_used" : [ " The", " thick", " soft", " beach", " sand", " make", " beach", " soft", " and", " water", " easy" ],
+    "original_sentence" : "The thick soft [MASK] sand [MASK] beach soft and water easy",
+    "timestamp" : 112607
+  }, {
+    "sentence" : "The thick soft beach sand made beach soft and water soft",
+    "tokens" : [ 395, 156, 2489, 5075, 1752, 4581, 5075, 2489, 215, 3408, 2489 ],
+    "perplexity" : 314.9308776855469,
+    "tokens_used" : [ " The", " thick", " soft", " beach", " sand", " made", " beach", " soft", " and", " water", " soft" ],
+    "original_sentence" : "The thick soft beach sand [MASK] beach soft and water [MASK]",
+    "timestamp" : 116572
+  }, {
+    "sentence" : "The thick soft beach sand made beach sand and water soft",
+    "tokens" : [ 395, 156, 2489, 5075, 1752, 4581, 5075, 1752, 215, 3408, 2489 ],
+    "perplexity" : 300.04736328125,
+    "tokens_used" : [ " The", " thick", " soft", " beach", " sand", " made", " beach", " sand", " and", " water", " soft" ],
+    "original_sentence" : "The thick soft beach [MASK] made beach [MASK] and water soft",
+    "timestamp" : 128958
+  }, {
+    "sentence" : "The water soft beach sand between beach sand and water soft",
+    "tokens" : [ 395, 3408, 2489, 5075, 1752, 339, 5075, 1752, 215, 3408, 2489 ],
+    "perplexity" : 368.4405517578125,
+    "tokens_used" : [ " The", " water", " soft", " beach", " sand", " between", " beach", " sand", " and", " water", " soft" ],
+    "original_sentence" : "The [MASK] soft beach sand [MASK] beach sand and water soft",
+    "timestamp" : 133829
+  }, {
+    "sentence" : "The water soft beach is between beach sand and water sand",
+    "tokens" : [ 395, 3408, 2489, 5075, 2713, 339, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 315.48956298828125,
+    "tokens_used" : [ " The", " water", " soft", " beach", " is", " between", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "The water soft beach [MASK] between beach sand and water [MASK]",
+    "timestamp" : 139627
+  }, {
+    "sentence" : "On a soft beach is between beach sand and water sand",
+    "tokens" : [ 710, 4646, 2489, 5075, 2713, 339, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 193.02197265625,
+    "tokens_used" : [ " on", " a", " soft", " beach", " is", " between", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "[MASK] [MASK] soft beach is between beach sand and water sand",
+    "timestamp" : 148236
+  }, {
+    "sentence" : "On this soft beach is both beach sand and water sand",
+    "tokens" : [ 711, 1227, 2489, 5075, 2713, 942, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 189.94021606445312,
+    "tokens_used" : [ " On", " this", " soft", " beach", " is", " both", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "On [MASK] soft beach is [MASK] beach sand and water sand",
+    "timestamp" : 153642
+  }, {
+    "sentence" : "On a soft beach is both beach sand and water sand",
+    "tokens" : [ 710, 4646, 2489, 5075, 2713, 942, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 148.8017578125,
+    "tokens_used" : [ " on", " a", " soft", " beach", " is", " both", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "[MASK] [MASK] soft beach is both beach sand and water sand",
+    "timestamp" : 158541
+  }, {
+    "sentence" : "On a soft beach on hard beach sand and water sand",
+    "tokens" : [ 711, 4646, 2489, 5075, 710, 1170, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 271.5951232910156,
+    "tokens_used" : [ " On", " a", " soft", " beach", " on", " hard", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "On a soft beach [MASK] [MASK] beach sand and water sand",
+    "timestamp" : 177522
+  }, {
+    "sentence" : "Has a soft beach on hard beach sand and water sand",
+    "tokens" : [ 4879, 4646, 2489, 5075, 710, 1170, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 260.1662292480469,
+    "tokens_used" : [ " has", " a", " soft", " beach", " on", " hard", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "[MASK] [MASK] soft beach on hard beach sand and water sand",
+    "timestamp" : 185772
+  }, {
+    "sentence" : "Is a soft beach with hard beach sand and water sand",
+    "tokens" : [ 2714, 4646, 2489, 5075, 2342, 1170, 5075, 1752, 215, 3408, 1752 ],
+    "perplexity" : 186.01419067382812,
+    "tokens_used" : [ " Is", " a", " soft", " beach", " with", " hard", " beach", " sand", " and", " water", " sand" ],
+    "original_sentence" : "[MASK] a soft beach [MASK] hard beach sand and water sand",
+    "timestamp" : 191121
+  }, {
+    "sentence" : "Is a soft beach with hard beach sand at water level",
+    "tokens" : [ 2714, 4646, 2489, 5075, 2342, 1170, 5075, 1752, 302, 3408, 2850 ],
+    "perplexity" : 183.90817260742188,
+    "tokens_used" : [ " Is", " a", " soft", " beach", " with", " hard", " beach", " sand", " at", " water", " level" ],
+    "original_sentence" : "Is a soft beach with hard beach sand [MASK] water [MASK]",
+    "timestamp" : 201879
+  }, {
+    "sentence" : "Is a soft beach or hard beach are at water level",
+    "tokens" : [ 2714, 4646, 2489, 5075, 1860, 1170, 5075, 5158, 302, 3408, 2850 ],
+    "perplexity" : 201.6793975830078,
+    "tokens_used" : [ " Is", " a", " soft", " beach", " or", " hard", " beach", " are", " at", " water", " level" ],
+    "original_sentence" : "Is a soft beach [MASK] hard beach [MASK] at water level",
+    "timestamp" : 206916
+  }, {
+    "sentence" : "Is a soft beach or hard beach with high water level",
+    "tokens" : [ 2714, 4646, 2489, 5075, 1860, 1170, 5075, 2342, 2209, 3408, 2850 ],
+    "perplexity" : 101.976806640625,
+    "tokens_used" : [ " Is", " a", " soft", " beach", " or", " hard", " beach", " with", " high", " water", " level" ],
+    "original_sentence" : "Is a soft beach or hard beach [MASK] [MASK] water level",
+    "timestamp" : 213246
+  }, {
+    "sentence" : "Is a soft beach or hard beach with high water table",
+    "tokens" : [ 2713, 4646, 2489, 5075, 1860, 1170, 5075, 2342, 2209, 3408, 2664 ],
+    "perplexity" : 146.4523468017578,
+    "tokens_used" : [ " is", " a", " soft", " beach", " or", " hard", " beach", " with", " high", " water", " table" ],
+    "original_sentence" : "[MASK] a soft beach or hard beach with high water [MASK]",
+    "timestamp" : 219696
+  }, {
+    "sentence" : "Is a soft beach or hard beach with high water levels",
+    "tokens" : [ 2713, 4646, 2489, 5075, 1860, 1170, 5075, 2342, 2209, 3408, 283 ],
+    "perplexity" : 91.32624053955078,
+    "tokens_used" : [ " is", " a", " soft", " beach", " or", " hard", " beach", " with", " high", " water", " levels" ],
+    "original_sentence" : "[MASK] a soft beach or hard beach with high water [MASK]",
+    "timestamp" : 231710
+  }, {
+    "sentence" : "Is it soft beach or hard beach with high water levels",
+    "tokens" : [ 2714, 2050, 2489, 5075, 1860, 1170, 5075, 2342, 2209, 3408, 283 ],
+    "perplexity" : 162.67385864257812,
+    "tokens_used" : [ " Is", " it", " soft", " beach", " or", " hard", " beach", " with", " high", " water", " levels" ],
+    "original_sentence" : "Is [MASK] soft beach or [MASK] beach with high water levels",
+    "timestamp" : 238801
+  }, {
+    "sentence" : "Is a soft sand or hard beach with high water levels",
+    "tokens" : [ 2714, 4646, 2489, 1752, 1860, 1170, 5075, 2342, 2209, 3408, 283 ],
+    "perplexity" : 102.5590591430664,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " or", " hard", " beach", " with", " high", " water", " levels" ],
+    "original_sentence" : "Is [MASK] soft [MASK] or hard beach with high water levels",
+    "timestamp" : 252265
+  }, {
+    "sentence" : "Is a soft sand or sandy beach with low water levels",
+    "tokens" : [ 2714, 4646, 2489, 1752, 1860, 422, 5075, 2342, 5145, 3408, 283 ],
+    "perplexity" : 60.695396423339844,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " or", " sandy", " beach", " with", " low", " water", " levels" ],
+    "original_sentence" : "Is a soft sand or [MASK] beach with [MASK] water levels",
+    "timestamp" : 258684
+  }, {
+    "sentence" : "Sea of soft sand or sandy beach with low water levels",
+    "tokens" : [ 4716, 5194, 2489, 1752, 1860, 422, 5075, 2342, 5145, 3408, 283 ],
+    "perplexity" : 54.96864700317383,
+    "tokens_used" : [ " Sea", " of", " soft", " sand", " or", " sandy", " beach", " with", " low", " water", " levels" ],
+    "original_sentence" : "[MASK] [MASK] soft sand or sandy beach with low water levels",
+    "timestamp" : 264205
+  }, {
+    "sentence" : "Finding a soft sand or sandy beach with low water levels",
+    "tokens" : [ 1649, 4646, 2489, 1752, 1860, 422, 5075, 2342, 5145, 3408, 283 ],
+    "perplexity" : 68.53140258789062,
+    "tokens_used" : [ " Finding", " a", " soft", " sand", " or", " sandy", " beach", " with", " low", " water", " levels" ],
+    "original_sentence" : "[MASK] [MASK] soft sand or sandy beach with low water levels",
+    "timestamp" : 272881
+  }, {
+    "sentence" : "Finding a soft sand or rocky beach with low water levels",
+    "tokens" : [ 1649, 4646, 2489, 1752, 1860, 4062, 5075, 2342, 5145, 3408, 283 ],
+    "perplexity" : 94.37407684326172,
+    "tokens_used" : [ " Finding", " a", " soft", " sand", " or", " rocky", " beach", " with", " low", " water", " levels" ],
+    "original_sentence" : "Finding a soft sand or [MASK] beach [MASK] low water levels",
+    "timestamp" : 276689
+  }, {
+    "sentence" : "Finding a soft beach or a beach with low water levels",
+    "tokens" : [ 1649, 4646, 2489, 5075, 1860, 4646, 5075, 2342, 5145, 3408, 283 ],
+    "perplexity" : 54.821537017822266,
+    "tokens_used" : [ " Finding", " a", " soft", " beach", " or", " a", " beach", " with", " low", " water", " levels" ],
+    "original_sentence" : "Finding a soft [MASK] or [MASK] beach with low water levels",
+    "timestamp" : 281620
+  }, {
+    "sentence" : "Whether a soft beach or a beach with low water level",
+    "tokens" : [ 4565, 4646, 2489, 5075, 1860, 4646, 5075, 2342, 5145, 3408, 2850 ],
+    "perplexity" : 84.11354064941406,
+    "tokens_used" : [ " Whether", " a", " soft", " beach", " or", " a", " beach", " with", " low", " water", " level" ],
+    "original_sentence" : "[MASK] a soft beach or a beach with low water [MASK]",
+    "timestamp" : 288179
+  }, {
+    "sentence" : "Is a soft beach or a beach with lower water level",
+    "tokens" : [ 2713, 4646, 2489, 5075, 1860, 4646, 5075, 2342, 1449, 3408, 2850 ],
+    "perplexity" : 69.73543548583984,
+    "tokens_used" : [ " is", " a", " soft", " beach", " or", " a", " beach", " with", " lower", " water", " level" ],
+    "original_sentence" : "[MASK] a soft beach or a beach with [MASK] water level",
+    "timestamp" : 294426
+  }, {
+    "sentence" : "Is a soft beach or a beach with lower water levels",
+    "tokens" : [ 2713, 4646, 2489, 5075, 1860, 4646, 5075, 2342, 1449, 3408, 283 ],
+    "perplexity" : 62.32819366455078,
+    "tokens_used" : [ " is", " a", " soft", " beach", " or", " a", " beach", " with", " lower", " water", " levels" ],
+    "original_sentence" : "[MASK] a soft beach or a beach with lower water [MASK]",
+    "timestamp" : 298753
+  }, {
+    "sentence" : "Is a soft beach or a beach with low water levels",
+    "tokens" : [ 2714, 4646, 2489, 5075, 1860, 4646, 5075, 2342, 5145, 3408, 283 ],
+    "perplexity" : 48.80308532714844,
+    "tokens_used" : [ " Is", " a", " soft", " beach", " or", " a", " beach", " with", " low", " water", " levels" ],
+    "original_sentence" : "Is [MASK] soft beach or a beach with [MASK] water levels",
+    "timestamp" : 306893
+  }, {
+    "sentence" : "Describes a soft beach or a beach with low water level",
+    "tokens" : [ 2567, 4646, 2489, 5075, 1860, 4646, 5075, 2342, 5145, 3408, 2850 ],
+    "perplexity" : 77.65921783447266,
+    "tokens_used" : [ " describes", " a", " soft", " beach", " or", " a", " beach", " with", " low", " water", " level" ],
+    "original_sentence" : "[MASK] a soft beach or a beach with low water [MASK]",
+    "timestamp" : 311540
+  } ]
+}

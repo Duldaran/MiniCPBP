@@ -1,0 +1,303 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T00:19:40.885891434",
+  "time" : 421.345,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Me felt like he was going to make it to the top of his game",
+    "score" : 10.635116577148438,
+    "time" : 68289,
+    "cycle" : 1
+  }, {
+    "sentence" : "My felt like he was going to make it to the end of the game",
+    "score" : 10.225902557373047,
+    "time" : 88189,
+    "cycle" : 7
+  }, {
+    "sentence" : "Me felt like he was going to make it to the end of the game",
+    "score" : 9.941717147827148,
+    "time" : 91025,
+    "cycle" : 8
+  } ],
+  "base_sentence" : {
+    "sentence" : "She felt like he was going to make it to the top of my game",
+    "perplexity" : 12.041910171508789,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Me felt like he was going to make it to the top of his game",
+    "tokens" : [ 994, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 3882, 2701 ],
+    "perplexity" : 10.635116577148438,
+    "tokens_used" : [ " me", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " his", " game" ],
+    "original_sentence" : "[MASK] felt like he was going to make [MASK] to the top of [MASK] game",
+    "timestamp" : 68290
+  }, {
+    "sentence" : "My felt like he was going to make it to the top of his game",
+    "tokens" : [ 939, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 3882, 2701 ],
+    "perplexity" : 11.105469703674316,
+    "tokens_used" : [ " My", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " his", " game" ],
+    "original_sentence" : "[MASK] [MASK] like he was going to make it to the [MASK] of his game",
+    "timestamp" : 71816
+  }, {
+    "sentence" : "My felt like he was going to make it on the top of his game",
+    "tokens" : [ 939, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 710, 394, 770, 5194, 3882, 2701 ],
+    "perplexity" : 16.42535972595215,
+    "tokens_used" : [ " My", " felt", " like", " he", " was", " going", " to", " make", " it", " on", " the", " top", " of", " his", " game" ],
+    "original_sentence" : "My [MASK] like [MASK] was going to make it [MASK] the top of his game",
+    "timestamp" : 75842
+  }, {
+    "sentence" : "My felt like he was going to make it to the end of his game",
+    "tokens" : [ 939, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3882, 2701 ],
+    "perplexity" : 12.830789566040039,
+    "tokens_used" : [ " My", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " his", " game" ],
+    "original_sentence" : "My felt [MASK] he was going to make it [MASK] the [MASK] of his game",
+    "timestamp" : 78656
+  }, {
+    "sentence" : "My felt like he was going to make it to the end of the game",
+    "tokens" : [ 939, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 10.225902557373047,
+    "tokens_used" : [ " My", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "[MASK] felt like he was going to make it to the end of [MASK] [MASK]",
+    "timestamp" : 88189
+  }, {
+    "sentence" : "Me felt like he was going to make it to the end of the game",
+    "tokens" : [ 994, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 9.941717147827148,
+    "tokens_used" : [ " me", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "[MASK] felt [MASK] [MASK] was going to make it to the end of the game",
+    "timestamp" : 91025
+  }, {
+    "sentence" : "Me feel like he was going to make it to the end of the game",
+    "tokens" : [ 995, 1180, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 14.132940292358398,
+    "tokens_used" : [ " Me", " feel", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "Me [MASK] like [MASK] was going to make it to the end of the [MASK]",
+    "timestamp" : 96642
+  }, {
+    "sentence" : "Me felt like he was going to make it to the end of the show",
+    "tokens" : [ 995, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2535 ],
+    "perplexity" : 10.55711555480957,
+    "tokens_used" : [ " Me", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " show" ],
+    "original_sentence" : "[MASK] [MASK] like he was going to make it to the end of the [MASK]",
+    "timestamp" : 112038
+  }, {
+    "sentence" : "Me feel like he was going to make it to the end of the show",
+    "tokens" : [ 995, 1180, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2535 ],
+    "perplexity" : 15.239852905273438,
+    "tokens_used" : [ " Me", " feel", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " show" ],
+    "original_sentence" : "[MASK] [MASK] like [MASK] was going to make it to the end of the show",
+    "timestamp" : 115097
+  }, {
+    "sentence" : "Me felt like he was going to make it to the end of the work",
+    "tokens" : [ 995, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 1348 ],
+    "perplexity" : 15.244566917419434,
+    "tokens_used" : [ " Me", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " work" ],
+    "original_sentence" : "[MASK] [MASK] like he was going to make it to the end of the [MASK]",
+    "timestamp" : 126341
+  }, {
+    "sentence" : "Me felt like he was going to make it to the end of the book",
+    "tokens" : [ 995, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2989 ],
+    "perplexity" : 11.409549713134766,
+    "tokens_used" : [ " Me", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " book" ],
+    "original_sentence" : "[MASK] felt like [MASK] was going to make it to the end of the [MASK]",
+    "timestamp" : 129605
+  }, {
+    "sentence" : "Me feel like he was going to make it to the end of the book",
+    "tokens" : [ 995, 1180, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2989 ],
+    "perplexity" : 16.413246154785156,
+    "tokens_used" : [ " Me", " feel", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " book" ],
+    "original_sentence" : "[MASK] [MASK] like [MASK] was going to make it to the end of the book",
+    "timestamp" : 132774
+  }, {
+    "sentence" : "Me felt like he was going to make it to the top of the book",
+    "tokens" : [ 995, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2989 ],
+    "perplexity" : 14.372958183288574,
+    "tokens_used" : [ " Me", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " top", " of", " the", " book" ],
+    "original_sentence" : "Me [MASK] like he was going to make it to the [MASK] of the [MASK]",
+    "timestamp" : 148366
+  }, {
+    "sentence" : "Me acted like I was going to make it to the top of the book",
+    "tokens" : [ 995, 3124, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2989 ],
+    "perplexity" : 18.449382781982422,
+    "tokens_used" : [ " Me", " acted", " like", " I", " was", " going", " to", " make", " it", " to", " the", " top", " of", " the", " book" ],
+    "original_sentence" : "Me [MASK] like [MASK] was going to make it to the top of the [MASK]",
+    "timestamp" : 151812
+  }, {
+    "sentence" : "Me acted like I was going to make it to the end of the book",
+    "tokens" : [ 995, 3124, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2989 ],
+    "perplexity" : 14.567203521728516,
+    "tokens_used" : [ " Me", " acted", " like", " I", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " book" ],
+    "original_sentence" : "[MASK] acted [MASK] I was going to make it to the [MASK] of the book",
+    "timestamp" : 157839
+  }, {
+    "sentence" : "Me looks like I was going to make it to the end of the game",
+    "tokens" : [ 995, 113, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 394, 2701 ],
+    "perplexity" : 12.479819297790527,
+    "tokens_used" : [ " Me", " looks", " like", " I", " was", " going", " to", " make", " it", " to", " the", " end", " of", " the", " game" ],
+    "original_sentence" : "[MASK] [MASK] like I was going to make it to the end of the [MASK]",
+    "timestamp" : 165920
+  }, {
+    "sentence" : "Me looks like I was going to make it to the end of his game",
+    "tokens" : [ 995, 113, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3882, 2701 ],
+    "perplexity" : 17.61068344116211,
+    "tokens_used" : [ " Me", " looks", " like", " I", " was", " going", " to", " make", " it", " to", " the", " end", " of", " his", " game" ],
+    "original_sentence" : "Me [MASK] like [MASK] was going to make it to the end of [MASK] game",
+    "timestamp" : 168486
+  }, {
+    "sentence" : "Me looks like I was going to make it to the end of her game",
+    "tokens" : [ 995, 113, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 3730, 2701 ],
+    "perplexity" : 18.05015754699707,
+    "tokens_used" : [ " Me", " looks", " like", " I", " was", " going", " to", " make", " it", " to", " the", " end", " of", " her", " game" ],
+    "original_sentence" : "Me [MASK] like [MASK] was going to make it to the end of [MASK] game",
+    "timestamp" : 171863
+  }, {
+    "sentence" : "Me looks like I was going to make it to the top of her game",
+    "tokens" : [ 995, 113, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 3730, 2701 ],
+    "perplexity" : 16.93879508972168,
+    "tokens_used" : [ " Me", " looks", " like", " I", " was", " going", " to", " make", " it", " to", " the", " top", " of", " her", " game" ],
+    "original_sentence" : "Me looks like I was going to [MASK] it to the [MASK] of her [MASK]",
+    "timestamp" : 175145
+  }, {
+    "sentence" : "Me looks like I was going to make it to the top of the game",
+    "tokens" : [ 995, 113, 4424, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 394, 2701 ],
+    "perplexity" : 15.144981384277344,
+    "tokens_used" : [ " Me", " looks", " like", " I", " was", " going", " to", " make", " it", " to", " the", " top", " of", " the", " game" ],
+    "original_sentence" : "Me [MASK] like [MASK] was going to make it to the top of [MASK] game",
+    "timestamp" : 182282
+  }, {
+    "sentence" : "Me looks like I am going to make it to the rest of the game",
+    "tokens" : [ 995, 113, 4424, 1092, 2307, 1996, 2461, 2127, 2050, 2461, 394, 4989, 5194, 394, 2701 ],
+    "perplexity" : 15.017291069030762,
+    "tokens_used" : [ " Me", " looks", " like", " I", " am", " going", " to", " make", " it", " to", " the", " rest", " of", " the", " game" ],
+    "original_sentence" : "Me looks like I [MASK] going to make it to the [MASK] of the [MASK]",
+    "timestamp" : 185003
+  }, {
+    "sentence" : "Me looks like I am going to make it to the top of this game",
+    "tokens" : [ 995, 113, 4424, 1092, 2307, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 1227, 2701 ],
+    "perplexity" : 15.453104019165039,
+    "tokens_used" : [ " Me", " looks", " like", " I", " am", " going", " to", " make", " it", " to", " the", " top", " of", " this", " game" ],
+    "original_sentence" : "Me looks like I am going to make it [MASK] the [MASK] of [MASK] game",
+    "timestamp" : 189001
+  }, {
+    "sentence" : "Me looks like I am going to make it to the top of this page",
+    "tokens" : [ 995, 113, 4424, 1092, 2307, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 1227, 2130 ],
+    "perplexity" : 14.985127449035645,
+    "tokens_used" : [ " Me", " looks", " like", " I", " am", " going", " to", " make", " it", " to", " the", " top", " of", " this", " page" ],
+    "original_sentence" : "[MASK] looks like I am going to make it to the top [MASK] this [MASK]",
+    "timestamp" : 199572
+  }, {
+    "sentence" : "Me looks like I am going to move it to the top of this page",
+    "tokens" : [ 995, 113, 4424, 1092, 2307, 1996, 2461, 4263, 2050, 2461, 394, 770, 5194, 1227, 2130 ],
+    "perplexity" : 18.895139694213867,
+    "tokens_used" : [ " Me", " looks", " like", " I", " am", " going", " to", " move", " it", " to", " the", " top", " of", " this", " page" ],
+    "original_sentence" : "[MASK] looks like I am going to [MASK] it to the top of this [MASK]",
+    "timestamp" : 205921
+  }, {
+    "sentence" : "Am looks like I am going to move it to the top of this page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 4263, 2050, 2461, 394, 770, 5194, 1227, 2130 ],
+    "perplexity" : 17.771459579467773,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " move", " it", " to", " the", " top", " of", " this", " page" ],
+    "original_sentence" : "[MASK] looks like I am going to move it to the top of [MASK] [MASK]",
+    "timestamp" : 215332
+  }, {
+    "sentence" : "Am looks like I am going to move it to the end of this page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 4263, 2050, 2461, 394, 2135, 5194, 1227, 2130 ],
+    "perplexity" : 19.57588005065918,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " move", " it", " to", " the", " end", " of", " this", " page" ],
+    "original_sentence" : "Am looks [MASK] I am [MASK] to move it to the [MASK] of this page",
+    "timestamp" : 234017
+  }, {
+    "sentence" : "Am looks like I am going to make it to the end of this page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 1227, 2130 ],
+    "perplexity" : 13.041778564453125,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " make", " it", " to", " the", " end", " of", " this", " page" ],
+    "original_sentence" : "[MASK] looks like I [MASK] going to [MASK] it to the end of this page",
+    "timestamp" : 236819
+  }, {
+    "sentence" : "Am looks like I am going to make it to the top of this page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 1227, 2130 ],
+    "perplexity" : 14.350160598754883,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " make", " it", " to", " the", " top", " of", " this", " page" ],
+    "original_sentence" : "[MASK] looks like I [MASK] going to make it to the [MASK] of this page",
+    "timestamp" : 239758
+  }, {
+    "sentence" : "Am looks like I am going to bump it to the top of this page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 2917, 2050, 2461, 394, 770, 5194, 1227, 2130 ],
+    "perplexity" : 19.590187072753906,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " bump", " it", " to", " the", " top", " of", " this", " page" ],
+    "original_sentence" : "[MASK] looks [MASK] I am going to [MASK] it to the top of this page",
+    "timestamp" : 243825
+  }, {
+    "sentence" : "Am looks like I am going to go back to the top of this page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 3106, 954, 2461, 394, 770, 5194, 1227, 2130 ],
+    "perplexity" : 16.06167221069336,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " go", " back", " to", " the", " top", " of", " this", " page" ],
+    "original_sentence" : "Am looks [MASK] I am going to [MASK] [MASK] to the top of this page",
+    "timestamp" : 255317
+  }, {
+    "sentence" : "Am looks like I am going to go back to the rest of the page",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 3106, 954, 2461, 394, 4989, 5194, 394, 2130 ],
+    "perplexity" : 18.513940811157227,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " go", " back", " to", " the", " rest", " of", " the", " page" ],
+    "original_sentence" : "Am looks like I am going to go back to the [MASK] of [MASK] [MASK]",
+    "timestamp" : 279730
+  }, {
+    "sentence" : "Am looks like I am going to go back to the rest of the week",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 3106, 954, 2461, 394, 4989, 5194, 394, 2294 ],
+    "perplexity" : 16.503829956054688,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " go", " back", " to", " the", " rest", " of", " the", " week" ],
+    "original_sentence" : "[MASK] looks like I [MASK] going to go back to the rest of the [MASK]",
+    "timestamp" : 360808
+  }, {
+    "sentence" : "Am looks like I am going to go back to the rest of the room",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 3106, 954, 2461, 394, 4989, 5194, 394, 3465 ],
+    "perplexity" : 17.52011489868164,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " go", " back", " to", " the", " rest", " of", " the", " room" ],
+    "original_sentence" : "[MASK] looks like I [MASK] going to go back to the rest of the [MASK]",
+    "timestamp" : 381061
+  }, {
+    "sentence" : "Am looks like I am going to go back to the rest of the game",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 3106, 954, 2461, 394, 4989, 5194, 394, 2701 ],
+    "perplexity" : 14.840618133544922,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " go", " back", " to", " the", " rest", " of", " the", " game" ],
+    "original_sentence" : "[MASK] looks like I am going to go back [MASK] the rest of the [MASK]",
+    "timestamp" : 384870
+  }, {
+    "sentence" : "Am looks like I am going to go back to the rest of the team",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 3106, 954, 2461, 394, 4989, 5194, 394, 4381 ],
+    "perplexity" : 14.054289817810059,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " go", " back", " to", " the", " rest", " of", " the", " team" ],
+    "original_sentence" : "Am looks like I am going to [MASK] [MASK] to the rest of the [MASK]",
+    "timestamp" : 388165
+  }, {
+    "sentence" : "Am looks like I am going to be back to the rest of the team",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 1392, 954, 2461, 394, 4989, 5194, 394, 4381 ],
+    "perplexity" : 16.51824188232422,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " be", " back", " to", " the", " rest", " of", " the", " team" ],
+    "original_sentence" : "Am looks like I am going to [MASK] back to the rest of [MASK] [MASK]",
+    "timestamp" : 391783
+  }, {
+    "sentence" : "Am looks like I am going to be close to the end of the team",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 1392, 36, 2461, 394, 2135, 5194, 394, 4381 ],
+    "perplexity" : 15.825316429138184,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " be", " close", " to", " the", " end", " of", " the", " team" ],
+    "original_sentence" : "Am looks like I am going to be [MASK] to the [MASK] of the [MASK]",
+    "timestamp" : 409875
+  }, {
+    "sentence" : "Am looks like I am going to be close to the rest of my team",
+    "tokens" : [ 2308, 113, 4424, 1092, 2307, 1996, 2461, 1392, 36, 2461, 394, 4989, 5194, 938, 4381 ],
+    "perplexity" : 16.86302947998047,
+    "tokens_used" : [ " Am", " looks", " like", " I", " am", " going", " to", " be", " close", " to", " the", " rest", " of", " my", " team" ],
+    "original_sentence" : "[MASK] looks like I am going to be close to the [MASK] of [MASK] team",
+    "timestamp" : 421280
+  } ]
+}

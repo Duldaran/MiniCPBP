@@ -1,0 +1,555 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:25:13.938535141",
+  "time" : 778.08,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft beach grass soft beach a place water comes",
+    "score" : 4158.9990234375,
+    "time" : 5975,
+    "cycle" : 0
+  }, {
+    "sentence" : "The the soft beach grass soft beach the place water comes",
+    "score" : 845.5226440429688,
+    "time" : 24037,
+    "cycle" : 2
+  }, {
+    "sentence" : "The the soft beach grass the beach the place water comes",
+    "score" : 738.064453125,
+    "time" : 33837,
+    "cycle" : 3
+  }, {
+    "sentence" : "The the soft beach grass the beach sandy the water the",
+    "score" : 737.5117797851562,
+    "time" : 61093,
+    "cycle" : 6
+  }, {
+    "sentence" : "The the soft beach grass the beach sandy the water surface",
+    "score" : 629.5308837890625,
+    "time" : 71767,
+    "cycle" : 7
+  }, {
+    "sentence" : "The the soft beach grass the beach and the water surface",
+    "score" : 243.90806579589844,
+    "time" : 81576,
+    "cycle" : 8
+  }, {
+    "sentence" : "The the soft sand and or beach on the water level",
+    "score" : 224.30908203125,
+    "time" : 314034,
+    "cycle" : 34
+  }, {
+    "sentence" : "The the soft water is the beach of the water level",
+    "score" : 140.11558532714844,
+    "time" : 394761,
+    "cycle" : 43
+  }, {
+    "sentence" : "The the soft water is the beach and the water level",
+    "score" : 109.20036315917969,
+    "time" : 427717,
+    "cycle" : 47
+  }, {
+    "sentence" : "The the soft water of the beach at the water surface",
+    "score" : 85.50399780273438,
+    "time" : 483632,
+    "cycle" : 54
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft beach grass soft beach a place water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 0, 2489, 5075, 4646, 2703, 3408, 291 ],
+    "perplexity" : 4158.9990234375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " grass", " soft", " beach", " a", " place", " water", " comes" ],
+    "original_sentence" : "The sentence soft beach [MASK] [MASK] beach a place water comes",
+    "timestamp" : 5975
+  }, {
+    "sentence" : "The sentence soft beach grass soft beach the place water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 0, 2489, 5075, 394, 2703, 3408, 291 ],
+    "perplexity" : 4249.4287109375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " grass", " soft", " beach", " the", " place", " water", " comes" ],
+    "original_sentence" : "The sentence soft [MASK] grass soft beach [MASK] place water comes",
+    "timestamp" : 14009
+  }, {
+    "sentence" : "The the soft beach grass soft beach the place water comes",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 2489, 5075, 394, 2703, 3408, 291 ],
+    "perplexity" : 845.5226440429688,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " soft", " beach", " the", " place", " water", " comes" ],
+    "original_sentence" : "[MASK] [MASK] soft beach grass soft beach the place water comes",
+    "timestamp" : 24037
+  }, {
+    "sentence" : "The the soft beach grass the beach the place water comes",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 394, 5075, 394, 2703, 3408, 291 ],
+    "perplexity" : 738.064453125,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " the", " beach", " the", " place", " water", " comes" ],
+    "original_sentence" : "The the soft beach [MASK] [MASK] beach the place water comes",
+    "timestamp" : 33837
+  }, {
+    "sentence" : "The the soft beach grass the beach the place water the",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 394, 5075, 394, 2703, 3408, 394 ],
+    "perplexity" : 1085.95263671875,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " the", " beach", " the", " place", " water", " the" ],
+    "original_sentence" : "The the soft beach grass the beach [MASK] place water [MASK]",
+    "timestamp" : 44472
+  }, {
+    "sentence" : "The the soft beach grass the beach sandy place water the",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 394, 5075, 422, 2703, 3408, 394 ],
+    "perplexity" : 1211.8455810546875,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " the", " beach", " sandy", " place", " water", " the" ],
+    "original_sentence" : "The the soft beach grass [MASK] beach [MASK] place water the",
+    "timestamp" : 53904
+  }, {
+    "sentence" : "The the soft beach grass the beach sandy the water the",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 394, 5075, 422, 394, 3408, 394 ],
+    "perplexity" : 737.5117797851562,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " the", " beach", " sandy", " the", " water", " the" ],
+    "original_sentence" : "The the soft beach grass [MASK] beach sandy [MASK] water the",
+    "timestamp" : 61093
+  }, {
+    "sentence" : "The the soft beach grass the beach sandy the water surface",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 394, 5075, 422, 394, 3408, 2035 ],
+    "perplexity" : 629.5308837890625,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " the", " beach", " sandy", " the", " water", " surface" ],
+    "original_sentence" : "The the soft beach [MASK] the beach sandy the water [MASK]",
+    "timestamp" : 71767
+  }, {
+    "sentence" : "The the soft beach grass the beach and the water surface",
+    "tokens" : [ 395, 394, 2489, 5075, 0, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 243.90806579589844,
+    "tokens_used" : [ " The", " the", " soft", " beach", " grass", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The the soft [MASK] grass the beach [MASK] the water surface",
+    "timestamp" : 81576
+  }, {
+    "sentence" : "The the soft sand grass the beach and the water surface",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 277.92938232421875,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] the soft [MASK] grass the beach and the water surface",
+    "timestamp" : 88788
+  }, {
+    "sentence" : "The the soft sand grass the beach and the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 270.32568359375,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] the soft sand grass the beach and the water [MASK]",
+    "timestamp" : 100178
+  }, {
+    "sentence" : "The the soft sand grass the beach in the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 394, 5075, 2515, 394, 3408, 2713 ],
+    "perplexity" : 290.02569580078125,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " the", " beach", " in", " the", " water", " is" ],
+    "original_sentence" : "The the soft sand [MASK] the beach [MASK] the water is",
+    "timestamp" : 109960
+  }, {
+    "sentence" : "The the soft sand grass the beach of the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 394, 5075, 5194, 394, 3408, 2713 ],
+    "perplexity" : 329.48480224609375,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " the", " beach", " of", " the", " water", " is" ],
+    "original_sentence" : "The the soft sand grass [MASK] beach [MASK] the water is",
+    "timestamp" : 117483
+  }, {
+    "sentence" : "The the soft sand grass the beach of the water surface",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 394, 5075, 5194, 394, 3408, 2035 ],
+    "perplexity" : 426.5533752441406,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " the", " beach", " of", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft sand grass the beach of the water [MASK]",
+    "timestamp" : 128302
+  }, {
+    "sentence" : "The the soft sand grass and beach of the water surface",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 215, 5075, 5194, 394, 3408, 2035 ],
+    "perplexity" : 302.76080322265625,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " and", " beach", " of", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft sand grass [MASK] beach of the water surface",
+    "timestamp" : 144918
+  }, {
+    "sentence" : "The the soft sand grass and beach of the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 215, 5075, 5194, 394, 3408, 2713 ],
+    "perplexity" : 340.5718078613281,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " and", " beach", " of", " the", " water", " is" ],
+    "original_sentence" : "The the soft sand grass and beach of [MASK] water [MASK]",
+    "timestamp" : 155340
+  }, {
+    "sentence" : "The the soft sand grass or beach of the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 5194, 394, 3408, 2713 ],
+    "perplexity" : 374.3356018066406,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " of", " the", " water", " is" ],
+    "original_sentence" : "[MASK] the soft sand grass [MASK] beach of the water is",
+    "timestamp" : 174088
+  }, {
+    "sentence" : "The the soft sand grass or beach and the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 305.8533935546875,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "The the soft [MASK] grass or beach [MASK] the water is",
+    "timestamp" : 181982
+  }, {
+    "sentence" : "The the soft sand grass or beach in the water is",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 2515, 394, 3408, 2713 ],
+    "perplexity" : 312.0793762207031,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " in", " the", " water", " is" ],
+    "original_sentence" : "[MASK] the soft sand grass or beach [MASK] the water is",
+    "timestamp" : 200740
+  }, {
+    "sentence" : "The the soft sand grass or beach in the water surface",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 2515, 394, 3408, 2035 ],
+    "perplexity" : 306.77532958984375,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " in", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft sand grass or beach in the water [MASK]",
+    "timestamp" : 207639
+  }, {
+    "sentence" : "The the soft sand grass or beach and the water surface",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 268.2152099609375,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The the soft [MASK] grass or beach [MASK] the water surface",
+    "timestamp" : 217154
+  }, {
+    "sentence" : "The the soft sand grass or beach of the water surface",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 5194, 394, 3408, 2035 ],
+    "perplexity" : 341.8441467285156,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " of", " the", " water", " surface" ],
+    "original_sentence" : "The the soft sand grass [MASK] beach [MASK] the water surface",
+    "timestamp" : 225062
+  }, {
+    "sentence" : "The the soft sand grass or beach of the water level",
+    "tokens" : [ 395, 394, 2489, 1752, 0, 1860, 5075, 5194, 394, 3408, 2850 ],
+    "perplexity" : 330.302001953125,
+    "tokens_used" : [ " The", " the", " soft", " sand", " grass", " or", " beach", " of", " the", " water", " level" ],
+    "original_sentence" : "The the soft sand grass or beach of [MASK] water [MASK]",
+    "timestamp" : 241722
+  }, {
+    "sentence" : "The the soft sand and or beach of the water level",
+    "tokens" : [ 395, 394, 2489, 1752, 215, 1860, 5075, 5194, 394, 3408, 2850 ],
+    "perplexity" : 292.3927001953125,
+    "tokens_used" : [ " The", " the", " soft", " sand", " and", " or", " beach", " of", " the", " water", " level" ],
+    "original_sentence" : "The the soft [MASK] [MASK] or beach of the water level",
+    "timestamp" : 259170
+  }, {
+    "sentence" : "The the soft sand and or beach of a water level",
+    "tokens" : [ 395, 394, 2489, 1752, 215, 1860, 5075, 5194, 4646, 3408, 2850 ],
+    "perplexity" : 427.172119140625,
+    "tokens_used" : [ " The", " the", " soft", " sand", " and", " or", " beach", " of", " a", " water", " level" ],
+    "original_sentence" : "The the soft [MASK] and or beach of [MASK] water level",
+    "timestamp" : 268647
+  }, {
+    "sentence" : "The the soft sand and or beach and a water level",
+    "tokens" : [ 395, 394, 2489, 1752, 215, 1860, 5075, 215, 4646, 3408, 2850 ],
+    "perplexity" : 399.287109375,
+    "tokens_used" : [ " The", " the", " soft", " sand", " and", " or", " beach", " and", " a", " water", " level" ],
+    "original_sentence" : "The [MASK] soft sand and or beach [MASK] a water level",
+    "timestamp" : 285607
+  }, {
+    "sentence" : "The the soft sand and or beach in a water level",
+    "tokens" : [ 395, 394, 2489, 1752, 215, 1860, 5075, 2515, 4646, 3408, 2850 ],
+    "perplexity" : 404.2809143066406,
+    "tokens_used" : [ " The", " the", " soft", " sand", " and", " or", " beach", " in", " a", " water", " level" ],
+    "original_sentence" : "The [MASK] soft sand and or beach [MASK] a water level",
+    "timestamp" : 294389
+  }, {
+    "sentence" : "The the soft sand and or beach on a water level",
+    "tokens" : [ 395, 394, 2489, 1752, 215, 1860, 5075, 710, 4646, 3408, 2850 ],
+    "perplexity" : 321.9222717285156,
+    "tokens_used" : [ " The", " the", " soft", " sand", " and", " or", " beach", " on", " a", " water", " level" ],
+    "original_sentence" : "[MASK] the soft sand and or beach [MASK] a water level",
+    "timestamp" : 302942
+  }, {
+    "sentence" : "The the soft sand and or beach on the water level",
+    "tokens" : [ 395, 394, 2489, 1752, 215, 1860, 5075, 710, 394, 3408, 2850 ],
+    "perplexity" : 224.30908203125,
+    "tokens_used" : [ " The", " the", " soft", " sand", " and", " or", " beach", " on", " the", " water", " level" ],
+    "original_sentence" : "The the soft sand [MASK] or beach on [MASK] water level",
+    "timestamp" : 314034
+  }, {
+    "sentence" : "The the soft water and or beach on the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 215, 1860, 5075, 710, 394, 3408, 2850 ],
+    "perplexity" : 252.89544677734375,
+    "tokens_used" : [ " The", " the", " soft", " water", " and", " or", " beach", " on", " the", " water", " level" ],
+    "original_sentence" : "[MASK] the soft [MASK] and or beach on the water level",
+    "timestamp" : 332689
+  }, {
+    "sentence" : "The the soft water is or beach on the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 1860, 5075, 710, 394, 3408, 2850 ],
+    "perplexity" : 252.0648651123047,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " or", " beach", " on", " the", " water", " level" ],
+    "original_sentence" : "[MASK] the soft water [MASK] or beach on the water level",
+    "timestamp" : 342413
+  }, {
+    "sentence" : "The the soft water is or beach on a water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 1860, 5075, 710, 4646, 3408, 2850 ],
+    "perplexity" : 343.3706359863281,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " or", " beach", " on", " a", " water", " level" ],
+    "original_sentence" : "The [MASK] soft water is or beach on [MASK] water level",
+    "timestamp" : 349979
+  }, {
+    "sentence" : "The the soft water is or beach in a water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 1860, 5075, 2515, 4646, 3408, 2850 ],
+    "perplexity" : 443.0435485839844,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " or", " beach", " in", " a", " water", " level" ],
+    "original_sentence" : "The [MASK] soft water is or beach [MASK] a water level",
+    "timestamp" : 358472
+  }, {
+    "sentence" : "The the soft water is or beach in the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 1860, 5075, 2515, 394, 3408, 2850 ],
+    "perplexity" : 289.82342529296875,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " or", " beach", " in", " the", " water", " level" ],
+    "original_sentence" : "The the soft water [MASK] or beach in [MASK] water level",
+    "timestamp" : 368340
+  }, {
+    "sentence" : "The the soft water is or beach and the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 1860, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 267.93963623046875,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " or", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "The the soft water is [MASK] beach [MASK] the water level",
+    "timestamp" : 374344
+  }, {
+    "sentence" : "The the soft water is or beach of the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 1860, 5075, 5194, 394, 3408, 2850 ],
+    "perplexity" : 332.9067077636719,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " or", " beach", " of", " the", " water", " level" ],
+    "original_sentence" : "[MASK] the soft water is or beach [MASK] the water level",
+    "timestamp" : 384534
+  }, {
+    "sentence" : "The the soft water is the beach of the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 394, 5075, 5194, 394, 3408, 2850 ],
+    "perplexity" : 140.11558532714844,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " the", " beach", " of", " the", " water", " level" ],
+    "original_sentence" : "The [MASK] soft water is [MASK] beach of the water level",
+    "timestamp" : 394761
+  }, {
+    "sentence" : "The the soft water is the beach of a water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 394, 5075, 5194, 4646, 3408, 2850 ],
+    "perplexity" : 208.59478759765625,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " the", " beach", " of", " a", " water", " level" ],
+    "original_sentence" : "The the soft water is [MASK] beach of [MASK] water level",
+    "timestamp" : 400875
+  }, {
+    "sentence" : "The the soft water is the beach of sea water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 394, 5075, 5194, 4715, 3408, 2850 ],
+    "perplexity" : 225.53634643554688,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " the", " beach", " of", " sea", " water", " level" ],
+    "original_sentence" : "[MASK] the soft water is the beach of [MASK] water level",
+    "timestamp" : 411668
+  }, {
+    "sentence" : "The the soft water is the beach and sea water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 394, 5075, 215, 4715, 3408, 2850 ],
+    "perplexity" : 183.32383728027344,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " the", " beach", " and", " sea", " water", " level" ],
+    "original_sentence" : "[MASK] the soft water is the beach [MASK] sea water level",
+    "timestamp" : 420757
+  }, {
+    "sentence" : "The the soft water is the beach and the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 394, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 109.20036315917969,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " the", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "The the soft water is [MASK] beach and [MASK] water level",
+    "timestamp" : 427717
+  }, {
+    "sentence" : "The the soft water is the beach and a water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 394, 5075, 215, 4646, 3408, 2850 ],
+    "perplexity" : 208.3687286376953,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " the", " beach", " and", " a", " water", " level" ],
+    "original_sentence" : "The the soft [MASK] is the beach and [MASK] water level",
+    "timestamp" : 435392
+  }, {
+    "sentence" : "The the soft water is a beach and a water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 4646, 5075, 215, 4646, 3408, 2850 ],
+    "perplexity" : 180.67495727539062,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " a", " beach", " and", " a", " water", " level" ],
+    "original_sentence" : "[MASK] the soft water is [MASK] beach and a water level",
+    "timestamp" : 442026
+  }, {
+    "sentence" : "The the soft water is a beach and the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 2713, 4646, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 146.23092651367188,
+    "tokens_used" : [ " The", " the", " soft", " water", " is", " a", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "[MASK] the soft water is a beach and [MASK] water level",
+    "timestamp" : 452098
+  }, {
+    "sentence" : "The the soft water and a beach and the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 215, 4646, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 156.82095336914062,
+    "tokens_used" : [ " The", " the", " soft", " water", " and", " a", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "The [MASK] soft water [MASK] a beach and the water level",
+    "timestamp" : 460283
+  }, {
+    "sentence" : "The the soft water of a beach and the water level",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 4646, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 121.17501831054688,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " a", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "The [MASK] soft water [MASK] a beach and the water level",
+    "timestamp" : 461929
+  }, {
+    "sentence" : "The the soft water of a beach and the water surface",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 4646, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 143.1845245361328,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " a", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] the soft water of a beach and the water [MASK]",
+    "timestamp" : 469478
+  }, {
+    "sentence" : "The the soft water of a beach at the water surface",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 4646, 5075, 302, 394, 3408, 2035 ],
+    "perplexity" : 112.23623657226562,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " a", " beach", " at", " the", " water", " surface" ],
+    "original_sentence" : "The the soft [MASK] of a beach [MASK] the water surface",
+    "timestamp" : 478148
+  }, {
+    "sentence" : "The the soft water of the beach at the water surface",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 394, 5075, 302, 394, 3408, 2035 ],
+    "perplexity" : 85.50399780273438,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " the", " beach", " at", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] the soft water of [MASK] beach at the water surface",
+    "timestamp" : 483632
+  }, {
+    "sentence" : "The the soft water of the beach at the water is",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 394, 5075, 302, 394, 3408, 2713 ],
+    "perplexity" : 148.6689910888672,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " the", " beach", " at", " the", " water", " is" ],
+    "original_sentence" : "The the soft [MASK] of the beach at the water [MASK]",
+    "timestamp" : 492814
+  }, {
+    "sentence" : "The the soft water of the beach and the water is",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 102.6021957397461,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] the soft water of the beach [MASK] the water is",
+    "timestamp" : 500093
+  }, {
+    "sentence" : "The the soft water of the beach and the water surface",
+    "tokens" : [ 395, 394, 2489, 3408, 5194, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 89.90684509277344,
+    "tokens_used" : [ " The", " the", " soft", " water", " of", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The the soft water [MASK] the beach and the water [MASK]",
+    "timestamp" : 504807
+  }, {
+    "sentence" : "The water soft water of the beach and the water surface",
+    "tokens" : [ 395, 3408, 2489, 3408, 5194, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 115.98511505126953,
+    "tokens_used" : [ " The", " water", " soft", " water", " of", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] [MASK] soft water of the beach and the water surface",
+    "timestamp" : 520704
+  }, {
+    "sentence" : "The water soft sand of the beach and the water surface",
+    "tokens" : [ 395, 3408, 2489, 1752, 5194, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 132.30392456054688,
+    "tokens_used" : [ " The", " water", " soft", " sand", " of", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft [MASK] of the beach and the water surface",
+    "timestamp" : 542624
+  }, {
+    "sentence" : "The water soft sand of the beach at the water surface",
+    "tokens" : [ 395, 3408, 2489, 1752, 5194, 394, 5075, 302, 394, 3408, 2035 ],
+    "perplexity" : 134.9265899658203,
+    "tokens_used" : [ " The", " water", " soft", " sand", " of", " the", " beach", " at", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] water soft sand of the beach [MASK] the water surface",
+    "timestamp" : 549694
+  }, {
+    "sentence" : "The water soft sand of the beach at the water level",
+    "tokens" : [ 395, 3408, 2489, 1752, 5194, 394, 5075, 302, 394, 3408, 2850 ],
+    "perplexity" : 140.13937377929688,
+    "tokens_used" : [ " The", " water", " soft", " sand", " of", " the", " beach", " at", " the", " water", " level" ],
+    "original_sentence" : "The water soft [MASK] of the beach at the water [MASK]",
+    "timestamp" : 611558
+  }, {
+    "sentence" : "The water soft sand of the beach and the water level",
+    "tokens" : [ 395, 3408, 2489, 1752, 5194, 394, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 141.3921356201172,
+    "tokens_used" : [ " The", " water", " soft", " sand", " of", " the", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "The water soft sand [MASK] the beach [MASK] the water level",
+    "timestamp" : 616647
+  }, {
+    "sentence" : "The water soft rock of the beach and the water level",
+    "tokens" : [ 395, 3408, 2489, 535, 5194, 394, 5075, 215, 394, 3408, 2850 ],
+    "perplexity" : 162.7429656982422,
+    "tokens_used" : [ " The", " water", " soft", " rock", " of", " the", " beach", " and", " the", " water", " level" ],
+    "original_sentence" : "[MASK] water soft [MASK] of the beach and the water level",
+    "timestamp" : 622224
+  }, {
+    "sentence" : "The water soft rock of the beach and the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 5194, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 149.71640014648438,
+    "tokens_used" : [ " The", " water", " soft", " rock", " of", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The water soft rock of the beach and [MASK] water [MASK]",
+    "timestamp" : 635429
+  }, {
+    "sentence" : "The water soft rock is the beach and the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 2713, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 167.4296112060547,
+    "tokens_used" : [ " The", " water", " soft", " rock", " is", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft rock [MASK] the beach and the water surface",
+    "timestamp" : 670937
+  }, {
+    "sentence" : "The water soft rock and the beach and the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 215, 394, 5075, 215, 394, 3408, 2035 ],
+    "perplexity" : 147.5767059326172,
+    "tokens_used" : [ " The", " water", " soft", " rock", " and", " the", " beach", " and", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft rock [MASK] the beach and the water surface",
+    "timestamp" : 671966
+  }, {
+    "sentence" : "The water soft rock and the beach at the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 215, 394, 5075, 302, 394, 3408, 2035 ],
+    "perplexity" : 162.06468200683594,
+    "tokens_used" : [ " The", " water", " soft", " rock", " and", " the", " beach", " at", " the", " water", " surface" ],
+    "original_sentence" : "The water soft [MASK] and the beach [MASK] the water surface",
+    "timestamp" : 682820
+  }, {
+    "sentence" : "The water soft rock and the beach on the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 215, 394, 5075, 710, 394, 3408, 2035 ],
+    "perplexity" : 144.52920532226562,
+    "tokens_used" : [ " The", " water", " soft", " rock", " and", " the", " beach", " on", " the", " water", " surface" ],
+    "original_sentence" : "The water soft [MASK] and the beach [MASK] the water surface",
+    "timestamp" : 685488
+  }, {
+    "sentence" : "The water soft rock of the beach on the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 5194, 394, 5075, 710, 394, 3408, 2035 ],
+    "perplexity" : 146.1793975830078,
+    "tokens_used" : [ " The", " water", " soft", " rock", " of", " the", " beach", " on", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] water soft rock [MASK] the beach on the water surface",
+    "timestamp" : 688171
+  }, {
+    "sentence" : "The water soft rock is the beach on the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 2713, 394, 5075, 710, 394, 3408, 2035 ],
+    "perplexity" : 166.0265655517578,
+    "tokens_used" : [ " The", " water", " soft", " rock", " is", " the", " beach", " on", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] water soft rock [MASK] the beach on the water surface",
+    "timestamp" : 689791
+  }, {
+    "sentence" : "The water soft rock of the beach at the water surface",
+    "tokens" : [ 395, 3408, 2489, 535, 5194, 394, 5075, 302, 394, 3408, 2035 ],
+    "perplexity" : 151.08697509765625,
+    "tokens_used" : [ " The", " water", " soft", " rock", " of", " the", " beach", " at", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] water soft rock of the beach [MASK] the water surface",
+    "timestamp" : 693592
+  }, {
+    "sentence" : "The water soft rock of the beach at the water level",
+    "tokens" : [ 395, 3408, 2489, 535, 5194, 394, 5075, 302, 394, 3408, 2850 ],
+    "perplexity" : 153.44876098632812,
+    "tokens_used" : [ " The", " water", " soft", " rock", " of", " the", " beach", " at", " the", " water", " level" ],
+    "original_sentence" : "[MASK] water soft rock of the beach at the water [MASK]",
+    "timestamp" : 700926
+  }, {
+    "sentence" : "The water soft rock of the beach on the water level",
+    "tokens" : [ 395, 3408, 2489, 535, 5194, 394, 5075, 710, 394, 3408, 2850 ],
+    "perplexity" : 140.9758758544922,
+    "tokens_used" : [ " The", " water", " soft", " rock", " of", " the", " beach", " on", " the", " water", " level" ],
+    "original_sentence" : "The [MASK] soft rock of the beach [MASK] the water level",
+    "timestamp" : 750343
+  }, {
+    "sentence" : "The water soft rock and the beach on the water level",
+    "tokens" : [ 395, 3408, 2489, 535, 215, 394, 5075, 710, 394, 3408, 2850 ],
+    "perplexity" : 150.3031463623047,
+    "tokens_used" : [ " The", " water", " soft", " rock", " and", " the", " beach", " on", " the", " water", " level" ],
+    "original_sentence" : "The [MASK] soft rock [MASK] the beach on the water level",
+    "timestamp" : 775289
+  } ]
+}

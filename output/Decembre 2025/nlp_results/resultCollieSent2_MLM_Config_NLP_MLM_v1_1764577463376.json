@@ -1,0 +1,566 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T03:24:23.374113485",
+  "time" : 61.782,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This sentence soft beach or can beach be aunts water",
+    "score" : 6119.201171875,
+    "time" : 2122,
+    "cycle" : 0
+  }, {
+    "sentence" : "This sentence soft beach or the beach be aunts water",
+    "score" : 3258.75927734375,
+    "time" : 2620,
+    "cycle" : 1
+  }, {
+    "sentence" : "This sentence soft water or the beach be aunts water",
+    "score" : 3118.82568359375,
+    "time" : 3210,
+    "cycle" : 2
+  }, {
+    "sentence" : "This sentence soft water or a beach be aunts water",
+    "score" : 3061.2451171875,
+    "time" : 3785,
+    "cycle" : 3
+  }, {
+    "sentence" : "A sentence soft water or a beach be aunts water",
+    "score" : 2238.7001953125,
+    "time" : 4285,
+    "cycle" : 4
+  }, {
+    "sentence" : "A sentence soft water on the beach be aunts water",
+    "score" : 2130.801025390625,
+    "time" : 5377,
+    "cycle" : 6
+  }, {
+    "sentence" : "Let sentence soft water on the beach be aunts water",
+    "score" : 1394.7991943359375,
+    "time" : 5854,
+    "cycle" : 7
+  }, {
+    "sentence" : "Can sentence soft water on the beach be aunts water",
+    "score" : 1118.3240966796875,
+    "time" : 6299,
+    "cycle" : 8
+  }, {
+    "sentence" : "Can sentence soft drink at a beach be drinking water",
+    "score" : 641.0253295898438,
+    "time" : 8099,
+    "cycle" : 12
+  }, {
+    "sentence" : "Can a soft drink at a beach be drinking water",
+    "score" : 132.85362243652344,
+    "time" : 9152,
+    "cycle" : 14
+  }, {
+    "sentence" : "Can a soft drink at the beach be drinking water",
+    "score" : 96.52777862548828,
+    "time" : 9719,
+    "cycle" : 15
+  }, {
+    "sentence" : "Whether a soft landing at the beach or deep water",
+    "score" : 78.52253723144531,
+    "time" : 15616,
+    "cycle" : 27
+  }, {
+    "sentence" : "Whether a soft landing on a beach or deep water",
+    "score" : 59.09246826171875,
+    "time" : 18552,
+    "cycle" : 33
+  }, {
+    "sentence" : "Whether a soft landing on the beach or deep water",
+    "score" : 57.28162384033203,
+    "time" : 19034,
+    "cycle" : 34
+  }, {
+    "sentence" : "Is a soft landing on a beach in the water",
+    "score" : 49.15938186645508,
+    "time" : 25664,
+    "cycle" : 46
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This sentence soft beach or can beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 5075, 1860, 1358, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 6119.201171875,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " or", " can", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft beach [MASK] can beach be aunts water",
+    "timestamp" : 2122
+  }, {
+    "sentence" : "This sentence soft beach or the beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 5075, 1860, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 3258.75927734375,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " or", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft beach or [MASK] beach be aunts water",
+    "timestamp" : 2620
+  }, {
+    "sentence" : "This sentence soft water or the beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 3408, 1860, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 3118.82568359375,
+    "tokens_used" : [ " This", " sentence", " soft", " water", " or", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft [MASK] or the beach be aunts water",
+    "timestamp" : 3210
+  }, {
+    "sentence" : "This sentence soft water or a beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 3408, 1860, 4646, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 3061.2451171875,
+    "tokens_used" : [ " This", " sentence", " soft", " water", " or", " a", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft water or [MASK] beach be aunts water",
+    "timestamp" : 3785
+  }, {
+    "sentence" : "A sentence soft water or a beach be aunts water",
+    "tokens" : [ 4646, 775, 2489, 3408, 1860, 4646, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 2238.7001953125,
+    "tokens_used" : [ " a", " sentence", " soft", " water", " or", " a", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft water or a beach be aunts water",
+    "timestamp" : 4285
+  }, {
+    "sentence" : "A sentence soft water or the beach be aunts water",
+    "tokens" : [ 4647, 775, 2489, 3408, 1860, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 2326.01904296875,
+    "tokens_used" : [ " A", " sentence", " soft", " water", " or", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "A sentence soft water or [MASK] beach be aunts water",
+    "timestamp" : 4816
+  }, {
+    "sentence" : "A sentence soft water on the beach be aunts water",
+    "tokens" : [ 4647, 775, 2489, 3408, 710, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 2130.801025390625,
+    "tokens_used" : [ " A", " sentence", " soft", " water", " on", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "A sentence soft water [MASK] the beach be aunts water",
+    "timestamp" : 5377
+  }, {
+    "sentence" : "Let sentence soft water on the beach be aunts water",
+    "tokens" : [ 3331, 775, 2489, 3408, 710, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1394.7991943359375,
+    "tokens_used" : [ " Let", " sentence", " soft", " water", " on", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft water on the beach be aunts water",
+    "timestamp" : 5854
+  }, {
+    "sentence" : "Can sentence soft water on the beach be aunts water",
+    "tokens" : [ 1358, 775, 2489, 3408, 710, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1118.3240966796875,
+    "tokens_used" : [ " can", " sentence", " soft", " water", " on", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft water on the beach be aunts water",
+    "timestamp" : 6299
+  }, {
+    "sentence" : "Can sentence soft water at the beach be aunts water",
+    "tokens" : [ 1359, 775, 2489, 3408, 302, 394, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1157.457763671875,
+    "tokens_used" : [ " Can", " sentence", " soft", " water", " at", " the", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "Can sentence soft water [MASK] the beach be aunts water",
+    "timestamp" : 6739
+  }, {
+    "sentence" : "Can sentence soft water at a beach be aunts water",
+    "tokens" : [ 1359, 775, 2489, 3408, 302, 4646, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1218.434326171875,
+    "tokens_used" : [ " Can", " sentence", " soft", " water", " at", " a", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "Can sentence soft water at [MASK] beach be aunts water",
+    "timestamp" : 7168
+  }, {
+    "sentence" : "Can sentence soft drink at a beach be aunts water",
+    "tokens" : [ 1359, 775, 2489, 4825, 302, 4646, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1140.6552734375,
+    "tokens_used" : [ " Can", " sentence", " soft", " drink", " at", " a", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "Can sentence soft [MASK] at a beach be aunts water",
+    "timestamp" : 7523
+  }, {
+    "sentence" : "Can sentence soft drink at a beach be drinking water",
+    "tokens" : [ 1359, 775, 2489, 4825, 302, 4646, 5075, 1392, 2264, 3408 ],
+    "perplexity" : 641.0253295898438,
+    "tokens_used" : [ " Can", " sentence", " soft", " drink", " at", " a", " beach", " be", " drinking", " water" ],
+    "original_sentence" : "Can sentence soft drink at a beach be [MASK] water",
+    "timestamp" : 8099
+  }, {
+    "sentence" : "Can a soft drink at a beach be drinking water",
+    "tokens" : [ 1359, 4646, 2489, 4825, 302, 4646, 5075, 1392, 2264, 3408 ],
+    "perplexity" : 132.85362243652344,
+    "tokens_used" : [ " Can", " a", " soft", " drink", " at", " a", " beach", " be", " drinking", " water" ],
+    "original_sentence" : "Can [MASK] soft drink at a beach be drinking water",
+    "timestamp" : 9152
+  }, {
+    "sentence" : "Can a soft drink at the beach be drinking water",
+    "tokens" : [ 1359, 4646, 2489, 4825, 302, 394, 5075, 1392, 2264, 3408 ],
+    "perplexity" : 96.52777862548828,
+    "tokens_used" : [ " Can", " a", " soft", " drink", " at", " the", " beach", " be", " drinking", " water" ],
+    "original_sentence" : "Can a soft drink at [MASK] beach be drinking water",
+    "timestamp" : 9719
+  }, {
+    "sentence" : "Can a soft water at the beach be drinking water",
+    "tokens" : [ 1359, 4646, 2489, 3408, 302, 394, 5075, 1392, 2264, 3408 ],
+    "perplexity" : 176.67959594726562,
+    "tokens_used" : [ " Can", " a", " soft", " water", " at", " the", " beach", " be", " drinking", " water" ],
+    "original_sentence" : "Can a soft [MASK] at the beach be drinking water",
+    "timestamp" : 10279
+  }, {
+    "sentence" : "Can a soft water at the beach is drinking water",
+    "tokens" : [ 1359, 4646, 2489, 3408, 302, 394, 5075, 2713, 2264, 3408 ],
+    "perplexity" : 144.49606323242188,
+    "tokens_used" : [ " Can", " a", " soft", " water", " at", " the", " beach", " is", " drinking", " water" ],
+    "original_sentence" : "Can a soft water at the beach [MASK] drinking water",
+    "timestamp" : 11437
+  }, {
+    "sentence" : "Can a soft water at a beach is drinking water",
+    "tokens" : [ 1359, 4646, 2489, 3408, 302, 4646, 5075, 2713, 2264, 3408 ],
+    "perplexity" : 175.05055236816406,
+    "tokens_used" : [ " Can", " a", " soft", " water", " at", " a", " beach", " is", " drinking", " water" ],
+    "original_sentence" : "Can a soft water at [MASK] beach is drinking water",
+    "timestamp" : 12338
+  }, {
+    "sentence" : "Whether a soft water at a beach is drinking water",
+    "tokens" : [ 4565, 4646, 2489, 3408, 302, 4646, 5075, 2713, 2264, 3408 ],
+    "perplexity" : 118.88252258300781,
+    "tokens_used" : [ " Whether", " a", " soft", " water", " at", " a", " beach", " is", " drinking", " water" ],
+    "original_sentence" : "[MASK] a soft water at a beach is drinking water",
+    "timestamp" : 12704
+  }, {
+    "sentence" : "Whether a soft water at the beach is drinking water",
+    "tokens" : [ 4565, 4646, 2489, 3408, 302, 394, 5075, 2713, 2264, 3408 ],
+    "perplexity" : 104.18019104003906,
+    "tokens_used" : [ " Whether", " a", " soft", " water", " at", " the", " beach", " is", " drinking", " water" ],
+    "original_sentence" : "Whether a soft water at [MASK] beach is drinking water",
+    "timestamp" : 13684
+  }, {
+    "sentence" : "Whether a soft water at the beach or drinking water",
+    "tokens" : [ 4565, 4646, 2489, 3408, 302, 394, 5075, 1860, 2264, 3408 ],
+    "perplexity" : 147.41220092773438,
+    "tokens_used" : [ " Whether", " a", " soft", " water", " at", " the", " beach", " or", " drinking", " water" ],
+    "original_sentence" : "Whether a soft water at the beach [MASK] drinking water",
+    "timestamp" : 14192
+  }, {
+    "sentence" : "Whether a soft water at the beach or hard water",
+    "tokens" : [ 4565, 4646, 2489, 3408, 302, 394, 5075, 1860, 1170, 3408 ],
+    "perplexity" : 160.67074584960938,
+    "tokens_used" : [ " Whether", " a", " soft", " water", " at", " the", " beach", " or", " hard", " water" ],
+    "original_sentence" : "Whether a soft water at the beach or [MASK] water",
+    "timestamp" : 14717
+  }, {
+    "sentence" : "Whether a soft water at the beach or deep water",
+    "tokens" : [ 4565, 4646, 2489, 3408, 302, 394, 5075, 1860, 747, 3408 ],
+    "perplexity" : 141.3599090576172,
+    "tokens_used" : [ " Whether", " a", " soft", " water", " at", " the", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether a soft water at the beach or [MASK] water",
+    "timestamp" : 15168
+  }, {
+    "sentence" : "Whether a soft landing at the beach or deep water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 302, 394, 5075, 1860, 747, 3408 ],
+    "perplexity" : 78.52253723144531,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " at", " the", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether a soft [MASK] at the beach or deep water",
+    "timestamp" : 15616
+  }, {
+    "sentence" : "Whether for soft landing at the beach or deep water",
+    "tokens" : [ 4565, 3548, 2489, 1037, 302, 394, 5075, 1860, 747, 3408 ],
+    "perplexity" : 114.6280517578125,
+    "tokens_used" : [ " Whether", " for", " soft", " landing", " at", " the", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether [MASK] soft landing at the beach or deep water",
+    "timestamp" : 16220
+  }, {
+    "sentence" : "Whether for soft landing on the beach or deep water",
+    "tokens" : [ 4565, 3548, 2489, 1037, 710, 394, 5075, 1860, 747, 3408 ],
+    "perplexity" : 92.22198486328125,
+    "tokens_used" : [ " Whether", " for", " soft", " landing", " on", " the", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether for soft landing [MASK] the beach or deep water",
+    "timestamp" : 16769
+  }, {
+    "sentence" : "Whether for soft landing in the beach or deep water",
+    "tokens" : [ 4565, 3548, 2489, 1037, 2515, 394, 5075, 1860, 747, 3408 ],
+    "perplexity" : 121.07978057861328,
+    "tokens_used" : [ " Whether", " for", " soft", " landing", " in", " the", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether for soft landing [MASK] the beach or deep water",
+    "timestamp" : 17252
+  }, {
+    "sentence" : "Whether for soft landing in a beach or deep water",
+    "tokens" : [ 4565, 3548, 2489, 1037, 2515, 4646, 5075, 1860, 747, 3408 ],
+    "perplexity" : 121.94705200195312,
+    "tokens_used" : [ " Whether", " for", " soft", " landing", " in", " a", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether for soft landing in [MASK] beach or deep water",
+    "timestamp" : 17668
+  }, {
+    "sentence" : "Whether for soft landing on a beach or deep water",
+    "tokens" : [ 4565, 3548, 2489, 1037, 710, 4646, 5075, 1860, 747, 3408 ],
+    "perplexity" : 90.17784881591797,
+    "tokens_used" : [ " Whether", " for", " soft", " landing", " on", " a", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether for soft landing [MASK] a beach or deep water",
+    "timestamp" : 18082
+  }, {
+    "sentence" : "Whether a soft landing on a beach or deep water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 4646, 5075, 1860, 747, 3408 ],
+    "perplexity" : 59.09246826171875,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " a", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether [MASK] soft landing on a beach or deep water",
+    "timestamp" : 18552
+  }, {
+    "sentence" : "Whether a soft landing on the beach or deep water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 394, 5075, 1860, 747, 3408 ],
+    "perplexity" : 57.28162384033203,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " the", " beach", " or", " deep", " water" ],
+    "original_sentence" : "Whether a soft landing on [MASK] beach or deep water",
+    "timestamp" : 19034
+  }, {
+    "sentence" : "Whether a soft landing on the beach in deep water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 394, 5075, 2515, 747, 3408 ],
+    "perplexity" : 66.70867919921875,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " the", " beach", " in", " deep", " water" ],
+    "original_sentence" : "Whether a soft landing on the beach [MASK] deep water",
+    "timestamp" : 19673
+  }, {
+    "sentence" : "Whether a soft landing on a beach in deep water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 4646, 5075, 2515, 747, 3408 ],
+    "perplexity" : 66.0335922241211,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " a", " beach", " in", " deep", " water" ],
+    "original_sentence" : "Whether a soft landing on [MASK] beach in deep water",
+    "timestamp" : 20144
+  }, {
+    "sentence" : "Whether a soft landing on a beach in the water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 59.11278533935547,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Whether a soft landing on a beach in [MASK] water",
+    "timestamp" : 20688
+  }, {
+    "sentence" : "Whether a soft landing on a beach in calm water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 4646, 5075, 2515, 505, 3408 ],
+    "perplexity" : 88.40464782714844,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " a", " beach", " in", " calm", " water" ],
+    "original_sentence" : "Whether a soft landing on a beach in [MASK] water",
+    "timestamp" : 21269
+  }, {
+    "sentence" : "Whether a soft landing on a beach or calm water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 4646, 5075, 1860, 505, 3408 ],
+    "perplexity" : 91.0943832397461,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " a", " beach", " or", " calm", " water" ],
+    "original_sentence" : "Whether a soft landing on a beach [MASK] calm water",
+    "timestamp" : 22071
+  }, {
+    "sentence" : "Whether a soft landing on the beach or calm water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 394, 5075, 1860, 505, 3408 ],
+    "perplexity" : 89.88519287109375,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " the", " beach", " or", " calm", " water" ],
+    "original_sentence" : "Whether a soft landing on [MASK] beach or calm water",
+    "timestamp" : 22443
+  }, {
+    "sentence" : "Whether a soft landing on the beach in calm water",
+    "tokens" : [ 4565, 4646, 2489, 1037, 710, 394, 5075, 2515, 505, 3408 ],
+    "perplexity" : 88.7811279296875,
+    "tokens_used" : [ " Whether", " a", " soft", " landing", " on", " the", " beach", " in", " calm", " water" ],
+    "original_sentence" : "Whether a soft landing on the beach [MASK] calm water",
+    "timestamp" : 22995
+  }, {
+    "sentence" : "Makes a soft landing on the beach in calm water",
+    "tokens" : [ 2250, 4646, 2489, 1037, 710, 394, 5075, 2515, 505, 3408 ],
+    "perplexity" : 79.19622802734375,
+    "tokens_used" : [ " makes", " a", " soft", " landing", " on", " the", " beach", " in", " calm", " water" ],
+    "original_sentence" : "[MASK] a soft landing on the beach in calm water",
+    "timestamp" : 23743
+  }, {
+    "sentence" : "Makes a soft landing on a beach in calm water",
+    "tokens" : [ 2251, 4646, 2489, 1037, 710, 4646, 5075, 2515, 505, 3408 ],
+    "perplexity" : 89.23096466064453,
+    "tokens_used" : [ " Makes", " a", " soft", " landing", " on", " a", " beach", " in", " calm", " water" ],
+    "original_sentence" : "Makes a soft landing on [MASK] beach in calm water",
+    "timestamp" : 24807
+  }, {
+    "sentence" : "Makes a soft landing on a beach in the water",
+    "tokens" : [ 2251, 4646, 2489, 1037, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 59.61151123046875,
+    "tokens_used" : [ " Makes", " a", " soft", " landing", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Makes a soft landing on a beach in [MASK] water",
+    "timestamp" : 25286
+  }, {
+    "sentence" : "Is a soft landing on a beach in the water",
+    "tokens" : [ 2713, 4646, 2489, 1037, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 49.15938186645508,
+    "tokens_used" : [ " is", " a", " soft", " landing", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] a soft landing on a beach in the water",
+    "timestamp" : 25664
+  }, {
+    "sentence" : "Is the soft landing on a beach in the water",
+    "tokens" : [ 2714, 394, 2489, 1037, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 79.52201080322266,
+    "tokens_used" : [ " Is", " the", " soft", " landing", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Is [MASK] soft landing on a beach in the water",
+    "timestamp" : 26386
+  }, {
+    "sentence" : "Is the soft landing on a beach or the water",
+    "tokens" : [ 2714, 394, 2489, 1037, 710, 4646, 5075, 1860, 394, 3408 ],
+    "perplexity" : 89.70805358886719,
+    "tokens_used" : [ " Is", " the", " soft", " landing", " on", " a", " beach", " or", " the", " water" ],
+    "original_sentence" : "Is the soft landing on a beach [MASK] the water",
+    "timestamp" : 26902
+  }, {
+    "sentence" : "Is the soft landing on a beach or in water",
+    "tokens" : [ 2714, 394, 2489, 1037, 710, 4646, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 81.72386169433594,
+    "tokens_used" : [ " Is", " the", " soft", " landing", " on", " a", " beach", " or", " in", " water" ],
+    "original_sentence" : "Is the soft landing on a beach or [MASK] water",
+    "timestamp" : 27476
+  }, {
+    "sentence" : "Is the soft landing on a beach or under water",
+    "tokens" : [ 2714, 394, 2489, 1037, 710, 4646, 5075, 1860, 1934, 3408 ],
+    "perplexity" : 81.14149475097656,
+    "tokens_used" : [ " Is", " the", " soft", " landing", " on", " a", " beach", " or", " under", " water" ],
+    "original_sentence" : "Is the soft landing on a beach or [MASK] water",
+    "timestamp" : 28397
+  }, {
+    "sentence" : "Is the soft landing on a beach or on water",
+    "tokens" : [ 2714, 394, 2489, 1037, 710, 4646, 5075, 1860, 710, 3408 ],
+    "perplexity" : 83.30044555664062,
+    "tokens_used" : [ " Is", " the", " soft", " landing", " on", " a", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is the soft landing on a beach or [MASK] water",
+    "timestamp" : 30182
+  }, {
+    "sentence" : "Is the soft landing on the beach or on water",
+    "tokens" : [ 2714, 394, 2489, 1037, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 79.87178039550781,
+    "tokens_used" : [ " Is", " the", " soft", " landing", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is the soft landing on [MASK] beach or on water",
+    "timestamp" : 31648
+  }, {
+    "sentence" : "Is a soft landing on the beach or on water",
+    "tokens" : [ 2714, 4646, 2489, 1037, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 54.60731506347656,
+    "tokens_used" : [ " Is", " a", " soft", " landing", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is [MASK] soft landing on the beach or on water",
+    "timestamp" : 34880
+  }, {
+    "sentence" : "Is a soft rock on the beach or on water",
+    "tokens" : [ 2714, 4646, 2489, 535, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 57.22767639160156,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is a soft [MASK] on the beach or on water",
+    "timestamp" : 35903
+  }, {
+    "sentence" : "Is the soft rock on the beach or on water",
+    "tokens" : [ 2714, 394, 2489, 535, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 87.8202133178711,
+    "tokens_used" : [ " Is", " the", " soft", " rock", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is [MASK] soft rock on the beach or on water",
+    "timestamp" : 36529
+  }, {
+    "sentence" : "Is the soft sand on the beach or on water",
+    "tokens" : [ 2714, 394, 2489, 1752, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 82.85218048095703,
+    "tokens_used" : [ " Is", " the", " soft", " sand", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is the soft [MASK] on the beach or on water",
+    "timestamp" : 37041
+  }, {
+    "sentence" : "Is the soft sand on the beach floating on water",
+    "tokens" : [ 2714, 394, 2489, 1752, 710, 394, 5075, 3190, 710, 3408 ],
+    "perplexity" : 96.99563598632812,
+    "tokens_used" : [ " Is", " the", " soft", " sand", " on", " the", " beach", " floating", " on", " water" ],
+    "original_sentence" : "Is the soft sand on the beach [MASK] on water",
+    "timestamp" : 37683
+  }, {
+    "sentence" : "Is the soft rock on the beach floating on water",
+    "tokens" : [ 2714, 394, 2489, 535, 710, 394, 5075, 3190, 710, 3408 ],
+    "perplexity" : 92.30816650390625,
+    "tokens_used" : [ " Is", " the", " soft", " rock", " on", " the", " beach", " floating", " on", " water" ],
+    "original_sentence" : "Is the soft [MASK] on the beach floating on water",
+    "timestamp" : 41377
+  }, {
+    "sentence" : "Is a soft rock on the beach floating on water",
+    "tokens" : [ 2714, 4646, 2489, 535, 710, 394, 5075, 3190, 710, 3408 ],
+    "perplexity" : 63.234535217285156,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " on", " the", " beach", " floating", " on", " water" ],
+    "original_sentence" : "Is [MASK] soft rock on the beach floating on water",
+    "timestamp" : 45462
+  }, {
+    "sentence" : "Is a soft rock on a beach floating on water",
+    "tokens" : [ 2714, 4646, 2489, 535, 710, 4646, 5075, 3190, 710, 3408 ],
+    "perplexity" : 59.2061882019043,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " on", " a", " beach", " floating", " on", " water" ],
+    "original_sentence" : "Is a soft rock on [MASK] beach floating on water",
+    "timestamp" : 47925
+  }, {
+    "sentence" : "Is a soft rock on a beach or on water",
+    "tokens" : [ 2714, 4646, 2489, 535, 710, 4646, 5075, 1860, 710, 3408 ],
+    "perplexity" : 59.93455123901367,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " on", " a", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is a soft rock on a beach [MASK] on water",
+    "timestamp" : 48873
+  }, {
+    "sentence" : "Is a soft surface on a beach or on water",
+    "tokens" : [ 2714, 4646, 2489, 2035, 710, 4646, 5075, 1860, 710, 3408 ],
+    "perplexity" : 74.37750244140625,
+    "tokens_used" : [ " Is", " a", " soft", " surface", " on", " a", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is a soft [MASK] on a beach or on water",
+    "timestamp" : 49882
+  }, {
+    "sentence" : "Is a soft sand on a beach or on water",
+    "tokens" : [ 2714, 4646, 2489, 1752, 710, 4646, 5075, 1860, 710, 3408 ],
+    "perplexity" : 91.78306579589844,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " on", " a", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is a soft [MASK] on a beach or on water",
+    "timestamp" : 50627
+  }, {
+    "sentence" : "Is a soft sand on the beach or on water",
+    "tokens" : [ 2714, 4646, 2489, 1752, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 85.15602111816406,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Is a soft sand on [MASK] beach or on water",
+    "timestamp" : 51274
+  }, {
+    "sentence" : "Is a soft sand on the beach or under water",
+    "tokens" : [ 2714, 4646, 2489, 1752, 710, 394, 5075, 1860, 1934, 3408 ],
+    "perplexity" : 78.14774322509766,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " on", " the", " beach", " or", " under", " water" ],
+    "original_sentence" : "Is a soft sand on the beach or [MASK] water",
+    "timestamp" : 51973
+  }, {
+    "sentence" : "Is a soft surface on the beach or under water",
+    "tokens" : [ 2714, 4646, 2489, 2035, 710, 394, 5075, 1860, 1934, 3408 ],
+    "perplexity" : 66.33232116699219,
+    "tokens_used" : [ " Is", " a", " soft", " surface", " on", " the", " beach", " or", " under", " water" ],
+    "original_sentence" : "Is a soft [MASK] on the beach or under water",
+    "timestamp" : 52784
+  }, {
+    "sentence" : "Is a soft rock on the beach or under water",
+    "tokens" : [ 2714, 4646, 2489, 535, 710, 394, 5075, 1860, 1934, 3408 ],
+    "perplexity" : 50.4174690246582,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " on", " the", " beach", " or", " under", " water" ],
+    "original_sentence" : "Is a soft [MASK] on the beach or under water",
+    "timestamp" : 55934
+  }, {
+    "sentence" : "Whether a soft rock on the beach or under water",
+    "tokens" : [ 4565, 4646, 2489, 535, 710, 394, 5075, 1860, 1934, 3408 ],
+    "perplexity" : 80.36927795410156,
+    "tokens_used" : [ " Whether", " a", " soft", " rock", " on", " the", " beach", " or", " under", " water" ],
+    "original_sentence" : "[MASK] a soft rock on the beach or under water",
+    "timestamp" : 57323
+  }, {
+    "sentence" : "Whether a soft rock on the beach or on water",
+    "tokens" : [ 4565, 4646, 2489, 535, 710, 394, 5075, 1860, 710, 3408 ],
+    "perplexity" : 88.77210998535156,
+    "tokens_used" : [ " Whether", " a", " soft", " rock", " on", " the", " beach", " or", " on", " water" ],
+    "original_sentence" : "Whether a soft rock on the beach or [MASK] water",
+    "timestamp" : 58127
+  }, {
+    "sentence" : "Whether a soft rock on the beach or the water",
+    "tokens" : [ 4565, 4646, 2489, 535, 710, 394, 5075, 1860, 394, 3408 ],
+    "perplexity" : 77.76960754394531,
+    "tokens_used" : [ " Whether", " a", " soft", " rock", " on", " the", " beach", " or", " the", " water" ],
+    "original_sentence" : "Whether a soft rock on the beach or [MASK] water",
+    "timestamp" : 58860
+  }, {
+    "sentence" : "Whether a soft rock at the beach or the water",
+    "tokens" : [ 4565, 4646, 2489, 535, 302, 394, 5075, 1860, 394, 3408 ],
+    "perplexity" : 96.0429458618164,
+    "tokens_used" : [ " Whether", " a", " soft", " rock", " at", " the", " beach", " or", " the", " water" ],
+    "original_sentence" : "Whether a soft rock [MASK] the beach or the water",
+    "timestamp" : 59994
+  } ]
+}

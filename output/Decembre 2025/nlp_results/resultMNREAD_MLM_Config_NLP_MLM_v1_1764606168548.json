@@ -1,0 +1,193 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T11:22:48.546226434",
+  "time" : 602.466,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She felt like he was dying to make it to the top of my game",
+    "score" : 16.851240158081055,
+    "time" : 77631,
+    "cycle" : 3
+  }, {
+    "sentence" : "She felt like he was going to make it to the end of my game",
+    "score" : 13.308221817016602,
+    "time" : 125488,
+    "cycle" : 12
+  } ],
+  "base_sentence" : {
+    "sentence" : "She felt like he was going to make it to the top of my game",
+    "perplexity" : 12.041910171508789,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She felt like he was dying to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 730, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 16.851240158081055,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " dying", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt like he was [MASK] to make [MASK] to the top of my game",
+    "timestamp" : 77631
+  }, {
+    "sentence" : "She felt like he was meant to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1408, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 20.158279418945312,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " meant", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] felt like he was [MASK] to make it to the top of my game",
+    "timestamp" : 92226
+  }, {
+    "sentence" : "She felt like he was meant to make it at the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1408, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 27.352516174316406,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " meant", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt like he was meant to make it [MASK] the top of my [MASK]",
+    "timestamp" : 101291
+  }, {
+    "sentence" : "She felt like he was happy to make it at the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 3655, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 28.083646774291992,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " happy", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She [MASK] like he was [MASK] to make it at the top of my game",
+    "timestamp" : 105176
+  }, {
+    "sentence" : "She felt like he was happy to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 3655, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 20.681028366088867,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " happy", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt like he was [MASK] to make it [MASK] the top of my game",
+    "timestamp" : 114233
+  }, {
+    "sentence" : "She felt like he was happy to make it to the end of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 3655, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 22.48518943786621,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " happy", " to", " make", " it", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "She [MASK] like he was happy to make it to the [MASK] of my game",
+    "timestamp" : 119384
+  }, {
+    "sentence" : "She felt like he was going to make it to the end of my game",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 13.308221817016602,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "[MASK] felt like he was [MASK] to make it to the end of my game",
+    "timestamp" : 125488
+  }, {
+    "sentence" : "She felt like is was going to make it to the end of my game",
+    "tokens" : [ 1962, 2774, 4424, 2713, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 23.886863708496094,
+    "tokens_used" : [ " She", " felt", " like", " is", " was", " going", " to", " make", " it", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "She [MASK] like [MASK] was going to make it to the end of my game",
+    "timestamp" : 130708
+  }, {
+    "sentence" : "She felt like is was going to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 2713, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 22.300119400024414,
+    "tokens_used" : [ " She", " felt", " like", " is", " was", " going", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt like [MASK] was going to make it to the [MASK] of my game",
+    "timestamp" : 169270
+  }, {
+    "sentence" : "She felt that is was going to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 1321, 2713, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 25.360254287719727,
+    "tokens_used" : [ " She", " felt", " that", " is", " was", " going", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] felt [MASK] is was going to make it to the top of my game",
+    "timestamp" : 200818
+  }, {
+    "sentence" : "She felt that is was going to make it to the end of my game",
+    "tokens" : [ 1962, 2774, 1321, 2713, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 25.728322982788086,
+    "tokens_used" : [ " She", " felt", " that", " is", " was", " going", " to", " make", " it", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "She felt that is was going to make it [MASK] the [MASK] of my game",
+    "timestamp" : 217564
+  }, {
+    "sentence" : "She felt that is was going to make it to the end of my book",
+    "tokens" : [ 1962, 2774, 1321, 2713, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 25.152732849121094,
+    "tokens_used" : [ " She", " felt", " that", " is", " was", " going", " to", " make", " it", " to", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "[MASK] felt that is was going to make it to the end of my [MASK]",
+    "timestamp" : 264857
+  }, {
+    "sentence" : "She felt that he was going to make it to the end of my book",
+    "tokens" : [ 1962, 2774, 1321, 2228, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 14.76401138305664,
+    "tokens_used" : [ " She", " felt", " that", " he", " was", " going", " to", " make", " it", " to", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt [MASK] [MASK] was going to make it to the end of my book",
+    "timestamp" : 269016
+  }, {
+    "sentence" : "She felt that he was going to make it by the end of my book",
+    "tokens" : [ 1962, 2774, 1321, 2228, 1557, 1996, 2461, 2127, 2050, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 18.998241424560547,
+    "tokens_used" : [ " She", " felt", " that", " he", " was", " going", " to", " make", " it", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She [MASK] that he was going to make it [MASK] the end of my book",
+    "timestamp" : 282267
+  }, {
+    "sentence" : "She felt that he was going to want it by the end of my book",
+    "tokens" : [ 1962, 2774, 1321, 2228, 1557, 1996, 2461, 2315, 2050, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 26.38463020324707,
+    "tokens_used" : [ " She", " felt", " that", " he", " was", " going", " to", " want", " it", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt that he [MASK] going to [MASK] it by the end of my book",
+    "timestamp" : 299872
+  }, {
+    "sentence" : "She felt that he was going to blow it by the end of my book",
+    "tokens" : [ 1962, 2774, 1321, 2228, 1557, 1996, 2461, 5013, 2050, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 20.97003173828125,
+    "tokens_used" : [ " She", " felt", " that", " he", " was", " going", " to", " blow", " it", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt [MASK] he was going to [MASK] it by the end of my book",
+    "timestamp" : 326579
+  }, {
+    "sentence" : "She felt like he was going to blow it by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 5013, 2050, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 18.788822174072266,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " blow", " it", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt [MASK] he was going to blow it by the end of my [MASK]",
+    "timestamp" : 356728
+  }, {
+    "sentence" : "She felt like he was going to blow us by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 5013, 1368, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 24.622350692749023,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " blow", " us", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She [MASK] like he was going to blow [MASK] by the end of my book",
+    "timestamp" : 365446
+  }, {
+    "sentence" : "She felt like he was going to lose us by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 4820, 1368, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 23.84526824951172,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " lose", " us", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She [MASK] like he was going to [MASK] us by the end of my book",
+    "timestamp" : 380757
+  }, {
+    "sentence" : "She felt like he was going to lose me by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 4820, 994, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 19.260528564453125,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " lose", " me", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt like he was going to [MASK] [MASK] by the end of my book",
+    "timestamp" : 400736
+  }, {
+    "sentence" : "She felt like he was going to kill me by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 2491, 994, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 16.952688217163086,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " kill", " me", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt like [MASK] was going to [MASK] me by the end of my book",
+    "timestamp" : 405838
+  }, {
+    "sentence" : "She felt like he was going to hate me by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 1261, 994, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 18.985788345336914,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " hate", " me", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt like [MASK] was going to [MASK] me by the end of my book",
+    "timestamp" : 480985
+  }, {
+    "sentence" : "She felt like he was going to hate us by the end of my book",
+    "tokens" : [ 1962, 2774, 4424, 2228, 1557, 1996, 2461, 1261, 1368, 2029, 394, 2135, 5194, 938, 2989 ],
+    "perplexity" : 26.317073822021484,
+    "tokens_used" : [ " She", " felt", " like", " he", " was", " going", " to", " hate", " us", " by", " the", " end", " of", " my", " book" ],
+    "original_sentence" : "She felt like he was going to hate [MASK] by the end of my [MASK]",
+    "timestamp" : 495322
+  } ]
+}

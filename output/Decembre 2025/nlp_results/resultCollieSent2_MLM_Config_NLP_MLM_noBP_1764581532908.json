@@ -1,0 +1,101 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T04:32:12.906553122",
+  "time" : 182.099,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This build soft Cause water can beach be aunts water",
+    "score" : 8771.6806640625,
+    "time" : 3888,
+    "cycle" : 0
+  }, {
+    "sentence" : "Packing packing soft packing water Cause beach packing Cause water",
+    "score" : 6479.63037109375,
+    "time" : 47422,
+    "cycle" : 16
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This build soft Cause water can beach be aunts water",
+    "tokens" : [ 1228, 310, 2489, 253, 3408, 1358, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 8771.6806640625,
+    "tokens_used" : [ " This", " build", " soft", " Cause", " water", " can", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This [MASK] soft [MASK] water can beach be aunts water",
+    "timestamp" : 3888
+  }, {
+    "sentence" : "This build soft Cause water can beach be juice water",
+    "tokens" : [ 1228, 310, 2489, 253, 3408, 1358, 5075, 1392, 4076, 3408 ],
+    "perplexity" : 8805.8017578125,
+    "tokens_used" : [ " This", " build", " soft", " Cause", " water", " can", " beach", " be", " juice", " water" ],
+    "original_sentence" : "This [MASK] soft Cause water can beach be [MASK] water",
+    "timestamp" : 8165
+  }, {
+    "sentence" : "This build soft Cause water hide beach be Cause water",
+    "tokens" : [ 1228, 310, 2489, 253, 3408, 285, 5075, 1392, 253, 3408 ],
+    "perplexity" : 11563.7109375,
+    "tokens_used" : [ " This", " build", " soft", " Cause", " water", " hide", " beach", " be", " Cause", " water" ],
+    "original_sentence" : "This build soft Cause water [MASK] beach be [MASK] water",
+    "timestamp" : 11490
+  }, {
+    "sentence" : "This build soft Cause water hide beach hide Cause water",
+    "tokens" : [ 1228, 310, 2489, 253, 3408, 285, 5075, 285, 253, 3408 ],
+    "perplexity" : 10709.8505859375,
+    "tokens_used" : [ " This", " build", " soft", " Cause", " water", " hide", " beach", " hide", " Cause", " water" ],
+    "original_sentence" : "This build soft Cause water hide beach [MASK] [MASK] water",
+    "timestamp" : 19008
+  }, {
+    "sentence" : "Linking packing soft Cause water hide beach hide Cause water",
+    "tokens" : [ 2847, 1824, 2489, 253, 3408, 285, 5075, 285, 253, 3408 ],
+    "perplexity" : 9100.599609375,
+    "tokens_used" : [ " linking", " packing", " soft", " Cause", " water", " hide", " beach", " hide", " Cause", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft Cause water hide beach hide Cause water",
+    "timestamp" : 22654
+  }, {
+    "sentence" : "Packing packing soft packing water hide beach hide Cause water",
+    "tokens" : [ 1824, 1824, 2489, 1824, 3408, 285, 5075, 285, 253, 3408 ],
+    "perplexity" : 9730.2685546875,
+    "tokens_used" : [ " packing", " packing", " soft", " packing", " water", " hide", " beach", " hide", " Cause", " water" ],
+    "original_sentence" : "[MASK] packing soft [MASK] water hide beach hide Cause water",
+    "timestamp" : 30671
+  }, {
+    "sentence" : "Mouth packing soft packing water Cause beach hide Cause water",
+    "tokens" : [ 2602, 1824, 2489, 1824, 3408, 253, 5075, 285, 253, 3408 ],
+    "perplexity" : 13357.458984375,
+    "tokens_used" : [ " mouth", " packing", " soft", " packing", " water", " Cause", " beach", " hide", " Cause", " water" ],
+    "original_sentence" : "[MASK] packing soft packing water [MASK] beach hide Cause water",
+    "timestamp" : 36875
+  }, {
+    "sentence" : "Mouth packing soft packing water Cause beach packing Cause water",
+    "tokens" : [ 2602, 1824, 2489, 1824, 3408, 253, 5075, 1824, 253, 3408 ],
+    "perplexity" : 9468.298828125,
+    "tokens_used" : [ " mouth", " packing", " soft", " packing", " water", " Cause", " beach", " packing", " Cause", " water" ],
+    "original_sentence" : "[MASK] packing soft packing water Cause beach [MASK] Cause water",
+    "timestamp" : 43984
+  }, {
+    "sentence" : "Packing packing soft packing water Cause beach packing Cause water",
+    "tokens" : [ 1824, 1824, 2489, 1824, 3408, 253, 5075, 1824, 253, 3408 ],
+    "perplexity" : 6479.63037109375,
+    "tokens_used" : [ " packing", " packing", " soft", " packing", " water", " Cause", " beach", " packing", " Cause", " water" ],
+    "original_sentence" : "[MASK] packing soft [MASK] water Cause beach packing Cause water",
+    "timestamp" : 47422
+  }, {
+    "sentence" : "Mouth packing soft packing water Cause beach packing mouth water",
+    "tokens" : [ 2602, 1824, 2489, 1824, 3408, 253, 5075, 1824, 2602, 3408 ],
+    "perplexity" : 10687.1796875,
+    "tokens_used" : [ " mouth", " packing", " soft", " packing", " water", " Cause", " beach", " packing", " mouth", " water" ],
+    "original_sentence" : "[MASK] packing soft packing water Cause beach packing [MASK] water",
+    "timestamp" : 74778
+  } ]
+}

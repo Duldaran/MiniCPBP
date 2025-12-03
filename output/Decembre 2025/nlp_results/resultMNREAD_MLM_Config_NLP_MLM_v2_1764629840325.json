@@ -1,0 +1,135 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T17:57:20.322771038",
+  "time" : 306.672,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She paused outside the door to the right of my left bedroom",
+    "score" : 83.47503662109375,
+    "time" : 30551,
+    "cycle" : 0
+  }, {
+    "sentence" : "She paused outside the door to the right of the old bedroom",
+    "score" : 62.53813171386719,
+    "time" : 34528,
+    "cycle" : 1
+  }, {
+    "sentence" : "She walked outside the door to the right of the old bedroom",
+    "score" : 50.437557220458984,
+    "time" : 41118,
+    "cycle" : 3
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She paused outside the door to the right of my left bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 5022, 5194, 938, 1608, 1583 ],
+    "perplexity" : 83.47503662109375,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " right", " of", " my", " left", " bedroom" ],
+    "original_sentence" : "She paused outside the door to the [MASK] of my left [MASK]",
+    "timestamp" : 30551
+  }, {
+    "sentence" : "She paused outside the door to the right of the old bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 62.53813171386719,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She paused outside the door to the right of [MASK] [MASK] bedroom",
+    "timestamp" : 34528
+  }, {
+    "sentence" : "She paused outside the door to the right of the big bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 5022, 5194, 394, 2039, 1583 ],
+    "perplexity" : 69.66145324707031,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " right", " of", " the", " big", " bedroom" ],
+    "original_sentence" : "She paused outside the door to the right of [MASK] [MASK] bedroom",
+    "timestamp" : 34864
+  }, {
+    "sentence" : "She paused outside the door to the right of the her bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2461, 394, 5022, 5194, 394, 3730, 1583 ],
+    "perplexity" : 87.00518035888672,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " to", " the", " right", " of", " the", " her", " bedroom" ],
+    "original_sentence" : "She paused outside the door to the right of [MASK] [MASK] bedroom",
+    "timestamp" : 35145
+  }, {
+    "sentence" : "She paused outside the gate to the right of the old bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 4769, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 89.89008331298828,
+    "tokens_used" : [ " She", " paused", " outside", " the", " gate", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She paused outside the [MASK] to the right of the [MASK] bedroom",
+    "timestamp" : 37540
+  }, {
+    "sentence" : "She paused outside the wall to the right of the old bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 1241, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 105.2706069946289,
+    "tokens_used" : [ " She", " paused", " outside", " the", " wall", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She paused outside the [MASK] to the right of the [MASK] bedroom",
+    "timestamp" : 37907
+  }, {
+    "sentence" : "She paused outside the hall to the right of the old bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 3558, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 95.09086608886719,
+    "tokens_used" : [ " She", " paused", " outside", " the", " hall", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She paused outside the [MASK] to the right of the [MASK] bedroom",
+    "timestamp" : 38297
+  }, {
+    "sentence" : "She paused outside the tent to the right of the old bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 3012, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 99.12683868408203,
+    "tokens_used" : [ " She", " paused", " outside", " the", " tent", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She paused outside the [MASK] to the right of the [MASK] bedroom",
+    "timestamp" : 38705
+  }, {
+    "sentence" : "She paused outside the area to the right of the old bedroom",
+    "tokens" : [ 1962, 3634, 803, 394, 2606, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 114.85330200195312,
+    "tokens_used" : [ " She", " paused", " outside", " the", " area", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She paused outside the [MASK] to the right of the [MASK] bedroom",
+    "timestamp" : 39017
+  }, {
+    "sentence" : "She walked outside the door to the right of the old bedroom",
+    "tokens" : [ 1962, 4308, 803, 394, 4455, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 50.437557220458984,
+    "tokens_used" : [ " She", " walked", " outside", " the", " door", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She [MASK] outside the [MASK] to the right of the old bedroom",
+    "timestamp" : 41118
+  }, {
+    "sentence" : "She bounce outside the door to the right of the old bedroom",
+    "tokens" : [ 1962, 3228, 803, 394, 4455, 2461, 394, 5022, 5194, 394, 480, 1583 ],
+    "perplexity" : 71.10511016845703,
+    "tokens_used" : [ " She", " bounce", " outside", " the", " door", " to", " the", " right", " of", " the", " old", " bedroom" ],
+    "original_sentence" : "She [MASK] outside the door [MASK] the right of the old bedroom",
+    "timestamp" : 45436
+  }, {
+    "sentence" : "She was sitting one door to the right of its master bedroom",
+    "tokens" : [ 1962, 1557, 3908, 1820, 4455, 2461, 394, 5022, 5194, 2426, 1856, 1583 ],
+    "perplexity" : 58.09640121459961,
+    "tokens_used" : [ " She", " was", " sitting", " one", " door", " to", " the", " right", " of", " its", " master", " bedroom" ],
+    "original_sentence" : "She was [MASK] one door to the right of [MASK] master bedroom",
+    "timestamp" : 62945
+  }, {
+    "sentence" : "Park She passes the door to the attic on the fourth bedroom",
+    "tokens" : [ 984, 1962, 2022, 394, 4455, 2461, 394, 197, 710, 394, 5067, 1583 ],
+    "perplexity" : 99.39521026611328,
+    "tokens_used" : [ " Park", " She", " passes", " the", " door", " to", " the", " attic", " on", " the", " fourth", " bedroom" ],
+    "original_sentence" : "Park She passes the [MASK] to the attic on the [MASK] bedroom",
+    "timestamp" : 233739
+  }, {
+    "sentence" : "Park car passes the door to the attic on the fourth bedroom",
+    "tokens" : [ 984, 2223, 2022, 394, 4455, 2461, 394, 197, 710, 394, 5067, 1583 ],
+    "perplexity" : 95.70638275146484,
+    "tokens_used" : [ " Park", " car", " passes", " the", " door", " to", " the", " attic", " on", " the", " fourth", " bedroom" ],
+    "original_sentence" : "Park [MASK] passes the door to the attic [MASK] the fourth bedroom",
+    "timestamp" : 303985
+  } ]
+}

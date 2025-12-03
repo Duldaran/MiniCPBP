@@ -1,0 +1,130 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 150,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:44:14.307327674",
+  "time" : 169.192,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front of the door",
+    "score" : 26.1678524017334,
+    "time" : 64271,
+    "cycle" : 2
+  }, {
+    "sentence" : "And she he wanted to be able to see me in front of her eyes",
+    "score" : 24.41367530822754,
+    "time" : 94173,
+    "cycle" : 25
+  } ],
+  "base_sentence" : {
+    "sentence" : "And yet he seemed to be able to see me in front of the shop",
+    "perplexity" : 35.467933654785156,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front of the door",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 26.1678524017334,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "And yet he seemed to be able to see me [MASK] front of the [MASK]",
+    "timestamp" : 64271
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in front of his door",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3882, 4455 ],
+    "perplexity" : 32.358909606933594,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " his", " door" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to see me in front of [MASK] door",
+    "timestamp" : 65549
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in front of her door",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 4455 ],
+    "perplexity" : 34.493751525878906,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " door" ],
+    "original_sentence" : "[MASK] yet he seemed to be able to see me in front of [MASK] door",
+    "timestamp" : 66609
+  }, {
+    "sentence" : "And she he wanted to be able to sit me in front of the door",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 1326, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 37.37989044189453,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " sit", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "And [MASK] [MASK] wanted to be able to sit me in front of the door",
+    "timestamp" : 84018
+  }, {
+    "sentence" : "And she he wanted to be able to sit me in front of her door",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 1326, 994, 2515, 2216, 5194, 3730, 4455 ],
+    "perplexity" : 41.18885803222656,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " sit", " me", " in", " front", " of", " her", " door" ],
+    "original_sentence" : "And she he wanted to be able to sit me [MASK] front of [MASK] door",
+    "timestamp" : 90129
+  }, {
+    "sentence" : "And she he wanted to be able to see me in front of her door",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 4455 ],
+    "perplexity" : 30.461101531982422,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " door" ],
+    "original_sentence" : "And [MASK] he wanted to be able to [MASK] me in front of her door",
+    "timestamp" : 92256
+  }, {
+    "sentence" : "And she he wanted to be able to see me in front of her eyes",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 24.41367530822754,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And she he wanted to be able to see me in front [MASK] her [MASK]",
+    "timestamp" : 94173
+  }, {
+    "sentence" : "And she he wanted to be able to put me in front of her eyes",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 31.141605377197266,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " put", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And she he wanted to be able [MASK] [MASK] me in front of her eyes",
+    "timestamp" : 96491
+  }, {
+    "sentence" : "And she he wanted to be able to hit me in front of her eyes",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3252, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 35.49195861816406,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " hit", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And [MASK] he wanted to be able to [MASK] me in front of her eyes",
+    "timestamp" : 97644
+  }, {
+    "sentence" : "And she he wanted to be able to hit me in front of her baby",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3252, 994, 2515, 2216, 5194, 3730, 4021 ],
+    "perplexity" : 47.53773880004883,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " hit", " me", " in", " front", " of", " her", " baby" ],
+    "original_sentence" : "And she [MASK] wanted to be able to hit me in front of her [MASK]",
+    "timestamp" : 99347
+  }, {
+    "sentence" : "And she he wanted to be able to see me in front of her baby",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 4021 ],
+    "perplexity" : 32.55210876464844,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " baby" ],
+    "original_sentence" : "And she he wanted to be able to [MASK] me [MASK] front of her baby",
+    "timestamp" : 100045
+  }, {
+    "sentence" : "And she he wanted to be able to see me in front of her dead",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 1818 ],
+    "perplexity" : 44.620967864990234,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " dead" ],
+    "original_sentence" : "And she [MASK] wanted to be able to see me in front of her [MASK]",
+    "timestamp" : 100982
+  }, {
+    "sentence" : "And she he wanted to be able to see me in front of the drum",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 5041 ],
+    "perplexity" : 42.58151626586914,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " drum" ],
+    "original_sentence" : "And [MASK] he wanted to be able to see me [MASK] front of the drum",
+    "timestamp" : 146028
+  }, {
+    "sentence" : "And she he wanted to be able to see us in front of the drum",
+    "tokens" : [ 216, 1961, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 394, 5041 ],
+    "perplexity" : 45.3983039855957,
+    "tokens_used" : [ " And", " she", " he", " wanted", " to", " be", " able", " to", " see", " us", " in", " front", " of", " the", " drum" ],
+    "original_sentence" : "And she he [MASK] to be able to see [MASK] in front of the drum",
+    "timestamp" : 146785
+  } ]
+}

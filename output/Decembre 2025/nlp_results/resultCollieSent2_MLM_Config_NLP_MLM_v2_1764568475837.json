@@ -1,0 +1,422 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T00:54:35.835532389",
+  "time" : 415.155,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft beach grass soft beach the place water comes",
+    "score" : 4249.4287109375,
+    "time" : 4616,
+    "cycle" : 0
+  }, {
+    "sentence" : "The sentence soft beach is soft beach the place water comes",
+    "score" : 1801.9393310546875,
+    "time" : 8158,
+    "cycle" : 1
+  }, {
+    "sentence" : "The sentence soft beach is the beach the the water comes",
+    "score" : 1407.3939208984375,
+    "time" : 12179,
+    "cycle" : 2
+  }, {
+    "sentence" : "The sentence soft beach is the beach and the water comes",
+    "score" : 761.58056640625,
+    "time" : 16318,
+    "cycle" : 3
+  }, {
+    "sentence" : "The sentence soft There is the beach and the water is",
+    "score" : 664.7310180664062,
+    "time" : 20155,
+    "cycle" : 4
+  }, {
+    "sentence" : "The sentence soft There is the beach and the water nearby",
+    "score" : 646.439697265625,
+    "time" : 24300,
+    "cycle" : 5
+  }, {
+    "sentence" : "The Of soft There is the beach and the water nearby",
+    "score" : 543.875244140625,
+    "time" : 27926,
+    "cycle" : 6
+  }, {
+    "sentence" : "The of soft There is the beach and the water nearby",
+    "score" : 274.482421875,
+    "time" : 28247,
+    "cycle" : 6
+  }, {
+    "sentence" : "The of soft There is the beach and the water here",
+    "score" : 209.2760467529297,
+    "time" : 32085,
+    "cycle" : 7
+  }, {
+    "sentence" : "The of soft here is the beach and the water is",
+    "score" : 198.46385192871094,
+    "time" : 58984,
+    "cycle" : 14
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft beach grass soft beach the place water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 0, 2489, 5075, 394, 2703, 3408, 291 ],
+    "perplexity" : 4249.4287109375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " grass", " soft", " beach", " the", " place", " water", " comes" ],
+    "original_sentence" : "The sentence soft beach [MASK] [MASK] beach [MASK] place water comes",
+    "timestamp" : 4616
+  }, {
+    "sentence" : "The sentence soft beach is soft beach the place water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 2713, 2489, 5075, 394, 2703, 3408, 291 ],
+    "perplexity" : 1801.9393310546875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " is", " soft", " beach", " the", " place", " water", " comes" ],
+    "original_sentence" : "The [MASK] soft beach [MASK] [MASK] beach the place water comes",
+    "timestamp" : 8158
+  }, {
+    "sentence" : "The sentence soft beach is the beach the the water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 2713, 394, 5075, 394, 394, 3408, 291 ],
+    "perplexity" : 1407.3939208984375,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " is", " the", " beach", " the", " the", " water", " comes" ],
+    "original_sentence" : "[MASK] sentence soft beach is [MASK] beach the [MASK] water comes",
+    "timestamp" : 12179
+  }, {
+    "sentence" : "The sentence soft beach is the beach and the water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 2713, 394, 5075, 215, 394, 3408, 291 ],
+    "perplexity" : 761.58056640625,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " is", " the", " beach", " and", " the", " water", " comes" ],
+    "original_sentence" : "[MASK] sentence soft beach [MASK] the beach [MASK] the water comes",
+    "timestamp" : 16318
+  }, {
+    "sentence" : "The sentence soft There is the beach and the water is",
+    "tokens" : [ 395, 775, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 664.7310180664062,
+    "tokens_used" : [ " The", " sentence", " soft", " There", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] is the beach and the water [MASK]",
+    "timestamp" : 20155
+  }, {
+    "sentence" : "The sentence soft There is the beach and the water nearby",
+    "tokens" : [ 395, 775, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 639 ],
+    "perplexity" : 646.439697265625,
+    "tokens_used" : [ " The", " sentence", " soft", " There", " is", " the", " beach", " and", " the", " water", " nearby" ],
+    "original_sentence" : "The [MASK] soft There is the beach and [MASK] water [MASK]",
+    "timestamp" : 24300
+  }, {
+    "sentence" : "The Of soft There is the beach and the water nearby",
+    "tokens" : [ 395, 5195, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 639 ],
+    "perplexity" : 543.875244140625,
+    "tokens_used" : [ " The", " Of", " soft", " There", " is", " the", " beach", " and", " the", " water", " nearby" ],
+    "original_sentence" : "[MASK] [MASK] soft There is [MASK] beach and the water nearby",
+    "timestamp" : 27926
+  }, {
+    "sentence" : "The of soft There is the beach and the water nearby",
+    "tokens" : [ 395, 5194, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 639 ],
+    "perplexity" : 274.482421875,
+    "tokens_used" : [ " The", " of", " soft", " There", " is", " the", " beach", " and", " the", " water", " nearby" ],
+    "original_sentence" : "[MASK] [MASK] soft There is [MASK] beach and the water nearby",
+    "timestamp" : 28247
+  }, {
+    "sentence" : "The excused soft There is the beach and the water nearby",
+    "tokens" : [ 395, 5193, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 639 ],
+    "perplexity" : 444.02484130859375,
+    "tokens_used" : [ " The", " excused", " soft", " There", " is", " the", " beach", " and", " the", " water", " nearby" ],
+    "original_sentence" : "[MASK] [MASK] soft There is [MASK] beach and the water nearby",
+    "timestamp" : 28849
+  }, {
+    "sentence" : "The worn soft There is the beach and the water nearby",
+    "tokens" : [ 395, 5191, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 639 ],
+    "perplexity" : 336.0989685058594,
+    "tokens_used" : [ " The", " worn", " soft", " There", " is", " the", " beach", " and", " the", " water", " nearby" ],
+    "original_sentence" : "[MASK] [MASK] soft There is [MASK] beach and the water nearby",
+    "timestamp" : 29718
+  }, {
+    "sentence" : "The costing soft There is the beach and the water here",
+    "tokens" : [ 395, 5190, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 530.1853637695312,
+    "tokens_used" : [ " The", " costing", " soft", " There", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] [MASK] soft There is the beach and the water [MASK]",
+    "timestamp" : 31175
+  }, {
+    "sentence" : "The sentence soft There is the beach and the water here",
+    "tokens" : [ 395, 775, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 521.7349853515625,
+    "tokens_used" : [ " The", " sentence", " soft", " There", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] [MASK] soft There is the beach and the water [MASK]",
+    "timestamp" : 31450
+  }, {
+    "sentence" : "The Of soft There is the beach and the water here",
+    "tokens" : [ 395, 5195, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 413.2562561035156,
+    "tokens_used" : [ " The", " Of", " soft", " There", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] [MASK] soft There is the beach and the water [MASK]",
+    "timestamp" : 31793
+  }, {
+    "sentence" : "The of soft There is the beach and the water here",
+    "tokens" : [ 395, 5194, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 209.2760467529297,
+    "tokens_used" : [ " The", " of", " soft", " There", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] [MASK] soft There is the beach and the water [MASK]",
+    "timestamp" : 32085
+  }, {
+    "sentence" : "The excused soft There is the beach and the water here",
+    "tokens" : [ 395, 5193, 2489, 5181, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 359.0591735839844,
+    "tokens_used" : [ " The", " excused", " soft", " There", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] [MASK] soft There is the beach and the water [MASK]",
+    "timestamp" : 32490
+  }, {
+    "sentence" : "The youngest soft here is the beach and the water here",
+    "tokens" : [ 395, 5192, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 336.7453308105469,
+    "tokens_used" : [ " The", " youngest", " soft", " here", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "The [MASK] soft [MASK] is the beach and the water [MASK]",
+    "timestamp" : 34707
+  }, {
+    "sentence" : "The youngest soft here is the beach and the water is",
+    "tokens" : [ 395, 5192, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 396.70556640625,
+    "tokens_used" : [ " The", " youngest", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "The [MASK] soft here is the beach [MASK] the water [MASK]",
+    "timestamp" : 46728
+  }, {
+    "sentence" : "The Of soft here is the beach and the water is",
+    "tokens" : [ 395, 5195, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 409.1176452636719,
+    "tokens_used" : [ " The", " Of", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here is the beach and [MASK] water is",
+    "timestamp" : 58776
+  }, {
+    "sentence" : "The of soft here is the beach and the water is",
+    "tokens" : [ 395, 5194, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 198.46385192871094,
+    "tokens_used" : [ " The", " of", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here is the beach and [MASK] water is",
+    "timestamp" : 58984
+  }, {
+    "sentence" : "The excused soft here is the beach and the water is",
+    "tokens" : [ 395, 5193, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 346.4054870605469,
+    "tokens_used" : [ " The", " excused", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here is the beach and [MASK] water is",
+    "timestamp" : 59119
+  }, {
+    "sentence" : "The worn soft here is the beach and the water is",
+    "tokens" : [ 395, 5191, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 288.2081298828125,
+    "tokens_used" : [ " The", " worn", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here is [MASK] beach and the water is",
+    "timestamp" : 61913
+  }, {
+    "sentence" : "The Works soft here is the beach and the water is",
+    "tokens" : [ 395, 5189, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 387.85101318359375,
+    "tokens_used" : [ " The", " Works", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here is [MASK] beach and the water is",
+    "timestamp" : 63206
+  }, {
+    "sentence" : "The works soft here is the beach and the water is",
+    "tokens" : [ 395, 5188, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 344.62432861328125,
+    "tokens_used" : [ " The", " works", " soft", " here", " is", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here is [MASK] beach and the water is",
+    "timestamp" : 63611
+  }, {
+    "sentence" : "The worn soft here is the beach and the water here",
+    "tokens" : [ 395, 5191, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 213.8324737548828,
+    "tokens_used" : [ " The", " worn", " soft", " here", " is", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] worn soft [MASK] is the beach and the water [MASK]",
+    "timestamp" : 65956
+  }, {
+    "sentence" : "The worn soft here is the beach and the water excused",
+    "tokens" : [ 395, 5191, 2489, 4401, 2713, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 392.9539489746094,
+    "tokens_used" : [ " The", " worn", " soft", " here", " is", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "[MASK] worn soft [MASK] is the beach and the water [MASK]",
+    "timestamp" : 68753
+  }, {
+    "sentence" : "The worn soft here in the beach and the water excused",
+    "tokens" : [ 395, 5191, 2489, 4401, 2515, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 385.0934143066406,
+    "tokens_used" : [ " The", " worn", " soft", " here", " in", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "[MASK] worn soft here [MASK] the beach and [MASK] water excused",
+    "timestamp" : 76251
+  }, {
+    "sentence" : "The worn soft excused in the beach and the water excused",
+    "tokens" : [ 395, 5191, 2489, 5193, 2515, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 355.3016662597656,
+    "tokens_used" : [ " The", " worn", " soft", " excused", " in", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] in the beach and the water excused",
+    "timestamp" : 81008
+  }, {
+    "sentence" : "The worn soft excused of the beach and the water excused",
+    "tokens" : [ 395, 5191, 2489, 5193, 5194, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 360.216552734375,
+    "tokens_used" : [ " The", " worn", " soft", " excused", " of", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft excused [MASK] the beach [MASK] the water excused",
+    "timestamp" : 90477
+  }, {
+    "sentence" : "The worn soft here of the beach and the water excused",
+    "tokens" : [ 395, 5191, 2489, 4401, 5194, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 377.23724365234375,
+    "tokens_used" : [ " The", " worn", " soft", " here", " of", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft [MASK] of the beach and [MASK] water excused",
+    "timestamp" : 97398
+  }, {
+    "sentence" : "The worn soft here of the beach and the water here",
+    "tokens" : [ 395, 5191, 2489, 4401, 5194, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 255.25743103027344,
+    "tokens_used" : [ " The", " worn", " soft", " here", " of", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "The [MASK] soft here of the beach [MASK] the water [MASK]",
+    "timestamp" : 104486
+  }, {
+    "sentence" : "The worn soft here of the beach and the water is",
+    "tokens" : [ 395, 5191, 2489, 4401, 5194, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 308.0537109375,
+    "tokens_used" : [ " The", " worn", " soft", " here", " of", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "The [MASK] soft here of the beach [MASK] the water [MASK]",
+    "timestamp" : 104971
+  }, {
+    "sentence" : "The worn soft here in the beach and the water here",
+    "tokens" : [ 395, 5191, 2489, 4401, 2515, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 232.2103729248047,
+    "tokens_used" : [ " The", " worn", " soft", " here", " in", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] worn soft [MASK] [MASK] the beach and the water here",
+    "timestamp" : 107053
+  }, {
+    "sentence" : "The worn soft here in the beach and the water is",
+    "tokens" : [ 395, 5191, 2489, 4401, 2515, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 301.19573974609375,
+    "tokens_used" : [ " The", " worn", " soft", " here", " in", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] worn soft [MASK] in the beach and the water [MASK]",
+    "timestamp" : 110971
+  }, {
+    "sentence" : "The worn soft worn in the beach and the water is",
+    "tokens" : [ 395, 5191, 2489, 5191, 2515, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 356.3883056640625,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " in", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] in the beach and the water is",
+    "timestamp" : 129374
+  }, {
+    "sentence" : "The worn soft worn of the beach and the water is",
+    "tokens" : [ 395, 5191, 2489, 5191, 5194, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 366.2398376464844,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " of", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] worn soft worn [MASK] the beach [MASK] the water is",
+    "timestamp" : 132650
+  }, {
+    "sentence" : "The worn soft worn of the beach and the water here",
+    "tokens" : [ 395, 5191, 2489, 5191, 5194, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 293.10406494140625,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " of", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "[MASK] [MASK] soft worn of the beach and the water [MASK]",
+    "timestamp" : 136951
+  }, {
+    "sentence" : "The worn soft worn in the beach and the water here",
+    "tokens" : [ 395, 5191, 2489, 5191, 2515, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 285.1659851074219,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " in", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "The [MASK] soft [MASK] [MASK] the beach and the water here",
+    "timestamp" : 152725
+  }, {
+    "sentence" : "The worn soft worn in the beach in the water here",
+    "tokens" : [ 395, 5191, 2489, 5191, 2515, 394, 5075, 2515, 394, 3408, 4401 ],
+    "perplexity" : 331.35247802734375,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " in", " the", " beach", " in", " the", " water", " here" ],
+    "original_sentence" : "[MASK] worn soft worn in the beach [MASK] [MASK] water here",
+    "timestamp" : 178493
+  }, {
+    "sentence" : "The worn soft worn in the beach in the water is",
+    "tokens" : [ 395, 5191, 2489, 5191, 2515, 394, 5075, 2515, 394, 3408, 2713 ],
+    "perplexity" : 392.1816101074219,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " in", " the", " beach", " in", " the", " water", " is" ],
+    "original_sentence" : "The worn soft [MASK] [MASK] the beach in the water [MASK]",
+    "timestamp" : 182956
+  }, {
+    "sentence" : "The worn soft worn of the beach in the water is",
+    "tokens" : [ 395, 5191, 2489, 5191, 5194, 394, 5075, 2515, 394, 3408, 2713 ],
+    "perplexity" : 377.9210205078125,
+    "tokens_used" : [ " The", " worn", " soft", " worn", " of", " the", " beach", " in", " the", " water", " is" ],
+    "original_sentence" : "The [MASK] soft [MASK] [MASK] the beach in the water is",
+    "timestamp" : 191897
+  }, {
+    "sentence" : "The worn soft here of the beach in the water is",
+    "tokens" : [ 395, 5191, 2489, 4401, 5194, 394, 5075, 2515, 394, 3408, 2713 ],
+    "perplexity" : 330.1626281738281,
+    "tokens_used" : [ " The", " worn", " soft", " here", " of", " the", " beach", " in", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] of the beach in the water is",
+    "timestamp" : 205492
+  }, {
+    "sentence" : "The worn soft of of the beach in the water is",
+    "tokens" : [ 395, 5191, 2489, 5194, 5194, 394, 5075, 2515, 394, 3408, 2713 ],
+    "perplexity" : 372.73046875,
+    "tokens_used" : [ " The", " worn", " soft", " of", " of", " the", " beach", " in", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] of the beach in the water is",
+    "timestamp" : 206140
+  }, {
+    "sentence" : "The of soft here of the beach and the water is",
+    "tokens" : [ 395, 5194, 2489, 4401, 5194, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 261.0125427246094,
+    "tokens_used" : [ " The", " of", " soft", " here", " of", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] [MASK] soft here of the beach [MASK] the water is",
+    "timestamp" : 208689
+  }, {
+    "sentence" : "The of soft worn of the beach and the water is",
+    "tokens" : [ 395, 5194, 2489, 5191, 5194, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 323.3050842285156,
+    "tokens_used" : [ " The", " of", " soft", " worn", " of", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] of soft [MASK] of the beach [MASK] the water is",
+    "timestamp" : 226472
+  }, {
+    "sentence" : "The of soft of of the beach and the water is",
+    "tokens" : [ 395, 5194, 2489, 5194, 5194, 394, 5075, 215, 394, 3408, 2713 ],
+    "perplexity" : 270.3986511230469,
+    "tokens_used" : [ " The", " of", " soft", " of", " of", " the", " beach", " and", " the", " water", " is" ],
+    "original_sentence" : "[MASK] of soft [MASK] of the beach [MASK] the water is",
+    "timestamp" : 229054
+  }, {
+    "sentence" : "The of soft of of the beach and the water works",
+    "tokens" : [ 395, 5194, 2489, 5194, 5194, 394, 5075, 215, 394, 3408, 5188 ],
+    "perplexity" : 347.73291015625,
+    "tokens_used" : [ " The", " of", " soft", " of", " of", " the", " beach", " and", " the", " water", " works" ],
+    "original_sentence" : "The of soft of [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 241384
+  }, {
+    "sentence" : "The of soft of of the beach and the water here",
+    "tokens" : [ 395, 5194, 2489, 5194, 5194, 394, 5075, 215, 394, 3408, 4401 ],
+    "perplexity" : 246.6282501220703,
+    "tokens_used" : [ " The", " of", " soft", " of", " of", " the", " beach", " and", " the", " water", " here" ],
+    "original_sentence" : "The of soft of [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 243352
+  }, {
+    "sentence" : "The of soft of of the beach and the water of",
+    "tokens" : [ 395, 5194, 2489, 5194, 5194, 394, 5075, 215, 394, 3408, 5194 ],
+    "perplexity" : 327.1783752441406,
+    "tokens_used" : [ " The", " of", " soft", " of", " of", " the", " beach", " and", " the", " water", " of" ],
+    "original_sentence" : "The of soft of [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 244488
+  }, {
+    "sentence" : "The of soft of of the beach and the water excused",
+    "tokens" : [ 395, 5194, 2489, 5194, 5194, 394, 5075, 215, 394, 3408, 5193 ],
+    "perplexity" : 360.31964111328125,
+    "tokens_used" : [ " The", " of", " soft", " of", " of", " the", " beach", " and", " the", " water", " excused" ],
+    "original_sentence" : "The of soft of [MASK] the beach [MASK] the water [MASK]",
+    "timestamp" : 245248
+  }, {
+    "sentence" : "The of soft of of the beach and the water worn",
+    "tokens" : [ 395, 5194, 2489, 5194, 5194, 394, 5075, 215, 394, 3408, 5191 ],
+    "perplexity" : 384.5887756347656,
+    "tokens_used" : [ " The", " of", " soft", " of", " of", " the", " beach", " and", " the", " water", " worn" ],
+    "original_sentence" : "The [MASK] soft of of the beach and [MASK] water [MASK]",
+    "timestamp" : 248534
+  } ]
+}

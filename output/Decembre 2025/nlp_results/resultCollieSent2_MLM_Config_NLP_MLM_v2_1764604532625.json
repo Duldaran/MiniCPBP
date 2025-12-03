@@ -1,0 +1,486 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T10:55:32.623337376",
+  "time" : 627.931,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Grass sentence soft beach is soft beach be aunts water",
+    "score" : 2549.738525390625,
+    "time" : 5401,
+    "cycle" : 0
+  }, {
+    "sentence" : "Grass sentence soft beach is a beach be the water",
+    "score" : 1301.5037841796875,
+    "time" : 9386,
+    "cycle" : 1
+  }, {
+    "sentence" : "Grass sentence soft rock is a beach be the water",
+    "score" : 1219.208984375,
+    "time" : 14730,
+    "cycle" : 2
+  }, {
+    "sentence" : "Grass sentence soft there is a beach in the water",
+    "score" : 438.8963928222656,
+    "time" : 19561,
+    "cycle" : 3
+  }, {
+    "sentence" : "Grass is soft there is a beach in the water",
+    "score" : 91.29850769042969,
+    "time" : 24135,
+    "cycle" : 4
+  }, {
+    "sentence" : "Grass of soft water on the beach in the water",
+    "score" : 89.21470642089844,
+    "time" : 499959,
+    "cycle" : 77
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "Grass sentence soft beach is soft beach be aunts water",
+    "tokens" : [ 0, 775, 2489, 5075, 2713, 2489, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 2549.738525390625,
+    "tokens_used" : [ " grass", " sentence", " soft", " beach", " is", " soft", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft beach [MASK] [MASK] beach be aunts water",
+    "timestamp" : 5401
+  }, {
+    "sentence" : "Grass sentence soft beach is a beach be the water",
+    "tokens" : [ 1, 775, 2489, 5075, 2713, 4646, 5075, 1392, 394, 3408 ],
+    "perplexity" : 1301.5037841796875,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " is", " a", " beach", " be", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft beach is [MASK] beach be [MASK] water",
+    "timestamp" : 9386
+  }, {
+    "sentence" : "Grass sentence soft rock is a beach be the water",
+    "tokens" : [ 1, 775, 2489, 535, 2713, 4646, 5075, 1392, 394, 3408 ],
+    "perplexity" : 1219.208984375,
+    "tokens_used" : [ " Grass", " sentence", " soft", " rock", " is", " a", " beach", " be", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] is [MASK] beach be the water",
+    "timestamp" : 14730
+  }, {
+    "sentence" : "Grass sentence soft there is a beach in the water",
+    "tokens" : [ 1, 775, 2489, 5180, 2713, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 438.8963928222656,
+    "tokens_used" : [ " Grass", " sentence", " soft", " there", " is", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] is a beach [MASK] the water",
+    "timestamp" : 19561
+  }, {
+    "sentence" : "Grass is soft there is a beach in the water",
+    "tokens" : [ 1, 2713, 2489, 5180, 2713, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 91.29850769042969,
+    "tokens_used" : [ " Grass", " is", " soft", " there", " is", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft there is [MASK] beach in the water",
+    "timestamp" : 24135
+  }, {
+    "sentence" : "Grass is soft There is a beach in the water",
+    "tokens" : [ 1, 2713, 2489, 5181, 2713, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 92.39704132080078,
+    "tokens_used" : [ " Grass", " is", " soft", " There", " is", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] is a beach in [MASK] water",
+    "timestamp" : 28318
+  }, {
+    "sentence" : "Grass is soft water is a beach in the water",
+    "tokens" : [ 1, 2713, 2489, 3408, 2713, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 140.24887084960938,
+    "tokens_used" : [ " Grass", " is", " soft", " water", " is", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] is a beach in [MASK] water",
+    "timestamp" : 34081
+  }, {
+    "sentence" : "Grass is soft water is a beach on the water",
+    "tokens" : [ 1, 2713, 2489, 3408, 2713, 4646, 5075, 710, 394, 3408 ],
+    "perplexity" : 142.5800018310547,
+    "tokens_used" : [ " Grass", " is", " soft", " water", " is", " a", " beach", " on", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft water is [MASK] beach [MASK] the water",
+    "timestamp" : 39891
+  }, {
+    "sentence" : "Grass in soft water is a beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2713, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 132.20770263671875,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " is", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water is a beach [MASK] the water",
+    "timestamp" : 44802
+  }, {
+    "sentence" : "Grass in soft water is the beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2713, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 161.71800231933594,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " is", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft water is [MASK] beach in [MASK] water",
+    "timestamp" : 48445
+  }, {
+    "sentence" : "Grass in soft water is a beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2713, 4646, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 154.38119506835938,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " is", " a", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft water is [MASK] beach in [MASK] water",
+    "timestamp" : 53334
+  }, {
+    "sentence" : "Grass in soft water is a beach with soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2713, 4646, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 158.680419921875,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " is", " a", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water is a beach [MASK] soft water",
+    "timestamp" : 58164
+  }, {
+    "sentence" : "Grass in soft water on a beach with soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 4646, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 126.35224914550781,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " a", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] in soft water [MASK] a beach with [MASK] water",
+    "timestamp" : 78086
+  }, {
+    "sentence" : "Grass in soft water on a beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 4646, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 160.05303955078125,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " a", " beach", " in", " soft", " water" ],
+    "original_sentence" : "[MASK] in soft water [MASK] a beach [MASK] soft water",
+    "timestamp" : 85354
+  }, {
+    "sentence" : "Grass in soft water on a beach of soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 4646, 5075, 5194, 2489, 3408 ],
+    "perplexity" : 145.5396728515625,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " a", " beach", " of", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft water on [MASK] beach [MASK] soft water",
+    "timestamp" : 92611
+  }, {
+    "sentence" : "Grass in soft water on a beach of the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 4646, 5075, 5194, 394, 3408 ],
+    "perplexity" : 174.0203094482422,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " a", " beach", " of", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on a beach of [MASK] water",
+    "timestamp" : 98593
+  }, {
+    "sentence" : "Grass in soft water on a beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 127.17249298095703,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] in soft water [MASK] a beach [MASK] the water",
+    "timestamp" : 104041
+  }, {
+    "sentence" : "Grass in soft water on the beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 115.70610046386719,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft water on [MASK] beach [MASK] the water",
+    "timestamp" : 111667
+  }, {
+    "sentence" : "Grass in soft water on the beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 143.00950622558594,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass in soft water [MASK] [MASK] beach in [MASK] water",
+    "timestamp" : 119627
+  }, {
+    "sentence" : "Grass in soft water on the beach with soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 394, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 117.49520874023438,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " the", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] in soft [MASK] on the beach [MASK] soft water",
+    "timestamp" : 126653
+  }, {
+    "sentence" : "Grass in soft water on the beach with the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 394, 5075, 2342, 394, 3408 ],
+    "perplexity" : 101.90131378173828,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " the", " beach", " with", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on the beach with [MASK] water",
+    "timestamp" : 140092
+  }, {
+    "sentence" : "Grass in soft water at the beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 135.78041076660156,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] the beach [MASK] the water",
+    "timestamp" : 160831
+  }, {
+    "sentence" : "Grass in soft water at a beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 144.5722198486328,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] [MASK] beach in the water",
+    "timestamp" : 167805
+  }, {
+    "sentence" : "Grass in soft water at a beach with the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 146.5730743408203,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water at a beach [MASK] the water",
+    "timestamp" : 174243
+  }, {
+    "sentence" : "Grass in soft water on a beach with the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 710, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 119.4151611328125,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " on", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] [MASK] beach with the water",
+    "timestamp" : 182655
+  }, {
+    "sentence" : "Grass in soft water at a beach with soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 4646, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 149.83523559570312,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " a", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] in soft water [MASK] a beach with [MASK] water",
+    "timestamp" : 216692
+  }, {
+    "sentence" : "Grass in soft water at a beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 4646, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 179.5343017578125,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " a", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass in soft water [MASK] a beach [MASK] [MASK] water",
+    "timestamp" : 222925
+  }, {
+    "sentence" : "Grass in soft water at the beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 163.9131317138672,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass in soft water [MASK] [MASK] beach in [MASK] water",
+    "timestamp" : 242286
+  }, {
+    "sentence" : "Grass in soft water to the beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2461, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 159.8798065185547,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " to", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass in soft [MASK] [MASK] the beach [MASK] soft water",
+    "timestamp" : 262571
+  }, {
+    "sentence" : "Grass in soft water to the beach with soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2461, 394, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 151.50352478027344,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " to", " the", " beach", " with", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] to the beach [MASK] soft water",
+    "timestamp" : 269305
+  }, {
+    "sentence" : "Grass in soft water at the beach with soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 394, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 129.02890014648438,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " the", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] in soft water [MASK] the beach with [MASK] water",
+    "timestamp" : 275332
+  }, {
+    "sentence" : "Grass in soft water at the beach with the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 302, 394, 5075, 2342, 394, 3408 ],
+    "perplexity" : 115.49453735351562,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " at", " the", " beach", " with", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] at the beach with [MASK] water",
+    "timestamp" : 282401
+  }, {
+    "sentence" : "Grass in soft water to the beach with the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2461, 394, 5075, 2342, 394, 3408 ],
+    "perplexity" : 141.5109100341797,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " to", " the", " beach", " with", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] [MASK] the beach with the water",
+    "timestamp" : 309381
+  }, {
+    "sentence" : "Grass in soft water in the beach with the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2515, 394, 5075, 2342, 394, 3408 ],
+    "perplexity" : 159.22293090820312,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " in", " the", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water [MASK] the beach with the water",
+    "timestamp" : 317482
+  }, {
+    "sentence" : "Grass in soft water to the beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 2461, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 149.3251190185547,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " to", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass in soft [MASK] [MASK] the beach [MASK] the water",
+    "timestamp" : 329899
+  }, {
+    "sentence" : "Grass in soft water and the beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 215, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 120.33183288574219,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " and", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass in soft [MASK] [MASK] the beach in [MASK] water",
+    "timestamp" : 351655
+  }, {
+    "sentence" : "Grass in soft water and the beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 215, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 128.31460571289062,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " and", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass in soft water [MASK] the beach [MASK] [MASK] water",
+    "timestamp" : 358158
+  }, {
+    "sentence" : "Grass in soft water and a beach in soft water",
+    "tokens" : [ 1, 2515, 2489, 3408, 215, 4646, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 143.45249938964844,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " and", " a", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass in soft water [MASK] [MASK] beach in [MASK] water",
+    "timestamp" : 364544
+  }, {
+    "sentence" : "Grass in soft water and a beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 215, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 122.51293182373047,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " and", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water and a beach in [MASK] water",
+    "timestamp" : 373444
+  }, {
+    "sentence" : "Grass in soft water and sandy beach in the water",
+    "tokens" : [ 1, 2515, 2489, 3408, 215, 422, 5075, 2515, 394, 3408 ],
+    "perplexity" : 167.57464599609375,
+    "tokens_used" : [ " Grass", " in", " soft", " water", " and", " sandy", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass in soft water [MASK] [MASK] beach [MASK] the water",
+    "timestamp" : 377979
+  }, {
+    "sentence" : "Grass of soft water on sandy beach in the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 422, 5075, 2515, 394, 3408 ],
+    "perplexity" : 166.59222412109375,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " sandy", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water [MASK] sandy beach in the water",
+    "timestamp" : 489676
+  }, {
+    "sentence" : "Grass of soft water on a beach in the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 100.28656005859375,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] of soft water [MASK] [MASK] beach in the water",
+    "timestamp" : 492408
+  }, {
+    "sentence" : "Grass of soft water on the beach in the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 89.21470642089844,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] of soft water on [MASK] beach [MASK] the water",
+    "timestamp" : 499959
+  }, {
+    "sentence" : "Grass of soft water on the beach in soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 128.34347534179688,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] the beach in [MASK] water",
+    "timestamp" : 508672
+  }, {
+    "sentence" : "Grass of soft water and the beach in soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 169.7628936767578,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water [MASK] the beach in soft water",
+    "timestamp" : 512919
+  }, {
+    "sentence" : "Grass of soft water to the beach in soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 2461, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 157.92811584472656,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " to", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water [MASK] the beach in soft water",
+    "timestamp" : 513647
+  }, {
+    "sentence" : "Grass of soft water at the beach in soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 302, 394, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 156.90606689453125,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " at", " the", " beach", " in", " soft", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water [MASK] the beach in soft water",
+    "timestamp" : 514493
+  }, {
+    "sentence" : "Grass of soft water at a beach in the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 302, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 127.5816879272461,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " at", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Grass of soft water [MASK] [MASK] beach in [MASK] water",
+    "timestamp" : 524491
+  }, {
+    "sentence" : "Grass of soft water at a beach with the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 302, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 146.72523498535156,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " at", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] of soft [MASK] at a beach [MASK] the water",
+    "timestamp" : 530305
+  }, {
+    "sentence" : "Grass of soft water on a beach with the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 109.21009826660156,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] of soft [MASK] [MASK] a beach with the water",
+    "timestamp" : 540555
+  }, {
+    "sentence" : "Grass of soft water and a beach with the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 142.13775634765625,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] of soft [MASK] [MASK] a beach with the water",
+    "timestamp" : 541492
+  }, {
+    "sentence" : "Grass of soft water to a beach with the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 2461, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 172.70420837402344,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " to", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] of soft [MASK] [MASK] a beach with the water",
+    "timestamp" : 542259
+  }, {
+    "sentence" : "Grass of soft water on a beach of the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 4646, 5075, 5194, 394, 3408 ],
+    "perplexity" : 147.3094024658203,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " a", " beach", " of", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] on a beach [MASK] the water",
+    "timestamp" : 548218
+  }, {
+    "sentence" : "Grass of soft water on the beach of the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 710, 394, 5075, 5194, 394, 3408 ],
+    "perplexity" : 134.38087463378906,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " on", " the", " beach", " of", " the", " water" ],
+    "original_sentence" : "Grass of soft [MASK] [MASK] [MASK] beach of the water",
+    "timestamp" : 552739
+  }, {
+    "sentence" : "Grass of soft water at the beach of the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 302, 394, 5075, 5194, 394, 3408 ],
+    "perplexity" : 166.4674835205078,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " at", " the", " beach", " of", " the", " water" ],
+    "original_sentence" : "[MASK] of soft [MASK] [MASK] the beach of the water",
+    "timestamp" : 558892
+  }, {
+    "sentence" : "Grass of soft water and the beach of the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 394, 5075, 5194, 394, 3408 ],
+    "perplexity" : 165.42764282226562,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " the", " beach", " of", " the", " water" ],
+    "original_sentence" : "[MASK] of soft [MASK] [MASK] the beach of the water",
+    "timestamp" : 560488
+  }, {
+    "sentence" : "Grass of soft water and the beach of soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 394, 5075, 5194, 2489, 3408 ],
+    "perplexity" : 164.3526611328125,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " the", " beach", " of", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft water and the beach [MASK] [MASK] water",
+    "timestamp" : 569827
+  }, {
+    "sentence" : "Grass of soft water and the beach with soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 394, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 141.38243103027344,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " the", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] of soft water and [MASK] beach [MASK] soft water",
+    "timestamp" : 592096
+  }, {
+    "sentence" : "Grass of soft water and a beach with soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 4646, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 125.42326354980469,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " a", " beach", " with", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] [MASK] beach with soft water",
+    "timestamp" : 598679
+  }, {
+    "sentence" : "Grass of soft water and sandy beach with soft water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 422, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 137.94039916992188,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " sandy", " beach", " with", " soft", " water" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] [MASK] beach with soft water",
+    "timestamp" : 600789
+  }, {
+    "sentence" : "Grass of soft water and sandy beach with the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 422, 5075, 2342, 394, 3408 ],
+    "perplexity" : 170.92327880859375,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " sandy", " beach", " with", " the", " water" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] and sandy beach with [MASK] water",
+    "timestamp" : 609169
+  }, {
+    "sentence" : "Grass of soft water and the beach with the water",
+    "tokens" : [ 1, 5194, 2489, 3408, 215, 394, 5075, 2342, 394, 3408 ],
+    "perplexity" : 132.25233459472656,
+    "tokens_used" : [ " Grass", " of", " soft", " water", " and", " the", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water and [MASK] beach with the water",
+    "timestamp" : 624676
+  } ]
+}

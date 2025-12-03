@@ -1,0 +1,298 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 150,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T15:06:53.252167954",
+  "time" : 171.886,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "And yet he seemed to be able to put me in front of the shop",
+    "score" : 34.67453384399414,
+    "time" : 59895,
+    "cycle" : 0
+  }, {
+    "sentence" : "And yet he seemed to be able to put us in front of the pack",
+    "score" : 27.96087074279785,
+    "time" : 61701,
+    "cycle" : 1
+  } ],
+  "base_sentence" : {
+    "sentence" : "And yet he seemed to be able to see me in front of the shop",
+    "perplexity" : 35.467933654785156,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "And yet he seemed to be able to put me in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 34.67453384399414,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And yet he seemed to be able [MASK] [MASK] me in front of the shop",
+    "timestamp" : 59896
+  }, {
+    "sentence" : "And yet he seemed to be able to put us in front of the pack",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 2216, 5194, 394, 2546 ],
+    "perplexity" : 27.96087074279785,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " us", " in", " front", " of", " the", " pack" ],
+    "original_sentence" : "And yet he seemed to be able to put [MASK] in front of the [MASK]",
+    "timestamp" : 61701
+  }, {
+    "sentence" : "And yet he seemed to be able to put us in front of his pack",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 2216, 5194, 3882, 2546 ],
+    "perplexity" : 34.439998626708984,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " us", " in", " front", " of", " his", " pack" ],
+    "original_sentence" : "And yet he seemed [MASK] be able to put us in front of [MASK] pack",
+    "timestamp" : 63119
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front of his pack",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 3882, 2546 ],
+    "perplexity" : 34.32088851928711,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " his", " pack" ],
+    "original_sentence" : "And yet he seemed to [MASK] able to put [MASK] in front of his pack",
+    "timestamp" : 65736
+  }, {
+    "sentence" : "And yes he wanted to be able to see me in front of the pack",
+    "tokens" : [ 216, 3031, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 2546 ],
+    "perplexity" : 36.92841720581055,
+    "tokens_used" : [ " And", " yes", " he", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " pack" ],
+    "original_sentence" : "And [MASK] he wanted to be able to see me in front [MASK] the pack",
+    "timestamp" : 79872
+  }, {
+    "sentence" : "And yes he wanted to be able to see us in front of the pack",
+    "tokens" : [ 216, 3031, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 394, 2546 ],
+    "perplexity" : 38.326087951660156,
+    "tokens_used" : [ " And", " yes", " he", " wanted", " to", " be", " able", " to", " see", " us", " in", " front", " of", " the", " pack" ],
+    "original_sentence" : "And yes he wanted to be able to see [MASK] [MASK] front of the pack",
+    "timestamp" : 85984
+  }, {
+    "sentence" : "And yes he wanted to be able to see us in front of his pack",
+    "tokens" : [ 216, 3031, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 3882, 2546 ],
+    "perplexity" : 45.1693000793457,
+    "tokens_used" : [ " And", " yes", " he", " wanted", " to", " be", " able", " to", " see", " us", " in", " front", " of", " his", " pack" ],
+    "original_sentence" : "And yes he wanted [MASK] be able to see us in front of [MASK] pack",
+    "timestamp" : 87666
+  }, {
+    "sentence" : "And yes he wanted to be able to see us in front of his home",
+    "tokens" : [ 216, 3031, 2228, 4750, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 3882, 1724 ],
+    "perplexity" : 30.670177459716797,
+    "tokens_used" : [ " And", " yes", " he", " wanted", " to", " be", " able", " to", " see", " us", " in", " front", " of", " his", " home" ],
+    "original_sentence" : "[MASK] yes he wanted to be able to see us in front of his [MASK]",
+    "timestamp" : 90898
+  }, {
+    "sentence" : "And yes he seemed to be able to see us in front of his home",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 3882, 1724 ],
+    "perplexity" : 42.568519592285156,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " front", " of", " his", " home" ],
+    "original_sentence" : "And yes he [MASK] to [MASK] able to see us in front of his home",
+    "timestamp" : 94009
+  }, {
+    "sentence" : "And yes he seemed to be able to get us in front of his home",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 2216, 5194, 3882, 1724 ],
+    "perplexity" : 41.060020446777344,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " get", " us", " in", " front", " of", " his", " home" ],
+    "original_sentence" : "And yes he seemed to be able [MASK] [MASK] us in front of his home",
+    "timestamp" : 99323
+  }, {
+    "sentence" : "And yes he seemed to be able to get us in sight of his home",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 4584, 5194, 3882, 1724 ],
+    "perplexity" : 49.629981994628906,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " get", " us", " in", " sight", " of", " his", " home" ],
+    "original_sentence" : "And yes he seemed to [MASK] able to get us in [MASK] of his home",
+    "timestamp" : 100206
+  }, {
+    "sentence" : "And yes he seemed to be able to get up in sight of his home",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 4584, 5194, 3882, 1724 ],
+    "perplexity" : 55.686737060546875,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " sight", " of", " his", " home" ],
+    "original_sentence" : "And yes he seemed to be able [MASK] get [MASK] in sight of his home",
+    "timestamp" : 102475
+  }, {
+    "sentence" : "And yes he seemed to be able to get me in sight of his home",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 994, 2515, 4584, 5194, 3882, 1724 ],
+    "perplexity" : 50.507171630859375,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " get", " me", " in", " sight", " of", " his", " home" ],
+    "original_sentence" : "And yes he seemed to be able to get [MASK] in sight [MASK] his home",
+    "timestamp" : 103271
+  }, {
+    "sentence" : "And yes he seemed to be able to get me in sight of his head",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 994, 2515, 4584, 5194, 3882, 2968 ],
+    "perplexity" : 51.91310119628906,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " get", " me", " in", " sight", " of", " his", " head" ],
+    "original_sentence" : "And yes he seemed [MASK] be able to get me in sight of his [MASK]",
+    "timestamp" : 107952
+  }, {
+    "sentence" : "And yes he seemed to be able to get up in sight of his head",
+    "tokens" : [ 216, 3031, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 4584, 5194, 3882, 2968 ],
+    "perplexity" : 54.0584602355957,
+    "tokens_used" : [ " And", " yes", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " sight", " of", " his", " head" ],
+    "original_sentence" : "And yes he seemed to be able to [MASK] [MASK] in sight of his head",
+    "timestamp" : 109637
+  }, {
+    "sentence" : "And and he seemed to be able to get up in sight of his head",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 4584, 5194, 3882, 2968 ],
+    "perplexity" : 37.303741455078125,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " sight", " of", " his", " head" ],
+    "original_sentence" : "[MASK] [MASK] he seemed to be able to get up in sight of his head",
+    "timestamp" : 112546
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in sight of his head",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 4584, 5194, 3882, 2968 ],
+    "perplexity" : 39.93059539794922,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " sight", " of", " his", " head" ],
+    "original_sentence" : "And [MASK] he seemed to be [MASK] to get up in sight of his head",
+    "timestamp" : 115031
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in sight on his head",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 4584, 710, 3882, 2968 ],
+    "perplexity" : 46.25249099731445,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " sight", " on", " his", " head" ],
+    "original_sentence" : "And yet he seemed to be able to get up in [MASK] [MASK] his head",
+    "timestamp" : 117494
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in there on his head",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 5180, 710, 3882, 2968 ],
+    "perplexity" : 34.275577545166016,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " there", " on", " his", " head" ],
+    "original_sentence" : "And yet he seemed to [MASK] able to get up in [MASK] on his head",
+    "timestamp" : 118577
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in there on his legs",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 5180, 710, 3882, 124 ],
+    "perplexity" : 35.30595397949219,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " there", " on", " his", " legs" ],
+    "original_sentence" : "[MASK] yet he seemed to be able to get up in there on his [MASK]",
+    "timestamp" : 119662
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in there by his legs",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 5180, 2029, 3882, 124 ],
+    "perplexity" : 39.62791061401367,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " there", " by", " his", " legs" ],
+    "original_sentence" : "And yet he seemed to be able [MASK] get up in there [MASK] his legs",
+    "timestamp" : 120608
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in there by two legs",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 5180, 2029, 2456, 124 ],
+    "perplexity" : 46.16017150878906,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " there", " by", " two", " legs" ],
+    "original_sentence" : "And yet he seemed to be able to get up in there [MASK] [MASK] legs",
+    "timestamp" : 124168
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in there on two legs",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 5180, 710, 2456, 124 ],
+    "perplexity" : 33.907691955566406,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " there", " on", " two", " legs" ],
+    "original_sentence" : "And yet he [MASK] to be able to get up in there [MASK] two legs",
+    "timestamp" : 126227
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in there on her legs",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 5180, 710, 3730, 124 ],
+    "perplexity" : 41.73505401611328,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " there", " on", " her", " legs" ],
+    "original_sentence" : "And yet he seemed [MASK] be able to get up in there on [MASK] legs",
+    "timestamp" : 127656
+  }, {
+    "sentence" : "And yet he seemed to be able to get me in there on her legs",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 994, 2515, 5180, 710, 3730, 124 ],
+    "perplexity" : 48.188968658447266,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " me", " in", " there", " on", " her", " legs" ],
+    "original_sentence" : "And yet he seemed to be [MASK] to get [MASK] in there on her legs",
+    "timestamp" : 129441
+  }, {
+    "sentence" : "And and he wanted to be able to get us in there by the side",
+    "tokens" : [ 216, 215, 2228, 4750, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 5180, 2029, 394, 400 ],
+    "perplexity" : 34.3745231628418,
+    "tokens_used" : [ " And", " and", " he", " wanted", " to", " be", " able", " to", " get", " us", " in", " there", " by", " the", " side" ],
+    "original_sentence" : "[MASK] [MASK] he wanted to be able to get us in there by the side",
+    "timestamp" : 144669
+  }, {
+    "sentence" : "And and he wanted to be able to get us in close by the side",
+    "tokens" : [ 216, 215, 2228, 4750, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 36, 2029, 394, 400 ],
+    "perplexity" : 45.320167541503906,
+    "tokens_used" : [ " And", " and", " he", " wanted", " to", " be", " able", " to", " get", " us", " in", " close", " by", " the", " side" ],
+    "original_sentence" : "And and he [MASK] to be able to get us in [MASK] by the side",
+    "timestamp" : 145750
+  }, {
+    "sentence" : "And and he seemed to be able to get us in close by the side",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 36, 2029, 394, 400 ],
+    "perplexity" : 42.7188835144043,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " us", " in", " close", " by", " the", " side" ],
+    "original_sentence" : "[MASK] and he [MASK] to be able to get us in close by the side",
+    "timestamp" : 146708
+  }, {
+    "sentence" : "And and he seemed to be able to get us in there by the side",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 5180, 2029, 394, 400 ],
+    "perplexity" : 36.286746978759766,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " us", " in", " there", " by", " the", " side" ],
+    "original_sentence" : "And and [MASK] seemed to be able to get us in [MASK] by the side",
+    "timestamp" : 147959
+  }, {
+    "sentence" : "And and he seemed to be able to get us up there by the side",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 1840, 5180, 2029, 394, 400 ],
+    "perplexity" : 35.108558654785156,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " us", " up", " there", " by", " the", " side" ],
+    "original_sentence" : "And and he seemed to be able to get us [MASK] there by the [MASK]",
+    "timestamp" : 149108
+  }, {
+    "sentence" : "And and he seemed to be able to get us up close by the side",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 1840, 36, 2029, 394, 400 ],
+    "perplexity" : 45.26645278930664,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " us", " up", " close", " by", " the", " side" ],
+    "original_sentence" : "And and he seemed [MASK] be able to get us up [MASK] by the side",
+    "timestamp" : 150302
+  }, {
+    "sentence" : "And and he seemed to be able to get us so close by the side",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 1513, 36, 2029, 394, 400 ],
+    "perplexity" : 40.01887893676758,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " us", " so", " close", " by", " the", " side" ],
+    "original_sentence" : "[MASK] and he seemed to be able to get us [MASK] close by the side",
+    "timestamp" : 151246
+  }, {
+    "sentence" : "And and he seemed to be able to get up so close by the side",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 1513, 36, 2029, 394, 400 ],
+    "perplexity" : 43.24431228637695,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " get", " up", " so", " close", " by", " the", " side" ],
+    "original_sentence" : "And and he seemed to [MASK] able to get [MASK] so close by the side",
+    "timestamp" : 152036
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in close on the side",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 36, 710, 394, 400 ],
+    "perplexity" : 55.43687438964844,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " close", " on", " the", " side" ],
+    "original_sentence" : "And [MASK] he seemed to be able to see me [MASK] close on the side",
+    "timestamp" : 164635
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in close on his side",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 36, 710, 3882, 400 ],
+    "perplexity" : 53.65171432495117,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " close", " on", " his", " side" ],
+    "original_sentence" : "And yet he seemed to be able to see me in close on [MASK] [MASK]",
+    "timestamp" : 165850
+  }, {
+    "sentence" : "And yet he seemed to be able to see us in close on his side",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 36, 710, 3882, 400 ],
+    "perplexity" : 54.35975646972656,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " close", " on", " his", " side" ],
+    "original_sentence" : "And yet he seemed to be able to [MASK] [MASK] in close on his side",
+    "timestamp" : 167889
+  }, {
+    "sentence" : "And yet he seemed to be able to see us in close on his face",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 36, 710, 3882, 4383 ],
+    "perplexity" : 51.4301872253418,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " close", " on", " his", " face" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to see us in close on his [MASK]",
+    "timestamp" : 169029
+  }, {
+    "sentence" : "And yet he seemed to be able to see us in close on the face",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 36, 710, 394, 4383 ],
+    "perplexity" : 55.37156677246094,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " close", " on", " the", " face" ],
+    "original_sentence" : "And yet he [MASK] to be able to see us in close on [MASK] face",
+    "timestamp" : 170095
+  } ]
+}

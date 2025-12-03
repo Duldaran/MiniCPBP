@@ -1,0 +1,313 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T00:39:34.996106248",
+  "time" : 280.291,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "You should be able to run in and out of the room to the bed",
+    "score" : 20.018434524536133,
+    "time" : 63775,
+    "cycle" : 0
+  }, {
+    "sentence" : "You should be able to run in and out of the room or the bed",
+    "score" : 18.511302947998047,
+    "time" : 67168,
+    "cycle" : 1
+  }, {
+    "sentence" : "You should be able to get in and out of the room or the bed",
+    "score" : 14.631567001342773,
+    "time" : 69547,
+    "cycle" : 2
+  }, {
+    "sentence" : "You should be able to get in and out of the edge of the bed",
+    "score" : 14.567898750305176,
+    "time" : 101129,
+    "cycle" : 14
+  }, {
+    "sentence" : "You should be able to get in and out of the back of any car",
+    "score" : 11.112278938293457,
+    "time" : 154968,
+    "cycle" : 40
+  } ],
+  "base_sentence" : {
+    "sentence" : "You should be able to get in and out of the room to the bed",
+    "perplexity" : 14.631485939025879,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "You should be able to run in and out of the room to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 3225 ],
+    "perplexity" : 20.018434524536133,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " run", " in", " and", " out", " of", " the", " room", " to", " the", " bed" ],
+    "original_sentence" : "[MASK] should be [MASK] to [MASK] in and out of the room to the bed",
+    "timestamp" : 63775
+  }, {
+    "sentence" : "You should be able to run in and out of the room or the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 3465, 1860, 394, 3225 ],
+    "perplexity" : 18.511302947998047,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " run", " in", " and", " out", " of", " the", " room", " or", " the", " bed" ],
+    "original_sentence" : "You should [MASK] able [MASK] run in and out of the room [MASK] the bed",
+    "timestamp" : 67168
+  }, {
+    "sentence" : "You should be able to get in and out of the room or the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 1860, 394, 3225 ],
+    "perplexity" : 14.631567001342773,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " or", " the", " bed" ],
+    "original_sentence" : "You [MASK] be able to [MASK] in and out of the room [MASK] the bed",
+    "timestamp" : 69547
+  }, {
+    "sentence" : "You should be easy to get in and out of the room or the bed",
+    "tokens" : [ 920, 1835, 1392, 1404, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 1860, 394, 3225 ],
+    "perplexity" : 20.775943756103516,
+    "tokens_used" : [ " You", " should", " be", " easy", " to", " get", " in", " and", " out", " of", " the", " room", " or", " the", " bed" ],
+    "original_sentence" : "[MASK] should be [MASK] to get in and out [MASK] the room or the bed",
+    "timestamp" : 74417
+  }, {
+    "sentence" : "You should be easy to get in and out of the room of the bed",
+    "tokens" : [ 920, 1835, 1392, 1404, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 5194, 394, 3225 ],
+    "perplexity" : 22.554595947265625,
+    "tokens_used" : [ " You", " should", " be", " easy", " to", " get", " in", " and", " out", " of", " the", " room", " of", " the", " bed" ],
+    "original_sentence" : "You should be easy to get in and [MASK] of the [MASK] [MASK] the bed",
+    "timestamp" : 76057
+  }, {
+    "sentence" : "You should be able to get in and out of the edge of the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 759, 5194, 394, 3225 ],
+    "perplexity" : 14.567898750305176,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " edge", " of", " the", " bed" ],
+    "original_sentence" : "You should be [MASK] to get in and out of [MASK] [MASK] of the bed",
+    "timestamp" : 101129
+  }, {
+    "sentence" : "You should be able to get in and out of the edge of his bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 759, 5194, 3882, 3225 ],
+    "perplexity" : 19.220069885253906,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " edge", " of", " his", " bed" ],
+    "original_sentence" : "You should be able [MASK] get in [MASK] out of the edge of [MASK] bed",
+    "timestamp" : 106574
+  }, {
+    "sentence" : "You should be able to get in and out of the head of his bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 2968, 5194, 3882, 3225 ],
+    "perplexity" : 21.076887130737305,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " head", " of", " his", " bed" ],
+    "original_sentence" : "[MASK] should be able to [MASK] in and out of the [MASK] of his bed",
+    "timestamp" : 108420
+  }, {
+    "sentence" : "You should be able to get in and out of the back of his bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 954, 5194, 3882, 3225 ],
+    "perplexity" : 15.853590965270996,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " back", " of", " his", " bed" ],
+    "original_sentence" : "You should be able [MASK] get in and out of the [MASK] of his [MASK]",
+    "timestamp" : 109791
+  }, {
+    "sentence" : "You should be able to see in and out of the back of his bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 5194, 3882, 3225 ],
+    "perplexity" : 22.69278335571289,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " of", " his", " bed" ],
+    "original_sentence" : "You should be able [MASK] [MASK] in and out [MASK] the back of his bed",
+    "timestamp" : 111150
+  }, {
+    "sentence" : "You should be able to see in and out of the back of the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 5194, 394, 3225 ],
+    "perplexity" : 18.8000545501709,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " of", " the", " bed" ],
+    "original_sentence" : "You should be able to see [MASK] and out of the [MASK] of [MASK] bed",
+    "timestamp" : 115498
+  }, {
+    "sentence" : "You should be able to see in and out of the back on the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 710, 394, 3225 ],
+    "perplexity" : 24.444917678833008,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " on", " the", " bed" ],
+    "original_sentence" : "You should [MASK] able [MASK] see in and out of the back [MASK] the bed",
+    "timestamp" : 116980
+  }, {
+    "sentence" : "You should be able to see in and out of the back on the car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 710, 394, 2223 ],
+    "perplexity" : 22.033323287963867,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " on", " the", " car" ],
+    "original_sentence" : "You should be able to see in [MASK] out [MASK] the back on the [MASK]",
+    "timestamp" : 130720
+  }, {
+    "sentence" : "You should be able to see in and out of the back on any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 710, 1047, 2223 ],
+    "perplexity" : 26.307048797607422,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " on", " any", " car" ],
+    "original_sentence" : "You should be able to see in [MASK] out of [MASK] back on [MASK] car",
+    "timestamp" : 132214
+  }, {
+    "sentence" : "You should be able to see in and out of the park on any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 983, 710, 1047, 2223 ],
+    "perplexity" : 27.229196548461914,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " park", " on", " any", " car" ],
+    "original_sentence" : "You should be able to [MASK] in [MASK] out of the [MASK] on any car",
+    "timestamp" : 140225
+  }, {
+    "sentence" : "You should be able to see in and out of the door on any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 4455, 710, 1047, 2223 ],
+    "perplexity" : 24.836910247802734,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " door", " on", " any", " car" ],
+    "original_sentence" : "You should [MASK] able to see [MASK] and out of the [MASK] on any car",
+    "timestamp" : 142162
+  }, {
+    "sentence" : "You should be able to see in and out of the door of any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 4455, 5194, 1047, 2223 ],
+    "perplexity" : 19.906848907470703,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " door", " of", " any", " car" ],
+    "original_sentence" : "You should be able to see in and [MASK] of [MASK] door [MASK] any car",
+    "timestamp" : 147051
+  }, {
+    "sentence" : "You should be able to see in and out of the back of any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3387, 2515, 215, 518, 5194, 394, 954, 5194, 1047, 2223 ],
+    "perplexity" : 18.201379776000977,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " see", " in", " and", " out", " of", " the", " back", " of", " any", " car" ],
+    "original_sentence" : "You should be able to see in and [MASK] [MASK] the [MASK] of any car",
+    "timestamp" : 149228
+  }, {
+    "sentence" : "You should be able to get in and out of the back of any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 954, 5194, 1047, 2223 ],
+    "perplexity" : 11.112278938293457,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " back", " of", " any", " car" ],
+    "original_sentence" : "You [MASK] be able to [MASK] in and [MASK] of the back of any car",
+    "timestamp" : 154968
+  }, {
+    "sentence" : "You should be able to get in and out of the back in any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 954, 2515, 1047, 2223 ],
+    "perplexity" : 18.765695571899414,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " back", " in", " any", " car" ],
+    "original_sentence" : "You should be able to [MASK] in and out of the [MASK] [MASK] any car",
+    "timestamp" : 157053
+  }, {
+    "sentence" : "You should be able to get in and out of the shop in any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4667, 2515, 1047, 2223 ],
+    "perplexity" : 18.461849212646484,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " shop", " in", " any", " car" ],
+    "original_sentence" : "You should [MASK] able [MASK] get in and out of the [MASK] in any car",
+    "timestamp" : 160608
+  }, {
+    "sentence" : "You should be able to get in and out of the shop in one car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4667, 2515, 1820, 2223 ],
+    "perplexity" : 19.5792236328125,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " shop", " in", " one", " car" ],
+    "original_sentence" : "[MASK] should be able to get in and out of the shop in [MASK] [MASK]",
+    "timestamp" : 169947
+  }, {
+    "sentence" : "You should be able to get in and out of any shop in the car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 4667, 2515, 394, 2223 ],
+    "perplexity" : 17.01529884338379,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " any", " shop", " in", " the", " car" ],
+    "original_sentence" : "You should be able to get in and out [MASK] [MASK] shop in [MASK] car",
+    "timestamp" : 178262
+  }, {
+    "sentence" : "You should be able to get in and out of any shop on the car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 4667, 710, 394, 2223 ],
+    "perplexity" : 19.356353759765625,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " any", " shop", " on", " the", " car" ],
+    "original_sentence" : "You should be able [MASK] get [MASK] and out of any shop [MASK] the car",
+    "timestamp" : 179562
+  }, {
+    "sentence" : "You should be able to get in and out of any door on the car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 4455, 710, 394, 2223 ],
+    "perplexity" : 16.232620239257812,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " any", " door", " on", " the", " car" ],
+    "original_sentence" : "[MASK] should be able [MASK] get in and out of any [MASK] on the car",
+    "timestamp" : 183274
+  }, {
+    "sentence" : "You should be able to get in and out of any lock on the car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 4923, 710, 394, 2223 ],
+    "perplexity" : 14.55146598815918,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " any", " lock", " on", " the", " car" ],
+    "original_sentence" : "You should be [MASK] to [MASK] in and out of any [MASK] on the car",
+    "timestamp" : 185481
+  }, {
+    "sentence" : "You should be able to get in and out of any lock on any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 1047, 4923, 710, 1047, 2223 ],
+    "perplexity" : 17.212434768676758,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " any", " lock", " on", " any", " car" ],
+    "original_sentence" : "You should be able to get in [MASK] out of any lock on [MASK] [MASK]",
+    "timestamp" : 189687
+  }, {
+    "sentence" : "You should be able to get in and out of the lock on any car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4923, 710, 1047, 2223 ],
+    "perplexity" : 17.23897361755371,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " lock", " on", " any", " car" ],
+    "original_sentence" : "You should be able to [MASK] in and out of [MASK] lock on any [MASK]",
+    "timestamp" : 192006
+  }, {
+    "sentence" : "You should be able to get in and out of the lock on one car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4923, 710, 1820, 2223 ],
+    "perplexity" : 20.79084014892578,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " lock", " on", " one", " car" ],
+    "original_sentence" : "You should be able [MASK] get in [MASK] out of the lock on [MASK] car",
+    "timestamp" : 199464
+  }, {
+    "sentence" : "You should be able to get in and out of the lock on you car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4923, 710, 919, 2223 ],
+    "perplexity" : 20.135026931762695,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " lock", " on", " you", " car" ],
+    "original_sentence" : "You should be able to get in [MASK] out [MASK] the lock on [MASK] car",
+    "timestamp" : 203883
+  }, {
+    "sentence" : "You should be able to get in and out of the door on you car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 710, 919, 2223 ],
+    "perplexity" : 18.52102279663086,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " door", " on", " you", " car" ],
+    "original_sentence" : "You should be [MASK] to get in and [MASK] of the [MASK] on you car",
+    "timestamp" : 216980
+  }, {
+    "sentence" : "You should be able to get in and out of the door in you car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 2515, 919, 2223 ],
+    "perplexity" : 16.019371032714844,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " door", " in", " you", " car" ],
+    "original_sentence" : "You should be able to get [MASK] and out of the [MASK] [MASK] you car",
+    "timestamp" : 222589
+  }, {
+    "sentence" : "You should be able to get in and out of the door of you car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 5194, 919, 2223 ],
+    "perplexity" : 13.873425483703613,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " door", " of", " you", " car" ],
+    "original_sentence" : "You should [MASK] able to get in and out [MASK] the door [MASK] you car",
+    "timestamp" : 234760
+  }, {
+    "sentence" : "You should be able to get in and out of the door to you car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 2461, 919, 2223 ],
+    "perplexity" : 15.67745590209961,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " door", " to", " you", " car" ],
+    "original_sentence" : "You should [MASK] able [MASK] get in and out of the door [MASK] you car",
+    "timestamp" : 236528
+  }, {
+    "sentence" : "You should be easy to get in and out of the door to you car",
+    "tokens" : [ 920, 1835, 1392, 1404, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 2461, 919, 2223 ],
+    "perplexity" : 20.924684524536133,
+    "tokens_used" : [ " You", " should", " be", " easy", " to", " get", " in", " and", " out", " of", " the", " door", " to", " you", " car" ],
+    "original_sentence" : "[MASK] should be [MASK] [MASK] get in and out of the door to you car",
+    "timestamp" : 238749
+  }, {
+    "sentence" : "You should be easy to get in and out of the door of you car",
+    "tokens" : [ 920, 1835, 1392, 1404, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 5194, 919, 2223 ],
+    "perplexity" : 19.51093292236328,
+    "tokens_used" : [ " You", " should", " be", " easy", " to", " get", " in", " and", " out", " of", " the", " door", " of", " you", " car" ],
+    "original_sentence" : "You should be easy to get in [MASK] out of the [MASK] [MASK] you car",
+    "timestamp" : 252136
+  }, {
+    "sentence" : "You should be easy to get in and out of the door of any car",
+    "tokens" : [ 920, 1835, 1392, 1404, 2461, 3912, 2515, 215, 518, 5194, 394, 4455, 5194, 1047, 2223 ],
+    "perplexity" : 17.52762794494629,
+    "tokens_used" : [ " You", " should", " be", " easy", " to", " get", " in", " and", " out", " of", " the", " door", " of", " any", " car" ],
+    "original_sentence" : "You should be easy to get in and out [MASK] the door of [MASK] [MASK]",
+    "timestamp" : 262040
+  }, {
+    "sentence" : "You should be easy to get in and out of the back of any car",
+    "tokens" : [ 920, 1835, 1392, 1404, 2461, 3912, 2515, 215, 518, 5194, 394, 954, 5194, 1047, 2223 ],
+    "perplexity" : 15.861620903015137,
+    "tokens_used" : [ " You", " should", " be", " easy", " to", " get", " in", " and", " out", " of", " the", " back", " of", " any", " car" ],
+    "original_sentence" : "You should be easy to get in and [MASK] [MASK] the [MASK] of any car",
+    "timestamp" : 264339
+  } ]
+}

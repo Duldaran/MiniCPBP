@@ -1,0 +1,865 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 50,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T17:30:56.658137182",
+  "time" : 663.41,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Near the end of the room and down the stairs in the kitchen",
+    "score" : 18.357769012451172,
+    "time" : 52273,
+    "cycle" : 0
+  }, {
+    "sentence" : "Near the end of the park and across the road from the hotel",
+    "score" : 17.72234344482422,
+    "time" : 365113,
+    "cycle" : 54
+  } ],
+  "base_sentence" : {
+    "sentence" : "Near the end of the room and down the stairs to the kitchen",
+    "perplexity" : 16.751358032226562,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Near the end of the room and down the stairs in the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 18.357769012451172,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 52273
+  }, {
+    "sentence" : "Near the end of the room and down the stairs is the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2713, 394, 350 ],
+    "perplexity" : 18.793787002563477,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " is", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 53361
+  }, {
+    "sentence" : "Near the end of the room and down the stairs of the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 5194, 394, 350 ],
+    "perplexity" : 22.253175735473633,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " of", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 54230
+  }, {
+    "sentence" : "Near the end of the room and down the stairs at the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 302, 394, 350 ],
+    "perplexity" : 23.25504493713379,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " at", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 55773
+  }, {
+    "sentence" : "Near the end of the room and down the street in the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 3249, 2515, 394, 350 ],
+    "perplexity" : 25.659273147583008,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " street", " in", " the", " kitchen" ],
+    "original_sentence" : "Near the end of the [MASK] and down the [MASK] in the kitchen",
+    "timestamp" : 58198
+  }, {
+    "sentence" : "Near the end of the room and down the street in the village",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 3249, 2515, 394, 976 ],
+    "perplexity" : 31.31589126586914,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " street", " in", " the", " village" ],
+    "original_sentence" : "Near the [MASK] of the room and down the street in the [MASK]",
+    "timestamp" : 66463
+  }, {
+    "sentence" : "Near the end of the room and down the street in the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 3249, 2515, 394, 4259 ],
+    "perplexity" : 29.21841049194336,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " street", " in", " the", " library" ],
+    "original_sentence" : "Near the [MASK] of the room and down the street in the [MASK]",
+    "timestamp" : 67319
+  }, {
+    "sentence" : "Near the end of the room and down the street in the picture",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 3249, 2515, 394, 3122 ],
+    "perplexity" : 36.223388671875,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " street", " in", " the", " picture" ],
+    "original_sentence" : "Near the [MASK] of the room and down the street in the [MASK]",
+    "timestamp" : 68464
+  }, {
+    "sentence" : "Near the end of the walk and down the street in the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 1948, 215, 4343, 394, 3249, 2515, 394, 4259 ],
+    "perplexity" : 26.47117805480957,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " walk", " and", " down", " the", " street", " in", " the", " library" ],
+    "original_sentence" : "Near [MASK] end of the [MASK] and down the street in the library",
+    "timestamp" : 72330
+  }, {
+    "sentence" : "Near the end of the book and down the street in the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2989, 215, 4343, 394, 3249, 2515, 394, 4259 ],
+    "perplexity" : 24.895601272583008,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " book", " and", " down", " the", " street", " in", " the", " library" ],
+    "original_sentence" : "Near [MASK] end of the [MASK] and down the street in the library",
+    "timestamp" : 73309
+  }, {
+    "sentence" : "Near the end of the town and down the street in the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 2515, 394, 4259 ],
+    "perplexity" : 25.27193260192871,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " in", " the", " library" ],
+    "original_sentence" : "Near [MASK] end of the [MASK] and down the street in the library",
+    "timestamp" : 74152
+  }, {
+    "sentence" : "Near the end of the town and down the street to the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 2461, 394, 4259 ],
+    "perplexity" : 25.08771324157715,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " to", " the", " library" ],
+    "original_sentence" : "Near the end of the town and down the street [MASK] [MASK] library",
+    "timestamp" : 83756
+  }, {
+    "sentence" : "Near the end of the town and down the street by the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 2029, 394, 4259 ],
+    "perplexity" : 30.393590927124023,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " by", " the", " library" ],
+    "original_sentence" : "Near the end of the town and down the street [MASK] [MASK] library",
+    "timestamp" : 84742
+  }, {
+    "sentence" : "Near the end of the town and down the street of the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 5194, 394, 4259 ],
+    "perplexity" : 30.153730392456055,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " of", " the", " library" ],
+    "original_sentence" : "Near the end of the town and down the street [MASK] [MASK] library",
+    "timestamp" : 87188
+  }, {
+    "sentence" : "Near the end of the town and down the street of the village",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 5194, 394, 976 ],
+    "perplexity" : 26.85626792907715,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " of", " the", " village" ],
+    "original_sentence" : "Near the end [MASK] the town and down the street of the [MASK]",
+    "timestamp" : 100022
+  }, {
+    "sentence" : "Near the end of the town and down the street of the station",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 5194, 394, 3484 ],
+    "perplexity" : 28.07545280456543,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " of", " the", " station" ],
+    "original_sentence" : "Near the end [MASK] the town and down the street of the [MASK]",
+    "timestamp" : 100934
+  }, {
+    "sentence" : "Near the end of the town and down the street of the capital",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 5194, 394, 5062 ],
+    "perplexity" : 30.578922271728516,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " of", " the", " capital" ],
+    "original_sentence" : "Near the end [MASK] the town and down the street of the [MASK]",
+    "timestamp" : 101687
+  }, {
+    "sentence" : "Near the end of the town and down the street of the factory",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 5194, 394, 2805 ],
+    "perplexity" : 28.60539436340332,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " of", " the", " factory" ],
+    "original_sentence" : "Near the end [MASK] the town and down the street of the [MASK]",
+    "timestamp" : 102518
+  }, {
+    "sentence" : "Near the end of the town and down the street of the airport",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 5194, 394, 1071 ],
+    "perplexity" : 28.36116600036621,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " of", " the", " airport" ],
+    "original_sentence" : "Near the end [MASK] the town and down the street of the [MASK]",
+    "timestamp" : 102930
+  }, {
+    "sentence" : "Near the end of the town and down the street from the first",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 4343, 394, 3249, 3605, 394, 3960 ],
+    "perplexity" : 23.730693817138672,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " down", " the", " street", " from", " the", " first" ],
+    "original_sentence" : "Near the end of the town and down the street [MASK] the [MASK]",
+    "timestamp" : 117166
+  }, {
+    "sentence" : "From the end of the town and inside the town from the start",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 2467 ],
+    "perplexity" : 29.557857513427734,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " start" ],
+    "original_sentence" : "[MASK] the end of the town and inside the town from the [MASK]",
+    "timestamp" : 218507
+  }, {
+    "sentence" : "From the end of the town and inside the town from the start",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 2467 ],
+    "perplexity" : 29.557857513427734,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " start" ],
+    "original_sentence" : "[MASK] the end of the town and inside the town from the [MASK]",
+    "timestamp" : 219472
+  }, {
+    "sentence" : "Near the end of the town and inside the town from the start",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 2467 ],
+    "perplexity" : 30.75370979309082,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " start" ],
+    "original_sentence" : "[MASK] the end of the town and inside the town from the [MASK]",
+    "timestamp" : 220267
+  }, {
+    "sentence" : "Near the end of the town and inside the town from the right",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 5022 ],
+    "perplexity" : 32.816158294677734,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " right" ],
+    "original_sentence" : "Near the end of the town and inside the town from [MASK] [MASK]",
+    "timestamp" : 225167
+  }, {
+    "sentence" : "Near the end of the town and inside the town from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 3306 ],
+    "perplexity" : 29.477764129638672,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " river" ],
+    "original_sentence" : "Near the end of the town and inside the town from [MASK] [MASK]",
+    "timestamp" : 225718
+  }, {
+    "sentence" : "Near the end of the town and inside the town from the front",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 2216 ],
+    "perplexity" : 29.504497528076172,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " front" ],
+    "original_sentence" : "Near the end of the town and inside the town from [MASK] [MASK]",
+    "timestamp" : 226645
+  }, {
+    "sentence" : "Near the end of the town and inside the town from the hills",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2089, 215, 1305, 394, 2089, 3605, 394, 4826 ],
+    "perplexity" : 33.20367431640625,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " town", " and", " inside", " the", " town", " from", " the", " hills" ],
+    "original_sentence" : "Near the end of the town and inside the town from [MASK] [MASK]",
+    "timestamp" : 227931
+  }, {
+    "sentence" : "Near the end of the road and across the pond from the hills",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 858, 215, 266, 394, 1712, 3605, 394, 4826 ],
+    "perplexity" : 32.33506393432617,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " road", " and", " across", " the", " pond", " from", " the", " hills" ],
+    "original_sentence" : "Near the end of the [MASK] and [MASK] the pond from the hills",
+    "timestamp" : 250292
+  }, {
+    "sentence" : "Near the end of the lake and across the pond from the hills",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 2283, 215, 266, 394, 1712, 3605, 394, 4826 ],
+    "perplexity" : 32.22706985473633,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " lake", " and", " across", " the", " pond", " from", " the", " hills" ],
+    "original_sentence" : "Near the end of the [MASK] and [MASK] the pond from the hills",
+    "timestamp" : 250962
+  }, {
+    "sentence" : "Near the end of the park and across the pond from the hills",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 1712, 3605, 394, 4826 ],
+    "perplexity" : 29.80122184753418,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " pond", " from", " the", " hills" ],
+    "original_sentence" : "Near the end of the [MASK] and [MASK] the pond from the hills",
+    "timestamp" : 251516
+  }, {
+    "sentence" : "Near the end of the park and across the pond from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 1712, 3605, 394, 3306 ],
+    "perplexity" : 20.982851028442383,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " pond", " from", " the", " river" ],
+    "original_sentence" : "Near the end of the park and across [MASK] pond from the [MASK]",
+    "timestamp" : 269300
+  }, {
+    "sentence" : "Near the end of the park and across the pond from the trees",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 1712, 3605, 394, 2617 ],
+    "perplexity" : 24.828704833984375,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " pond", " from", " the", " trees" ],
+    "original_sentence" : "Near the end of the park and across [MASK] pond from the [MASK]",
+    "timestamp" : 269594
+  }, {
+    "sentence" : "Near the end of the park and across the pond from the store",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 1712, 3605, 394, 2919 ],
+    "perplexity" : 23.83957862854004,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " pond", " from", " the", " store" ],
+    "original_sentence" : "Near the end of the park and across [MASK] pond from the [MASK]",
+    "timestamp" : 270107
+  }, {
+    "sentence" : "Near the end of the park and across the road from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 3306 ],
+    "perplexity" : 19.077604293823242,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " river" ],
+    "original_sentence" : "Near the end of the park and across the [MASK] [MASK] the river",
+    "timestamp" : 273015
+  }, {
+    "sentence" : "Near the end of the park and across the park from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 983, 3605, 394, 3306 ],
+    "perplexity" : 20.233579635620117,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " park", " from", " the", " river" ],
+    "original_sentence" : "Near the end of the park and across the [MASK] [MASK] the river",
+    "timestamp" : 274551
+  }, {
+    "sentence" : "Near the end of the park and across the bend from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 1736, 3605, 394, 3306 ],
+    "perplexity" : 26.782554626464844,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " bend", " from", " the", " river" ],
+    "original_sentence" : "Near the end of the park and across the [MASK] [MASK] the river",
+    "timestamp" : 275121
+  }, {
+    "sentence" : "Near the end of the park and across the bank from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 4005, 3605, 394, 3306 ],
+    "perplexity" : 23.572328567504883,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " bank", " from", " the", " river" ],
+    "original_sentence" : "Near the end of the park and across the [MASK] [MASK] the river",
+    "timestamp" : 275676
+  }, {
+    "sentence" : "Near the end of the park and across the walk from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 1948, 3605, 394, 3306 ],
+    "perplexity" : 29.195940017700195,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " walk", " from", " the", " river" ],
+    "original_sentence" : "Near the end of [MASK] park and across the [MASK] from the river",
+    "timestamp" : 277844
+  }, {
+    "sentence" : "Near the end of the park and across the edge from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 759, 3605, 394, 3306 ],
+    "perplexity" : 25.5537166595459,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " edge", " from", " the", " river" ],
+    "original_sentence" : "Near the end of [MASK] park and across the [MASK] from the river",
+    "timestamp" : 278264
+  }, {
+    "sentence" : "Near the end of the park and across the lawn from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 3605, 394, 3306 ],
+    "perplexity" : 24.46718978881836,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " from", " the", " river" ],
+    "original_sentence" : "Near the end of [MASK] park and across the [MASK] from the river",
+    "timestamp" : 279004
+  }, {
+    "sentence" : "Near the end of the park and across the pool from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 458, 3605, 394, 3306 ],
+    "perplexity" : 29.065223693847656,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " pool", " from", " the", " river" ],
+    "original_sentence" : "Near the end of [MASK] park and across the [MASK] from the river",
+    "timestamp" : 279816
+  }, {
+    "sentence" : "Near the end of the park and across the town from the river",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 2089, 3605, 394, 3306 ],
+    "perplexity" : 27.624326705932617,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " town", " from", " the", " river" ],
+    "original_sentence" : "Near the end of [MASK] park and across the [MASK] from the river",
+    "timestamp" : 280334
+  }, {
+    "sentence" : "From the end of the park and across the lawn from the river",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 3605, 394, 3306 ],
+    "perplexity" : 28.08950424194336,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " from", " the", " river" ],
+    "original_sentence" : "[MASK] the end [MASK] the park and across the lawn from the river",
+    "timestamp" : 283470
+  }, {
+    "sentence" : "From the end of the park and across the lawn from the river",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 3605, 394, 3306 ],
+    "perplexity" : 28.08950424194336,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " from", " the", " river" ],
+    "original_sentence" : "[MASK] the end of the park and across the lawn [MASK] the river",
+    "timestamp" : 288777
+  }, {
+    "sentence" : "From the end of the park and across the lawn onto the river",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 2326, 394, 3306 ],
+    "perplexity" : 36.20989990234375,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " onto", " the", " river" ],
+    "original_sentence" : "[MASK] the end of the park and across the lawn [MASK] the river",
+    "timestamp" : 289257
+  }, {
+    "sentence" : "From the end of the park and across the lawn over the river",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 116, 394, 3306 ],
+    "perplexity" : 35.703712463378906,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " over", " the", " river" ],
+    "original_sentence" : "[MASK] the end of the park and across the lawn [MASK] the river",
+    "timestamp" : 289859
+  }, {
+    "sentence" : "From the end of the park and across the lawn near the fence",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 1852, 394, 3127 ],
+    "perplexity" : 35.41144943237305,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " near", " the", " fence" ],
+    "original_sentence" : "From the end of the park [MASK] across the lawn near the [MASK]",
+    "timestamp" : 312335
+  }, {
+    "sentence" : "From the end of the park and across the lawn near the fence",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 1852, 394, 3127 ],
+    "perplexity" : 35.41144943237305,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " near", " the", " fence" ],
+    "original_sentence" : "[MASK] the end of the park and across the lawn near [MASK] fence",
+    "timestamp" : 321661
+  }, {
+    "sentence" : "Near the end of the park and across the lawn near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 4326, 1852, 394, 3127 ],
+    "perplexity" : 28.209888458251953,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " lawn", " near", " the", " fence" ],
+    "original_sentence" : "[MASK] the end of the park and across the lawn near [MASK] fence",
+    "timestamp" : 322493
+  }, {
+    "sentence" : "Near the end of the park and across the road near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 1852, 394, 3127 ],
+    "perplexity" : 23.716066360473633,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and [MASK] the [MASK] near the fence",
+    "timestamp" : 327432
+  }, {
+    "sentence" : "Near the end of the park and beside the road near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 2858, 394, 858, 1852, 394, 3127 ],
+    "perplexity" : 30.922725677490234,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " beside", " the", " road", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and [MASK] the [MASK] near the fence",
+    "timestamp" : 328697
+  }, {
+    "sentence" : "Near the end of the park and facing the road near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 3100, 394, 858, 1852, 394, 3127 ],
+    "perplexity" : 31.001943588256836,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " facing", " the", " road", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and [MASK] the [MASK] near the fence",
+    "timestamp" : 329880
+  }, {
+    "sentence" : "Near the end of the park and follow the road near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 2738, 394, 858, 1852, 394, 3127 ],
+    "perplexity" : 35.90726852416992,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " follow", " the", " road", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and [MASK] the [MASK] near the fence",
+    "timestamp" : 332014
+  }, {
+    "sentence" : "Near the end of the park and inside the road near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 1305, 394, 858, 1852, 394, 3127 ],
+    "perplexity" : 31.71874237060547,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " inside", " the", " road", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and [MASK] the [MASK] near the fence",
+    "timestamp" : 350559
+  }, {
+    "sentence" : "Near the end of the park and across the road from the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 3127 ],
+    "perplexity" : 20.74683952331543,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and across the road [MASK] [MASK] fence",
+    "timestamp" : 353460
+  }, {
+    "sentence" : "Near the end of the park and across the road over the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 116, 394, 3127 ],
+    "perplexity" : 25.283899307250977,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " over", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and across the road [MASK] [MASK] fence",
+    "timestamp" : 354188
+  }, {
+    "sentence" : "Near the end of the park and across the road with the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 2342, 394, 3127 ],
+    "perplexity" : 27.739322662353516,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " with", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and across the road [MASK] [MASK] fence",
+    "timestamp" : 354905
+  }, {
+    "sentence" : "Near the end of the park and across the road goes the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 935, 394, 3127 ],
+    "perplexity" : 29.340145111083984,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " goes", " the", " fence" ],
+    "original_sentence" : "Near the end of the park and across the road [MASK] [MASK] fence",
+    "timestamp" : 356108
+  }, {
+    "sentence" : "Near one end of the park and across the road from the fence",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 3127 ],
+    "perplexity" : 20.10907745361328,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " fence" ],
+    "original_sentence" : "Near [MASK] end of the park and across the road [MASK] the fence",
+    "timestamp" : 359116
+  }, {
+    "sentence" : "Near our end of the park and across the road from the fence",
+    "tokens" : [ 1853, 3369, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 3127 ],
+    "perplexity" : 31.215070724487305,
+    "tokens_used" : [ " Near", " our", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " fence" ],
+    "original_sentence" : "Near [MASK] end of the park and across the road [MASK] the fence",
+    "timestamp" : 360477
+  }, {
+    "sentence" : "Near his end of the park and across the road from the fence",
+    "tokens" : [ 1853, 3882, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 3127 ],
+    "perplexity" : 35.591678619384766,
+    "tokens_used" : [ " Near", " his", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " fence" ],
+    "original_sentence" : "Near [MASK] end of the park and across the road [MASK] the fence",
+    "timestamp" : 361756
+  }, {
+    "sentence" : "Near far end of the park and across the road from the fence",
+    "tokens" : [ 1853, 2934, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 3127 ],
+    "perplexity" : 28.550640106201172,
+    "tokens_used" : [ " Near", " far", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " fence" ],
+    "original_sentence" : "Near [MASK] end of the park and across the road [MASK] the fence",
+    "timestamp" : 362395
+  }, {
+    "sentence" : "Near the end of the park and across the road from the hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 1706 ],
+    "perplexity" : 17.72234344482422,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " hotel" ],
+    "original_sentence" : "Near [MASK] end of the park and across the road from the [MASK]",
+    "timestamp" : 365113
+  }, {
+    "sentence" : "Near the end of the park and across the road from the store",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 394, 2919 ],
+    "perplexity" : 18.409391403198242,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " the", " store" ],
+    "original_sentence" : "Near [MASK] end of the park and across the road from the [MASK]",
+    "timestamp" : 367287
+  }, {
+    "sentence" : "Near the end of the park and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 20.520748138427734,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the end of the park and [MASK] the road from [MASK] hotel",
+    "timestamp" : 370575
+  }, {
+    "sentence" : "Near the end of the park and across the road from his hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 3882, 1706 ],
+    "perplexity" : 24.8742733001709,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " his", " hotel" ],
+    "original_sentence" : "Near the end of the park and [MASK] the road from [MASK] hotel",
+    "timestamp" : 372357
+  }, {
+    "sentence" : "Near the end of the park and across the road from her hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 983, 215, 266, 394, 858, 3605, 3730, 1706 ],
+    "perplexity" : 27.777860641479492,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " park", " and", " across", " the", " road", " from", " her", " hotel" ],
+    "original_sentence" : "Near the end of the park and [MASK] the road from [MASK] hotel",
+    "timestamp" : 374035
+  }, {
+    "sentence" : "Near the end of our park and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 3369, 983, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 28.510412216186523,
+    "tokens_used" : [ " Near", " the", " end", " of", " our", " park", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the [MASK] of [MASK] park and across the road from our hotel",
+    "timestamp" : 376985
+  }, {
+    "sentence" : "Near the end of one park and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 1820, 983, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 32.58100128173828,
+    "tokens_used" : [ " Near", " the", " end", " of", " one", " park", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the [MASK] of [MASK] park and across the road from our hotel",
+    "timestamp" : 377532
+  }, {
+    "sentence" : "Near the end of car park and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 2223, 983, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 31.026254653930664,
+    "tokens_used" : [ " Near", " the", " end", " of", " car", " park", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the [MASK] of [MASK] park and across the road from our hotel",
+    "timestamp" : 378372
+  }, {
+    "sentence" : "Near the end of his park and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 983, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 32.689327239990234,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " park", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the [MASK] of [MASK] park and across the road from our hotel",
+    "timestamp" : 380111
+  }, {
+    "sentence" : "Near the end of his walk and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 1948, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 32.931434631347656,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " walk", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the end [MASK] his [MASK] and across the road from our hotel",
+    "timestamp" : 397230
+  }, {
+    "sentence" : "Near the end of his road and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 858, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 27.658536911010742,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " road", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the end [MASK] his [MASK] and across the road from our hotel",
+    "timestamp" : 398647
+  }, {
+    "sentence" : "Near the end of his bike and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 2503, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 33.1952018737793,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " bike", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the end [MASK] his [MASK] and across the road from our hotel",
+    "timestamp" : 400623
+  }, {
+    "sentence" : "Near the end of the road and across the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 858, 215, 266, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 18.539113998413086,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " road", " and", " across", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the end of the road and across the road [MASK] our [MASK]",
+    "timestamp" : 429757
+  }, {
+    "sentence" : "Near the end of the road and across the road with our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 858, 215, 266, 394, 858, 2342, 3369, 1706 ],
+    "perplexity" : 33.41240692138672,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " road", " and", " across", " the", " road", " with", " our", " hotel" ],
+    "original_sentence" : "Near the end of the road and across the road [MASK] our [MASK]",
+    "timestamp" : 431286
+  }, {
+    "sentence" : "Near the end of the road and across the road near our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 858, 215, 266, 394, 858, 1852, 3369, 1706 ],
+    "perplexity" : 25.15021324157715,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " road", " and", " across", " the", " road", " near", " our", " hotel" ],
+    "original_sentence" : "Near the end of the road and across the road [MASK] our [MASK]",
+    "timestamp" : 432343
+  }, {
+    "sentence" : "Near the end of the road and across the road goes our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 858, 215, 266, 394, 858, 935, 3369, 1706 ],
+    "perplexity" : 34.75525665283203,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " road", " and", " across", " the", " road", " goes", " our", " hotel" ],
+    "original_sentence" : "Near the end of the road and across the road [MASK] our [MASK]",
+    "timestamp" : 433142
+  }, {
+    "sentence" : "Near the end of the street and down the road from our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 21.894371032714844,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "Near the end of the [MASK] and [MASK] the road from our hotel",
+    "timestamp" : 437202
+  }, {
+    "sentence" : "From the end of the street and down the road from our hotel",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 24.136003494262695,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " street", " and", " down", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "[MASK] the end of the street and down the road [MASK] our hotel",
+    "timestamp" : 446221
+  }, {
+    "sentence" : "From the end of the street and down the road from our hotel",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 24.136003494262695,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "[MASK] the end of the street and down the road [MASK] our hotel",
+    "timestamp" : 447021
+  }, {
+    "sentence" : "Down the end of the street and down the road from our hotel",
+    "tokens" : [ 4343, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 3605, 3369, 1706 ],
+    "perplexity" : 26.680147171020508,
+    "tokens_used" : [ " down", " the", " end", " of", " the", " street", " and", " down", " the", " road", " from", " our", " hotel" ],
+    "original_sentence" : "[MASK] the end of the street and down the road [MASK] our hotel",
+    "timestamp" : 447764
+  }, {
+    "sentence" : "From the end of the street and down the road near our hotel",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 3369, 1706 ],
+    "perplexity" : 31.39854621887207,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " our", " hotel" ],
+    "original_sentence" : "From the end of [MASK] street and down the road [MASK] our hotel",
+    "timestamp" : 455694
+  }, {
+    "sentence" : "From the end of the street and down the road near our hotel",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 3369, 1706 ],
+    "perplexity" : 31.39854621887207,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " our", " hotel" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near our hotel",
+    "timestamp" : 463656
+  }, {
+    "sentence" : "Near the end of the street and down the road near our hotel",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 3369, 1706 ],
+    "perplexity" : 28.92508316040039,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " our", " hotel" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near our hotel",
+    "timestamp" : 464138
+  }, {
+    "sentence" : "Down the end of the street and down the road near our hotel",
+    "tokens" : [ 4343, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 3369, 1706 ],
+    "perplexity" : 32.69524383544922,
+    "tokens_used" : [ " down", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " our", " hotel" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near our hotel",
+    "timestamp" : 465281
+  }, {
+    "sentence" : "Near the end of the street and down the road near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 23.25685691833496,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the [MASK] and down the road near [MASK] house",
+    "timestamp" : 499337
+  }, {
+    "sentence" : "Near the end of the street and down the road near his house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 3882, 1080 ],
+    "perplexity" : 24.037446975708008,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " his", " house" ],
+    "original_sentence" : "Near the end of the [MASK] and down the road near [MASK] house",
+    "timestamp" : 499929
+  }, {
+    "sentence" : "Near the end of the street and down the road near her house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 3730, 1080 ],
+    "perplexity" : 25.15933609008789,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " her", " house" ],
+    "original_sentence" : "Near the end of the [MASK] and down the road near [MASK] house",
+    "timestamp" : 501467
+  }, {
+    "sentence" : "Near the end of the street but down the road near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 2922, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 34.772727966308594,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " but", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the street [MASK] down the road near [MASK] house",
+    "timestamp" : 506587
+  }, {
+    "sentence" : "Near the end of the street run down the road near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 2807, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 30.966386795043945,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " run", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the street [MASK] down the road near [MASK] house",
+    "timestamp" : 506981
+  }, {
+    "sentence" : "Near the end of the street ran down the road near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 3332, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 33.790748596191406,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " ran", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the street [MASK] down the road near [MASK] house",
+    "timestamp" : 509790
+  }, {
+    "sentence" : "Near the end of the street and down the path near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 1852, 394, 1080 ],
+    "perplexity" : 28.83123779296875,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " path", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the street [MASK] down the [MASK] near the house",
+    "timestamp" : 527760
+  }, {
+    "sentence" : "Near the end of the street and down the wall near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 1241, 1852, 394, 1080 ],
+    "perplexity" : 27.868459701538086,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " wall", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the street [MASK] down the [MASK] near the house",
+    "timestamp" : 528302
+  }, {
+    "sentence" : "Near the end of the street and down the side near the house",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 400, 1852, 394, 1080 ],
+    "perplexity" : 25.226242065429688,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " side", " near", " the", " house" ],
+    "original_sentence" : "Near the end of the street [MASK] down the [MASK] near the house",
+    "timestamp" : 529650
+  }, {
+    "sentence" : "From the end of the street and down the road near the house",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 26.136531829833984,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near the house",
+    "timestamp" : 532553
+  }, {
+    "sentence" : "From the end of the street and down the road near the house",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 26.136531829833984,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near the house",
+    "timestamp" : 533379
+  }, {
+    "sentence" : "Down the end of the street and down the road near the house",
+    "tokens" : [ 4343, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 26.957374572753906,
+    "tokens_used" : [ " down", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near the house",
+    "timestamp" : 534074
+  }, {
+    "sentence" : "Take the end of the street and down the road near the house",
+    "tokens" : [ 1267, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 27.77811050415039,
+    "tokens_used" : [ " Take", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near the house",
+    "timestamp" : 536604
+  }, {
+    "sentence" : "Find the end of the street and down the road near the house",
+    "tokens" : [ 4073, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 29.801448822021484,
+    "tokens_used" : [ " Find", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "[MASK] the end of the street and down the [MASK] near the house",
+    "timestamp" : 537198
+  }, {
+    "sentence" : "From the end of the street and down the road near the shops",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 41 ],
+    "perplexity" : 31.777700424194336,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " shops" ],
+    "original_sentence" : "From the end of the street and down the road near [MASK] [MASK]",
+    "timestamp" : 540365
+  }, {
+    "sentence" : "From the end of the street and down the road near the beach",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 5075 ],
+    "perplexity" : 26.49739646911621,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " beach" ],
+    "original_sentence" : "From the end of the street and down the road near [MASK] [MASK]",
+    "timestamp" : 541071
+  }, {
+    "sentence" : "From the end of the street and down the road near the water",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 3408 ],
+    "perplexity" : 29.76764678955078,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " water" ],
+    "original_sentence" : "From the end of the street and down the road near [MASK] [MASK]",
+    "timestamp" : 541745
+  }, {
+    "sentence" : "From the end of the street and down the road near the tower",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 961 ],
+    "perplexity" : 31.18654441833496,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " tower" ],
+    "original_sentence" : "From the end of the street and down the road near [MASK] [MASK]",
+    "timestamp" : 542345
+  }, {
+    "sentence" : "From the end of the street and down the road near the fence",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 3127 ],
+    "perplexity" : 29.53754234313965,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " fence" ],
+    "original_sentence" : "From the end of the street and down the road near [MASK] [MASK]",
+    "timestamp" : 542830
+  }, {
+    "sentence" : "From the end of the street and down the path near the fence",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 1852, 394, 3127 ],
+    "perplexity" : 33.465187072753906,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " path", " near", " the", " fence" ],
+    "original_sentence" : "From the end [MASK] the street and down the [MASK] near the fence",
+    "timestamp" : 552453
+  }, {
+    "sentence" : "From the end of the street and down the wall near the fence",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 1241, 1852, 394, 3127 ],
+    "perplexity" : 31.691181182861328,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " street", " and", " down", " the", " wall", " near", " the", " fence" ],
+    "original_sentence" : "From the end [MASK] the street and down the [MASK] near the fence",
+    "timestamp" : 553209
+  }, {
+    "sentence" : "From the top of the street and down the wall near the fence",
+    "tokens" : [ 3606, 394, 770, 5194, 394, 3249, 215, 4343, 394, 1241, 1852, 394, 3127 ],
+    "perplexity" : 32.73126983642578,
+    "tokens_used" : [ " From", " the", " top", " of", " the", " street", " and", " down", " the", " wall", " near", " the", " fence" ],
+    "original_sentence" : "From the [MASK] of the street and down [MASK] wall near the fence",
+    "timestamp" : 562424
+  }, {
+    "sentence" : "Near the end of the street and down the wall near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 4343, 394, 1241, 1852, 394, 3127 ],
+    "perplexity" : 26.73192596435547,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " down", " the", " wall", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the street and [MASK] [MASK] wall near the fence",
+    "timestamp" : 592091
+  }, {
+    "sentence" : "Near the end of the street and upon the wall near the fence",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3249, 215, 403, 394, 1241, 1852, 394, 3127 ],
+    "perplexity" : 31.536359786987305,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " street", " and", " upon", " the", " wall", " near", " the", " fence" ],
+    "original_sentence" : "Near the end of the street and [MASK] [MASK] wall near the fence",
+    "timestamp" : 592741
+  }, {
+    "sentence" : "Near one end of the street and down the wall near the house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 1241, 1852, 394, 1080 ],
+    "perplexity" : 26.37566566467285,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " wall", " near", " the", " house" ],
+    "original_sentence" : "Near [MASK] end of the street and down the wall near the [MASK]",
+    "timestamp" : 597471
+  }, {
+    "sentence" : "Near one end of the street and down the road near the house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 858, 1852, 394, 1080 ],
+    "perplexity" : 22.73480796813965,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " road", " near", " the", " house" ],
+    "original_sentence" : "Near one end of the street and down the [MASK] near the [MASK]",
+    "timestamp" : 615501
+  }, {
+    "sentence" : "Near one end of the street and down the next near the house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 288, 1852, 394, 1080 ],
+    "perplexity" : 25.99250602722168,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " next", " near", " the", " house" ],
+    "original_sentence" : "Near one end of the street and down the [MASK] near the [MASK]",
+    "timestamp" : 615904
+  }, {
+    "sentence" : "Near one end of the street and down the side near the house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 400, 1852, 394, 1080 ],
+    "perplexity" : 23.07927131652832,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " side", " near", " the", " house" ],
+    "original_sentence" : "Near one end of the street and down the [MASK] near the [MASK]",
+    "timestamp" : 616309
+  }, {
+    "sentence" : "Near one end of the street and down the path near the house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 1852, 394, 1080 ],
+    "perplexity" : 28.67665672302246,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " path", " near", " the", " house" ],
+    "original_sentence" : "Near one end of the street and down the [MASK] near the [MASK]",
+    "timestamp" : 617404
+  }, {
+    "sentence" : "Near one end of the street and down the path near his house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 1852, 3882, 1080 ],
+    "perplexity" : 31.90091896057129,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " path", " near", " his", " house" ],
+    "original_sentence" : "Near one end of [MASK] street and down the path near [MASK] house",
+    "timestamp" : 638562
+  }, {
+    "sentence" : "Near one end of the street and down the path near her house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 1852, 3730, 1080 ],
+    "perplexity" : 32.46340560913086,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " path", " near", " her", " house" ],
+    "original_sentence" : "Near one end of [MASK] street and down the path near [MASK] house",
+    "timestamp" : 638927
+  }, {
+    "sentence" : "Near one end of the street and down the path near our house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 1852, 3369, 1080 ],
+    "perplexity" : 34.12871170043945,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " path", " near", " our", " house" ],
+    "original_sentence" : "Near one end of [MASK] street and down the path near [MASK] house",
+    "timestamp" : 639132
+  }, {
+    "sentence" : "Near one end of the street and down the path into our house",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 3249, 215, 4343, 394, 789, 980, 3369, 1080 ],
+    "perplexity" : 31.529178619384766,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " street", " and", " down", " the", " path", " into", " our", " house" ],
+    "original_sentence" : "Near one end of the street [MASK] down the path [MASK] our house",
+    "timestamp" : 650936
+  } ]
+}

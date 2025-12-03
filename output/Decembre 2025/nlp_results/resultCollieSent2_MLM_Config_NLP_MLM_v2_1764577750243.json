@@ -1,0 +1,400 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T03:29:10.241398017",
+  "time" : 263.548,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This sentence soft beach water can beach be grass water",
+    "score" : 6585.6943359375,
+    "time" : 3334,
+    "cycle" : 0
+  }, {
+    "sentence" : "This sentence soft the water can beach be the water",
+    "score" : 4566.68701171875,
+    "time" : 11163,
+    "cycle" : 3
+  }, {
+    "sentence" : "This sentence soft the word can beach be the water",
+    "score" : 4004.949462890625,
+    "time" : 13953,
+    "cycle" : 4
+  }, {
+    "sentence" : "This sentence soft the word can beach in the water",
+    "score" : 1716.2418212890625,
+    "time" : 16236,
+    "cycle" : 5
+  }, {
+    "sentence" : "This sentence soft the word the beach in the water",
+    "score" : 1105.0517578125,
+    "time" : 18988,
+    "cycle" : 6
+  }, {
+    "sentence" : "This sentence soft the word the beach and the water",
+    "score" : 1048.345947265625,
+    "time" : 21388,
+    "cycle" : 7
+  }, {
+    "sentence" : "A sentence soft the subject the beach and the water",
+    "score" : 808.712646484375,
+    "time" : 31326,
+    "cycle" : 11
+  }, {
+    "sentence" : "A sentence soft the words the beach and the water",
+    "score" : 732.0466918945312,
+    "time" : 38689,
+    "cycle" : 14
+  }, {
+    "sentence" : "This is soft the words a beach and the water",
+    "score" : 490.7811279296875,
+    "time" : 55591,
+    "cycle" : 21
+  }, {
+    "sentence" : "This is soft the words the beach and the water",
+    "score" : 318.58135986328125,
+    "time" : 57304,
+    "cycle" : 22
+  }, {
+    "sentence" : "This is soft to subject the beach and the water",
+    "score" : 238.138916015625,
+    "time" : 62721,
+    "cycle" : 24
+  }, {
+    "sentence" : "This is soft to of the beach and the water",
+    "score" : 196.7055206298828,
+    "time" : 62970,
+    "cycle" : 24
+  }, {
+    "sentence" : "This is soft to of the beach in the water",
+    "score" : 194.40223693847656,
+    "time" : 69861,
+    "cycle" : 27
+  }, {
+    "sentence" : "This is soft water of the beach in the water",
+    "score" : 119.75421142578125,
+    "time" : 72089,
+    "cycle" : 28
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This sentence soft beach water can beach be grass water",
+    "tokens" : [ 1228, 775, 2489, 5075, 3408, 1358, 5075, 1392, 0, 3408 ],
+    "perplexity" : 6585.6943359375,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " water", " can", " beach", " be", " grass", " water" ],
+    "original_sentence" : "This sentence soft beach water can beach be [MASK] water",
+    "timestamp" : 3335
+  }, {
+    "sentence" : "This sentence soft that water can beach be grass water",
+    "tokens" : [ 1228, 775, 2489, 1321, 3408, 1358, 5075, 1392, 0, 3408 ],
+    "perplexity" : 6669.828125,
+    "tokens_used" : [ " This", " sentence", " soft", " that", " water", " can", " beach", " be", " grass", " water" ],
+    "original_sentence" : "This sentence soft [MASK] water can beach be grass water",
+    "timestamp" : 6143
+  }, {
+    "sentence" : "This sentence soft the water can beach be grass water",
+    "tokens" : [ 1228, 775, 2489, 394, 3408, 1358, 5075, 1392, 0, 3408 ],
+    "perplexity" : 9034.1962890625,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " water", " can", " beach", " be", " grass", " water" ],
+    "original_sentence" : "This sentence soft [MASK] water can beach be grass water",
+    "timestamp" : 8700
+  }, {
+    "sentence" : "This sentence soft the water can beach be the water",
+    "tokens" : [ 1228, 775, 2489, 394, 3408, 1358, 5075, 1392, 394, 3408 ],
+    "perplexity" : 4566.68701171875,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " water", " can", " beach", " be", " the", " water" ],
+    "original_sentence" : "This sentence soft the water can beach be [MASK] water",
+    "timestamp" : 11163
+  }, {
+    "sentence" : "This sentence soft the word can beach be the water",
+    "tokens" : [ 1228, 775, 2489, 394, 4940, 1358, 5075, 1392, 394, 3408 ],
+    "perplexity" : 4004.949462890625,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " word", " can", " beach", " be", " the", " water" ],
+    "original_sentence" : "This sentence soft the [MASK] can beach be the water",
+    "timestamp" : 13953
+  }, {
+    "sentence" : "This sentence soft the word can beach in the water",
+    "tokens" : [ 1228, 775, 2489, 394, 4940, 1358, 5075, 2515, 394, 3408 ],
+    "perplexity" : 1716.2418212890625,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " word", " can", " beach", " in", " the", " water" ],
+    "original_sentence" : "This sentence soft the word can beach [MASK] the water",
+    "timestamp" : 16236
+  }, {
+    "sentence" : "This sentence soft the word the beach in the water",
+    "tokens" : [ 1228, 775, 2489, 394, 4940, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 1105.0517578125,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " word", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "This sentence soft the word [MASK] beach in the water",
+    "timestamp" : 18988
+  }, {
+    "sentence" : "This sentence soft the word the beach and the water",
+    "tokens" : [ 1228, 775, 2489, 394, 4940, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 1048.345947265625,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " word", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This sentence soft the word the beach [MASK] the water",
+    "timestamp" : 21388
+  }, {
+    "sentence" : "This sentence soft the subject the beach and the water",
+    "tokens" : [ 1228, 775, 2489, 394, 2506, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 1106.8997802734375,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " subject", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This sentence soft the [MASK] the beach and the water",
+    "timestamp" : 23462
+  }, {
+    "sentence" : "A sentence soft the subject the beach and the water",
+    "tokens" : [ 4646, 775, 2489, 394, 2506, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 808.712646484375,
+    "tokens_used" : [ " a", " sentence", " soft", " the", " subject", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "[MASK] sentence soft the subject the beach and the water",
+    "timestamp" : 31326
+  }, {
+    "sentence" : "A sentence soft the word the beach and the water",
+    "tokens" : [ 4647, 775, 2489, 394, 4940, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 863.2147216796875,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " word", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "A sentence soft the [MASK] the beach and the water",
+    "timestamp" : 33423
+  }, {
+    "sentence" : "A sentence soft the words the beach and the water",
+    "tokens" : [ 4647, 775, 2489, 394, 4670, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 732.0466918945312,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " words", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "A sentence soft the [MASK] the beach and the water",
+    "timestamp" : 38689
+  }, {
+    "sentence" : "This sentence soft the words the beach and the water",
+    "tokens" : [ 1228, 775, 2489, 394, 4670, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 916.1118774414062,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " words", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "[MASK] sentence soft the words the beach and the water",
+    "timestamp" : 41018
+  }, {
+    "sentence" : "This sentence soft the words a beach and the water",
+    "tokens" : [ 1228, 775, 2489, 394, 4670, 4646, 5075, 215, 394, 3408 ],
+    "perplexity" : 1323.18896484375,
+    "tokens_used" : [ " This", " sentence", " soft", " the", " words", " a", " beach", " and", " the", " water" ],
+    "original_sentence" : "This sentence soft the words [MASK] beach and the water",
+    "timestamp" : 45689
+  }, {
+    "sentence" : "This is soft the words a beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 394, 4670, 4646, 5075, 215, 394, 3408 ],
+    "perplexity" : 490.7811279296875,
+    "tokens_used" : [ " This", " is", " soft", " the", " words", " a", " beach", " and", " the", " water" ],
+    "original_sentence" : "This [MASK] soft the words a beach and the water",
+    "timestamp" : 55591
+  }, {
+    "sentence" : "This is soft the words the beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 394, 4670, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 318.58135986328125,
+    "tokens_used" : [ " This", " is", " soft", " the", " words", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft the words [MASK] beach and the water",
+    "timestamp" : 57304
+  }, {
+    "sentence" : "This is soft to words the beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 2461, 4670, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 358.9576721191406,
+    "tokens_used" : [ " This", " is", " soft", " to", " words", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] words the beach and the water",
+    "timestamp" : 60108
+  }, {
+    "sentence" : "This is soft to word the beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 2461, 4940, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 320.78558349609375,
+    "tokens_used" : [ " This", " is", " soft", " to", " word", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft to [MASK] the beach and the water",
+    "timestamp" : 62525
+  }, {
+    "sentence" : "This is soft to subject the beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 2461, 2506, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 238.138916015625,
+    "tokens_used" : [ " This", " is", " soft", " to", " subject", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft to [MASK] the beach and the water",
+    "timestamp" : 62721
+  }, {
+    "sentence" : "This is soft to of the beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 2461, 5194, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 196.7055206298828,
+    "tokens_used" : [ " This", " is", " soft", " to", " of", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft to [MASK] the beach and the water",
+    "timestamp" : 62970
+  }, {
+    "sentence" : "This is soft to of the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 2461, 5194, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 194.40223693847656,
+    "tokens_used" : [ " This", " is", " soft", " to", " of", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft to of the beach [MASK] the water",
+    "timestamp" : 69861
+  }, {
+    "sentence" : "This is soft water of the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 3408, 5194, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 119.75421142578125,
+    "tokens_used" : [ " This", " is", " soft", " water", " of", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] of the beach in the water",
+    "timestamp" : 72089
+  }, {
+    "sentence" : "This is soft water of the beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 3408, 5194, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 137.0443115234375,
+    "tokens_used" : [ " This", " is", " soft", " water", " of", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft water of the beach [MASK] the water",
+    "timestamp" : 74955
+  }, {
+    "sentence" : "This is soft water of a beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 3408, 5194, 4646, 5075, 215, 394, 3408 ],
+    "perplexity" : 192.2238006591797,
+    "tokens_used" : [ " This", " is", " soft", " water", " of", " a", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft water of [MASK] beach and the water",
+    "timestamp" : 77189
+  }, {
+    "sentence" : "This is soft beach of a beach and the water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 5194, 4646, 5075, 215, 394, 3408 ],
+    "perplexity" : 210.3118438720703,
+    "tokens_used" : [ " This", " is", " soft", " beach", " of", " a", " beach", " and", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] of a beach and the water",
+    "timestamp" : 79712
+  }, {
+    "sentence" : "This is soft beach of a beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 153.64813232421875,
+    "tokens_used" : [ " This", " is", " soft", " beach", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft beach of a beach [MASK] the water",
+    "timestamp" : 82184
+  }, {
+    "sentence" : "This is soft beach of the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 5194, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 161.67166137695312,
+    "tokens_used" : [ " This", " is", " soft", " beach", " of", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft beach of [MASK] beach in the water",
+    "timestamp" : 84819
+  }, {
+    "sentence" : "This is soft of of the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 5194, 5194, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 213.2100830078125,
+    "tokens_used" : [ " This", " is", " soft", " of", " of", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] of the beach in the water",
+    "timestamp" : 91483
+  }, {
+    "sentence" : "This is soft of of a beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 5194, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 196.00601196289062,
+    "tokens_used" : [ " This", " is", " soft", " of", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft of of [MASK] beach in the water",
+    "timestamp" : 93247
+  }, {
+    "sentence" : "This is soft water of a beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 3408, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 147.26339721679688,
+    "tokens_used" : [ " This", " is", " soft", " water", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] of a beach in the water",
+    "timestamp" : 113053
+  }, {
+    "sentence" : "This is soft to of a beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 2461, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 192.16571044921875,
+    "tokens_used" : [ " This", " is", " soft", " to", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "This is soft [MASK] of a beach in the water",
+    "timestamp" : 117570
+  }, {
+    "sentence" : "A is soft to of a beach in the water",
+    "tokens" : [ 4647, 2713, 2489, 2461, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 194.3614501953125,
+    "tokens_used" : [ " A", " is", " soft", " to", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft to of a beach in the water",
+    "timestamp" : 213998
+  }, {
+    "sentence" : "Of is soft to of a beach in the water",
+    "tokens" : [ 5194, 2713, 2489, 2461, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 217.40419006347656,
+    "tokens_used" : [ " of", " is", " soft", " to", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft to of a beach in the water",
+    "timestamp" : 214309
+  }, {
+    "sentence" : "Of is soft water of a beach in the water",
+    "tokens" : [ 5195, 2713, 2489, 3408, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 176.7361297607422,
+    "tokens_used" : [ " Of", " is", " soft", " water", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Of is soft [MASK] of a beach in the water",
+    "timestamp" : 219754
+  }, {
+    "sentence" : "Of is soft beach of a beach in the water",
+    "tokens" : [ 5195, 2713, 2489, 5075, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 225.80526733398438,
+    "tokens_used" : [ " Of", " is", " soft", " beach", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Of is soft [MASK] of a beach in the water",
+    "timestamp" : 219976
+  }, {
+    "sentence" : "Of is soft of of a beach in the water",
+    "tokens" : [ 5195, 2713, 2489, 5194, 5194, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 227.76910400390625,
+    "tokens_used" : [ " Of", " is", " soft", " of", " of", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Of is soft [MASK] of a beach in the water",
+    "timestamp" : 220189
+  }, {
+    "sentence" : "Of is soft water of a beach in clear water",
+    "tokens" : [ 5195, 2713, 2489, 3408, 5194, 4646, 5075, 2515, 2572, 3408 ],
+    "perplexity" : 222.1483917236328,
+    "tokens_used" : [ " Of", " is", " soft", " water", " of", " a", " beach", " in", " clear", " water" ],
+    "original_sentence" : "Of is soft water of a beach in [MASK] water",
+    "timestamp" : 222427
+  }, {
+    "sentence" : "Of is soft water of a beach and clear water",
+    "tokens" : [ 5195, 2713, 2489, 3408, 5194, 4646, 5075, 215, 2572, 3408 ],
+    "perplexity" : 201.68563842773438,
+    "tokens_used" : [ " Of", " is", " soft", " water", " of", " a", " beach", " and", " clear", " water" ],
+    "original_sentence" : "Of is soft water of a beach [MASK] clear water",
+    "timestamp" : 228921
+  }, {
+    "sentence" : "Of is soft water of a beach of clear water",
+    "tokens" : [ 5195, 2713, 2489, 3408, 5194, 4646, 5075, 5194, 2572, 3408 ],
+    "perplexity" : 219.50344848632812,
+    "tokens_used" : [ " Of", " is", " soft", " water", " of", " a", " beach", " of", " clear", " water" ],
+    "original_sentence" : "Of is soft water of a beach [MASK] clear water",
+    "timestamp" : 229477
+  }, {
+    "sentence" : "Of is soft water of a beach and the water",
+    "tokens" : [ 5195, 2713, 2489, 3408, 5194, 4646, 5075, 215, 394, 3408 ],
+    "perplexity" : 238.44876098632812,
+    "tokens_used" : [ " Of", " is", " soft", " water", " of", " a", " beach", " and", " the", " water" ],
+    "original_sentence" : "Of is soft water of a beach and [MASK] water",
+    "timestamp" : 231410
+  }, {
+    "sentence" : "Of is soft water of the beach and the water",
+    "tokens" : [ 5195, 2713, 2489, 3408, 5194, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 168.6500244140625,
+    "tokens_used" : [ " Of", " is", " soft", " water", " of", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "Of is soft water of [MASK] beach and the water",
+    "timestamp" : 235324
+  }, {
+    "sentence" : "Of is soft to of the beach and the water",
+    "tokens" : [ 5195, 2713, 2489, 2461, 5194, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 191.74656677246094,
+    "tokens_used" : [ " Of", " is", " soft", " to", " of", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "Of is soft [MASK] of the beach and the water",
+    "timestamp" : 237919
+  }, {
+    "sentence" : "Of is soft beach of the beach and the water",
+    "tokens" : [ 5195, 2713, 2489, 5075, 5194, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 239.3895721435547,
+    "tokens_used" : [ " Of", " is", " soft", " beach", " of", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "Of is soft [MASK] of the beach and the water",
+    "timestamp" : 239135
+  }, {
+    "sentence" : "Of is soft of of the beach and the water",
+    "tokens" : [ 5195, 2713, 2489, 5194, 5194, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 238.2312469482422,
+    "tokens_used" : [ " Of", " is", " soft", " of", " of", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "Of is soft [MASK] of the beach and the water",
+    "timestamp" : 239535
+  } ]
+}

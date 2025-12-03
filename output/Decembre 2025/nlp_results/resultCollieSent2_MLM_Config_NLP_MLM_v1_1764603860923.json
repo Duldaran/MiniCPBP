@@ -1,0 +1,638 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T10:44:20.921735408",
+  "time" : 83.691,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That sentence soft beach water soft beach be aunts water",
+    "score" : 5347.03857421875,
+    "time" : 1711,
+    "cycle" : 0
+  }, {
+    "sentence" : "That is soft beach water soft beach be aunts water",
+    "score" : 1425.538330078125,
+    "time" : 2402,
+    "cycle" : 1
+  }, {
+    "sentence" : "That is soft beach is soft beach be aunts water",
+    "score" : 796.6536254882812,
+    "time" : 3116,
+    "cycle" : 2
+  }, {
+    "sentence" : "That is soft beach is a beach be the water",
+    "score" : 446.0269775390625,
+    "time" : 4751,
+    "cycle" : 4
+  }, {
+    "sentence" : "It a soft beach is a beach be soft water",
+    "score" : 386.9455261230469,
+    "time" : 7129,
+    "cycle" : 7
+  }, {
+    "sentence" : "It a soft beach is a beach be without water",
+    "score" : 282.5557861328125,
+    "time" : 7643,
+    "cycle" : 8
+  }, {
+    "sentence" : "It a soft beach is a beach be the water",
+    "score" : 239.92027282714844,
+    "time" : 8576,
+    "cycle" : 9
+  }, {
+    "sentence" : "It a soft beach is a beach free of water",
+    "score" : 115.8083267211914,
+    "time" : 10802,
+    "cycle" : 12
+  }, {
+    "sentence" : "Means the soft sand of the beach away from water",
+    "score" : 114.1957015991211,
+    "time" : 22457,
+    "cycle" : 26
+  }, {
+    "sentence" : "Means the soft sand on the beach away from water",
+    "score" : 95.39573669433594,
+    "time" : 23272,
+    "cycle" : 27
+  }, {
+    "sentence" : "Find the soft sand on a beach away from water",
+    "score" : 82.21231842041016,
+    "time" : 24917,
+    "cycle" : 29
+  }, {
+    "sentence" : "Buy your soft drink on the beach away from water",
+    "score" : 75.48198699951172,
+    "time" : 45291,
+    "cycle" : 55
+  }, {
+    "sentence" : "Enjoy some soft drinks on the beach across the water",
+    "score" : 57.37907791137695,
+    "time" : 50302,
+    "cycle" : 60
+  }, {
+    "sentence" : "Eat some soft drinks on the beach and no water",
+    "score" : 56.4011344909668,
+    "time" : 61341,
+    "cycle" : 73
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That sentence soft beach water soft beach be aunts water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 2489, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 5347.03857421875,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " soft", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That sentence soft beach water [MASK] beach be aunts water",
+    "timestamp" : 1711
+  }, {
+    "sentence" : "That is soft beach water soft beach be aunts water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 3408, 2489, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1425.538330078125,
+    "tokens_used" : [ " That", " is", " soft", " beach", " water", " soft", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That [MASK] soft beach water soft beach be aunts water",
+    "timestamp" : 2402
+  }, {
+    "sentence" : "That is soft beach is soft beach be aunts water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 2713, 2489, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 796.6536254882812,
+    "tokens_used" : [ " That", " is", " soft", " beach", " is", " soft", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That is soft beach [MASK] soft beach be aunts water",
+    "timestamp" : 3116
+  }, {
+    "sentence" : "That is soft beach is a beach be aunts water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 2713, 4646, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 1151.438232421875,
+    "tokens_used" : [ " That", " is", " soft", " beach", " is", " a", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That is soft beach is [MASK] beach be aunts water",
+    "timestamp" : 3944
+  }, {
+    "sentence" : "That is soft beach is a beach be the water",
+    "tokens" : [ 1322, 2713, 2489, 5075, 2713, 4646, 5075, 1392, 394, 3408 ],
+    "perplexity" : 446.0269775390625,
+    "tokens_used" : [ " That", " is", " soft", " beach", " is", " a", " beach", " be", " the", " water" ],
+    "original_sentence" : "That is soft beach is a beach be [MASK] water",
+    "timestamp" : 4751
+  }, {
+    "sentence" : "It is soft beach is a beach be the water",
+    "tokens" : [ 2051, 2713, 2489, 5075, 2713, 4646, 5075, 1392, 394, 3408 ],
+    "perplexity" : 467.6329345703125,
+    "tokens_used" : [ " It", " is", " soft", " beach", " is", " a", " beach", " be", " the", " water" ],
+    "original_sentence" : "[MASK] is soft beach is a beach be the water",
+    "timestamp" : 5721
+  }, {
+    "sentence" : "It is soft beach is a beach be soft water",
+    "tokens" : [ 2051, 2713, 2489, 5075, 2713, 4646, 5075, 1392, 2489, 3408 ],
+    "perplexity" : 767.5442504882812,
+    "tokens_used" : [ " It", " is", " soft", " beach", " is", " a", " beach", " be", " soft", " water" ],
+    "original_sentence" : "It is soft beach is a beach be [MASK] water",
+    "timestamp" : 6473
+  }, {
+    "sentence" : "It a soft beach is a beach be soft water",
+    "tokens" : [ 2051, 4646, 2489, 5075, 2713, 4646, 5075, 1392, 2489, 3408 ],
+    "perplexity" : 386.9455261230469,
+    "tokens_used" : [ " It", " a", " soft", " beach", " is", " a", " beach", " be", " soft", " water" ],
+    "original_sentence" : "It [MASK] soft beach is a beach be soft water",
+    "timestamp" : 7129
+  }, {
+    "sentence" : "It a soft beach is a beach be without water",
+    "tokens" : [ 2051, 4646, 2489, 5075, 2713, 4646, 5075, 1392, 2362, 3408 ],
+    "perplexity" : 282.5557861328125,
+    "tokens_used" : [ " It", " a", " soft", " beach", " is", " a", " beach", " be", " without", " water" ],
+    "original_sentence" : "It a soft beach is a beach be [MASK] water",
+    "timestamp" : 7643
+  }, {
+    "sentence" : "It a soft beach is a beach be the water",
+    "tokens" : [ 2051, 4646, 2489, 5075, 2713, 4646, 5075, 1392, 394, 3408 ],
+    "perplexity" : 239.92027282714844,
+    "tokens_used" : [ " It", " a", " soft", " beach", " is", " a", " beach", " be", " the", " water" ],
+    "original_sentence" : "It a soft beach is a beach be [MASK] water",
+    "timestamp" : 8576
+  }, {
+    "sentence" : "It a soft beach is a beach be of water",
+    "tokens" : [ 2051, 4646, 2489, 5075, 2713, 4646, 5075, 1392, 5194, 3408 ],
+    "perplexity" : 333.40252685546875,
+    "tokens_used" : [ " It", " a", " soft", " beach", " is", " a", " beach", " be", " of", " water" ],
+    "original_sentence" : "It a soft beach is a beach be [MASK] water",
+    "timestamp" : 9407
+  }, {
+    "sentence" : "It a soft beach is a beach free of water",
+    "tokens" : [ 2051, 4646, 2489, 5075, 2713, 4646, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 115.8083267211914,
+    "tokens_used" : [ " It", " a", " soft", " beach", " is", " a", " beach", " free", " of", " water" ],
+    "original_sentence" : "It a soft beach is a beach [MASK] of water",
+    "timestamp" : 10802
+  }, {
+    "sentence" : "Means a soft beach is a beach free of water",
+    "tokens" : [ 4253, 4646, 2489, 5075, 2713, 4646, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 136.82015991210938,
+    "tokens_used" : [ " means", " a", " soft", " beach", " is", " a", " beach", " free", " of", " water" ],
+    "original_sentence" : "[MASK] a soft beach is a beach free of water",
+    "timestamp" : 11518
+  }, {
+    "sentence" : "Means that soft beach is a beach free of water",
+    "tokens" : [ 4254, 1321, 2489, 5075, 2713, 4646, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 207.1223602294922,
+    "tokens_used" : [ " Means", " that", " soft", " beach", " is", " a", " beach", " free", " of", " water" ],
+    "original_sentence" : "Means [MASK] soft beach is a beach free of water",
+    "timestamp" : 12395
+  }, {
+    "sentence" : "Means A soft beach is a beach free of water",
+    "tokens" : [ 4254, 4647, 2489, 5075, 2713, 4646, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 209.6785888671875,
+    "tokens_used" : [ " Means", " A", " soft", " beach", " is", " a", " beach", " free", " of", " water" ],
+    "original_sentence" : "Means [MASK] soft beach is a beach free of water",
+    "timestamp" : 15090
+  }, {
+    "sentence" : "Means the soft beach is a beach free of water",
+    "tokens" : [ 4254, 394, 2489, 5075, 2713, 4646, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 179.2346649169922,
+    "tokens_used" : [ " Means", " the", " soft", " beach", " is", " a", " beach", " free", " of", " water" ],
+    "original_sentence" : "Means [MASK] soft beach is a beach free of water",
+    "timestamp" : 16366
+  }, {
+    "sentence" : "Means the soft sand is a beach free of water",
+    "tokens" : [ 4254, 394, 2489, 1752, 2713, 4646, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 214.6320343017578,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " is", " a", " beach", " free", " of", " water" ],
+    "original_sentence" : "Means the soft [MASK] is a beach free of water",
+    "timestamp" : 17282
+  }, {
+    "sentence" : "Means the soft sand is the beach free of water",
+    "tokens" : [ 4254, 394, 2489, 1752, 2713, 394, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 227.2165069580078,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " is", " the", " beach", " free", " of", " water" ],
+    "original_sentence" : "Means the soft sand is [MASK] beach free of water",
+    "timestamp" : 18224
+  }, {
+    "sentence" : "Means the soft sand of the beach free of water",
+    "tokens" : [ 4254, 394, 2489, 1752, 5194, 394, 5075, 3649, 5194, 3408 ],
+    "perplexity" : 122.68755340576172,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " of", " the", " beach", " free", " of", " water" ],
+    "original_sentence" : "Means the soft sand [MASK] the beach free of water",
+    "timestamp" : 20785
+  }, {
+    "sentence" : "Means the soft sand of the beach free from water",
+    "tokens" : [ 4254, 394, 2489, 1752, 5194, 394, 5075, 3649, 3605, 3408 ],
+    "perplexity" : 131.1703338623047,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " of", " the", " beach", " free", " from", " water" ],
+    "original_sentence" : "Means the soft sand of the beach free [MASK] water",
+    "timestamp" : 21681
+  }, {
+    "sentence" : "Means the soft sand of the beach away from water",
+    "tokens" : [ 4254, 394, 2489, 1752, 5194, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 114.1957015991211,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " of", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Means the soft sand of the beach [MASK] from water",
+    "timestamp" : 22457
+  }, {
+    "sentence" : "Means the soft sand on the beach away from water",
+    "tokens" : [ 4254, 394, 2489, 1752, 710, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 95.39573669433594,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " on", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Means the soft sand [MASK] the beach away from water",
+    "timestamp" : 23272
+  }, {
+    "sentence" : "Means the soft sand on a beach away from water",
+    "tokens" : [ 4254, 394, 2489, 1752, 710, 4646, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 108.7374496459961,
+    "tokens_used" : [ " Means", " the", " soft", " sand", " on", " a", " beach", " away", " from", " water" ],
+    "original_sentence" : "Means the soft sand on [MASK] beach away from water",
+    "timestamp" : 24021
+  }, {
+    "sentence" : "Find the soft sand on a beach away from water",
+    "tokens" : [ 4073, 394, 2489, 1752, 710, 4646, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 82.21231842041016,
+    "tokens_used" : [ " Find", " the", " soft", " sand", " on", " a", " beach", " away", " from", " water" ],
+    "original_sentence" : "[MASK] the soft sand on a beach away from water",
+    "timestamp" : 24917
+  }, {
+    "sentence" : "Find the soft sand at a beach away from water",
+    "tokens" : [ 4073, 394, 2489, 1752, 302, 4646, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 92.75547790527344,
+    "tokens_used" : [ " Find", " the", " soft", " sand", " at", " a", " beach", " away", " from", " water" ],
+    "original_sentence" : "Find the soft sand [MASK] a beach away from water",
+    "timestamp" : 25758
+  }, {
+    "sentence" : "Find the soft sand at a beach far from water",
+    "tokens" : [ 4073, 394, 2489, 1752, 302, 4646, 5075, 2934, 3605, 3408 ],
+    "perplexity" : 128.46929931640625,
+    "tokens_used" : [ " Find", " the", " soft", " sand", " at", " a", " beach", " far", " from", " water" ],
+    "original_sentence" : "Find the soft sand at a beach [MASK] from water",
+    "timestamp" : 26559
+  }, {
+    "sentence" : "Find the soft sand at a beach free from water",
+    "tokens" : [ 4073, 394, 2489, 1752, 302, 4646, 5075, 3649, 3605, 3408 ],
+    "perplexity" : 118.1617202758789,
+    "tokens_used" : [ " Find", " the", " soft", " sand", " at", " a", " beach", " free", " from", " water" ],
+    "original_sentence" : "Find the soft sand at a beach [MASK] from water",
+    "timestamp" : 28662
+  }, {
+    "sentence" : "Find some soft sand at a beach free from water",
+    "tokens" : [ 4073, 3459, 2489, 1752, 302, 4646, 5075, 3649, 3605, 3408 ],
+    "perplexity" : 137.42051696777344,
+    "tokens_used" : [ " Find", " some", " soft", " sand", " at", " a", " beach", " free", " from", " water" ],
+    "original_sentence" : "Find [MASK] soft sand at a beach free from water",
+    "timestamp" : 29494
+  }, {
+    "sentence" : "Find a soft sand at a beach free from water",
+    "tokens" : [ 4073, 4646, 2489, 1752, 302, 4646, 5075, 3649, 3605, 3408 ],
+    "perplexity" : 158.55992126464844,
+    "tokens_used" : [ " Find", " a", " soft", " sand", " at", " a", " beach", " free", " from", " water" ],
+    "original_sentence" : "Find [MASK] soft sand at a beach free from water",
+    "timestamp" : 30272
+  }, {
+    "sentence" : "Find a soft rock at a beach free from water",
+    "tokens" : [ 4073, 4646, 2489, 535, 302, 4646, 5075, 3649, 3605, 3408 ],
+    "perplexity" : 113.0500259399414,
+    "tokens_used" : [ " Find", " a", " soft", " rock", " at", " a", " beach", " free", " from", " water" ],
+    "original_sentence" : "Find a soft [MASK] at a beach free from water",
+    "timestamp" : 30771
+  }, {
+    "sentence" : "Is a soft rock at a beach free from water",
+    "tokens" : [ 2713, 4646, 2489, 535, 302, 4646, 5075, 3649, 3605, 3408 ],
+    "perplexity" : 126.97283172607422,
+    "tokens_used" : [ " is", " a", " soft", " rock", " at", " a", " beach", " free", " from", " water" ],
+    "original_sentence" : "[MASK] a soft rock at a beach free from water",
+    "timestamp" : 31694
+  }, {
+    "sentence" : "Is a soft rock at a beach away from water",
+    "tokens" : [ 2714, 4646, 2489, 535, 302, 4646, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 108.49320220947266,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " at", " a", " beach", " away", " from", " water" ],
+    "original_sentence" : "Is a soft rock at a beach [MASK] from water",
+    "timestamp" : 33737
+  }, {
+    "sentence" : "Is a soft rock at the beach away from water",
+    "tokens" : [ 2714, 4646, 2489, 535, 302, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 108.15151977539062,
+    "tokens_used" : [ " Is", " a", " soft", " rock", " at", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Is a soft rock at [MASK] beach away from water",
+    "timestamp" : 34588
+  }, {
+    "sentence" : "Find a soft rock at the beach away from water",
+    "tokens" : [ 4073, 4646, 2489, 535, 302, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 94.6256103515625,
+    "tokens_used" : [ " Find", " a", " soft", " rock", " at", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "[MASK] a soft rock at the beach away from water",
+    "timestamp" : 36130
+  }, {
+    "sentence" : "Find a soft spot at the beach away from water",
+    "tokens" : [ 4073, 4646, 2489, 2161, 302, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 87.51284790039062,
+    "tokens_used" : [ " Find", " a", " soft", " spot", " at", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Find a soft [MASK] at the beach away from water",
+    "timestamp" : 37213
+  }, {
+    "sentence" : "Find your soft spot at the beach away from water",
+    "tokens" : [ 4073, 164, 2489, 2161, 302, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 108.15714263916016,
+    "tokens_used" : [ " Find", " your", " soft", " spot", " at", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Find [MASK] soft spot at the beach away from water",
+    "timestamp" : 37960
+  }, {
+    "sentence" : "Find your soft drink at the beach away from water",
+    "tokens" : [ 4073, 164, 2489, 4825, 302, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 125.86235046386719,
+    "tokens_used" : [ " Find", " your", " soft", " drink", " at", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Find your soft [MASK] at the beach away from water",
+    "timestamp" : 38716
+  }, {
+    "sentence" : "Find your soft drink on the beach away from water",
+    "tokens" : [ 4073, 164, 2489, 4825, 710, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 104.9354248046875,
+    "tokens_used" : [ " Find", " your", " soft", " drink", " on", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "Find your soft drink [MASK] the beach away from water",
+    "timestamp" : 41486
+  }, {
+    "sentence" : "Keep your soft drink on the beach away from water",
+    "tokens" : [ 4011, 164, 2489, 4825, 710, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 82.57852935791016,
+    "tokens_used" : [ " Keep", " your", " soft", " drink", " on", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "[MASK] your soft drink on the beach away from water",
+    "timestamp" : 44057
+  }, {
+    "sentence" : "Enjoy your soft drink on the beach away from water",
+    "tokens" : [ 3379, 164, 2489, 4825, 710, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 87.35629272460938,
+    "tokens_used" : [ " Enjoy", " your", " soft", " drink", " on", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "[MASK] your soft drink on the beach away from water",
+    "timestamp" : 44636
+  }, {
+    "sentence" : "Buy your soft drink on the beach away from water",
+    "tokens" : [ 5173, 164, 2489, 4825, 710, 394, 5075, 2048, 3605, 3408 ],
+    "perplexity" : 75.48198699951172,
+    "tokens_used" : [ " Buy", " your", " soft", " drink", " on", " the", " beach", " away", " from", " water" ],
+    "original_sentence" : "[MASK] your soft drink on the beach away from water",
+    "timestamp" : 45291
+  }, {
+    "sentence" : "Buy your soft drink on the beach across from water",
+    "tokens" : [ 5173, 164, 2489, 4825, 710, 394, 5075, 266, 3605, 3408 ],
+    "perplexity" : 126.74913787841797,
+    "tokens_used" : [ " Buy", " your", " soft", " drink", " on", " the", " beach", " across", " from", " water" ],
+    "original_sentence" : "Buy your soft drink on the beach [MASK] from water",
+    "timestamp" : 46039
+  }, {
+    "sentence" : "Enjoy your soft drink on the beach across from water",
+    "tokens" : [ 3379, 164, 2489, 4825, 710, 394, 5075, 266, 3605, 3408 ],
+    "perplexity" : 142.59353637695312,
+    "tokens_used" : [ " Enjoy", " your", " soft", " drink", " on", " the", " beach", " across", " from", " water" ],
+    "original_sentence" : "[MASK] your soft drink on the beach across from water",
+    "timestamp" : 47105
+  }, {
+    "sentence" : "Enjoy your soft drinks on the beach across from water",
+    "tokens" : [ 3379, 164, 2489, 3284, 710, 394, 5075, 266, 3605, 3408 ],
+    "perplexity" : 137.28631591796875,
+    "tokens_used" : [ " Enjoy", " your", " soft", " drinks", " on", " the", " beach", " across", " from", " water" ],
+    "original_sentence" : "Enjoy your soft [MASK] on the beach across from water",
+    "timestamp" : 48011
+  }, {
+    "sentence" : "Enjoy some soft drinks on the beach across from water",
+    "tokens" : [ 3379, 3459, 2489, 3284, 710, 394, 5075, 266, 3605, 3408 ],
+    "perplexity" : 97.82455444335938,
+    "tokens_used" : [ " Enjoy", " some", " soft", " drinks", " on", " the", " beach", " across", " from", " water" ],
+    "original_sentence" : "Enjoy [MASK] soft drinks on the beach across from water",
+    "timestamp" : 49280
+  }, {
+    "sentence" : "Enjoy some soft drinks on the beach across the water",
+    "tokens" : [ 3379, 3459, 2489, 3284, 710, 394, 5075, 266, 394, 3408 ],
+    "perplexity" : 57.37907791137695,
+    "tokens_used" : [ " Enjoy", " some", " soft", " drinks", " on", " the", " beach", " across", " the", " water" ],
+    "original_sentence" : "Enjoy some soft drinks on the beach across [MASK] water",
+    "timestamp" : 50302
+  }, {
+    "sentence" : "Enjoy some soft drinks on a beach across the water",
+    "tokens" : [ 3379, 3459, 2489, 3284, 710, 4646, 5075, 266, 394, 3408 ],
+    "perplexity" : 77.21794891357422,
+    "tokens_used" : [ " Enjoy", " some", " soft", " drinks", " on", " a", " beach", " across", " the", " water" ],
+    "original_sentence" : "Enjoy some soft drinks on [MASK] beach across the water",
+    "timestamp" : 51136
+  }, {
+    "sentence" : "Enjoy some soft music on a beach across the water",
+    "tokens" : [ 3379, 3459, 2489, 5090, 710, 4646, 5075, 266, 394, 3408 ],
+    "perplexity" : 109.82894897460938,
+    "tokens_used" : [ " Enjoy", " some", " soft", " music", " on", " a", " beach", " across", " the", " water" ],
+    "original_sentence" : "Enjoy some soft [MASK] on a beach across the water",
+    "timestamp" : 51905
+  }, {
+    "sentence" : "Enjoy some soft music on a beach near the water",
+    "tokens" : [ 3379, 3459, 2489, 5090, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 91.96473693847656,
+    "tokens_used" : [ " Enjoy", " some", " soft", " music", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "Enjoy some soft music on a beach [MASK] the water",
+    "timestamp" : 52631
+  }, {
+    "sentence" : "Enjoy some soft drinks on a beach near the water",
+    "tokens" : [ 3379, 3459, 2489, 3284, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 64.00439453125,
+    "tokens_used" : [ " Enjoy", " some", " soft", " drinks", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "Enjoy some soft [MASK] on a beach near the water",
+    "timestamp" : 53460
+  }, {
+    "sentence" : "Enjoy some soft food on a beach near the water",
+    "tokens" : [ 3379, 3459, 2489, 312, 710, 4646, 5075, 1852, 394, 3408 ],
+    "perplexity" : 73.85509490966797,
+    "tokens_used" : [ " Enjoy", " some", " soft", " food", " on", " a", " beach", " near", " the", " water" ],
+    "original_sentence" : "Enjoy some soft [MASK] on a beach near the water",
+    "timestamp" : 54111
+  }, {
+    "sentence" : "Enjoy some soft food on a beach by the water",
+    "tokens" : [ 3379, 3459, 2489, 312, 710, 4646, 5075, 2029, 394, 3408 ],
+    "perplexity" : 58.411651611328125,
+    "tokens_used" : [ " Enjoy", " some", " soft", " food", " on", " a", " beach", " by", " the", " water" ],
+    "original_sentence" : "Enjoy some soft food on a beach [MASK] the water",
+    "timestamp" : 55246
+  }, {
+    "sentence" : "Enjoy some soft food on a beach in the water",
+    "tokens" : [ 3379, 3459, 2489, 312, 710, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 66.78401184082031,
+    "tokens_used" : [ " Enjoy", " some", " soft", " food", " on", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "Enjoy some soft food on a beach [MASK] the water",
+    "timestamp" : 56106
+  }, {
+    "sentence" : "Enjoy some soft food on a beach with the water",
+    "tokens" : [ 3379, 3459, 2489, 312, 710, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 69.10237121582031,
+    "tokens_used" : [ " Enjoy", " some", " soft", " food", " on", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "Enjoy some soft food on a beach [MASK] the water",
+    "timestamp" : 57159
+  }, {
+    "sentence" : "Eat some soft food on a beach with the water",
+    "tokens" : [ 4556, 3459, 2489, 312, 710, 4646, 5075, 2342, 394, 3408 ],
+    "perplexity" : 64.45230865478516,
+    "tokens_used" : [ " Eat", " some", " soft", " food", " on", " a", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] some soft food on a beach with the water",
+    "timestamp" : 58213
+  }, {
+    "sentence" : "Eat some soft food on a beach with no water",
+    "tokens" : [ 4556, 3459, 2489, 312, 710, 4646, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 64.0813217163086,
+    "tokens_used" : [ " Eat", " some", " soft", " food", " on", " a", " beach", " with", " no", " water" ],
+    "original_sentence" : "Eat some soft food on a beach with [MASK] water",
+    "timestamp" : 58982
+  }, {
+    "sentence" : "Eat some soft food on a beach and no water",
+    "tokens" : [ 4556, 3459, 2489, 312, 710, 4646, 5075, 215, 2144, 3408 ],
+    "perplexity" : 90.35832977294922,
+    "tokens_used" : [ " Eat", " some", " soft", " food", " on", " a", " beach", " and", " no", " water" ],
+    "original_sentence" : "Eat some soft food on a beach [MASK] no water",
+    "timestamp" : 59733
+  }, {
+    "sentence" : "Eat some soft food on the beach and no water",
+    "tokens" : [ 4556, 3459, 2489, 312, 710, 394, 5075, 215, 2144, 3408 ],
+    "perplexity" : 65.79190063476562,
+    "tokens_used" : [ " Eat", " some", " soft", " food", " on", " the", " beach", " and", " no", " water" ],
+    "original_sentence" : "Eat some soft food on [MASK] beach and no water",
+    "timestamp" : 60597
+  }, {
+    "sentence" : "Eat some soft drinks on the beach and no water",
+    "tokens" : [ 4556, 3459, 2489, 3284, 710, 394, 5075, 215, 2144, 3408 ],
+    "perplexity" : 56.4011344909668,
+    "tokens_used" : [ " Eat", " some", " soft", " drinks", " on", " the", " beach", " and", " no", " water" ],
+    "original_sentence" : "Eat some soft [MASK] on the beach and no water",
+    "timestamp" : 61341
+  }, {
+    "sentence" : "Eat your soft drinks on the beach and no water",
+    "tokens" : [ 4556, 164, 2489, 3284, 710, 394, 5075, 215, 2144, 3408 ],
+    "perplexity" : 68.83709716796875,
+    "tokens_used" : [ " Eat", " your", " soft", " drinks", " on", " the", " beach", " and", " no", " water" ],
+    "original_sentence" : "Eat [MASK] soft drinks on the beach and no water",
+    "timestamp" : 62001
+  }, {
+    "sentence" : "Eat your soft drinks on a beach and no water",
+    "tokens" : [ 4556, 164, 2489, 3284, 710, 4646, 5075, 215, 2144, 3408 ],
+    "perplexity" : 86.2552719116211,
+    "tokens_used" : [ " Eat", " your", " soft", " drinks", " on", " a", " beach", " and", " no", " water" ],
+    "original_sentence" : "Eat your soft drinks on [MASK] beach and no water",
+    "timestamp" : 62939
+  }, {
+    "sentence" : "Eat your soft drinks on a beach and drink water",
+    "tokens" : [ 4556, 164, 2489, 3284, 710, 4646, 5075, 215, 4825, 3408 ],
+    "perplexity" : 66.983154296875,
+    "tokens_used" : [ " Eat", " your", " soft", " drinks", " on", " a", " beach", " and", " drink", " water" ],
+    "original_sentence" : "Eat your soft drinks on a beach and [MASK] water",
+    "timestamp" : 63956
+  }, {
+    "sentence" : "Eat your soft food on a beach and drink water",
+    "tokens" : [ 4556, 164, 2489, 312, 710, 4646, 5075, 215, 4825, 3408 ],
+    "perplexity" : 78.47713470458984,
+    "tokens_used" : [ " Eat", " your", " soft", " food", " on", " a", " beach", " and", " drink", " water" ],
+    "original_sentence" : "Eat your soft [MASK] on a beach and drink water",
+    "timestamp" : 64911
+  }, {
+    "sentence" : "Eat your soft drink on a beach and drink water",
+    "tokens" : [ 4556, 164, 2489, 4825, 710, 4646, 5075, 215, 4825, 3408 ],
+    "perplexity" : 69.06412506103516,
+    "tokens_used" : [ " Eat", " your", " soft", " drink", " on", " a", " beach", " and", " drink", " water" ],
+    "original_sentence" : "Eat your soft [MASK] on a beach and drink water",
+    "timestamp" : 67593
+  }, {
+    "sentence" : "Eat your soft drink at a beach and drink water",
+    "tokens" : [ 4556, 164, 2489, 4825, 302, 4646, 5075, 215, 4825, 3408 ],
+    "perplexity" : 97.01982879638672,
+    "tokens_used" : [ " Eat", " your", " soft", " drink", " at", " a", " beach", " and", " drink", " water" ],
+    "original_sentence" : "Eat your soft drink [MASK] a beach and drink water",
+    "timestamp" : 68344
+  }, {
+    "sentence" : "Eat your soft drink at a beach and get water",
+    "tokens" : [ 4556, 164, 2489, 4825, 302, 4646, 5075, 215, 3912, 3408 ],
+    "perplexity" : 103.85704803466797,
+    "tokens_used" : [ " Eat", " your", " soft", " drink", " at", " a", " beach", " and", " get", " water" ],
+    "original_sentence" : "Eat your soft drink at a beach and [MASK] water",
+    "timestamp" : 69718
+  }, {
+    "sentence" : "Eat your soft drink at a beach and enjoy water",
+    "tokens" : [ 4556, 164, 2489, 4825, 302, 4646, 5075, 215, 3378, 3408 ],
+    "perplexity" : 103.40351867675781,
+    "tokens_used" : [ " Eat", " your", " soft", " drink", " at", " a", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "Eat your soft drink at a beach and [MASK] water",
+    "timestamp" : 70493
+  }, {
+    "sentence" : "Eat your soft drink on a beach and enjoy water",
+    "tokens" : [ 4556, 164, 2489, 4825, 710, 4646, 5075, 215, 3378, 3408 ],
+    "perplexity" : 84.80271911621094,
+    "tokens_used" : [ " Eat", " your", " soft", " drink", " on", " a", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "Eat your soft drink [MASK] a beach and enjoy water",
+    "timestamp" : 72081
+  }, {
+    "sentence" : "Leave your soft drink on a beach and enjoy water",
+    "tokens" : [ 1018, 164, 2489, 4825, 710, 4646, 5075, 215, 3378, 3408 ],
+    "perplexity" : 107.58084869384766,
+    "tokens_used" : [ " Leave", " your", " soft", " drink", " on", " a", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "[MASK] your soft drink on a beach and enjoy water",
+    "timestamp" : 73080
+  }, {
+    "sentence" : "Leave your soft drink on a beach and get water",
+    "tokens" : [ 1018, 164, 2489, 4825, 710, 4646, 5075, 215, 3912, 3408 ],
+    "perplexity" : 107.47154235839844,
+    "tokens_used" : [ " Leave", " your", " soft", " drink", " on", " a", " beach", " and", " get", " water" ],
+    "original_sentence" : "Leave your soft drink on a beach and [MASK] water",
+    "timestamp" : 73961
+  }, {
+    "sentence" : "Leave your soft drink on the beach and get water",
+    "tokens" : [ 1018, 164, 2489, 4825, 710, 394, 5075, 215, 3912, 3408 ],
+    "perplexity" : 79.13519287109375,
+    "tokens_used" : [ " Leave", " your", " soft", " drink", " on", " the", " beach", " and", " get", " water" ],
+    "original_sentence" : "Leave your soft drink on [MASK] beach and get water",
+    "timestamp" : 75539
+  }, {
+    "sentence" : "Eat your soft drink on the beach and get water",
+    "tokens" : [ 4556, 164, 2489, 4825, 710, 394, 5075, 215, 3912, 3408 ],
+    "perplexity" : 65.48780059814453,
+    "tokens_used" : [ " Eat", " your", " soft", " drink", " on", " the", " beach", " and", " get", " water" ],
+    "original_sentence" : "[MASK] your soft drink on the beach and get water",
+    "timestamp" : 77220
+  }, {
+    "sentence" : "Eat some soft drink on the beach and get water",
+    "tokens" : [ 4556, 3459, 2489, 4825, 710, 394, 5075, 215, 3912, 3408 ],
+    "perplexity" : 57.487388610839844,
+    "tokens_used" : [ " Eat", " some", " soft", " drink", " on", " the", " beach", " and", " get", " water" ],
+    "original_sentence" : "Eat [MASK] soft drink on the beach and get water",
+    "timestamp" : 78078
+  }, {
+    "sentence" : "Eat some soft drink on the beach and enjoy water",
+    "tokens" : [ 4556, 3459, 2489, 4825, 710, 394, 5075, 215, 3378, 3408 ],
+    "perplexity" : 57.934844970703125,
+    "tokens_used" : [ " Eat", " some", " soft", " drink", " on", " the", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "Eat some soft drink on the beach and [MASK] water",
+    "timestamp" : 80315
+  }, {
+    "sentence" : "Eat some soft drink on a beach and enjoy water",
+    "tokens" : [ 4556, 3459, 2489, 4825, 710, 4646, 5075, 215, 3378, 3408 ],
+    "perplexity" : 81.0602798461914,
+    "tokens_used" : [ " Eat", " some", " soft", " drink", " on", " a", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "Eat some soft drink on [MASK] beach and enjoy water",
+    "timestamp" : 81106
+  }, {
+    "sentence" : "Leave some soft drink on a beach and enjoy water",
+    "tokens" : [ 1018, 3459, 2489, 4825, 710, 4646, 5075, 215, 3378, 3408 ],
+    "perplexity" : 109.08326721191406,
+    "tokens_used" : [ " Leave", " some", " soft", " drink", " on", " a", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "[MASK] some soft drink on a beach and enjoy water",
+    "timestamp" : 81791
+  }, {
+    "sentence" : "Leave some soft drink on the beach and enjoy water",
+    "tokens" : [ 1018, 3459, 2489, 4825, 710, 394, 5075, 215, 3378, 3408 ],
+    "perplexity" : 79.1637191772461,
+    "tokens_used" : [ " Leave", " some", " soft", " drink", " on", " the", " beach", " and", " enjoy", " water" ],
+    "original_sentence" : "Leave some soft drink on [MASK] beach and enjoy water",
+    "timestamp" : 82723
+  }, {
+    "sentence" : "Leave some soft drink on the beach and get water",
+    "tokens" : [ 1018, 3459, 2489, 4825, 710, 394, 5075, 215, 3912, 3408 ],
+    "perplexity" : 75.38336181640625,
+    "tokens_used" : [ " Leave", " some", " soft", " drink", " on", " the", " beach", " and", " get", " water" ],
+    "original_sentence" : "Leave some soft drink on the beach and [MASK] water",
+    "timestamp" : 83651
+  } ]
+}

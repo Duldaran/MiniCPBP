@@ -1,0 +1,479 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T23:33:18.268098758",
+  "time" : 250.611,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Grass sentence soft beach water soft beach a place water comes",
+    "score" : 2602.71337890625,
+    "time" : 3524,
+    "cycle" : 0
+  }, {
+    "sentence" : "Grass sentence soft beach water soft beach a place water place",
+    "score" : 2426.451416015625,
+    "time" : 6385,
+    "cycle" : 1
+  }, {
+    "sentence" : "Grass sentence soft beach water soft beach water place water place",
+    "score" : 1495.190673828125,
+    "time" : 9406,
+    "cycle" : 2
+  }, {
+    "sentence" : "Grass sentence soft beach water soft beach water beach water place",
+    "score" : 1045.6964111328125,
+    "time" : 12208,
+    "cycle" : 3
+  }, {
+    "sentence" : "Grass sentence soft water soft beach beach water soft water place",
+    "score" : 1030.1011962890625,
+    "time" : 21723,
+    "cycle" : 7
+  }, {
+    "sentence" : "Grass sentence soft water beach beach beach water beach water beach",
+    "score" : 750.6842041015625,
+    "time" : 29339,
+    "cycle" : 10
+  }, {
+    "sentence" : "Grass sentence soft water water beach beach beach soft water beach",
+    "score" : 716.1165771484375,
+    "time" : 36922,
+    "cycle" : 13
+  }, {
+    "sentence" : "Grass sentence soft beach beach beach beach beach beach water beach",
+    "score" : 602.5032348632812,
+    "time" : 47240,
+    "cycle" : 17
+  }, {
+    "sentence" : "Grass water soft beach water beach beach beach beach water beach",
+    "score" : 319.364501953125,
+    "time" : 51812,
+    "cycle" : 19
+  }, {
+    "sentence" : "Grass water soft beach water soft beach beach beach water beach",
+    "score" : 296.66387939453125,
+    "time" : 54650,
+    "cycle" : 20
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water beach water beach",
+    "score" : 232.94900512695312,
+    "time" : 57166,
+    "cycle" : 21
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water soft water beach",
+    "score" : 200.30694580078125,
+    "time" : 59921,
+    "cycle" : 22
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water soft water soft",
+    "score" : 172.40570068359375,
+    "time" : 68609,
+    "cycle" : 25
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "Grass sentence soft beach water soft beach a place water comes",
+    "tokens" : [ 0, 775, 2489, 5075, 3408, 2489, 5075, 4646, 2703, 3408, 291 ],
+    "perplexity" : 2602.71337890625,
+    "tokens_used" : [ " grass", " sentence", " soft", " beach", " water", " soft", " beach", " a", " place", " water", " comes" ],
+    "original_sentence" : "[MASK] sentence soft beach water [MASK] beach a place water comes",
+    "timestamp" : 3525
+  }, {
+    "sentence" : "Grass sentence soft beach water soft beach a place water place",
+    "tokens" : [ 1, 775, 2489, 5075, 3408, 2489, 5075, 4646, 2703, 3408, 2703 ],
+    "perplexity" : 2426.451416015625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " water", " soft", " beach", " a", " place", " water", " place" ],
+    "original_sentence" : "Grass sentence soft beach water soft beach [MASK] place water [MASK]",
+    "timestamp" : 6385
+  }, {
+    "sentence" : "Grass sentence soft beach water soft beach water place water place",
+    "tokens" : [ 1, 775, 2489, 5075, 3408, 2489, 5075, 3408, 2703, 3408, 2703 ],
+    "perplexity" : 1495.190673828125,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " water", " soft", " beach", " water", " place", " water", " place" ],
+    "original_sentence" : "[MASK] sentence soft beach water soft beach [MASK] place water place",
+    "timestamp" : 9406
+  }, {
+    "sentence" : "Grass sentence soft beach water soft beach water beach water place",
+    "tokens" : [ 1, 775, 2489, 5075, 3408, 2489, 5075, 3408, 5075, 3408, 2703 ],
+    "perplexity" : 1045.6964111328125,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " water", " soft", " beach", " water", " beach", " water", " place" ],
+    "original_sentence" : "Grass sentence soft beach [MASK] soft beach water [MASK] water place",
+    "timestamp" : 12208
+  }, {
+    "sentence" : "Grass sentence soft beach water beach beach water beach water place",
+    "tokens" : [ 1, 775, 2489, 5075, 3408, 5075, 5075, 3408, 5075, 3408, 2703 ],
+    "perplexity" : 1193.9312744140625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " water", " beach", " beach", " water", " beach", " water", " place" ],
+    "original_sentence" : "Grass [MASK] soft beach water [MASK] beach water beach water place",
+    "timestamp" : 14699
+  }, {
+    "sentence" : "Grass sentence soft water water beach beach water beach water place",
+    "tokens" : [ 1, 775, 2489, 3408, 3408, 5075, 5075, 3408, 5075, 3408, 2703 ],
+    "perplexity" : 1177.4512939453125,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " water", " beach", " beach", " water", " beach", " water", " place" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] water beach beach water beach water place",
+    "timestamp" : 16941
+  }, {
+    "sentence" : "Grass sentence soft water water beach beach water soft water place",
+    "tokens" : [ 1, 775, 2489, 3408, 3408, 5075, 5075, 3408, 2489, 3408, 2703 ],
+    "perplexity" : 1291.247314453125,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " water", " beach", " beach", " water", " soft", " water", " place" ],
+    "original_sentence" : "Grass sentence soft water water beach beach [MASK] [MASK] water place",
+    "timestamp" : 19625
+  }, {
+    "sentence" : "Grass sentence soft water soft beach beach water soft water place",
+    "tokens" : [ 1, 775, 2489, 3408, 2489, 5075, 5075, 3408, 2489, 3408, 2703 ],
+    "perplexity" : 1030.1011962890625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " soft", " beach", " beach", " water", " soft", " water", " place" ],
+    "original_sentence" : "Grass sentence soft [MASK] [MASK] beach beach water soft water place",
+    "timestamp" : 21723
+  }, {
+    "sentence" : "Grass sentence soft water beach beach beach water soft water place",
+    "tokens" : [ 1, 775, 2489, 3408, 5075, 5075, 5075, 3408, 2489, 3408, 2703 ],
+    "perplexity" : 1454.9853515625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " beach", " beach", " beach", " water", " soft", " water", " place" ],
+    "original_sentence" : "Grass [MASK] soft water [MASK] beach beach water soft water place",
+    "timestamp" : 24449
+  }, {
+    "sentence" : "Grass sentence soft water beach beach beach water beach water place",
+    "tokens" : [ 1, 775, 2489, 3408, 5075, 5075, 5075, 3408, 5075, 3408, 2703 ],
+    "perplexity" : 1269.4996337890625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " beach", " beach", " beach", " water", " beach", " water", " place" ],
+    "original_sentence" : "Grass sentence soft water [MASK] beach beach water [MASK] water place",
+    "timestamp" : 26815
+  }, {
+    "sentence" : "Grass sentence soft water beach beach beach water beach water beach",
+    "tokens" : [ 1, 775, 2489, 3408, 5075, 5075, 5075, 3408, 5075, 3408, 5075 ],
+    "perplexity" : 750.6842041015625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " beach", " beach", " beach", " water", " beach", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft water beach beach beach water beach water [MASK]",
+    "timestamp" : 29339
+  }, {
+    "sentence" : "Grass sentence soft water beach beach beach water soft water beach",
+    "tokens" : [ 1, 775, 2489, 3408, 5075, 5075, 5075, 3408, 2489, 3408, 5075 ],
+    "perplexity" : 852.0411987304688,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " beach", " beach", " beach", " water", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft water beach beach beach water [MASK] water beach",
+    "timestamp" : 31931
+  }, {
+    "sentence" : "Grass sentence soft water water beach beach water soft water beach",
+    "tokens" : [ 1, 775, 2489, 3408, 3408, 5075, 5075, 3408, 2489, 3408, 5075 ],
+    "perplexity" : 774.1490478515625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " water", " beach", " beach", " water", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft water [MASK] beach beach water soft water beach",
+    "timestamp" : 34534
+  }, {
+    "sentence" : "Grass sentence soft water water beach beach beach soft water beach",
+    "tokens" : [ 1, 775, 2489, 3408, 3408, 5075, 5075, 5075, 2489, 3408, 5075 ],
+    "perplexity" : 716.1165771484375,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " water", " beach", " beach", " beach", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft water water beach beach [MASK] soft water beach",
+    "timestamp" : 36922
+  }, {
+    "sentence" : "Grass sentence soft water water beach beach beach beach water beach",
+    "tokens" : [ 1, 775, 2489, 3408, 3408, 5075, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 880.6725463867188,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " water", " beach", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "Grass sentence soft water [MASK] beach beach beach [MASK] water beach",
+    "timestamp" : 39860
+  }, {
+    "sentence" : "Grass sentence soft water beach beach beach beach beach water beach",
+    "tokens" : [ 1, 775, 2489, 3408, 5075, 5075, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 771.6381225585938,
+    "tokens_used" : [ " Grass", " sentence", " soft", " water", " beach", " beach", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "Grass sentence soft [MASK] [MASK] beach beach beach beach water beach",
+    "timestamp" : 44987
+  }, {
+    "sentence" : "Grass sentence soft beach beach beach beach beach beach water beach",
+    "tokens" : [ 1, 775, 2489, 5075, 5075, 5075, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 602.5032348632812,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " beach", " beach", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] beach beach beach beach beach water beach",
+    "timestamp" : 47240
+  }, {
+    "sentence" : "Grass sentence soft beach water beach beach beach beach water beach",
+    "tokens" : [ 1, 775, 2489, 5075, 3408, 5075, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 926.0748291015625,
+    "tokens_used" : [ " Grass", " sentence", " soft", " beach", " water", " beach", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "Grass [MASK] soft beach [MASK] beach beach beach beach water beach",
+    "timestamp" : 49737
+  }, {
+    "sentence" : "Grass water soft beach water beach beach beach beach water beach",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 5075, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 319.364501953125,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " beach", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water beach beach beach beach water beach",
+    "timestamp" : 51812
+  }, {
+    "sentence" : "Grass water soft beach water soft beach beach beach water beach",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 2489, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 296.66387939453125,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " soft", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "[MASK] water soft beach water [MASK] beach beach beach water beach",
+    "timestamp" : 54650
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water beach water beach",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 2489, 5075, 3408, 5075, 3408, 5075 ],
+    "perplexity" : 232.94900512695312,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " soft", " beach", " water", " beach", " water", " beach" ],
+    "original_sentence" : "Grass [MASK] soft beach water soft beach [MASK] beach water beach",
+    "timestamp" : 57166
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water soft water beach",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 5075 ],
+    "perplexity" : 200.30694580078125,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " beach" ],
+    "original_sentence" : "Grass [MASK] soft beach water soft beach water [MASK] water beach",
+    "timestamp" : 59921
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water soft water water",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 3408 ],
+    "perplexity" : 251.43295288085938,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " water" ],
+    "original_sentence" : "Grass water soft beach [MASK] soft beach water soft water [MASK]",
+    "timestamp" : 65840
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water soft water soft",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 172.40570068359375,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "Grass [MASK] soft beach water soft beach water soft water [MASK]",
+    "timestamp" : 68609
+  }, {
+    "sentence" : "Grass water soft beach water soft beach water soft water works",
+    "tokens" : [ 1, 3408, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 5188 ],
+    "perplexity" : 305.6737976074219,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " works" ],
+    "original_sentence" : "[MASK] water soft beach water soft beach water soft water [MASK]",
+    "timestamp" : 73814
+  }, {
+    "sentence" : "Grass and soft beach water soft beach water soft water works",
+    "tokens" : [ 1, 215, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 5188 ],
+    "perplexity" : 313.8121337890625,
+    "tokens_used" : [ " Grass", " and", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " works" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water soft beach water soft water works",
+    "timestamp" : 86507
+  }, {
+    "sentence" : "Grass and soft beach water soft beach water soft water beach",
+    "tokens" : [ 1, 215, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 5075 ],
+    "perplexity" : 201.49867248535156,
+    "tokens_used" : [ " Grass", " and", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " beach" ],
+    "original_sentence" : "Grass and soft beach water [MASK] beach water soft water [MASK]",
+    "timestamp" : 93790
+  }, {
+    "sentence" : "Grass and soft beach water soft beach water soft water water",
+    "tokens" : [ 1, 215, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 3408 ],
+    "perplexity" : 250.3327178955078,
+    "tokens_used" : [ " Grass", " and", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " water" ],
+    "original_sentence" : "[MASK] and soft beach water soft beach water soft water [MASK]",
+    "timestamp" : 96554
+  }, {
+    "sentence" : "Grass and soft beach water soft beach water soft water soft",
+    "tokens" : [ 1, 215, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 183.64553833007812,
+    "tokens_used" : [ " Grass", " and", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "Grass [MASK] soft beach water soft beach water soft water [MASK]",
+    "timestamp" : 98080
+  }, {
+    "sentence" : "Grass of soft beach water soft beach water soft water soft",
+    "tokens" : [ 1, 5194, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 230.48626708984375,
+    "tokens_used" : [ " Grass", " of", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water soft beach water soft water soft",
+    "timestamp" : 100429
+  }, {
+    "sentence" : "Grass Works soft beach water soft beach water soft water soft",
+    "tokens" : [ 1, 5189, 2489, 5075, 3408, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 304.1576232910156,
+    "tokens_used" : [ " Grass", " Works", " soft", " beach", " water", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water soft beach water soft water soft",
+    "timestamp" : 102800
+  }, {
+    "sentence" : "Grass Works soft water water soft beach water soft water soft",
+    "tokens" : [ 1, 5189, 2489, 3408, 3408, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 304.84466552734375,
+    "tokens_used" : [ " Grass", " Works", " soft", " water", " water", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] water soft beach water soft water soft",
+    "timestamp" : 110870
+  }, {
+    "sentence" : "Grass Works soft water water soft beach beach soft water soft",
+    "tokens" : [ 1, 5189, 2489, 3408, 3408, 2489, 5075, 5075, 2489, 3408, 2489 ],
+    "perplexity" : 331.04876708984375,
+    "tokens_used" : [ " Grass", " Works", " soft", " water", " water", " soft", " beach", " beach", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] Works soft water water soft beach [MASK] soft water soft",
+    "timestamp" : 119769
+  }, {
+    "sentence" : "Grass Works soft water soft soft beach beach soft water soft",
+    "tokens" : [ 1, 5189, 2489, 3408, 2489, 2489, 5075, 5075, 2489, 3408, 2489 ],
+    "perplexity" : 343.9868469238281,
+    "tokens_used" : [ " Grass", " Works", " soft", " water", " soft", " soft", " beach", " beach", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] Works soft water [MASK] soft beach beach soft water soft",
+    "timestamp" : 124218
+  }, {
+    "sentence" : "Grass Works soft water soft sandy beach beach soft water soft",
+    "tokens" : [ 1, 5189, 2489, 3408, 2489, 422, 5075, 5075, 2489, 3408, 2489 ],
+    "perplexity" : 320.7545471191406,
+    "tokens_used" : [ " Grass", " Works", " soft", " water", " soft", " sandy", " beach", " beach", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] Works soft water soft [MASK] beach beach soft water soft",
+    "timestamp" : 129720
+  }, {
+    "sentence" : "Grass Works soft water soft sandy beach water soft water soft",
+    "tokens" : [ 1, 5189, 2489, 3408, 2489, 422, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 324.11468505859375,
+    "tokens_used" : [ " Grass", " Works", " soft", " water", " soft", " sandy", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] Works soft water soft sandy beach [MASK] soft water soft",
+    "timestamp" : 134309
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach water soft water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 174.50267028808594,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] [MASK] soft water soft sandy beach water soft water soft",
+    "timestamp" : 144592
+  }, {
+    "sentence" : "Grass water soft water soft soft beach water soft water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 177.58468627929688,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "Grass [MASK] soft water soft [MASK] beach water soft water soft",
+    "timestamp" : 146823
+  }, {
+    "sentence" : "Grass water soft beach soft soft beach water soft water soft",
+    "tokens" : [ 1, 3408, 2489, 5075, 2489, 2489, 5075, 3408, 2489, 3408, 2489 ],
+    "perplexity" : 331.3883056640625,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " soft", " soft", " beach", " water", " soft", " water", " soft" ],
+    "original_sentence" : "Grass [MASK] soft [MASK] soft soft beach water soft water soft",
+    "timestamp" : 148876
+  }, {
+    "sentence" : "Grass water soft beach soft soft beach beach soft water soft",
+    "tokens" : [ 1, 3408, 2489, 5075, 2489, 2489, 5075, 5075, 2489, 3408, 2489 ],
+    "perplexity" : 321.7574462890625,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " soft", " soft", " beach", " beach", " soft", " water", " soft" ],
+    "original_sentence" : "Grass water soft [MASK] soft soft beach [MASK] soft water soft",
+    "timestamp" : 154290
+  }, {
+    "sentence" : "Grass water soft beach soft sandy beach beach soft water soft",
+    "tokens" : [ 1, 3408, 2489, 5075, 2489, 422, 5075, 5075, 2489, 3408, 2489 ],
+    "perplexity" : 240.87353515625,
+    "tokens_used" : [ " Grass", " water", " soft", " beach", " soft", " sandy", " beach", " beach", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft beach soft [MASK] beach beach soft water soft",
+    "timestamp" : 162297
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach beach soft water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 5075, 2489, 3408, 2489 ],
+    "perplexity" : 220.10400390625,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " beach", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft [MASK] soft sandy beach beach soft water soft",
+    "timestamp" : 164054
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach beach soft water water",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 5075, 2489, 3408, 3408 ],
+    "perplexity" : 301.51702880859375,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " beach", " soft", " water", " water" ],
+    "original_sentence" : "[MASK] water soft water soft sandy beach beach soft water [MASK]",
+    "timestamp" : 165652
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach beach soft water beach",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 5075, 2489, 3408, 5075 ],
+    "perplexity" : 220.2997283935547,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " beach", " soft", " water", " beach" ],
+    "original_sentence" : "Grass water soft water soft sandy beach beach [MASK] water [MASK]",
+    "timestamp" : 167018
+  }, {
+    "sentence" : "Grass water soft water soft soft beach beach soft water beach",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 2489, 5075, 5075, 2489, 3408, 5075 ],
+    "perplexity" : 221.07591247558594,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " soft", " beach", " beach", " soft", " water", " beach" ],
+    "original_sentence" : "Grass water soft water [MASK] [MASK] beach beach soft water beach",
+    "timestamp" : 169038
+  }, {
+    "sentence" : "Grass water soft water soft soft beach water soft water beach",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 2489, 5075, 3408, 2489, 3408, 5075 ],
+    "perplexity" : 208.21002197265625,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " soft", " beach", " water", " soft", " water", " beach" ],
+    "original_sentence" : "Grass water soft water [MASK] soft beach [MASK] soft water beach",
+    "timestamp" : 172896
+  }, {
+    "sentence" : "Grass water soft water soft soft beach water beach water beach",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 2489, 5075, 3408, 5075, 3408, 5075 ],
+    "perplexity" : 235.33587646484375,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " soft", " beach", " water", " beach", " water", " beach" ],
+    "original_sentence" : "Grass [MASK] soft water soft soft beach water [MASK] water beach",
+    "timestamp" : 175167
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach water beach water beach",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 3408, 5075, 3408, 5075 ],
+    "perplexity" : 213.15408325195312,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " water", " beach", " water", " beach" ],
+    "original_sentence" : "[MASK] water soft water soft [MASK] beach water beach water beach",
+    "timestamp" : 197190
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach water beach water water",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 3408, 5075, 3408, 3408 ],
+    "perplexity" : 259.57391357421875,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " water", " beach", " water", " water" ],
+    "original_sentence" : "[MASK] water soft water soft sandy beach water beach water [MASK]",
+    "timestamp" : 200087
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach water beach water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 3408, 5075, 3408, 2489 ],
+    "perplexity" : 252.02352905273438,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " water", " beach", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft water soft sandy beach water beach water [MASK]",
+    "timestamp" : 200280
+  }, {
+    "sentence" : "Grass water soft water soft soft beach water beach water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 2489, 5075, 3408, 5075, 3408, 2489 ],
+    "perplexity" : 240.44264221191406,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " soft", " beach", " water", " beach", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft water soft [MASK] beach water beach water soft",
+    "timestamp" : 207669
+  }, {
+    "sentence" : "Grass water soft water soft excused beach water beach water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 5193, 5075, 3408, 5075, 3408, 2489 ],
+    "perplexity" : 327.1142578125,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " excused", " beach", " water", " beach", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft water soft [MASK] beach water beach water soft",
+    "timestamp" : 208668
+  }, {
+    "sentence" : "Grass water soft water soft soft beach beach beach water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 2489, 5075, 5075, 5075, 3408, 2489 ],
+    "perplexity" : 289.1495361328125,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " soft", " beach", " beach", " beach", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft water soft soft beach [MASK] beach water soft",
+    "timestamp" : 211592
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach beach beach water soft",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 5075, 5075, 3408, 2489 ],
+    "perplexity" : 252.0921630859375,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " beach", " beach", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft water soft [MASK] beach beach beach water soft",
+    "timestamp" : 214038
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach beach beach water water",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 5075, 5075, 3408, 3408 ],
+    "perplexity" : 340.56109619140625,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " beach", " beach", " water", " water" ],
+    "original_sentence" : "[MASK] water soft water soft sandy beach beach beach water [MASK]",
+    "timestamp" : 217584
+  }, {
+    "sentence" : "Grass water soft water soft sandy beach beach beach water beach",
+    "tokens" : [ 1, 3408, 2489, 3408, 2489, 422, 5075, 5075, 5075, 3408, 5075 ],
+    "perplexity" : 306.9124450683594,
+    "tokens_used" : [ " Grass", " water", " soft", " water", " soft", " sandy", " beach", " beach", " beach", " water", " beach" ],
+    "original_sentence" : "[MASK] water soft water soft sandy beach beach beach water [MASK]",
+    "timestamp" : 217721
+  } ]
+}

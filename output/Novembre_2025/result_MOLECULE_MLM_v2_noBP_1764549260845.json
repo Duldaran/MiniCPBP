@@ -1,0 +1,147 @@
+{
+  "status" : "ok",
+  "port" : 5001,
+  "num_iterations" : 10,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "config" : "v2_noBP",
+  "seed" : 1,
+  "sentence_builder" : "random",
+  "reference_file" : "src/main/java/minicpbp/examples/data/Molecules/gpt_ref.txt",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-11-30T19:34:20.844211200",
+  "time" : 47.622,
+  "best_perplexity_evolution" : [ {
+    "molecule" : "C(C(C)C(C)N(C)C(C)N(COO(C))(C))(C)C",
+    "score" : 315.2103271484375,
+    "time" : 43998,
+    "cycle" : 1
+  }, {
+    "molecule" : "C(C(C)C(C)N(C)C(C)N(COS(C))(C))(C)C",
+    "score" : 313.6001892089844,
+    "time" : 44892,
+    "cycle" : 1
+  }, {
+    "molecule" : "C(C(C)C(C)N(C)C(C)N(CCS(C))(C))(C)C",
+    "score" : 308.0378723144531,
+    "time" : 45375,
+    "cycle" : 1
+  }, {
+    "molecule" : "C(C(C)C(C)N(C)C(C)N(C)C(C)O(C))(C)C",
+    "score" : 223.74322509765625,
+    "time" : 45636,
+    "cycle" : 1
+  }, {
+    "molecule" : "C(C(C)C(C)N(O)C(C)N(C)C(O)O(C))(C)C",
+    "score" : 67.07158660888672,
+    "time" : 46377,
+    "cycle" : 2
+  } ],
+  "base_sentence" : {
+    "molecule" : "C=C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C",
+    "score" : 39.412329661728776,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(COO(C))(C))(C)C",
+    "perplexity" : 315.2103271484375,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 44011
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(CNO(C))(C))(C)C",
+    "perplexity" : 373.3866882324219,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 44163
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(CSO(C))(C))(C)C",
+    "perplexity" : 447.1650085449219,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 44316
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(CCO(C))(C))(C)C",
+    "perplexity" : 327.8114318847656,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 44408
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(COS(C))(C))(C)C",
+    "perplexity" : 313.6001892089844,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 44892
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(CNS(C))(C))(C)C",
+    "perplexity" : 400.89288330078125,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 45038
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(CSS(C))(C))(C)C",
+    "perplexity" : 396.8824768066406,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 45196
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(CCS(C))(C))(C)C",
+    "perplexity" : 308.0378723144531,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 45375
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(C)C(C)O(C))(C)C",
+    "perplexity" : 223.74322509765625,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 45636
+  }, {
+    "sentence" : "C(C(C)C(C)N(C)C(C)N(C)C(C)S(C))(C)C",
+    "perplexity" : 256.04541015625,
+    "original_sentence" : "C<mask>C(C)C(C)<mask>(C)C(C)<mask>(C<mask><mask>(C)<mask>(C)<mask>(C)C",
+    "timestamp" : 45784
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(O)O(C))(C)C",
+    "perplexity" : 67.07158660888672,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 46377
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(Br)O(C))(C)C",
+    "perplexity" : 78.9739990234375,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 46510
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(I)O(C))(C)C",
+    "perplexity" : 81.09650421142578,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 46638
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(C)O(C))(C)C",
+    "perplexity" : 81.65596771240234,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 46770
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(N)O(C))(C)C",
+    "perplexity" : 74.6749496459961,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 46904
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(S)O(C))(C)C",
+    "perplexity" : 81.03763580322266,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 47036
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(F)O(C))(C)C",
+    "perplexity" : 92.48458099365234,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 47171
+  }, {
+    "sentence" : "C(C(C)C(C)N(O)C(C)N(C)C(Cl)O(C))(C)C",
+    "perplexity" : 81.92062377929688,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 47255
+  }, {
+    "sentence" : "C(C(C)C(C)N(Br)C(C)N(C)C(O)O(C))(C)C",
+    "perplexity" : 111.49488830566406,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 47437
+  }, {
+    "sentence" : "C(C(C)C(C)N(Br)C(C)N(C)C(Br)O(C))(C)C",
+    "perplexity" : 133.7728729248047,
+    "original_sentence" : "C<mask>C(C)<mask>(C)<mask>(<mask>)C(C)N(C<mask><mask>(<mask>)O(C))(C)C",
+    "timestamp" : 47560
+  } ]
+}

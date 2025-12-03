@@ -1,0 +1,583 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 50,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T14:57:12.081049593",
+  "time" : 353.636,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Near the bed of the room and down the stairs to the kitchen",
+    "score" : 20.298067092895508,
+    "time" : 48757,
+    "cycle" : 0
+  }, {
+    "sentence" : "Pan the door to the room and down the stairs to the kitchen",
+    "score" : 16.88343620300293,
+    "time" : 121051,
+    "cycle" : 23
+  }, {
+    "sentence" : "Red the door to the room and down the stairs to the kitchen",
+    "score" : 16.44839859008789,
+    "time" : 204207,
+    "cycle" : 51
+  } ],
+  "base_sentence" : {
+    "sentence" : "Near the end of the room and down the stairs to the kitchen",
+    "perplexity" : 16.751358032226562,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Near the bed of the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.298067092895508,
+    "tokens_used" : [ " Near", " the", " bed", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] of the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 48757
+  }, {
+    "sentence" : "Near the bed to the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.067415237426758,
+    "tokens_used" : [ " Near", " the", " bed", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 51604
+  }, {
+    "sentence" : "Near the bed in the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 21.227083206176758,
+    "tokens_used" : [ " Near", " the", " bed", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 51949
+  }, {
+    "sentence" : "Near the bed on the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 710, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 34.07756042480469,
+    "tokens_used" : [ " Near", " the", " bed", " on", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 52287
+  }, {
+    "sentence" : "Near the bed by the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2029, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.473241806030273,
+    "tokens_used" : [ " Near", " the", " bed", " by", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 52624
+  }, {
+    "sentence" : "Near the bed at the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 302, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 30.393474578857422,
+    "tokens_used" : [ " Near", " the", " bed", " at", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 53007
+  }, {
+    "sentence" : "Near the bed in the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2515, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 31.707937240600586,
+    "tokens_used" : [ " Near", " the", " bed", " in", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed in the [MASK] and down the [MASK] to the kitchen",
+    "timestamp" : 56309
+  }, {
+    "sentence" : "Near the bed on the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 710, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 27.27150535583496,
+    "tokens_used" : [ " Near", " the", " bed", " on", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the walk [MASK] down the stairs to the kitchen",
+    "timestamp" : 64811
+  }, {
+    "sentence" : "Near the bed by the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2029, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 33.519683837890625,
+    "tokens_used" : [ " Near", " the", " bed", " by", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the walk [MASK] down the stairs to the kitchen",
+    "timestamp" : 65182
+  }, {
+    "sentence" : "Near the bed to the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2461, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.377723693847656,
+    "tokens_used" : [ " Near", " the", " bed", " to", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the walk [MASK] down the stairs to the kitchen",
+    "timestamp" : 65437
+  }, {
+    "sentence" : "Near the bed at the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 302, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 34.548736572265625,
+    "tokens_used" : [ " Near", " the", " bed", " at", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the walk [MASK] down the stairs to the kitchen",
+    "timestamp" : 65679
+  }, {
+    "sentence" : "Near the bed of the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 5194, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 27.385574340820312,
+    "tokens_used" : [ " Near", " the", " bed", " of", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the bed [MASK] the walk [MASK] down the stairs to the kitchen",
+    "timestamp" : 66025
+  }, {
+    "sentence" : "Near the end to the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 2461, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.8222713470459,
+    "tokens_used" : [ " Near", " the", " end", " to", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] to the walk and down the stairs to the [MASK]",
+    "timestamp" : 67902
+  }, {
+    "sentence" : "Near the end to the walk and down the stairs to the Library",
+    "tokens" : [ 1853, 394, 2135, 2461, 394, 1948, 215, 4343, 394, 991, 2461, 394, 4260 ],
+    "perplexity" : 39.831138610839844,
+    "tokens_used" : [ " Near", " the", " end", " to", " the", " walk", " and", " down", " the", " stairs", " to", " the", " Library" ],
+    "original_sentence" : "Near the [MASK] to the walk and down the stairs to the [MASK]",
+    "timestamp" : 68451
+  }, {
+    "sentence" : "Near the end to the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.803466796875,
+    "tokens_used" : [ " Near", " the", " end", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end to the [MASK] and down the [MASK] to the kitchen",
+    "timestamp" : 71295
+  }, {
+    "sentence" : "Near the end to the room and down the street to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 2461, 394, 3465, 215, 4343, 394, 3249, 2461, 394, 350 ],
+    "perplexity" : 31.955963134765625,
+    "tokens_used" : [ " Near", " the", " end", " to", " the", " room", " and", " down", " the", " street", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end to the [MASK] and down the [MASK] to the kitchen",
+    "timestamp" : 71718
+  }, {
+    "sentence" : "Near the Car to the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2224, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 33.55881118774414,
+    "tokens_used" : [ " Near", " the", " Car", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] to the room and down the stairs to the [MASK]",
+    "timestamp" : 74803
+  }, {
+    "sentence" : "Near the Bar to the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 4039, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 31.18648910522461,
+    "tokens_used" : [ " Near", " the", " Bar", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] to the room and down the stairs to the [MASK]",
+    "timestamp" : 75180
+  }, {
+    "sentence" : "Near the Bar in the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 4039, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 33.61532211303711,
+    "tokens_used" : [ " Near", " the", " Bar", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the Bar [MASK] the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 77747
+  }, {
+    "sentence" : "Near the Bar by the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 4039, 2029, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 38.27700424194336,
+    "tokens_used" : [ " Near", " the", " Bar", " by", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the Bar [MASK] the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 78371
+  }, {
+    "sentence" : "Near the Bar at the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 4039, 302, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 39.3521728515625,
+    "tokens_used" : [ " Near", " the", " Bar", " at", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the Bar [MASK] the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 79036
+  }, {
+    "sentence" : "Near the Bar in the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 4039, 2515, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 37.50347900390625,
+    "tokens_used" : [ " Near", " the", " Bar", " in", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the Bar in the [MASK] and down the [MASK] to the kitchen",
+    "timestamp" : 84303
+  }, {
+    "sentence" : "Near the end in the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 2515, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 31.633424758911133,
+    "tokens_used" : [ " Near", " the", " end", " in", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] in the walk and down the stairs [MASK] the kitchen",
+    "timestamp" : 87816
+  }, {
+    "sentence" : "From the end in the walk and down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 2135, 2515, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 36.33387756347656,
+    "tokens_used" : [ " From", " the", " end", " in", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the end in the walk [MASK] down the stairs to the kitchen",
+    "timestamp" : 93389
+  }, {
+    "sentence" : "From the end in the room and down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 2135, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 34.240291595458984,
+    "tokens_used" : [ " From", " the", " end", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "From the end in the [MASK] [MASK] down the stairs to the kitchen",
+    "timestamp" : 99392
+  }, {
+    "sentence" : "Back the end in the room and down the stairs to the kitchen",
+    "tokens" : [ 954, 394, 2135, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 33.141231536865234,
+    "tokens_used" : [ " back", " the", " end", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the end in the room and down the stairs to the [MASK]",
+    "timestamp" : 102936
+  }, {
+    "sentence" : "Crew the end in the room and down the stairs to the kitchen",
+    "tokens" : [ 2321, 394, 2135, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 38.440799713134766,
+    "tokens_used" : [ " crew", " the", " end", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the end in the room and down the stairs to the [MASK]",
+    "timestamp" : 103008
+  }, {
+    "sentence" : "Open the end in the room and down the stairs to the kitchen",
+    "tokens" : [ 4520, 394, 2135, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 36.229400634765625,
+    "tokens_used" : [ " open", " the", " end", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the end in [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 106455
+  }, {
+    "sentence" : "Open the end of the room and down the stairs to the kitchen",
+    "tokens" : [ 4521, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 21.13217544555664,
+    "tokens_used" : [ " Open", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Open the end [MASK] the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 108434
+  }, {
+    "sentence" : "Open the end to the room and down the stairs to the kitchen",
+    "tokens" : [ 4521, 394, 2135, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 30.231388092041016,
+    "tokens_used" : [ " Open", " the", " end", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Open the end [MASK] the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 108790
+  }, {
+    "sentence" : "Open the end of the walk and down the stairs to the kitchen",
+    "tokens" : [ 4521, 394, 2135, 5194, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.735523223876953,
+    "tokens_used" : [ " Open", " the", " end", " of", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Open [MASK] end of the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 111467
+  }, {
+    "sentence" : "Pan the door of the walk and down the stairs to the kitchen",
+    "tokens" : [ 4392, 394, 4455, 5194, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 32.562644958496094,
+    "tokens_used" : [ " pan", " the", " door", " of", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] of the walk and down the stairs to the kitchen",
+    "timestamp" : 114787
+  }, {
+    "sentence" : "Sea the door of the walk and down the stairs to the kitchen",
+    "tokens" : [ 4716, 394, 4455, 5194, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 37.58349609375,
+    "tokens_used" : [ " Sea", " the", " door", " of", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] of the walk and down the stairs to the kitchen",
+    "timestamp" : 115678
+  }, {
+    "sentence" : "Pan the door to the walk and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 27.897502899169922,
+    "tokens_used" : [ " Pan", " the", " door", " to", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door [MASK] the walk and [MASK] the stairs to the kitchen",
+    "timestamp" : 117667
+  }, {
+    "sentence" : "Pan the door in the walk and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2515, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 38.446590423583984,
+    "tokens_used" : [ " Pan", " the", " door", " in", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door [MASK] the walk and [MASK] the stairs to the kitchen",
+    "timestamp" : 118068
+  }, {
+    "sentence" : "Pan the door on the walk and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 710, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 32.62650680541992,
+    "tokens_used" : [ " Pan", " the", " door", " on", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door [MASK] the walk and [MASK] the stairs to the kitchen",
+    "timestamp" : 118401
+  }, {
+    "sentence" : "Pan the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 16.88343620300293,
+    "tokens_used" : [ " Pan", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door to the [MASK] and down the [MASK] to the kitchen",
+    "timestamp" : 121051
+  }, {
+    "sentence" : "Pan the door to our room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 3369, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.944129943847656,
+    "tokens_used" : [ " Pan", " the", " door", " to", " our", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door to [MASK] room and down the stairs to the [MASK]",
+    "timestamp" : 124270
+  }, {
+    "sentence" : "Pan the door to one room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 1820, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 23.66426658630371,
+    "tokens_used" : [ " Pan", " the", " door", " to", " one", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door to [MASK] room and down the stairs to the [MASK]",
+    "timestamp" : 124519
+  }, {
+    "sentence" : "Pan the door to her room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 3730, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 18.314592361450195,
+    "tokens_used" : [ " Pan", " the", " door", " to", " her", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door to [MASK] room and down the stairs to the [MASK]",
+    "timestamp" : 124690
+  }, {
+    "sentence" : "Pan the door to any room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 1047, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 28.127967834472656,
+    "tokens_used" : [ " Pan", " the", " door", " to", " any", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door to [MASK] room and down the stairs to the [MASK]",
+    "timestamp" : 124924
+  }, {
+    "sentence" : "Pan the door to her room and down the stairs to her kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 3730, 3465, 215, 4343, 394, 991, 2461, 3730, 350 ],
+    "perplexity" : 21.48041534423828,
+    "tokens_used" : [ " Pan", " the", " door", " to", " her", " room", " and", " down", " the", " stairs", " to", " her", " kitchen" ],
+    "original_sentence" : "Pan the [MASK] to her room and down the stairs to [MASK] kitchen",
+    "timestamp" : 126939
+  }, {
+    "sentence" : "Pan the door to her room and down the stairs to his kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 3730, 3465, 215, 4343, 394, 991, 2461, 3882, 350 ],
+    "perplexity" : 31.127471923828125,
+    "tokens_used" : [ " Pan", " the", " door", " to", " her", " room", " and", " down", " the", " stairs", " to", " his", " kitchen" ],
+    "original_sentence" : "Pan the [MASK] to her room and down the stairs to [MASK] kitchen",
+    "timestamp" : 127375
+  }, {
+    "sentence" : "Pan the door to her room and down the stairs to the Library",
+    "tokens" : [ 4393, 394, 4455, 2461, 3730, 3465, 215, 4343, 394, 991, 2461, 394, 4260 ],
+    "perplexity" : 29.623971939086914,
+    "tokens_used" : [ " Pan", " the", " door", " to", " her", " room", " and", " down", " the", " stairs", " to", " the", " Library" ],
+    "original_sentence" : "Pan the door to her room and down the stairs to [MASK] [MASK]",
+    "timestamp" : 145588
+  }, {
+    "sentence" : "Pan the door of her room and down the stairs to the Library",
+    "tokens" : [ 4393, 394, 4455, 5194, 3730, 3465, 215, 4343, 394, 991, 2461, 394, 4260 ],
+    "perplexity" : 33.1020622253418,
+    "tokens_used" : [ " Pan", " the", " door", " of", " her", " room", " and", " down", " the", " stairs", " to", " the", " Library" ],
+    "original_sentence" : "Pan the door [MASK] her room [MASK] down the stairs to the Library",
+    "timestamp" : 150709
+  }, {
+    "sentence" : "Pan the door of her room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 5194, 3730, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.732637405395508,
+    "tokens_used" : [ " Pan", " the", " door", " of", " her", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door [MASK] her room and down the stairs to the [MASK]",
+    "timestamp" : 156712
+  }, {
+    "sentence" : "Pan the door in her room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2515, 3730, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 28.531770706176758,
+    "tokens_used" : [ " Pan", " the", " door", " in", " her", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door [MASK] her room and down the stairs to the [MASK]",
+    "timestamp" : 156924
+  }, {
+    "sentence" : "Pan the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 23.919443130493164,
+    "tokens_used" : [ " Pan", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door in [MASK] [MASK] and down the stairs to the kitchen",
+    "timestamp" : 162416
+  }, {
+    "sentence" : "Pan one door in the room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 1820, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 27.900005340576172,
+    "tokens_used" : [ " Pan", " one", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan [MASK] door in the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 168350
+  }, {
+    "sentence" : "Pan one door in the room and down the stairs in the kitchen",
+    "tokens" : [ 4393, 1820, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 30.38095474243164,
+    "tokens_used" : [ " Pan", " one", " door", " in", " the", " room", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Pan [MASK] door in the room and down the stairs [MASK] the kitchen",
+    "timestamp" : 168815
+  }, {
+    "sentence" : "Pan one door to the room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 1820, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 24.114381790161133,
+    "tokens_used" : [ " Pan", " one", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan one door [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 171699
+  }, {
+    "sentence" : "Pan one door of the room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 1820, 4455, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 32.156864166259766,
+    "tokens_used" : [ " Pan", " one", " door", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan one door [MASK] [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 177432
+  }, {
+    "sentence" : "Pan the door of the room and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 18.398712158203125,
+    "tokens_used" : [ " Pan", " the", " door", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan [MASK] door of the room and [MASK] the stairs to the kitchen",
+    "timestamp" : 180451
+  }, {
+    "sentence" : "Tea the door of the room and down the stairs to the kitchen",
+    "tokens" : [ 1700, 394, 4455, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 24.228139877319336,
+    "tokens_used" : [ " Tea", " the", " door", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door of the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 187089
+  }, {
+    "sentence" : "Saw the door of the room and down the stairs to the kitchen",
+    "tokens" : [ 3326, 394, 4455, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 25.956729888916016,
+    "tokens_used" : [ " saw", " the", " door", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door of the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 187341
+  }, {
+    "sentence" : "Hop the door of the room and down the stairs to the kitchen",
+    "tokens" : [ 2764, 394, 4455, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 19.197139739990234,
+    "tokens_used" : [ " hop", " the", " door", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door of the room [MASK] down the stairs to the kitchen",
+    "timestamp" : 187516
+  }, {
+    "sentence" : "Hop the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 2765, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 18.37300682067871,
+    "tokens_used" : [ " Hop", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Hop the door [MASK] [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 188876
+  }, {
+    "sentence" : "Hop the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 2765, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 23.03582191467285,
+    "tokens_used" : [ " Hop", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Hop the door [MASK] [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 189167
+  }, {
+    "sentence" : "Way the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 3609, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.2730712890625,
+    "tokens_used" : [ " Way", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] in the room and down the stairs to the kitchen",
+    "timestamp" : 194750
+  }, {
+    "sentence" : "Dog the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 875, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.837602615356445,
+    "tokens_used" : [ " dog", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] in the room and down the stairs to the kitchen",
+    "timestamp" : 195462
+  }, {
+    "sentence" : "Say the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 4218, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 28.584012985229492,
+    "tokens_used" : [ " Say", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] in the room and down the stairs to the kitchen",
+    "timestamp" : 195797
+  }, {
+    "sentence" : "Fed the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 176, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.556428909301758,
+    "tokens_used" : [ " Fed", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] in the room and down the stairs to the kitchen",
+    "timestamp" : 196174
+  }, {
+    "sentence" : "Way the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 3609, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.36493492126465,
+    "tokens_used" : [ " Way", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door [MASK] the room and down the stairs to the kitchen",
+    "timestamp" : 201174
+  }, {
+    "sentence" : "Yes the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 3032, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 28.569562911987305,
+    "tokens_used" : [ " Yes", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door [MASK] the room and down the stairs to the kitchen",
+    "timestamp" : 201465
+  }, {
+    "sentence" : "Dog the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 875, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.214969635009766,
+    "tokens_used" : [ " dog", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door [MASK] the room and down the stairs to the kitchen",
+    "timestamp" : 201835
+  }, {
+    "sentence" : "Say the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 4218, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 25.542573928833008,
+    "tokens_used" : [ " Say", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the door [MASK] the room and down the stairs to the kitchen",
+    "timestamp" : 202093
+  }, {
+    "sentence" : "Fed the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 176, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 21.980026245117188,
+    "tokens_used" : [ " Fed", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 203704
+  }, {
+    "sentence" : "Dim the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 2871, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 19.992759704589844,
+    "tokens_used" : [ " dim", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 203960
+  }, {
+    "sentence" : "Red the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 4227, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 16.44839859008789,
+    "tokens_used" : [ " Red", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 204207
+  }, {
+    "sentence" : "Can the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 1359, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 31.242595672607422,
+    "tokens_used" : [ " Can", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 204414
+  }, {
+    "sentence" : "Mad the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 3763, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 24.697927474975586,
+    "tokens_used" : [ " mad", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 217968
+  }, {
+    "sentence" : "And the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 216, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.981504440307617,
+    "tokens_used" : [ " And", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 218160
+  }, {
+    "sentence" : "Was the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 1557, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 24.973342895507812,
+    "tokens_used" : [ " was", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 218414
+  }, {
+    "sentence" : "Two the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 2457, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 23.4571533203125,
+    "tokens_used" : [ " Two", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 218746
+  }, {
+    "sentence" : "Bed the door to the room and down the stairs to the kitchen",
+    "tokens" : [ 3226, 394, 4455, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.77975845336914,
+    "tokens_used" : [ " Bed", " the", " door", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to the room and down the stairs to the kitchen",
+    "timestamp" : 219034
+  }, {
+    "sentence" : "And the door of the room and down the stairs to the kitchen",
+    "tokens" : [ 216, 394, 4455, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 26.2252197265625,
+    "tokens_used" : [ " And", " the", " door", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "And [MASK] door [MASK] the room and down the stairs to the kitchen",
+    "timestamp" : 220719
+  }, {
+    "sentence" : "And the door in the room and down the stairs to the kitchen",
+    "tokens" : [ 216, 394, 4455, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 30.65993309020996,
+    "tokens_used" : [ " And", " the", " door", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "And [MASK] door [MASK] the room and down the stairs to the kitchen",
+    "timestamp" : 220966
+  }, {
+    "sentence" : "Pan the door to the Book and down the stairs to the kitchen",
+    "tokens" : [ 4393, 394, 4455, 2461, 394, 2990, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 32.56267166137695,
+    "tokens_used" : [ " Pan", " the", " door", " to", " the", " Book", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Pan the door to the [MASK] and down the [MASK] to the kitchen",
+    "timestamp" : 241404
+  } ]
+}

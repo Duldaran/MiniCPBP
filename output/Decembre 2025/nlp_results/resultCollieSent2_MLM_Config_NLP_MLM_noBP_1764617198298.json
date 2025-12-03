@@ -1,0 +1,106 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T14:26:38.296453341",
+  "time" : 166.838,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Waking waking soft beach water mouth beach a place water comes",
+    "score" : 4091.64697265625,
+    "time" : 4844,
+    "cycle" : 0
+  }, {
+    "sentence" : "Waking waking soft waking waking mouth beach a place water comes",
+    "score" : 3083.884033203125,
+    "time" : 10254,
+    "cycle" : 3
+  }, {
+    "sentence" : "Waking mouth soft waking waking mouth beach a mouth water mouth",
+    "score" : 2994.9892578125,
+    "time" : 31482,
+    "cycle" : 11
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "Waking waking soft beach water mouth beach a place water comes",
+    "tokens" : [ 247, 247, 2489, 5075, 3408, 2602, 5075, 4646, 2703, 3408, 291 ],
+    "perplexity" : 4091.64697265625,
+    "tokens_used" : [ " waking", " waking", " soft", " beach", " water", " mouth", " beach", " a", " place", " water", " comes" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water [MASK] beach a place water comes",
+    "timestamp" : 4844
+  }, {
+    "sentence" : "Waking waking soft waking waking mouth beach a place water comes",
+    "tokens" : [ 247, 247, 2489, 247, 247, 2602, 5075, 4646, 2703, 3408, 291 ],
+    "perplexity" : 3083.884033203125,
+    "tokens_used" : [ " waking", " waking", " soft", " waking", " waking", " mouth", " beach", " a", " place", " water", " comes" ],
+    "original_sentence" : "[MASK] waking soft [MASK] [MASK] mouth beach a place water comes",
+    "timestamp" : 10254
+  }, {
+    "sentence" : "Waking mouth soft waking waking mouth beach a place water comes",
+    "tokens" : [ 247, 2602, 2489, 247, 247, 2602, 5075, 4646, 2703, 3408, 291 ],
+    "perplexity" : 3152.09130859375,
+    "tokens_used" : [ " waking", " mouth", " soft", " waking", " waking", " mouth", " beach", " a", " place", " water", " comes" ],
+    "original_sentence" : "[MASK] [MASK] soft waking waking [MASK] beach a place water comes",
+    "timestamp" : 13423
+  }, {
+    "sentence" : "Waking mouth soft waking waking mouth beach a mouth water mouth",
+    "tokens" : [ 247, 2602, 2489, 247, 247, 2602, 5075, 4646, 2602, 3408, 2602 ],
+    "perplexity" : 2994.9892578125,
+    "tokens_used" : [ " waking", " mouth", " soft", " waking", " waking", " mouth", " beach", " a", " mouth", " water", " mouth" ],
+    "original_sentence" : "[MASK] mouth soft waking waking mouth beach a [MASK] water [MASK]",
+    "timestamp" : 31482
+  }, {
+    "sentence" : "Packing mouth soft waking waking mouth beach a mouth water mouth",
+    "tokens" : [ 1824, 2602, 2489, 247, 247, 2602, 5075, 4646, 2602, 3408, 2602 ],
+    "perplexity" : 5599.775390625,
+    "tokens_used" : [ " packing", " mouth", " soft", " waking", " waking", " mouth", " beach", " a", " mouth", " water", " mouth" ],
+    "original_sentence" : "[MASK] mouth soft waking [MASK] mouth beach a [MASK] water mouth",
+    "timestamp" : 38197
+  }, {
+    "sentence" : "Waking waking soft waking waking mouth beach a packing water mouth",
+    "tokens" : [ 247, 247, 2489, 247, 247, 2602, 5075, 4646, 1824, 3408, 2602 ],
+    "perplexity" : 5629.09033203125,
+    "tokens_used" : [ " waking", " waking", " soft", " waking", " waking", " mouth", " beach", " a", " packing", " water", " mouth" ],
+    "original_sentence" : "[MASK] [MASK] soft waking waking mouth beach a [MASK] water mouth",
+    "timestamp" : 58292
+  }, {
+    "sentence" : "Waking waking soft waking waking mouth beach a packing water waking",
+    "tokens" : [ 247, 247, 2489, 247, 247, 2602, 5075, 4646, 1824, 3408, 247 ],
+    "perplexity" : 5901.17724609375,
+    "tokens_used" : [ " waking", " waking", " soft", " waking", " waking", " mouth", " beach", " a", " packing", " water", " waking" ],
+    "original_sentence" : "[MASK] waking soft [MASK] waking mouth beach a packing water [MASK]",
+    "timestamp" : 67470
+  }, {
+    "sentence" : "Mouth waking soft waking waking waking beach a packing water waking",
+    "tokens" : [ 2602, 247, 2489, 247, 247, 247, 5075, 4646, 1824, 3408, 247 ],
+    "perplexity" : 4821.7685546875,
+    "tokens_used" : [ " mouth", " waking", " soft", " waking", " waking", " waking", " beach", " a", " packing", " water", " waking" ],
+    "original_sentence" : "[MASK] waking soft waking waking [MASK] beach a [MASK] water waking",
+    "timestamp" : 74822
+  }, {
+    "sentence" : "Mouth waking soft waking mouth waking beach packing packing water waking",
+    "tokens" : [ 2602, 247, 2489, 247, 2602, 247, 5075, 1824, 1824, 3408, 247 ],
+    "perplexity" : 5839.35546875,
+    "tokens_used" : [ " mouth", " waking", " soft", " waking", " mouth", " waking", " beach", " packing", " packing", " water", " waking" ],
+    "original_sentence" : "[MASK] waking soft waking [MASK] waking beach [MASK] packing water waking",
+    "timestamp" : 90848
+  }, {
+    "sentence" : "Mouth mouth soft waking mouth waking beach packing packing water packing",
+    "tokens" : [ 2602, 2602, 2489, 247, 2602, 247, 5075, 1824, 1824, 3408, 1824 ],
+    "perplexity" : 5610.9208984375,
+    "tokens_used" : [ " mouth", " mouth", " soft", " waking", " mouth", " waking", " beach", " packing", " packing", " water", " packing" ],
+    "original_sentence" : "[MASK] [MASK] soft waking mouth waking beach packing packing water [MASK]",
+    "timestamp" : 111029
+  } ]
+}

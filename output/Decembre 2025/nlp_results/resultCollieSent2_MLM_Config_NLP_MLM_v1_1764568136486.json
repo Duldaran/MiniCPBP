@@ -1,0 +1,483 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T00:48:56.484809671",
+  "time" : 336.06,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft as water makes beach a place water comes",
+    "score" : 1428.0242919921875,
+    "time" : 6070,
+    "cycle" : 0
+  }, {
+    "sentence" : "The water soft as water makes beach a perfect water park",
+    "score" : 304.0184020996094,
+    "time" : 9643,
+    "cycle" : 1
+  }, {
+    "sentence" : "Beach made soft with water makes beach look like water again",
+    "score" : 288.0231018066406,
+    "time" : 20750,
+    "cycle" : 4
+  }, {
+    "sentence" : "Beach so soft with water makes beach look like water again",
+    "score" : 210.59060668945312,
+    "time" : 24786,
+    "cycle" : 5
+  }, {
+    "sentence" : "Is so soft that water makes beach into a water slide",
+    "score" : 196.24383544921875,
+    "time" : 32438,
+    "cycle" : 8
+  }, {
+    "sentence" : "Is a soft sand water and beach at the water park",
+    "score" : 193.4460906982422,
+    "time" : 60228,
+    "cycle" : 16
+  }, {
+    "sentence" : "Find a soft sand beach and beach at the water park",
+    "score" : 109.27902221679688,
+    "time" : 64834,
+    "cycle" : 17
+  }, {
+    "sentence" : "Find a soft sand beach and beach at a water park",
+    "score" : 88.7162094116211,
+    "time" : 68538,
+    "cycle" : 18
+  }, {
+    "sentence" : "Is a soft drink on the beach of a water park",
+    "score" : 72.69745635986328,
+    "time" : 238987,
+    "cycle" : 69
+  }, {
+    "sentence" : "Have a soft drink at the beach in your water cooler",
+    "score" : 44.3927116394043,
+    "time" : 245625,
+    "cycle" : 71
+  }, {
+    "sentence" : "Had a soft drink at the beach at the water cooler",
+    "score" : 37.02867889404297,
+    "time" : 247894,
+    "cycle" : 72
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft as water makes beach a place water comes",
+    "tokens" : [ 395, 775, 2489, 560, 3408, 2250, 5075, 4646, 2703, 3408, 291 ],
+    "perplexity" : 1428.0242919921875,
+    "tokens_used" : [ " The", " sentence", " soft", " as", " water", " makes", " beach", " a", " place", " water", " comes" ],
+    "original_sentence" : "The sentence soft [MASK] [MASK] makes beach [MASK] place water comes",
+    "timestamp" : 6070
+  }, {
+    "sentence" : "The water soft as water makes beach a perfect water park",
+    "tokens" : [ 395, 3408, 2489, 560, 3408, 2250, 5075, 4646, 3243, 3408, 983 ],
+    "perplexity" : 304.0184020996094,
+    "tokens_used" : [ " The", " water", " soft", " as", " water", " makes", " beach", " a", " perfect", " water", " park" ],
+    "original_sentence" : "The [MASK] soft as water makes beach a [MASK] water [MASK]",
+    "timestamp" : 9643
+  }, {
+    "sentence" : "The sand soft as water makes beach more like water park",
+    "tokens" : [ 395, 1752, 2489, 560, 3408, 2250, 5075, 3321, 4424, 3408, 983 ],
+    "perplexity" : 574.7839965820312,
+    "tokens_used" : [ " The", " sand", " soft", " as", " water", " makes", " beach", " more", " like", " water", " park" ],
+    "original_sentence" : "The [MASK] soft as water makes beach [MASK] [MASK] water park",
+    "timestamp" : 14218
+  }, {
+    "sentence" : "The sand soft with water makes beach look like water everywhere",
+    "tokens" : [ 395, 1752, 2489, 2342, 3408, 2250, 5075, 3647, 4424, 3408, 1357 ],
+    "perplexity" : 487.8198547363281,
+    "tokens_used" : [ " The", " sand", " soft", " with", " water", " makes", " beach", " look", " like", " water", " everywhere" ],
+    "original_sentence" : "The sand soft [MASK] water makes beach [MASK] like water [MASK]",
+    "timestamp" : 17346
+  }, {
+    "sentence" : "Beach made soft with water makes beach look like water again",
+    "tokens" : [ 5076, 4581, 2489, 2342, 3408, 2250, 5075, 3647, 4424, 3408, 3357 ],
+    "perplexity" : 288.0231018066406,
+    "tokens_used" : [ " Beach", " made", " soft", " with", " water", " makes", " beach", " look", " like", " water", " again" ],
+    "original_sentence" : "[MASK] [MASK] soft with water makes beach look like water [MASK]",
+    "timestamp" : 20750
+  }, {
+    "sentence" : "Beach so soft with water makes beach look like water again",
+    "tokens" : [ 5076, 1513, 2489, 2342, 3408, 2250, 5075, 3647, 4424, 3408, 3357 ],
+    "perplexity" : 210.59060668945312,
+    "tokens_used" : [ " Beach", " so", " soft", " with", " water", " makes", " beach", " look", " like", " water", " again" ],
+    "original_sentence" : "Beach [MASK] soft with [MASK] [MASK] beach look like water again",
+    "timestamp" : 24786
+  }, {
+    "sentence" : "Is so soft that water makes beach look like water again",
+    "tokens" : [ 2713, 1513, 2489, 1321, 3408, 2250, 5075, 3647, 4424, 3408, 3357 ],
+    "perplexity" : 213.10720825195312,
+    "tokens_used" : [ " is", " so", " soft", " that", " water", " makes", " beach", " look", " like", " water", " again" ],
+    "original_sentence" : "[MASK] so soft [MASK] water makes beach look [MASK] water again",
+    "timestamp" : 27575
+  }, {
+    "sentence" : "Is so soft that water makes beach into a water tower",
+    "tokens" : [ 2714, 1513, 2489, 1321, 3408, 2250, 5075, 980, 4646, 3408, 961 ],
+    "perplexity" : 222.45472717285156,
+    "tokens_used" : [ " Is", " so", " soft", " that", " water", " makes", " beach", " into", " a", " water", " tower" ],
+    "original_sentence" : "Is so soft that water makes beach [MASK] [MASK] water [MASK]",
+    "timestamp" : 29853
+  }, {
+    "sentence" : "Is so soft that water makes beach into a water slide",
+    "tokens" : [ 2714, 1513, 2489, 1321, 3408, 2250, 5075, 980, 4646, 3408, 3099 ],
+    "perplexity" : 196.24383544921875,
+    "tokens_used" : [ " Is", " so", " soft", " that", " water", " makes", " beach", " into", " a", " water", " slide" ],
+    "original_sentence" : "Is [MASK] soft that water makes beach into [MASK] water [MASK]",
+    "timestamp" : 32438
+  }, {
+    "sentence" : "The fresh soft sand water makes beach into a water slide",
+    "tokens" : [ 395, 2096, 2489, 1752, 3408, 2250, 5075, 980, 4646, 3408, 3099 ],
+    "perplexity" : 364.3431396484375,
+    "tokens_used" : [ " The", " fresh", " soft", " sand", " water", " makes", " beach", " into", " a", " water", " slide" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] water makes beach into a water slide",
+    "timestamp" : 43567
+  }, {
+    "sentence" : "The small soft sand water slide beach with a water slide",
+    "tokens" : [ 395, 3828, 2489, 1752, 3408, 3099, 5075, 2342, 4646, 3408, 3099 ],
+    "perplexity" : 319.5535583496094,
+    "tokens_used" : [ " The", " small", " soft", " sand", " water", " slide", " beach", " with", " a", " water", " slide" ],
+    "original_sentence" : "The [MASK] soft sand water [MASK] beach [MASK] a water slide",
+    "timestamp" : 49518
+  }, {
+    "sentence" : "The small soft sand water and beach at a water park",
+    "tokens" : [ 395, 3828, 2489, 1752, 3408, 215, 5075, 302, 4646, 3408, 983 ],
+    "perplexity" : 326.54058837890625,
+    "tokens_used" : [ " The", " small", " soft", " sand", " water", " and", " beach", " at", " a", " water", " park" ],
+    "original_sentence" : "The small soft sand water [MASK] beach [MASK] a water [MASK]",
+    "timestamp" : 53599
+  }, {
+    "sentence" : "Is a soft sand water and beach at the water park",
+    "tokens" : [ 2713, 4646, 2489, 1752, 3408, 215, 5075, 302, 394, 3408, 983 ],
+    "perplexity" : 193.4460906982422,
+    "tokens_used" : [ " is", " a", " soft", " sand", " water", " and", " beach", " at", " the", " water", " park" ],
+    "original_sentence" : "[MASK] [MASK] soft sand water and beach at [MASK] water park",
+    "timestamp" : 60228
+  }, {
+    "sentence" : "Find a soft sand beach and beach at the water park",
+    "tokens" : [ 4073, 4646, 2489, 1752, 5075, 215, 5075, 302, 394, 3408, 983 ],
+    "perplexity" : 109.27902221679688,
+    "tokens_used" : [ " Find", " a", " soft", " sand", " beach", " and", " beach", " at", " the", " water", " park" ],
+    "original_sentence" : "[MASK] a soft sand [MASK] and beach at the water [MASK]",
+    "timestamp" : 64834
+  }, {
+    "sentence" : "Find a soft sand beach and beach at a water park",
+    "tokens" : [ 4073, 4646, 2489, 1752, 5075, 215, 5075, 302, 4646, 3408, 983 ],
+    "perplexity" : 88.7162094116211,
+    "tokens_used" : [ " Find", " a", " soft", " sand", " beach", " and", " beach", " at", " a", " water", " park" ],
+    "original_sentence" : "Find a soft sand [MASK] and beach at [MASK] water [MASK]",
+    "timestamp" : 68538
+  }, {
+    "sentence" : "Find a soft sand beach and beach in a water park",
+    "tokens" : [ 4073, 4646, 2489, 1752, 5075, 215, 5075, 2515, 4646, 3408, 983 ],
+    "perplexity" : 97.26542663574219,
+    "tokens_used" : [ " Find", " a", " soft", " sand", " beach", " and", " beach", " in", " a", " water", " park" ],
+    "original_sentence" : "Find [MASK] soft sand beach and beach [MASK] [MASK] water park",
+    "timestamp" : 70690
+  }, {
+    "sentence" : "On a soft sand road and beach in a water park",
+    "tokens" : [ 710, 4646, 2489, 1752, 858, 215, 5075, 2515, 4646, 3408, 983 ],
+    "perplexity" : 144.6829833984375,
+    "tokens_used" : [ " on", " a", " soft", " sand", " road", " and", " beach", " in", " a", " water", " park" ],
+    "original_sentence" : "[MASK] a soft sand [MASK] and beach in a water [MASK]",
+    "timestamp" : 74289
+  }, {
+    "sentence" : "On a soft rubber road and beach in a water park",
+    "tokens" : [ 710, 4646, 2489, 1323, 858, 215, 5075, 2515, 4646, 3408, 983 ],
+    "perplexity" : 158.3602752685547,
+    "tokens_used" : [ " on", " a", " soft", " rubber", " road", " and", " beach", " in", " a", " water", " park" ],
+    "original_sentence" : "[MASK] a soft [MASK] road and beach in [MASK] water park",
+    "timestamp" : 80786
+  }, {
+    "sentence" : "On a soft rubber and sand beach in a water park",
+    "tokens" : [ 711, 4646, 2489, 1323, 215, 1752, 5075, 2515, 4646, 3408, 983 ],
+    "perplexity" : 172.2972869873047,
+    "tokens_used" : [ " On", " a", " soft", " rubber", " and", " sand", " beach", " in", " a", " water", " park" ],
+    "original_sentence" : "On a soft rubber [MASK] [MASK] beach in [MASK] water park",
+    "timestamp" : 87473
+  }, {
+    "sentence" : "On a soft water and sand beach in a water park",
+    "tokens" : [ 711, 4646, 2489, 3408, 215, 1752, 5075, 2515, 4646, 3408, 983 ],
+    "perplexity" : 124.3186264038086,
+    "tokens_used" : [ " On", " a", " soft", " water", " and", " sand", " beach", " in", " a", " water", " park" ],
+    "original_sentence" : "On a soft [MASK] and [MASK] beach in [MASK] water park",
+    "timestamp" : 95534
+  }, {
+    "sentence" : "On a soft water and sand beach with a water path",
+    "tokens" : [ 711, 4646, 2489, 3408, 215, 1752, 5075, 2342, 4646, 3408, 789 ],
+    "perplexity" : 165.61729431152344,
+    "tokens_used" : [ " On", " a", " soft", " water", " and", " sand", " beach", " with", " a", " water", " path" ],
+    "original_sentence" : "On a soft water [MASK] sand beach [MASK] a water [MASK]",
+    "timestamp" : 98831
+  }, {
+    "sentence" : "On a soft mud and sand beach with some water here",
+    "tokens" : [ 711, 4646, 2489, 4688, 215, 1752, 5075, 2342, 3459, 3408, 4401 ],
+    "perplexity" : 145.7337646484375,
+    "tokens_used" : [ " On", " a", " soft", " mud", " and", " sand", " beach", " with", " some", " water", " here" ],
+    "original_sentence" : "On a soft [MASK] and sand beach with [MASK] water [MASK]",
+    "timestamp" : 102775
+  }, {
+    "sentence" : "Is a soft mud or sand beach with some water around",
+    "tokens" : [ 2713, 4646, 2489, 4688, 1860, 1752, 5075, 2342, 3459, 3408, 1294 ],
+    "perplexity" : 170.56008911132812,
+    "tokens_used" : [ " is", " a", " soft", " mud", " or", " sand", " beach", " with", " some", " water", " around" ],
+    "original_sentence" : "[MASK] a soft mud [MASK] sand beach with some water [MASK]",
+    "timestamp" : 109687
+  }, {
+    "sentence" : "Is a soft mud or sand beach with no water around",
+    "tokens" : [ 2714, 4646, 2489, 4688, 1860, 1752, 5075, 2342, 2144, 3408, 1294 ],
+    "perplexity" : 135.3741455078125,
+    "tokens_used" : [ " Is", " a", " soft", " mud", " or", " sand", " beach", " with", " no", " water", " around" ],
+    "original_sentence" : "Is [MASK] soft mud or sand beach [MASK] [MASK] water around",
+    "timestamp" : 113020
+  }, {
+    "sentence" : "Is a soft mud or sand beach with little water around",
+    "tokens" : [ 2714, 4646, 2489, 4688, 1860, 1752, 5075, 2342, 3078, 3408, 1294 ],
+    "perplexity" : 151.43844604492188,
+    "tokens_used" : [ " Is", " a", " soft", " mud", " or", " sand", " beach", " with", " little", " water", " around" ],
+    "original_sentence" : "Is [MASK] soft mud or sand beach [MASK] [MASK] water around",
+    "timestamp" : 122233
+  }, {
+    "sentence" : "Is a soft mud or sandy beach with some water around",
+    "tokens" : [ 2714, 4646, 2489, 4688, 1860, 422, 5075, 2342, 3459, 3408, 1294 ],
+    "perplexity" : 142.3595428466797,
+    "tokens_used" : [ " Is", " a", " soft", " mud", " or", " sandy", " beach", " with", " some", " water", " around" ],
+    "original_sentence" : "Is [MASK] soft mud or [MASK] beach with [MASK] water around",
+    "timestamp" : 127635
+  }, {
+    "sentence" : "Is a soft sand and sand beach with some water around",
+    "tokens" : [ 2714, 4646, 2489, 1752, 215, 1752, 5075, 2342, 3459, 3408, 1294 ],
+    "perplexity" : 140.16604614257812,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " and", " sand", " beach", " with", " some", " water", " around" ],
+    "original_sentence" : "Is a soft [MASK] [MASK] [MASK] beach with some water around",
+    "timestamp" : 131799
+  }, {
+    "sentence" : "Is a soft sand soft sand beach with some water nearby",
+    "tokens" : [ 2714, 4646, 2489, 1752, 2489, 1752, 5075, 2342, 3459, 3408, 639 ],
+    "perplexity" : 152.99197387695312,
+    "tokens_used" : [ " Is", " a", " soft", " sand", " soft", " sand", " beach", " with", " some", " water", " nearby" ],
+    "original_sentence" : "Is a soft sand [MASK] sand beach [MASK] some water [MASK]",
+    "timestamp" : 134563
+  }, {
+    "sentence" : "Is a soft sandy soft sand beach with some water nearby",
+    "tokens" : [ 2713, 4646, 2489, 422, 2489, 1752, 5075, 2342, 3459, 3408, 639 ],
+    "perplexity" : 169.60350036621094,
+    "tokens_used" : [ " is", " a", " soft", " sandy", " soft", " sand", " beach", " with", " some", " water", " nearby" ],
+    "original_sentence" : "[MASK] a soft [MASK] soft [MASK] beach with some water nearby",
+    "timestamp" : 143557
+  }, {
+    "sentence" : "Is a soft and white sand beach with some water sports",
+    "tokens" : [ 2714, 4646, 2489, 215, 3412, 1752, 5075, 2342, 3459, 3408, 1415 ],
+    "perplexity" : 173.30674743652344,
+    "tokens_used" : [ " Is", " a", " soft", " and", " white", " sand", " beach", " with", " some", " water", " sports" ],
+    "original_sentence" : "Is a soft [MASK] [MASK] sand beach with some water [MASK]",
+    "timestamp" : 148394
+  }, {
+    "sentence" : "Is a soft and white sandy beach with some water here",
+    "tokens" : [ 2714, 4646, 2489, 215, 3412, 422, 5075, 2342, 3459, 3408, 4401 ],
+    "perplexity" : 117.43135070800781,
+    "tokens_used" : [ " Is", " a", " soft", " and", " white", " sandy", " beach", " with", " some", " water", " here" ],
+    "original_sentence" : "Is [MASK] soft and white [MASK] beach with some water [MASK]",
+    "timestamp" : 158144
+  }, {
+    "sentence" : "Is a soft and white sand beach with some water here",
+    "tokens" : [ 2714, 4646, 2489, 215, 3412, 1752, 5075, 2342, 3459, 3408, 4401 ],
+    "perplexity" : 143.13250732421875,
+    "tokens_used" : [ " Is", " a", " soft", " and", " white", " sand", " beach", " with", " some", " water", " here" ],
+    "original_sentence" : "Is [MASK] soft and white [MASK] beach [MASK] some water here",
+    "timestamp" : 161348
+  }, {
+    "sentence" : "Found a soft and white sandy beach with some water here",
+    "tokens" : [ 4477, 4646, 2489, 215, 3412, 422, 5075, 2342, 3459, 3408, 4401 ],
+    "perplexity" : 133.5675811767578,
+    "tokens_used" : [ " found", " a", " soft", " and", " white", " sandy", " beach", " with", " some", " water", " here" ],
+    "original_sentence" : "[MASK] a soft and white [MASK] beach [MASK] some water here",
+    "timestamp" : 169596
+  }, {
+    "sentence" : "Find a soft and white sandy beach with fresh water here",
+    "tokens" : [ 4073, 4646, 2489, 215, 3412, 422, 5075, 2342, 2096, 3408, 4401 ],
+    "perplexity" : 106.64077758789062,
+    "tokens_used" : [ " Find", " a", " soft", " and", " white", " sandy", " beach", " with", " fresh", " water", " here" ],
+    "original_sentence" : "[MASK] a soft and white [MASK] beach with [MASK] water here",
+    "timestamp" : 171881
+  }, {
+    "sentence" : "Find a soft and white sandy beach or fresh water park",
+    "tokens" : [ 4073, 4646, 2489, 215, 3412, 422, 5075, 1860, 2096, 3408, 983 ],
+    "perplexity" : 150.5426483154297,
+    "tokens_used" : [ " Find", " a", " soft", " and", " white", " sandy", " beach", " or", " fresh", " water", " park" ],
+    "original_sentence" : "Find [MASK] soft and white sandy beach [MASK] fresh water [MASK]",
+    "timestamp" : 174533
+  }, {
+    "sentence" : "Find a soft and white sandy beach or a water park",
+    "tokens" : [ 4073, 4646, 2489, 215, 3412, 422, 5075, 1860, 4646, 3408, 983 ],
+    "perplexity" : 89.95856475830078,
+    "tokens_used" : [ " Find", " a", " soft", " and", " white", " sandy", " beach", " or", " a", " water", " park" ],
+    "original_sentence" : "Find [MASK] soft and white sandy beach or [MASK] water [MASK]",
+    "timestamp" : 179116
+  }, {
+    "sentence" : "Is a soft and rocky sandy beach near a water park",
+    "tokens" : [ 2713, 4646, 2489, 215, 4062, 422, 5075, 1852, 4646, 3408, 983 ],
+    "perplexity" : 110.92716217041016,
+    "tokens_used" : [ " is", " a", " soft", " and", " rocky", " sandy", " beach", " near", " a", " water", " park" ],
+    "original_sentence" : "[MASK] a soft and [MASK] sandy beach [MASK] a water park",
+    "timestamp" : 182684
+  }, {
+    "sentence" : "Is a soft and rocky sandy beach near the water park",
+    "tokens" : [ 2714, 4646, 2489, 215, 4062, 422, 5075, 1852, 394, 3408, 983 ],
+    "perplexity" : 128.14578247070312,
+    "tokens_used" : [ " Is", " a", " soft", " and", " rocky", " sandy", " beach", " near", " the", " water", " park" ],
+    "original_sentence" : "Is [MASK] soft and rocky [MASK] beach near [MASK] water park",
+    "timestamp" : 204774
+  }, {
+    "sentence" : "Is a soft and rocky sandy beach in the water park",
+    "tokens" : [ 2713, 4646, 2489, 215, 4062, 422, 5075, 2515, 394, 3408, 983 ],
+    "perplexity" : 140.4144744873047,
+    "tokens_used" : [ " is", " a", " soft", " and", " rocky", " sandy", " beach", " in", " the", " water", " park" ],
+    "original_sentence" : "[MASK] a soft and rocky [MASK] beach [MASK] the water park",
+    "timestamp" : 207983
+  }, {
+    "sentence" : "Is a soft and rocky sandy beach of a water park",
+    "tokens" : [ 2714, 4646, 2489, 215, 4062, 422, 5075, 5194, 4646, 3408, 983 ],
+    "perplexity" : 170.58514404296875,
+    "tokens_used" : [ " Is", " a", " soft", " and", " rocky", " sandy", " beach", " of", " a", " water", " park" ],
+    "original_sentence" : "Is a soft [MASK] rocky sandy beach [MASK] [MASK] water park",
+    "timestamp" : 210158
+  }, {
+    "sentence" : "In a soft and on the beach of a water park",
+    "tokens" : [ 2515, 4646, 2489, 215, 710, 394, 5075, 5194, 4646, 3408, 983 ],
+    "perplexity" : 146.98614501953125,
+    "tokens_used" : [ " in", " a", " soft", " and", " on", " the", " beach", " of", " a", " water", " park" ],
+    "original_sentence" : "[MASK] a soft and [MASK] [MASK] beach of a water park",
+    "timestamp" : 216036
+  }, {
+    "sentence" : "In a soft water on the beach of a water park",
+    "tokens" : [ 2516, 4646, 2489, 3408, 710, 394, 5075, 5194, 4646, 3408, 983 ],
+    "perplexity" : 148.70388793945312,
+    "tokens_used" : [ " In", " a", " soft", " water", " on", " the", " beach", " of", " a", " water", " park" ],
+    "original_sentence" : "In a soft [MASK] on [MASK] beach of [MASK] water park",
+    "timestamp" : 217888
+  }, {
+    "sentence" : "In a soft rock on the beach of a water park",
+    "tokens" : [ 2516, 4646, 2489, 535, 710, 394, 5075, 5194, 4646, 3408, 983 ],
+    "perplexity" : 98.49251556396484,
+    "tokens_used" : [ " In", " a", " soft", " rock", " on", " the", " beach", " of", " a", " water", " park" ],
+    "original_sentence" : "In a soft [MASK] on [MASK] beach of a water [MASK]",
+    "timestamp" : 223771
+  }, {
+    "sentence" : "Finds a soft water on the beach of a water park",
+    "tokens" : [ 5039, 4646, 2489, 3408, 710, 394, 5075, 5194, 4646, 3408, 983 ],
+    "perplexity" : 109.96661376953125,
+    "tokens_used" : [ " finds", " a", " soft", " water", " on", " the", " beach", " of", " a", " water", " park" ],
+    "original_sentence" : "[MASK] a soft [MASK] on the beach of a water [MASK]",
+    "timestamp" : 226199
+  }, {
+    "sentence" : "Is a soft drink on the beach of a water park",
+    "tokens" : [ 2713, 4646, 2489, 4825, 710, 394, 5075, 5194, 4646, 3408, 983 ],
+    "perplexity" : 72.69745635986328,
+    "tokens_used" : [ " is", " a", " soft", " drink", " on", " the", " beach", " of", " a", " water", " park" ],
+    "original_sentence" : "[MASK] a soft [MASK] on the beach of [MASK] water park",
+    "timestamp" : 238987
+  }, {
+    "sentence" : "Is a soft drink at the beach of your water park",
+    "tokens" : [ 2714, 4646, 2489, 4825, 302, 394, 5075, 5194, 164, 3408, 983 ],
+    "perplexity" : 116.47966766357422,
+    "tokens_used" : [ " Is", " a", " soft", " drink", " at", " the", " beach", " of", " your", " water", " park" ],
+    "original_sentence" : "Is [MASK] soft drink [MASK] the beach of [MASK] water park",
+    "timestamp" : 241868
+  }, {
+    "sentence" : "Have a soft drink at the beach in your water cooler",
+    "tokens" : [ 3314, 4646, 2489, 4825, 302, 394, 5075, 2515, 164, 3408, 2439 ],
+    "perplexity" : 44.3927116394043,
+    "tokens_used" : [ " Have", " a", " soft", " drink", " at", " the", " beach", " in", " your", " water", " cooler" ],
+    "original_sentence" : "[MASK] a soft drink at the beach [MASK] your water [MASK]",
+    "timestamp" : 245625
+  }, {
+    "sentence" : "Had a soft drink at the beach at the water cooler",
+    "tokens" : [ 4961, 4646, 2489, 4825, 302, 394, 5075, 302, 394, 3408, 2439 ],
+    "perplexity" : 37.02867889404297,
+    "tokens_used" : [ " Had", " a", " soft", " drink", " at", " the", " beach", " at", " the", " water", " cooler" ],
+    "original_sentence" : "[MASK] a soft drink at the beach [MASK] [MASK] water cooler",
+    "timestamp" : 247894
+  }, {
+    "sentence" : "Had a soft drink on the beach at the water cooler",
+    "tokens" : [ 4961, 4646, 2489, 4825, 710, 394, 5075, 302, 394, 3408, 2439 ],
+    "perplexity" : 38.19387435913086,
+    "tokens_used" : [ " Had", " a", " soft", " drink", " on", " the", " beach", " at", " the", " water", " cooler" ],
+    "original_sentence" : "Had [MASK] soft drink [MASK] the beach at [MASK] water cooler",
+    "timestamp" : 251476
+  }, {
+    "sentence" : "Had a soft hour on the beach at the water cooler",
+    "tokens" : [ 4961, 4646, 2489, 4274, 710, 394, 5075, 302, 394, 3408, 2439 ],
+    "perplexity" : 64.0509262084961,
+    "tokens_used" : [ " Had", " a", " soft", " hour", " on", " the", " beach", " at", " the", " water", " cooler" ],
+    "original_sentence" : "Had a soft [MASK] on [MASK] beach [MASK] the water cooler",
+    "timestamp" : 254762
+  }, {
+    "sentence" : "Had a soft hour on the beach by the water cooler",
+    "tokens" : [ 4961, 4646, 2489, 4274, 710, 394, 5075, 2029, 394, 3408, 2439 ],
+    "perplexity" : 73.26986694335938,
+    "tokens_used" : [ " Had", " a", " soft", " hour", " on", " the", " beach", " by", " the", " water", " cooler" ],
+    "original_sentence" : "Had a soft hour [MASK] [MASK] beach [MASK] the water cooler",
+    "timestamp" : 257442
+  }, {
+    "sentence" : "On a soft rock on the beach by the water cooler",
+    "tokens" : [ 710, 4646, 2489, 535, 710, 394, 5075, 2029, 394, 3408, 2439 ],
+    "perplexity" : 65.82905578613281,
+    "tokens_used" : [ " on", " a", " soft", " rock", " on", " the", " beach", " by", " the", " water", " cooler" ],
+    "original_sentence" : "[MASK] a soft [MASK] on the beach by the water [MASK]",
+    "timestamp" : 265542
+  }, {
+    "sentence" : "On a soft rock at the beach by the water cooler",
+    "tokens" : [ 711, 4646, 2489, 535, 302, 394, 5075, 2029, 394, 3408, 2439 ],
+    "perplexity" : 73.90402221679688,
+    "tokens_used" : [ " On", " a", " soft", " rock", " at", " the", " beach", " by", " the", " water", " cooler" ],
+    "original_sentence" : "On a soft rock [MASK] the beach by [MASK] water [MASK]",
+    "timestamp" : 269179
+  }, {
+    "sentence" : "On a soft day at the beach with the water cooler",
+    "tokens" : [ 711, 4646, 2489, 382, 302, 394, 5075, 2342, 394, 3408, 2439 ],
+    "perplexity" : 49.12030792236328,
+    "tokens_used" : [ " On", " a", " soft", " day", " at", " the", " beach", " with", " the", " water", " cooler" ],
+    "original_sentence" : "On a soft [MASK] at the beach [MASK] [MASK] water cooler",
+    "timestamp" : 292185
+  }, {
+    "sentence" : "On a soft drink at the beach with a water cooler",
+    "tokens" : [ 711, 4646, 2489, 4825, 302, 394, 5075, 2342, 4646, 3408, 2439 ],
+    "perplexity" : 62.34183883666992,
+    "tokens_used" : [ " On", " a", " soft", " drink", " at", " the", " beach", " with", " a", " water", " cooler" ],
+    "original_sentence" : "On a soft [MASK] at the beach [MASK] [MASK] water cooler",
+    "timestamp" : 295136
+  }, {
+    "sentence" : "Have a soft drink at the beach in the water cooler",
+    "tokens" : [ 3314, 4646, 2489, 4825, 302, 394, 5075, 2515, 394, 3408, 2439 ],
+    "perplexity" : 43.40339279174805,
+    "tokens_used" : [ " Have", " a", " soft", " drink", " at", " the", " beach", " in", " the", " water", " cooler" ],
+    "original_sentence" : "[MASK] a soft drink at the beach [MASK] [MASK] water cooler",
+    "timestamp" : 299257
+  }, {
+    "sentence" : "Have a soft drink on the beach in the water outdoors",
+    "tokens" : [ 3314, 4646, 2489, 4825, 710, 394, 5075, 2515, 394, 3408, 23 ],
+    "perplexity" : 65.16666412353516,
+    "tokens_used" : [ " Have", " a", " soft", " drink", " on", " the", " beach", " in", " the", " water", " outdoors" ],
+    "original_sentence" : "Have a soft drink [MASK] [MASK] beach in the water [MASK]",
+    "timestamp" : 303709
+  }, {
+    "sentence" : "Have a soft drink on the beach in the water tower",
+    "tokens" : [ 3314, 4646, 2489, 4825, 710, 394, 5075, 2515, 394, 3408, 961 ],
+    "perplexity" : 56.42286682128906,
+    "tokens_used" : [ " Have", " a", " soft", " drink", " on", " the", " beach", " in", " the", " water", " tower" ],
+    "original_sentence" : "Have [MASK] soft [MASK] on the beach in the water [MASK]",
+    "timestamp" : 314949
+  } ]
+}

@@ -1,0 +1,327 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 150,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T15:53:07.931164991",
+  "time" : 265.771,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front of his shop",
+    "score" : 39.76469039916992,
+    "time" : 62637,
+    "cycle" : 0
+  }, {
+    "sentence" : "At once he seemed to be able to see me in front of his shop",
+    "score" : 36.510684967041016,
+    "time" : 84179,
+    "cycle" : 7
+  }, {
+    "sentence" : "At once he seemed to be able to see me in front of the shop",
+    "score" : 30.91436004638672,
+    "time" : 87026,
+    "cycle" : 9
+  }, {
+    "sentence" : "At once he seemed to be able to see us in front of the door",
+    "score" : 24.857484817504883,
+    "time" : 107023,
+    "cycle" : 19
+  }, {
+    "sentence" : "At once he seemed to be able to see me in front of the door",
+    "score" : 23.20377540588379,
+    "time" : 116288,
+    "cycle" : 24
+  } ],
+  "base_sentence" : {
+    "sentence" : "And yet he seemed to be able to see me in front of the shop",
+    "perplexity" : 35.467933654785156,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front of his shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3882, 4667 ],
+    "perplexity" : 39.76469039916992,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " his", " shop" ],
+    "original_sentence" : "And [MASK] he seemed to be able to see me in front [MASK] [MASK] shop",
+    "timestamp" : 62637
+  }, {
+    "sentence" : "At once he seemed to be able to see me in front of his shop",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3882, 4667 ],
+    "perplexity" : 36.510684967041016,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " his", " shop" ],
+    "original_sentence" : "At [MASK] he [MASK] to be able to see me in front [MASK] his shop",
+    "timestamp" : 84179
+  }, {
+    "sentence" : "At once he seemed to be able to see me in front of the shop",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 30.91436004638672,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "At once he seemed [MASK] be able to [MASK] me in front of [MASK] shop",
+    "timestamp" : 87026
+  }, {
+    "sentence" : "At once he seemed to be able to see me up front of the shop",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 1840, 2216, 5194, 394, 4667 ],
+    "perplexity" : 48.87784194946289,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " me", " up", " front", " of", " the", " shop" ],
+    "original_sentence" : "At once he seemed to be able [MASK] see me [MASK] front of the [MASK]",
+    "timestamp" : 89766
+  }, {
+    "sentence" : "At once he seemed to be able to see me up front of his shop",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 1840, 2216, 5194, 3882, 4667 ],
+    "perplexity" : 58.45035171508789,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " me", " up", " front", " of", " his", " shop" ],
+    "original_sentence" : "At once he seemed to [MASK] able to see me up front of [MASK] [MASK]",
+    "timestamp" : 94471
+  }, {
+    "sentence" : "At once he seemed to be able to see us up front of the shop",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 1840, 2216, 5194, 394, 4667 ],
+    "perplexity" : 47.989967346191406,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " us", " up", " front", " of", " the", " shop" ],
+    "original_sentence" : "At [MASK] he seemed to be able to see [MASK] up front of [MASK] shop",
+    "timestamp" : 104134
+  }, {
+    "sentence" : "At once he seemed to be able to see us in front of the shop",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 31.29297637939453,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "At once he seemed to be [MASK] to see [MASK] [MASK] front of the shop",
+    "timestamp" : 105676
+  }, {
+    "sentence" : "At once he seemed to be able to see us in front of the door",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 24.857484817504883,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] once he seemed to [MASK] able to see us in front of the [MASK]",
+    "timestamp" : 107023
+  }, {
+    "sentence" : "At once he seemed to be glad to see us in front of the door",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 1691, 2461, 3387, 1368, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 25.40011978149414,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " glad", " to", " see", " us", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "At once he seemed to [MASK] [MASK] to see us in [MASK] of the door",
+    "timestamp" : 109189
+  }, {
+    "sentence" : "At once he seemed to be glad to see to in front of the door",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 1691, 2461, 3387, 2461, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 49.5776481628418,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " glad", " to", " see", " to", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "At [MASK] he seemed to be glad to see [MASK] in front of [MASK] door",
+    "timestamp" : 111645
+  }, {
+    "sentence" : "At once he seemed to be glad to see up in front of the door",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 1691, 2461, 3387, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 33.36293411254883,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " glad", " to", " see", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "At once he seemed to be glad to [MASK] [MASK] in front of [MASK] door",
+    "timestamp" : 115009
+  }, {
+    "sentence" : "At once he seemed to be able to see me in front of the door",
+    "tokens" : [ 303, 409, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 23.20377540588379,
+    "tokens_used" : [ " At", " once", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "At once he seemed to be [MASK] to see [MASK] in front of the [MASK]",
+    "timestamp" : 116288
+  }, {
+    "sentence" : "At once he came to be able to see them in front of the door",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 32.20560836791992,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] once he [MASK] to be able to see [MASK] in front of the door",
+    "timestamp" : 118303
+  }, {
+    "sentence" : "At once he came to be able to see them in front of the desk",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 394, 835 ],
+    "perplexity" : 38.92808532714844,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " the", " desk" ],
+    "original_sentence" : "At once he came [MASK] [MASK] able to see them in front of the [MASK]",
+    "timestamp" : 120100
+  }, {
+    "sentence" : "At once he came to be able to see them in front of the eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 394, 1077 ],
+    "perplexity" : 33.46511459350586,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " the", " eyes" ],
+    "original_sentence" : "At once he came to be able [MASK] [MASK] them in front of the [MASK]",
+    "timestamp" : 121628
+  }, {
+    "sentence" : "At once he came to be able to put them in front of the eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 2216, 5194, 394, 1077 ],
+    "perplexity" : 31.9877872467041,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " front", " of", " the", " eyes" ],
+    "original_sentence" : "At once he came to be [MASK] to [MASK] them [MASK] front of the eyes",
+    "timestamp" : 127933
+  }, {
+    "sentence" : "At once he came to be able to put them in front of our eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 2216, 5194, 3369, 1077 ],
+    "perplexity" : 29.04767417907715,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " front", " of", " our", " eyes" ],
+    "original_sentence" : "At once he came [MASK] be able to put them in front [MASK] [MASK] eyes",
+    "timestamp" : 129079
+  }, {
+    "sentence" : "At once he came to be able to put them in front of her eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 31.831911087036133,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "At once he [MASK] to be [MASK] to put them in front of [MASK] eyes",
+    "timestamp" : 131096
+  }, {
+    "sentence" : "At once he came to be able to put them in front of His eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 2216, 5194, 3883, 1077 ],
+    "perplexity" : 43.00934600830078,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " front", " of", " His", " eyes" ],
+    "original_sentence" : "[MASK] once he came to be [MASK] to put them in front of [MASK] eyes",
+    "timestamp" : 135314
+  }, {
+    "sentence" : "At once he came to be able to put them in front of His face",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 2216, 5194, 3883, 4383 ],
+    "perplexity" : 44.00597381591797,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " front", " of", " His", " face" ],
+    "original_sentence" : "At once he [MASK] [MASK] be able to put them in front of His [MASK]",
+    "timestamp" : 143468
+  }, {
+    "sentence" : "At once he came to be able to see them in front of His face",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 3883, 4383 ],
+    "perplexity" : 44.765323638916016,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " His", " face" ],
+    "original_sentence" : "At once [MASK] came [MASK] be able to [MASK] them in front of His face",
+    "timestamp" : 160921
+  }, {
+    "sentence" : "At once he came to be able to see them in front of His eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 3883, 1077 ],
+    "perplexity" : 43.78160095214844,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " His", " eyes" ],
+    "original_sentence" : "At once he came [MASK] [MASK] able to see them in front of His [MASK]",
+    "timestamp" : 164994
+  }, {
+    "sentence" : "At once he came to be able to see them in front of our eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 3369, 1077 ],
+    "perplexity" : 31.44143295288086,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " our", " eyes" ],
+    "original_sentence" : "[MASK] once he [MASK] to be able to see them in front of [MASK] eyes",
+    "timestamp" : 171738
+  }, {
+    "sentence" : "At once he came to be glad to see them in front of the eyes",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 1691, 2461, 3387, 3320, 2515, 2216, 5194, 394, 1077 ],
+    "perplexity" : 45.05867385864258,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " glad", " to", " see", " them", " in", " front", " of", " the", " eyes" ],
+    "original_sentence" : "At once he came to be [MASK] to see them in front of [MASK] [MASK]",
+    "timestamp" : 174390
+  }, {
+    "sentence" : "At once we came to be able to see them in front of the eyes",
+    "tokens" : [ 303, 409, 1778, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 394, 1077 ],
+    "perplexity" : 31.008848190307617,
+    "tokens_used" : [ " At", " once", " we", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " the", " eyes" ],
+    "original_sentence" : "At once [MASK] came to be [MASK] to see them in [MASK] of the eyes",
+    "timestamp" : 181177
+  }, {
+    "sentence" : "At once we came to be able to see them in front of the time",
+    "tokens" : [ 303, 409, 1778, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 394, 4737 ],
+    "perplexity" : 40.595272064208984,
+    "tokens_used" : [ " At", " once", " we", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " the", " time" ],
+    "original_sentence" : "At once we came to be able to see them in [MASK] [MASK] the [MASK]",
+    "timestamp" : 182585
+  }, {
+    "sentence" : "At once he came to be able to see them in front of the time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3387, 3320, 2515, 2216, 5194, 394, 4737 ],
+    "perplexity" : 42.81605529785156,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " see", " them", " in", " front", " of", " the", " time" ],
+    "original_sentence" : "[MASK] once [MASK] came [MASK] be able to see them in front of the time",
+    "timestamp" : 187638
+  }, {
+    "sentence" : "At once he came to be able to put them in front of the time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 2216, 5194, 394, 4737 ],
+    "perplexity" : 41.578102111816406,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " front", " of", " the", " time" ],
+    "original_sentence" : "[MASK] once he came to be able [MASK] [MASK] them in front of the time",
+    "timestamp" : 189219
+  }, {
+    "sentence" : "At once he came to be able to put them in order of the time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 1460, 5194, 394, 4737 ],
+    "perplexity" : 43.36794662475586,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " order", " of", " the", " time" ],
+    "original_sentence" : "At [MASK] he came to be able to put [MASK] in [MASK] of the time",
+    "timestamp" : 197240
+  }, {
+    "sentence" : "At once he came to be able to put them in order at the time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 1460, 302, 394, 4737 ],
+    "perplexity" : 38.59865188598633,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " put", " them", " in", " order", " at", " the", " time" ],
+    "original_sentence" : "[MASK] once he came to be able to put [MASK] in order [MASK] the time",
+    "timestamp" : 204950
+  }, {
+    "sentence" : "At once he came to be able to get them in order at the time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 1460, 302, 394, 4737 ],
+    "perplexity" : 45.41658020019531,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " get", " them", " in", " order", " at", " the", " time" ],
+    "original_sentence" : "At once he came [MASK] be able to [MASK] them [MASK] order at the time",
+    "timestamp" : 206471
+  }, {
+    "sentence" : "At once he came to be able to get them in touch at the time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 4854, 302, 394, 4737 ],
+    "perplexity" : 39.52104568481445,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " get", " them", " in", " touch", " at", " the", " time" ],
+    "original_sentence" : "At once he came to [MASK] able to get them in [MASK] at the [MASK]",
+    "timestamp" : 208070
+  }, {
+    "sentence" : "At once he came to be able to get them in touch at any time",
+    "tokens" : [ 303, 409, 2228, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 4854, 302, 1047, 4737 ],
+    "perplexity" : 39.072906494140625,
+    "tokens_used" : [ " At", " once", " he", " came", " to", " be", " able", " to", " get", " them", " in", " touch", " at", " any", " time" ],
+    "original_sentence" : "[MASK] once he came to be [MASK] to get them in touch at [MASK] time",
+    "timestamp" : 209927
+  }, {
+    "sentence" : "At then he came to be able to get them in touch at any time",
+    "tokens" : [ 303, 2226, 2228, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 4854, 302, 1047, 4737 ],
+    "perplexity" : 37.329345703125,
+    "tokens_used" : [ " At", " then", " he", " came", " to", " be", " able", " to", " get", " them", " in", " touch", " at", " any", " time" ],
+    "original_sentence" : "[MASK] [MASK] he came to be able to get them in [MASK] at any time",
+    "timestamp" : 215619
+  }, {
+    "sentence" : "At that we came to be able to get them in touch at any time",
+    "tokens" : [ 303, 1321, 1778, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 4854, 302, 1047, 4737 ],
+    "perplexity" : 41.33784484863281,
+    "tokens_used" : [ " At", " that", " we", " came", " to", " be", " able", " to", " get", " them", " in", " touch", " at", " any", " time" ],
+    "original_sentence" : "[MASK] [MASK] [MASK] came to be able to get them in touch at any time",
+    "timestamp" : 219445
+  }, {
+    "sentence" : "At that we came to be able to get them in touch at the time",
+    "tokens" : [ 303, 1321, 1778, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 4854, 302, 394, 4737 ],
+    "perplexity" : 41.20526123046875,
+    "tokens_used" : [ " At", " that", " we", " came", " to", " be", " able", " to", " get", " them", " in", " touch", " at", " the", " time" ],
+    "original_sentence" : "At that we [MASK] [MASK] be able to get them in touch at [MASK] time",
+    "timestamp" : 225174
+  }, {
+    "sentence" : "At that we came to be able to get them in order at the time",
+    "tokens" : [ 303, 1321, 1778, 3845, 2461, 1392, 4464, 2461, 3912, 3320, 2515, 1460, 302, 394, 4737 ],
+    "perplexity" : 45.18515396118164,
+    "tokens_used" : [ " At", " that", " we", " came", " to", " be", " able", " to", " get", " them", " in", " order", " at", " the", " time" ],
+    "original_sentence" : "At that we came to be [MASK] to get them in [MASK] at [MASK] time",
+    "timestamp" : 228841
+  }, {
+    "sentence" : "At that we came to be able to put them in order at any time",
+    "tokens" : [ 303, 1321, 1778, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 1460, 302, 1047, 4737 ],
+    "perplexity" : 41.09049987792969,
+    "tokens_used" : [ " At", " that", " we", " came", " to", " be", " able", " to", " put", " them", " in", " order", " at", " any", " time" ],
+    "original_sentence" : "At that we came [MASK] be able to [MASK] them in order at [MASK] time",
+    "timestamp" : 233360
+  }, {
+    "sentence" : "At that we came to be able to put them in order at the time",
+    "tokens" : [ 303, 1321, 1778, 3845, 2461, 1392, 4464, 2461, 1536, 3320, 2515, 1460, 302, 394, 4737 ],
+    "perplexity" : 39.496341705322266,
+    "tokens_used" : [ " At", " that", " we", " came", " to", " be", " able", " to", " put", " them", " in", " order", " at", " the", " time" ],
+    "original_sentence" : "At that we came to be [MASK] to [MASK] them in order at [MASK] time",
+    "timestamp" : 239039
+  }, {
+    "sentence" : "At course we came to be able to put us in order at the time",
+    "tokens" : [ 303, 2543, 1778, 3845, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 1460, 302, 394, 4737 ],
+    "perplexity" : 43.44916534423828,
+    "tokens_used" : [ " At", " course", " we", " came", " to", " be", " able", " to", " put", " us", " in", " order", " at", " the", " time" ],
+    "original_sentence" : "[MASK] [MASK] we came to be able to put [MASK] in order at the time",
+    "timestamp" : 259521
+  } ]
+}

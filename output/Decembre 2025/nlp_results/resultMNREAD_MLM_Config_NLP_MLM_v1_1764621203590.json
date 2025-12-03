@@ -1,0 +1,275 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 50,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T15:33:23.588566144",
+  "time" : 271.685,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Near the end of the room and down her stairs to the kitchen",
+    "score" : 36.88737869262695,
+    "time" : 53178,
+    "cycle" : 0
+  }, {
+    "sentence" : "Near the end of her room and down her stairs to the kitchen",
+    "score" : 30.442617416381836,
+    "time" : 56127,
+    "cycle" : 1
+  }, {
+    "sentence" : "Near the end of the room and down the street to the library",
+    "score" : 30.066925048828125,
+    "time" : 94331,
+    "cycle" : 16
+  } ],
+  "base_sentence" : {
+    "sentence" : "Near the end of the room and down the stairs to the kitchen",
+    "perplexity" : 16.751358032226562,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Near the end of the room and down her stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 3730, 991, 2461, 394, 350 ],
+    "perplexity" : 36.88737869262695,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " her", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of the room [MASK] down [MASK] stairs to the kitchen",
+    "timestamp" : 53178
+  }, {
+    "sentence" : "Near the end of her room and down her stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 3730, 3465, 215, 4343, 3730, 991, 2461, 394, 350 ],
+    "perplexity" : 30.442617416381836,
+    "tokens_used" : [ " Near", " the", " end", " of", " her", " room", " and", " down", " her", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end [MASK] [MASK] room and down her stairs to [MASK] kitchen",
+    "timestamp" : 56127
+  }, {
+    "sentence" : "Near the end of his room and down her stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 3465, 215, 4343, 3730, 991, 2461, 394, 350 ],
+    "perplexity" : 37.850685119628906,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " room", " and", " down", " her", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of [MASK] room and down her [MASK] to the kitchen",
+    "timestamp" : 58939
+  }, {
+    "sentence" : "Near the end of his room and down her stairs to the landing",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 3465, 215, 4343, 3730, 991, 2461, 394, 1037 ],
+    "perplexity" : 52.40373992919922,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " room", " and", " down", " her", " stairs", " to", " the", " landing" ],
+    "original_sentence" : "Near [MASK] end [MASK] his room and down her stairs to the [MASK]",
+    "timestamp" : 82523
+  }, {
+    "sentence" : "Near the end of the room and down the street to the library",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 3249, 2461, 394, 4259 ],
+    "perplexity" : 30.066925048828125,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " street", " to", " the", " library" ],
+    "original_sentence" : "Near the [MASK] of [MASK] room and down the [MASK] to the library",
+    "timestamp" : 94331
+  }, {
+    "sentence" : "Near one end of the walk and down the street to the library",
+    "tokens" : [ 1853, 1820, 2135, 5194, 394, 1948, 215, 4343, 394, 3249, 2461, 394, 4259 ],
+    "perplexity" : 36.71866226196289,
+    "tokens_used" : [ " Near", " one", " end", " of", " the", " walk", " and", " down", " the", " street", " to", " the", " library" ],
+    "original_sentence" : "Near one end of [MASK] walk and down the street [MASK] the [MASK]",
+    "timestamp" : 100551
+  }, {
+    "sentence" : "Near one end to the walk and down the street to the station",
+    "tokens" : [ 1853, 1820, 2135, 2461, 394, 1948, 215, 4343, 394, 3249, 2461, 394, 3484 ],
+    "perplexity" : 39.90241622924805,
+    "tokens_used" : [ " Near", " one", " end", " to", " the", " walk", " and", " down", " the", " street", " to", " the", " station" ],
+    "original_sentence" : "Near one [MASK] [MASK] the walk and down the street to the [MASK]",
+    "timestamp" : 108855
+  }, {
+    "sentence" : "With one end of the street cut down and moved to the street",
+    "tokens" : [ 2343, 1820, 2135, 5194, 394, 3249, 2683, 4343, 215, 576, 2461, 394, 3249 ],
+    "perplexity" : 51.67889404296875,
+    "tokens_used" : [ " With", " one", " end", " of", " the", " street", " cut", " down", " and", " moved", " to", " the", " street" ],
+    "original_sentence" : "With one end [MASK] the [MASK] cut down and [MASK] to the street",
+    "timestamp" : 135121
+  }, {
+    "sentence" : "With the end of the street cut down and moved to the street",
+    "tokens" : [ 2343, 394, 2135, 5194, 394, 3249, 2683, 4343, 215, 576, 2461, 394, 3249 ],
+    "perplexity" : 45.01333236694336,
+    "tokens_used" : [ " With", " the", " end", " of", " the", " street", " cut", " down", " and", " moved", " to", " the", " street" ],
+    "original_sentence" : "With [MASK] end of the street cut [MASK] [MASK] moved to the street",
+    "timestamp" : 136575
+  }, {
+    "sentence" : "With the end of the street cut away and moved to the street",
+    "tokens" : [ 2343, 394, 2135, 5194, 394, 3249, 2683, 2048, 215, 576, 2461, 394, 3249 ],
+    "perplexity" : 51.49555206298828,
+    "tokens_used" : [ " With", " the", " end", " of", " the", " street", " cut", " away", " and", " moved", " to", " the", " street" ],
+    "original_sentence" : "With [MASK] end of the street cut [MASK] and [MASK] to the street",
+    "timestamp" : 138205
+  }, {
+    "sentence" : "With the end of the street got away and moved to the street",
+    "tokens" : [ 2343, 394, 2135, 5194, 394, 3249, 1104, 2048, 215, 576, 2461, 394, 3249 ],
+    "perplexity" : 58.13813781738281,
+    "tokens_used" : [ " With", " the", " end", " of", " the", " street", " got", " away", " and", " moved", " to", " the", " street" ],
+    "original_sentence" : "With the end of the [MASK] [MASK] away and moved to [MASK] street",
+    "timestamp" : 143283
+  }, {
+    "sentence" : "With the end of the street got down and moved to the street",
+    "tokens" : [ 2343, 394, 2135, 5194, 394, 3249, 1104, 4343, 215, 576, 2461, 394, 3249 ],
+    "perplexity" : 53.51985549926758,
+    "tokens_used" : [ " With", " the", " end", " of", " the", " street", " got", " down", " and", " moved", " to", " the", " street" ],
+    "original_sentence" : "[MASK] the end [MASK] the street got [MASK] and moved to the street",
+    "timestamp" : 150026
+  }, {
+    "sentence" : "With the end of the street got down and moved up the street",
+    "tokens" : [ 2343, 394, 2135, 5194, 394, 3249, 1104, 4343, 215, 576, 1840, 394, 3249 ],
+    "perplexity" : 51.770511627197266,
+    "tokens_used" : [ " With", " the", " end", " of", " the", " street", " got", " down", " and", " moved", " up", " the", " street" ],
+    "original_sentence" : "With the [MASK] of the street got down and moved [MASK] the [MASK]",
+    "timestamp" : 151748
+  }, {
+    "sentence" : "With the end of the street got away and moved up the street",
+    "tokens" : [ 2343, 394, 2135, 5194, 394, 3249, 1104, 2048, 215, 576, 1840, 394, 3249 ],
+    "perplexity" : 57.10944747924805,
+    "tokens_used" : [ " With", " the", " end", " of", " the", " street", " got", " away", " and", " moved", " up", " the", " street" ],
+    "original_sentence" : "With the end [MASK] the street got [MASK] and moved [MASK] the street",
+    "timestamp" : 155533
+  }, {
+    "sentence" : "So the owner of the house got back and looked up the street",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 1104, 954, 215, 592, 1840, 394, 3249 ],
+    "perplexity" : 42.272491455078125,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " got", " back", " and", " looked", " up", " the", " street" ],
+    "original_sentence" : "So [MASK] owner of the [MASK] got back and [MASK] up the street",
+    "timestamp" : 172195
+  }, {
+    "sentence" : "So the owner of the house got back and picked up the street",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 1104, 954, 215, 2290, 1840, 394, 3249 ],
+    "perplexity" : 55.996734619140625,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " got", " back", " and", " picked", " up", " the", " street" ],
+    "original_sentence" : "So the owner [MASK] the house got back and [MASK] up the [MASK]",
+    "timestamp" : 174757
+  }, {
+    "sentence" : "So the owner of the house ran back and picked up the street",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 3332, 954, 215, 2290, 1840, 394, 3249 ],
+    "perplexity" : 44.84613800048828,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " ran", " back", " and", " picked", " up", " the", " street" ],
+    "original_sentence" : "So [MASK] owner of the house [MASK] back [MASK] picked up the street",
+    "timestamp" : 176782
+  }, {
+    "sentence" : "So the owner of the house ran back and picked up his street",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 3332, 954, 215, 2290, 1840, 3882, 3249 ],
+    "perplexity" : 60.02260971069336,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " ran", " back", " and", " picked", " up", " his", " street" ],
+    "original_sentence" : "So the owner [MASK] the house ran back and picked up [MASK] [MASK]",
+    "timestamp" : 180898
+  }, {
+    "sentence" : "So the owner of the house ran back and picked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 3332, 954, 215, 2290, 302, 3882, 4335 ],
+    "perplexity" : 58.118709564208984,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " ran", " back", " and", " picked", " at", " his", " throat" ],
+    "original_sentence" : "So the owner of [MASK] house ran back and [MASK] [MASK] his throat",
+    "timestamp" : 190339
+  }, {
+    "sentence" : "So the owner of the house ran back and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 3332, 954, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 43.800559997558594,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " ran", " back", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "So [MASK] owner of the house ran back and [MASK] at [MASK] throat",
+    "timestamp" : 192869
+  }, {
+    "sentence" : "So the owner of the house lay back and smiled at her throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 2741, 954, 215, 95, 302, 3730, 4335 ],
+    "perplexity" : 56.26322937011719,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " lay", " back", " and", " smiled", " at", " her", " throat" ],
+    "original_sentence" : "So the [MASK] of the house [MASK] back [MASK] smiled at her throat",
+    "timestamp" : 201587
+  }, {
+    "sentence" : "So the owner of the house lay back and looked at her throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 2741, 954, 215, 592, 302, 3730, 4335 ],
+    "perplexity" : 41.024112701416016,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " lay", " back", " and", " looked", " at", " her", " throat" ],
+    "original_sentence" : "So the [MASK] of the house lay [MASK] and [MASK] at her throat",
+    "timestamp" : 208779
+  }, {
+    "sentence" : "So the owner of the house got back and looked at the throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 1104, 954, 215, 592, 302, 394, 4335 ],
+    "perplexity" : 53.784629821777344,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " got", " back", " and", " looked", " at", " the", " throat" ],
+    "original_sentence" : "So the owner of [MASK] [MASK] [MASK] back and looked at the throat",
+    "timestamp" : 221211
+  }, {
+    "sentence" : "So the owner of the house got back and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 1080, 1104, 954, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 46.55366516113281,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " house", " got", " back", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "So [MASK] owner of the house got back and looked at [MASK] [MASK]",
+    "timestamp" : 223710
+  }, {
+    "sentence" : "So the owner of the truck got away and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 1104, 2048, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 49.7858772277832,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " got", " away", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "So the owner [MASK] the [MASK] got away [MASK] looked at his throat",
+    "timestamp" : 237730
+  }, {
+    "sentence" : "So the owner of the truck got away and looked at the throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 1104, 2048, 215, 592, 302, 394, 4335 ],
+    "perplexity" : 57.31626510620117,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " got", " away", " and", " looked", " at", " the", " throat" ],
+    "original_sentence" : "So [MASK] owner of [MASK] truck got away and looked at [MASK] throat",
+    "timestamp" : 244296
+  }, {
+    "sentence" : "So the owner of the truck ran away and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 3332, 2048, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 48.77184295654297,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " ran", " away", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "So the owner of the truck [MASK] away and looked [MASK] [MASK] throat",
+    "timestamp" : 246620
+  }, {
+    "sentence" : "So the owner of the truck ran down and looked at the throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 3332, 4343, 215, 592, 302, 394, 4335 ],
+    "perplexity" : 51.96657180786133,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " ran", " down", " and", " looked", " at", " the", " throat" ],
+    "original_sentence" : "So the owner of the truck [MASK] [MASK] and looked at [MASK] throat",
+    "timestamp" : 250110
+  }, {
+    "sentence" : "So the owner of the truck ran down and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 3332, 4343, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 42.677337646484375,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " ran", " down", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "[MASK] the owner of the truck ran down [MASK] looked at [MASK] throat",
+    "timestamp" : 252490
+  }, {
+    "sentence" : "So the owner of the truck ran home and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 3332, 1724, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 50.566368103027344,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " ran", " home", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "So the owner [MASK] the [MASK] ran [MASK] and looked at his throat",
+    "timestamp" : 254436
+  }, {
+    "sentence" : "So the owner of the truck got home and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 1104, 1724, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 42.75166320800781,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " got", " home", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "So the owner [MASK] the truck [MASK] home and [MASK] at his throat",
+    "timestamp" : 256478
+  }, {
+    "sentence" : "So the owner of the truck got home and looked in his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 1104, 1724, 215, 592, 2515, 3882, 4335 ],
+    "perplexity" : 52.210079193115234,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " got", " home", " and", " looked", " in", " his", " throat" ],
+    "original_sentence" : "So [MASK] owner of [MASK] truck got home and looked [MASK] his throat",
+    "timestamp" : 258810
+  }, {
+    "sentence" : "So the owner of the truck got down and looked in his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 1104, 4343, 215, 592, 2515, 3882, 4335 ],
+    "perplexity" : 55.84687423706055,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " got", " down", " and", " looked", " in", " his", " throat" ],
+    "original_sentence" : "So the owner of the truck got [MASK] and [MASK] [MASK] his throat",
+    "timestamp" : 260496
+  }, {
+    "sentence" : "So the owner of the truck got down and looked at his throat",
+    "tokens" : [ 1514, 394, 3432, 5194, 394, 4641, 1104, 4343, 215, 592, 302, 3882, 4335 ],
+    "perplexity" : 44.516971588134766,
+    "tokens_used" : [ " So", " the", " owner", " of", " the", " truck", " got", " down", " and", " looked", " at", " his", " throat" ],
+    "original_sentence" : "[MASK] the owner of the truck got [MASK] and looked [MASK] his throat",
+    "timestamp" : 262343
+  } ]
+}

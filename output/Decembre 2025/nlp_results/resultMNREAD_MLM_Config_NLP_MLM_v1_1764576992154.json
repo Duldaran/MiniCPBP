@@ -1,0 +1,174 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T03:16:32.152546942",
+  "time" : 178.088,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She felt like I were going to make it to the top of my game",
+    "score" : 14.506138801574707,
+    "time" : 60755,
+    "cycle" : 0
+  } ],
+  "base_sentence" : {
+    "sentence" : "She felt like he was going to make it to the top of my game",
+    "perplexity" : 12.041910171508789,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She felt like I were going to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 4424, 1092, 2113, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 14.506138801574707,
+    "tokens_used" : [ " She", " felt", " like", " I", " were", " going", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt like [MASK] [MASK] going to make it to the top of my game",
+    "timestamp" : 60755
+  }, {
+    "sentence" : "She felt that I were going to make it to the top of my game",
+    "tokens" : [ 1962, 2774, 1321, 1092, 2113, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 17.34165382385254,
+    "tokens_used" : [ " She", " felt", " that", " I", " were", " going", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She felt [MASK] I were going to make it to [MASK] top of my game",
+    "timestamp" : 72232
+  }, {
+    "sentence" : "She said that I were going to make it to the top of my game",
+    "tokens" : [ 1962, 617, 1321, 1092, 2113, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 21.60057258605957,
+    "tokens_used" : [ " She", " said", " that", " I", " were", " going", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She [MASK] that I were going [MASK] make it to the top of my game",
+    "timestamp" : 75158
+  }, {
+    "sentence" : "She said that I were going to make it to the top of my team",
+    "tokens" : [ 1962, 617, 1321, 1092, 2113, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 4381 ],
+    "perplexity" : 26.698278427124023,
+    "tokens_used" : [ " She", " said", " that", " I", " were", " going", " to", " make", " it", " to", " the", " top", " of", " my", " team" ],
+    "original_sentence" : "She [MASK] that I were going to make it to the top of my [MASK]",
+    "timestamp" : 81804
+  }, {
+    "sentence" : "She feels that I was going to make it to the top of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 4381 ],
+    "perplexity" : 21.702259063720703,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " going", " to", " make", " it", " to", " the", " top", " of", " my", " team" ],
+    "original_sentence" : "She [MASK] that I [MASK] going to make it to the top of my team",
+    "timestamp" : 94953
+  }, {
+    "sentence" : "She feels that I was meant to make it to the top of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 1408, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 4381 ],
+    "perplexity" : 27.00664520263672,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " meant", " to", " make", " it", " to", " the", " top", " of", " my", " team" ],
+    "original_sentence" : "[MASK] feels that I was [MASK] to make it to the top of my team",
+    "timestamp" : 96067
+  }, {
+    "sentence" : "She feels that I was meant to make it to the end of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 1408, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 4381 ],
+    "perplexity" : 28.776657104492188,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " meant", " to", " make", " it", " to", " the", " end", " of", " my", " team" ],
+    "original_sentence" : "[MASK] feels that I was meant to make it to the [MASK] of my team",
+    "timestamp" : 104415
+  }, {
+    "sentence" : "She feels that I was going to make it to the end of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 1996, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 4381 ],
+    "perplexity" : 22.994037628173828,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " going", " to", " make", " it", " to", " the", " end", " of", " my", " team" ],
+    "original_sentence" : "She feels that I [MASK] [MASK] to make it to the end of my team",
+    "timestamp" : 111838
+  }, {
+    "sentence" : "She feels that I was wrong to make it to the end of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 4931, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 4381 ],
+    "perplexity" : 27.75052833557129,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " wrong", " to", " make", " it", " to", " the", " end", " of", " my", " team" ],
+    "original_sentence" : "She feels that [MASK] was [MASK] to make it to the end of my team",
+    "timestamp" : 121084
+  }, {
+    "sentence" : "She feels that I was wrong to make it to the top of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 4931, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 4381 ],
+    "perplexity" : 25.540645599365234,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " wrong", " to", " make", " it", " to", " the", " top", " of", " my", " team" ],
+    "original_sentence" : "She feels that [MASK] was wrong to make it to the [MASK] of my team",
+    "timestamp" : 126544
+  }, {
+    "sentence" : "She feels that I was happy to make it to the top of my team",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 3655, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 4381 ],
+    "perplexity" : 27.500520706176758,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " happy", " to", " make", " it", " to", " the", " top", " of", " my", " team" ],
+    "original_sentence" : "She feels that I was [MASK] to make it to the top of my [MASK]",
+    "timestamp" : 143196
+  }, {
+    "sentence" : "She feels that I was happy to make it to the top of my game",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 3655, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 21.532766342163086,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " happy", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] feels that I was happy to make it to the top of my [MASK]",
+    "timestamp" : 148880
+  }, {
+    "sentence" : "She feels that I was happy to make it at the top of my game",
+    "tokens" : [ 1962, 2327, 1321, 1092, 1557, 3655, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 25.81534767150879,
+    "tokens_used" : [ " She", " feels", " that", " I", " was", " happy", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She feels that I was [MASK] to make it [MASK] the top of my game",
+    "timestamp" : 149895
+  }, {
+    "sentence" : "She feels like I was happy to make it at the top of my game",
+    "tokens" : [ 1962, 2327, 4424, 1092, 1557, 3655, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 24.793109893798828,
+    "tokens_used" : [ " She", " feels", " like", " I", " was", " happy", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "She feels [MASK] I was happy to [MASK] it at the top of my game",
+    "timestamp" : 162980
+  }, {
+    "sentence" : "The feels like I was happy to make it at the top of my game",
+    "tokens" : [ 395, 2327, 4424, 1092, 1557, 3655, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 27.005783081054688,
+    "tokens_used" : [ " The", " feels", " like", " I", " was", " happy", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] feels [MASK] I was happy to make it at the top of my game",
+    "timestamp" : 164097
+  }, {
+    "sentence" : "The feels like I was meant to make it at the top of my game",
+    "tokens" : [ 395, 2327, 4424, 1092, 1557, 1408, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 25.436443328857422,
+    "tokens_used" : [ " The", " feels", " like", " I", " was", " meant", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "The feels [MASK] I was [MASK] to make it at the top of my game",
+    "timestamp" : 166148
+  }, {
+    "sentence" : "The feels like I was meant to make it to the top of my game",
+    "tokens" : [ 395, 2327, 4424, 1092, 1557, 1408, 2461, 2127, 2050, 2461, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 23.442543029785156,
+    "tokens_used" : [ " The", " feels", " like", " I", " was", " meant", " to", " make", " it", " to", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "The feels like I was meant to make it [MASK] the top of [MASK] game",
+    "timestamp" : 167500
+  }, {
+    "sentence" : "The feels like I was meant to make it to the end of my game",
+    "tokens" : [ 395, 2327, 4424, 1092, 1557, 1408, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 26.834096908569336,
+    "tokens_used" : [ " The", " feels", " like", " I", " was", " meant", " to", " make", " it", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "The feels like I [MASK] meant to make it to the [MASK] of my game",
+    "timestamp" : 169400
+  }, {
+    "sentence" : "Out feels like I was meant to make it to the end of my game",
+    "tokens" : [ 519, 2327, 4424, 1092, 1557, 1408, 2461, 2127, 2050, 2461, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 22.513111114501953,
+    "tokens_used" : [ " Out", " feels", " like", " I", " was", " meant", " to", " make", " it", " to", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "[MASK] feels [MASK] I was meant to make it to the end of my game",
+    "timestamp" : 172264
+  }, {
+    "sentence" : "Out feels like I was meant to make it at the end of my game",
+    "tokens" : [ 519, 2327, 4424, 1092, 1557, 1408, 2461, 2127, 2050, 302, 394, 2135, 5194, 938, 2701 ],
+    "perplexity" : 28.660737991333008,
+    "tokens_used" : [ " Out", " feels", " like", " I", " was", " meant", " to", " make", " it", " at", " the", " end", " of", " my", " game" ],
+    "original_sentence" : "Out feels like I [MASK] meant to make it [MASK] the end of my game",
+    "timestamp" : 173904
+  }, {
+    "sentence" : "Out feels like I was meant to make it at the top of my game",
+    "tokens" : [ 519, 2327, 4424, 1092, 1557, 1408, 2461, 2127, 2050, 302, 394, 770, 5194, 938, 2701 ],
+    "perplexity" : 22.322908401489258,
+    "tokens_used" : [ " Out", " feels", " like", " I", " was", " meant", " to", " make", " it", " at", " the", " top", " of", " my", " game" ],
+    "original_sentence" : "[MASK] feels like I was meant to make it at the [MASK] of my game",
+    "timestamp" : 174538
+  } ]
+}

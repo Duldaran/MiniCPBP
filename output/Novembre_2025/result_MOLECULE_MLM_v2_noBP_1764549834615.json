@@ -1,0 +1,147 @@
+{
+  "status" : "ok",
+  "port" : 5001,
+  "num_iterations" : 10,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "config" : "v2_noBP",
+  "seed" : 1,
+  "sentence_builder" : "random",
+  "reference_file" : "src/main/java/minicpbp/examples/data/Molecules/gpt_ref.txt",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-11-30T19:43:54.612954300",
+  "time" : 63.069,
+  "best_perplexity_evolution" : [ {
+    "molecule" : "C=C(C)C(O)C(C)C(C)N(C)O(COC(C)CCC)",
+    "score" : 10.411214828491211,
+    "time" : 43991,
+    "cycle" : 1
+  } ],
+  "base_sentence" : {
+    "molecule" : "C=C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C",
+    "score" : 39.412329661728776,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "C=C(C)C(O)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 10.411214828491211,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 43993
+  }, {
+    "sentence" : "C=C(C)C(Br)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 14.319210052490234,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 44150
+  }, {
+    "sentence" : "C=C(C)C(I)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 17.96352195739746,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 44312
+  }, {
+    "sentence" : "C=C(C)C(C)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 15.978594779968262,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 44456
+  }, {
+    "sentence" : "C=C(C)C(S)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 14.20218563079834,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 44599
+  }, {
+    "sentence" : "C=C(C)C(N)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 18.223163604736328,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 44739
+  }, {
+    "sentence" : "C=C(C)C(Cl)C(C)C(C)N(C)O(COC(C)CCC)",
+    "perplexity" : 17.43027114868164,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 44884
+  }, {
+    "sentence" : "C=C(C)C(O)C(C)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 12.9614896774292,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 45262
+  }, {
+    "sentence" : "C=C(C)C(Br)C(C)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 17.224117279052734,
+    "original_sentence" : "C=C(C)C(<mask>)C(C)C(C)<mask>(C)<mask>(C<mask>C<mask>C)C<mask>C)<mask>",
+    "timestamp" : 45431
+  }, {
+    "sentence" : "C=C(C)C(Br)C(O)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 16.9473819732666,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 52825
+  }, {
+    "sentence" : "C=C(C)C(Br)C(Br)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 18.1297607421875,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 52951
+  }, {
+    "sentence" : "C=C(C)C(Br)C(I)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 19.884103775024414,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 53118
+  }, {
+    "sentence" : "C=C(C)C(Br)C(S)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 18.252826690673828,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 53267
+  }, {
+    "sentence" : "C=C(C)C(Br)C(Cl)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 20.474716186523438,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 53574
+  }, {
+    "sentence" : "C=C(C)C(Br)C(F)C(C)N(C)O(COC(C)CNC)",
+    "perplexity" : 18.32337188720703,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 53657
+  }, {
+    "sentence" : "C=C(C)C(Br)C(O)C(C)N(C)O(COC(C)NNC)",
+    "perplexity" : 20.19059944152832,
+    "original_sentence" : "C=C(C)C(Br<mask>C(<mask><mask><mask>(C)N(C)O(CO<mask>(C)<mask>NC<mask>",
+    "timestamp" : 53840
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(C)NCC)",
+    "perplexity" : 16.180545806884766,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 61752
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(Cl)NCC)",
+    "perplexity" : 19.269041061401367,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62055
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(I)NCC)",
+    "perplexity" : 16.369359970092773,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62192
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(N)NCC)",
+    "perplexity" : 19.994998931884766,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62320
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(O)NCC)",
+    "perplexity" : 15.004754066467285,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62445
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(S)NCC)",
+    "perplexity" : 15.6560640335083,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62655
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(Br)NCC)",
+    "perplexity" : 16.487035751342773,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62728
+  }, {
+    "sentence" : "C=C(C)C(=C)C(O)C(C)N(C)O(CCC(C)NNC)",
+    "perplexity" : 18.220500946044922,
+    "original_sentence" : "C=C<mask>C)C(B<mask>)C(O)C(C)N(C)<mask>(C<mask>C(<mask><mask>N<mask>C)",
+    "timestamp" : 62920
+  } ]
+}

@@ -1,0 +1,209 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 50,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T14:49:22.884348012",
+  "time" : 170.605,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Near the end of the walk and down the stairs to the kitchen",
+    "score" : 16.224525451660156,
+    "time" : 49246,
+    "cycle" : 0
+  } ],
+  "base_sentence" : {
+    "sentence" : "Near the end of the room and down the stairs to the kitchen",
+    "perplexity" : 16.751358032226562,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Near the end of the walk and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 1948, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 16.224525451660156,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " walk", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end [MASK] the [MASK] and down the stairs to the kitchen",
+    "timestamp" : 49246
+  }, {
+    "sentence" : "Near the end of the walk and down two stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 1948, 215, 4343, 2456, 991, 2461, 394, 350 ],
+    "perplexity" : 30.391937255859375,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " walk", " and", " down", " two", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end [MASK] the walk and down [MASK] stairs to the kitchen",
+    "timestamp" : 50931
+  }, {
+    "sentence" : "Near the end of the walk led down two stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 1948, 3486, 4343, 2456, 991, 2461, 394, 350 ],
+    "perplexity" : 28.42391014099121,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " walk", " led", " down", " two", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end [MASK] the walk [MASK] down two stairs to the kitchen",
+    "timestamp" : 62740
+  }, {
+    "sentence" : "Near the end of the room led down two stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 3486, 4343, 2456, 991, 2461, 394, 350 ],
+    "perplexity" : 28.058835983276367,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " led", " down", " two", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] of the [MASK] led down two stairs to the kitchen",
+    "timestamp" : 68848
+  }, {
+    "sentence" : "Near the end of the room and down the stairs in the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 18.357769012451172,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near the end of the room [MASK] down the stairs [MASK] the kitchen",
+    "timestamp" : 73937
+  }, {
+    "sentence" : "Near the bed of the room and down the stairs in the kitchen",
+    "tokens" : [ 1853, 394, 3225, 5194, 394, 3465, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 23.89093017578125,
+    "tokens_used" : [ " Near", " the", " bed", " of", " the", " room", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] [MASK] of the room and down the stairs in the kitchen",
+    "timestamp" : 78818
+  }, {
+    "sentence" : "Near the bed of his room and down the stairs in the kitchen",
+    "tokens" : [ 1853, 394, 3225, 5194, 3882, 3465, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 25.58573341369629,
+    "tokens_used" : [ " Near", " the", " bed", " of", " his", " room", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near the bed of [MASK] room and down the stairs in the [MASK]",
+    "timestamp" : 83762
+  }, {
+    "sentence" : "Near the bed of his room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 5194, 3882, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 21.96596908569336,
+    "tokens_used" : [ " Near", " the", " bed", " of", " his", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] bed of his room and down the stairs [MASK] the kitchen",
+    "timestamp" : 101641
+  }, {
+    "sentence" : "Near the end of his room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 19.214832305908203,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] of his room and down the stairs to the kitchen",
+    "timestamp" : 103672
+  }, {
+    "sentence" : "Near the end of his room and down the stairs to his kitchen",
+    "tokens" : [ 1853, 394, 2135, 5194, 3882, 3465, 215, 4343, 394, 991, 2461, 3882, 350 ],
+    "perplexity" : 22.887184143066406,
+    "tokens_used" : [ " Near", " the", " end", " of", " his", " room", " and", " down", " the", " stairs", " to", " his", " kitchen" ],
+    "original_sentence" : "Near the end of his room and down the stairs to [MASK] [MASK]",
+    "timestamp" : 105545
+  }, {
+    "sentence" : "Near one end of his room and down the stairs to his kitchen",
+    "tokens" : [ 1853, 1820, 2135, 5194, 3882, 3465, 215, 4343, 394, 991, 2461, 3882, 350 ],
+    "perplexity" : 32.22195816040039,
+    "tokens_used" : [ " Near", " one", " end", " of", " his", " room", " and", " down", " the", " stairs", " to", " his", " kitchen" ],
+    "original_sentence" : "Near [MASK] end of his room and down the stairs to his [MASK]",
+    "timestamp" : 106964
+  }, {
+    "sentence" : "Near one end to his room and down the stairs to his kitchen",
+    "tokens" : [ 1853, 1820, 2135, 2461, 3882, 3465, 215, 4343, 394, 991, 2461, 3882, 350 ],
+    "perplexity" : 31.559925079345703,
+    "tokens_used" : [ " Near", " one", " end", " to", " his", " room", " and", " down", " the", " stairs", " to", " his", " kitchen" ],
+    "original_sentence" : "[MASK] one end [MASK] his room and down the stairs to his kitchen",
+    "timestamp" : 115976
+  }, {
+    "sentence" : "Near the end to his room and down the stairs to his kitchen",
+    "tokens" : [ 1853, 394, 2135, 2461, 3882, 3465, 215, 4343, 394, 991, 2461, 3882, 350 ],
+    "perplexity" : 28.00621223449707,
+    "tokens_used" : [ " Near", " the", " end", " to", " his", " room", " and", " down", " the", " stairs", " to", " his", " kitchen" ],
+    "original_sentence" : "Near [MASK] end to his room and down the stairs [MASK] his kitchen",
+    "timestamp" : 118279
+  }, {
+    "sentence" : "Near the end to his room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 2135, 2461, 3882, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 25.201948165893555,
+    "tokens_used" : [ " Near", " the", " end", " to", " his", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the end to his [MASK] and down the stairs to [MASK] kitchen",
+    "timestamp" : 121318
+  }, {
+    "sentence" : "Near the way to his room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3608, 2461, 3882, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.41476821899414,
+    "tokens_used" : [ " Near", " the", " way", " to", " his", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] to his room and down the stairs to the kitchen",
+    "timestamp" : 123331
+  }, {
+    "sentence" : "Near the way to the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3608, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.585405349731445,
+    "tokens_used" : [ " Near", " the", " way", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the way to [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 124316
+  }, {
+    "sentence" : "Near our way to the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 3369, 3608, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 23.620603561401367,
+    "tokens_used" : [ " Near", " our", " way", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] [MASK] way to the room and down the stairs to the kitchen",
+    "timestamp" : 125383
+  }, {
+    "sentence" : "Near our way to his room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 3369, 3608, 2461, 3882, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 23.146224975585938,
+    "tokens_used" : [ " Near", " our", " way", " to", " his", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near our [MASK] to [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 126385
+  }, {
+    "sentence" : "Near our bed to his room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 3369, 3225, 2461, 3882, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 32.38460159301758,
+    "tokens_used" : [ " Near", " our", " bed", " to", " his", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near our [MASK] to his room and down the stairs to the [MASK]",
+    "timestamp" : 127270
+  }, {
+    "sentence" : "Near our bed to our room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 3369, 3225, 2461, 3369, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 27.029268264770508,
+    "tokens_used" : [ " Near", " our", " bed", " to", " our", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] our bed to [MASK] room and down the stairs to the kitchen",
+    "timestamp" : 146071
+  }, {
+    "sentence" : "Near our bed in our room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 3369, 3225, 2515, 3369, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 27.628917694091797,
+    "tokens_used" : [ " Near", " our", " bed", " in", " our", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near our bed [MASK] our room and down the stairs [MASK] the kitchen",
+    "timestamp" : 150529
+  }, {
+    "sentence" : "Near the bed in our room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2515, 3369, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 25.19993782043457,
+    "tokens_used" : [ " Near", " the", " bed", " in", " our", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] [MASK] bed in our room and down the stairs to the kitchen",
+    "timestamp" : 153408
+  }, {
+    "sentence" : "Near the bed in our room and down the stairs in the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2515, 3369, 3465, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 26.861473083496094,
+    "tokens_used" : [ " Near", " the", " bed", " in", " our", " room", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near the bed in our room and down the stairs [MASK] the [MASK]",
+    "timestamp" : 154524
+  }, {
+    "sentence" : "Near the bed in our home and down the stairs in the kitchen",
+    "tokens" : [ 1853, 394, 3225, 2515, 3369, 1724, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 28.45462417602539,
+    "tokens_used" : [ " Near", " the", " bed", " in", " our", " home", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] bed in our [MASK] and down the stairs in the kitchen",
+    "timestamp" : 157028
+  }, {
+    "sentence" : "Near our bed in our home and down the stairs in the kitchen",
+    "tokens" : [ 1853, 3369, 3225, 2515, 3369, 1724, 215, 4343, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 31.288509368896484,
+    "tokens_used" : [ " Near", " our", " bed", " in", " our", " home", " and", " down", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Near [MASK] bed in our home and down the stairs [MASK] the kitchen",
+    "timestamp" : 161445
+  }, {
+    "sentence" : "Near our bed in our home and down the stairs to the kitchen",
+    "tokens" : [ 1853, 3369, 3225, 2515, 3369, 1724, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 30.329261779785156,
+    "tokens_used" : [ " Near", " our", " bed", " in", " our", " home", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near our bed in our home and down the stairs [MASK] [MASK] kitchen",
+    "timestamp" : 163692
+  } ]
+}

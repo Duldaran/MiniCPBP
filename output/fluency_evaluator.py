@@ -18,7 +18,7 @@ start_time = time.time()
 
 path = os.path.join("..","src", "main", "java", "minicpbp", "examples", "data", "MNREAD", "TimesCost_modified.json")
 
-folder_path = Path("Novembre_2025/experimental_suite_1/")
+folder_path = Path("Decembre 2025/molecules_results/")
 
 # Read and parse the file
 with open(path, "r", encoding="utf-8") as f:
@@ -137,11 +137,14 @@ def can_greedy_split(sentence: str, char_cost: dict) -> bool:
 # Data structure to store multiple lists of (score, time) pairs for each combination
 score_time_data = {}
 
-def add_score_time(architecture, config, sentenceBuilder, score_timestamp_list):
-    key = (architecture, config, sentenceBuilder)
+def add_score_time(architecture, config, sentenceBuilder,top_k, mask_percentage, score_timestamp_list,seed, ref=None ):
+    key = (architecture, config, sentenceBuilder, top_k, mask_percentage, ref, seed)
     if key not in score_time_data:
         score_time_data[key] = []
     score_time_data[key].append(score_timestamp_list)
+
+
+base_seed = {}
 
 for file_path in folder_path.glob("*.json"):
     if "evaluation_results_" in file_path.stem or "_error" in file_path.stem:
@@ -158,23 +161,54 @@ for file_path in folder_path.glob("*.json"):
         for entry in data["logs"]
         if not entry["sentence"].strip().endswith("ERROR")
     ]
-
-    problem = data["config"]
-    sentenceBuilder = data.get("sentence_builder", "randomSentenceBuilder")
-    name = file_path.stem
-    if "NLP_MLM_v1" in name:
-        architecture = "NLP_MLM_v1"
-    elif "NLP_MLM_v2" in name:
-        architecture = "NLP_MLM_v2"
+    isMolecule = False
+    if "MOLECULE" in file_path.stem:
+        isMolecule=True
+        ref_file = data.get("reference_file", "unknown")
+        if "no_gpt" in ref_file:
+            ref = "molecules_no-gpt"
+        else:
+            ref = "molecules_gpt"
+        problem = "molecules"
+    else:   
+        problem = data["config"]
+    sentenceBuilder = data.get("sentence_builder", "random")
+    if "random" in sentenceBuilder:
+        sentenceBuilder = "random"
+    elif "perplexity" in sentenceBuilder:
+        sentenceBuilder = "perplexity"
+    else:
+        raise ValueError(f"Unknown sentence builder: {sentenceBuilder}")
+    seed = data.get("seed", "unknown")
+    top_k = data.get("oracle_top_k", "unknown")
+    mask_percentage = data.get("mask_percent", "unknown")
+    if isMolecule:
+        architecture = data.get("config", "default")
+    else :
+        architecture = file_path.stem
+    if "v1_2" in architecture:
+        architecture = "Full Knowledge (new)"
+    elif "no_BP" in architecture or "noBP" in architecture:
+        architecture = "No Belief Propagation"
+    elif "v2" in architecture:
+        architecture = "Partial Knowledge"
+    elif "v1" in architecture:
+        architecture = "Full Knowledge (original)"
     else:
         raise ValueError(f"Config 'name' must contain 'NLM_MLM_v1' or 'NLM_MLM_v2', got: {file_path.stem}")
     
+    base_seed_key = (problem,seed, ref if isMolecule else None)
+    base_sentence = data.get("base_sentence")
+    if base_seed_key not in base_seed:
+        base_seed[base_seed_key] = base_sentence.get("perplexity")
     
     best_time_evolution_list = []
     for event in data["best_perplexity_evolution"]:         
 
-        score = event.get("first")
-        time_evolution = event.get("second")
+        score = event.get("score")
+        time_evolution = event.get("time")/100
+        # Additional info available
+        
         if score is not None and time_evolution is not None:
             try:
                 best_time_evolution_list.append((float(score), int(time_evolution)))
@@ -183,11 +217,10 @@ for file_path in folder_path.glob("*.json"):
 
         # when we've reached the last event, add the whole evolution to score_time_data
         if event is data["best_perplexity_evolution"][-1]:
-            add_score_time(architecture, problem, sentenceBuilder, best_time_evolution_list)
+            add_score_time(architecture, problem, sentenceBuilder, top_k, mask_percentage, best_time_evolution_list, seed, ref if isMolecule else None)
     
     if not sentences:        
         print("No valid sentences found, skipping.")
-        continue
         continue
     
     # --- 4. Run evaluation ---
@@ -218,7 +251,12 @@ for file_path in folder_path.glob("*.json"):
         #"LLM_max": float(np.max(llm_scores)) if llm_scores else None,
         "PPL_avg": float(np.mean(ppl_scores)) if ppl_scores else None,
         "PPL_min": float(np.min(ppl_scores)) if ppl_scores else None,
-        "PPL_max": float(np.max(ppl_scores)) if ppl_scores else None
+        "PPL_max": float(np.max(ppl_scores)) if ppl_scores else None,
+        "PPL_median": float(np.median(ppl_scores)) if ppl_scores else None,
+        "PPL_first_quartile": float(np.percentile(ppl_scores, 25)) if ppl_scores else None,
+        "PPL_third_quartile": float(np.percentile(ppl_scores, 75)) if ppl_scores else None,
+        "total_sentences": len(results), 
+        "total_time_seconds": data.get("time", None),
     }
     
     if "MNREAD" in problem:
@@ -231,11 +269,24 @@ for file_path in folder_path.glob("*.json"):
     #best_llm = max(results, key=lambda r: r["LLM_fluency"] if r["LLM_fluency"] is not None else float('-inf'))
     best_ppl = min(results, key=lambda r: r["perplexity"])
 
+    characteristics = {
+        "architecture": architecture,
+        "problem": problem,
+        "sentenceBuilder": sentenceBuilder,
+        "top_k": top_k,
+        "number_iterations": data.get("num_iterations", None),
+        "mask_percentage": mask_percentage,
+        "ref": ref if isMolecule else None,
+        "seed": seed,
+        "base_sentence": data.get("base_sentence", None),
+    }
+
     output_data = {
-        "results": results,
+        "characteristics": characteristics,
         "summary": summary,
         #"best_LLM_fluency": best_llm,
-        "best_perplexity": best_ppl
+        "best_perplexity": best_ppl,
+        "results": results,
     }
 
     # append the last part of the original filename (after the last underscore)
@@ -249,6 +300,11 @@ for file_path in folder_path.glob("*.json"):
     txt_output_path = Path(folder_path) / f"valid_sentences_{architecture}_{problem}_{sentenceBuilder}_{safe_suffix}.txt"
     with open(txt_output_path, "w", encoding="utf-8") as ftxt:
         last_sentence = None
+        ftxt.write("Sentence, Perplexity\n")
+        if isMolecule:
+            ftxt.write(f"Reference : {base_sentence['molecule']}, {base_sentence['score']}\n")
+        else:
+            ftxt.write(f"Reference : {base_sentence['sentence']}, {base_sentence['perplexity']}\n")
         for r in results:
             if not r.get("is_valid", True):
                 continue
@@ -267,61 +323,118 @@ import matplotlib.pyplot as plt
 plots_dir = Path(folder_path) / "plots"
 plots_dir.mkdir(parents=True, exist_ok=True)
 
-# Group score_time_data by problem (config)
-grouped = defaultdict(list)
-for (arch, problem_key, sentenceBuilder), runs in score_time_data.items():
-    grouped[problem_key].append(((arch, sentenceBuilder), runs))
+# First, group by problem_key and architecture
+problems = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+for (arch, problem_key, sentenceBuilder, top_k, mask_percentage, ref, seed), runs in score_time_data.items():
+    key = (sentenceBuilder, top_k, mask_percentage, ref, seed)
+    problems[problem_key][arch][key].extend(runs)
 
-for problem_key, combos in grouped.items():
-    if not combos:
-        continue
+# Now iterate once per (problem, architecture) combination
+for problem_key, arch_data in problems.items():
+    for arch, arch_problem_data in arch_data.items():
+        # Extract all unique (ref, seed) pairs for this problem+arch
+        seed_ref_pairs = sorted(set((ref, seed) for (_, _, _, ref, seed) in arch_problem_data.keys()))
+        
+        n = len(seed_ref_pairs)
+        if n == 0:
+            continue
+        
+        # Create subplot grid
+        ncols = min(2, n)
+        nrows = math.ceil(n / ncols)
+        fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 4 * nrows), squeeze=False)
+        axes_flat = axes.flatten()
+        
+        any_plotted = False
+        
+        for idx, (current_ref, current_seed) in enumerate(seed_ref_pairs):
+            ax = axes_flat[idx]
+            plotted_this_subplot = False
+            max_score_subplot = 0  # Track maximum score for THIS subplot only
+            
+            # Filter data for this specific (ref, seed) combination
+            filtered_configs = {
+                (sb, tk, mp): runs 
+                for (sb, tk, mp, ref, seed), runs in arch_problem_data.items()
+                if ref == current_ref and seed == current_seed
+            }
+            
+            # Sort configurations for consistent ordering
+            for (sentenceBuilder, top_k, mask_percentage), runs in sorted(filtered_configs.items()):
+                if not runs:
+                    continue
+                
+                # Plot first run (or could average multiple runs)
+                run = runs[0]
+                pts = [(float(s), int(t)) for s, t in run if s is not None and t is not None]
+                if not pts:
+                    continue
+                
+                pts.sort(key=lambda x: x[1])
+                scores = [p[0] for p in pts]
+                times = [p[1] for p in pts]
+                t0 = times[0]
+                rel_times = [(t - t0) / 60.0 for t in times]
+                
+                # Track maximum score for this subplot
+                max_score_subplot = max(max_score_subplot, max(scores))
+                
+                label = f"{sentenceBuilder} / k={top_k} / mask={mask_percentage*100:.0f}%"
+                linestyle = "-" if sentenceBuilder == "random" else "--"
+                # Define color scheme: 3 color groups for top_k, with 3 shades each for mask_percentage
+                color_groups = {
+                    10: ['#6BAED6', '#1F77B4', '#08306B'], 
+                    25: ['#74C476', '#2CA02C', '#005A32'],  
+                    50: ['#FDBB84', '#FF7F0E', '#7F2704']  
+                }
+                mask_percentages = sorted(set(mp for (_, _, mp), _ in filtered_configs.items()))
+                top_k_to_color_map = {}
+                for tk in sorted(set(tk for (_, tk, _), _ in filtered_configs.items())):
+                    if tk not in color_groups:
+                        color_groups[tk] = plt.cm.tab10(len(color_groups) % 10)
+                    top_k_to_color_map[tk] = color_groups[tk]
 
-    n = len(combos)
-    ncols = min(2, n)
-    nrows = math.ceil(n / ncols)
-    fig, axes = plt.subplots(nrows, ncols, figsize=(6 * ncols, 4 * nrows), squeeze=False)
-    axes_flat = axes.flatten()
-
-    any_plotted = False
-    # sort combos for stable ordering
-    for idx, ((arch, sentenceBuilder), runs) in enumerate(sorted(combos, key=lambda x: (x[0][0], x[0][1]))):
-        ax = axes_flat[idx]
-        plotted_this_subplot = False
-        for run_idx, run in enumerate(runs):
-            # run is expected to be a list of (score, time) tuples
-            pts = [(float(s), int(t)) for s, t in run if s is not None and t is not None]
-            if not pts:
-                continue
-            pts.sort(key=lambda x: x[1])  # sort by time
-            scores = [p[0] for p in pts]
-            times = [p[1] for p in pts]
-            t0 = times[0]
-            rel_times = [(t - t0) / 60.0 for t in times]
-            ax.plot(rel_times, scores, marker="o", label=f"run {run_idx + 1}")
-            plotted_this_subplot = True
-            any_plotted = True
-
-        if plotted_this_subplot:
-            ax.set_xlabel("Time (seconds, relative)")
-            ax.set_ylabel("Score")
-            ax.set_title(f"{arch} / {sentenceBuilder}")
-            ax.grid(True)
-            ax.legend(loc="best")
-        else:
-            ax.axis("off")
-
-    # hide any unused axes
-    for j in range(n, len(axes_flat)):
-        axes_flat[j].axis("off")
-
-    if not any_plotted:
-        plt.close(fig)
-        continue
-
-    fig.suptitle(f"Score evolution for problem: {problem_key}")
-    fig.tight_layout(rect=[0, 0, 1, 0.96])
-
-    fname = f"{problem_key}_combined.png"
-    safe_fname = "".join(c if c.isalnum() or c in "._-" else "_" for c in fname)
-    fig.savefig(plots_dir / safe_fname)
-    plt.close(fig)
+                # Get color based on top_k and mask_percentage
+                mask_idx = mask_percentages.index(mask_percentage) if mask_percentage in mask_percentages else 0
+                color = top_k_to_color_map[top_k][mask_idx % len(top_k_to_color_map[top_k])]
+                ax.plot(rel_times, scores, marker="o", label=label, linestyle=linestyle, color=color)
+                
+                plotted_this_subplot = True
+                any_plotted = True
+            
+            # Add horizontal line for base seed perplexity
+            base_seed_key = (problem_key, current_seed, current_ref)
+            if base_seed_key in base_seed:
+                base_ppl = base_seed[base_seed_key]
+                ax.axhline(y=base_ppl, color='red', linestyle=':', linewidth=2, label=f'Base seed PPL: {base_ppl:.2f}')
+            
+            if plotted_this_subplot:
+                ax.set_xlabel("Time (seconds) from first solution")
+                ax.set_ylabel("Perplexity Score")
+                
+                # Apply y-axis limit only if this subplot's max exceeds 300
+                if max_score_subplot > 300:
+                    ax.set_ylim(0, 300)
+                
+                title = f"{'Ref: ' + current_ref + ', ' if current_ref else ''}Seed: {current_seed}"
+                ax.set_title(title)
+                ax.grid(True)
+                ax.legend(loc="best", fontsize=8)
+            else:
+                ax.axis("off")
+        
+        # Hide unused subplots
+        for j in range(n, len(axes_flat)):
+            axes_flat[j].axis("off")
+        
+        if not any_plotted:
+            plt.close(fig)
+            continue
+        
+        fig.suptitle(f"Score evolution for problem: {problem_key} | Architecture: {arch}")
+        fig.tight_layout(rect=[0, 0, 1, 0.96])
+        
+        # Save or show the figure here
+        plt.savefig(f"{plots_dir}/problem_{problem_key}_arch_{arch}.png")
+        # plt.show()
+    

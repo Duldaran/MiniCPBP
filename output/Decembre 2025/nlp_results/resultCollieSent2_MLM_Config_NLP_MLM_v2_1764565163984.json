@@ -1,0 +1,423 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-11-30T23:59:23.982241318",
+  "time" : 315.241,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That grass soft beach water could beach be hard water",
+    "score" : 4360.4775390625,
+    "time" : 3916,
+    "cycle" : 0
+  }, {
+    "sentence" : "That grass soft beach water could beach in hard water",
+    "score" : 2361.617919921875,
+    "time" : 7185,
+    "cycle" : 1
+  }, {
+    "sentence" : "That the soft beach water could beach the soft water",
+    "score" : 504.6239929199219,
+    "time" : 15115,
+    "cycle" : 4
+  }, {
+    "sentence" : "That the soft water water could beach the soft water",
+    "score" : 306.7959899902344,
+    "time" : 17981,
+    "cycle" : 5
+  }, {
+    "sentence" : "That the soft water water could beach the hard water",
+    "score" : 284.4455261230469,
+    "time" : 21530,
+    "cycle" : 6
+  }, {
+    "sentence" : "That the soft water water will beach the hard water",
+    "score" : 238.60072326660156,
+    "time" : 24389,
+    "cycle" : 7
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That grass soft beach water could beach be hard water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 1392, 1170, 3408 ],
+    "perplexity" : 4360.4775390625,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " be", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft beach water could beach be [MASK] water",
+    "timestamp" : 3917
+  }, {
+    "sentence" : "That grass soft beach water could beach in hard water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 2361.617919921875,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That grass soft [MASK] water could beach [MASK] hard water",
+    "timestamp" : 7185
+  }, {
+    "sentence" : "That grass soft beach water could beach the hard water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 394, 1170, 3408 ],
+    "perplexity" : 2672.109619140625,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " the", " hard", " water" ],
+    "original_sentence" : "That grass soft beach [MASK] could beach [MASK] hard water",
+    "timestamp" : 9291
+  }, {
+    "sentence" : "That grass soft beach water could beach the soft water",
+    "tokens" : [ 1322, 0, 2489, 5075, 3408, 4439, 5075, 394, 2489, 3408 ],
+    "perplexity" : 2528.966552734375,
+    "tokens_used" : [ " That", " grass", " soft", " beach", " water", " could", " beach", " the", " soft", " water" ],
+    "original_sentence" : "That grass soft beach water could beach [MASK] [MASK] water",
+    "timestamp" : 11984
+  }, {
+    "sentence" : "That the soft beach water could beach the soft water",
+    "tokens" : [ 1322, 394, 2489, 5075, 3408, 4439, 5075, 394, 2489, 3408 ],
+    "perplexity" : 504.6239929199219,
+    "tokens_used" : [ " That", " the", " soft", " beach", " water", " could", " beach", " the", " soft", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water could beach the soft water",
+    "timestamp" : 15115
+  }, {
+    "sentence" : "That the soft water water could beach the soft water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 4439, 5075, 394, 2489, 3408 ],
+    "perplexity" : 306.7959899902344,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " could", " beach", " the", " soft", " water" ],
+    "original_sentence" : "[MASK] the soft [MASK] water could beach the soft water",
+    "timestamp" : 17981
+  }, {
+    "sentence" : "That the soft water water could beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 4439, 5075, 394, 1170, 3408 ],
+    "perplexity" : 284.4455261230469,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " could", " beach", " the", " hard", " water" ],
+    "original_sentence" : "That the soft water water could beach [MASK] [MASK] water",
+    "timestamp" : 21530
+  }, {
+    "sentence" : "That the soft water water will beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 1714, 5075, 394, 1170, 3408 ],
+    "perplexity" : 238.60072326660156,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " will", " beach", " the", " hard", " water" ],
+    "original_sentence" : "That the soft [MASK] water [MASK] beach the hard water",
+    "timestamp" : 24389
+  }, {
+    "sentence" : "That the soft water water and beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 215, 5075, 394, 1170, 3408 ],
+    "perplexity" : 283.5770263671875,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " and", " beach", " the", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft water water [MASK] beach the hard water",
+    "timestamp" : 27561
+  }, {
+    "sentence" : "That the soft water aunts and beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5196, 215, 5075, 394, 1170, 3408 ],
+    "perplexity" : 361.81561279296875,
+    "tokens_used" : [ " That", " the", " soft", " water", " aunts", " and", " beach", " the", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft water [MASK] and beach the hard water",
+    "timestamp" : 30057
+  }, {
+    "sentence" : "That the soft water of and beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 394, 1170, 3408 ],
+    "perplexity" : 425.2887268066406,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " the", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft water [MASK] and beach the hard water",
+    "timestamp" : 30999
+  }, {
+    "sentence" : "That the soft water of and beach the soft water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 394, 2489, 3408 ],
+    "perplexity" : 432.5130310058594,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " the", " soft", " water" ],
+    "original_sentence" : "[MASK] the soft water of and beach the [MASK] water",
+    "timestamp" : 39703
+  }, {
+    "sentence" : "That the soft water of and beach in soft water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 356.1120910644531,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " in", " soft", " water" ],
+    "original_sentence" : "That the soft [MASK] of and beach [MASK] soft water",
+    "timestamp" : 43005
+  }, {
+    "sentence" : "That the soft water of and beach with soft water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 325.5874938964844,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " with", " soft", " water" ],
+    "original_sentence" : "That the soft water [MASK] and beach [MASK] soft water",
+    "timestamp" : 45784
+  }, {
+    "sentence" : "That the soft water of and beach of soft water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 5194, 2489, 3408 ],
+    "perplexity" : 380.4423828125,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " of", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft water of and beach [MASK] soft water",
+    "timestamp" : 48761
+  }, {
+    "sentence" : "That the soft water of and beach of hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 5194, 1170, 3408 ],
+    "perplexity" : 369.06829833984375,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " of", " hard", " water" ],
+    "original_sentence" : "That the soft water [MASK] and beach of [MASK] water",
+    "timestamp" : 52054
+  }, {
+    "sentence" : "That the soft water water and beach of hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 215, 5075, 5194, 1170, 3408 ],
+    "perplexity" : 401.5268859863281,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " and", " beach", " of", " hard", " water" ],
+    "original_sentence" : "That the soft [MASK] [MASK] and beach of hard water",
+    "timestamp" : 54583
+  }, {
+    "sentence" : "That the soft of water and beach of hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 5194, 1170, 3408 ],
+    "perplexity" : 346.0520324707031,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " of", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft [MASK] water and beach of hard water",
+    "timestamp" : 58079
+  }, {
+    "sentence" : "That the soft of water and beach in hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 379.1675720214844,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft of water and beach [MASK] hard water",
+    "timestamp" : 60174
+  }, {
+    "sentence" : "That the soft of water and beach in soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 362.13079833984375,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " in", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft of water and beach in [MASK] water",
+    "timestamp" : 63203
+  }, {
+    "sentence" : "That the soft of water and beach in of water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 2515, 5194, 3408 ],
+    "perplexity" : 416.15283203125,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " in", " of", " water" ],
+    "original_sentence" : "That [MASK] soft of water and beach in [MASK] water",
+    "timestamp" : 63916
+  }, {
+    "sentence" : "That the soft of water and beach the of water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 394, 5194, 3408 ],
+    "perplexity" : 474.096923828125,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " the", " of", " water" ],
+    "original_sentence" : "That the soft of [MASK] and beach [MASK] of water",
+    "timestamp" : 72890
+  }, {
+    "sentence" : "That the soft of water and beach with of water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 2342, 5194, 3408 ],
+    "perplexity" : 456.8368225097656,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " with", " of", " water" ],
+    "original_sentence" : "That the soft of [MASK] and beach [MASK] of water",
+    "timestamp" : 73085
+  }, {
+    "sentence" : "That the soft of water and beach with hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 2342, 1170, 3408 ],
+    "perplexity" : 355.6700134277344,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " with", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft of water and beach with [MASK] water",
+    "timestamp" : 75226
+  }, {
+    "sentence" : "That the soft of water and beach with soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 304.2077941894531,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " with", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft of water and beach with [MASK] water",
+    "timestamp" : 76122
+  }, {
+    "sentence" : "That the soft of water and beach of soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 5194, 2489, 3408 ],
+    "perplexity" : 359.54901123046875,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " of", " soft", " water" ],
+    "original_sentence" : "[MASK] the soft of water and beach [MASK] soft water",
+    "timestamp" : 81456
+  }, {
+    "sentence" : "That the soft of water and beach the soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 215, 5075, 394, 2489, 3408 ],
+    "perplexity" : 384.6265869140625,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " and", " beach", " the", " soft", " water" ],
+    "original_sentence" : "[MASK] the soft of water and beach [MASK] soft water",
+    "timestamp" : 81875
+  }, {
+    "sentence" : "That the soft of water to beach the soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 394, 2489, 3408 ],
+    "perplexity" : 405.5769348144531,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " the", " soft", " water" ],
+    "original_sentence" : "[MASK] the soft of water [MASK] beach the soft water",
+    "timestamp" : 90350
+  }, {
+    "sentence" : "That the soft of water to beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 394, 1170, 3408 ],
+    "perplexity" : 418.89910888671875,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " the", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft of water to beach the [MASK] water",
+    "timestamp" : 93908
+  }, {
+    "sentence" : "That the soft of water to beach with hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 2342, 1170, 3408 ],
+    "perplexity" : 412.6236267089844,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " with", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft of water to beach [MASK] hard water",
+    "timestamp" : 102459
+  }, {
+    "sentence" : "That the soft of water to beach in hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 389.6452331542969,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " in", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft of water to beach [MASK] hard water",
+    "timestamp" : 102869
+  }, {
+    "sentence" : "That the soft of water to beach of hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 5194, 1170, 3408 ],
+    "perplexity" : 435.5171813964844,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " of", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft of water to beach [MASK] hard water",
+    "timestamp" : 103515
+  }, {
+    "sentence" : "That the soft of water of beach of hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 5194, 5075, 5194, 1170, 3408 ],
+    "perplexity" : 449.3689880371094,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " of", " beach", " of", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft of water [MASK] beach of hard water",
+    "timestamp" : 110378
+  }, {
+    "sentence" : "That the soft of water of beach in hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 5194, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 407.1885986328125,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " of", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That the soft of [MASK] of beach [MASK] hard water",
+    "timestamp" : 116326
+  }, {
+    "sentence" : "That the soft of water of beach with hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 5194, 5075, 2342, 1170, 3408 ],
+    "perplexity" : 376.81097412109375,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " of", " beach", " with", " hard", " water" ],
+    "original_sentence" : "That the soft of [MASK] of beach [MASK] hard water",
+    "timestamp" : 116568
+  }, {
+    "sentence" : "That the soft of water of beach with soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 5194, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 366.14642333984375,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " of", " beach", " with", " soft", " water" ],
+    "original_sentence" : "[MASK] the soft of water of beach with [MASK] water",
+    "timestamp" : 118998
+  }, {
+    "sentence" : "That the soft of water to beach with soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 2342, 2489, 3408 ],
+    "perplexity" : 413.48590087890625,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " with", " soft", " water" ],
+    "original_sentence" : "That the soft [MASK] water [MASK] beach with soft water",
+    "timestamp" : 124495
+  }, {
+    "sentence" : "That the soft of water to beach of soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 5194, 2489, 3408 ],
+    "perplexity" : 447.70159912109375,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " of", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft of water to beach [MASK] soft water",
+    "timestamp" : 129906
+  }, {
+    "sentence" : "That the soft of water to beach in soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 2461, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 373.3145751953125,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " to", " beach", " in", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft of water to beach [MASK] soft water",
+    "timestamp" : 130050
+  }, {
+    "sentence" : "That the soft of water of beach in soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 5194, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 406.27178955078125,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " of", " beach", " in", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft of water [MASK] beach in soft water",
+    "timestamp" : 139233
+  }, {
+    "sentence" : "That the soft of water could beach in soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 4439, 5075, 2515, 2489, 3408 ],
+    "perplexity" : 369.8390197753906,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " could", " beach", " in", " soft", " water" ],
+    "original_sentence" : "That [MASK] soft of water [MASK] beach in soft water",
+    "timestamp" : 139423
+  }, {
+    "sentence" : "That the soft of water could beach the soft water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 4439, 5075, 394, 2489, 3408 ],
+    "perplexity" : 373.5774230957031,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " could", " beach", " the", " soft", " water" ],
+    "original_sentence" : "That the soft [MASK] water could beach [MASK] soft water",
+    "timestamp" : 142362
+  }, {
+    "sentence" : "That the soft of water could beach the excused water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 4439, 5075, 394, 5193, 3408 ],
+    "perplexity" : 473.5585021972656,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " could", " beach", " the", " excused", " water" ],
+    "original_sentence" : "That the soft of [MASK] could beach the [MASK] water",
+    "timestamp" : 145513
+  }, {
+    "sentence" : "That the soft of water could beach the hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 4439, 5075, 394, 1170, 3408 ],
+    "perplexity" : 363.11395263671875,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " could", " beach", " the", " hard", " water" ],
+    "original_sentence" : "That the soft of [MASK] could beach the [MASK] water",
+    "timestamp" : 145940
+  }, {
+    "sentence" : "That the soft of water could beach in hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 4439, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 356.2000427246094,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " could", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That the soft [MASK] water could beach [MASK] hard water",
+    "timestamp" : 154573
+  }, {
+    "sentence" : "That the soft of water could beach with hard water",
+    "tokens" : [ 1322, 394, 2489, 5194, 3408, 4439, 5075, 2342, 1170, 3408 ],
+    "perplexity" : 462.2172546386719,
+    "tokens_used" : [ " That", " the", " soft", " of", " water", " could", " beach", " with", " hard", " water" ],
+    "original_sentence" : "That the soft [MASK] water could beach [MASK] hard water",
+    "timestamp" : 154923
+  }, {
+    "sentence" : "That the soft water water could beach with hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 4439, 5075, 2342, 1170, 3408 ],
+    "perplexity" : 454.2360534667969,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " could", " beach", " with", " hard", " water" ],
+    "original_sentence" : "[MASK] the soft [MASK] water could beach with hard water",
+    "timestamp" : 185331
+  }, {
+    "sentence" : "That the soft water water could beach in hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 3408, 4439, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 365.6033020019531,
+    "tokens_used" : [ " That", " the", " soft", " water", " water", " could", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft water water could beach [MASK] hard water",
+    "timestamp" : 193743
+  }, {
+    "sentence" : "That of soft water water and beach in hard water",
+    "tokens" : [ 1322, 5194, 2489, 3408, 3408, 215, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 292.0628356933594,
+    "tokens_used" : [ " That", " of", " soft", " water", " water", " and", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That [MASK] soft water water [MASK] beach in hard water",
+    "timestamp" : 203469
+  }, {
+    "sentence" : "That of soft water of and beach in hard water",
+    "tokens" : [ 1322, 5194, 2489, 3408, 5194, 215, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 431.9567565917969,
+    "tokens_used" : [ " That", " of", " soft", " water", " of", " and", " beach", " in", " hard", " water" ],
+    "original_sentence" : "That of soft [MASK] [MASK] and beach in hard water",
+    "timestamp" : 207055
+  }, {
+    "sentence" : "That the soft water of and beach in hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 2515, 1170, 3408 ],
+    "perplexity" : 359.5603332519531,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " in", " hard", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft water of and beach in hard water",
+    "timestamp" : 212970
+  }, {
+    "sentence" : "That the soft water of and beach in of water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 2515, 5194, 3408 ],
+    "perplexity" : 440.9967346191406,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " in", " of", " water" ],
+    "original_sentence" : "That the soft water of and beach [MASK] [MASK] water",
+    "timestamp" : 218109
+  }, {
+    "sentence" : "That the soft water of and beach with hard water",
+    "tokens" : [ 1322, 394, 2489, 3408, 5194, 215, 5075, 2342, 1170, 3408 ],
+    "perplexity" : 344.47662353515625,
+    "tokens_used" : [ " That", " the", " soft", " water", " of", " and", " beach", " with", " hard", " water" ],
+    "original_sentence" : "That the soft water of and beach [MASK] [MASK] water",
+    "timestamp" : 310201
+  } ]
+}

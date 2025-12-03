@@ -1,0 +1,610 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T03:27:15.798567857",
+  "time" : 149.104,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This sentence soft beach water can beach be sea water",
+    "score" : 4793.7900390625,
+    "time" : 3188,
+    "cycle" : 0
+  }, {
+    "sentence" : "This sentence soft beach water and beach be sea water",
+    "score" : 3046.29931640625,
+    "time" : 4196,
+    "cycle" : 1
+  }, {
+    "sentence" : "This sentence soft beach water and beach and sea water",
+    "score" : 1224.1856689453125,
+    "time" : 6213,
+    "cycle" : 2
+  }, {
+    "sentence" : "This sentence soft beach water and beach and beach water",
+    "score" : 1051.343017578125,
+    "time" : 7403,
+    "cycle" : 3
+  }, {
+    "sentence" : "This is soft beach water and beach and beach water",
+    "score" : 175.3490447998047,
+    "time" : 9304,
+    "cycle" : 4
+  }, {
+    "sentence" : "This is soft beach sand and beach and beach water",
+    "score" : 155.50376892089844,
+    "time" : 10719,
+    "cycle" : 5
+  }, {
+    "sentence" : "This is soft white sand on beach or in water",
+    "score" : 154.74160766601562,
+    "time" : 21146,
+    "cycle" : 12
+  }, {
+    "sentence" : "This is soft sandy sand on beach or in water",
+    "score" : 152.45547485351562,
+    "time" : 24910,
+    "cycle" : 15
+  }, {
+    "sentence" : "It is soft sand found on beach and in water",
+    "score" : 140.23831176757812,
+    "time" : 34742,
+    "cycle" : 22
+  }, {
+    "sentence" : "This is soft sand found on beach and in water",
+    "score" : 136.42453002929688,
+    "time" : 36306,
+    "cycle" : 23
+  }, {
+    "sentence" : "This is soft rock found on beach and in water",
+    "score" : 131.0941925048828,
+    "time" : 37624,
+    "cycle" : 24
+  }, {
+    "sentence" : "Sand is soft rock found on beach and in water",
+    "score" : 115.01541900634766,
+    "time" : 43002,
+    "cycle" : 28
+  }, {
+    "sentence" : "Sand or soft material found on beach or in water",
+    "score" : 94.36764526367188,
+    "time" : 58159,
+    "cycle" : 39
+  }, {
+    "sentence" : "Sand or soft rock found on beach or in water",
+    "score" : 74.99120330810547,
+    "time" : 60124,
+    "cycle" : 40
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This sentence soft beach water can beach be sea water",
+    "tokens" : [ 1228, 775, 2489, 5075, 3408, 1358, 5075, 1392, 4715, 3408 ],
+    "perplexity" : 4793.7900390625,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " water", " can", " beach", " be", " sea", " water" ],
+    "original_sentence" : "This sentence soft beach water can beach be [MASK] water",
+    "timestamp" : 3188
+  }, {
+    "sentence" : "This sentence soft beach water and beach be sea water",
+    "tokens" : [ 1228, 775, 2489, 5075, 3408, 215, 5075, 1392, 4715, 3408 ],
+    "perplexity" : 3046.29931640625,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " water", " and", " beach", " be", " sea", " water" ],
+    "original_sentence" : "This sentence soft beach water [MASK] beach be sea water",
+    "timestamp" : 4196
+  }, {
+    "sentence" : "This sentence soft beach water and beach and sea water",
+    "tokens" : [ 1228, 775, 2489, 5075, 3408, 215, 5075, 215, 4715, 3408 ],
+    "perplexity" : 1224.1856689453125,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " water", " and", " beach", " and", " sea", " water" ],
+    "original_sentence" : "This sentence soft beach water and beach [MASK] sea water",
+    "timestamp" : 6213
+  }, {
+    "sentence" : "This sentence soft beach water and beach and beach water",
+    "tokens" : [ 1228, 775, 2489, 5075, 3408, 215, 5075, 215, 5075, 3408 ],
+    "perplexity" : 1051.343017578125,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " water", " and", " beach", " and", " beach", " water" ],
+    "original_sentence" : "This sentence soft beach water and beach and [MASK] water",
+    "timestamp" : 7403
+  }, {
+    "sentence" : "This is soft beach water and beach and beach water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 3408, 215, 5075, 215, 5075, 3408 ],
+    "perplexity" : 175.3490447998047,
+    "tokens_used" : [ " This", " is", " soft", " beach", " water", " and", " beach", " and", " beach", " water" ],
+    "original_sentence" : "This [MASK] soft beach water and beach and beach water",
+    "timestamp" : 9304
+  }, {
+    "sentence" : "This is soft beach sand and beach and beach water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 1752, 215, 5075, 215, 5075, 3408 ],
+    "perplexity" : 155.50376892089844,
+    "tokens_used" : [ " This", " is", " soft", " beach", " sand", " and", " beach", " and", " beach", " water" ],
+    "original_sentence" : "This is soft beach [MASK] and beach and beach water",
+    "timestamp" : 10719
+  }, {
+    "sentence" : "It is soft beach sand and beach and beach water",
+    "tokens" : [ 2051, 2713, 2489, 5075, 1752, 215, 5075, 215, 5075, 3408 ],
+    "perplexity" : 183.51869201660156,
+    "tokens_used" : [ " It", " is", " soft", " beach", " sand", " and", " beach", " and", " beach", " water" ],
+    "original_sentence" : "[MASK] is soft beach sand and beach and beach water",
+    "timestamp" : 12559
+  }, {
+    "sentence" : "It is soft beach sand in beach and beach water",
+    "tokens" : [ 2051, 2713, 2489, 5075, 1752, 2515, 5075, 215, 5075, 3408 ],
+    "perplexity" : 237.11097717285156,
+    "tokens_used" : [ " It", " is", " soft", " beach", " sand", " in", " beach", " and", " beach", " water" ],
+    "original_sentence" : "It is soft beach sand [MASK] beach and beach water",
+    "timestamp" : 13968
+  }, {
+    "sentence" : "It is soft white sand in beach and beach water",
+    "tokens" : [ 2051, 2713, 2489, 3412, 1752, 2515, 5075, 215, 5075, 3408 ],
+    "perplexity" : 228.92086791992188,
+    "tokens_used" : [ " It", " is", " soft", " white", " sand", " in", " beach", " and", " beach", " water" ],
+    "original_sentence" : "It is soft [MASK] sand in beach and beach water",
+    "timestamp" : 15256
+  }, {
+    "sentence" : "This is soft white sand in beach and beach water",
+    "tokens" : [ 1228, 2713, 2489, 3412, 1752, 2515, 5075, 215, 5075, 3408 ],
+    "perplexity" : 200.97398376464844,
+    "tokens_used" : [ " This", " is", " soft", " white", " sand", " in", " beach", " and", " beach", " water" ],
+    "original_sentence" : "[MASK] is soft white sand in beach and beach water",
+    "timestamp" : 16491
+  }, {
+    "sentence" : "This is soft white sand in beach or beach water",
+    "tokens" : [ 1228, 2713, 2489, 3412, 1752, 2515, 5075, 1860, 5075, 3408 ],
+    "perplexity" : 191.3238983154297,
+    "tokens_used" : [ " This", " is", " soft", " white", " sand", " in", " beach", " or", " beach", " water" ],
+    "original_sentence" : "This is soft white sand in beach [MASK] beach water",
+    "timestamp" : 18314
+  }, {
+    "sentence" : "This is soft white sand on beach or beach water",
+    "tokens" : [ 1228, 2713, 2489, 3412, 1752, 710, 5075, 1860, 5075, 3408 ],
+    "perplexity" : 170.31076049804688,
+    "tokens_used" : [ " This", " is", " soft", " white", " sand", " on", " beach", " or", " beach", " water" ],
+    "original_sentence" : "This is soft white sand [MASK] beach or beach water",
+    "timestamp" : 19487
+  }, {
+    "sentence" : "This is soft white sand on beach or in water",
+    "tokens" : [ 1228, 2713, 2489, 3412, 1752, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 154.74160766601562,
+    "tokens_used" : [ " This", " is", " soft", " white", " sand", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "This is soft white sand on beach or [MASK] water",
+    "timestamp" : 21146
+  }, {
+    "sentence" : "This is soft loose sand on beach or in water",
+    "tokens" : [ 1228, 2713, 2489, 3074, 1752, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 242.6407470703125,
+    "tokens_used" : [ " This", " is", " soft", " loose", " sand", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "This is soft [MASK] sand on beach or in water",
+    "timestamp" : 22095
+  }, {
+    "sentence" : "This is soft sandy sand on beach or in water",
+    "tokens" : [ 1228, 2713, 2489, 422, 1752, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 152.45547485351562,
+    "tokens_used" : [ " This", " is", " soft", " sandy", " sand", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "This is soft [MASK] sand on beach or in water",
+    "timestamp" : 24910
+  }, {
+    "sentence" : "This is soft sandy soil on beach or in water",
+    "tokens" : [ 1228, 2713, 2489, 422, 3477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 171.03326416015625,
+    "tokens_used" : [ " This", " is", " soft", " sandy", " soil", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "This is soft sandy [MASK] on beach or in water",
+    "timestamp" : 26330
+  }, {
+    "sentence" : "This is soft sandy soil on beach and in water",
+    "tokens" : [ 1228, 2713, 2489, 422, 3477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 168.2029266357422,
+    "tokens_used" : [ " This", " is", " soft", " sandy", " soil", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "This is soft sandy soil on beach [MASK] in water",
+    "timestamp" : 29401
+  }, {
+    "sentence" : "This is soft sand soil on beach and in water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 3477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 222.72061157226562,
+    "tokens_used" : [ " This", " is", " soft", " sand", " soil", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "This is soft [MASK] soil on beach and in water",
+    "timestamp" : 32049
+  }, {
+    "sentence" : "It is soft sand soil on beach and in water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 3477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 258.8530578613281,
+    "tokens_used" : [ " It", " is", " soft", " sand", " soil", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "[MASK] is soft sand soil on beach and in water",
+    "timestamp" : 33262
+  }, {
+    "sentence" : "It is soft sand found on beach and in water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 4477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 140.23831176757812,
+    "tokens_used" : [ " It", " is", " soft", " sand", " found", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "It is soft sand [MASK] on beach and in water",
+    "timestamp" : 34742
+  }, {
+    "sentence" : "This is soft sand found on beach and in water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 4477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 136.42453002929688,
+    "tokens_used" : [ " This", " is", " soft", " sand", " found", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "[MASK] is soft sand found on beach and in water",
+    "timestamp" : 36306
+  }, {
+    "sentence" : "This is soft rock found on beach and in water",
+    "tokens" : [ 1228, 2713, 2489, 535, 4477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 131.0941925048828,
+    "tokens_used" : [ " This", " is", " soft", " rock", " found", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "This is soft [MASK] found on beach and in water",
+    "timestamp" : 37624
+  }, {
+    "sentence" : "This is soft rock found on beach and near water",
+    "tokens" : [ 1228, 2713, 2489, 535, 4477, 710, 5075, 215, 1852, 3408 ],
+    "perplexity" : 166.96043395996094,
+    "tokens_used" : [ " This", " is", " soft", " rock", " found", " on", " beach", " and", " near", " water" ],
+    "original_sentence" : "This is soft rock found on beach and [MASK] water",
+    "timestamp" : 39003
+  }, {
+    "sentence" : "It is soft rock found on beach and near water",
+    "tokens" : [ 2051, 2713, 2489, 535, 4477, 710, 5075, 215, 1852, 3408 ],
+    "perplexity" : 181.4181671142578,
+    "tokens_used" : [ " It", " is", " soft", " rock", " found", " on", " beach", " and", " near", " water" ],
+    "original_sentence" : "[MASK] is soft rock found on beach and near water",
+    "timestamp" : 40496
+  }, {
+    "sentence" : "It is soft rock found on beach and in water",
+    "tokens" : [ 2051, 2713, 2489, 535, 4477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 143.0732879638672,
+    "tokens_used" : [ " It", " is", " soft", " rock", " found", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "It is soft rock found on beach and [MASK] water",
+    "timestamp" : 41643
+  }, {
+    "sentence" : "Sand is soft rock found on beach and in water",
+    "tokens" : [ 1753, 2713, 2489, 535, 4477, 710, 5075, 215, 2515, 3408 ],
+    "perplexity" : 115.01541900634766,
+    "tokens_used" : [ " Sand", " is", " soft", " rock", " found", " on", " beach", " and", " in", " water" ],
+    "original_sentence" : "[MASK] is soft rock found on beach and in water",
+    "timestamp" : 43002
+  }, {
+    "sentence" : "Sand is soft rock found on beach and near water",
+    "tokens" : [ 1753, 2713, 2489, 535, 4477, 710, 5075, 215, 1852, 3408 ],
+    "perplexity" : 149.23521423339844,
+    "tokens_used" : [ " Sand", " is", " soft", " rock", " found", " on", " beach", " and", " near", " water" ],
+    "original_sentence" : "Sand is soft rock found on beach and [MASK] water",
+    "timestamp" : 44045
+  }, {
+    "sentence" : "Sand is soft material found on beach and near water",
+    "tokens" : [ 1753, 2713, 2489, 1124, 4477, 710, 5075, 215, 1852, 3408 ],
+    "perplexity" : 167.09901428222656,
+    "tokens_used" : [ " Sand", " is", " soft", " material", " found", " on", " beach", " and", " near", " water" ],
+    "original_sentence" : "Sand is soft [MASK] found on beach and near water",
+    "timestamp" : 46088
+  }, {
+    "sentence" : "Sand is soft material found on beach or near water",
+    "tokens" : [ 1753, 2713, 2489, 1124, 4477, 710, 5075, 1860, 1852, 3408 ],
+    "perplexity" : 176.5825653076172,
+    "tokens_used" : [ " Sand", " is", " soft", " material", " found", " on", " beach", " or", " near", " water" ],
+    "original_sentence" : "Sand is soft material found on beach [MASK] near water",
+    "timestamp" : 47419
+  }, {
+    "sentence" : "Sand is soft material found on beach or in water",
+    "tokens" : [ 1753, 2713, 2489, 1124, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 132.1349639892578,
+    "tokens_used" : [ " Sand", " is", " soft", " material", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "Sand is soft material found on beach or [MASK] water",
+    "timestamp" : 54203
+  }, {
+    "sentence" : "Sand or soft material found on beach or in water",
+    "tokens" : [ 1753, 1860, 2489, 1124, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 94.36764526367188,
+    "tokens_used" : [ " Sand", " or", " soft", " material", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "Sand [MASK] soft material found on beach or in water",
+    "timestamp" : 58159
+  }, {
+    "sentence" : "Sand or soft rock found on beach or in water",
+    "tokens" : [ 1753, 1860, 2489, 535, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 74.99120330810547,
+    "tokens_used" : [ " Sand", " or", " soft", " rock", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "Sand or soft [MASK] found on beach or in water",
+    "timestamp" : 60124
+  }, {
+    "sentence" : "Sand or soft rocks found on beach or in water",
+    "tokens" : [ 1753, 1860, 2489, 1263, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 92.73111724853516,
+    "tokens_used" : [ " Sand", " or", " soft", " rocks", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "Sand or soft [MASK] found on beach or in water",
+    "timestamp" : 61449
+  }, {
+    "sentence" : "Soft or soft rocks found on beach or in water",
+    "tokens" : [ 2490, 1860, 2489, 1263, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 87.67151641845703,
+    "tokens_used" : [ " Soft", " or", " soft", " rocks", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "[MASK] or soft rocks found on beach or in water",
+    "timestamp" : 62961
+  }, {
+    "sentence" : "Hard or soft rocks found on beach or in water",
+    "tokens" : [ 1171, 1860, 2489, 1263, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 97.17317199707031,
+    "tokens_used" : [ " Hard", " or", " soft", " rocks", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "[MASK] or soft rocks found on beach or in water",
+    "timestamp" : 64458
+  }, {
+    "sentence" : "Hard or soft rocks found at beach or in water",
+    "tokens" : [ 1171, 1860, 2489, 1263, 4477, 302, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 138.34373474121094,
+    "tokens_used" : [ " Hard", " or", " soft", " rocks", " found", " at", " beach", " or", " in", " water" ],
+    "original_sentence" : "Hard or soft rocks found [MASK] beach or in water",
+    "timestamp" : 65729
+  }, {
+    "sentence" : "Hard and soft rocks found at beach or in water",
+    "tokens" : [ 1171, 215, 2489, 1263, 4477, 302, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 130.24864196777344,
+    "tokens_used" : [ " Hard", " and", " soft", " rocks", " found", " at", " beach", " or", " in", " water" ],
+    "original_sentence" : "Hard [MASK] soft rocks found at beach or in water",
+    "timestamp" : 68946
+  }, {
+    "sentence" : "Soft and soft rocks found at beach or in water",
+    "tokens" : [ 2490, 215, 2489, 1263, 4477, 302, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 125.11534881591797,
+    "tokens_used" : [ " Soft", " and", " soft", " rocks", " found", " at", " beach", " or", " in", " water" ],
+    "original_sentence" : "[MASK] and soft rocks found at beach or in water",
+    "timestamp" : 70666
+  }, {
+    "sentence" : "Soft and soft rocks found on beach or in water",
+    "tokens" : [ 2490, 215, 2489, 1263, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 89.63519287109375,
+    "tokens_used" : [ " Soft", " and", " soft", " rocks", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "Soft and soft rocks found [MASK] beach or in water",
+    "timestamp" : 73750
+  }, {
+    "sentence" : "Soft and soft sand found on beach or in water",
+    "tokens" : [ 2490, 215, 2489, 1752, 4477, 710, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 88.52778625488281,
+    "tokens_used" : [ " Soft", " and", " soft", " sand", " found", " on", " beach", " or", " in", " water" ],
+    "original_sentence" : "Soft and soft [MASK] found on beach or in water",
+    "timestamp" : 75204
+  }, {
+    "sentence" : "Soft and soft sand found at beach or in water",
+    "tokens" : [ 2490, 215, 2489, 1752, 4477, 302, 5075, 1860, 2515, 3408 ],
+    "perplexity" : 114.1663589477539,
+    "tokens_used" : [ " Soft", " and", " soft", " sand", " found", " at", " beach", " or", " in", " water" ],
+    "original_sentence" : "Soft and soft sand found [MASK] beach or in water",
+    "timestamp" : 76766
+  }, {
+    "sentence" : "Soft and soft sand found at beach and in water",
+    "tokens" : [ 2490, 215, 2489, 1752, 4477, 302, 5075, 215, 2515, 3408 ],
+    "perplexity" : 105.97743225097656,
+    "tokens_used" : [ " Soft", " and", " soft", " sand", " found", " at", " beach", " and", " in", " water" ],
+    "original_sentence" : "Soft and soft sand found at beach [MASK] in water",
+    "timestamp" : 77881
+  }, {
+    "sentence" : "Soft and soft sand found at beach and salt water",
+    "tokens" : [ 2490, 215, 2489, 1752, 4477, 302, 5075, 215, 3029, 3408 ],
+    "perplexity" : 122.02767944335938,
+    "tokens_used" : [ " Soft", " and", " soft", " sand", " found", " at", " beach", " and", " salt", " water" ],
+    "original_sentence" : "Soft and soft sand found at beach and [MASK] water",
+    "timestamp" : 79464
+  }, {
+    "sentence" : "Soft and soft sand found in beach and salt water",
+    "tokens" : [ 2490, 215, 2489, 1752, 4477, 2515, 5075, 215, 3029, 3408 ],
+    "perplexity" : 83.41380310058594,
+    "tokens_used" : [ " Soft", " and", " soft", " sand", " found", " in", " beach", " and", " salt", " water" ],
+    "original_sentence" : "Soft and soft sand found [MASK] beach and salt water",
+    "timestamp" : 82535
+  }, {
+    "sentence" : "Hard and soft sand found in beach and salt water",
+    "tokens" : [ 1171, 215, 2489, 1752, 4477, 2515, 5075, 215, 3029, 3408 ],
+    "perplexity" : 83.93968200683594,
+    "tokens_used" : [ " Hard", " and", " soft", " sand", " found", " in", " beach", " and", " salt", " water" ],
+    "original_sentence" : "[MASK] and soft sand found in beach and salt water",
+    "timestamp" : 84121
+  }, {
+    "sentence" : "Hard and soft rocks found in beach and salt water",
+    "tokens" : [ 1171, 215, 2489, 1263, 4477, 2515, 5075, 215, 3029, 3408 ],
+    "perplexity" : 100.24697875976562,
+    "tokens_used" : [ " Hard", " and", " soft", " rocks", " found", " in", " beach", " and", " salt", " water" ],
+    "original_sentence" : "Hard and soft [MASK] found in beach and salt water",
+    "timestamp" : 85264
+  }, {
+    "sentence" : "Hard and soft rocks found in beach and sea water",
+    "tokens" : [ 1171, 215, 2489, 1263, 4477, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 107.28148651123047,
+    "tokens_used" : [ " Hard", " and", " soft", " rocks", " found", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "Hard and soft rocks found in beach and [MASK] water",
+    "timestamp" : 86917
+  }, {
+    "sentence" : "Hard and soft rocks found in beach and lake water",
+    "tokens" : [ 1171, 215, 2489, 1263, 4477, 2515, 5075, 215, 2283, 3408 ],
+    "perplexity" : 105.04125213623047,
+    "tokens_used" : [ " Hard", " and", " soft", " rocks", " found", " in", " beach", " and", " lake", " water" ],
+    "original_sentence" : "Hard and soft rocks found in beach and [MASK] water",
+    "timestamp" : 89928
+  }, {
+    "sentence" : "Soft and soft rocks found in beach and lake water",
+    "tokens" : [ 2490, 215, 2489, 1263, 4477, 2515, 5075, 215, 2283, 3408 ],
+    "perplexity" : 98.23970794677734,
+    "tokens_used" : [ " Soft", " and", " soft", " rocks", " found", " in", " beach", " and", " lake", " water" ],
+    "original_sentence" : "[MASK] and soft rocks found in beach and lake water",
+    "timestamp" : 91137
+  }, {
+    "sentence" : "Soft and soft minerals found in beach and lake water",
+    "tokens" : [ 2490, 215, 2489, 1503, 4477, 2515, 5075, 215, 2283, 3408 ],
+    "perplexity" : 99.55121612548828,
+    "tokens_used" : [ " Soft", " and", " soft", " minerals", " found", " in", " beach", " and", " lake", " water" ],
+    "original_sentence" : "Soft and soft [MASK] found in beach and lake water",
+    "timestamp" : 92596
+  }, {
+    "sentence" : "Soft and soft minerals found in beach or lake water",
+    "tokens" : [ 2490, 215, 2489, 1503, 4477, 2515, 5075, 1860, 2283, 3408 ],
+    "perplexity" : 123.22372436523438,
+    "tokens_used" : [ " Soft", " and", " soft", " minerals", " found", " in", " beach", " or", " lake", " water" ],
+    "original_sentence" : "Soft and soft minerals found in beach [MASK] lake water",
+    "timestamp" : 93980
+  }, {
+    "sentence" : "Soft and soft rocks found in beach or lake water",
+    "tokens" : [ 2490, 215, 2489, 1263, 4477, 2515, 5075, 1860, 2283, 3408 ],
+    "perplexity" : 121.24310302734375,
+    "tokens_used" : [ " Soft", " and", " soft", " rocks", " found", " in", " beach", " or", " lake", " water" ],
+    "original_sentence" : "Soft and soft [MASK] found in beach or lake water",
+    "timestamp" : 95075
+  }, {
+    "sentence" : "Soft and soft rocks found in beach or sea water",
+    "tokens" : [ 2490, 215, 2489, 1263, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 127.84609985351562,
+    "tokens_used" : [ " Soft", " and", " soft", " rocks", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "Soft and soft rocks found in beach or [MASK] water",
+    "timestamp" : 96329
+  }, {
+    "sentence" : "Hard and soft rocks found in beach or sea water",
+    "tokens" : [ 1171, 215, 2489, 1263, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 141.3800048828125,
+    "tokens_used" : [ " Hard", " and", " soft", " rocks", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "[MASK] and soft rocks found in beach or sea water",
+    "timestamp" : 97948
+  }, {
+    "sentence" : "Hard and soft rocks found in beach or lake water",
+    "tokens" : [ 1171, 215, 2489, 1263, 4477, 2515, 5075, 1860, 2283, 3408 ],
+    "perplexity" : 133.3791961669922,
+    "tokens_used" : [ " Hard", " and", " soft", " rocks", " found", " in", " beach", " or", " lake", " water" ],
+    "original_sentence" : "Hard and soft rocks found in beach or [MASK] water",
+    "timestamp" : 100776
+  }, {
+    "sentence" : "Hard or soft rocks found in beach or lake water",
+    "tokens" : [ 1171, 1860, 2489, 1263, 4477, 2515, 5075, 1860, 2283, 3408 ],
+    "perplexity" : 139.4552459716797,
+    "tokens_used" : [ " Hard", " or", " soft", " rocks", " found", " in", " beach", " or", " lake", " water" ],
+    "original_sentence" : "Hard [MASK] soft rocks found in beach or lake water",
+    "timestamp" : 103557
+  }, {
+    "sentence" : "Hard or soft rocks found in beach or sea water",
+    "tokens" : [ 1171, 1860, 2489, 1263, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 145.84193420410156,
+    "tokens_used" : [ " Hard", " or", " soft", " rocks", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "Hard or soft rocks found in beach or [MASK] water",
+    "timestamp" : 105143
+  }, {
+    "sentence" : "Hard or soft rock found in beach or sea water",
+    "tokens" : [ 1171, 1860, 2489, 535, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 121.95571899414062,
+    "tokens_used" : [ " Hard", " or", " soft", " rock", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "Hard or soft [MASK] found in beach or sea water",
+    "timestamp" : 107837
+  }, {
+    "sentence" : "Hard or soft material found in beach or sea water",
+    "tokens" : [ 1171, 1860, 2489, 1124, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 111.79877471923828,
+    "tokens_used" : [ " Hard", " or", " soft", " material", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "Hard or soft [MASK] found in beach or sea water",
+    "timestamp" : 110835
+  }, {
+    "sentence" : "Soft or soft material found in beach or sea water",
+    "tokens" : [ 2490, 1860, 2489, 1124, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 106.50423431396484,
+    "tokens_used" : [ " Soft", " or", " soft", " material", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "[MASK] or soft material found in beach or sea water",
+    "timestamp" : 112406
+  }, {
+    "sentence" : "Rock or soft material found in beach or sea water",
+    "tokens" : [ 536, 1860, 2489, 1124, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 108.06950378417969,
+    "tokens_used" : [ " Rock", " or", " soft", " material", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "[MASK] or soft material found in beach or sea water",
+    "timestamp" : 114226
+  }, {
+    "sentence" : "Rock or soft rock found in beach or sea water",
+    "tokens" : [ 536, 1860, 2489, 535, 4477, 2515, 5075, 1860, 4715, 3408 ],
+    "perplexity" : 99.27688598632812,
+    "tokens_used" : [ " Rock", " or", " soft", " rock", " found", " in", " beach", " or", " sea", " water" ],
+    "original_sentence" : "Rock or soft [MASK] found in beach or sea water",
+    "timestamp" : 117065
+  }, {
+    "sentence" : "Rock or soft rock found in beach or salt water",
+    "tokens" : [ 536, 1860, 2489, 535, 4477, 2515, 5075, 1860, 3029, 3408 ],
+    "perplexity" : 91.74889373779297,
+    "tokens_used" : [ " Rock", " or", " soft", " rock", " found", " in", " beach", " or", " salt", " water" ],
+    "original_sentence" : "Rock or soft rock found in beach or [MASK] water",
+    "timestamp" : 118566
+  }, {
+    "sentence" : "Rock or soft rocks found in beach or salt water",
+    "tokens" : [ 536, 1860, 2489, 1263, 4477, 2515, 5075, 1860, 3029, 3408 ],
+    "perplexity" : 117.43897247314453,
+    "tokens_used" : [ " Rock", " or", " soft", " rocks", " found", " in", " beach", " or", " salt", " water" ],
+    "original_sentence" : "Rock or soft [MASK] found in beach or salt water",
+    "timestamp" : 119991
+  }, {
+    "sentence" : "Rock or soft rocks found in beach and salt water",
+    "tokens" : [ 536, 1860, 2489, 1263, 4477, 2515, 5075, 215, 3029, 3408 ],
+    "perplexity" : 120.26908111572266,
+    "tokens_used" : [ " Rock", " or", " soft", " rocks", " found", " in", " beach", " and", " salt", " water" ],
+    "original_sentence" : "Rock or soft rocks found in beach [MASK] salt water",
+    "timestamp" : 124389
+  }, {
+    "sentence" : "Rock or soft rocks found in beach and sea water",
+    "tokens" : [ 536, 1860, 2489, 1263, 4477, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 122.5333251953125,
+    "tokens_used" : [ " Rock", " or", " soft", " rocks", " found", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "Rock or soft rocks found in beach and [MASK] water",
+    "timestamp" : 125921
+  }, {
+    "sentence" : "Soft or soft rocks found in beach and sea water",
+    "tokens" : [ 2490, 1860, 2489, 1263, 4477, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 113.71427154541016,
+    "tokens_used" : [ " Soft", " or", " soft", " rocks", " found", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "[MASK] or soft rocks found in beach and sea water",
+    "timestamp" : 127365
+  }, {
+    "sentence" : "Soft or soft rock found in beach and sea water",
+    "tokens" : [ 2490, 1860, 2489, 535, 4477, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 105.83563232421875,
+    "tokens_used" : [ " Soft", " or", " soft", " rock", " found", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "Soft or soft [MASK] found in beach and sea water",
+    "timestamp" : 129175
+  }, {
+    "sentence" : "Soft is soft rock found in beach and sea water",
+    "tokens" : [ 2490, 2713, 2489, 535, 4477, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 143.94741821289062,
+    "tokens_used" : [ " Soft", " is", " soft", " rock", " found", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "Soft [MASK] soft rock found in beach and sea water",
+    "timestamp" : 130696
+  }, {
+    "sentence" : "Soft and soft rock found in beach and sea water",
+    "tokens" : [ 2490, 215, 2489, 535, 4477, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 95.09884643554688,
+    "tokens_used" : [ " Soft", " and", " soft", " rock", " found", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "Soft [MASK] soft rock found in beach and sea water",
+    "timestamp" : 132236
+  }, {
+    "sentence" : "Soft and soft rock floating in beach and sea water",
+    "tokens" : [ 2490, 215, 2489, 535, 3190, 2515, 5075, 215, 4715, 3408 ],
+    "perplexity" : 135.40579223632812,
+    "tokens_used" : [ " Soft", " and", " soft", " rock", " floating", " in", " beach", " and", " sea", " water" ],
+    "original_sentence" : "Soft and soft rock [MASK] in beach and sea water",
+    "timestamp" : 133797
+  }, {
+    "sentence" : "Soft and soft rock floating in beach and salt water",
+    "tokens" : [ 2490, 215, 2489, 535, 3190, 2515, 5075, 215, 3029, 3408 ],
+    "perplexity" : 139.60675048828125,
+    "tokens_used" : [ " Soft", " and", " soft", " rock", " floating", " in", " beach", " and", " salt", " water" ],
+    "original_sentence" : "Soft and soft rock floating in beach and [MASK] water",
+    "timestamp" : 135405
+  }, {
+    "sentence" : "Soft and soft rock floating in beach and lake water",
+    "tokens" : [ 2490, 215, 2489, 535, 3190, 2515, 5075, 215, 2283, 3408 ],
+    "perplexity" : 130.8285369873047,
+    "tokens_used" : [ " Soft", " and", " soft", " rock", " floating", " in", " beach", " and", " lake", " water" ],
+    "original_sentence" : "Soft and soft rock floating in beach and [MASK] water",
+    "timestamp" : 137081
+  }, {
+    "sentence" : "Soft and soft rocks floating in beach and lake water",
+    "tokens" : [ 2490, 215, 2489, 1263, 3190, 2515, 5075, 215, 2283, 3408 ],
+    "perplexity" : 145.21185302734375,
+    "tokens_used" : [ " Soft", " and", " soft", " rocks", " floating", " in", " beach", " and", " lake", " water" ],
+    "original_sentence" : "Soft and soft [MASK] floating in beach and lake water",
+    "timestamp" : 138760
+  } ]
+}

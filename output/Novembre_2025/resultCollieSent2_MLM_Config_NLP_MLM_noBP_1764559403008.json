@@ -1,0 +1,47 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 5,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-11-30T22:23:23.006149200",
+  "time" : 8.694,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft Cause water Cause beach a linking water comes",
+    "score" : 15739.2939453125,
+    "time" : 3167,
+    "cycle" : 0
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.5361328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft Cause water Cause beach a linking water comes",
+    "tokens" : [ 395, 775, 2489, 253, 3408, 253, 5075, 4646, 2847, 3408, 291 ],
+    "perplexity" : 15739.2939453125,
+    "tokens_used" : [ " The", " sentence", " soft", " Cause", " water", " Cause", " beach", " a", " linking", " water", " comes" ],
+    "original_sentence" : "The sentence soft [MASK] water [MASK] beach a [MASK] water comes",
+    "timestamp" : 3176
+  }, {
+    "sentence" : "The sentence soft Cause water Cause beach days linking water Usually",
+    "tokens" : [ 395, 775, 2489, 253, 3408, 253, 5075, 407, 2847, 3408, 4859 ],
+    "perplexity" : 29351.833984375,
+    "tokens_used" : [ " The", " sentence", " soft", " Cause", " water", " Cause", " beach", " days", " linking", " water", " Usually" ],
+    "original_sentence" : "The sentence soft [MASK] water Cause beach [MASK] linking water [MASK]",
+    "timestamp" : 6213
+  }, {
+    "sentence" : "Linking packing soft Cause water Cause beach hide linking water Usually",
+    "tokens" : [ 2847, 1824, 2489, 253, 3408, 253, 5075, 285, 2847, 3408, 4859 ],
+    "perplexity" : 17284.08984375,
+    "tokens_used" : [ " linking", " packing", " soft", " Cause", " water", " Cause", " beach", " hide", " linking", " water", " Usually" ],
+    "original_sentence" : "[MASK] [MASK] soft Cause water Cause beach [MASK] linking water Usually",
+    "timestamp" : 7763
+  } ]
+}

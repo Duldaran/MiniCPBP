@@ -1,0 +1,233 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T17:09:24.116909018",
+  "time" : 624.983,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She pushed against the door at and You at the first doorway",
+    "score" : 285.57830810546875,
+    "time" : 66054,
+    "cycle" : 8
+  }, {
+    "sentence" : "She pushed against the wall at and You at the first doorway",
+    "score" : 282.13873291015625,
+    "time" : 68893,
+    "cycle" : 9
+  }, {
+    "sentence" : "She pushed against the wall at the You at the first doorway",
+    "score" : 219.67715454101562,
+    "time" : 78955,
+    "cycle" : 11
+  }, {
+    "sentence" : "She pressed against the wall of the You in the left doorway",
+    "score" : 169.6138458251953,
+    "time" : 91102,
+    "cycle" : 15
+  }, {
+    "sentence" : "She pressed against the side of the You on the second field",
+    "score" : 161.1031951904297,
+    "time" : 98785,
+    "cycle" : 17
+  }, {
+    "sentence" : "Were caught during the run of one team on the playing field",
+    "score" : 95.78673553466797,
+    "time" : 376462,
+    "cycle" : 41
+  }, {
+    "sentence" : "Were part does not work nearly as well with the other parts",
+    "score" : 77.53478240966797,
+    "time" : 514404,
+    "cycle" : 69
+  }, {
+    "sentence" : "Were also does not work nearly as well with the other parts",
+    "score" : 60.24150085449219,
+    "time" : 518691,
+    "cycle" : 70
+  }, {
+    "sentence" : "Were also does not work nearly as well with the other three",
+    "score" : 56.1146354675293,
+    "time" : 522901,
+    "cycle" : 71
+  }, {
+    "sentence" : "Were also does this work nearly as well as the other models",
+    "score" : 55.137733459472656,
+    "time" : 596749,
+    "cycle" : 88
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She pushed against the door at and You at the first doorway",
+    "tokens" : [ 1962, 4764, 1846, 394, 4455, 302, 215, 920, 302, 394, 3960, 2374 ],
+    "perplexity" : 285.57830810546875,
+    "tokens_used" : [ " She", " pushed", " against", " the", " door", " at", " and", " You", " at", " the", " first", " doorway" ],
+    "original_sentence" : "She [MASK] against the door [MASK] [MASK] You [MASK] the first doorway",
+    "timestamp" : 66055
+  }, {
+    "sentence" : "She pushed against the wall at and You at the first doorway",
+    "tokens" : [ 1962, 4764, 1846, 394, 1241, 302, 215, 920, 302, 394, 3960, 2374 ],
+    "perplexity" : 282.13873291015625,
+    "tokens_used" : [ " She", " pushed", " against", " the", " wall", " at", " and", " You", " at", " the", " first", " doorway" ],
+    "original_sentence" : "[MASK] pushed against [MASK] [MASK] at and You at [MASK] first doorway",
+    "timestamp" : 68893
+  }, {
+    "sentence" : "She pushed against the wall at the You at the first doorway",
+    "tokens" : [ 1962, 4764, 1846, 394, 1241, 302, 394, 920, 302, 394, 3960, 2374 ],
+    "perplexity" : 219.67715454101562,
+    "tokens_used" : [ " She", " pushed", " against", " the", " wall", " at", " the", " You", " at", " the", " first", " doorway" ],
+    "original_sentence" : "She pushed against [MASK] [MASK] at [MASK] You at the [MASK] doorway",
+    "timestamp" : 78955
+  }, {
+    "sentence" : "She pressed against the wall of the You in the left doorway",
+    "tokens" : [ 1962, 2975, 1846, 394, 1241, 5194, 394, 920, 2515, 394, 1608, 2374 ],
+    "perplexity" : 169.6138458251953,
+    "tokens_used" : [ " She", " pressed", " against", " the", " wall", " of", " the", " You", " in", " the", " left", " doorway" ],
+    "original_sentence" : "She [MASK] against the wall [MASK] the You [MASK] [MASK] left doorway",
+    "timestamp" : 91102
+  }, {
+    "sentence" : "She pressed against the side of the You on the second field",
+    "tokens" : [ 1962, 2975, 1846, 394, 400, 5194, 394, 920, 710, 394, 4102, 562 ],
+    "perplexity" : 161.1031951904297,
+    "tokens_used" : [ " She", " pressed", " against", " the", " side", " of", " the", " You", " on", " the", " second", " field" ],
+    "original_sentence" : "She pressed against the [MASK] of the You [MASK] the [MASK] [MASK]",
+    "timestamp" : 98785
+  }, {
+    "sentence" : "She pressed against one side of the You on the second field",
+    "tokens" : [ 1962, 2975, 1846, 1820, 400, 5194, 394, 920, 710, 394, 4102, 562 ],
+    "perplexity" : 218.9342803955078,
+    "tokens_used" : [ " She", " pressed", " against", " one", " side", " of", " the", " You", " on", " the", " second", " field" ],
+    "original_sentence" : "She pressed [MASK] [MASK] side of [MASK] You on [MASK] second field",
+    "timestamp" : 101496
+  }, {
+    "sentence" : "She pressed against the side of the You on the ground field",
+    "tokens" : [ 1962, 2975, 1846, 394, 400, 5194, 394, 920, 710, 394, 3597, 562 ],
+    "perplexity" : 181.1324920654297,
+    "tokens_used" : [ " She", " pressed", " against", " the", " side", " of", " the", " You", " on", " the", " ground", " field" ],
+    "original_sentence" : "She pressed against [MASK] side [MASK] the You on the [MASK] [MASK]",
+    "timestamp" : 105107
+  }, {
+    "sentence" : "Were caught during the run of one team on the playing field",
+    "tokens" : [ 2113, 541, 1551, 394, 2807, 5194, 1820, 4381, 710, 394, 96, 562 ],
+    "perplexity" : 95.78673553466797,
+    "tokens_used" : [ " were", " caught", " during", " the", " run", " of", " one", " team", " on", " the", " playing", " field" ],
+    "original_sentence" : "[MASK] caught during the run of one [MASK] [MASK] [MASK] playing field",
+    "timestamp" : 376462
+  }, {
+    "sentence" : "Were called during the run of the game with any other field",
+    "tokens" : [ 2114, 825, 1551, 394, 2807, 5194, 394, 2701, 2342, 1047, 3915, 562 ],
+    "perplexity" : 105.80110931396484,
+    "tokens_used" : [ " Were", " called", " during", " the", " run", " of", " the", " game", " with", " any", " other", " field" ],
+    "original_sentence" : "Were [MASK] during the run of [MASK] [MASK] with any [MASK] field",
+    "timestamp" : 412213
+  }, {
+    "sentence" : "Were called for the run of an compared with any other field",
+    "tokens" : [ 2114, 825, 3548, 394, 2807, 5194, 3355, 3200, 2342, 1047, 3915, 562 ],
+    "perplexity" : 171.27598571777344,
+    "tokens_used" : [ " Were", " called", " for", " the", " run", " of", " an", " compared", " with", " any", " other", " field" ],
+    "original_sentence" : "[MASK] called [MASK] the run of [MASK] [MASK] with any other field",
+    "timestamp" : 416030
+  }, {
+    "sentence" : "Were better for the run of as compared with the other field",
+    "tokens" : [ 2114, 4530, 3548, 394, 2807, 5194, 560, 3200, 2342, 394, 3915, 562 ],
+    "perplexity" : 156.4679412841797,
+    "tokens_used" : [ " Were", " better", " for", " the", " run", " of", " as", " compared", " with", " the", " other", " field" ],
+    "original_sentence" : "Were [MASK] for the run of [MASK] compared with [MASK] other [MASK]",
+    "timestamp" : 441758
+  }, {
+    "sentence" : "Were what with the sort of as compared with the other parts",
+    "tokens" : [ 2114, 3403, 2342, 394, 148, 5194, 560, 3200, 2342, 394, 3915, 2924 ],
+    "perplexity" : 133.41258239746094,
+    "tokens_used" : [ " Were", " what", " with", " the", " sort", " of", " as", " compared", " with", " the", " other", " parts" ],
+    "original_sentence" : "[MASK] what with [MASK] [MASK] of as compared with the other [MASK]",
+    "timestamp" : 462648
+  }, {
+    "sentence" : "Were bad does this part of it compared with the other parts",
+    "tokens" : [ 2114, 1565, 4900, 1227, 2292, 5194, 2050, 3200, 2342, 394, 3915, 2924 ],
+    "perplexity" : 107.93272399902344,
+    "tokens_used" : [ " Were", " bad", " does", " this", " part", " of", " it", " compared", " with", " the", " other", " parts" ],
+    "original_sentence" : "[MASK] [MASK] does [MASK] part [MASK] it compared with the other parts",
+    "timestamp" : 488292
+  }, {
+    "sentence" : "Were problem does this kind of as well with the other parts",
+    "tokens" : [ 2114, 2957, 4900, 1227, 897, 5194, 560, 3026, 2342, 394, 3915, 2924 ],
+    "perplexity" : 187.38731384277344,
+    "tokens_used" : [ " Were", " problem", " does", " this", " kind", " of", " as", " well", " with", " the", " other", " parts" ],
+    "original_sentence" : "Were [MASK] does this [MASK] of as [MASK] with the other [MASK]",
+    "timestamp" : 497511
+  }, {
+    "sentence" : "Were part does not kind nearly as well with the other parts",
+    "tokens" : [ 2114, 2292, 4900, 2081, 897, 880, 560, 3026, 2342, 394, 3915, 2924 ],
+    "perplexity" : 135.52398681640625,
+    "tokens_used" : [ " Were", " part", " does", " not", " kind", " nearly", " as", " well", " with", " the", " other", " parts" ],
+    "original_sentence" : "Were [MASK] does [MASK] [MASK] [MASK] as well with the other parts",
+    "timestamp" : 510383
+  }, {
+    "sentence" : "Were part does not work nearly as well with the other parts",
+    "tokens" : [ 2114, 2292, 4900, 2081, 1348, 880, 560, 3026, 2342, 394, 3915, 2924 ],
+    "perplexity" : 77.53478240966797,
+    "tokens_used" : [ " Were", " part", " does", " not", " work", " nearly", " as", " well", " with", " the", " other", " parts" ],
+    "original_sentence" : "[MASK] part does [MASK] [MASK] nearly as well with the [MASK] parts",
+    "timestamp" : 514404
+  }, {
+    "sentence" : "Were also does not work nearly as well with the other parts",
+    "tokens" : [ 2114, 4118, 4900, 2081, 1348, 880, 560, 3026, 2342, 394, 3915, 2924 ],
+    "perplexity" : 60.24150085449219,
+    "tokens_used" : [ " Were", " also", " does", " not", " work", " nearly", " as", " well", " with", " the", " other", " parts" ],
+    "original_sentence" : "[MASK] [MASK] does [MASK] work nearly as well with [MASK] other parts",
+    "timestamp" : 518691
+  }, {
+    "sentence" : "Were also does not work nearly as well with the other three",
+    "tokens" : [ 2114, 4118, 4900, 2081, 1348, 880, 560, 3026, 2342, 394, 3915, 515 ],
+    "perplexity" : 56.1146354675293,
+    "tokens_used" : [ " Were", " also", " does", " not", " work", " nearly", " as", " well", " with", " the", " other", " three" ],
+    "original_sentence" : "Were also [MASK] not work [MASK] [MASK] well with the other [MASK]",
+    "timestamp" : 522901
+  }, {
+    "sentence" : "Were title does not work nearly as well as the other models",
+    "tokens" : [ 2114, 1792, 4900, 2081, 1348, 880, 560, 3026, 560, 394, 3915, 2153 ],
+    "perplexity" : 56.914310455322266,
+    "tokens_used" : [ " Were", " title", " does", " not", " work", " nearly", " as", " well", " as", " the", " other", " models" ],
+    "original_sentence" : "Were [MASK] does [MASK] work nearly as well as the [MASK] [MASK]",
+    "timestamp" : 582817
+  }, {
+    "sentence" : "Were also does not work nearly as well as the latest models",
+    "tokens" : [ 2114, 4118, 4900, 2081, 1348, 880, 560, 3026, 560, 394, 3500, 2153 ],
+    "perplexity" : 58.6287727355957,
+    "tokens_used" : [ " Were", " also", " does", " not", " work", " nearly", " as", " well", " as", " the", " latest", " models" ],
+    "original_sentence" : "Were [MASK] does not work nearly [MASK] [MASK] as the [MASK] models",
+    "timestamp" : 589124
+  }, {
+    "sentence" : "Were also does this work nearly as well as the other models",
+    "tokens" : [ 2114, 4118, 4900, 1227, 1348, 880, 560, 3026, 560, 394, 3915, 2153 ],
+    "perplexity" : 55.137733459472656,
+    "tokens_used" : [ " Were", " also", " does", " this", " work", " nearly", " as", " well", " as", " the", " other", " models" ],
+    "original_sentence" : "Were also does [MASK] work nearly as [MASK] as the [MASK] [MASK]",
+    "timestamp" : 596749
+  }, {
+    "sentence" : "Were also does this work better as well as the other models",
+    "tokens" : [ 2114, 4118, 4900, 1227, 1348, 4530, 560, 3026, 560, 394, 3915, 2153 ],
+    "perplexity" : 67.66300201416016,
+    "tokens_used" : [ " Were", " also", " does", " this", " work", " better", " as", " well", " as", " the", " other", " models" ],
+    "original_sentence" : "Were also [MASK] [MASK] work [MASK] as well [MASK] the other models",
+    "timestamp" : 602505
+  }, {
+    "sentence" : "Were also studying this work in as well as the other models",
+    "tokens" : [ 2114, 4118, 985, 1227, 1348, 2515, 560, 3026, 560, 394, 3915, 2153 ],
+    "perplexity" : 92.79547119140625,
+    "tokens_used" : [ " Were", " also", " studying", " this", " work", " in", " as", " well", " as", " the", " other", " models" ],
+    "original_sentence" : "Were also [MASK] this work [MASK] [MASK] well [MASK] the other models",
+    "timestamp" : 614177
+  } ]
+}

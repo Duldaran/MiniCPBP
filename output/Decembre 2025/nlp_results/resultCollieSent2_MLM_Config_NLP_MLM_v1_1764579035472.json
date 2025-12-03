@@ -1,0 +1,412 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T03:50:35.470353853",
+  "time" : 283.102,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft beach water a beach a soft water comes",
+    "score" : 2946.97216796875,
+    "time" : 4432,
+    "cycle" : 0
+  }, {
+    "sentence" : "A sentence soft soft water a beach a soft water comes",
+    "score" : 1717.3477783203125,
+    "time" : 6829,
+    "cycle" : 1
+  }, {
+    "sentence" : "Soft water soft soft water a beach a soft water comes",
+    "score" : 326.84356689453125,
+    "time" : 9329,
+    "cycle" : 2
+  }, {
+    "sentence" : "Soft soft soft soft water a beach a soft water beach",
+    "score" : 216.3158416748047,
+    "time" : 17441,
+    "cycle" : 5
+  }, {
+    "sentence" : "Soft soft soft soft a soft beach a soft water beach",
+    "score" : 140.83753967285156,
+    "time" : 19017,
+    "cycle" : 6
+  }, {
+    "sentence" : "Soft soft soft soft a soft beach a soft water soft",
+    "score" : 128.1756591796875,
+    "time" : 21587,
+    "cycle" : 7
+  }, {
+    "sentence" : "Is a soft water a soft beach a soft water beach",
+    "score" : 103.07147979736328,
+    "time" : 34540,
+    "cycle" : 13
+  }, {
+    "sentence" : "Soft beach soft beach very soft beach very soft water soft",
+    "score" : 83.39415740966797,
+    "time" : 148644,
+    "cycle" : 54
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft beach water a beach a soft water comes",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 4646, 5075, 4646, 2489, 3408, 291 ],
+    "perplexity" : 2946.97216796875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " a", " beach", " a", " soft", " water", " comes" ],
+    "original_sentence" : "The sentence soft beach water [MASK] beach a [MASK] water comes",
+    "timestamp" : 4432
+  }, {
+    "sentence" : "A sentence soft soft water a beach a soft water comes",
+    "tokens" : [ 4646, 775, 2489, 2489, 3408, 4646, 5075, 4646, 2489, 3408, 291 ],
+    "perplexity" : 1717.3477783203125,
+    "tokens_used" : [ " a", " sentence", " soft", " soft", " water", " a", " beach", " a", " soft", " water", " comes" ],
+    "original_sentence" : "[MASK] sentence soft [MASK] water a beach a soft water comes",
+    "timestamp" : 6829
+  }, {
+    "sentence" : "Soft water soft soft water a beach a soft water comes",
+    "tokens" : [ 2489, 3408, 2489, 2489, 3408, 4646, 5075, 4646, 2489, 3408, 291 ],
+    "perplexity" : 326.84356689453125,
+    "tokens_used" : [ " soft", " water", " soft", " soft", " water", " a", " beach", " a", " soft", " water", " comes" ],
+    "original_sentence" : "[MASK] [MASK] soft soft water a beach a soft water comes",
+    "timestamp" : 9329
+  }, {
+    "sentence" : "Soft soft soft soft water a beach a soft water comes",
+    "tokens" : [ 2490, 2489, 2489, 2489, 3408, 4646, 5075, 4646, 2489, 3408, 291 ],
+    "perplexity" : 398.5097351074219,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " water", " a", " beach", " a", " soft", " water", " comes" ],
+    "original_sentence" : "Soft [MASK] soft soft water [MASK] beach a soft water comes",
+    "timestamp" : 15151
+  }, {
+    "sentence" : "Soft soft soft soft water a beach a soft water beach",
+    "tokens" : [ 2490, 2489, 2489, 2489, 3408, 4646, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 216.3158416748047,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " water", " a", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "Soft soft soft [MASK] water a beach a soft water [MASK]",
+    "timestamp" : 17441
+  }, {
+    "sentence" : "Soft soft soft soft a soft beach a soft water beach",
+    "tokens" : [ 2490, 2489, 2489, 2489, 4646, 2489, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 140.83753967285156,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " a", " soft", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "Soft soft soft soft [MASK] [MASK] beach a soft water beach",
+    "timestamp" : 19017
+  }, {
+    "sentence" : "Soft soft soft soft a soft beach a soft water soft",
+    "tokens" : [ 2490, 2489, 2489, 2489, 4646, 2489, 5075, 4646, 2489, 3408, 2489 ],
+    "perplexity" : 128.1756591796875,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " a", " soft", " beach", " a", " soft", " water", " soft" ],
+    "original_sentence" : "Soft [MASK] soft soft a soft beach a soft water [MASK]",
+    "timestamp" : 21587
+  }, {
+    "sentence" : "Soft soft soft soft a soft beach a soft water a",
+    "tokens" : [ 2490, 2489, 2489, 2489, 4646, 2489, 5075, 4646, 2489, 3408, 4646 ],
+    "perplexity" : 147.5860595703125,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " a", " soft", " beach", " a", " soft", " water", " a" ],
+    "original_sentence" : "Soft soft soft [MASK] a soft beach a soft water [MASK]",
+    "timestamp" : 23358
+  }, {
+    "sentence" : "Soft soft soft water a soft beach a soft water a",
+    "tokens" : [ 2490, 2489, 2489, 3408, 4646, 2489, 5075, 4646, 2489, 3408, 4646 ],
+    "perplexity" : 175.95738220214844,
+    "tokens_used" : [ " Soft", " soft", " soft", " water", " a", " soft", " beach", " a", " soft", " water", " a" ],
+    "original_sentence" : "Soft soft soft [MASK] a soft beach [MASK] soft water a",
+    "timestamp" : 24888
+  }, {
+    "sentence" : "A soft soft water a soft beach a soft water a",
+    "tokens" : [ 4646, 2489, 2489, 3408, 4646, 2489, 5075, 4646, 2489, 3408, 4646 ],
+    "perplexity" : 184.89456176757812,
+    "tokens_used" : [ " a", " soft", " soft", " water", " a", " soft", " beach", " a", " soft", " water", " a" ],
+    "original_sentence" : "[MASK] soft soft water a soft beach a [MASK] water a",
+    "timestamp" : 26875
+  }, {
+    "sentence" : "A beach soft water a soft beach a soft water beach",
+    "tokens" : [ 4647, 5075, 2489, 3408, 4646, 2489, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 227.2537841796875,
+    "tokens_used" : [ " A", " beach", " soft", " water", " a", " soft", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "A [MASK] soft water a soft beach a soft water [MASK]",
+    "timestamp" : 29234
+  }, {
+    "sentence" : "A soft soft water a soft beach a soft water beach",
+    "tokens" : [ 4647, 2489, 2489, 3408, 4646, 2489, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 163.2815704345703,
+    "tokens_used" : [ " A", " soft", " soft", " water", " a", " soft", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "A [MASK] soft water a [MASK] beach a soft water beach",
+    "timestamp" : 31794
+  }, {
+    "sentence" : "Is a soft water a soft beach a soft water beach",
+    "tokens" : [ 2713, 4646, 2489, 3408, 4646, 2489, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 103.07147979736328,
+    "tokens_used" : [ " is", " a", " soft", " water", " a", " soft", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] [MASK] soft water a soft beach a soft water beach",
+    "timestamp" : 34540
+  }, {
+    "sentence" : "A a soft water a soft beach a soft water beach",
+    "tokens" : [ 4646, 4646, 2489, 3408, 4646, 2489, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 108.82054901123047,
+    "tokens_used" : [ " a", " a", " soft", " water", " a", " soft", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] a soft water a soft beach a [MASK] water beach",
+    "timestamp" : 36441
+  }, {
+    "sentence" : "A very soft water very soft beach a soft water beach",
+    "tokens" : [ 4647, 3910, 2489, 3408, 3910, 2489, 5075, 4646, 2489, 3408, 5075 ],
+    "perplexity" : 187.8499298095703,
+    "tokens_used" : [ " A", " very", " soft", " water", " very", " soft", " beach", " a", " soft", " water", " beach" ],
+    "original_sentence" : "A [MASK] soft water [MASK] soft beach a soft water beach",
+    "timestamp" : 45253
+  }, {
+    "sentence" : "A very soft water very soft beach very soft water beach",
+    "tokens" : [ 4647, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 182.1513214111328,
+    "tokens_used" : [ " A", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "A very soft water very soft beach [MASK] soft water [MASK]",
+    "timestamp" : 59661
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water beach",
+    "tokens" : [ 3408, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 116.60575103759766,
+    "tokens_used" : [ " water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] very soft water very soft beach [MASK] soft water beach",
+    "timestamp" : 62979
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water Beach",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 5076 ],
+    "perplexity" : 165.8842010498047,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " Beach" ],
+    "original_sentence" : "Water very soft water very soft beach very [MASK] water [MASK]",
+    "timestamp" : 69200
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water sand",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 1752 ],
+    "perplexity" : 153.41473388671875,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " sand" ],
+    "original_sentence" : "Water [MASK] soft water very soft beach very soft water [MASK]",
+    "timestamp" : 75060
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water shower",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 1256 ],
+    "perplexity" : 203.45541381835938,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " shower" ],
+    "original_sentence" : "Water [MASK] soft water very soft beach very soft water [MASK]",
+    "timestamp" : 82895
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water outdoors",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 23 ],
+    "perplexity" : 174.5967254638672,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " outdoors" ],
+    "original_sentence" : "Water [MASK] soft water very soft beach very soft water [MASK]",
+    "timestamp" : 94295
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water water",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 3408 ],
+    "perplexity" : 137.70059204101562,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " water" ],
+    "original_sentence" : "Water very soft water very soft beach [MASK] soft water [MASK]",
+    "timestamp" : 102942
+  }, {
+    "sentence" : "Water very soft water very soft beach very soft water soil",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 3477 ],
+    "perplexity" : 184.1239471435547,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " soil" ],
+    "original_sentence" : "Water very soft [MASK] very soft beach very soft water [MASK]",
+    "timestamp" : 105894
+  }, {
+    "sentence" : "Water very soft water very soft beach very cold water water",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 4538, 3408, 3408 ],
+    "perplexity" : 192.4982452392578,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " cold", " water", " water" ],
+    "original_sentence" : "Water very soft water very soft beach very [MASK] water [MASK]",
+    "timestamp" : 109153
+  }, {
+    "sentence" : "Water very soft water very soft beach very cold water a",
+    "tokens" : [ 3409, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 4538, 3408, 4646 ],
+    "perplexity" : 201.77413940429688,
+    "tokens_used" : [ " Water", " very", " soft", " water", " very", " soft", " beach", " very", " cold", " water", " a" ],
+    "original_sentence" : "Water very soft [MASK] very soft beach very cold water [MASK]",
+    "timestamp" : 116453
+  }, {
+    "sentence" : "Beach very soft water very soft beach very cold water cold",
+    "tokens" : [ 5075, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 4538, 3408, 4538 ],
+    "perplexity" : 159.7901153564453,
+    "tokens_used" : [ " beach", " very", " soft", " water", " very", " soft", " beach", " very", " cold", " water", " cold" ],
+    "original_sentence" : "[MASK] very soft water very soft beach very cold water [MASK]",
+    "timestamp" : 122282
+  }, {
+    "sentence" : "Beach very soft beach very soft beach very cold water no",
+    "tokens" : [ 5076, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 4538, 3408, 2144 ],
+    "perplexity" : 202.59130859375,
+    "tokens_used" : [ " Beach", " very", " soft", " beach", " very", " soft", " beach", " very", " cold", " water", " no" ],
+    "original_sentence" : "Beach very soft [MASK] very soft beach very cold water [MASK]",
+    "timestamp" : 125017
+  }, {
+    "sentence" : "Beach very soft beach very soft beach very hard water no",
+    "tokens" : [ 5076, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 1170, 3408, 2144 ],
+    "perplexity" : 179.22021484375,
+    "tokens_used" : [ " Beach", " very", " soft", " beach", " very", " soft", " beach", " very", " hard", " water", " no" ],
+    "original_sentence" : "Beach very soft beach very soft beach [MASK] [MASK] water no",
+    "timestamp" : 127580
+  }, {
+    "sentence" : "Water very soft beach very soft beach very hard water no",
+    "tokens" : [ 3408, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 1170, 3408, 2144 ],
+    "perplexity" : 201.47811889648438,
+    "tokens_used" : [ " water", " very", " soft", " beach", " very", " soft", " beach", " very", " hard", " water", " no" ],
+    "original_sentence" : "[MASK] very soft [MASK] very soft beach very hard water no",
+    "timestamp" : 130323
+  }, {
+    "sentence" : "Water very soft beach very soft beach very soft water no",
+    "tokens" : [ 3409, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 2144 ],
+    "perplexity" : 177.2754669189453,
+    "tokens_used" : [ " Water", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " no" ],
+    "original_sentence" : "Water very soft beach very [MASK] beach very [MASK] water no",
+    "timestamp" : 132254
+  }, {
+    "sentence" : "Water very soft beach very soft beach very soft water beach",
+    "tokens" : [ 3409, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 173.73544311523438,
+    "tokens_used" : [ " Water", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "Water very soft beach very [MASK] beach very soft water [MASK]",
+    "timestamp" : 134839
+  }, {
+    "sentence" : "Water beach soft beach very soft beach very soft water beach",
+    "tokens" : [ 3409, 5075, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 125.8260498046875,
+    "tokens_used" : [ " Water", " beach", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "Water [MASK] soft beach very soft beach very [MASK] water beach",
+    "timestamp" : 139829
+  }, {
+    "sentence" : "Soft beach soft beach very soft beach very soft water beach",
+    "tokens" : [ 2489, 5075, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 106.37384796142578,
+    "tokens_used" : [ " soft", " beach", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] beach soft beach very soft beach very [MASK] water beach",
+    "timestamp" : 144310
+  }, {
+    "sentence" : "Soft beach soft beach very soft beach very soft water soft",
+    "tokens" : [ 2490, 5075, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 83.39415740966797,
+    "tokens_used" : [ " Soft", " beach", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Soft beach soft beach very soft beach [MASK] soft water [MASK]",
+    "timestamp" : 148644
+  }, {
+    "sentence" : "Soft beach soft water very soft beach very soft water soft",
+    "tokens" : [ 2490, 5075, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 105.87767791748047,
+    "tokens_used" : [ " Soft", " beach", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Soft beach soft [MASK] [MASK] soft beach very soft water soft",
+    "timestamp" : 153299
+  }, {
+    "sentence" : "Soft beach soft water very soft beach very soft water beach",
+    "tokens" : [ 2489, 5075, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 137.16375732421875,
+    "tokens_used" : [ " soft", " beach", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] beach soft water very soft beach very soft water [MASK]",
+    "timestamp" : 155582
+  }, {
+    "sentence" : "Soft beach soft water very soft beach very soft water water",
+    "tokens" : [ 2490, 5075, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 3408 ],
+    "perplexity" : 145.7107696533203,
+    "tokens_used" : [ " Soft", " beach", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " water" ],
+    "original_sentence" : "Soft beach soft water [MASK] soft beach very soft water [MASK]",
+    "timestamp" : 158155
+  }, {
+    "sentence" : "Soft beach soft beach very soft beach very soft water water",
+    "tokens" : [ 2490, 5075, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 3408 ],
+    "perplexity" : 102.62720489501953,
+    "tokens_used" : [ " Soft", " beach", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " water" ],
+    "original_sentence" : "Soft beach soft [MASK] very [MASK] beach very soft water water",
+    "timestamp" : 164622
+  }, {
+    "sentence" : "Soft beach soft beach water soft beach very soft water soft",
+    "tokens" : [ 2490, 5075, 2489, 5075, 3408, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 102.6137466430664,
+    "tokens_used" : [ " Soft", " beach", " soft", " beach", " water", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Soft beach soft beach [MASK] soft beach very soft water [MASK]",
+    "timestamp" : 171058
+  }, {
+    "sentence" : "Soft water soft beach water soft beach very soft water soft",
+    "tokens" : [ 2490, 3408, 2489, 5075, 3408, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 89.37944793701172,
+    "tokens_used" : [ " Soft", " water", " soft", " beach", " water", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Soft [MASK] soft beach water soft beach very [MASK] water soft",
+    "timestamp" : 174635
+  }, {
+    "sentence" : "Beach water soft beach water soft beach very soft water soft",
+    "tokens" : [ 5075, 3408, 2489, 5075, 3408, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 138.31668090820312,
+    "tokens_used" : [ " beach", " water", " soft", " beach", " water", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "[MASK] water soft beach water soft beach very soft water [MASK]",
+    "timestamp" : 178116
+  }, {
+    "sentence" : "Beach water soft beach very soft beach very soft water soft",
+    "tokens" : [ 5076, 3408, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 154.73553466796875,
+    "tokens_used" : [ " Beach", " water", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Beach water soft beach [MASK] soft beach very [MASK] water soft",
+    "timestamp" : 183816
+  }, {
+    "sentence" : "Beach very soft beach very soft beach very soft water beach",
+    "tokens" : [ 5076, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 137.46075439453125,
+    "tokens_used" : [ " Beach", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "Beach [MASK] soft beach very soft beach very soft water [MASK]",
+    "timestamp" : 187139
+  }, {
+    "sentence" : "Very very soft beach very soft beach very soft water beach",
+    "tokens" : [ 3910, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 165.24197387695312,
+    "tokens_used" : [ " very", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] very soft beach very [MASK] beach very soft water beach",
+    "timestamp" : 201891
+  }, {
+    "sentence" : "Ocean very soft beach very soft beach very soft water beach",
+    "tokens" : [ 446, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 141.8652801513672,
+    "tokens_used" : [ " ocean", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "[MASK] very soft beach very soft beach [MASK] soft water beach",
+    "timestamp" : 211502
+  }, {
+    "sentence" : "Ocean very soft water very soft beach very soft water beach",
+    "tokens" : [ 447, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 5075 ],
+    "perplexity" : 136.4890594482422,
+    "tokens_used" : [ " Ocean", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " beach" ],
+    "original_sentence" : "Ocean [MASK] soft [MASK] very soft beach very soft water beach",
+    "timestamp" : 214303
+  }, {
+    "sentence" : "Ocean very soft water very soft beach very soft water sea",
+    "tokens" : [ 447, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 4715 ],
+    "perplexity" : 154.94065856933594,
+    "tokens_used" : [ " Ocean", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " sea" ],
+    "original_sentence" : "Ocean [MASK] soft water very soft beach very soft water [MASK]",
+    "timestamp" : 217739
+  }, {
+    "sentence" : "Ocean very soft water very soft beach very soft water soft",
+    "tokens" : [ 447, 3910, 2489, 3408, 3910, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 123.70719146728516,
+    "tokens_used" : [ " Ocean", " very", " soft", " water", " very", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Ocean very soft water [MASK] soft beach very soft water [MASK]",
+    "timestamp" : 249517
+  }, {
+    "sentence" : "Ocean very soft beach very soft beach very soft water soft",
+    "tokens" : [ 447, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 2489 ],
+    "perplexity" : 122.11184692382812,
+    "tokens_used" : [ " Ocean", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " soft" ],
+    "original_sentence" : "Ocean [MASK] soft [MASK] very soft beach very soft water soft",
+    "timestamp" : 251934
+  }, {
+    "sentence" : "Ocean very soft beach very soft beach very soft water sea",
+    "tokens" : [ 447, 3910, 2489, 5075, 3910, 2489, 5075, 3910, 2489, 3408, 4715 ],
+    "perplexity" : 153.7222900390625,
+    "tokens_used" : [ " Ocean", " very", " soft", " beach", " very", " soft", " beach", " very", " soft", " water", " sea" ],
+    "original_sentence" : "Ocean very soft beach [MASK] soft beach very soft water [MASK]",
+    "timestamp" : 260491
+  } ]
+}

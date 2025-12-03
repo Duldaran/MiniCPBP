@@ -1,0 +1,93 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 100,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T14:13:03.536707113",
+  "time" : 491.337,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "They were going to be shot and the fact that they were dead",
+    "score" : 25.000953674316406,
+    "time" : 63002,
+    "cycle" : 1
+  }, {
+    "sentence" : "They were lucky to get out on the other side and back again",
+    "score" : 23.80670166015625,
+    "time" : 206275,
+    "cycle" : 36
+  }, {
+    "sentence" : "They were going to get out to the other side and back again",
+    "score" : 21.599451065063477,
+    "time" : 213001,
+    "cycle" : 38
+  } ],
+  "base_sentence" : {
+    "sentence" : "They were going to be here and the fact that they were dead",
+    "perplexity" : 28.172584533691406,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "They were going to be shot and the fact that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4514, 215, 394, 3238, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 25.000953674316406,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " shot", " and", " the", " fact", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going [MASK] be [MASK] and the fact [MASK] they [MASK] dead",
+    "timestamp" : 63003
+  }, {
+    "sentence" : "They were going to be shot in the other that they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 1392, 4514, 2515, 394, 3915, 1321, 4153, 2113, 1818 ],
+    "perplexity" : 45.96036148071289,
+    "tokens_used" : [ " They", " were", " going", " to", " be", " shot", " in", " the", " other", " that", " they", " were", " dead" ],
+    "original_sentence" : "They were going to be shot [MASK] the [MASK] [MASK] [MASK] were dead",
+    "timestamp" : 72238
+  }, {
+    "sentence" : "They were going to get shot in the other and they were dead",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3912, 4514, 2515, 394, 3915, 215, 4153, 2113, 1818 ],
+    "perplexity" : 36.3072395324707,
+    "tokens_used" : [ " They", " were", " going", " to", " get", " shot", " in", " the", " other", " and", " they", " were", " dead" ],
+    "original_sentence" : "[MASK] were going to [MASK] shot in [MASK] other [MASK] they were dead",
+    "timestamp" : 93985
+  }, {
+    "sentence" : "They were about to get shot in the other and they were dead",
+    "tokens" : [ 4154, 2113, 2949, 2461, 3912, 4514, 2515, 394, 3915, 215, 4153, 2113, 1818 ],
+    "perplexity" : 36.722408294677734,
+    "tokens_used" : [ " They", " were", " about", " to", " get", " shot", " in", " the", " other", " and", " they", " were", " dead" ],
+    "original_sentence" : "They [MASK] [MASK] to get shot in the other [MASK] they [MASK] dead",
+    "timestamp" : 101316
+  }, {
+    "sentence" : "They were about to be shot in the other side were shot dead",
+    "tokens" : [ 4154, 2113, 2949, 2461, 1392, 4514, 2515, 394, 3915, 400, 2113, 4514, 1818 ],
+    "perplexity" : 45.69688415527344,
+    "tokens_used" : [ " They", " were", " about", " to", " be", " shot", " in", " the", " other", " side", " were", " shot", " dead" ],
+    "original_sentence" : "They were about to be shot [MASK] [MASK] other side [MASK] [MASK] dead",
+    "timestamp" : 149666
+  }, {
+    "sentence" : "They were about to get shot in the other side and were dead",
+    "tokens" : [ 4154, 2113, 2949, 2461, 3912, 4514, 2515, 394, 3915, 400, 215, 2113, 1818 ],
+    "perplexity" : 32.612274169921875,
+    "tokens_used" : [ " They", " were", " about", " to", " get", " shot", " in", " the", " other", " side", " and", " were", " dead" ],
+    "original_sentence" : "They were about [MASK] [MASK] shot in the other side [MASK] [MASK] dead",
+    "timestamp" : 153353
+  }, {
+    "sentence" : "They were lucky to get out on the other side and back again",
+    "tokens" : [ 4154, 2113, 4068, 2461, 3912, 518, 710, 394, 3915, 400, 215, 954, 3357 ],
+    "perplexity" : 23.80670166015625,
+    "tokens_used" : [ " They", " were", " lucky", " to", " get", " out", " on", " the", " other", " side", " and", " back", " again" ],
+    "original_sentence" : "They were [MASK] to get out [MASK] [MASK] other side and back [MASK]",
+    "timestamp" : 206275
+  }, {
+    "sentence" : "They were going to get out to the other side and back again",
+    "tokens" : [ 4154, 2113, 1996, 2461, 3912, 518, 2461, 394, 3915, 400, 215, 954, 3357 ],
+    "perplexity" : 21.599451065063477,
+    "tokens_used" : [ " They", " were", " going", " to", " get", " out", " to", " the", " other", " side", " and", " back", " again" ],
+    "original_sentence" : "They were [MASK] to [MASK] [MASK] [MASK] the other side and back again",
+    "timestamp" : 213001
+  } ]
+}

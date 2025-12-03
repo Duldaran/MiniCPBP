@@ -1,0 +1,270 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 20,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T18:01:43.553387225",
+  "time" : 262.79,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "He ought to get out so he can get out of the room right now",
+    "score" : 18.547616958618164,
+    "time" : 66760,
+    "cycle" : 1
+  }, {
+    "sentence" : "He needs to get off so he can get out of the room right now",
+    "score" : 16.493776321411133,
+    "time" : 82931,
+    "cycle" : 6
+  } ],
+  "base_sentence" : {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "perplexity" : 15.805083274841309,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "He ought to get out so he can get out of the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 1513, 2228, 1358, 3912, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 18.547616958618164,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " so", " he", " can", " get", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get out [MASK] [MASK] [MASK] get out of the room right now",
+    "timestamp" : 66760
+  }, {
+    "sentence" : "He ought to get out so he can run out of the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 518, 1513, 2228, 1358, 2807, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 27.261219024658203,
+    "tokens_used" : [ " He", " ought", " to", " get", " out", " so", " he", " can", " run", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "[MASK] ought [MASK] get out so he can [MASK] out of the room right now",
+    "timestamp" : 69832
+  }, {
+    "sentence" : "He ought to get off so he can run out of the room right now",
+    "tokens" : [ 2229, 829, 2461, 3912, 2828, 1513, 2228, 1358, 2807, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 28.23429298400879,
+    "tokens_used" : [ " He", " ought", " to", " get", " off", " so", " he", " can", " run", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "He ought to get [MASK] so he can run out [MASK] [MASK] room right now",
+    "timestamp" : 76234
+  }, {
+    "sentence" : "He needs to get off so he can get out of the room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 1513, 2228, 1358, 3912, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 16.493776321411133,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " so", " he", " can", " get", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "He [MASK] to get off so he can [MASK] out of the [MASK] right now",
+    "timestamp" : 82931
+  }, {
+    "sentence" : "He needs to get off so he can run out of the room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 1513, 2228, 1358, 2807, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 23.083261489868164,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " so", " he", " can", " run", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get off so he can [MASK] out of the [MASK] right now",
+    "timestamp" : 84432
+  }, {
+    "sentence" : "He needs to get off or he can run out of the room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 1860, 2228, 1358, 2807, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 26.31159019470215,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " or", " he", " can", " run", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get off [MASK] he [MASK] run out of the room right now",
+    "timestamp" : 85605
+  }, {
+    "sentence" : "He needs to get off so he can run out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2828, 1513, 2228, 1358, 2807, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 24.307703018188477,
+    "tokens_used" : [ " He", " needs", " to", " get", " off", " so", " he", " can", " run", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs to get [MASK] [MASK] he can run out of the [MASK] right now",
+    "timestamp" : 87008
+  }, {
+    "sentence" : "He needs to get out so he can run out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 2228, 1358, 2807, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 22.342683792114258,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " he", " can", " run", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] so he can run out [MASK] the game right now",
+    "timestamp" : 88396
+  }, {
+    "sentence" : "He needs to get cut so he can run out of the game right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 2683, 1513, 2228, 1358, 2807, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 28.225507736206055,
+    "tokens_used" : [ " He", " needs", " to", " get", " cut", " so", " he", " can", " run", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He needs to get [MASK] so he can run [MASK] of the game right [MASK]",
+    "timestamp" : 89992
+  }, {
+    "sentence" : "He wants to get cut so he can run out of the game right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 2683, 1513, 2228, 1358, 2807, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 32.82420349121094,
+    "tokens_used" : [ " He", " wants", " to", " get", " cut", " so", " he", " can", " run", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get cut so [MASK] can run out of the game [MASK] now",
+    "timestamp" : 93709
+  }, {
+    "sentence" : "He wants to get out so he can run out of the game right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 2807, 518, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 25.539798736572266,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " run", " out", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] so he can run out of the game [MASK] now",
+    "timestamp" : 102366
+  }, {
+    "sentence" : "He wants to get out so he can run off of the game right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 2807, 2828, 5194, 394, 2701, 5022, 2187 ],
+    "perplexity" : 30.109176635742188,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " run", " off", " of", " the", " game", " right", " now" ],
+    "original_sentence" : "He wants to get out so [MASK] can run [MASK] of the game [MASK] now",
+    "timestamp" : 104192
+  }, {
+    "sentence" : "He wants to get out so he can run out to the game right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 2807, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 31.447206497192383,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " run", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] wants to get out so he can run [MASK] [MASK] the game right now",
+    "timestamp" : 113872
+  }, {
+    "sentence" : "He wants to get out so he can get out to the game right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 3912, 518, 2461, 394, 2701, 5022, 2187 ],
+    "perplexity" : 21.91326904296875,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " get", " out", " to", " the", " game", " right", " now" ],
+    "original_sentence" : "[MASK] wants to get out so he can [MASK] out to [MASK] game right now",
+    "timestamp" : 124867
+  }, {
+    "sentence" : "He wants to get out so he can get down to the car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 3912, 4343, 2461, 394, 2223, 5022, 2187 ],
+    "perplexity" : 30.91164779663086,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " get", " down", " to", " the", " car", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out so he can get [MASK] to the [MASK] right now",
+    "timestamp" : 132227
+  }, {
+    "sentence" : "He wants to get out so he can get home to his car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 3912, 1724, 2461, 3882, 2223, 5022, 2187 ],
+    "perplexity" : 25.57235336303711,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " get", " home", " to", " his", " car", " right", " now" ],
+    "original_sentence" : "He wants to get [MASK] so he can get [MASK] to [MASK] car right now",
+    "timestamp" : 135687
+  }, {
+    "sentence" : "He wants to get out so he can get home in his car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 3912, 1724, 2515, 3882, 2223, 5022, 2187 ],
+    "perplexity" : 24.649066925048828,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " get", " home", " in", " his", " car", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out so he [MASK] get home [MASK] his car right now",
+    "timestamp" : 137023
+  }, {
+    "sentence" : "He wants to get out so he can pop back in his car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 3439, 954, 2515, 3882, 2223, 5022, 2187 ],
+    "perplexity" : 31.731220245361328,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " pop", " back", " in", " his", " car", " right", " now" ],
+    "original_sentence" : "[MASK] wants to get out so he can [MASK] [MASK] in his car right now",
+    "timestamp" : 140030
+  }, {
+    "sentence" : "He wants to get out so he can hop back in the car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 2228, 1358, 2764, 954, 2515, 394, 2223, 5022, 2187 ],
+    "perplexity" : 27.256542205810547,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " he", " can", " hop", " back", " in", " the", " car", " right", " now" ],
+    "original_sentence" : "He wants to get out so he can [MASK] back [MASK] [MASK] car right now",
+    "timestamp" : 142259
+  }, {
+    "sentence" : "He wants to get out so we can get back in the car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 394, 2223, 5022, 2187 ],
+    "perplexity" : 23.557344436645508,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " we", " can", " get", " back", " in", " the", " car", " right", " now" ],
+    "original_sentence" : "He wants to get out so [MASK] [MASK] [MASK] back in the car right now",
+    "timestamp" : 149425
+  }, {
+    "sentence" : "He needs to get out so we can get back of the car right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 5194, 394, 2223, 5022, 2187 ],
+    "perplexity" : 30.460308074951172,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " of", " the", " car", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out so we can get [MASK] [MASK] the car right now",
+    "timestamp" : 151145
+  }, {
+    "sentence" : "He needs to get out so we can get back in the car right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 394, 2223, 5022, 2187 ],
+    "perplexity" : 20.88079833984375,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " in", " the", " car", " right", " now" ],
+    "original_sentence" : "He [MASK] to [MASK] out so we can get back [MASK] the car right now",
+    "timestamp" : 154746
+  }, {
+    "sentence" : "He needs to get out so He can get back in the car right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 2229, 1358, 3912, 954, 2515, 394, 2223, 5022, 2187 ],
+    "perplexity" : 29.107053756713867,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " He", " can", " get", " back", " in", " the", " car", " right", " now" ],
+    "original_sentence" : "He needs to get out [MASK] [MASK] can get back in the [MASK] right now",
+    "timestamp" : 156378
+  }, {
+    "sentence" : "He needs to get out so He can get back in his car right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 2229, 1358, 3912, 954, 2515, 3882, 2223, 5022, 2187 ],
+    "perplexity" : 29.149818420410156,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " He", " can", " get", " back", " in", " his", " car", " right", " now" ],
+    "original_sentence" : "He needs to get out so He [MASK] get [MASK] in [MASK] car right now",
+    "timestamp" : 181959
+  }, {
+    "sentence" : "He needs to get out so we can get back in his car right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 3882, 2223, 5022, 2187 ],
+    "perplexity" : 23.905853271484375,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " in", " his", " car", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out so [MASK] can [MASK] back in his car right now",
+    "timestamp" : 183763
+  }, {
+    "sentence" : "He wants to get out so we can get back in his car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 3882, 2223, 5022, 2187 ],
+    "perplexity" : 26.78072166442871,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " we", " can", " get", " back", " in", " his", " car", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get out so we can get back in his car [MASK] now",
+    "timestamp" : 187291
+  }, {
+    "sentence" : "He wants to get out so we can get back in our car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 3369, 2223, 5022, 2187 ],
+    "perplexity" : 26.30609703063965,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " we", " can", " get", " back", " in", " our", " car", " right", " now" ],
+    "original_sentence" : "[MASK] wants to get out [MASK] we can get back in [MASK] car right now",
+    "timestamp" : 198423
+  }, {
+    "sentence" : "He wants to get out so we can get back in her car right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 3730, 2223, 5022, 2187 ],
+    "perplexity" : 29.545352935791016,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " we", " can", " get", " back", " in", " her", " car", " right", " now" ],
+    "original_sentence" : "He wants to get [MASK] so we [MASK] get back in [MASK] car right now",
+    "timestamp" : 205503
+  }, {
+    "sentence" : "He needs to get out so we can get back in her car right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 3730, 2223, 5022, 2187 ],
+    "perplexity" : 26.239303588867188,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " in", " her", " car", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out so we can get back in her [MASK] [MASK] now",
+    "timestamp" : 223741
+  }, {
+    "sentence" : "He needs to get out so we can get back in her lap right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2515, 3730, 4187, 5022, 2187 ],
+    "perplexity" : 27.002498626708984,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " in", " her", " lap", " right", " now" ],
+    "original_sentence" : "He needs [MASK] get out [MASK] we can get back in her [MASK] right now",
+    "timestamp" : 229339
+  }, {
+    "sentence" : "He needs to get out so we can get back to her lap right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2461, 3730, 4187, 5022, 2187 ],
+    "perplexity" : 31.25790023803711,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " to", " her", " lap", " right", " now" ],
+    "original_sentence" : "He needs to get [MASK] so we can [MASK] back [MASK] her lap right now",
+    "timestamp" : 230916
+  }, {
+    "sentence" : "He needs to get out so we can get back to her job right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2461, 3730, 1605, 5022, 2187 ],
+    "perplexity" : 25.066566467285156,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " so", " we", " can", " get", " back", " to", " her", " job", " right", " now" ],
+    "original_sentence" : "He needs to get [MASK] so [MASK] can get back to her [MASK] right now",
+    "timestamp" : 235664
+  }, {
+    "sentence" : "He wants to get out so we can get back to her job right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 518, 1513, 1778, 1358, 3912, 954, 2461, 3730, 1605, 5022, 2187 ],
+    "perplexity" : 28.109310150146484,
+    "tokens_used" : [ " He", " wants", " to", " get", " out", " so", " we", " can", " get", " back", " to", " her", " job", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out so we can get back to her [MASK] [MASK] now",
+    "timestamp" : 238040
+  }, {
+    "sentence" : "He wants to get me so she can get back to her job right now",
+    "tokens" : [ 2229, 2014, 2461, 3912, 994, 1513, 1961, 1358, 3912, 954, 2461, 3730, 1605, 5022, 2187 ],
+    "perplexity" : 27.48771858215332,
+    "tokens_used" : [ " He", " wants", " to", " get", " me", " so", " she", " can", " get", " back", " to", " her", " job", " right", " now" ],
+    "original_sentence" : "He [MASK] to get [MASK] so [MASK] can get back to her job right now",
+    "timestamp" : 259597
+  } ]
+}

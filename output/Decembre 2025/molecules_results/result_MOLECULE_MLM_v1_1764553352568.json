@@ -1,0 +1,42 @@
+{
+  "status" : "ok",
+  "port" : 5001,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "config" : "v1",
+  "seed" : 7,
+  "sentence_builder" : "random",
+  "reference_file" : "src/main/java/minicpbp/examples/data/Molecules/no_gpt_ref.txt",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-11-30T20:42:32.563689564",
+  "time" : 33.186,
+  "best_perplexity_evolution" : [ {
+    "molecule" : "OC(C(=C(N(C)[O-])))=C=CC(N=CN=[N+]O)(O)Cl",
+    "score" : 94.12228393554688,
+    "time" : 32942,
+    "cycle" : 1
+  } ],
+  "base_sentence" : {
+    "molecule" : "OC(C(=C(N(C)[O-])))=C=NC(N=CC=[N+]O)(O)Cl",
+    "score" : 96.68758839549825,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "OC(C(=C(N(C)[O-])))=C=CC(N=CN=[N+]O)(O)Cl",
+    "perplexity" : 94.12228393554688,
+    "original_sentence" : "<mask>C(C(=C(N(C)[O-]<mask>))=C=<mask>C(N=C<mask>=[N+<mask>O)(O)Cl",
+    "timestamp" : 32942
+  }, {
+    "sentence" : "CC(C(=C(N(C)[O-])))=C=CC(N=CN=[N+]O)(O)Cl",
+    "perplexity" : 115.25896453857422,
+    "original_sentence" : "<mask>C(C(=C(N(C)[O-]<mask>))=C=<mask>C(N=C<mask>=[N+<mask>O)(O)Cl",
+    "timestamp" : 33003
+  }, {
+    "sentence" : "FC(C(=C(N(C)[O-])))=C=CC(N=CN=[N+]O)(O)Cl",
+    "perplexity" : 187.14852905273438,
+    "original_sentence" : "<mask>C(C(=C(N(C)[O-]<mask>))=C=<mask>C(N=C<mask>=[N+<mask>O)(O)Cl",
+    "timestamp" : 33052
+  } ]
+}

@@ -1,0 +1,871 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 50,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T17:43:26.256496222",
+  "time" : 1136.783,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "Near the end of the room and down the stairs to the landing",
+    "score" : 20.987422943115234,
+    "time" : 52126,
+    "cycle" : 0
+  }, {
+    "sentence" : "Near the end of the room and down the stairs to the outside",
+    "score" : 20.5380802154541,
+    "time" : 53189,
+    "cycle" : 0
+  }, {
+    "sentence" : "Near the end of the room and down the stairs to the ceiling",
+    "score" : 19.21462631225586,
+    "time" : 54593,
+    "cycle" : 0
+  }, {
+    "sentence" : "Put the book in the corner and keep the book on the outside",
+    "score" : 18.45945930480957,
+    "time" : 946274,
+    "cycle" : 63
+  }, {
+    "sentence" : "Put the book in the corner and read the book on the outside",
+    "score" : 18.422334671020508,
+    "time" : 947138,
+    "cycle" : 63
+  }, {
+    "sentence" : "Put the lamp in the center and keep the lamp on the outside",
+    "score" : 17.586929321289062,
+    "time" : 1033647,
+    "cycle" : 80
+  } ],
+  "base_sentence" : {
+    "sentence" : "Near the end of the room and down the stairs to the kitchen",
+    "perplexity" : 16.751358032226562,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "Near the end of the room and down the stairs to the landing",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 1037 ],
+    "perplexity" : 20.987422943115234,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " landing" ],
+    "original_sentence" : "Near the end of the room and down the [MASK] to the [MASK]",
+    "timestamp" : 52126
+  }, {
+    "sentence" : "Near the end of the room and down the stairs to the outside",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 803 ],
+    "perplexity" : 20.5380802154541,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " outside" ],
+    "original_sentence" : "Near the end of the room and down the [MASK] to the [MASK]",
+    "timestamp" : 53189
+  }, {
+    "sentence" : "Near the end of the room and down the stairs to the ceiling",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 2921 ],
+    "perplexity" : 19.21462631225586,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " ceiling" ],
+    "original_sentence" : "Near the end of the room and down the [MASK] to the [MASK]",
+    "timestamp" : 54593
+  }, {
+    "sentence" : "Near the end of the room and down the stairs to the central",
+    "tokens" : [ 1853, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 452 ],
+    "perplexity" : 30.501501083374023,
+    "tokens_used" : [ " Near", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " central" ],
+    "original_sentence" : "Near the end of the room and down the [MASK] to the [MASK]",
+    "timestamp" : 74427
+  }, {
+    "sentence" : "Near the bed of the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 3225, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 20.298067092895508,
+    "tokens_used" : [ " Near", " the", " bed", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] of the room and down the stairs to the [MASK]",
+    "timestamp" : 78610
+  }, {
+    "sentence" : "Near the Top of the room and down the stairs to the kitchen",
+    "tokens" : [ 1853, 394, 771, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 24.65282440185547,
+    "tokens_used" : [ " Near", " the", " Top", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "Near the [MASK] of the room and down the stairs to the [MASK]",
+    "timestamp" : 81519
+  }, {
+    "sentence" : "Upon the bed in the home and upon the stairs in the kitchen",
+    "tokens" : [ 404, 394, 3225, 2515, 394, 1724, 215, 403, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 36.64400863647461,
+    "tokens_used" : [ " Upon", " the", " bed", " in", " the", " home", " and", " upon", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Upon the bed in [MASK] [MASK] and upon the stairs in the kitchen",
+    "timestamp" : 129014
+  }, {
+    "sentence" : "Upon the bar in the home and upon the stairs in the kitchen",
+    "tokens" : [ 404, 394, 4038, 2515, 394, 1724, 215, 403, 394, 991, 2515, 394, 350 ],
+    "perplexity" : 36.05226135253906,
+    "tokens_used" : [ " Upon", " the", " bar", " in", " the", " home", " and", " upon", " the", " stairs", " in", " the", " kitchen" ],
+    "original_sentence" : "Upon the bar in the [MASK] and upon the stairs in the [MASK]",
+    "timestamp" : 210020
+  }, {
+    "sentence" : "Upon the bar in the room and under the table in the kitchen",
+    "tokens" : [ 404, 394, 4038, 2515, 394, 3465, 215, 1934, 394, 2664, 2515, 394, 350 ],
+    "perplexity" : 27.884132385253906,
+    "tokens_used" : [ " Upon", " the", " bar", " in", " the", " room", " and", " under", " the", " table", " in", " the", " kitchen" ],
+    "original_sentence" : "Upon the bar in the [MASK] and under [MASK] table in the kitchen",
+    "timestamp" : 227618
+  }, {
+    "sentence" : "Upon the bar in the shop and under the table in the kitchen",
+    "tokens" : [ 404, 394, 4038, 2515, 394, 4667, 215, 1934, 394, 2664, 2515, 394, 350 ],
+    "perplexity" : 33.77599334716797,
+    "tokens_used" : [ " Upon", " the", " bar", " in", " the", " shop", " and", " under", " the", " table", " in", " the", " kitchen" ],
+    "original_sentence" : "Upon the bar in the [MASK] and under [MASK] table in the kitchen",
+    "timestamp" : 228767
+  }, {
+    "sentence" : "Upon the bar in the back and under the table in the kitchen",
+    "tokens" : [ 404, 394, 4038, 2515, 394, 954, 215, 1934, 394, 2664, 2515, 394, 350 ],
+    "perplexity" : 29.99395179748535,
+    "tokens_used" : [ " Upon", " the", " bar", " in", " the", " back", " and", " under", " the", " table", " in", " the", " kitchen" ],
+    "original_sentence" : "Upon the bar in the [MASK] and under [MASK] table in the kitchen",
+    "timestamp" : 229232
+  }, {
+    "sentence" : "Open the bar in the house and leave the wine in the kitchen",
+    "tokens" : [ 4521, 394, 4038, 2515, 394, 1080, 215, 1017, 394, 1483, 2515, 394, 350 ],
+    "perplexity" : 33.0337028503418,
+    "tokens_used" : [ " Open", " the", " bar", " in", " the", " house", " and", " leave", " the", " wine", " in", " the", " kitchen" ],
+    "original_sentence" : "Open the bar in the [MASK] and leave the [MASK] in the kitchen",
+    "timestamp" : 831272
+  }, {
+    "sentence" : "Open the bar in the house and close the book in the kitchen",
+    "tokens" : [ 4521, 394, 4038, 2515, 394, 1080, 215, 36, 394, 2989, 2515, 394, 350 ],
+    "perplexity" : 34.1165885925293,
+    "tokens_used" : [ " Open", " the", " bar", " in", " the", " house", " and", " close", " the", " book", " in", " the", " kitchen" ],
+    "original_sentence" : "Open the bar in the house and [MASK] the [MASK] in the kitchen",
+    "timestamp" : 834913
+  }, {
+    "sentence" : "Open the bar in the house and close the shop in the kitchen",
+    "tokens" : [ 4521, 394, 4038, 2515, 394, 1080, 215, 36, 394, 4667, 2515, 394, 350 ],
+    "perplexity" : 36.625614166259766,
+    "tokens_used" : [ " Open", " the", " bar", " in", " the", " house", " and", " close", " the", " shop", " in", " the", " kitchen" ],
+    "original_sentence" : "Open the bar in the house and [MASK] the [MASK] in the kitchen",
+    "timestamp" : 835228
+  }, {
+    "sentence" : "Open the key in the house and close the door in the evening",
+    "tokens" : [ 4521, 394, 4016, 2515, 394, 1080, 215, 36, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 31.35279655456543,
+    "tokens_used" : [ " Open", " the", " key", " in", " the", " house", " and", " close", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "Open the key in [MASK] house and close the door in the [MASK]",
+    "timestamp" : 853082
+  }, {
+    "sentence" : "Lock the key in the house and close the door in the evening",
+    "tokens" : [ 4924, 394, 4016, 2515, 394, 1080, 215, 36, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 26.036516189575195,
+    "tokens_used" : [ " Lock", " the", " key", " in", " the", " house", " and", " close", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "[MASK] the [MASK] in the house and close the door in the evening",
+    "timestamp" : 858216
+  }, {
+    "sentence" : "Turn the key in the house and close the door in the evening",
+    "tokens" : [ 3520, 394, 4016, 2515, 394, 1080, 215, 36, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 27.1107234954834,
+    "tokens_used" : [ " Turn", " the", " key", " in", " the", " house", " and", " close", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "[MASK] the [MASK] in the house and close the door in the evening",
+    "timestamp" : 858320
+  }, {
+    "sentence" : "Keep the key in the house and close the door in the evening",
+    "tokens" : [ 4011, 394, 4016, 2515, 394, 1080, 215, 36, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 27.716402053833008,
+    "tokens_used" : [ " Keep", " the", " key", " in", " the", " house", " and", " close", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "[MASK] the [MASK] in the house and close the door in the evening",
+    "timestamp" : 858501
+  }, {
+    "sentence" : "Hide the key in the house and close the door in the evening",
+    "tokens" : [ 286, 394, 4016, 2515, 394, 1080, 215, 36, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 30.6971492767334,
+    "tokens_used" : [ " Hide", " the", " key", " in", " the", " house", " and", " close", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "[MASK] the [MASK] in the house and close the door in the evening",
+    "timestamp" : 859233
+  }, {
+    "sentence" : "Keep the key in the house and close the door in the evening",
+    "tokens" : [ 4010, 394, 4016, 2515, 394, 1080, 215, 36, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 27.716402053833008,
+    "tokens_used" : [ " keep", " the", " key", " in", " the", " house", " and", " close", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "[MASK] the [MASK] in the house and close the door in the evening",
+    "timestamp" : 859560
+  }, {
+    "sentence" : "Turn the key in the office and open the door in the evening",
+    "tokens" : [ 3520, 394, 4016, 2515, 394, 1543, 215, 4520, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 28.04719352722168,
+    "tokens_used" : [ " Turn", " the", " key", " in", " the", " office", " and", " open", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "Turn the key in the [MASK] and [MASK] the door in the evening",
+    "timestamp" : 862795
+  }, {
+    "sentence" : "Turn the key in the spring and open the door in the evening",
+    "tokens" : [ 3520, 394, 4016, 2515, 394, 3348, 215, 4520, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 28.514123916625977,
+    "tokens_used" : [ " Turn", " the", " key", " in", " the", " spring", " and", " open", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "Turn the key in the [MASK] and [MASK] the door in the evening",
+    "timestamp" : 863062
+  }, {
+    "sentence" : "Turn the key in the closet and open the door in the evening",
+    "tokens" : [ 3520, 394, 4016, 2515, 394, 2555, 215, 4520, 394, 4455, 2515, 394, 3688 ],
+    "perplexity" : 28.930648803710938,
+    "tokens_used" : [ " Turn", " the", " key", " in", " the", " closet", " and", " open", " the", " door", " in", " the", " evening" ],
+    "original_sentence" : "Turn the key in the [MASK] and [MASK] the door in the evening",
+    "timestamp" : 864028
+  }, {
+    "sentence" : "Stick the key in the corner and turn the lock in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 3519, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 28.664318084716797,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " turn", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "Stick the [MASK] in the corner and [MASK] the lock in the window",
+    "timestamp" : 877652
+  }, {
+    "sentence" : "Stick the key in the corner and find the lock in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 4072, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 29.09309959411621,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " find", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "Stick the [MASK] in the corner and [MASK] the lock in the window",
+    "timestamp" : 877912
+  }, {
+    "sentence" : "Stick the key in the corner and drop the lock in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 1519, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 29.05309295654297,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " drop", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "Stick the [MASK] in the corner and [MASK] the lock in the window",
+    "timestamp" : 878158
+  }, {
+    "sentence" : "Stick the key in the corner and lock the lock in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 4923, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 27.812604904174805,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " lock", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "Stick the [MASK] in the corner and [MASK] the lock in the window",
+    "timestamp" : 878649
+  }, {
+    "sentence" : "Stick the key in the corner and pick the lock in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 4221, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 30.127660751342773,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " pick", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "Stick the [MASK] in the corner and [MASK] the lock in the window",
+    "timestamp" : 878813
+  }, {
+    "sentence" : "Stick the key in the corner and turn the door in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 3519, 394, 4455, 2515, 394, 5078 ],
+    "perplexity" : 33.78501510620117,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " turn", " the", " door", " in", " the", " window" ],
+    "original_sentence" : "Stick [MASK] key in the corner and turn the [MASK] in the window",
+    "timestamp" : 881091
+  }, {
+    "sentence" : "Stick the key in the corner and turn the sign in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 3519, 394, 377, 2515, 394, 5078 ],
+    "perplexity" : 36.880367279052734,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " turn", " the", " sign", " in", " the", " window" ],
+    "original_sentence" : "Stick [MASK] key in the corner and turn the [MASK] in the window",
+    "timestamp" : 881440
+  }, {
+    "sentence" : "Stick the key in the corner and turn the keys in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 3519, 394, 3861, 2515, 394, 5078 ],
+    "perplexity" : 29.178508758544922,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " turn", " the", " keys", " in", " the", " window" ],
+    "original_sentence" : "Stick [MASK] key in the corner and turn the [MASK] in the window",
+    "timestamp" : 881869
+  }, {
+    "sentence" : "Stick the key in the corner and turn the back in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 3519, 394, 954, 2515, 394, 5078 ],
+    "perplexity" : 36.40250015258789,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " turn", " the", " back", " in", " the", " window" ],
+    "original_sentence" : "Stick [MASK] key in the corner and turn the [MASK] in the window",
+    "timestamp" : 882114
+  }, {
+    "sentence" : "Stick the key in the corner and turn the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 3519, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 37.74271774291992,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " turn", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick [MASK] key in the corner and turn the [MASK] in the window",
+    "timestamp" : 882439
+  }, {
+    "sentence" : "Stick the key in the corner and find the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 4072, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 30.76479148864746,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " find", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in [MASK] corner and [MASK] the hole in the window",
+    "timestamp" : 889588
+  }, {
+    "sentence" : "Stick the key in the corner and push the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 2182, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 33.30531692504883,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " push", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in [MASK] corner and [MASK] the hole in the window",
+    "timestamp" : 890508
+  }, {
+    "sentence" : "Stick the key in the corner and pick the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 4221, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 35.33168029785156,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " pick", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in the corner and [MASK] the hole [MASK] the window",
+    "timestamp" : 900057
+  }, {
+    "sentence" : "Stick the key in the corner and shut the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 2420, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 37.02653503417969,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " shut", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in the corner and [MASK] the hole [MASK] the window",
+    "timestamp" : 900443
+  }, {
+    "sentence" : "Stick the key in the corner and burn the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 830, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 36.4849739074707,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " burn", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in the corner and [MASK] the hole [MASK] the window",
+    "timestamp" : 900701
+  }, {
+    "sentence" : "Stick the key in the corner and over the hole in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 4835, 215, 116, 394, 4287, 2515, 394, 5078 ],
+    "perplexity" : 36.847190856933594,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " corner", " and", " over", " the", " hole", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in the corner and [MASK] the hole [MASK] the window",
+    "timestamp" : 900910
+  }, {
+    "sentence" : "Stick the key in the pocket and pick the lock in the window",
+    "tokens" : [ 3644, 394, 4016, 2515, 394, 94, 215, 4221, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 31.490495681762695,
+    "tokens_used" : [ " Stick", " the", " key", " in", " the", " pocket", " and", " pick", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "Stick the key in the [MASK] and pick the [MASK] in the window",
+    "timestamp" : 917523
+  }, {
+    "sentence" : "Put the knife in the pocket and pick the lock in the window",
+    "tokens" : [ 1537, 394, 751, 2515, 394, 94, 215, 4221, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 24.54656219482422,
+    "tokens_used" : [ " Put", " the", " knife", " in", " the", " pocket", " and", " pick", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "[MASK] the [MASK] in the pocket and pick the lock in the window",
+    "timestamp" : 922403
+  }, {
+    "sentence" : "Put the paper in the pocket and pick the lock in the window",
+    "tokens" : [ 1537, 394, 4602, 2515, 394, 94, 215, 4221, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 29.881147384643555,
+    "tokens_used" : [ " Put", " the", " paper", " in", " the", " pocket", " and", " pick", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "[MASK] the [MASK] in the pocket and pick the lock in the window",
+    "timestamp" : 922822
+  }, {
+    "sentence" : "Put the coins in the pocket and pick the lock in the window",
+    "tokens" : [ 1537, 394, 2353, 2515, 394, 94, 215, 4221, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 33.97554397583008,
+    "tokens_used" : [ " Put", " the", " coins", " in", " the", " pocket", " and", " pick", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "[MASK] the [MASK] in the pocket and pick the lock in the window",
+    "timestamp" : 923212
+  }, {
+    "sentence" : "Put the watch in the pocket and pick the lock in the window",
+    "tokens" : [ 1537, 394, 4978, 2515, 394, 94, 215, 4221, 394, 4923, 2515, 394, 5078 ],
+    "perplexity" : 26.324138641357422,
+    "tokens_used" : [ " Put", " the", " watch", " in", " the", " pocket", " and", " pick", " the", " lock", " in", " the", " window" ],
+    "original_sentence" : "[MASK] the [MASK] in the pocket and pick the lock in the window",
+    "timestamp" : 923949
+  }, {
+    "sentence" : "Put the knife in the pocket and pick the lock of the window",
+    "tokens" : [ 1537, 394, 751, 2515, 394, 94, 215, 4221, 394, 4923, 5194, 394, 5078 ],
+    "perplexity" : 25.663127899169922,
+    "tokens_used" : [ " Put", " the", " knife", " in", " the", " pocket", " and", " pick", " the", " lock", " of", " the", " window" ],
+    "original_sentence" : "Put the knife in the [MASK] and pick the lock [MASK] the window",
+    "timestamp" : 927302
+  }, {
+    "sentence" : "Put the knife in the pocket and pick the lock at the window",
+    "tokens" : [ 1537, 394, 751, 2515, 394, 94, 215, 4221, 394, 4923, 302, 394, 5078 ],
+    "perplexity" : 28.555208206176758,
+    "tokens_used" : [ " Put", " the", " knife", " in", " the", " pocket", " and", " pick", " the", " lock", " at", " the", " window" ],
+    "original_sentence" : "Put the knife in the [MASK] and pick the lock [MASK] the window",
+    "timestamp" : 927718
+  }, {
+    "sentence" : "Put the knife in the pocket and pick the lock to the window",
+    "tokens" : [ 1537, 394, 751, 2515, 394, 94, 215, 4221, 394, 4923, 2461, 394, 5078 ],
+    "perplexity" : 23.961917877197266,
+    "tokens_used" : [ " Put", " the", " knife", " in", " the", " pocket", " and", " pick", " the", " lock", " to", " the", " window" ],
+    "original_sentence" : "Put the knife in the [MASK] and pick the lock [MASK] the window",
+    "timestamp" : 928153
+  }, {
+    "sentence" : "Put the book in the pocket and pick the lock on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 94, 215, 4221, 394, 4923, 710, 394, 803 ],
+    "perplexity" : 28.520065307617188,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " pocket", " and", " pick", " the", " lock", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the pocket and pick the lock on the [MASK]",
+    "timestamp" : 931914
+  }, {
+    "sentence" : "Put the book in the corner and pick the lock on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 4221, 394, 4923, 710, 394, 803 ],
+    "perplexity" : 25.553417205810547,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " pick", " the", " lock", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the [MASK] and pick the lock on the outside",
+    "timestamp" : 940828
+  }, {
+    "sentence" : "Put the book in the basket and pick the lock on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 4221, 394, 4923, 710, 394, 803 ],
+    "perplexity" : 28.905048370361328,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " pick", " the", " lock", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the [MASK] and pick the lock on the outside",
+    "timestamp" : 942345
+  }, {
+    "sentence" : "Put the book in the garage and pick the lock on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 2344, 215, 4221, 394, 4923, 710, 394, 803 ],
+    "perplexity" : 31.206865310668945,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " garage", " and", " pick", " the", " lock", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the [MASK] and pick the lock on the outside",
+    "timestamp" : 942565
+  }, {
+    "sentence" : "Put the book in the corner and keep the book on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 4010, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 18.45945930480957,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " keep", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in the corner and [MASK] the [MASK] on the outside",
+    "timestamp" : 946274
+  }, {
+    "sentence" : "Put the book in the corner and read the book on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 1252, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 18.422334671020508,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " read", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in the corner and [MASK] the [MASK] on the outside",
+    "timestamp" : 947138
+  }, {
+    "sentence" : "Put the book in the corner and have the book on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 3313, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 22.364471435546875,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " have", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in the corner and [MASK] the [MASK] on the outside",
+    "timestamp" : 947635
+  }, {
+    "sentence" : "Put the book in the corner and drop the card on the surface",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 1519, 394, 1013, 710, 394, 2035 ],
+    "perplexity" : 25.71401023864746,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " drop", " the", " card", " on", " the", " surface" ],
+    "original_sentence" : "[MASK] the book in the corner and [MASK] the card on the surface",
+    "timestamp" : 961513
+  }, {
+    "sentence" : "Put the book in the corner and keep the card on the surface",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 4010, 394, 1013, 710, 394, 2035 ],
+    "perplexity" : 28.611164093017578,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " keep", " the", " card", " on", " the", " surface" ],
+    "original_sentence" : "[MASK] the book in the corner and [MASK] the card on the surface",
+    "timestamp" : 961766
+  }, {
+    "sentence" : "Put the book in the corner and hold the card on the surface",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 4110, 394, 1013, 710, 394, 2035 ],
+    "perplexity" : 29.021465301513672,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " hold", " the", " card", " on", " the", " surface" ],
+    "original_sentence" : "[MASK] the book in the corner and [MASK] the card on the surface",
+    "timestamp" : 962197
+  }, {
+    "sentence" : "Put the book in the corner and drop the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 1519, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 20.93271827697754,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " drop", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "[MASK] the book in the corner and drop the card on the [MASK]",
+    "timestamp" : 965714
+  }, {
+    "sentence" : "Put the book in the corner and drop the card on the shelves",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 1519, 394, 1013, 710, 394, 3556 ],
+    "perplexity" : 26.303449630737305,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " drop", " the", " card", " on", " the", " shelves" ],
+    "original_sentence" : "[MASK] the book in the corner and drop the card on the [MASK]",
+    "timestamp" : 965983
+  }, {
+    "sentence" : "Put the book in the corner and drop the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 1519, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 27.26491928100586,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " drop", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "[MASK] the book in the corner and drop the card on the [MASK]",
+    "timestamp" : 966281
+  }, {
+    "sentence" : "Put the book on the corner and drop the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 4835, 215, 1519, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 23.650421142578125,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " corner", " and", " drop", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the corner and drop the card on the [MASK]",
+    "timestamp" : 970345
+  }, {
+    "sentence" : "Put the book on the corner and drop the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 4835, 215, 1519, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 29.994945526123047,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " corner", " and", " drop", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book [MASK] the corner and drop the card on the [MASK]",
+    "timestamp" : 970753
+  }, {
+    "sentence" : "Put the book on the corner and drop the card on the corners",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 4835, 215, 1519, 394, 1013, 710, 394, 3128 ],
+    "perplexity" : 34.22026062011719,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " corner", " and", " drop", " the", " card", " on", " the", " corners" ],
+    "original_sentence" : "Put the book [MASK] the corner and drop the card on the [MASK]",
+    "timestamp" : 970922
+  }, {
+    "sentence" : "Put the book on the corner and drop the card on the surface",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 4835, 215, 1519, 394, 1013, 710, 394, 2035 ],
+    "perplexity" : 30.509042739868164,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " corner", " and", " drop", " the", " card", " on", " the", " surface" ],
+    "original_sentence" : "Put the book [MASK] the corner and drop the card on the [MASK]",
+    "timestamp" : 971125
+  }, {
+    "sentence" : "Put the book on the corner and drop the card on the shelves",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 4835, 215, 1519, 394, 1013, 710, 394, 3556 ],
+    "perplexity" : 30.19001579284668,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " corner", " and", " drop", " the", " card", " on", " the", " shelves" ],
+    "original_sentence" : "Put the book [MASK] the corner and drop the card on the [MASK]",
+    "timestamp" : 971467
+  }, {
+    "sentence" : "Put the book on the screen and drop the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 4789, 215, 1519, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 25.010297775268555,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " screen", " and", " drop", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the [MASK] and drop the card on the counter",
+    "timestamp" : 974973
+  }, {
+    "sentence" : "Put the book on the tables and drop the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 2280, 215, 1519, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 28.129234313964844,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " tables", " and", " drop", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the [MASK] and drop the card on the counter",
+    "timestamp" : 975500
+  }, {
+    "sentence" : "Put the book on the basket and drop the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 710, 394, 1791, 215, 1519, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 26.792287826538086,
+    "tokens_used" : [ " Put", " the", " book", " on", " the", " basket", " and", " drop", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the [MASK] and drop the card on the counter",
+    "timestamp" : 975971
+  }, {
+    "sentence" : "Put the book in the basket and drop the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 1519, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 21.732057571411133,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " drop", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the basket and drop the card on the [MASK]",
+    "timestamp" : 983585
+  }, {
+    "sentence" : "Put the book in the basket and drop the card on the shelves",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 1519, 394, 1013, 710, 394, 3556 ],
+    "perplexity" : 28.96429443359375,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " drop", " the", " card", " on", " the", " shelves" ],
+    "original_sentence" : "Put the book [MASK] the basket and drop the card on the [MASK]",
+    "timestamp" : 983935
+  }, {
+    "sentence" : "Put the book in the basket and drop the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 1519, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 29.700271606445312,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " drop", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book [MASK] the basket and drop the card on the [MASK]",
+    "timestamp" : 984800
+  }, {
+    "sentence" : "Put the book in the basket and drop the card on the surface",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 1519, 394, 1013, 710, 394, 2035 ],
+    "perplexity" : 28.828758239746094,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " drop", " the", " card", " on", " the", " surface" ],
+    "original_sentence" : "Put the book [MASK] the basket and drop the card on the [MASK]",
+    "timestamp" : 985425
+  }, {
+    "sentence" : "Put the book in the basket and keep the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 4010, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 24.52692222595215,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " keep", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the basket and [MASK] the card on the counter",
+    "timestamp" : 988907
+  }, {
+    "sentence" : "Put the book in the basket and then the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 2226, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 31.49969482421875,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " then", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the basket and [MASK] the card on the counter",
+    "timestamp" : 989327
+  }, {
+    "sentence" : "Put the book in the basket and read the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 1252, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 25.064796447753906,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " read", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book [MASK] the basket and [MASK] the card on the counter",
+    "timestamp" : 989774
+  }, {
+    "sentence" : "Put the book in one corner and keep the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 1820, 4835, 215, 4010, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 28.512327194213867,
+    "tokens_used" : [ " Put", " the", " book", " in", " one", " corner", " and", " keep", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in one [MASK] and keep the card on the [MASK]",
+    "timestamp" : 1023910
+  }, {
+    "sentence" : "Put the book in one corner and keep the card on the counter",
+    "tokens" : [ 1537, 394, 2989, 2515, 1820, 4835, 215, 4010, 394, 1013, 710, 394, 264 ],
+    "perplexity" : 29.01241683959961,
+    "tokens_used" : [ " Put", " the", " book", " in", " one", " corner", " and", " keep", " the", " card", " on", " the", " counter" ],
+    "original_sentence" : "Put the book in one [MASK] and keep the card on the [MASK]",
+    "timestamp" : 1024183
+  }, {
+    "sentence" : "Put the book in the center and keep the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 502, 215, 4010, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 24.14194679260254,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " center", " and", " keep", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in [MASK] [MASK] and keep the card on the outside",
+    "timestamp" : 1028939
+  }, {
+    "sentence" : "Put the book in the inside and keep the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1305, 215, 4010, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 32.343265533447266,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " inside", " and", " keep", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in [MASK] [MASK] and keep the card on the outside",
+    "timestamp" : 1029752
+  }, {
+    "sentence" : "Put the book in the corner and keep the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4835, 215, 4010, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 24.420690536499023,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " corner", " and", " keep", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in [MASK] [MASK] and keep the card on the outside",
+    "timestamp" : 1030012
+  }, {
+    "sentence" : "Put the book in the basket and keep the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 1791, 215, 4010, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 28.662275314331055,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " basket", " and", " keep", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in [MASK] [MASK] and keep the card on the outside",
+    "timestamp" : 1030317
+  }, {
+    "sentence" : "Put the book in the lining and keep the card on the outside",
+    "tokens" : [ 1537, 394, 2989, 2515, 394, 4298, 215, 4010, 394, 1013, 710, 394, 803 ],
+    "perplexity" : 35.572505950927734,
+    "tokens_used" : [ " Put", " the", " book", " in", " the", " lining", " and", " keep", " the", " card", " on", " the", " outside" ],
+    "original_sentence" : "Put the book in [MASK] [MASK] and keep the card on the outside",
+    "timestamp" : 1030595
+  }, {
+    "sentence" : "Put the lamp in the center and keep the lamp on the outside",
+    "tokens" : [ 1537, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 17.586929321289062,
+    "tokens_used" : [ " Put", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the center and keep the [MASK] on the outside",
+    "timestamp" : 1033647
+  }, {
+    "sentence" : "Put the lamp in the center and keep the door on the outside",
+    "tokens" : [ 1537, 394, 3750, 2515, 394, 502, 215, 4010, 394, 4455, 710, 394, 803 ],
+    "perplexity" : 25.376047134399414,
+    "tokens_used" : [ " Put", " the", " lamp", " in", " the", " center", " and", " keep", " the", " door", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the center and keep the [MASK] on the outside",
+    "timestamp" : 1034107
+  }, {
+    "sentence" : "Put the lamp in the center and keep the food on the outside",
+    "tokens" : [ 1537, 394, 3750, 2515, 394, 502, 215, 4010, 394, 312, 710, 394, 803 ],
+    "perplexity" : 29.744510650634766,
+    "tokens_used" : [ " Put", " the", " lamp", " in", " the", " center", " and", " keep", " the", " food", " on", " the", " outside" ],
+    "original_sentence" : "Put the [MASK] in the center and keep the [MASK] on the outside",
+    "timestamp" : 1034759
+  }, {
+    "sentence" : "Lay the lamp in the center and keep the lamp on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 20.169221878051758,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "[MASK] the lamp in the center and keep [MASK] lamp on the outside",
+    "timestamp" : 1038943
+  }, {
+    "sentence" : "Add the lamp in the center and keep the lamp on the outside",
+    "tokens" : [ 1800, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 25.771291732788086,
+    "tokens_used" : [ " Add", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "[MASK] the lamp in the center and keep [MASK] lamp on the outside",
+    "timestamp" : 1039211
+  }, {
+    "sentence" : "Fix the lamp in the center and keep the lamp on the outside",
+    "tokens" : [ 3762, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 24.815292358398438,
+    "tokens_used" : [ " Fix", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "[MASK] the lamp in the center and keep [MASK] lamp on the outside",
+    "timestamp" : 1039490
+  }, {
+    "sentence" : "Use the lamp in the center and keep the lamp on the outside",
+    "tokens" : [ 21, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 25.687049865722656,
+    "tokens_used" : [ " Use", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "[MASK] the lamp in the center and keep [MASK] lamp on the outside",
+    "timestamp" : 1039842
+  }, {
+    "sentence" : "Get the lamp in the center and keep the lamp on the outside",
+    "tokens" : [ 3913, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 25.189064025878906,
+    "tokens_used" : [ " Get", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "[MASK] the lamp in the center and keep [MASK] lamp on the outside",
+    "timestamp" : 1040114
+  }, {
+    "sentence" : "Lay the lamp in the center and keep the lamp to the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 2461, 394, 803 ],
+    "perplexity" : 31.395057678222656,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " to", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and keep the [MASK] [MASK] the outside",
+    "timestamp" : 1042954
+  }, {
+    "sentence" : "Lay the lamp in the center and keep the lamp at the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 302, 394, 803 ],
+    "perplexity" : 34.21091079711914,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " at", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and keep the [MASK] [MASK] the outside",
+    "timestamp" : 1043220
+  }, {
+    "sentence" : "Lay the lamp in the center and keep the lamp in the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4010, 394, 3750, 2515, 394, 803 ],
+    "perplexity" : 26.055362701416016,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " keep", " the", " lamp", " in", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and keep the [MASK] [MASK] the outside",
+    "timestamp" : 1043714
+  }, {
+    "sentence" : "Lay the lamp in the center and keep the book in the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4010, 394, 2989, 2515, 394, 803 ],
+    "perplexity" : 35.14553451538086,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " keep", " the", " book", " in", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and keep the [MASK] in [MASK] outside",
+    "timestamp" : 1046872
+  }, {
+    "sentence" : "Lay the lamp in the center and read the book on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 1252, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 28.631547927856445,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " read", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the book [MASK] the outside",
+    "timestamp" : 1051000
+  }, {
+    "sentence" : "Lay the lamp in the center and keep the book on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4010, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 30.220426559448242,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " keep", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the book [MASK] the outside",
+    "timestamp" : 1051780
+  }, {
+    "sentence" : "Lay the lamp in the center and hold the book on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4110, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 31.671875,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " hold", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the book [MASK] the outside",
+    "timestamp" : 1052350
+  }, {
+    "sentence" : "Lay the lamp in the center and hang the book on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 1756, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 31.961763381958008,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " hang", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the book [MASK] the outside",
+    "timestamp" : 1052603
+  }, {
+    "sentence" : "Lay the lamp in the center and open the book on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4520, 394, 2989, 710, 394, 803 ],
+    "perplexity" : 27.094104766845703,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " open", " the", " book", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the book [MASK] the outside",
+    "timestamp" : 1052958
+  }, {
+    "sentence" : "Lay the lamp in the center and hang the lamp on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 1756, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 22.223329544067383,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " hang", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the [MASK] on the outside",
+    "timestamp" : 1055837
+  }, {
+    "sentence" : "Lay the lamp in the center and then the lamp on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 2226, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 23.244091033935547,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " then", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the [MASK] on the outside",
+    "timestamp" : 1056267
+  }, {
+    "sentence" : "Lay the lamp in the center and hold the lamp on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 4110, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 21.968793869018555,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " hold", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the [MASK] on the outside",
+    "timestamp" : 1056733
+  }, {
+    "sentence" : "Lay the lamp in the center and have the lamp on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 3313, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 27.579410552978516,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " have", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the [MASK] on the outside",
+    "timestamp" : 1057169
+  }, {
+    "sentence" : "Lay the lamp in the center and drop the lamp on the outside",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 1519, 394, 3750, 710, 394, 803 ],
+    "perplexity" : 22.83411407470703,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " drop", " the", " lamp", " on", " the", " outside" ],
+    "original_sentence" : "Lay the lamp in the center and [MASK] the [MASK] on the outside",
+    "timestamp" : 1057664
+  }, {
+    "sentence" : "Lay the lamp in the center and drop the lamp on the ceiling",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 1519, 394, 3750, 710, 394, 2921 ],
+    "perplexity" : 21.990955352783203,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " drop", " the", " lamp", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the lamp [MASK] the center and drop the lamp on the [MASK]",
+    "timestamp" : 1059829
+  }, {
+    "sentence" : "Lay the lamp in the center and drop the lamp on the surface",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 502, 215, 1519, 394, 3750, 710, 394, 2035 ],
+    "perplexity" : 24.957229614257812,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " center", " and", " drop", " the", " lamp", " on", " the", " surface" ],
+    "original_sentence" : "Lay the lamp [MASK] the center and drop the lamp on the [MASK]",
+    "timestamp" : 1060219
+  }, {
+    "sentence" : "Lay the lamp in the corner and drop the lamp on the ceiling",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 4835, 215, 1519, 394, 3750, 710, 394, 2921 ],
+    "perplexity" : 21.264028549194336,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " corner", " and", " drop", " the", " lamp", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the [MASK] and drop the lamp on the ceiling",
+    "timestamp" : 1065213
+  }, {
+    "sentence" : "Lay the desk in the corner and drop the lamp on the ceiling",
+    "tokens" : [ 2742, 394, 835, 2515, 394, 4835, 215, 1519, 394, 3750, 710, 394, 2921 ],
+    "perplexity" : 29.235349655151367,
+    "tokens_used" : [ " Lay", " the", " desk", " in", " the", " corner", " and", " drop", " the", " lamp", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the [MASK] and drop the lamp on the ceiling",
+    "timestamp" : 1065551
+  }, {
+    "sentence" : "Lay the book in the corner and drop the lamp on the ceiling",
+    "tokens" : [ 2742, 394, 2989, 2515, 394, 4835, 215, 1519, 394, 3750, 710, 394, 2921 ],
+    "perplexity" : 30.909095764160156,
+    "tokens_used" : [ " Lay", " the", " book", " in", " the", " corner", " and", " drop", " the", " lamp", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the [MASK] and drop the lamp on the ceiling",
+    "timestamp" : 1065929
+  }, {
+    "sentence" : "Lay the head in the corner and drop the lamp on the ceiling",
+    "tokens" : [ 2742, 394, 2968, 2515, 394, 4835, 215, 1519, 394, 3750, 710, 394, 2921 ],
+    "perplexity" : 27.43132972717285,
+    "tokens_used" : [ " Lay", " the", " head", " in", " the", " corner", " and", " drop", " the", " lamp", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the [MASK] and drop the lamp on the ceiling",
+    "timestamp" : 1066654
+  }, {
+    "sentence" : "Lay the book in the corner and drop the book on the ceiling",
+    "tokens" : [ 2742, 394, 2989, 2515, 394, 4835, 215, 1519, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 21.168039321899414,
+    "tokens_used" : [ " Lay", " the", " book", " in", " the", " corner", " and", " drop", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the corner and drop the [MASK] on the ceiling",
+    "timestamp" : 1069006
+  }, {
+    "sentence" : "Lay the desk in the corner and drop the book on the ceiling",
+    "tokens" : [ 2742, 394, 835, 2515, 394, 4835, 215, 1519, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 31.987977981567383,
+    "tokens_used" : [ " Lay", " the", " desk", " in", " the", " corner", " and", " drop", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the corner and drop the [MASK] on the ceiling",
+    "timestamp" : 1070116
+  }, {
+    "sentence" : "Lay the lamp in the corner and drop the book on the ceiling",
+    "tokens" : [ 2742, 394, 3750, 2515, 394, 4835, 215, 1519, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 30.68567657470703,
+    "tokens_used" : [ " Lay", " the", " lamp", " in", " the", " corner", " and", " drop", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the [MASK] in the corner and drop the [MASK] on the ceiling",
+    "timestamp" : 1070787
+  }, {
+    "sentence" : "Lay her book in the corner and drop the book on the ceiling",
+    "tokens" : [ 2742, 3730, 2989, 2515, 394, 4835, 215, 1519, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 34.68025588989258,
+    "tokens_used" : [ " Lay", " her", " book", " in", " the", " corner", " and", " drop", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay [MASK] book in the corner and drop the book [MASK] the ceiling",
+    "timestamp" : 1076450
+  }, {
+    "sentence" : "Lay the book in the corner and read the book on the ceiling",
+    "tokens" : [ 2742, 394, 2989, 2515, 394, 4835, 215, 1252, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 26.20440101623535,
+    "tokens_used" : [ " Lay", " the", " book", " in", " the", " corner", " and", " read", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the book in the corner and [MASK] the [MASK] on the ceiling",
+    "timestamp" : 1128283
+  }, {
+    "sentence" : "Lay the book in the corner and keep the book on the ceiling",
+    "tokens" : [ 2742, 394, 2989, 2515, 394, 4835, 215, 4010, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 25.67742347717285,
+    "tokens_used" : [ " Lay", " the", " book", " in", " the", " corner", " and", " keep", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the book in the corner and [MASK] the [MASK] on the ceiling",
+    "timestamp" : 1129100
+  }, {
+    "sentence" : "Lay the book in the corner and have the book on the ceiling",
+    "tokens" : [ 2742, 394, 2989, 2515, 394, 4835, 215, 3313, 394, 2989, 710, 394, 2921 ],
+    "perplexity" : 31.593402862548828,
+    "tokens_used" : [ " Lay", " the", " book", " in", " the", " corner", " and", " have", " the", " book", " on", " the", " ceiling" ],
+    "original_sentence" : "Lay the book in the corner and [MASK] the [MASK] on the ceiling",
+    "timestamp" : 1130017
+  } ]
+}

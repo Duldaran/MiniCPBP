@@ -1,0 +1,387 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T15:05:10.850072318",
+  "time" : 430.201,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That sentence soft a water from beach in aunts water",
+    "score" : 4843.15673828125,
+    "time" : 6347,
+    "cycle" : 0
+  }, {
+    "sentence" : "That sentence soft a big red beach and aunts water",
+    "score" : 4546.47607421875,
+    "time" : 9888,
+    "cycle" : 1
+  }, {
+    "sentence" : "That sentence soft about a red beach and blue water",
+    "score" : 1175.1851806640625,
+    "time" : 16133,
+    "cycle" : 2
+  }, {
+    "sentence" : "See more soft about the red beach and blue water",
+    "score" : 353.8529052734375,
+    "time" : 19902,
+    "cycle" : 3
+  }, {
+    "sentence" : "Is more soft about the whole beach and its water",
+    "score" : 278.8934631347656,
+    "time" : 26323,
+    "cycle" : 4
+  }, {
+    "sentence" : "Is more soft than the whole beach in its water",
+    "score" : 238.21624755859375,
+    "time" : 34857,
+    "cycle" : 5
+  }, {
+    "sentence" : "Is more soft than the whole beach in the water",
+    "score" : 134.8398895263672,
+    "time" : 40288,
+    "cycle" : 6
+  }, {
+    "sentence" : "Was more soft than the sandy beach in the water",
+    "score" : 72.83686828613281,
+    "time" : 44717,
+    "cycle" : 7
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach with clear water",
+    "score" : 64.65916442871094,
+    "time" : 167583,
+    "cycle" : 38
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach surrounded by water",
+    "score" : 50.508052825927734,
+    "time" : 205569,
+    "cycle" : 48
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That sentence soft a water from beach in aunts water",
+    "tokens" : [ 1322, 775, 2489, 4646, 3408, 3605, 5075, 2515, 5196, 3408 ],
+    "perplexity" : 4843.15673828125,
+    "tokens_used" : [ " That", " sentence", " soft", " a", " water", " from", " beach", " in", " aunts", " water" ],
+    "original_sentence" : "That sentence soft [MASK] water [MASK] beach [MASK] aunts water",
+    "timestamp" : 6348
+  }, {
+    "sentence" : "That sentence soft a big red beach and aunts water",
+    "tokens" : [ 1322, 775, 2489, 4646, 2039, 4226, 5075, 215, 5196, 3408 ],
+    "perplexity" : 4546.47607421875,
+    "tokens_used" : [ " That", " sentence", " soft", " a", " big", " red", " beach", " and", " aunts", " water" ],
+    "original_sentence" : "That sentence soft a [MASK] [MASK] beach [MASK] aunts water",
+    "timestamp" : 9888
+  }, {
+    "sentence" : "That sentence soft about a red beach and blue water",
+    "tokens" : [ 1322, 775, 2489, 2949, 4646, 4226, 5075, 215, 4206, 3408 ],
+    "perplexity" : 1175.1851806640625,
+    "tokens_used" : [ " That", " sentence", " soft", " about", " a", " red", " beach", " and", " blue", " water" ],
+    "original_sentence" : "That sentence soft [MASK] [MASK] red beach and [MASK] water",
+    "timestamp" : 16133
+  }, {
+    "sentence" : "See more soft about the red beach and blue water",
+    "tokens" : [ 3388, 3321, 2489, 2949, 394, 4226, 5075, 215, 4206, 3408 ],
+    "perplexity" : 353.8529052734375,
+    "tokens_used" : [ " See", " more", " soft", " about", " the", " red", " beach", " and", " blue", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft about [MASK] red beach and blue water",
+    "timestamp" : 19902
+  }, {
+    "sentence" : "Is more soft about the whole beach and its water",
+    "tokens" : [ 2713, 3321, 2489, 2949, 394, 2009, 5075, 215, 2426, 3408 ],
+    "perplexity" : 278.8934631347656,
+    "tokens_used" : [ " is", " more", " soft", " about", " the", " whole", " beach", " and", " its", " water" ],
+    "original_sentence" : "[MASK] more soft about the [MASK] beach and [MASK] water",
+    "timestamp" : 26323
+  }, {
+    "sentence" : "Is more soft than the whole beach in its water",
+    "tokens" : [ 2714, 3321, 2489, 3990, 394, 2009, 5075, 2515, 2426, 3408 ],
+    "perplexity" : 238.21624755859375,
+    "tokens_used" : [ " Is", " more", " soft", " than", " the", " whole", " beach", " in", " its", " water" ],
+    "original_sentence" : "Is more soft [MASK] the [MASK] beach [MASK] its water",
+    "timestamp" : 34857
+  }, {
+    "sentence" : "Is more soft than the whole beach in the water",
+    "tokens" : [ 2713, 3321, 2489, 3990, 394, 2009, 5075, 2515, 394, 3408 ],
+    "perplexity" : 134.8398895263672,
+    "tokens_used" : [ " is", " more", " soft", " than", " the", " whole", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft than the whole beach in [MASK] water",
+    "timestamp" : 40288
+  }, {
+    "sentence" : "Was more soft than the sandy beach in the water",
+    "tokens" : [ 1558, 3321, 2489, 3990, 394, 422, 5075, 2515, 394, 3408 ],
+    "perplexity" : 72.83686828613281,
+    "tokens_used" : [ " Was", " more", " soft", " than", " the", " sandy", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft than the [MASK] beach in the water",
+    "timestamp" : 44717
+  }, {
+    "sentence" : "Is more soft than the sandy beach in the water",
+    "tokens" : [ 2713, 3321, 2489, 3990, 394, 422, 5075, 2515, 394, 3408 ],
+    "perplexity" : 97.01127624511719,
+    "tokens_used" : [ " is", " more", " soft", " than", " the", " sandy", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] more soft than the [MASK] beach in [MASK] water",
+    "timestamp" : 50795
+  }, {
+    "sentence" : "Is more soft than the sandy beach or the water",
+    "tokens" : [ 2713, 3321, 2489, 3990, 394, 422, 5075, 1860, 394, 3408 ],
+    "perplexity" : 97.00423431396484,
+    "tokens_used" : [ " is", " more", " soft", " than", " the", " sandy", " beach", " or", " the", " water" ],
+    "original_sentence" : "[MASK] more soft than [MASK] sandy beach [MASK] the water",
+    "timestamp" : 56966
+  }, {
+    "sentence" : "No more soft than the sandy beach through the water",
+    "tokens" : [ 2144, 3321, 2489, 3990, 394, 422, 5075, 3941, 394, 3408 ],
+    "perplexity" : 134.70016479492188,
+    "tokens_used" : [ " no", " more", " soft", " than", " the", " sandy", " beach", " through", " the", " water" ],
+    "original_sentence" : "[MASK] more soft than [MASK] sandy beach [MASK] the water",
+    "timestamp" : 69612
+  }, {
+    "sentence" : "No more soft sand or sandy beach in the water",
+    "tokens" : [ 2145, 3321, 2489, 1752, 1860, 422, 5075, 2515, 394, 3408 ],
+    "perplexity" : 106.87423706054688,
+    "tokens_used" : [ " No", " more", " soft", " sand", " or", " sandy", " beach", " in", " the", " water" ],
+    "original_sentence" : "No more soft [MASK] [MASK] sandy beach [MASK] the water",
+    "timestamp" : 79699
+  }, {
+    "sentence" : "No more soft sand near the beach in the water",
+    "tokens" : [ 2145, 3321, 2489, 1752, 1852, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 113.9603271484375,
+    "tokens_used" : [ " No", " more", " soft", " sand", " near", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "No [MASK] soft sand [MASK] [MASK] beach in the water",
+    "timestamp" : 84333
+  }, {
+    "sentence" : "Some more soft sand near the beach in the water",
+    "tokens" : [ 3459, 3321, 2489, 1752, 1852, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 139.3527374267578,
+    "tokens_used" : [ " some", " more", " soft", " sand", " near", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] more soft [MASK] [MASK] the beach in the water",
+    "timestamp" : 90255
+  }, {
+    "sentence" : "Some other soft things on the beach in the water",
+    "tokens" : [ 3460, 3915, 2489, 1401, 710, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 94.37237548828125,
+    "tokens_used" : [ " Some", " other", " soft", " things", " on", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "Some [MASK] soft [MASK] [MASK] the beach in the water",
+    "timestamp" : 98943
+  }, {
+    "sentence" : "Some new soft rocks on the beach on the water",
+    "tokens" : [ 3460, 4012, 2489, 1263, 710, 394, 5075, 710, 394, 3408 ],
+    "perplexity" : 125.5377197265625,
+    "tokens_used" : [ " Some", " new", " soft", " rocks", " on", " the", " beach", " on", " the", " water" ],
+    "original_sentence" : "Some [MASK] soft [MASK] on the beach [MASK] the water",
+    "timestamp" : 110621
+  }, {
+    "sentence" : "Surrounded by soft rocks lining the beach on the water",
+    "tokens" : [ 1831, 2029, 2489, 1263, 4298, 394, 5075, 710, 394, 3408 ],
+    "perplexity" : 109.63325500488281,
+    "tokens_used" : [ " surrounded", " by", " soft", " rocks", " lining", " the", " beach", " on", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft rocks [MASK] the beach on the water",
+    "timestamp" : 117979
+  }, {
+    "sentence" : "Surrounded by soft rocks lining the beach with the water",
+    "tokens" : [ 1831, 2029, 2489, 1263, 4298, 394, 5075, 2342, 394, 3408 ],
+    "perplexity" : 105.62272644042969,
+    "tokens_used" : [ " surrounded", " by", " soft", " rocks", " lining", " the", " beach", " with", " the", " water" ],
+    "original_sentence" : "[MASK] by soft rocks lining [MASK] beach [MASK] the water",
+    "timestamp" : 122549
+  }, {
+    "sentence" : "Surrounded by soft rocks lining the beach and the water",
+    "tokens" : [ 1831, 2029, 2489, 1263, 4298, 394, 5075, 215, 394, 3408 ],
+    "perplexity" : 98.04254150390625,
+    "tokens_used" : [ " surrounded", " by", " soft", " rocks", " lining", " the", " beach", " and", " the", " water" ],
+    "original_sentence" : "[MASK] by soft rocks lining [MASK] beach [MASK] the water",
+    "timestamp" : 129504
+  }, {
+    "sentence" : "Surrounded by soft rocks on the beach and quiet water",
+    "tokens" : [ 1831, 2029, 2489, 1263, 710, 394, 5075, 215, 5064, 3408 ],
+    "perplexity" : 102.3262939453125,
+    "tokens_used" : [ " surrounded", " by", " soft", " rocks", " on", " the", " beach", " and", " quiet", " water" ],
+    "original_sentence" : "[MASK] by soft rocks [MASK] the beach and [MASK] water",
+    "timestamp" : 135407
+  }, {
+    "sentence" : "Surrounded by soft rocks on the beach with quiet water",
+    "tokens" : [ 1831, 2029, 2489, 1263, 710, 394, 5075, 2342, 5064, 3408 ],
+    "perplexity" : 112.4598388671875,
+    "tokens_used" : [ " surrounded", " by", " soft", " rocks", " on", " the", " beach", " with", " quiet", " water" ],
+    "original_sentence" : "[MASK] by soft rocks [MASK] the beach [MASK] quiet water",
+    "timestamp" : 143390
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach with quiet water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 710, 4646, 5075, 2342, 5064, 3408 ],
+    "perplexity" : 90.88191986083984,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " on", " a", " beach", " with", " quiet", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] on [MASK] beach with quiet water",
+    "timestamp" : 161140
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach with clear water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 710, 4646, 5075, 2342, 2572, 3408 ],
+    "perplexity" : 64.65916442871094,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " on", " a", " beach", " with", " clear", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] on a beach with [MASK] water",
+    "timestamp" : 167583
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach in clear water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 710, 4646, 5075, 2515, 2572, 3408 ],
+    "perplexity" : 91.03858184814453,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " on", " a", " beach", " in", " clear", " water" ],
+    "original_sentence" : "[MASK] by soft sand [MASK] a beach [MASK] clear water",
+    "timestamp" : 171988
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach near clear water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 710, 4646, 5075, 1852, 2572, 3408 ],
+    "perplexity" : 95.11480712890625,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " on", " a", " beach", " near", " clear", " water" ],
+    "original_sentence" : "[MASK] by soft sand on [MASK] beach [MASK] clear water",
+    "timestamp" : 199673
+  }, {
+    "sentence" : "Surrounded by soft sand on a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 710, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 50.508052825927734,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " on", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft sand on a beach [MASK] [MASK] water",
+    "timestamp" : 205569
+  }, {
+    "sentence" : "Surrounded by soft sand or a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 1860, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 84.71182250976562,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " or", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft sand [MASK] a beach [MASK] by water",
+    "timestamp" : 229543
+  }, {
+    "sentence" : "Surrounded by soft sand or sandy beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 1860, 422, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 90.46542358398438,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " or", " sandy", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft sand [MASK] [MASK] beach surrounded by water",
+    "timestamp" : 232694
+  }, {
+    "sentence" : "Surrounded by soft water a sandy beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 3408, 4646, 422, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 100.99127197265625,
+    "tokens_used" : [ " surrounded", " by", " soft", " water", " a", " sandy", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] [MASK] sandy beach surrounded by water",
+    "timestamp" : 248499
+  }, {
+    "sentence" : "Surrounded by soft water on a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 3408, 710, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 66.37611389160156,
+    "tokens_used" : [ " surrounded", " by", " soft", " water", " on", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft water [MASK] [MASK] beach surrounded by water",
+    "timestamp" : 252767
+  }, {
+    "sentence" : "Surrounded by soft sand at a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 302, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 77.5269775390625,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " at", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] [MASK] a beach surrounded by water",
+    "timestamp" : 260272
+  }, {
+    "sentence" : "Surrounded by soft sand with a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 2342, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 79.54862976074219,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " with", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] [MASK] a beach surrounded by water",
+    "timestamp" : 271086
+  }, {
+    "sentence" : "Surrounded by soft rock and a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 535, 215, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 60.59343338012695,
+    "tokens_used" : [ " surrounded", " by", " soft", " rock", " and", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] [MASK] a beach surrounded by water",
+    "timestamp" : 281137
+  }, {
+    "sentence" : "Surrounded by soft sand and a beach surrounded by water",
+    "tokens" : [ 1831, 2029, 2489, 1752, 215, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 57.54729080200195,
+    "tokens_used" : [ " surrounded", " by", " soft", " sand", " and", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] by soft [MASK] and [MASK] beach surrounded by water",
+    "timestamp" : 288470
+  }, {
+    "sentence" : "It is soft sand along a beach surrounded by water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 90, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 99.6165542602539,
+    "tokens_used" : [ " It", " is", " soft", " sand", " along", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft sand [MASK] a beach surrounded by water",
+    "timestamp" : 297915
+  }, {
+    "sentence" : "This is soft sand on a beach surrounded by water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 710, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 61.80424118041992,
+    "tokens_used" : [ " This", " is", " soft", " sand", " on", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] is soft sand [MASK] [MASK] beach surrounded by water",
+    "timestamp" : 302326
+  }, {
+    "sentence" : "It is soft sand on a beach surrounded by water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 710, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 67.32257080078125,
+    "tokens_used" : [ " It", " is", " soft", " sand", " on", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] is soft [MASK] [MASK] a beach surrounded by water",
+    "timestamp" : 310634
+  }, {
+    "sentence" : "It is soft sand from a beach surrounded by water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 3605, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 95.1790542602539,
+    "tokens_used" : [ " It", " is", " soft", " sand", " from", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "[MASK] is soft [MASK] [MASK] a beach surrounded by water",
+    "timestamp" : 317384
+  }, {
+    "sentence" : "It is soft sand like a beach surrounded by water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 4424, 4646, 5075, 1831, 2029, 3408 ],
+    "perplexity" : 98.43547821044922,
+    "tokens_used" : [ " It", " is", " soft", " sand", " like", " a", " beach", " surrounded", " by", " water" ],
+    "original_sentence" : "It is soft [MASK] [MASK] a beach [MASK] by water",
+    "timestamp" : 338091
+  }, {
+    "sentence" : "It is soft sand like a beach in the water",
+    "tokens" : [ 2051, 2713, 2489, 1752, 4424, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 95.99807739257812,
+    "tokens_used" : [ " It", " is", " soft", " sand", " like", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft sand like a beach [MASK] [MASK] water",
+    "timestamp" : 357951
+  }, {
+    "sentence" : "This is soft sand from a beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 3605, 4646, 5075, 2515, 394, 3408 ],
+    "perplexity" : 88.87519836425781,
+    "tokens_used" : [ " This", " is", " soft", " sand", " from", " a", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft [MASK] [MASK] a beach in the water",
+    "timestamp" : 363190
+  }, {
+    "sentence" : "This is soft sand from the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 3605, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 77.2318344116211,
+    "tokens_used" : [ " This", " is", " soft", " sand", " from", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft sand from [MASK] beach in [MASK] water",
+    "timestamp" : 376676
+  }, {
+    "sentence" : "This is soft sand and the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 1752, 215, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 100.460205078125,
+    "tokens_used" : [ " This", " is", " soft", " sand", " and", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] is soft [MASK] [MASK] the beach in the water",
+    "timestamp" : 383565
+  }, {
+    "sentence" : "This is soft rock and the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 535, 215, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 100.13121795654297,
+    "tokens_used" : [ " This", " is", " soft", " rock", " and", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] and the beach in the water",
+    "timestamp" : 387133
+  }, {
+    "sentence" : "This is soft rock from the beach in the water",
+    "tokens" : [ 1228, 2713, 2489, 535, 3605, 394, 5075, 2515, 394, 3408 ],
+    "perplexity" : 93.51689910888672,
+    "tokens_used" : [ " This", " is", " soft", " rock", " from", " the", " beach", " in", " the", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft rock [MASK] the beach in the water",
+    "timestamp" : 391377
+  } ]
+}

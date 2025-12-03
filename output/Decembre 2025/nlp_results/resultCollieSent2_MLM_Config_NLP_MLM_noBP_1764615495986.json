@@ -1,0 +1,203 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T13:58:15.984455376",
+  "time" : 186.475,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This sentence soft beach build waking beach be aunts water",
+    "score" : 26871.384765625,
+    "time" : 3396,
+    "cycle" : 0
+  }, {
+    "sentence" : "This sentence soft beach build Cause beach be aunts water",
+    "score" : 18112.689453125,
+    "time" : 10994,
+    "cycle" : 2
+  }, {
+    "sentence" : "Waking sentence soft beach build Cause beach be aunts water",
+    "score" : 13714.171875,
+    "time" : 14279,
+    "cycle" : 3
+  }, {
+    "sentence" : "Finish waking soft beach build Cause beach be Cause water",
+    "score" : 12787.5498046875,
+    "time" : 36195,
+    "cycle" : 17
+  }, {
+    "sentence" : "Views linking soft beach packing Cause beach views Cause water",
+    "score" : 11235.25390625,
+    "time" : 69513,
+    "cycle" : 32
+  }, {
+    "sentence" : "Views taller soft beach views Cause beach alarmed Sweet water",
+    "score" : 10138.8193359375,
+    "time" : 80210,
+    "cycle" : 36
+  }, {
+    "sentence" : "Views taller soft packing hide taller beach hide Sweet water",
+    "score" : 7597.22509765625,
+    "time" : 100879,
+    "cycle" : 43
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This sentence soft beach build waking beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 5075, 310, 247, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 26871.384765625,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " build", " waking", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft beach [MASK] [MASK] beach be aunts water",
+    "timestamp" : 3396
+  }, {
+    "sentence" : "This sentence soft beach build Cause beach be aunts water",
+    "tokens" : [ 1228, 775, 2489, 5075, 310, 253, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 18112.689453125,
+    "tokens_used" : [ " This", " sentence", " soft", " beach", " build", " Cause", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "This sentence soft beach [MASK] [MASK] beach be aunts water",
+    "timestamp" : 10994
+  }, {
+    "sentence" : "Waking sentence soft beach build Cause beach be aunts water",
+    "tokens" : [ 247, 775, 2489, 5075, 310, 253, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 13714.171875,
+    "tokens_used" : [ " waking", " sentence", " soft", " beach", " build", " Cause", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft beach [MASK] Cause beach be aunts water",
+    "timestamp" : 14279
+  }, {
+    "sentence" : "Waking sentence soft beach build Cause beach be Cause water",
+    "tokens" : [ 247, 775, 2489, 5075, 310, 253, 5075, 1392, 253, 3408 ],
+    "perplexity" : 17489.37890625,
+    "tokens_used" : [ " waking", " sentence", " soft", " beach", " build", " Cause", " beach", " be", " Cause", " water" ],
+    "original_sentence" : "[MASK] sentence soft beach build Cause beach be [MASK] water",
+    "timestamp" : 19101
+  }, {
+    "sentence" : "Finish waking soft beach build Cause beach be Cause water",
+    "tokens" : [ 1973, 247, 2489, 5075, 310, 253, 5075, 1392, 253, 3408 ],
+    "perplexity" : 12787.5498046875,
+    "tokens_used" : [ " finish", " waking", " soft", " beach", " build", " Cause", " beach", " be", " Cause", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft beach build Cause beach be Cause water",
+    "timestamp" : 36195
+  }, {
+    "sentence" : "Linking waking soft beach build Cause beach views Cause water",
+    "tokens" : [ 2847, 247, 2489, 5075, 310, 253, 5075, 281, 253, 3408 ],
+    "perplexity" : 16621.611328125,
+    "tokens_used" : [ " linking", " waking", " soft", " beach", " build", " Cause", " beach", " views", " Cause", " water" ],
+    "original_sentence" : "[MASK] waking soft beach build Cause beach [MASK] Cause water",
+    "timestamp" : 43712
+  }, {
+    "sentence" : "Waking waking soft beach packing Cause beach views Cause water",
+    "tokens" : [ 247, 247, 2489, 5075, 1824, 253, 5075, 281, 253, 3408 ],
+    "perplexity" : 17692.671875,
+    "tokens_used" : [ " waking", " waking", " soft", " beach", " packing", " Cause", " beach", " views", " Cause", " water" ],
+    "original_sentence" : "[MASK] waking soft beach [MASK] Cause beach views Cause water",
+    "timestamp" : 48919
+  }, {
+    "sentence" : "Views linking soft beach packing Cause beach views Cause water",
+    "tokens" : [ 281, 2847, 2489, 5075, 1824, 253, 5075, 281, 253, 3408 ],
+    "perplexity" : 11235.25390625,
+    "tokens_used" : [ " views", " linking", " soft", " beach", " packing", " Cause", " beach", " views", " Cause", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft beach packing Cause beach views Cause water",
+    "timestamp" : 69513
+  }, {
+    "sentence" : "Views taller soft beach alarmed Cause beach views Cause water",
+    "tokens" : [ 282, 273, 2489, 5075, 1859, 253, 5075, 281, 253, 3408 ],
+    "perplexity" : 21319.19921875,
+    "tokens_used" : [ " Views", " taller", " soft", " beach", " alarmed", " Cause", " beach", " views", " Cause", " water" ],
+    "original_sentence" : "Views [MASK] soft beach [MASK] Cause beach views Cause water",
+    "timestamp" : 71797
+  }, {
+    "sentence" : "Views taller soft beach alarmed Cause beach views Sweet water",
+    "tokens" : [ 282, 273, 2489, 5075, 1859, 253, 5075, 281, 275, 3408 ],
+    "perplexity" : 18939.40625,
+    "tokens_used" : [ " Views", " taller", " soft", " beach", " alarmed", " Cause", " beach", " views", " Sweet", " water" ],
+    "original_sentence" : "Views [MASK] soft beach alarmed Cause beach views [MASK] water",
+    "timestamp" : 77600
+  }, {
+    "sentence" : "Views taller soft beach views Cause beach alarmed Sweet water",
+    "tokens" : [ 282, 273, 2489, 5075, 281, 253, 5075, 1859, 275, 3408 ],
+    "perplexity" : 10138.8193359375,
+    "tokens_used" : [ " Views", " taller", " soft", " beach", " views", " Cause", " beach", " alarmed", " Sweet", " water" ],
+    "original_sentence" : "Views taller soft beach [MASK] Cause beach [MASK] Sweet water",
+    "timestamp" : 80210
+  }, {
+    "sentence" : "Views taller soft beach views Cause beach hide Sweet water",
+    "tokens" : [ 282, 273, 2489, 5075, 281, 253, 5075, 285, 275, 3408 ],
+    "perplexity" : 11010.2763671875,
+    "tokens_used" : [ " Views", " taller", " soft", " beach", " views", " Cause", " beach", " hide", " Sweet", " water" ],
+    "original_sentence" : "Views taller soft beach [MASK] Cause beach [MASK] Sweet water",
+    "timestamp" : 85940
+  }, {
+    "sentence" : "Views taller soft beach views mouth beach hide Sweet water",
+    "tokens" : [ 282, 273, 2489, 5075, 281, 2602, 5075, 285, 275, 3408 ],
+    "perplexity" : 11566.45703125,
+    "tokens_used" : [ " Views", " taller", " soft", " beach", " views", " mouth", " beach", " hide", " Sweet", " water" ],
+    "original_sentence" : "Views [MASK] soft beach views [MASK] beach hide Sweet water",
+    "timestamp" : 88864
+  }, {
+    "sentence" : "Views taller soft packing views taller beach hide Sweet water",
+    "tokens" : [ 282, 273, 2489, 1824, 281, 273, 5075, 285, 275, 3408 ],
+    "perplexity" : 17803.025390625,
+    "tokens_used" : [ " Views", " taller", " soft", " packing", " views", " taller", " beach", " hide", " Sweet", " water" ],
+    "original_sentence" : "Views taller soft [MASK] views [MASK] beach hide Sweet water",
+    "timestamp" : 92084
+  }, {
+    "sentence" : "Views taller soft packing hide taller beach hide Sweet water",
+    "tokens" : [ 282, 273, 2489, 1824, 285, 273, 5075, 285, 275, 3408 ],
+    "perplexity" : 7597.22509765625,
+    "tokens_used" : [ " Views", " taller", " soft", " packing", " hide", " taller", " beach", " hide", " Sweet", " water" ],
+    "original_sentence" : "Views [MASK] soft packing [MASK] taller beach hide Sweet water",
+    "timestamp" : 100879
+  }, {
+    "sentence" : "Views taller soft packing hide taller beach hide weighing water",
+    "tokens" : [ 282, 273, 2489, 1824, 285, 273, 5075, 285, 625, 3408 ],
+    "perplexity" : 10590.2275390625,
+    "tokens_used" : [ " Views", " taller", " soft", " packing", " hide", " taller", " beach", " hide", " weighing", " water" ],
+    "original_sentence" : "Views [MASK] soft packing hide taller beach hide [MASK] water",
+    "timestamp" : 111751
+  }, {
+    "sentence" : "Views taller soft girl hide taller beach hide weighing water",
+    "tokens" : [ 282, 273, 2489, 2659, 285, 273, 5075, 285, 625, 3408 ],
+    "perplexity" : 11576.4326171875,
+    "tokens_used" : [ " Views", " taller", " soft", " girl", " hide", " taller", " beach", " hide", " weighing", " water" ],
+    "original_sentence" : "Views [MASK] soft [MASK] hide taller beach hide weighing water",
+    "timestamp" : 139029
+  }, {
+    "sentence" : "Views taller soft girl hide taller beach hide downtown water",
+    "tokens" : [ 282, 273, 2489, 2659, 285, 273, 5075, 285, 1679, 3408 ],
+    "perplexity" : 10741.78515625,
+    "tokens_used" : [ " Views", " taller", " soft", " girl", " hide", " taller", " beach", " hide", " downtown", " water" ],
+    "original_sentence" : "Views [MASK] soft girl hide taller beach hide [MASK] water",
+    "timestamp" : 143924
+  }, {
+    "sentence" : "Waking taller soft girl waking taller beach hide downtown water",
+    "tokens" : [ 247, 273, 2489, 2659, 247, 273, 5075, 285, 1679, 3408 ],
+    "perplexity" : 14062.388671875,
+    "tokens_used" : [ " waking", " taller", " soft", " girl", " waking", " taller", " beach", " hide", " downtown", " water" ],
+    "original_sentence" : "[MASK] taller soft girl [MASK] taller beach hide downtown water",
+    "timestamp" : 146319
+  }, {
+    "sentence" : "Waking taller soft girl waking taller beach hide Sweet water",
+    "tokens" : [ 247, 273, 2489, 2659, 247, 273, 5075, 285, 275, 3408 ],
+    "perplexity" : 11199.6201171875,
+    "tokens_used" : [ " waking", " taller", " soft", " girl", " waking", " taller", " beach", " hide", " Sweet", " water" ],
+    "original_sentence" : "[MASK] taller soft girl waking taller beach hide [MASK] water",
+    "timestamp" : 179980
+  }, {
+    "sentence" : "Brushes taller soft girl hide taller beach hide Sweet water",
+    "tokens" : [ 329, 273, 2489, 2659, 285, 273, 5075, 285, 275, 3408 ],
+    "perplexity" : 11374.31640625,
+    "tokens_used" : [ " brushes", " taller", " soft", " girl", " hide", " taller", " beach", " hide", " Sweet", " water" ],
+    "original_sentence" : "[MASK] taller soft girl [MASK] taller beach hide Sweet water",
+    "timestamp" : 183853
+  } ]
+}

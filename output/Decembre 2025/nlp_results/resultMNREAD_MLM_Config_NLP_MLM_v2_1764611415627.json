@@ -1,0 +1,775 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 150,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:50:15.619188483",
+  "time" : 360.825,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "And yet he seemed to be able to get me in front of the shop",
+    "score" : 34.35696029663086,
+    "time" : 59595,
+    "cycle" : 0
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in front of the shop",
+    "score" : 26.486278533935547,
+    "time" : 63852,
+    "cycle" : 1
+  }, {
+    "sentence" : "Mom had to spin to be able to get me in front of the camera",
+    "score" : 24.366910934448242,
+    "time" : 212711,
+    "cycle" : 45
+  }, {
+    "sentence" : "Mom had to spin to be able to get up in front of the camera",
+    "score" : 20.381179809570312,
+    "time" : 214405,
+    "cycle" : 46
+  }, {
+    "sentence" : "Mom had to love to be able to get up in front of the camera",
+    "score" : 18.635047912597656,
+    "time" : 274480,
+    "cycle" : 65
+  } ],
+  "base_sentence" : {
+    "sentence" : "And yet he seemed to be able to see me in front of the shop",
+    "perplexity" : 35.467933654785156,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "And yet he seemed to be able to get me in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 34.35696029663086,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And [MASK] he seemed to be able to [MASK] me in front of the shop",
+    "timestamp" : 59595
+  }, {
+    "sentence" : "And yet he seemed to be able to hot me in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 293, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 65.67460632324219,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " hot", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And [MASK] he seemed to be able to [MASK] me in front of the shop",
+    "timestamp" : 59950
+  }, {
+    "sentence" : "And yet he seemed to be able to not me in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 2081, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 60.542171478271484,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " not", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And [MASK] he seemed to be able to [MASK] me in front of the shop",
+    "timestamp" : 60233
+  }, {
+    "sentence" : "And yet he seemed to be able to far me in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 2934, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 61.13665008544922,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " far", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And [MASK] he seemed to be able to [MASK] me in front of the shop",
+    "timestamp" : 60591
+  }, {
+    "sentence" : "And yet he seemed to be able to red me in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 4226, 994, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 62.48799514770508,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " red", " me", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And [MASK] he seemed to be able to [MASK] me in front of the shop",
+    "timestamp" : 60888
+  }, {
+    "sentence" : "And yet he seemed to be able to get up in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 26.486278533935547,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to get [MASK] in front of the shop",
+    "timestamp" : 63852
+  }, {
+    "sentence" : "And yet he seemed to be able to get on in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 710, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 32.640052795410156,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " on", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to get [MASK] in front of the shop",
+    "timestamp" : 64375
+  }, {
+    "sentence" : "And yet he seemed to be able to get do in front of the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 3473, 2515, 2216, 5194, 394, 4667 ],
+    "perplexity" : 48.4611701965332,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " do", " in", " front", " of", " the", " shop" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to get [MASK] in front of the shop",
+    "timestamp" : 65293
+  }, {
+    "sentence" : "And now as here to be able to get on in front of the camera",
+    "tokens" : [ 216, 2187, 560, 4401, 2461, 1392, 4464, 2461, 3912, 710, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 39.186195373535156,
+    "tokens_used" : [ " And", " now", " as", " here", " to", " be", " able", " to", " get", " on", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And now as [MASK] to be able to get on in front of the [MASK]",
+    "timestamp" : 84422
+  }, {
+    "sentence" : "And low as here to be able to get up in front of the camera",
+    "tokens" : [ 216, 5145, 560, 4401, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 42.1169548034668,
+    "tokens_used" : [ " And", " low", " as", " here", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And [MASK] as here to be able to get [MASK] in front of the camera",
+    "timestamp" : 92337
+  }, {
+    "sentence" : "And low as mind to be able to get up in front of the camera",
+    "tokens" : [ 216, 5145, 560, 2878, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 44.094486236572266,
+    "tokens_used" : [ " And", " low", " as", " mind", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And low as [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 98327
+  }, {
+    "sentence" : "And low as High to be able to get up in front of the camera",
+    "tokens" : [ 216, 5145, 560, 2210, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 49.505802154541016,
+    "tokens_used" : [ " And", " low", " as", " High", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And low as [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 98895
+  }, {
+    "sentence" : "And low as came to be able to get up in front of the camera",
+    "tokens" : [ 216, 5145, 560, 3845, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 49.81078338623047,
+    "tokens_used" : [ " And", " low", " as", " came", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And low as [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 99175
+  }, {
+    "sentence" : "And low as weak to be able to get up in front of the camera",
+    "tokens" : [ 216, 5145, 560, 4064, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 48.545143127441406,
+    "tokens_used" : [ " And", " low", " as", " weak", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And low as [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 99551
+  }, {
+    "sentence" : "And low at mind to be able to get up in front of the camera",
+    "tokens" : [ 216, 5145, 302, 2878, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 46.284542083740234,
+    "tokens_used" : [ " And", " low", " at", " mind", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "And [MASK] [MASK] mind to be able to get up in front of the camera",
+    "timestamp" : 103234
+  }, {
+    "sentence" : "Too low at mind to be able to get up in front of the camera",
+    "tokens" : [ 2773, 5145, 302, 2878, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 40.55828094482422,
+    "tokens_used" : [ " Too", " low", " at", " mind", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] low at mind to be able to get up in front of [MASK] camera",
+    "timestamp" : 105562
+  }, {
+    "sentence" : "Too had at mind to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 302, 2878, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 40.2853889465332,
+    "tokens_used" : [ " Too", " had", " at", " mind", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] at mind to be able to get up in front of the [MASK]",
+    "timestamp" : 108684
+  }, {
+    "sentence" : "Too beg at mind to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1612, 302, 2878, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 52.53785705566406,
+    "tokens_used" : [ " Too", " beg", " at", " mind", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] at mind to be able to get up in front of the [MASK]",
+    "timestamp" : 109034
+  }, {
+    "sentence" : "Too beg at work to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1612, 302, 1348, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 32.244075775146484,
+    "tokens_used" : [ " Too", " beg", " at", " work", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too beg at [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 119414
+  }, {
+    "sentence" : "Too beg at more to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1612, 302, 3321, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 43.518951416015625,
+    "tokens_used" : [ " Too", " beg", " at", " more", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too beg at [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 119986
+  }, {
+    "sentence" : "Too beg he more to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1612, 2228, 3321, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 47.10214614868164,
+    "tokens_used" : [ " Too", " beg", " he", " more", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too beg [MASK] more to be able to get [MASK] in front of the camera",
+    "timestamp" : 125895
+  }, {
+    "sentence" : "Too beg do more to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1612, 3473, 3321, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 45.495018005371094,
+    "tokens_used" : [ " Too", " beg", " do", " more", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too beg [MASK] more to be able to get [MASK] in front of the camera",
+    "timestamp" : 126407
+  }, {
+    "sentence" : "Too beg do hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1612, 3473, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 50.19111251831055,
+    "tokens_used" : [ " Too", " beg", " do", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too beg do [MASK] to be able to [MASK] up in front of the camera",
+    "timestamp" : 132601
+  }, {
+    "sentence" : "Too low do hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 5145, 3473, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 42.00850296020508,
+    "tokens_used" : [ " Too", " low", " do", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] do hard to be able to get [MASK] in front of the camera",
+    "timestamp" : 140853
+  }, {
+    "sentence" : "Too had do hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 3473, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 39.73229217529297,
+    "tokens_used" : [ " Too", " had", " do", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] do hard to be able to get [MASK] in front of the camera",
+    "timestamp" : 141823
+  }, {
+    "sentence" : "Too dad do hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 1220, 3473, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 48.68913269042969,
+    "tokens_used" : [ " Too", " dad", " do", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] do hard to be able to get [MASK] in front of the camera",
+    "timestamp" : 141973
+  }, {
+    "sentence" : "Too had my hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 33.17131805419922,
+    "tokens_used" : [ " Too", " had", " my", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] hard to be able to get up in front of the [MASK]",
+    "timestamp" : 144049
+  }, {
+    "sentence" : "Too had no hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 35.617855072021484,
+    "tokens_used" : [ " Too", " had", " no", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] hard to be able to get up in front of the [MASK]",
+    "timestamp" : 144828
+  }, {
+    "sentence" : "Too had an hard to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 3355, 1170, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 45.703800201416016,
+    "tokens_used" : [ " Too", " had", " an", " hard", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] hard to be able to get up in front of the [MASK]",
+    "timestamp" : 144953
+  }, {
+    "sentence" : "Too had my fish to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 4008, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 34.096351623535156,
+    "tokens_used" : [ " Too", " had", " my", " fish", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of the [MASK]",
+    "timestamp" : 146931
+  }, {
+    "sentence" : "Too had my Leaf to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 3749, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 46.84443664550781,
+    "tokens_used" : [ " Too", " had", " my", " Leaf", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of the [MASK]",
+    "timestamp" : 147184
+  }, {
+    "sentence" : "Too had my Tree to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 99, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 51.60503387451172,
+    "tokens_used" : [ " Too", " had", " my", " Tree", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of the [MASK]",
+    "timestamp" : 147653
+  }, {
+    "sentence" : "Too had my bags to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 3705, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 38.535865783691406,
+    "tokens_used" : [ " Too", " had", " my", " bags", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of the [MASK]",
+    "timestamp" : 147800
+  }, {
+    "sentence" : "Too had my Pool to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 459, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 50.720481872558594,
+    "tokens_used" : [ " Too", " had", " my", " Pool", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of [MASK] camera",
+    "timestamp" : 149564
+  }, {
+    "sentence" : "Too had my born to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 3703, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 30.813739776611328,
+    "tokens_used" : [ " Too", " had", " my", " born", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of [MASK] camera",
+    "timestamp" : 150038
+  }, {
+    "sentence" : "Too had my Laid to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 938, 3687, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 51.424842834472656,
+    "tokens_used" : [ " Too", " had", " my", " Laid", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had my [MASK] to be able to get up in front of [MASK] camera",
+    "timestamp" : 150267
+  }, {
+    "sentence" : "Too had do Laid to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 3473, 3687, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 47.70551300048828,
+    "tokens_used" : [ " Too", " had", " do", " Laid", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had [MASK] Laid to be able to get up in front of the camera",
+    "timestamp" : 159498
+  }, {
+    "sentence" : "Too had go Laid to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 3106, 3687, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 45.13199996948242,
+    "tokens_used" : [ " Too", " had", " go", " Laid", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had [MASK] Laid to be able to get up in front of the camera",
+    "timestamp" : 159678
+  }, {
+    "sentence" : "Too had no Laid to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 3687, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 41.19136047363281,
+    "tokens_used" : [ " Too", " had", " no", " Laid", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] [MASK] to be able to get up in front of the camera",
+    "timestamp" : 162335
+  }, {
+    "sentence" : "Too had no Keys to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 3862, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 52.64751434326172,
+    "tokens_used" : [ " Too", " had", " no", " Keys", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] [MASK] to be able to get up in front of the camera",
+    "timestamp" : 162706
+  }, {
+    "sentence" : "Too had no Hold to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 4111, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 50.999794006347656,
+    "tokens_used" : [ " Too", " had", " no", " Hold", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] [MASK] to be able to get up in front of the camera",
+    "timestamp" : 163275
+  }, {
+    "sentence" : "Too had no Case to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 713, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 49.272064208984375,
+    "tokens_used" : [ " Too", " had", " no", " Case", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too had [MASK] [MASK] to be able to get up in front of the camera",
+    "timestamp" : 163319
+  }, {
+    "sentence" : "Too had no bend to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 1736, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 41.82032775878906,
+    "tokens_used" : [ " Too", " had", " no", " bend", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 165866
+  }, {
+    "sentence" : "Too had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 38.067073822021484,
+    "tokens_used" : [ " Too", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 166610
+  }, {
+    "sentence" : "Too had no Lady to be able to get up in front of the camera",
+    "tokens" : [ 2773, 4960, 2144, 3970, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 51.57516860961914,
+    "tokens_used" : [ " Too", " had", " no", " Lady", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Too [MASK] no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 166975
+  }, {
+    "sentence" : "Bad had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 1566, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 42.41908645629883,
+    "tokens_used" : [ " Bad", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get [MASK] in front of the camera",
+    "timestamp" : 168989
+  }, {
+    "sentence" : "Arm had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 3550, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 45.10746383666992,
+    "tokens_used" : [ " arm", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get [MASK] in front of the camera",
+    "timestamp" : 169219
+  }, {
+    "sentence" : "Mad had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 3763, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 45.89616012573242,
+    "tokens_used" : [ " mad", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get [MASK] in front of the camera",
+    "timestamp" : 169600
+  }, {
+    "sentence" : "But had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 2923, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 49.04228210449219,
+    "tokens_used" : [ " But", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get [MASK] in front of the camera",
+    "timestamp" : 169633
+  }, {
+    "sentence" : "Big had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 2040, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 37.46751022338867,
+    "tokens_used" : [ " Big", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get up in front of the [MASK]",
+    "timestamp" : 172031
+  }, {
+    "sentence" : "And had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 215, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 42.10358428955078,
+    "tokens_used" : [ " and", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get up in front of the [MASK]",
+    "timestamp" : 172669
+  }, {
+    "sentence" : "Has had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 4880, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 45.6701774597168,
+    "tokens_used" : [ " Has", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no bugs to be able to get up in front of the [MASK]",
+    "timestamp" : 173158
+  }, {
+    "sentence" : "Buy had no bugs to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 4734, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 49.35993957519531,
+    "tokens_used" : [ " Buy", " had", " no", " bugs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 175489
+  }, {
+    "sentence" : "Buy had no pigs to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 5002, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 44.534393310546875,
+    "tokens_used" : [ " Buy", " had", " no", " pigs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 175762
+  }, {
+    "sentence" : "Buy had no logs to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 1199, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 40.12889862060547,
+    "tokens_used" : [ " Buy", " had", " no", " logs", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 176339
+  }, {
+    "sentence" : "Buy had no clay to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 2697, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 52.07868194580078,
+    "tokens_used" : [ " Buy", " had", " no", " clay", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 176666
+  }, {
+    "sentence" : "Buy had no dust to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 3165, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 37.63725280761719,
+    "tokens_used" : [ " Buy", " had", " no", " dust", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy [MASK] no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 185396
+  }, {
+    "sentence" : "Buy had no able to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 4464, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 39.139404296875,
+    "tokens_used" : [ " Buy", " had", " no", " able", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy [MASK] no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 185782
+  }, {
+    "sentence" : "Buy had no ship to be able to get up in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 805, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 50.657039642333984,
+    "tokens_used" : [ " Buy", " had", " no", " ship", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy [MASK] no [MASK] to be able to get up in front of the camera",
+    "timestamp" : 186115
+  }, {
+    "sentence" : "Buy had no dust to be able to get on in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 3165, 2461, 1392, 4464, 2461, 3912, 710, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 46.552791595458984,
+    "tokens_used" : [ " Buy", " had", " no", " dust", " to", " be", " able", " to", " get", " on", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy had no dust to be able to get [MASK] in front of [MASK] camera",
+    "timestamp" : 189239
+  }, {
+    "sentence" : "Buy had no dust to be able to get me in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 3165, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 47.37782669067383,
+    "tokens_used" : [ " Buy", " had", " no", " dust", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy had no dust to be able to get [MASK] in front of [MASK] camera",
+    "timestamp" : 189513
+  }, {
+    "sentence" : "Buy had no logs to be able to get me in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 1199, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 43.11463165283203,
+    "tokens_used" : [ " Buy", " had", " no", " logs", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy had no [MASK] [MASK] be able to get me in front of the camera",
+    "timestamp" : 199293
+  }, {
+    "sentence" : "Buy had no area to be able to get me in front of the camera",
+    "tokens" : [ 5173, 4960, 2144, 2606, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 41.65226745605469,
+    "tokens_used" : [ " Buy", " had", " no", " area", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Buy had no [MASK] [MASK] be able to get me in front of the camera",
+    "timestamp" : 199530
+  }, {
+    "sentence" : "May had no area to be able to get me in front of the camera",
+    "tokens" : [ 547, 4960, 2144, 2606, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 44.264923095703125,
+    "tokens_used" : [ " may", " had", " no", " area", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no area to be [MASK] to get me in front of the camera",
+    "timestamp" : 201410
+  }, {
+    "sentence" : "Mom had no area to be able to get me in front of the camera",
+    "tokens" : [ 1624, 4960, 2144, 2606, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 38.946922302246094,
+    "tokens_used" : [ " mom", " had", " no", " area", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no area to be [MASK] to get me in front of the camera",
+    "timestamp" : 201677
+  }, {
+    "sentence" : "Dam had no area to be able to get me in front of the camera",
+    "tokens" : [ 4956, 4960, 2144, 2606, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 46.749053955078125,
+    "tokens_used" : [ " dam", " had", " no", " area", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no area to be [MASK] to get me in front of the camera",
+    "timestamp" : 202269
+  }, {
+    "sentence" : "Add had no area to be able to get me in front of the camera",
+    "tokens" : [ 1800, 4960, 2144, 2606, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 41.01024627685547,
+    "tokens_used" : [ " Add", " had", " no", " area", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had no area to be [MASK] to get me in front of the camera",
+    "timestamp" : 202442
+  }, {
+    "sentence" : "Mom had to area to be able to get me in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 2606, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 38.58354187011719,
+    "tokens_used" : [ " Mom", " had", " to", " area", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] area to be able to [MASK] me in front of the camera",
+    "timestamp" : 204977
+  }, {
+    "sentence" : "Mom had to Pull to be able to get me in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 489, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 43.19076156616211,
+    "tokens_used" : [ " Mom", " had", " to", " Pull", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] [MASK] to be able to get me in front of the camera",
+    "timestamp" : 211512
+  }, {
+    "sentence" : "Mom had to love to be able to get me in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 4797, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 28.300960540771484,
+    "tokens_used" : [ " Mom", " had", " to", " love", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] [MASK] to be able to get me in front of the camera",
+    "timestamp" : 211867
+  }, {
+    "sentence" : "Mom had to rods to be able to get me in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 2279, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 50.34396743774414,
+    "tokens_used" : [ " Mom", " had", " to", " rods", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] [MASK] to be able to get me in front of the camera",
+    "timestamp" : 212136
+  }, {
+    "sentence" : "Mom had to tube to be able to get me in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 3755, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 40.1577262878418,
+    "tokens_used" : [ " Mom", " had", " to", " tube", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] [MASK] to be able to get me in front of the camera",
+    "timestamp" : 212504
+  }, {
+    "sentence" : "Mom had to spin to be able to get me in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 24.366910934448242,
+    "tokens_used" : [ " Mom", " had", " to", " spin", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] [MASK] to be able to get me in front of the camera",
+    "timestamp" : 212711
+  }, {
+    "sentence" : "Mom had to spin to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 20.381179809570312,
+    "tokens_used" : [ " Mom", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get [MASK] in front of the camera",
+    "timestamp" : 214405
+  }, {
+    "sentence" : "Row had to spin to be able to get up in front of the camera",
+    "tokens" : [ 4728, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 23.46791648864746,
+    "tokens_used" : [ " Row", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get [MASK] in front of the camera",
+    "timestamp" : 214560
+  }, {
+    "sentence" : "Bow had to spin to be able to get up in front of the camera",
+    "tokens" : [ 4930, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 25.165569305419922,
+    "tokens_used" : [ " Bow", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get [MASK] in front of the camera",
+    "timestamp" : 214924
+  }, {
+    "sentence" : "Cow had to spin to be able to get up in front of the camera",
+    "tokens" : [ 3448, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 22.952266693115234,
+    "tokens_used" : [ " Cow", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get [MASK] in front of the camera",
+    "timestamp" : 215102
+  }, {
+    "sentence" : "New had to spin to be able to get up in front of the camera",
+    "tokens" : [ 4013, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 26.474050521850586,
+    "tokens_used" : [ " New", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get [MASK] in front of the camera",
+    "timestamp" : 215499
+  }, {
+    "sentence" : "Own had to spin to be able to get up in front of the camera",
+    "tokens" : [ 1685, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 26.853994369506836,
+    "tokens_used" : [ " Own", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get up in front of the [MASK]",
+    "timestamp" : 218468
+  }, {
+    "sentence" : "Won had to spin to be able to get up in front of the camera",
+    "tokens" : [ 4195, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 33.578922271728516,
+    "tokens_used" : [ " Won", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get up in front of the [MASK]",
+    "timestamp" : 218773
+  }, {
+    "sentence" : "Way had to spin to be able to get up in front of the camera",
+    "tokens" : [ 3609, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 23.251163482666016,
+    "tokens_used" : [ " Way", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get up in front of the [MASK]",
+    "timestamp" : 218919
+  }, {
+    "sentence" : "Why had to spin to be able to get up in front of the camera",
+    "tokens" : [ 2324, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 26.955768585205078,
+    "tokens_used" : [ " Why", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to get up in front of the [MASK]",
+    "timestamp" : 219164
+  }, {
+    "sentence" : "Dam had to spin to be able to get up in front of the camera",
+    "tokens" : [ 4957, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 26.899919509887695,
+    "tokens_used" : [ " Dam", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to [MASK] up in front of the camera",
+    "timestamp" : 220803
+  }, {
+    "sentence" : "Now had to spin to be able to get up in front of the camera",
+    "tokens" : [ 2188, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 21.08660125732422,
+    "tokens_used" : [ " Now", " had", " to", " spin", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to [MASK] up in front of the camera",
+    "timestamp" : 221346
+  }, {
+    "sentence" : "Mom had to spin to be able to bat up in front of the camera",
+    "tokens" : [ 1624, 4960, 2461, 1302, 2461, 1392, 4464, 2461, 3229, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 35.22225570678711,
+    "tokens_used" : [ " mom", " had", " to", " spin", " to", " be", " able", " to", " bat", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to spin to be able to [MASK] up in front of the camera",
+    "timestamp" : 225938
+  }, {
+    "sentence" : "Mom had to love to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 18.635047912597656,
+    "tokens_used" : [ " Mom", " had", " to", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to love to be able to get up in front of the [MASK]",
+    "timestamp" : 274480
+  }, {
+    "sentence" : "Own had to love to be able to get up in front of the camera",
+    "tokens" : [ 1685, 4960, 2461, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 24.034271240234375,
+    "tokens_used" : [ " Own", " had", " to", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to love to be able to get up in front of the [MASK]",
+    "timestamp" : 274694
+  }, {
+    "sentence" : "Won had to love to be able to get up in front of the camera",
+    "tokens" : [ 4195, 4960, 2461, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 30.015626907348633,
+    "tokens_used" : [ " Won", " had", " to", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to love to be able to get up in front of the [MASK]",
+    "timestamp" : 274856
+  }, {
+    "sentence" : "Low had to love to be able to get up in front of the camera",
+    "tokens" : [ 5146, 4960, 2461, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 22.326204299926758,
+    "tokens_used" : [ " Low", " had", " to", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to love to be able to get up in front of the [MASK]",
+    "timestamp" : 275019
+  }, {
+    "sentence" : "Row had to love to be able to get up in front of the camera",
+    "tokens" : [ 4728, 4960, 2461, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 21.235904693603516,
+    "tokens_used" : [ " Row", " had", " to", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had to love to be able to get up in front of the [MASK]",
+    "timestamp" : 275137
+  }, {
+    "sentence" : "Mom had to rice to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 656, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 36.53013610839844,
+    "tokens_used" : [ " Mom", " had", " to", " rice", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had to [MASK] to be able to get up in front of the [MASK]",
+    "timestamp" : 277345
+  }, {
+    "sentence" : "Mom had to pain to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 2214, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 24.395177841186523,
+    "tokens_used" : [ " Mom", " had", " to", " pain", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had to [MASK] to be able to get up in front of the [MASK]",
+    "timestamp" : 277561
+  }, {
+    "sentence" : "Mom had to then to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2461, 2226, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 27.965578079223633,
+    "tokens_used" : [ " Mom", " had", " to", " then", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom [MASK] to [MASK] to be able to get up in front of the camera",
+    "timestamp" : 280716
+  }, {
+    "sentence" : "Mom had in then to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2515, 2226, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 34.12666702270508,
+    "tokens_used" : [ " Mom", " had", " in", " then", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom had [MASK] then to be able to [MASK] up in front of the camera",
+    "timestamp" : 283478
+  }, {
+    "sentence" : "Mom had in love to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 29.287200927734375,
+    "tokens_used" : [ " Mom", " had", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom [MASK] in [MASK] to be able to get up in front of the camera",
+    "timestamp" : 290673
+  }, {
+    "sentence" : "Mom had in pain to be able to get up in front of the camera",
+    "tokens" : [ 1625, 4960, 2515, 2214, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 32.14358139038086,
+    "tokens_used" : [ " Mom", " had", " in", " pain", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Mom [MASK] in [MASK] to be able to get up in front of the camera",
+    "timestamp" : 291143
+  }, {
+    "sentence" : "Two had in love to be able to get up in front of the camera",
+    "tokens" : [ 2457, 4960, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 32.89208221435547,
+    "tokens_used" : [ " Two", " had", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had in love to be able to get [MASK] in front of the camera",
+    "timestamp" : 292881
+  }, {
+    "sentence" : "Now had in love to be able to get up in front of the camera",
+    "tokens" : [ 2188, 4960, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 28.51267433166504,
+    "tokens_used" : [ " Now", " had", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had in love to be able to get [MASK] in front of the camera",
+    "timestamp" : 293172
+  }, {
+    "sentence" : "Mad had in love to be able to get up in front of the camera",
+    "tokens" : [ 3764, 4960, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 30.999059677124023,
+    "tokens_used" : [ " Mad", " had", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had in love to be able to get [MASK] in front of the camera",
+    "timestamp" : 293322
+  }, {
+    "sentence" : "Low had in love to be able to get up in front of the camera",
+    "tokens" : [ 5146, 4960, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 32.98451614379883,
+    "tokens_used" : [ " Low", " had", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "[MASK] had in love to be able to get [MASK] in front of the camera",
+    "timestamp" : 293552
+  }, {
+    "sentence" : "Low Got in love to be able to get up in front of the camera",
+    "tokens" : [ 5146, 1105, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 36.305938720703125,
+    "tokens_used" : [ " Low", " Got", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Low [MASK] in love to be able to [MASK] up in front of the camera",
+    "timestamp" : 297630
+  }, {
+    "sentence" : "Low dog in love to be able to get up in front of the camera",
+    "tokens" : [ 5146, 875, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 29.447038650512695,
+    "tokens_used" : [ " Low", " dog", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Low [MASK] in [MASK] to be able to get up in front of the camera",
+    "timestamp" : 330415
+  }, {
+    "sentence" : "Low any in love to be able to get up in front of the camera",
+    "tokens" : [ 5146, 1047, 2515, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 29.58145523071289,
+    "tokens_used" : [ " Low", " any", " in", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Low [MASK] in love to be able to [MASK] up in front of the camera",
+    "timestamp" : 349115
+  }, {
+    "sentence" : "Low any we love to be able to get up in front of the camera",
+    "tokens" : [ 5146, 1047, 1778, 4797, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 3311 ],
+    "perplexity" : 33.96502685546875,
+    "tokens_used" : [ " Low", " any", " we", " love", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " camera" ],
+    "original_sentence" : "Low any [MASK] love to be able to get up in front of the [MASK]",
+    "timestamp" : 360206
+  } ]
+}

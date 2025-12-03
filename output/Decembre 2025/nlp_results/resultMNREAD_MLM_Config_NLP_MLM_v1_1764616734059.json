@@ -1,0 +1,417 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T14:18:54.057356310",
+  "time" : 264.301,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "You should be able to get up and out of the room to the bed",
+    "score" : 16.38698387145996,
+    "time" : 68433,
+    "cycle" : 1
+  }, {
+    "sentence" : "You should be able to get in and out on your way to a hotel",
+    "score" : 16.374969482421875,
+    "time" : 112511,
+    "cycle" : 19
+  } ],
+  "base_sentence" : {
+    "sentence" : "You should be able to get in and out of the room to the bed",
+    "perplexity" : 14.631485939025879,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "You should be able to get up and out of the room to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 1840, 215, 518, 5194, 394, 3465, 2461, 394, 3225 ],
+    "perplexity" : 16.38698387145996,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " up", " and", " out", " of", " the", " room", " to", " the", " bed" ],
+    "original_sentence" : "You should be able to get [MASK] and out of the [MASK] to [MASK] bed",
+    "timestamp" : 68433
+  }, {
+    "sentence" : "You should be able to get up and out of the and to your bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 1840, 215, 518, 5194, 394, 215, 2461, 164, 3225 ],
+    "perplexity" : 21.048900604248047,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " up", " and", " out", " of", " the", " and", " to", " your", " bed" ],
+    "original_sentence" : "You should be able to get up and out of [MASK] [MASK] to [MASK] bed",
+    "timestamp" : 74019
+  }, {
+    "sentence" : "You should be able to get in and out of the way to your bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3608, 2461, 164, 3225 ],
+    "perplexity" : 19.940940856933594,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " way", " to", " your", " bed" ],
+    "original_sentence" : "You should be able [MASK] get [MASK] and out of the [MASK] to your bed",
+    "timestamp" : 76000
+  }, {
+    "sentence" : "You should be able to get in and out of the bed to your bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3225, 2461, 164, 3225 ],
+    "perplexity" : 18.750532150268555,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " the", " bed", " to", " your", " bed" ],
+    "original_sentence" : "You should be able [MASK] get [MASK] and out of the [MASK] to your bed",
+    "timestamp" : 77637
+  }, {
+    "sentence" : "You should be able to get in and out of your bed to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 164, 3225, 2461, 394, 3225 ],
+    "perplexity" : 18.214397430419922,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " your", " bed", " to", " the", " bed" ],
+    "original_sentence" : "You should be able to [MASK] in and out of [MASK] bed to [MASK] bed",
+    "timestamp" : 79667
+  }, {
+    "sentence" : "You should be able to hop in and out of your bed to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2764, 2515, 215, 518, 5194, 164, 3225, 2461, 394, 3225 ],
+    "perplexity" : 22.64783477783203,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " hop", " in", " and", " out", " of", " your", " bed", " to", " the", " bed" ],
+    "original_sentence" : "[MASK] should be able to [MASK] in and [MASK] of your bed to the bed",
+    "timestamp" : 87490
+  }, {
+    "sentence" : "You should be able to hop in and out of your way to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2764, 2515, 215, 518, 5194, 164, 3608, 2461, 394, 3225 ],
+    "perplexity" : 23.416696548461914,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " hop", " in", " and", " out", " of", " your", " way", " to", " the", " bed" ],
+    "original_sentence" : "You should be [MASK] to hop [MASK] and out of your [MASK] to the bed",
+    "timestamp" : 90888
+  }, {
+    "sentence" : "You should be able to hop in and out of your way in the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 2764, 2515, 215, 518, 5194, 164, 3608, 2515, 394, 3225 ],
+    "perplexity" : 24.12820053100586,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " hop", " in", " and", " out", " of", " your", " way", " in", " the", " bed" ],
+    "original_sentence" : "You should be able [MASK] hop in and out of your [MASK] [MASK] the bed",
+    "timestamp" : 97068
+  }, {
+    "sentence" : "You should be able to get in and out of your way in the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 164, 3608, 2515, 394, 3225 ],
+    "perplexity" : 18.54462242126465,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " your", " way", " in", " the", " bed" ],
+    "original_sentence" : "You should be able [MASK] [MASK] in and out of [MASK] way in the bed",
+    "timestamp" : 99018
+  }, {
+    "sentence" : "You should be able to get in and out of your way to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 164, 3608, 2461, 394, 3225 ],
+    "perplexity" : 20.29132843017578,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " of", " your", " way", " to", " the", " bed" ],
+    "original_sentence" : "You should be able to get in [MASK] [MASK] of your way [MASK] the bed",
+    "timestamp" : 102485
+  }, {
+    "sentence" : "You should be able to get in and out on your way to the bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 710, 164, 3608, 2461, 394, 3225 ],
+    "perplexity" : 16.588003158569336,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " on", " your", " way", " to", " the", " bed" ],
+    "original_sentence" : "You should [MASK] able to get in and [MASK] [MASK] your way to the bed",
+    "timestamp" : 105246
+  }, {
+    "sentence" : "You should be able to get in and out on your way to his bed",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 710, 164, 3608, 2461, 3882, 3225 ],
+    "perplexity" : 19.696165084838867,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " on", " your", " way", " to", " his", " bed" ],
+    "original_sentence" : "[MASK] should be able [MASK] get in and out on your way to [MASK] bed",
+    "timestamp" : 106795
+  }, {
+    "sentence" : "You should be able to get in and out on your way to his car",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 710, 164, 3608, 2461, 3882, 2223 ],
+    "perplexity" : 17.34243392944336,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " on", " your", " way", " to", " his", " car" ],
+    "original_sentence" : "You should be able to get [MASK] [MASK] out on your way to his [MASK]",
+    "timestamp" : 108624
+  }, {
+    "sentence" : "You should be able to get in and out on your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3912, 2515, 215, 518, 710, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 16.374969482421875,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " get", " in", " and", " out", " on", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "You should [MASK] able to get in and out on your way to [MASK] [MASK]",
+    "timestamp" : 112511
+  }, {
+    "sentence" : "You should be able to walk in or out on your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2515, 1860, 518, 710, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 19.39486312866211,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " in", " or", " out", " on", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "You should [MASK] able to [MASK] in [MASK] out on your way to a hotel",
+    "timestamp" : 114470
+  }, {
+    "sentence" : "You should be able to walk in or out of your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2515, 1860, 518, 5194, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 25.503623962402344,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " in", " or", " out", " of", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "You should be [MASK] to walk in or out [MASK] your way [MASK] a hotel",
+    "timestamp" : 115989
+  }, {
+    "sentence" : "You should be able to walk to or out on your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2461, 1860, 518, 710, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 30.34821319580078,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " to", " or", " out", " on", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "You should be able to walk [MASK] or [MASK] [MASK] your way to a hotel",
+    "timestamp" : 119012
+  }, {
+    "sentence" : "You should be able to walk to a city on your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2461, 4646, 2973, 710, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 19.718280792236328,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " to", " a", " city", " on", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "You should be able to [MASK] to [MASK] [MASK] on your way to a hotel",
+    "timestamp" : 120543
+  }, {
+    "sentence" : "You should be able to walk in a city on your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2515, 4646, 2973, 710, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 19.810565948486328,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " in", " a", " city", " on", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "You should [MASK] able to walk [MASK] a city on your way [MASK] a hotel",
+    "timestamp" : 122168
+  }, {
+    "sentence" : "You should be able to walk in a city on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2515, 4646, 2973, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 23.186189651489258,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " in", " a", " city", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You should be able to [MASK] in a city on [MASK] way to [MASK] hotel",
+    "timestamp" : 129051
+  }, {
+    "sentence" : "You should be able to walk to a city on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 1948, 2461, 4646, 2973, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 23.11301040649414,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " walk", " to", " a", " city", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You should [MASK] able to [MASK] [MASK] a city on the way to my hotel",
+    "timestamp" : 130133
+  }, {
+    "sentence" : "You should be able to look in a city on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3647, 2515, 4646, 2973, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 28.619400024414062,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " look", " in", " a", " city", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "[MASK] should be able to [MASK] [MASK] a city on the way to my hotel",
+    "timestamp" : 134360
+  }, {
+    "sentence" : "You should be able to look in a shop on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3647, 2515, 4646, 4667, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 25.264787673950195,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " look", " in", " a", " shop", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You should [MASK] able to look in a [MASK] on [MASK] way to my hotel",
+    "timestamp" : 141701
+  }, {
+    "sentence" : "You should be able to stop in a shop on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 2515, 4646, 4667, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 23.062076568603516,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " in", " a", " shop", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You [MASK] be able [MASK] [MASK] in a shop on the way to my hotel",
+    "timestamp" : 155635
+  }, {
+    "sentence" : "You should be able to stop in a park on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 2515, 4646, 983, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 23.492155075073242,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " in", " a", " park", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You should be able [MASK] stop in a [MASK] on the way [MASK] my hotel",
+    "timestamp" : 157612
+  }, {
+    "sentence" : "You should be able to stop at a park on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 302, 4646, 983, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 22.837472915649414,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " at", " a", " park", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "[MASK] should be able [MASK] stop [MASK] a park on the way to my hotel",
+    "timestamp" : 158830
+  }, {
+    "sentence" : "You should be able to stop at a stop on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 302, 4646, 3997, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 22.985435485839844,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " at", " a", " stop", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You [MASK] be able to stop at a [MASK] on the [MASK] to my hotel",
+    "timestamp" : 164272
+  }, {
+    "sentence" : "You should be sure to stop at a stop on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 302, 4646, 3997, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 28.3123722076416,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " at", " a", " stop", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You [MASK] be [MASK] to stop at [MASK] stop on the way to my hotel",
+    "timestamp" : 167382
+  }, {
+    "sentence" : "You should be sure to stop by a stop on the way to my hotel",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 2029, 4646, 3997, 710, 394, 3608, 2461, 938, 1706 ],
+    "perplexity" : 31.575397491455078,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " by", " a", " stop", " on", " the", " way", " to", " my", " hotel" ],
+    "original_sentence" : "You should be [MASK] [MASK] stop [MASK] a stop on the way to my hotel",
+    "timestamp" : 173920
+  }, {
+    "sentence" : "You should be sure to stop by a stop on the way to my store",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 2029, 4646, 3997, 710, 394, 3608, 2461, 938, 2919 ],
+    "perplexity" : 31.098459243774414,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " by", " a", " stop", " on", " the", " way", " to", " my", " store" ],
+    "original_sentence" : "[MASK] should be sure to stop by a stop on [MASK] way to my [MASK]",
+    "timestamp" : 179151
+  }, {
+    "sentence" : "You should be sure to stop at a stop on the way to my store",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 302, 4646, 3997, 710, 394, 3608, 2461, 938, 2919 ],
+    "perplexity" : 29.448759078979492,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " at", " a", " stop", " on", " the", " way", " to", " my", " store" ],
+    "original_sentence" : "You should be [MASK] to stop [MASK] a stop on [MASK] way to my store",
+    "timestamp" : 181004
+  }, {
+    "sentence" : "You should be sure to stop at a park on the way to my store",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 302, 4646, 983, 710, 394, 3608, 2461, 938, 2919 ],
+    "perplexity" : 30.380535125732422,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " at", " a", " park", " on", " the", " way", " to", " my", " store" ],
+    "original_sentence" : "You should be sure [MASK] stop at a [MASK] on the way [MASK] my store",
+    "timestamp" : 186240
+  }, {
+    "sentence" : "You should be sure to stop in a park on the way to my store",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 2515, 4646, 983, 710, 394, 3608, 2461, 938, 2919 ],
+    "perplexity" : 32.34687805175781,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " in", " a", " park", " on", " the", " way", " to", " my", " store" ],
+    "original_sentence" : "You [MASK] be sure to stop [MASK] a park on [MASK] way to my store",
+    "timestamp" : 187871
+  }, {
+    "sentence" : "You should be sure to stop in a shop on the way to my store",
+    "tokens" : [ 920, 1835, 1392, 3383, 2461, 3997, 2515, 4646, 4667, 710, 394, 3608, 2461, 938, 2919 ],
+    "perplexity" : 28.66481590270996,
+    "tokens_used" : [ " You", " should", " be", " sure", " to", " stop", " in", " a", " shop", " on", " the", " way", " to", " my", " store" ],
+    "original_sentence" : "You [MASK] be sure to stop in a [MASK] on the [MASK] to my store",
+    "timestamp" : 199081
+  }, {
+    "sentence" : "You should be able to stop in a shop on the way to my store",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 2515, 4646, 4667, 710, 394, 3608, 2461, 938, 2919 ],
+    "perplexity" : 22.930940628051758,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " in", " a", " shop", " on", " the", " way", " to", " my", " store" ],
+    "original_sentence" : "You should [MASK] [MASK] to stop in a shop on the way [MASK] my store",
+    "timestamp" : 201085
+  }, {
+    "sentence" : "You should be able to stop in a shop on your way to a store",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 2515, 4646, 4667, 710, 164, 3608, 2461, 4646, 2919 ],
+    "perplexity" : 19.549236297607422,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " in", " a", " shop", " on", " your", " way", " to", " a", " store" ],
+    "original_sentence" : "You should be able to [MASK] in a shop on [MASK] way to [MASK] store",
+    "timestamp" : 202423
+  }, {
+    "sentence" : "You should be able to stop in a park on your way to a store",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 2515, 4646, 983, 710, 164, 3608, 2461, 4646, 2919 ],
+    "perplexity" : 20.762020111083984,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " in", " a", " park", " on", " your", " way", " to", " a", " store" ],
+    "original_sentence" : "You should [MASK] able to stop in a [MASK] on your way [MASK] a store",
+    "timestamp" : 206216
+  }, {
+    "sentence" : "You should be able to stop at a park on your way to a store",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 3997, 302, 4646, 983, 710, 164, 3608, 2461, 4646, 2919 ],
+    "perplexity" : 19.754682540893555,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " stop", " at", " a", " park", " on", " your", " way", " to", " a", " store" ],
+    "original_sentence" : "You should be able [MASK] stop [MASK] a park on [MASK] way to a store",
+    "timestamp" : 207870
+  }, {
+    "sentence" : "You should be able to park at a park on your way to a store",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 302, 4646, 983, 710, 164, 3608, 2461, 4646, 2919 ],
+    "perplexity" : 20.145145416259766,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " at", " a", " park", " on", " your", " way", " to", " a", " store" ],
+    "original_sentence" : "[MASK] [MASK] be able to [MASK] at a park on your way to a store",
+    "timestamp" : 209778
+  }, {
+    "sentence" : "You should be able to park at a park on your way to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 302, 4646, 983, 710, 164, 3608, 2461, 4646, 1706 ],
+    "perplexity" : 20.494985580444336,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " at", " a", " park", " on", " your", " way", " to", " a", " hotel" ],
+    "original_sentence" : "[MASK] should be able to park at a park on your [MASK] to a [MASK]",
+    "timestamp" : 214888
+  }, {
+    "sentence" : "You should be able to park at a park on your own to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 302, 4646, 983, 710, 164, 1684, 2461, 4646, 1706 ],
+    "perplexity" : 29.679779052734375,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " at", " a", " park", " on", " your", " own", " to", " a", " hotel" ],
+    "original_sentence" : "You should [MASK] able [MASK] park at a park on your [MASK] to a hotel",
+    "timestamp" : 216305
+  }, {
+    "sentence" : "You should be able to park in a park on your own to a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 710, 164, 1684, 2461, 4646, 1706 ],
+    "perplexity" : 26.92949104309082,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " on", " your", " own", " to", " a", " hotel" ],
+    "original_sentence" : "You should be [MASK] to park [MASK] a park on your own to [MASK] hotel",
+    "timestamp" : 217482
+  }, {
+    "sentence" : "You should be able to park in a park on your own in a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 710, 164, 1684, 2515, 4646, 1706 ],
+    "perplexity" : 19.8697452545166,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " on", " your", " own", " in", " a", " hotel" ],
+    "original_sentence" : "[MASK] should be [MASK] to park in a park on your own [MASK] a hotel",
+    "timestamp" : 219115
+  }, {
+    "sentence" : "You should be able to park in a park of your own in a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 5194, 164, 1684, 2515, 4646, 1706 ],
+    "perplexity" : 21.103321075439453,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " of", " your", " own", " in", " a", " hotel" ],
+    "original_sentence" : "You should be able to park in [MASK] [MASK] [MASK] your own in a hotel",
+    "timestamp" : 220196
+  }, {
+    "sentence" : "You should be able to park in a park of your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 5194, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 21.693405151367188,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " of", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "You should be able to park in a [MASK] of [MASK] own [MASK] a hotel",
+    "timestamp" : 223755
+  }, {
+    "sentence" : "You should be able to park in a spot of your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 2161, 5194, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 27.4875545501709,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " spot", " of", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "You should be able to park [MASK] a [MASK] of [MASK] own at a hotel",
+    "timestamp" : 226401
+  }, {
+    "sentence" : "You should be able to park on a spot of your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 710, 4646, 2161, 5194, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 27.070730209350586,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " on", " a", " spot", " of", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "You should be able to park [MASK] a spot [MASK] [MASK] own at a hotel",
+    "timestamp" : 228114
+  }, {
+    "sentence" : "You should be able to park to a spot of your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2461, 4646, 2161, 5194, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 32.576969146728516,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " to", " a", " spot", " of", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "You should be able [MASK] park [MASK] a spot of your own at [MASK] hotel",
+    "timestamp" : 230116
+  }, {
+    "sentence" : "You should be able to park to a spot of your own in a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2461, 4646, 2161, 5194, 164, 1684, 2515, 4646, 1706 ],
+    "perplexity" : 32.2501106262207,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " to", " a", " spot", " of", " your", " own", " in", " a", " hotel" ],
+    "original_sentence" : "You should be able to park [MASK] a [MASK] of your own [MASK] a hotel",
+    "timestamp" : 235934
+  }, {
+    "sentence" : "You should be able to park to a spot on your own in a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2461, 4646, 2161, 710, 164, 1684, 2515, 4646, 1706 ],
+    "perplexity" : 31.950607299804688,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " to", " a", " spot", " on", " your", " own", " in", " a", " hotel" ],
+    "original_sentence" : "You should be able to [MASK] to [MASK] spot [MASK] your own in a hotel",
+    "timestamp" : 237955
+  }, {
+    "sentence" : "You should be able to park to a spot on your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2461, 4646, 2161, 710, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 32.047611236572266,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " to", " a", " spot", " on", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "You should be able to [MASK] to a spot on [MASK] own [MASK] a hotel",
+    "timestamp" : 240055
+  }, {
+    "sentence" : "You should be able to park to a park on your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2461, 4646, 983, 710, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 28.510751724243164,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " to", " a", " park", " on", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "[MASK] should be able to park to a [MASK] on [MASK] own at a hotel",
+    "timestamp" : 244281
+  }, {
+    "sentence" : "You should be able to park in a park on your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 710, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 20.166162490844727,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " on", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "[MASK] should be able to park [MASK] a park on your own at [MASK] hotel",
+    "timestamp" : 257129
+  }, {
+    "sentence" : "You should be able to park in a park by your own at a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 2029, 164, 1684, 302, 4646, 1706 ],
+    "perplexity" : 31.009815216064453,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " by", " your", " own", " at", " a", " hotel" ],
+    "original_sentence" : "You should [MASK] able to park in a park [MASK] your own at [MASK] hotel",
+    "timestamp" : 258292
+  }, {
+    "sentence" : "You should be able to park in a park by your own in a hotel",
+    "tokens" : [ 920, 1835, 1392, 4464, 2461, 983, 2515, 4646, 983, 2029, 164, 1684, 2515, 4646, 1706 ],
+    "perplexity" : 29.969825744628906,
+    "tokens_used" : [ " You", " should", " be", " able", " to", " park", " in", " a", " park", " by", " your", " own", " in", " a", " hotel" ],
+    "original_sentence" : "You should be able [MASK] park in [MASK] park by your own [MASK] a hotel",
+    "timestamp" : 259306
+  } ]
+}

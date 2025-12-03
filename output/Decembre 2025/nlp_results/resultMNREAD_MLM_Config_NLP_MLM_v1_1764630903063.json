@@ -1,0 +1,90 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 50,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T18:15:03.056594674",
+  "time" : 387.359,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "From the end of the room and down the stairs to the kitchen",
+    "score" : 19.469518661499023,
+    "time" : 59391,
+    "cycle" : 0
+  } ],
+  "base_sentence" : {
+    "sentence" : "Near the end of the room and down the stairs to the kitchen",
+    "perplexity" : 16.751358032226562,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "From the end of the room and down the stairs to the kitchen",
+    "tokens" : [ 3605, 394, 2135, 5194, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 19.469518661499023,
+    "tokens_used" : [ " from", " the", " end", " of", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "[MASK] the [MASK] of the room and down the stairs to the [MASK]",
+    "timestamp" : 59391
+  }, {
+    "sentence" : "From the end of the room run down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 2135, 5194, 394, 3465, 2807, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 19.822744369506836,
+    "tokens_used" : [ " From", " the", " end", " of", " the", " room", " run", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "From the end of the [MASK] [MASK] down the stairs [MASK] the kitchen",
+    "timestamp" : 80155
+  }, {
+    "sentence" : "From the bed in the room and down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 3225, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.24788475036621,
+    "tokens_used" : [ " From", " the", " bed", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "From [MASK] bed in the room [MASK] down the stairs [MASK] the kitchen",
+    "timestamp" : 107914
+  }, {
+    "sentence" : "From the bar in the room and down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 4038, 2515, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 22.36024284362793,
+    "tokens_used" : [ " From", " the", " bar", " in", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "From the [MASK] in the [MASK] [MASK] down the stairs to the kitchen",
+    "timestamp" : 121547
+  }, {
+    "sentence" : "From the bar to the room and down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 4038, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 21.724987030029297,
+    "tokens_used" : [ " From", " the", " bar", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "From the bar [MASK] [MASK] room and down the [MASK] to the kitchen",
+    "timestamp" : 131920
+  }, {
+    "sentence" : "From the bed to the room and down the stairs to the kitchen",
+    "tokens" : [ 3606, 394, 3225, 2461, 394, 3465, 215, 4343, 394, 991, 2461, 394, 350 ],
+    "perplexity" : 21.78228759765625,
+    "tokens_used" : [ " From", " the", " bed", " to", " the", " room", " and", " down", " the", " stairs", " to", " the", " kitchen" ],
+    "original_sentence" : "From the [MASK] to the room and down the [MASK] [MASK] the kitchen",
+    "timestamp" : 134547
+  }, {
+    "sentence" : "From the left to the right and down two steps to the bottom",
+    "tokens" : [ 3606, 394, 1608, 2461, 394, 5022, 215, 4343, 2456, 3804, 2461, 394, 854 ],
+    "perplexity" : 27.428054809570312,
+    "tokens_used" : [ " From", " the", " left", " to", " the", " right", " and", " down", " two", " steps", " to", " the", " bottom" ],
+    "original_sentence" : "[MASK] the left to the [MASK] and down [MASK] steps to the bottom",
+    "timestamp" : 233768
+  }, {
+    "sentence" : "From the arrows to the right and Move the arrow to the left",
+    "tokens" : [ 3606, 394, 2936, 2461, 394, 5022, 215, 4264, 394, 3268, 2461, 394, 1608 ],
+    "perplexity" : 31.84564971923828,
+    "tokens_used" : [ " From", " the", " arrows", " to", " the", " right", " and", " Move", " the", " arrow", " to", " the", " left" ],
+    "original_sentence" : "[MASK] the arrows to the right [MASK] [MASK] the arrow to the left",
+    "timestamp" : 278391
+  }, {
+    "sentence" : "From the arrows to the right and Down the arrow to the left",
+    "tokens" : [ 3606, 394, 2936, 2461, 394, 5022, 215, 4344, 394, 3268, 2461, 394, 1608 ],
+    "perplexity" : 24.064552307128906,
+    "tokens_used" : [ " From", " the", " arrows", " to", " the", " right", " and", " Down", " the", " arrow", " to", " the", " left" ],
+    "original_sentence" : "From the [MASK] to the right [MASK] [MASK] the arrow to the left",
+    "timestamp" : 282265
+  } ]
+}

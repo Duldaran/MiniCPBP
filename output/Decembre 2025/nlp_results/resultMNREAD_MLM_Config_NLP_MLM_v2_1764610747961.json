@@ -1,0 +1,711 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:39:07.959272188",
+  "time" : 2641.31,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "You would be able to get in and out of the room to the left",
+    "score" : 14.469128608703613,
+    "time" : 62032,
+    "cycle" : 0
+  }, {
+    "sentence" : "You would be able to get in and out of the room on the left",
+    "score" : 14.31241512298584,
+    "time" : 75896,
+    "cycle" : 2
+  } ],
+  "base_sentence" : {
+    "sentence" : "You should be able to get in and out of the room to the bed",
+    "perplexity" : 14.631485939025879,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "You would be able to get in and out of the room to the left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 1608 ],
+    "perplexity" : 14.469128608703613,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " to", " the", " left" ],
+    "original_sentence" : "You [MASK] be able to get in and out of the room to the [MASK]",
+    "timestamp" : 62032
+  }, {
+    "sentence" : "You would be able to get in and out of the room on the left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 14.31241512298584,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "You would be able to get in and [MASK] of the room [MASK] the left",
+    "timestamp" : 75896
+  }, {
+    "sentence" : "You would be able to get in and out of the room by the left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2029, 394, 1608 ],
+    "perplexity" : 19.965456008911133,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " by", " the", " left" ],
+    "original_sentence" : "You would be able to get in and [MASK] of the room [MASK] the left",
+    "timestamp" : 77524
+  }, {
+    "sentence" : "You would be able to get in and out of the room at the left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 302, 394, 1608 ],
+    "perplexity" : 16.741918563842773,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " at", " the", " left" ],
+    "original_sentence" : "You would be able to get in and [MASK] of the room [MASK] the left",
+    "timestamp" : 78641
+  }, {
+    "sentence" : "You would be able to get in and out of the room up the left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 1840, 394, 1608 ],
+    "perplexity" : 26.83144760131836,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " up", " the", " left" ],
+    "original_sentence" : "You would be able to get in and [MASK] of the room [MASK] the left",
+    "timestamp" : 80096
+  }, {
+    "sentence" : "You would be able to get in and out of the room in the left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 2515, 394, 1608 ],
+    "perplexity" : 23.45524024963379,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " in", " the", " left" ],
+    "original_sentence" : "You would be able to get in and [MASK] of the room [MASK] the left",
+    "timestamp" : 81341
+  }, {
+    "sentence" : "You would be able to get in and out of the room on his left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 3882, 1608 ],
+    "perplexity" : 18.303237915039062,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " his", " left" ],
+    "original_sentence" : "You would be able to get in [MASK] out of the room on [MASK] left",
+    "timestamp" : 83810
+  }, {
+    "sentence" : "You would be able to get in and out of the room on her left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 3730, 1608 ],
+    "perplexity" : 20.12329864501953,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " her", " left" ],
+    "original_sentence" : "You would be able to get in [MASK] out of the room on [MASK] left",
+    "timestamp" : 86829
+  }, {
+    "sentence" : "You would be able to get in and out of the room on its left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 2426, 1608 ],
+    "perplexity" : 27.055805206298828,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " its", " left" ],
+    "original_sentence" : "You would be able to get in [MASK] out of the room on [MASK] left",
+    "timestamp" : 87965
+  }, {
+    "sentence" : "You would be able to get in and out of the room on far left",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 2934, 1608 ],
+    "perplexity" : 26.02721405029297,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " far", " left" ],
+    "original_sentence" : "You would be able to get in [MASK] out of the room on [MASK] left",
+    "timestamp" : 89134
+  }, {
+    "sentence" : "You would be able to get in and out of the room on the last",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1165 ],
+    "perplexity" : 20.565366744995117,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " the", " last" ],
+    "original_sentence" : "You would be able to get in and out of the room on [MASK] [MASK]",
+    "timestamp" : 107756
+  }, {
+    "sentence" : "You would be able to get in and out of the room on the fill",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1157 ],
+    "perplexity" : 22.451601028442383,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " the", " fill" ],
+    "original_sentence" : "You would be able to get in and out of the room on [MASK] [MASK]",
+    "timestamp" : 108827
+  }, {
+    "sentence" : "You would be able to get in and out of the room on the till",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 394, 3896 ],
+    "perplexity" : 24.356996536254883,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " the", " till" ],
+    "original_sentence" : "You would be able to get in and out of the room on [MASK] [MASK]",
+    "timestamp" : 109743
+  }, {
+    "sentence" : "You would be able to get in and out of the room on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3912, 2515, 215, 518, 5194, 394, 3465, 710, 394, 2717 ],
+    "perplexity" : 19.458154678344727,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " get", " in", " and", " out", " of", " the", " room", " on", " the", " roll" ],
+    "original_sentence" : "You would be able to get in and out of the room on [MASK] [MASK]",
+    "timestamp" : 110902
+  }, {
+    "sentence" : "You would be able to hop in and out of the room on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2764, 2515, 215, 518, 5194, 394, 3465, 710, 394, 2717 ],
+    "perplexity" : 25.976613998413086,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " hop", " in", " and", " out", " of", " the", " room", " on", " the", " roll" ],
+    "original_sentence" : "You would be [MASK] to [MASK] in and out of the room on the roll",
+    "timestamp" : 113414
+  }, {
+    "sentence" : "You would be able to pop in and out of the room on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 3439, 2515, 215, 518, 5194, 394, 3465, 710, 394, 2717 ],
+    "perplexity" : 25.806262969970703,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " pop", " in", " and", " out", " of", " the", " room", " on", " the", " roll" ],
+    "original_sentence" : "You would be [MASK] to [MASK] in and out of the room on the roll",
+    "timestamp" : 114362
+  }, {
+    "sentence" : "You would be able to run in and out of the room on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 3465, 710, 394, 2717 ],
+    "perplexity" : 23.439491271972656,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " room", " on", " the", " roll" ],
+    "original_sentence" : "You would be [MASK] to [MASK] in and out of the room on the roll",
+    "timestamp" : 115437
+  }, {
+    "sentence" : "You would be able to run in and out of the door on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 4455, 710, 394, 2717 ],
+    "perplexity" : 26.548370361328125,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " door", " on", " the", " roll" ],
+    "original_sentence" : "You would be able to run [MASK] and out of the [MASK] on the roll",
+    "timestamp" : 120769
+  }, {
+    "sentence" : "You would be able to run in and out of the park on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 983, 710, 394, 2717 ],
+    "perplexity" : 26.384397506713867,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " park", " on", " the", " roll" ],
+    "original_sentence" : "You would be able to run [MASK] and out of the [MASK] on the roll",
+    "timestamp" : 121801
+  }, {
+    "sentence" : "You would be able to run in and out of the hole on the roll",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 4287, 710, 394, 2717 ],
+    "perplexity" : 24.829051971435547,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " hole", " on", " the", " roll" ],
+    "original_sentence" : "You would be able to run [MASK] and out of the [MASK] on the roll",
+    "timestamp" : 124955
+  }, {
+    "sentence" : "You would be able to run in and out of the hole on the side",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 4287, 710, 394, 400 ],
+    "perplexity" : 22.41043472290039,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " hole", " on", " the", " side" ],
+    "original_sentence" : "You would be [MASK] to run in and out of the hole on the [MASK]",
+    "timestamp" : 128102
+  }, {
+    "sentence" : "You would be able to run in and out of the hole on his side",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 24.228694915771484,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "You would be able to run in and out [MASK] the hole on [MASK] side",
+    "timestamp" : 144864
+  }, {
+    "sentence" : "You would be able to run in and out of the hole on our side",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 4287, 710, 3369, 400 ],
+    "perplexity" : 26.616703033447266,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " hole", " on", " our", " side" ],
+    "original_sentence" : "You would be able to run in and out [MASK] the hole on [MASK] side",
+    "timestamp" : 158402
+  }, {
+    "sentence" : "You would be able to run in and out of the hole on her side",
+    "tokens" : [ 920, 2288, 1392, 4464, 2461, 2807, 2515, 215, 518, 5194, 394, 4287, 710, 3730, 400 ],
+    "perplexity" : 27.179506301879883,
+    "tokens_used" : [ " You", " would", " be", " able", " to", " run", " in", " and", " out", " of", " the", " hole", " on", " her", " side" ],
+    "original_sentence" : "You would be able to run in and out [MASK] the hole on [MASK] side",
+    "timestamp" : 160986
+  }, {
+    "sentence" : "He would be able to move in and out of the hole on his side",
+    "tokens" : [ 2228, 2288, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 17.466442108154297,
+    "tokens_used" : [ " he", " would", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] would be able to [MASK] in and out of the hole on his side",
+    "timestamp" : 165046
+  }, {
+    "sentence" : "Or would be able to move in and out of the hole on his side",
+    "tokens" : [ 1860, 2288, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 25.43541717529297,
+    "tokens_used" : [ " or", " would", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] would be able to [MASK] in and out of the hole on his side",
+    "timestamp" : 166292
+  }, {
+    "sentence" : "In would be able to move in and out of the hole on his side",
+    "tokens" : [ 2516, 2288, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 22.850255966186523,
+    "tokens_used" : [ " In", " would", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] would be able to [MASK] in and out of the hole on his side",
+    "timestamp" : 167400
+  }, {
+    "sentence" : "So would be able to move in and out of the hole on his side",
+    "tokens" : [ 1513, 2288, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 28.357486724853516,
+    "tokens_used" : [ " so", " would", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] would be able to [MASK] in and out of the hole on his side",
+    "timestamp" : 168509
+  }, {
+    "sentence" : "Be would be able to move in and out of the hole on his side",
+    "tokens" : [ 1392, 2288, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 20.711978912353516,
+    "tokens_used" : [ " be", " would", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] would be able to [MASK] in and out of the hole on his side",
+    "timestamp" : 169491
+  }, {
+    "sentence" : "He might be able to move in and out of the hole on his side",
+    "tokens" : [ 2229, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 18.74018669128418,
+    "tokens_used" : [ " He", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the hole [MASK] his side",
+    "timestamp" : 171083
+  }, {
+    "sentence" : "He could be able to move in and out of the hole on his side",
+    "tokens" : [ 2229, 4439, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 19.318941116333008,
+    "tokens_used" : [ " He", " could", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the hole [MASK] his side",
+    "timestamp" : 172198
+  }, {
+    "sentence" : "He ought be able to move in and out of the hole on his side",
+    "tokens" : [ 2229, 829, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 27.638713836669922,
+    "tokens_used" : [ " He", " ought", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the hole [MASK] his side",
+    "timestamp" : 174509
+  }, {
+    "sentence" : "We might be able to move in and out of the hole on his side",
+    "tokens" : [ 1778, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 22.88798713684082,
+    "tokens_used" : [ " we", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] might be [MASK] to move in and out of the hole on his side",
+    "timestamp" : 178608
+  }, {
+    "sentence" : "Or might be able to move in and out of the hole on his side",
+    "tokens" : [ 1860, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 25.40704917907715,
+    "tokens_used" : [ " or", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] might be [MASK] to move in and out of the hole on his side",
+    "timestamp" : 180114
+  }, {
+    "sentence" : "Do might be able to move in and out of the hole on his side",
+    "tokens" : [ 3474, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4287, 710, 3882, 400 ],
+    "perplexity" : 24.802391052246094,
+    "tokens_used" : [ " Do", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " hole", " on", " his", " side" ],
+    "original_sentence" : "[MASK] might be [MASK] to move in and out of the hole on his side",
+    "timestamp" : 181367
+  }, {
+    "sentence" : "Do might be able to move in and out of the door on his side",
+    "tokens" : [ 3474, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 4455, 710, 3882, 400 ],
+    "perplexity" : 27.896692276000977,
+    "tokens_used" : [ " Do", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " door", " on", " his", " side" ],
+    "original_sentence" : "Do might be able [MASK] move in and out of the [MASK] on his side",
+    "timestamp" : 206952
+  }, {
+    "sentence" : "Do might be able to move in and out of the wall on his side",
+    "tokens" : [ 3474, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 3882, 400 ],
+    "perplexity" : 24.449241638183594,
+    "tokens_used" : [ " Do", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " his", " side" ],
+    "original_sentence" : "Do might be able [MASK] move in and out of the [MASK] on his side",
+    "timestamp" : 209295
+  }, {
+    "sentence" : "He might be able to move in and out of the wall on his side",
+    "tokens" : [ 2229, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 3882, 400 ],
+    "perplexity" : 19.46536636352539,
+    "tokens_used" : [ " He", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " his", " side" ],
+    "original_sentence" : "[MASK] might be able to move in and out of the wall on his [MASK]",
+    "timestamp" : 228439
+  }, {
+    "sentence" : "We might be able to move in and out of the wall on his side",
+    "tokens" : [ 1778, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 3882, 400 ],
+    "perplexity" : 22.4477481842041,
+    "tokens_used" : [ " we", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " his", " side" ],
+    "original_sentence" : "[MASK] might be able to move in and out of the wall on his [MASK]",
+    "timestamp" : 230792
+  }, {
+    "sentence" : "Or might be able to move in and out of the wall on his side",
+    "tokens" : [ 1860, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 3882, 400 ],
+    "perplexity" : 25.462675094604492,
+    "tokens_used" : [ " or", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " his", " side" ],
+    "original_sentence" : "[MASK] might be able to move in and out of the wall on his [MASK]",
+    "timestamp" : 232118
+  }, {
+    "sentence" : "He could be able to move in and out of the wall on his side",
+    "tokens" : [ 2229, 4439, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 3882, 400 ],
+    "perplexity" : 19.310081481933594,
+    "tokens_used" : [ " He", " could", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " his", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the wall [MASK] his side",
+    "timestamp" : 237175
+  }, {
+    "sentence" : "He ought be able to move in and out of the wall on his side",
+    "tokens" : [ 2229, 829, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 3882, 400 ],
+    "perplexity" : 27.526830673217773,
+    "tokens_used" : [ " He", " ought", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " his", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the wall [MASK] his side",
+    "timestamp" : 240331
+  }, {
+    "sentence" : "He might be able to move in and out of the wall on the side",
+    "tokens" : [ 2229, 2176, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 394, 400 ],
+    "perplexity" : 20.605632781982422,
+    "tokens_used" : [ " He", " might", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " the", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the wall on [MASK] side",
+    "timestamp" : 247653
+  }, {
+    "sentence" : "He could be able to move in and out of the wall on the side",
+    "tokens" : [ 2229, 4439, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 394, 400 ],
+    "perplexity" : 21.065185546875,
+    "tokens_used" : [ " He", " could", " be", " able", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " the", " side" ],
+    "original_sentence" : "He [MASK] be able to move in and out of the wall on [MASK] side",
+    "timestamp" : 249296
+  }, {
+    "sentence" : "He could be used to move in and out of the wall on the side",
+    "tokens" : [ 2229, 4439, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 394, 400 ],
+    "perplexity" : 23.136693954467773,
+    "tokens_used" : [ " He", " could", " be", " used", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " the", " side" ],
+    "original_sentence" : "He could be [MASK] to move in and [MASK] of the wall on the side",
+    "timestamp" : 341433
+  }, {
+    "sentence" : "He could be seen to move in and out of the wall on the side",
+    "tokens" : [ 2229, 4439, 1392, 4355, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 394, 400 ],
+    "perplexity" : 25.616321563720703,
+    "tokens_used" : [ " He", " could", " be", " seen", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " the", " side" ],
+    "original_sentence" : "He could be [MASK] to move in and [MASK] of the wall on the side",
+    "timestamp" : 343187
+  }, {
+    "sentence" : "He could be free to move in and out of the wall on the side",
+    "tokens" : [ 2229, 4439, 1392, 3649, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 394, 400 ],
+    "perplexity" : 28.606075286865234,
+    "tokens_used" : [ " He", " could", " be", " free", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " the", " side" ],
+    "original_sentence" : "He could be [MASK] to move in and [MASK] of the wall on the side",
+    "timestamp" : 344204
+  }, {
+    "sentence" : "He would be free to move in and out of the wall on the side",
+    "tokens" : [ 2229, 2288, 1392, 3649, 2461, 4263, 2515, 215, 518, 5194, 394, 1241, 710, 394, 400 ],
+    "perplexity" : 24.0789737701416,
+    "tokens_used" : [ " He", " would", " be", " free", " to", " move", " in", " and", " out", " of", " the", " wall", " on", " the", " side" ],
+    "original_sentence" : "He [MASK] be free to [MASK] in and out of the wall on the side",
+    "timestamp" : 377002
+  }, {
+    "sentence" : "He would be free to move in and out of the door on the side",
+    "tokens" : [ 2229, 2288, 1392, 3649, 2461, 4263, 2515, 215, 518, 5194, 394, 4455, 710, 394, 400 ],
+    "perplexity" : 23.44100570678711,
+    "tokens_used" : [ " He", " would", " be", " free", " to", " move", " in", " and", " out", " of", " the", " door", " on", " the", " side" ],
+    "original_sentence" : "He would be free to [MASK] in and out of the [MASK] on the side",
+    "timestamp" : 412515
+  }, {
+    "sentence" : "He would be free to move in and out of the door on the left",
+    "tokens" : [ 2229, 2288, 1392, 3649, 2461, 4263, 2515, 215, 518, 5194, 394, 4455, 710, 394, 1608 ],
+    "perplexity" : 22.97817039489746,
+    "tokens_used" : [ " He", " would", " be", " free", " to", " move", " in", " and", " out", " of", " the", " door", " on", " the", " left" ],
+    "original_sentence" : "He would be free to move in and out of the door on [MASK] [MASK]",
+    "timestamp" : 421350
+  }, {
+    "sentence" : "He would be free to move up and out of the door on the left",
+    "tokens" : [ 2229, 2288, 1392, 3649, 2461, 4263, 1840, 215, 518, 5194, 394, 4455, 710, 394, 1608 ],
+    "perplexity" : 28.482290267944336,
+    "tokens_used" : [ " He", " would", " be", " free", " to", " move", " up", " and", " out", " of", " the", " door", " on", " the", " left" ],
+    "original_sentence" : "He would be free [MASK] move [MASK] and out of the door on the left",
+    "timestamp" : 438308
+  }, {
+    "sentence" : "He would be free to move up and out of the room on the left",
+    "tokens" : [ 2229, 2288, 1392, 3649, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 24.433713912963867,
+    "tokens_used" : [ " He", " would", " be", " free", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "He would be free to move up and out [MASK] the [MASK] on the left",
+    "timestamp" : 447245
+  }, {
+    "sentence" : "He would be able to move up and out of the room on the left",
+    "tokens" : [ 2228, 2288, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 19.65885353088379,
+    "tokens_used" : [ " he", " would", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] would be [MASK] to move up and out of the room on the left",
+    "timestamp" : 484473
+  }, {
+    "sentence" : "If would be able to move up and out of the room on the left",
+    "tokens" : [ 2109, 2288, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 28.105575561523438,
+    "tokens_used" : [ " If", " would", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] would be [MASK] to move up and out of the room on the left",
+    "timestamp" : 485463
+  }, {
+    "sentence" : "To would be able to move up and out of the room on the left",
+    "tokens" : [ 2461, 2288, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 23.076318740844727,
+    "tokens_used" : [ " to", " would", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] would be [MASK] to move up and out of the room on the left",
+    "timestamp" : 486946
+  }, {
+    "sentence" : "In would be able to move up and out of the room on the left",
+    "tokens" : [ 2516, 2288, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 24.123023986816406,
+    "tokens_used" : [ " In", " would", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] would be [MASK] to move up and out of the room on the left",
+    "timestamp" : 488734
+  }, {
+    "sentence" : "He might be able to move up and out of the room on the left",
+    "tokens" : [ 2229, 2176, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 21.538297653198242,
+    "tokens_used" : [ " He", " might", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "He [MASK] be able to move up and out of the room on the [MASK]",
+    "timestamp" : 493911
+  }, {
+    "sentence" : "He could be able to move up and out of the room on the left",
+    "tokens" : [ 2229, 4439, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 24.19628143310547,
+    "tokens_used" : [ " He", " could", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "He [MASK] be able to move up and out of the room on the [MASK]",
+    "timestamp" : 495526
+  }, {
+    "sentence" : "We could be able to move up and out of the room on the left",
+    "tokens" : [ 1778, 4439, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 24.0203914642334,
+    "tokens_used" : [ " we", " could", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] could be able to move up and out of [MASK] room on the left",
+    "timestamp" : 513883
+  }, {
+    "sentence" : "Be could be able to move up and out of the room on the left",
+    "tokens" : [ 1392, 4439, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 28.036054611206055,
+    "tokens_used" : [ " be", " could", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] could be able to move up and out of [MASK] room on the left",
+    "timestamp" : 515295
+  }, {
+    "sentence" : "My could be able to move up and out of the room on the left",
+    "tokens" : [ 938, 4439, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 27.304359436035156,
+    "tokens_used" : [ " my", " could", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] could be able to move up and out of [MASK] room on the left",
+    "timestamp" : 516813
+  }, {
+    "sentence" : "Me could be able to move up and out of the room on the left",
+    "tokens" : [ 995, 4439, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 25.601049423217773,
+    "tokens_used" : [ " Me", " could", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] could be able to move up and out of the room on the [MASK]",
+    "timestamp" : 2422067
+  }, {
+    "sentence" : "Me shall be able to move up and out of the room on the left",
+    "tokens" : [ 995, 1697, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 26.117021560668945,
+    "tokens_used" : [ " Me", " shall", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "Me [MASK] be able to move up and out of the [MASK] on the left",
+    "timestamp" : 2428001
+  }, {
+    "sentence" : "We shall be able to move up and out of the room on the left",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 26.18337059020996,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be able to [MASK] up and out of the room on the left",
+    "timestamp" : 2441555
+  }, {
+    "sentence" : "Am shall be able to move up and out of the room on the left",
+    "tokens" : [ 2308, 1697, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 28.475603103637695,
+    "tokens_used" : [ " Am", " shall", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be able to [MASK] up and out of the room on the left",
+    "timestamp" : 2442961
+  }, {
+    "sentence" : "Home shall be able to go up and out of the room on the left",
+    "tokens" : [ 1725, 1697, 1392, 4464, 2461, 3106, 1840, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 27.918397903442383,
+    "tokens_used" : [ " Home", " shall", " be", " able", " to", " go", " up", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be able to [MASK] up and out of the room on the left",
+    "timestamp" : 2447099
+  }, {
+    "sentence" : "We shall be able to move up and out of the room to the left",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 1840, 215, 518, 5194, 394, 3465, 2461, 394, 1608 ],
+    "perplexity" : 23.95063591003418,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " up", " and", " out", " of", " the", " room", " to", " the", " left" ],
+    "original_sentence" : "We shall be able to move up and out of the [MASK] [MASK] the left",
+    "timestamp" : 2449982
+  }, {
+    "sentence" : "We shall be able to move in and out of the room to the left",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 1608 ],
+    "perplexity" : 18.382080078125,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " left" ],
+    "original_sentence" : "We [MASK] be able to move [MASK] and out of the room to the left",
+    "timestamp" : 2456372
+  }, {
+    "sentence" : "We shall be able to move in and out of the room to the side",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 400 ],
+    "perplexity" : 19.679439544677734,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " side" ],
+    "original_sentence" : "We shall be able to move in and [MASK] of the room to the [MASK]",
+    "timestamp" : 2462927
+  }, {
+    "sentence" : "We shall be able to move in and out of the room to the rain",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 4724 ],
+    "perplexity" : 28.158416748046875,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " rain" ],
+    "original_sentence" : "We shall be able to move in and [MASK] of the room to the [MASK]",
+    "timestamp" : 2464274
+  }, {
+    "sentence" : "We shall be able to move in and out of the room at the side",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 394, 400 ],
+    "perplexity" : 25.931764602661133,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " the", " side" ],
+    "original_sentence" : "We shall be able to move in and out [MASK] the room [MASK] the side",
+    "timestamp" : 2469635
+  }, {
+    "sentence" : "We shall be able to move in and out of the room in the side",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2515, 394, 400 ],
+    "perplexity" : 28.61791229248047,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " in", " the", " side" ],
+    "original_sentence" : "We shall be able to move in and out [MASK] the room [MASK] the side",
+    "timestamp" : 2470867
+  }, {
+    "sentence" : "Me shall be able to move in and out of the room at the side",
+    "tokens" : [ 995, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 394, 400 ],
+    "perplexity" : 26.764509201049805,
+    "tokens_used" : [ " Me", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " the", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out of the room at [MASK] side",
+    "timestamp" : 2476424
+  }, {
+    "sentence" : "Am shall be able to move in and out of the room at the side",
+    "tokens" : [ 2308, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 394, 400 ],
+    "perplexity" : 27.59134864807129,
+    "tokens_used" : [ " Am", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " the", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out of the room at [MASK] side",
+    "timestamp" : 2477605
+  }, {
+    "sentence" : "We shall be able to move in and out of the room at his side",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 3882, 400 ],
+    "perplexity" : 23.36241340637207,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " his", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out of the room at [MASK] side",
+    "timestamp" : 2480730
+  }, {
+    "sentence" : "We shall be able to move in and out of the room at her side",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 3730, 400 ],
+    "perplexity" : 26.47627830505371,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " her", " side" ],
+    "original_sentence" : "We shall be able to move in and out of [MASK] room at [MASK] side",
+    "timestamp" : 2497726
+  }, {
+    "sentence" : "Me shall be able to move in and out of the room at her side",
+    "tokens" : [ 995, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 3730, 400 ],
+    "perplexity" : 24.378318786621094,
+    "tokens_used" : [ " Me", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " her", " side" ],
+    "original_sentence" : "[MASK] shall be able to [MASK] in and out of the room at her side",
+    "timestamp" : 2504699
+  }, {
+    "sentence" : "Am shall be able to move in and out of the room at her side",
+    "tokens" : [ 2308, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 3730, 400 ],
+    "perplexity" : 25.759275436401367,
+    "tokens_used" : [ " Am", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " her", " side" ],
+    "original_sentence" : "[MASK] shall be able to [MASK] in and out of the room at her side",
+    "timestamp" : 2505586
+  }, {
+    "sentence" : "My shall be able to move in and out of the room at his side",
+    "tokens" : [ 939, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 3882, 400 ],
+    "perplexity" : 28.54303741455078,
+    "tokens_used" : [ " My", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " his", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out of the room at [MASK] side",
+    "timestamp" : 2513939
+  }, {
+    "sentence" : "Am shall be able to move in and out of the room at his side",
+    "tokens" : [ 2308, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 302, 3882, 400 ],
+    "perplexity" : 23.152742385864258,
+    "tokens_used" : [ " Am", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " at", " his", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out of the room at [MASK] side",
+    "timestamp" : 2516288
+  }, {
+    "sentence" : "Am shall be able to move in and out of the room to his side",
+    "tokens" : [ 2308, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 3882, 400 ],
+    "perplexity" : 24.296491622924805,
+    "tokens_used" : [ " Am", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " his", " side" ],
+    "original_sentence" : "Am shall be able to move in and out [MASK] the room [MASK] his side",
+    "timestamp" : 2518302
+  }, {
+    "sentence" : "We shall be able to move in and out of the room to his side",
+    "tokens" : [ 1779, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 3882, 400 ],
+    "perplexity" : 23.676082611083984,
+    "tokens_used" : [ " We", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " his", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out [MASK] the room to his side",
+    "timestamp" : 2570231
+  }, {
+    "sentence" : "My shall be able to move in and out of the room to his side",
+    "tokens" : [ 939, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 3882, 400 ],
+    "perplexity" : 27.44248390197754,
+    "tokens_used" : [ " My", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " his", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out [MASK] the room to his side",
+    "timestamp" : 2570982
+  }, {
+    "sentence" : "Me shall be able to move in and out of the room to his side",
+    "tokens" : [ 995, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 3882, 400 ],
+    "perplexity" : 21.634862899780273,
+    "tokens_used" : [ " Me", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " his", " side" ],
+    "original_sentence" : "[MASK] shall be able to move in and out [MASK] the room to his side",
+    "timestamp" : 2572368
+  }, {
+    "sentence" : "Me shall be able to move in and out of the room to the side",
+    "tokens" : [ 995, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 400 ],
+    "perplexity" : 19.373733520507812,
+    "tokens_used" : [ " Me", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " side" ],
+    "original_sentence" : "Me shall [MASK] able to move in and out of the room to [MASK] side",
+    "timestamp" : 2575385
+  }, {
+    "sentence" : "Me shall be able to move in and out of the room to its side",
+    "tokens" : [ 995, 1697, 1392, 4464, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 2426, 400 ],
+    "perplexity" : 25.314096450805664,
+    "tokens_used" : [ " Me", " shall", " be", " able", " to", " move", " in", " and", " out", " of", " the", " room", " to", " its", " side" ],
+    "original_sentence" : "Me shall [MASK] able to move in and out of the room to [MASK] side",
+    "timestamp" : 2576089
+  }, {
+    "sentence" : "Me shall be used to move in and out of the room to the side",
+    "tokens" : [ 995, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 400 ],
+    "perplexity" : 24.980201721191406,
+    "tokens_used" : [ " Me", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " side" ],
+    "original_sentence" : "Me shall be [MASK] to move in and out of the room to [MASK] side",
+    "timestamp" : 2586802
+  }, {
+    "sentence" : "He shall be used to move in and out of the room to the side",
+    "tokens" : [ 2229, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 400 ],
+    "perplexity" : 28.18160057067871,
+    "tokens_used" : [ " He", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " side" ],
+    "original_sentence" : "[MASK] shall be used to move in and out of [MASK] room to the side",
+    "timestamp" : 2592779
+  }, {
+    "sentence" : "Am shall be used to move in and out of the room to the side",
+    "tokens" : [ 2308, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 400 ],
+    "perplexity" : 25.6177978515625,
+    "tokens_used" : [ " Am", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " side" ],
+    "original_sentence" : "[MASK] shall be used to move in and out of [MASK] room to the side",
+    "timestamp" : 2594075
+  }, {
+    "sentence" : "Go shall be used to move in and out of the room to the side",
+    "tokens" : [ 3107, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 400 ],
+    "perplexity" : 25.984195709228516,
+    "tokens_used" : [ " Go", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " side" ],
+    "original_sentence" : "[MASK] shall be used to move in and out of [MASK] room to the side",
+    "timestamp" : 2595292
+  }, {
+    "sentence" : "Am shall be used to move in and out of the room to the left",
+    "tokens" : [ 2308, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 2461, 394, 1608 ],
+    "perplexity" : 23.043121337890625,
+    "tokens_used" : [ " Am", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " to", " the", " left" ],
+    "original_sentence" : "Am [MASK] be used to move in and out of the room to the [MASK]",
+    "timestamp" : 2598621
+  }, {
+    "sentence" : "Am shall be used to move in and out of the room on the left",
+    "tokens" : [ 2308, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 25.306690216064453,
+    "tokens_used" : [ " Am", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "Am shall be used to move in [MASK] out of the room [MASK] the left",
+    "timestamp" : 2613007
+  }, {
+    "sentence" : "He shall be used to move in and out of the room on the left",
+    "tokens" : [ 2229, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 27.72672462463379,
+    "tokens_used" : [ " He", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be used to move in and out [MASK] the room on the left",
+    "timestamp" : 2636330
+  }, {
+    "sentence" : "We shall be used to move in and out of the room on the left",
+    "tokens" : [ 1779, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 28.24082374572754,
+    "tokens_used" : [ " We", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be used to move in and out [MASK] the room on the left",
+    "timestamp" : 2637721
+  }, {
+    "sentence" : "Me shall be used to move in and out of the room on the left",
+    "tokens" : [ 995, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 23.848838806152344,
+    "tokens_used" : [ " Me", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be used to move in and out [MASK] the room on the left",
+    "timestamp" : 2639126
+  }, {
+    "sentence" : "Be shall be used to move in and out of the room on the left",
+    "tokens" : [ 1393, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 24.17963981628418,
+    "tokens_used" : [ " Be", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be used to move in and out [MASK] the room on the left",
+    "timestamp" : 2640245
+  }, {
+    "sentence" : "Go shall be used to move in and out of the room on the left",
+    "tokens" : [ 3107, 1697, 1392, 4132, 2461, 4263, 2515, 215, 518, 5194, 394, 3465, 710, 394, 1608 ],
+    "perplexity" : 23.838878631591797,
+    "tokens_used" : [ " Go", " shall", " be", " used", " to", " move", " in", " and", " out", " of", " the", " room", " on", " the", " left" ],
+    "original_sentence" : "[MASK] shall be used to move in and out [MASK] the room on the left",
+    "timestamp" : 2641298
+  } ]
+}

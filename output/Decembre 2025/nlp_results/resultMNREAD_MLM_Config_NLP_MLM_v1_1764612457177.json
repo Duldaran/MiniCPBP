@@ -1,0 +1,254 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 20,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T13:07:37.175429044",
+  "time" : 370.93,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "He needs to get out of bed or get out of the room right now",
+    "score" : 12.74644947052002,
+    "time" : 65015,
+    "cycle" : 0
+  }, {
+    "sentence" : "He has to get out of there and get out of my mind right now",
+    "score" : 11.29701042175293,
+    "time" : 180021,
+    "cycle" : 37
+  }, {
+    "sentence" : "He got to get out of there and get out of my mind right now",
+    "score" : 11.181243896484375,
+    "time" : 210325,
+    "cycle" : 48
+  } ],
+  "base_sentence" : {
+    "sentence" : "He ought to get out of bed to get out of the room right now",
+    "perplexity" : 15.805083274841309,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "He needs to get out of bed or get out of the room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 394, 3465, 5022, 2187 ],
+    "perplexity" : 12.74644947052002,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " the", " room", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get out of bed [MASK] get out of the room right now",
+    "timestamp" : 65015
+  }, {
+    "sentence" : "He needs to get out of bed or get out of his room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 3882, 3465, 5022, 2187 ],
+    "perplexity" : 13.50083065032959,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " his", " room", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] or get out of [MASK] room right now",
+    "timestamp" : 68684
+  }, {
+    "sentence" : "He needs to get out of bed or get out of her room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 3730, 3465, 5022, 2187 ],
+    "perplexity" : 15.228754043579102,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " her", " room", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of bed [MASK] get out of [MASK] room right now",
+    "timestamp" : 71339
+  }, {
+    "sentence" : "He needs to get out of this or get out of my room right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 1227, 1860, 3912, 518, 5194, 938, 3465, 5022, 2187 ],
+    "perplexity" : 17.963560104370117,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " this", " or", " get", " out", " of", " my", " room", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] or get out of [MASK] room right now",
+    "timestamp" : 78969
+  }, {
+    "sentence" : "He needs to get out of bed or get out of my sight right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 1860, 3912, 518, 5194, 938, 4584, 5022, 2187 ],
+    "perplexity" : 16.960346221923828,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " or", " get", " out", " of", " my", " sight", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] or get out of my [MASK] right now",
+    "timestamp" : 83690
+  }, {
+    "sentence" : "He needs to get out of bed and or out of my sight right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 215, 1860, 518, 5194, 938, 4584, 5022, 2187 ],
+    "perplexity" : 20.95187759399414,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " and", " or", " out", " of", " my", " sight", " right", " now" ],
+    "original_sentence" : "[MASK] needs to get out of bed [MASK] [MASK] out of my sight right now",
+    "timestamp" : 93447
+  }, {
+    "sentence" : "He needs to get out of bed and is out of my sight right now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 3225, 215, 2713, 518, 5194, 938, 4584, 5022, 2187 ],
+    "perplexity" : 17.5803279876709,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " bed", " and", " is", " out", " of", " my", " sight", " right", " now" ],
+    "original_sentence" : "He needs to get out of [MASK] and [MASK] out of [MASK] sight right now",
+    "timestamp" : 96182
+  }, {
+    "sentence" : "He has to get out of bed and stay out of my sight right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 3225, 215, 69, 518, 5194, 938, 4584, 5022, 2187 ],
+    "perplexity" : 18.04329490661621,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " bed", " and", " stay", " out", " of", " my", " sight", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get out of bed and [MASK] out of my sight right now",
+    "timestamp" : 105867
+  }, {
+    "sentence" : "He has to get out of bed and walk out of my sight right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 3225, 215, 1948, 518, 5194, 938, 4584, 5022, 2187 ],
+    "perplexity" : 22.318449020385742,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " bed", " and", " walk", " out", " of", " my", " sight", " right", " now" ],
+    "original_sentence" : "He has to get out of bed and [MASK] out of my [MASK] right [MASK]",
+    "timestamp" : 109350
+  }, {
+    "sentence" : "He has to get out of bed and walk out of my place right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 3225, 215, 1948, 518, 5194, 938, 2703, 5022, 2187 ],
+    "perplexity" : 19.46681785583496,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " bed", " and", " walk", " out", " of", " my", " place", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out of bed and walk out of [MASK] [MASK] right now",
+    "timestamp" : 114814
+  }, {
+    "sentence" : "He has to get out of bed and stay out of my place right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 3225, 215, 69, 518, 5194, 938, 2703, 5022, 2187 ],
+    "perplexity" : 19.12320327758789,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " bed", " and", " stay", " out", " of", " my", " place", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out of bed and [MASK] out of [MASK] place right now",
+    "timestamp" : 125105
+  }, {
+    "sentence" : "He has to get out of town and get out of my place right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 2089, 215, 3912, 518, 5194, 938, 2703, 5022, 2187 ],
+    "perplexity" : 16.326595306396484,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " town", " and", " get", " out", " of", " my", " place", " right", " now" ],
+    "original_sentence" : "[MASK] has to get out of [MASK] and [MASK] out of my place right now",
+    "timestamp" : 133458
+  }, {
+    "sentence" : "He me to get out of there and get out of my place right now",
+    "tokens" : [ 2229, 994, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 2703, 5022, 2187 ],
+    "perplexity" : 19.250879287719727,
+    "tokens_used" : [ " He", " me", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " place", " right", " now" ],
+    "original_sentence" : "[MASK] [MASK] to get out of [MASK] and get out of my place right now",
+    "timestamp" : 140447
+  }, {
+    "sentence" : "He me to get out of there and get out of my cabin right now",
+    "tokens" : [ 2229, 994, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 696, 5022, 2187 ],
+    "perplexity" : 22.590621948242188,
+    "tokens_used" : [ " He", " me", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " cabin", " right", " now" ],
+    "original_sentence" : "He me [MASK] get out [MASK] there and get out of my [MASK] right now",
+    "timestamp" : 146403
+  }, {
+    "sentence" : "He has to get out of there and get out of my room right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 3465, 5022, 2187 ],
+    "perplexity" : 12.993070602416992,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " room", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out of there and get out of [MASK] [MASK] right now",
+    "timestamp" : 171579
+  }, {
+    "sentence" : "He has to get out of there and not out of my room right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 5180, 215, 2081, 518, 5194, 938, 3465, 5022, 2187 ],
+    "perplexity" : 21.904443740844727,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " there", " and", " not", " out", " of", " my", " room", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out of [MASK] and [MASK] out of my room right now",
+    "timestamp" : 174333
+  }, {
+    "sentence" : "He has to get out of there and not out of my mind right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 5180, 215, 2081, 518, 5194, 938, 2878, 5022, 2187 ],
+    "perplexity" : 19.122419357299805,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " there", " and", " not", " out", " of", " my", " mind", " right", " now" ],
+    "original_sentence" : "He has to get out of [MASK] and not out of [MASK] [MASK] right now",
+    "timestamp" : 177548
+  }, {
+    "sentence" : "He has to get out of there and get out of my mind right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 2878, 5022, 2187 ],
+    "perplexity" : 11.29701042175293,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " mind", " right", " now" ],
+    "original_sentence" : "[MASK] has to [MASK] out of there and [MASK] out of my mind right now",
+    "timestamp" : 180021
+  }, {
+    "sentence" : "He has to get out in there and get out of my mind right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 2515, 5180, 215, 3912, 518, 5194, 938, 2878, 5022, 2187 ],
+    "perplexity" : 20.97323226928711,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " in", " there", " and", " get", " out", " of", " my", " mind", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out [MASK] there and get out of [MASK] mind right now",
+    "timestamp" : 182153
+  }, {
+    "sentence" : "He got to get out of there and get out of my mind right now",
+    "tokens" : [ 2229, 1104, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 2878, 5022, 2187 ],
+    "perplexity" : 11.181243896484375,
+    "tokens_used" : [ " He", " got", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " mind", " right", " now" ],
+    "original_sentence" : "[MASK] got to get out of there and get [MASK] of my [MASK] right now",
+    "timestamp" : 210325
+  }, {
+    "sentence" : "He got to get out of there and get out of my body right now",
+    "tokens" : [ 2229, 1104, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 4053, 5022, 2187 ],
+    "perplexity" : 11.31718635559082,
+    "tokens_used" : [ " He", " got", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " body", " right", " now" ],
+    "original_sentence" : "[MASK] got to get out of there and [MASK] out of my [MASK] right now",
+    "timestamp" : 226506
+  }, {
+    "sentence" : "He got to get out of there and get off of my body right now",
+    "tokens" : [ 2229, 1104, 2461, 3912, 518, 5194, 5180, 215, 3912, 2828, 5194, 938, 4053, 5022, 2187 ],
+    "perplexity" : 15.726987838745117,
+    "tokens_used" : [ " He", " got", " to", " get", " out", " of", " there", " and", " get", " off", " of", " my", " body", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out [MASK] there and get [MASK] of my body right now",
+    "timestamp" : 232004
+  }, {
+    "sentence" : "He got to get out of there and get off of my lawn right now",
+    "tokens" : [ 2229, 1104, 2461, 3912, 518, 5194, 5180, 215, 3912, 2828, 5194, 938, 4326, 5022, 2187 ],
+    "perplexity" : 15.681084632873535,
+    "tokens_used" : [ " He", " got", " to", " get", " out", " of", " there", " and", " get", " off", " of", " my", " lawn", " right", " now" ],
+    "original_sentence" : "He got to get out [MASK] there and get off of my [MASK] right [MASK]",
+    "timestamp" : 239455
+  }, {
+    "sentence" : "He has to get out of there and get off of my lawn right now",
+    "tokens" : [ 2229, 4879, 2461, 3912, 518, 5194, 5180, 215, 3912, 2828, 5194, 938, 4326, 5022, 2187 ],
+    "perplexity" : 15.819280624389648,
+    "tokens_used" : [ " He", " has", " to", " get", " out", " of", " there", " and", " get", " off", " of", " my", " lawn", " right", " now" ],
+    "original_sentence" : "He [MASK] to get out of there and get off of [MASK] [MASK] right now",
+    "timestamp" : 264296
+  }, {
+    "sentence" : "He needs to get out of there and get off of my back for now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 5180, 215, 3912, 2828, 5194, 938, 954, 3548, 2187 ],
+    "perplexity" : 17.573890686035156,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " there", " and", " get", " off", " of", " my", " back", " for", " now" ],
+    "original_sentence" : "He [MASK] to get out of there and get off of my [MASK] [MASK] now",
+    "timestamp" : 301325
+  }, {
+    "sentence" : "He needs to get out of there and get off of my road for now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 5180, 215, 3912, 2828, 5194, 938, 858, 3548, 2187 ],
+    "perplexity" : 19.607316970825195,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " there", " and", " get", " off", " of", " my", " road", " for", " now" ],
+    "original_sentence" : "He [MASK] to get out of there and get off of [MASK] [MASK] for now",
+    "timestamp" : 304299
+  }, {
+    "sentence" : "He needs to get out of there and get out of my road for now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 938, 858, 3548, 2187 ],
+    "perplexity" : 17.371965408325195,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " there", " and", " get", " out", " of", " my", " road", " for", " now" ],
+    "original_sentence" : "[MASK] needs to get out of there and get [MASK] of my road for [MASK]",
+    "timestamp" : 309003
+  }, {
+    "sentence" : "He needs to get out of town and get out of the road for now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 2089, 215, 3912, 518, 5194, 394, 858, 3548, 2187 ],
+    "perplexity" : 18.885961532592773,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " town", " and", " get", " out", " of", " the", " road", " for", " now" ],
+    "original_sentence" : "He needs to get out of [MASK] and get out [MASK] [MASK] road for now",
+    "timestamp" : 314820
+  }, {
+    "sentence" : "He needs to get out of there and get out of the road by now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 394, 858, 2029, 2187 ],
+    "perplexity" : 14.359397888183594,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " there", " and", " get", " out", " of", " the", " road", " by", " now" ],
+    "original_sentence" : "[MASK] needs to get out of [MASK] and get out of the road [MASK] now",
+    "timestamp" : 341862
+  }, {
+    "sentence" : "He needs to get out of there and get out of our road by now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 5180, 215, 3912, 518, 5194, 3369, 858, 2029, 2187 ],
+    "perplexity" : 20.307544708251953,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " there", " and", " get", " out", " of", " our", " road", " by", " now" ],
+    "original_sentence" : "He needs to get out of [MASK] and get out of [MASK] road [MASK] now",
+    "timestamp" : 348037
+  }, {
+    "sentence" : "He needs to get out of there and get off of the road by now",
+    "tokens" : [ 2229, 3478, 2461, 3912, 518, 5194, 5180, 215, 3912, 2828, 5194, 394, 858, 2029, 2187 ],
+    "perplexity" : 15.085441589355469,
+    "tokens_used" : [ " He", " needs", " to", " get", " out", " of", " there", " and", " get", " off", " of", " the", " road", " by", " now" ],
+    "original_sentence" : "He needs to get out of there and [MASK] [MASK] of [MASK] road by now",
+    "timestamp" : 365666
+  } ]
+}

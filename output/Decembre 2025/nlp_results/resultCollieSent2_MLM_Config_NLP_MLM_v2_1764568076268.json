@@ -1,0 +1,569 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T00:47:56.266709703",
+  "time" : 275.83,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The grass soft beach water soft beach a place water beach",
+    "score" : 1369.7950439453125,
+    "time" : 2703,
+    "cycle" : 0
+  }, {
+    "sentence" : "The grass soft beach water soft beach water place water beach",
+    "score" : 1174.17138671875,
+    "time" : 5043,
+    "cycle" : 1
+  }, {
+    "sentence" : "The grass soft beach water soft beach soft place water surface",
+    "score" : 1100.1224365234375,
+    "time" : 14757,
+    "cycle" : 4
+  }, {
+    "sentence" : "The grass soft beach water soft beach soft place water beach",
+    "score" : 973.4314575195312,
+    "time" : 17925,
+    "cycle" : 5
+  }, {
+    "sentence" : "The grass soft beach water of beach of the water surface",
+    "score" : 827.5662841796875,
+    "time" : 24438,
+    "cycle" : 7
+  }, {
+    "sentence" : "The grass soft water of soft beach excused the water surface",
+    "score" : 655.689453125,
+    "time" : 51739,
+    "cycle" : 16
+  }, {
+    "sentence" : "The grass soft water of excused beach excused the water surface",
+    "score" : 574.7278442382812,
+    "time" : 53732,
+    "cycle" : 17
+  }, {
+    "sentence" : "The grass soft water of excused beach excused the water excused",
+    "score" : 478.89031982421875,
+    "time" : 70325,
+    "cycle" : 23
+  }, {
+    "sentence" : "The soft soft water of soft beach soft of water surface",
+    "score" : 410.64508056640625,
+    "time" : 98339,
+    "cycle" : 34
+  }, {
+    "sentence" : "The soft soft of water of beach soft of water of",
+    "score" : 338.10601806640625,
+    "time" : 151569,
+    "cycle" : 54
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.523681640625,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The grass soft beach water soft beach a place water beach",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 2489, 5075, 4646, 2703, 3408, 5075 ],
+    "perplexity" : 1369.7950439453125,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " soft", " beach", " a", " place", " water", " beach" ],
+    "original_sentence" : "The [MASK] soft beach water [MASK] beach a place water [MASK]",
+    "timestamp" : 2703
+  }, {
+    "sentence" : "The grass soft beach water soft beach water place water beach",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 2489, 5075, 3408, 2703, 3408, 5075 ],
+    "perplexity" : 1174.17138671875,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " soft", " beach", " water", " place", " water", " beach" ],
+    "original_sentence" : "[MASK] grass soft beach water soft beach [MASK] place water [MASK]",
+    "timestamp" : 5043
+  }, {
+    "sentence" : "The grass soft beach water beach beach water place water beach",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5075, 5075, 3408, 2703, 3408, 5075 ],
+    "perplexity" : 1892.5267333984375,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " beach", " beach", " water", " place", " water", " beach" ],
+    "original_sentence" : "[MASK] grass soft [MASK] water [MASK] beach water place water beach",
+    "timestamp" : 8448
+  }, {
+    "sentence" : "The grass soft beach water soft beach water place water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 2489, 5075, 3408, 2703, 3408, 2035 ],
+    "perplexity" : 1178.978271484375,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " soft", " beach", " water", " place", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water [MASK] beach water place water [MASK]",
+    "timestamp" : 11914
+  }, {
+    "sentence" : "The grass soft beach water soft beach soft place water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 2489, 5075, 2489, 2703, 3408, 2035 ],
+    "perplexity" : 1100.1224365234375,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " soft", " beach", " soft", " place", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water [MASK] beach [MASK] place water surface",
+    "timestamp" : 14757
+  }, {
+    "sentence" : "The grass soft beach water of beach soft place water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 2489, 2703, 3408, 2035 ],
+    "perplexity" : 1529.5616455078125,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " soft", " place", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water [MASK] beach [MASK] place water surface",
+    "timestamp" : 15790
+  }, {
+    "sentence" : "The grass soft beach water soft beach soft place water beach",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 2489, 5075, 2489, 2703, 3408, 5075 ],
+    "perplexity" : 973.4314575195312,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " soft", " beach", " soft", " place", " water", " beach" ],
+    "original_sentence" : "The grass soft beach [MASK] [MASK] beach soft place water [MASK]",
+    "timestamp" : 17925
+  }, {
+    "sentence" : "The grass soft beach water of beach soft place water beach",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 2489, 2703, 3408, 5075 ],
+    "perplexity" : 1731.3900146484375,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " soft", " place", " water", " beach" ],
+    "original_sentence" : "The grass soft beach [MASK] [MASK] beach soft place water [MASK]",
+    "timestamp" : 19140
+  }, {
+    "sentence" : "The grass soft beach water of beach a place water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 4646, 2703, 3408, 2035 ],
+    "perplexity" : 1520.460205078125,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " a", " place", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water of beach [MASK] place water [MASK]",
+    "timestamp" : 21114
+  }, {
+    "sentence" : "The grass soft beach water of beach of place water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 5194, 2703, 3408, 2035 ],
+    "perplexity" : 1689.4422607421875,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " of", " place", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water of beach [MASK] place water [MASK]",
+    "timestamp" : 21452
+  }, {
+    "sentence" : "The grass soft beach water of beach of the water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 5194, 394, 3408, 2035 ],
+    "perplexity" : 827.5662841796875,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " of", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft beach water [MASK] beach of [MASK] water [MASK]",
+    "timestamp" : 24438
+  }, {
+    "sentence" : "The grass soft beach water of beach soft the water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 2489, 394, 3408, 2035 ],
+    "perplexity" : 1090.3199462890625,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " soft", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft beach [MASK] of beach [MASK] [MASK] water surface",
+    "timestamp" : 26975
+  }, {
+    "sentence" : "The grass soft beach water of beach a the water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 4646, 394, 3408, 2035 ],
+    "perplexity" : 1009.34423828125,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " a", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft beach [MASK] of beach [MASK] [MASK] water surface",
+    "timestamp" : 27552
+  }, {
+    "sentence" : "The grass soft beach water of beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 860.6324462890625,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft beach [MASK] of beach [MASK] [MASK] water surface",
+    "timestamp" : 28397
+  }, {
+    "sentence" : "The grass soft beach water of beach excused a water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 5193, 4646, 3408, 2035 ],
+    "perplexity" : 1364.660400390625,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " excused", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft beach [MASK] of beach excused [MASK] water [MASK]",
+    "timestamp" : 29854
+  }, {
+    "sentence" : "The grass soft beach water of beach of a water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 5194, 4646, 3408, 2035 ],
+    "perplexity" : 923.85546875,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " of", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water of beach [MASK] a water [MASK]",
+    "timestamp" : 33454
+  }, {
+    "sentence" : "The grass soft beach water of beach soft a water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 2489, 4646, 3408, 2035 ],
+    "perplexity" : 1312.9012451171875,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " soft", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water of beach [MASK] a water [MASK]",
+    "timestamp" : 33895
+  }, {
+    "sentence" : "The grass soft beach water of beach a a water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 4646, 4646, 3408, 2035 ],
+    "perplexity" : 1187.6971435546875,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " a", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] water of beach [MASK] a water [MASK]",
+    "timestamp" : 34312
+  }, {
+    "sentence" : "The grass soft beach water of beach works a water surface",
+    "tokens" : [ 395, 0, 2489, 5075, 3408, 5194, 5075, 5188, 4646, 3408, 2035 ],
+    "perplexity" : 1569.374267578125,
+    "tokens_used" : [ " The", " grass", " soft", " beach", " water", " of", " beach", " works", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft beach [MASK] [MASK] beach [MASK] a water surface",
+    "timestamp" : 37944
+  }, {
+    "sentence" : "The grass soft water water of beach works a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 3408, 5194, 5075, 5188, 4646, 3408, 2035 ],
+    "perplexity" : 1188.858642578125,
+    "tokens_used" : [ " The", " grass", " soft", " water", " water", " of", " beach", " works", " a", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft [MASK] [MASK] of beach works a water surface",
+    "timestamp" : 46246
+  }, {
+    "sentence" : "The grass soft water of of beach works a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5194, 5075, 5188, 4646, 3408, 2035 ],
+    "perplexity" : 1597.014404296875,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " of", " beach", " works", " a", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft [MASK] [MASK] of beach works a water surface",
+    "timestamp" : 47019
+  }, {
+    "sentence" : "The grass soft water of of beach a a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5194, 5075, 4646, 4646, 3408, 2035 ],
+    "perplexity" : 1540.0953369140625,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " of", " beach", " a", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] of of beach [MASK] a water [MASK]",
+    "timestamp" : 48498
+  }, {
+    "sentence" : "The grass soft water of of beach soft a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5194, 5075, 2489, 4646, 3408, 2035 ],
+    "perplexity" : 1553.1383056640625,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " of", " beach", " soft", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] of of beach [MASK] a water [MASK]",
+    "timestamp" : 48739
+  }, {
+    "sentence" : "The grass soft water of of beach of a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5194, 5075, 5194, 4646, 3408, 2035 ],
+    "perplexity" : 1127.0242919921875,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " of", " beach", " of", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] of of beach [MASK] a water [MASK]",
+    "timestamp" : 49171
+  }, {
+    "sentence" : "The grass soft water of of beach excused a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5194, 5075, 5193, 4646, 3408, 2035 ],
+    "perplexity" : 1383.92822265625,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " of", " beach", " excused", " a", " water", " surface" ],
+    "original_sentence" : "The grass soft [MASK] of of beach [MASK] a water [MASK]",
+    "timestamp" : 49488
+  }, {
+    "sentence" : "The grass soft water of of beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5194, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 852.6203002929688,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " of", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft water [MASK] [MASK] beach excused [MASK] water surface",
+    "timestamp" : 50820
+  }, {
+    "sentence" : "The grass soft water of worn beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5191, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 929.2122802734375,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " worn", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft water [MASK] [MASK] beach excused [MASK] water surface",
+    "timestamp" : 51338
+  }, {
+    "sentence" : "The grass soft water of soft beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 2489, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 655.689453125,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " soft", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft water [MASK] [MASK] beach excused [MASK] water surface",
+    "timestamp" : 51739
+  }, {
+    "sentence" : "The grass soft water of youngest beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5192, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 970.0062866210938,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " youngest", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The grass soft water [MASK] [MASK] beach excused [MASK] water surface",
+    "timestamp" : 52598
+  }, {
+    "sentence" : "The grass soft water of excused beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 574.7278442382812,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft [MASK] of [MASK] beach excused the water surface",
+    "timestamp" : 53732
+  }, {
+    "sentence" : "The grass soft water of works beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5188, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 1115.6524658203125,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " works", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft [MASK] of [MASK] beach excused the water surface",
+    "timestamp" : 55149
+  }, {
+    "sentence" : "The grass soft of of excused beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 5194, 5194, 5193, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 819.3972778320312,
+    "tokens_used" : [ " The", " grass", " soft", " of", " of", " excused", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] grass soft [MASK] of excused beach excused [MASK] water surface",
+    "timestamp" : 56762
+  }, {
+    "sentence" : "The grass soft excused of excused beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 5193, 5194, 5193, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 584.076416015625,
+    "tokens_used" : [ " The", " grass", " soft", " excused", " of", " excused", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] grass soft [MASK] of excused beach excused [MASK] water surface",
+    "timestamp" : 57263
+  }, {
+    "sentence" : "The grass soft worn of excused beach excused the water surface",
+    "tokens" : [ 395, 0, 2489, 5191, 5194, 5193, 5075, 5193, 394, 3408, 2035 ],
+    "perplexity" : 1030.6234130859375,
+    "tokens_used" : [ " The", " grass", " soft", " worn", " of", " excused", " beach", " excused", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] grass soft [MASK] of excused beach excused [MASK] water surface",
+    "timestamp" : 57865
+  }, {
+    "sentence" : "The grass soft excused of excused beach works the water surface",
+    "tokens" : [ 395, 0, 2489, 5193, 5194, 5193, 5075, 5188, 394, 3408, 2035 ],
+    "perplexity" : 1066.5050048828125,
+    "tokens_used" : [ " The", " grass", " soft", " excused", " of", " excused", " beach", " works", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft excused of excused beach [MASK] the water [MASK]",
+    "timestamp" : 58702
+  }, {
+    "sentence" : "The grass soft excused of excused beach of the water surface",
+    "tokens" : [ 395, 0, 2489, 5193, 5194, 5193, 5075, 5194, 394, 3408, 2035 ],
+    "perplexity" : 931.8367919921875,
+    "tokens_used" : [ " The", " grass", " soft", " excused", " of", " excused", " beach", " of", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft excused of excused beach [MASK] the water [MASK]",
+    "timestamp" : 59587
+  }, {
+    "sentence" : "The grass soft excused of excused beach of a water surface",
+    "tokens" : [ 395, 0, 2489, 5193, 5194, 5193, 5075, 5194, 4646, 3408, 2035 ],
+    "perplexity" : 1026.7781982421875,
+    "tokens_used" : [ " The", " grass", " soft", " excused", " of", " excused", " beach", " of", " a", " water", " surface" ],
+    "original_sentence" : "[MASK] grass soft excused of excused beach of [MASK] water [MASK]",
+    "timestamp" : 60941
+  }, {
+    "sentence" : "The grass soft water of excused beach of a water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 5194, 4646, 3408, 2035 ],
+    "perplexity" : 1002.6161499023438,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " of", " a", " water", " surface" ],
+    "original_sentence" : "[MASK] grass soft [MASK] of excused beach of a water [MASK]",
+    "timestamp" : 64118
+  }, {
+    "sentence" : "The grass soft water of excused beach of a water excused",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 5194, 4646, 3408, 5193 ],
+    "perplexity" : 1105.2900390625,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " of", " a", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft water [MASK] excused beach of a water [MASK]",
+    "timestamp" : 67845
+  }, {
+    "sentence" : "The grass soft water of excused beach of the water excused",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 5194, 394, 3408, 5193 ],
+    "perplexity" : 859.7448120117188,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " of", " the", " water", " excused" ],
+    "original_sentence" : "The grass soft [MASK] of excused beach [MASK] [MASK] water excused",
+    "timestamp" : 70019
+  }, {
+    "sentence" : "The grass soft water of excused beach excused the water excused",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 5193, 394, 3408, 5193 ],
+    "perplexity" : 478.89031982421875,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " excused", " the", " water", " excused" ],
+    "original_sentence" : "The grass soft [MASK] of excused beach [MASK] [MASK] water excused",
+    "timestamp" : 70325
+  }, {
+    "sentence" : "The grass soft water of excused beach works the water excused",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 5188, 394, 3408, 5193 ],
+    "perplexity" : 841.6995239257812,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " works", " the", " water", " excused" ],
+    "original_sentence" : "The grass soft [MASK] of excused beach [MASK] [MASK] water excused",
+    "timestamp" : 70582
+  }, {
+    "sentence" : "The grass soft water of excused beach soft the water excused",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 5193, 5075, 2489, 394, 3408, 5193 ],
+    "perplexity" : 762.1131591796875,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " excused", " beach", " soft", " the", " water", " excused" ],
+    "original_sentence" : "The grass soft [MASK] of excused beach [MASK] [MASK] water excused",
+    "timestamp" : 71266
+  }, {
+    "sentence" : "The grass soft water of soft beach soft the water excused",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 2489, 5075, 2489, 394, 3408, 5193 ],
+    "perplexity" : 952.5419921875,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " soft", " beach", " soft", " the", " water", " excused" ],
+    "original_sentence" : "The [MASK] soft [MASK] of [MASK] beach soft the water excused",
+    "timestamp" : 82750
+  }, {
+    "sentence" : "The grass soft water of soft beach soft the water of",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 2489, 5075, 2489, 394, 3408, 5194 ],
+    "perplexity" : 812.2666015625,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " soft", " beach", " soft", " the", " water", " of" ],
+    "original_sentence" : "The [MASK] soft [MASK] of soft beach soft the water [MASK]",
+    "timestamp" : 84318
+  }, {
+    "sentence" : "The grass soft water of soft beach soft the water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 2489, 5075, 2489, 394, 3408, 2035 ],
+    "perplexity" : 822.4627075195312,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " soft", " beach", " soft", " the", " water", " surface" ],
+    "original_sentence" : "The [MASK] soft [MASK] of soft beach soft the water [MASK]",
+    "timestamp" : 86613
+  }, {
+    "sentence" : "The grass soft water of soft beach soft of water surface",
+    "tokens" : [ 395, 0, 2489, 3408, 5194, 2489, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 922.1499633789062,
+    "tokens_used" : [ " The", " grass", " soft", " water", " of", " soft", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "The grass soft water of [MASK] beach [MASK] [MASK] water surface",
+    "timestamp" : 87944
+  }, {
+    "sentence" : "The soft soft water of soft beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 3408, 5194, 2489, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 410.64508056640625,
+    "tokens_used" : [ " The", " soft", " soft", " water", " of", " soft", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] of soft beach soft of water surface",
+    "timestamp" : 98339
+  }, {
+    "sentence" : "The soft soft of of soft beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 5194, 2489, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 701.4223022460938,
+    "tokens_used" : [ " The", " soft", " soft", " of", " of", " soft", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] of soft beach soft of water surface",
+    "timestamp" : 100305
+  }, {
+    "sentence" : "The soft soft of of of beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 5194, 5194, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 772.2454833984375,
+    "tokens_used" : [ " The", " soft", " soft", " of", " of", " of", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "The soft soft [MASK] [MASK] [MASK] beach soft of water surface",
+    "timestamp" : 123117
+  }, {
+    "sentence" : "The soft soft of of of beach soft of water of",
+    "tokens" : [ 395, 2489, 2489, 5194, 5194, 5194, 5075, 2489, 5194, 3408, 5194 ],
+    "perplexity" : 818.1143798828125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " of", " of", " beach", " soft", " of", " water", " of" ],
+    "original_sentence" : "The soft soft of [MASK] [MASK] beach soft of water [MASK]",
+    "timestamp" : 128636
+  }, {
+    "sentence" : "The soft soft of water of beach soft of water of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 5194, 3408, 5194 ],
+    "perplexity" : 338.10601806640625,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " of", " water", " of" ],
+    "original_sentence" : "The [MASK] soft [MASK] [MASK] of beach soft of water of",
+    "timestamp" : 151569
+  }, {
+    "sentence" : "The soft soft of water of beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 405.56378173828125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "The soft soft [MASK] [MASK] of beach soft of water [MASK]",
+    "timestamp" : 160147
+  }, {
+    "sentence" : "The soft soft of water of beach soft of water Of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 5194, 3408, 5195 ],
+    "perplexity" : 582.0338134765625,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " of", " water", " Of" ],
+    "original_sentence" : "The soft soft [MASK] [MASK] of beach soft of water [MASK]",
+    "timestamp" : 160470
+  }, {
+    "sentence" : "The soft soft of water of beach soft of water excused",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 5194, 3408, 5193 ],
+    "perplexity" : 449.52716064453125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " of", " water", " excused" ],
+    "original_sentence" : "The soft soft [MASK] [MASK] of beach soft of water [MASK]",
+    "timestamp" : 160874
+  }, {
+    "sentence" : "The soft soft of water of beach soft a water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 4646, 3408, 2035 ],
+    "perplexity" : 618.8156127929688,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " a", " water", " surface" ],
+    "original_sentence" : "[MASK] soft soft of water [MASK] beach soft [MASK] water surface",
+    "timestamp" : 162250
+  }, {
+    "sentence" : "The soft soft of water of beach soft the water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 394, 3408, 2035 ],
+    "perplexity" : 508.887939453125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " the", " water", " surface" ],
+    "original_sentence" : "[MASK] soft soft of water [MASK] beach soft [MASK] water surface",
+    "timestamp" : 163319
+  }, {
+    "sentence" : "The soft soft of water of beach soft the water of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5194, 5075, 2489, 394, 3408, 5194 ],
+    "perplexity" : 504.3220520019531,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " of", " beach", " soft", " the", " water", " of" ],
+    "original_sentence" : "The soft soft of [MASK] of beach [MASK] the water [MASK]",
+    "timestamp" : 164691
+  }, {
+    "sentence" : "The soft soft of water soft beach soft the water of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 2489, 5075, 2489, 394, 3408, 5194 ],
+    "perplexity" : 609.8917236328125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " soft", " beach", " soft", " the", " water", " of" ],
+    "original_sentence" : "[MASK] soft soft of [MASK] [MASK] beach soft the water of",
+    "timestamp" : 209217
+  }, {
+    "sentence" : "The soft soft of water soft beach soft of water of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 2489, 5075, 2489, 5194, 3408, 5194 ],
+    "perplexity" : 513.7948608398438,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " soft", " beach", " soft", " of", " water", " of" ],
+    "original_sentence" : "[MASK] [MASK] soft of water soft beach soft [MASK] water of",
+    "timestamp" : 211475
+  }, {
+    "sentence" : "The soft soft of water soft beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 2489, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 391.6226501464844,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " soft", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "[MASK] soft soft of water [MASK] beach soft of water [MASK]",
+    "timestamp" : 217801
+  }, {
+    "sentence" : "The soft soft of water soft beach soft of water worn",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 2489, 5075, 2489, 5194, 3408, 5191 ],
+    "perplexity" : 526.7042846679688,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " soft", " beach", " soft", " of", " water", " worn" ],
+    "original_sentence" : "[MASK] soft soft of water [MASK] beach soft of water [MASK]",
+    "timestamp" : 218667
+  }, {
+    "sentence" : "The soft soft of water excused beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5193, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 636.5140380859375,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " excused", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "[MASK] soft soft of [MASK] [MASK] beach soft of water surface",
+    "timestamp" : 220582
+  }, {
+    "sentence" : "The soft soft of water Of beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5195, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 652.1002807617188,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " Of", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "[MASK] soft soft of [MASK] [MASK] beach soft of water surface",
+    "timestamp" : 221029
+  }, {
+    "sentence" : "The soft soft of water Of beach soft of water of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5195, 5075, 2489, 5194, 3408, 5194 ],
+    "perplexity" : 578.94580078125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " Of", " beach", " soft", " of", " water", " of" ],
+    "original_sentence" : "[MASK] soft soft of water Of beach soft [MASK] water [MASK]",
+    "timestamp" : 222422
+  }, {
+    "sentence" : "The soft soft of water Of beach soft of water Of",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5195, 5075, 2489, 5194, 3408, 5195 ],
+    "perplexity" : 517.2481689453125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " Of", " beach", " soft", " of", " water", " Of" ],
+    "original_sentence" : "[MASK] soft soft of water Of beach soft [MASK] water [MASK]",
+    "timestamp" : 223129
+  }, {
+    "sentence" : "The soft soft of water Of beach soft of water excused",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5195, 5075, 2489, 5194, 3408, 5193 ],
+    "perplexity" : 597.2640380859375,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " Of", " beach", " soft", " of", " water", " excused" ],
+    "original_sentence" : "The soft soft [MASK] water Of beach soft [MASK] water [MASK]",
+    "timestamp" : 237247
+  }, {
+    "sentence" : "The soft soft of water excused beach soft of water excused",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5193, 5075, 2489, 5194, 3408, 5193 ],
+    "perplexity" : 356.9163513183594,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " excused", " beach", " soft", " of", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft of water [MASK] beach soft of water excused",
+    "timestamp" : 241457
+  }, {
+    "sentence" : "The soft soft of water soft beach soft of water excused",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 2489, 5075, 2489, 5194, 3408, 5193 ],
+    "perplexity" : 428.8730773925781,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " soft", " beach", " soft", " of", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft of water [MASK] beach soft of water excused",
+    "timestamp" : 241750
+  }, {
+    "sentence" : "The soft soft of water worn beach soft of water excused",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5191, 5075, 2489, 5194, 3408, 5193 ],
+    "perplexity" : 599.2218017578125,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " worn", " beach", " soft", " of", " water", " excused" ],
+    "original_sentence" : "[MASK] [MASK] soft of water [MASK] beach soft of water excused",
+    "timestamp" : 241912
+  }, {
+    "sentence" : "The soft soft of water works beach soft of water surface",
+    "tokens" : [ 395, 2489, 2489, 5194, 3408, 5188, 5075, 2489, 5194, 3408, 2035 ],
+    "perplexity" : 649.348388671875,
+    "tokens_used" : [ " The", " soft", " soft", " of", " water", " works", " beach", " soft", " of", " water", " surface" ],
+    "original_sentence" : "The soft soft of water [MASK] beach soft [MASK] water [MASK]",
+    "timestamp" : 251123
+  } ]
+}

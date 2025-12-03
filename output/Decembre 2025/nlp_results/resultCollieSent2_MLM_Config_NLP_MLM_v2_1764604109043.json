@@ -1,0 +1,644 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T10:48:29.041451733",
+  "time" : 331.821,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That sentence soft beach water could beach grass aunts water",
+    "score" : 9282.20703125,
+    "time" : 1788,
+    "cycle" : 0
+  }, {
+    "sentence" : "A sentence soft beach water could beach grass aunts water",
+    "score" : 7926.02685546875,
+    "time" : 3713,
+    "cycle" : 1
+  }, {
+    "sentence" : "A sentence soft beach water and beach grass aunts water",
+    "score" : 2263.9931640625,
+    "time" : 6127,
+    "cycle" : 2
+  }, {
+    "sentence" : "A sentence soft beach water and beach with no water",
+    "score" : 1128.1136474609375,
+    "time" : 10274,
+    "cycle" : 4
+  }, {
+    "sentence" : "A small soft beach water and beach with no water",
+    "score" : 317.9209289550781,
+    "time" : 12410,
+    "cycle" : 5
+  }, {
+    "sentence" : "A small soft of water and beach with no water",
+    "score" : 302.3828125,
+    "time" : 15045,
+    "cycle" : 6
+  }, {
+    "sentence" : "A small soft of land or beach with no water",
+    "score" : 245.5327606201172,
+    "time" : 19486,
+    "cycle" : 8
+  }, {
+    "sentence" : "A small soft of sand and beach with no water",
+    "score" : 230.4368133544922,
+    "time" : 24001,
+    "cycle" : 10
+  }, {
+    "sentence" : "A little soft of sand and beach and salt water",
+    "score" : 223.94134521484375,
+    "time" : 32169,
+    "cycle" : 14
+  }, {
+    "sentence" : "A little soft with sand and beach and salt water",
+    "score" : 208.68980407714844,
+    "time" : 34844,
+    "cycle" : 15
+  }, {
+    "sentence" : "A beach soft with sand and beach and salt water",
+    "score" : 183.65438842773438,
+    "time" : 42954,
+    "cycle" : 19
+  }, {
+    "sentence" : "A beach soft with sand and beach with fresh water",
+    "score" : 183.5078582763672,
+    "time" : 76838,
+    "cycle" : 36
+  }, {
+    "sentence" : "A beach soft with rocks and beach in the water",
+    "score" : 181.74832153320312,
+    "time" : 95246,
+    "cycle" : 47
+  }, {
+    "sentence" : "A large soft of sand or beach in the water",
+    "score" : 179.8567352294922,
+    "time" : 105061,
+    "cycle" : 53
+  }, {
+    "sentence" : "A large soft sandy beach or beach in the water",
+    "score" : 129.74053955078125,
+    "time" : 134799,
+    "cycle" : 68
+  }, {
+    "sentence" : "A large soft sandy beach and beach on the water",
+    "score" : 121.73423767089844,
+    "time" : 153467,
+    "cycle" : 72
+  }, {
+    "sentence" : "A large soft sandy beach or beach on the water",
+    "score" : 116.26324462890625,
+    "time" : 169126,
+    "cycle" : 75
+  }, {
+    "sentence" : "A small soft sandy beach or beach on the water",
+    "score" : 103.11360168457031,
+    "time" : 173717,
+    "cycle" : 76
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That sentence soft beach water could beach grass aunts water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 4439, 5075, 0, 5196, 3408 ],
+    "perplexity" : 9282.20703125,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " could", " beach", " grass", " aunts", " water" ],
+    "original_sentence" : "That sentence soft beach water could beach [MASK] aunts water",
+    "timestamp" : 1788
+  }, {
+    "sentence" : "A sentence soft beach water could beach grass aunts water",
+    "tokens" : [ 4646, 775, 2489, 5075, 3408, 4439, 5075, 0, 5196, 3408 ],
+    "perplexity" : 7926.02685546875,
+    "tokens_used" : [ " a", " sentence", " soft", " beach", " water", " could", " beach", " grass", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft beach water could beach grass aunts water",
+    "timestamp" : 3713
+  }, {
+    "sentence" : "A sentence soft beach water and beach grass aunts water",
+    "tokens" : [ 4647, 775, 2489, 5075, 3408, 215, 5075, 0, 5196, 3408 ],
+    "perplexity" : 2263.9931640625,
+    "tokens_used" : [ " A", " sentence", " soft", " beach", " water", " and", " beach", " grass", " aunts", " water" ],
+    "original_sentence" : "A sentence soft beach water [MASK] beach grass aunts water",
+    "timestamp" : 6127
+  }, {
+    "sentence" : "A sentence soft beach water and beach with aunts water",
+    "tokens" : [ 4647, 775, 2489, 5075, 3408, 215, 5075, 2342, 5196, 3408 ],
+    "perplexity" : 3309.767822265625,
+    "tokens_used" : [ " A", " sentence", " soft", " beach", " water", " and", " beach", " with", " aunts", " water" ],
+    "original_sentence" : "A sentence soft beach water and beach [MASK] aunts water",
+    "timestamp" : 8167
+  }, {
+    "sentence" : "A sentence soft beach water and beach with no water",
+    "tokens" : [ 4647, 775, 2489, 5075, 3408, 215, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 1128.1136474609375,
+    "tokens_used" : [ " A", " sentence", " soft", " beach", " water", " and", " beach", " with", " no", " water" ],
+    "original_sentence" : "A sentence soft beach water and beach with [MASK] water",
+    "timestamp" : 10274
+  }, {
+    "sentence" : "A small soft beach water and beach with no water",
+    "tokens" : [ 4647, 3828, 2489, 5075, 3408, 215, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 317.9209289550781,
+    "tokens_used" : [ " A", " small", " soft", " beach", " water", " and", " beach", " with", " no", " water" ],
+    "original_sentence" : "A [MASK] soft beach water and beach with no water",
+    "timestamp" : 12410
+  }, {
+    "sentence" : "A small soft of water and beach with no water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 3408, 215, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 302.3828125,
+    "tokens_used" : [ " A", " small", " soft", " of", " water", " and", " beach", " with", " no", " water" ],
+    "original_sentence" : "A small soft [MASK] water and beach with no water",
+    "timestamp" : 15045
+  }, {
+    "sentence" : "A small soft of water or beach with no water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 3408, 1860, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 315.8966064453125,
+    "tokens_used" : [ " A", " small", " soft", " of", " water", " or", " beach", " with", " no", " water" ],
+    "original_sentence" : "A small soft of water [MASK] beach with no water",
+    "timestamp" : 16956
+  }, {
+    "sentence" : "A small soft of land or beach with no water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 3286, 1860, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 245.5327606201172,
+    "tokens_used" : [ " A", " small", " soft", " of", " land", " or", " beach", " with", " no", " water" ],
+    "original_sentence" : "A small soft of [MASK] or beach with no water",
+    "timestamp" : 19486
+  }, {
+    "sentence" : "A small soft of land and beach with no water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 3286, 215, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 261.5841064453125,
+    "tokens_used" : [ " A", " small", " soft", " of", " land", " and", " beach", " with", " no", " water" ],
+    "original_sentence" : "A small soft of land [MASK] beach with no water",
+    "timestamp" : 21707
+  }, {
+    "sentence" : "A small soft of sand and beach with no water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 1752, 215, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 230.4368133544922,
+    "tokens_used" : [ " A", " small", " soft", " of", " sand", " and", " beach", " with", " no", " water" ],
+    "original_sentence" : "A small soft of [MASK] and beach with no water",
+    "timestamp" : 24001
+  }, {
+    "sentence" : "A small soft of sand and beach and no water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 1752, 215, 5075, 215, 2144, 3408 ],
+    "perplexity" : 283.65277099609375,
+    "tokens_used" : [ " A", " small", " soft", " of", " sand", " and", " beach", " and", " no", " water" ],
+    "original_sentence" : "A small soft of sand and beach [MASK] no water",
+    "timestamp" : 26429
+  }, {
+    "sentence" : "A little soft of sand and beach and no water",
+    "tokens" : [ 4647, 3078, 2489, 5194, 1752, 215, 5075, 215, 2144, 3408 ],
+    "perplexity" : 267.0113830566406,
+    "tokens_used" : [ " A", " little", " soft", " of", " sand", " and", " beach", " and", " no", " water" ],
+    "original_sentence" : "A [MASK] soft of sand and beach and no water",
+    "timestamp" : 30291
+  }, {
+    "sentence" : "A little soft of sand and beach and salt water",
+    "tokens" : [ 4647, 3078, 2489, 5194, 1752, 215, 5075, 215, 3029, 3408 ],
+    "perplexity" : 223.94134521484375,
+    "tokens_used" : [ " A", " little", " soft", " of", " sand", " and", " beach", " and", " salt", " water" ],
+    "original_sentence" : "A little soft of sand and beach and [MASK] water",
+    "timestamp" : 32169
+  }, {
+    "sentence" : "A little soft with sand and beach and salt water",
+    "tokens" : [ 4647, 3078, 2489, 2342, 1752, 215, 5075, 215, 3029, 3408 ],
+    "perplexity" : 208.68980407714844,
+    "tokens_used" : [ " A", " little", " soft", " with", " sand", " and", " beach", " and", " salt", " water" ],
+    "original_sentence" : "A little soft [MASK] sand and beach and salt water",
+    "timestamp" : 34844
+  }, {
+    "sentence" : "A small soft with sand and beach and salt water",
+    "tokens" : [ 4647, 3828, 2489, 2342, 1752, 215, 5075, 215, 3029, 3408 ],
+    "perplexity" : 347.2596740722656,
+    "tokens_used" : [ " A", " small", " soft", " with", " sand", " and", " beach", " and", " salt", " water" ],
+    "original_sentence" : "A [MASK] soft with sand and beach and salt water",
+    "timestamp" : 36608
+  }, {
+    "sentence" : "A beach soft with sand and beach and salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 215, 3029, 3408 ],
+    "perplexity" : 183.65438842773438,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " and", " salt", " water" ],
+    "original_sentence" : "A [MASK] soft with sand and beach and salt water",
+    "timestamp" : 42954
+  }, {
+    "sentence" : "A beach soft with sand and beach and the water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 241.6254119873047,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A beach soft with sand and beach and [MASK] water",
+    "timestamp" : 44655
+  }, {
+    "sentence" : "A beach soft of sand and beach and the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 1752, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 275.4223327636719,
+    "tokens_used" : [ " A", " beach", " soft", " of", " sand", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A beach soft [MASK] sand and beach and the water",
+    "timestamp" : 46716
+  }, {
+    "sentence" : "A beach soft of sand and beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 1752, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 252.65931701660156,
+    "tokens_used" : [ " A", " beach", " soft", " of", " sand", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft of sand and beach [MASK] the water",
+    "timestamp" : 49280
+  }, {
+    "sentence" : "A beach soft with sand and beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 213.30210876464844,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft [MASK] sand and beach with the water",
+    "timestamp" : 51555
+  }, {
+    "sentence" : "A beach soft with land and beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 3286, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 296.2080383300781,
+    "tokens_used" : [ " A", " beach", " soft", " with", " land", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft with [MASK] and beach with the water",
+    "timestamp" : 53464
+  }, {
+    "sentence" : "A beach soft with land or beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 3286, 1860, 5075, 2342, 394, 3408 ],
+    "perplexity" : 346.28741455078125,
+    "tokens_used" : [ " A", " beach", " soft", " with", " land", " or", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft with land [MASK] beach with the water",
+    "timestamp" : 55529
+  }, {
+    "sentence" : "A beach soft of land or beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 3286, 1860, 5075, 2342, 394, 3408 ],
+    "perplexity" : 324.3722839355469,
+    "tokens_used" : [ " A", " beach", " soft", " of", " land", " or", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft [MASK] land or beach with the water",
+    "timestamp" : 57944
+  }, {
+    "sentence" : "A beach soft of land and beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 3286, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 300.4886474609375,
+    "tokens_used" : [ " A", " beach", " soft", " of", " land", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft of land [MASK] beach with the water",
+    "timestamp" : 60003
+  }, {
+    "sentence" : "A beach soft of rock and beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 535, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 278.00811767578125,
+    "tokens_used" : [ " A", " beach", " soft", " of", " rock", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft of [MASK] and beach with the water",
+    "timestamp" : 61902
+  }, {
+    "sentence" : "A beach soft with rock and beach with the water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 535, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 238.3154296875,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rock", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A beach soft [MASK] rock and beach with the water",
+    "timestamp" : 64245
+  }, {
+    "sentence" : "A beach soft with rock and beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 535, 215, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 221.77561950683594,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rock", " and", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with rock and beach with [MASK] water",
+    "timestamp" : 66790
+  }, {
+    "sentence" : "A beach soft with rock or beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 535, 1860, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 279.4508361816406,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rock", " or", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with rock [MASK] beach with salt water",
+    "timestamp" : 68513
+  }, {
+    "sentence" : "A beach soft with sand or beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 1860, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 240.96487426757812,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " or", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with [MASK] or beach with salt water",
+    "timestamp" : 69973
+  }, {
+    "sentence" : "A beach soft with sand or beach in salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 1860, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 244.98812866210938,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " or", " beach", " in", " salt", " water" ],
+    "original_sentence" : "A beach soft with sand or beach [MASK] salt water",
+    "timestamp" : 71865
+  }, {
+    "sentence" : "A beach soft with sand and beach in salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 194.9215850830078,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " in", " salt", " water" ],
+    "original_sentence" : "A beach soft with sand [MASK] beach in salt water",
+    "timestamp" : 73842
+  }, {
+    "sentence" : "A beach soft with sand and beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 193.54168701171875,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with sand and beach [MASK] salt water",
+    "timestamp" : 75317
+  }, {
+    "sentence" : "A beach soft with sand and beach with fresh water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 2342, 2096, 3408 ],
+    "perplexity" : 183.5078582763672,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " with", " fresh", " water" ],
+    "original_sentence" : "A beach soft with sand and beach with [MASK] water",
+    "timestamp" : 76838
+  }, {
+    "sentence" : "A beach soft with sand and beach with no water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 215, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 203.6935272216797,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " and", " beach", " with", " no", " water" ],
+    "original_sentence" : "A beach soft with sand and beach with [MASK] water",
+    "timestamp" : 78843
+  }, {
+    "sentence" : "A beach soft with sand or beach with no water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1752, 1860, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 239.67945861816406,
+    "tokens_used" : [ " A", " beach", " soft", " with", " sand", " or", " beach", " with", " no", " water" ],
+    "original_sentence" : "A beach soft with sand [MASK] beach with no water",
+    "timestamp" : 80814
+  }, {
+    "sentence" : "A beach soft with water or beach with no water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 3408, 1860, 5075, 2342, 2144, 3408 ],
+    "perplexity" : 227.95391845703125,
+    "tokens_used" : [ " A", " beach", " soft", " with", " water", " or", " beach", " with", " no", " water" ],
+    "original_sentence" : "A beach soft with [MASK] or beach with no water",
+    "timestamp" : 82232
+  }, {
+    "sentence" : "A beach soft with water or beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 3408, 1860, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 251.3446044921875,
+    "tokens_used" : [ " A", " beach", " soft", " with", " water", " or", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with water or beach with [MASK] water",
+    "timestamp" : 85445
+  }, {
+    "sentence" : "A beach soft with rocks or beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1263, 1860, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 326.4992980957031,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rocks", " or", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with [MASK] or beach with salt water",
+    "timestamp" : 87511
+  }, {
+    "sentence" : "A beach soft with rocks and beach with salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1263, 215, 5075, 2342, 3029, 3408 ],
+    "perplexity" : 231.78822326660156,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rocks", " and", " beach", " with", " salt", " water" ],
+    "original_sentence" : "A beach soft with rocks [MASK] beach with salt water",
+    "timestamp" : 92432
+  }, {
+    "sentence" : "A beach soft with rocks and beach in salt water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1263, 215, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 239.91650390625,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rocks", " and", " beach", " in", " salt", " water" ],
+    "original_sentence" : "A beach soft with rocks and beach [MASK] salt water",
+    "timestamp" : 93852
+  }, {
+    "sentence" : "A beach soft with rocks and beach in the water",
+    "tokens" : [ 4647, 5075, 2489, 2342, 1263, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 181.74832153320312,
+    "tokens_used" : [ " A", " beach", " soft", " with", " rocks", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A beach soft with rocks and beach in [MASK] water",
+    "timestamp" : 95246
+  }, {
+    "sentence" : "A beach soft of rocks and beach in the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 1263, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 243.23965454101562,
+    "tokens_used" : [ " A", " beach", " soft", " of", " rocks", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A beach soft [MASK] rocks and beach in the water",
+    "timestamp" : 96973
+  }, {
+    "sentence" : "A beach soft of rocks or beach in the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 1263, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 273.8568420410156,
+    "tokens_used" : [ " A", " beach", " soft", " of", " rocks", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A beach soft of rocks [MASK] beach in the water",
+    "timestamp" : 100214
+  }, {
+    "sentence" : "A small soft of rocks or beach in the water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 1263, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 294.4792175292969,
+    "tokens_used" : [ " A", " small", " soft", " of", " rocks", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A [MASK] soft of rocks or beach in the water",
+    "timestamp" : 101668
+  }, {
+    "sentence" : "A large soft of rocks or beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 5194, 1263, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 293.51971435546875,
+    "tokens_used" : [ " A", " large", " soft", " of", " rocks", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A [MASK] soft of rocks or beach in the water",
+    "timestamp" : 103272
+  }, {
+    "sentence" : "A large soft of sand or beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 5194, 1752, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 179.8567352294922,
+    "tokens_used" : [ " A", " large", " soft", " of", " sand", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft of [MASK] or beach in the water",
+    "timestamp" : 105061
+  }, {
+    "sentence" : "A small soft of sand or beach in the water",
+    "tokens" : [ 4647, 3828, 2489, 5194, 1752, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 181.3251190185547,
+    "tokens_used" : [ " A", " small", " soft", " of", " sand", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A [MASK] soft of sand or beach in the water",
+    "timestamp" : 107605
+  }, {
+    "sentence" : "A small soft rock sand or beach in the water",
+    "tokens" : [ 4647, 3828, 2489, 535, 1752, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 233.01531982421875,
+    "tokens_used" : [ " A", " small", " soft", " rock", " sand", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A small soft [MASK] sand or beach in the water",
+    "timestamp" : 109261
+  }, {
+    "sentence" : "A small soft rock rock or beach in the water",
+    "tokens" : [ 4647, 3828, 2489, 535, 535, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 206.38137817382812,
+    "tokens_used" : [ " A", " small", " soft", " rock", " rock", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A small soft rock [MASK] or beach in the water",
+    "timestamp" : 110974
+  }, {
+    "sentence" : "A large soft rock rock or beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 535, 535, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 213.25013732910156,
+    "tokens_used" : [ " A", " large", " soft", " rock", " rock", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A [MASK] soft rock rock or beach in the water",
+    "timestamp" : 112273
+  }, {
+    "sentence" : "A large soft rock rock and beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 535, 535, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 217.09268188476562,
+    "tokens_used" : [ " A", " large", " soft", " rock", " rock", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft rock rock [MASK] beach in the water",
+    "timestamp" : 121178
+  }, {
+    "sentence" : "A large soft sandy rock and beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 535, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 227.68319702148438,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " rock", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft [MASK] rock and beach in the water",
+    "timestamp" : 123880
+  }, {
+    "sentence" : "A large soft sandy sand and beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 1752, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 250.6667022705078,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " sand", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft sandy [MASK] and beach in the water",
+    "timestamp" : 125936
+  }, {
+    "sentence" : "A large soft sandy sand or beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 1752, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 228.1986083984375,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " sand", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft sandy sand [MASK] beach in the water",
+    "timestamp" : 131798
+  }, {
+    "sentence" : "A large soft sandy beach or beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 5075, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 129.74053955078125,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " beach", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft sandy [MASK] or beach in the water",
+    "timestamp" : 134799
+  }, {
+    "sentence" : "A large soft sandy beach and beach in the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 5075, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 136.7267608642578,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " beach", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A large soft sandy beach [MASK] beach in the water",
+    "timestamp" : 139885
+  }, {
+    "sentence" : "A large soft sandy beach and beach with the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 5075, 215, 5075, 2342, 394, 3408 ],
+    "perplexity" : 177.3583984375,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " beach", " and", " beach", " with", " the", " water" ],
+    "original_sentence" : "A large soft sandy beach and beach [MASK] the water",
+    "timestamp" : 144839
+  }, {
+    "sentence" : "A large soft sandy beach and beach on the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 5075, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 121.73423767089844,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " beach", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A large soft sandy beach and beach [MASK] the water",
+    "timestamp" : 153467
+  }, {
+    "sentence" : "A large soft sandy beach or beach on the water",
+    "tokens" : [ 4647, 4634, 2489, 422, 5075, 1860, 5075, 710, 394, 3408 ],
+    "perplexity" : 116.26324462890625,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " beach", " or", " beach", " on", " the", " water" ],
+    "original_sentence" : "A large soft sandy beach [MASK] beach on the water",
+    "timestamp" : 169126
+  }, {
+    "sentence" : "A small soft sandy beach or beach on the water",
+    "tokens" : [ 4647, 3828, 2489, 422, 5075, 1860, 5075, 710, 394, 3408 ],
+    "perplexity" : 103.11360168457031,
+    "tokens_used" : [ " A", " small", " soft", " sandy", " beach", " or", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft sandy beach or beach on the water",
+    "timestamp" : 173717
+  }, {
+    "sentence" : "A flat soft sandy beach or beach on the water",
+    "tokens" : [ 4647, 4122, 2489, 422, 5075, 1860, 5075, 710, 394, 3408 ],
+    "perplexity" : 120.37779998779297,
+    "tokens_used" : [ " A", " flat", " soft", " sandy", " beach", " or", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft sandy beach or beach on the water",
+    "timestamp" : 177756
+  }, {
+    "sentence" : "A little soft sandy beach or beach on the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 5075, 1860, 5075, 710, 394, 3408 ],
+    "perplexity" : 118.84449005126953,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " beach", " or", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft sandy beach or beach on the water",
+    "timestamp" : 182861
+  }, {
+    "sentence" : "A little soft sandy beach and beach on the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 5075, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 133.57496643066406,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " beach", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A little soft sandy beach [MASK] beach on the water",
+    "timestamp" : 188131
+  }, {
+    "sentence" : "A little soft sandy beach and beach in the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 5075, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 148.34242248535156,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " beach", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A little soft sandy beach and beach [MASK] the water",
+    "timestamp" : 195921
+  }, {
+    "sentence" : "A little soft sandy sand and beach in the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 1752, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 163.5472869873047,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " sand", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A little soft sandy [MASK] and beach in the water",
+    "timestamp" : 201638
+  }, {
+    "sentence" : "A little soft sandy sand and beach on the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 1752, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 163.91673278808594,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " sand", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A little soft sandy sand and beach [MASK] the water",
+    "timestamp" : 208558
+  }, {
+    "sentence" : "A little soft sandy sand or beach on the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 1752, 1860, 5075, 710, 394, 3408 ],
+    "perplexity" : 178.19932556152344,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " sand", " or", " beach", " on", " the", " water" ],
+    "original_sentence" : "A little soft sandy sand [MASK] beach on the water",
+    "timestamp" : 251320
+  }, {
+    "sentence" : "A little soft sandy sand of beach on the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 1752, 5194, 5075, 710, 394, 3408 ],
+    "perplexity" : 206.05538940429688,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " sand", " of", " beach", " on", " the", " water" ],
+    "original_sentence" : "A little soft sandy sand [MASK] beach on the water",
+    "timestamp" : 253140
+  }, {
+    "sentence" : "A little soft sandy sand or beach in the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 1752, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 174.8639373779297,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " sand", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A little soft sandy sand or beach [MASK] the water",
+    "timestamp" : 256584
+  }, {
+    "sentence" : "A little soft sandy beach or beach in the water",
+    "tokens" : [ 4647, 3078, 2489, 422, 5075, 1860, 5075, 2515, 394, 3408 ],
+    "perplexity" : 129.55137634277344,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " beach", " or", " beach", " in", " the", " water" ],
+    "original_sentence" : "A little soft sandy [MASK] or beach in the water",
+    "timestamp" : 271590
+  }, {
+    "sentence" : "A little soft sandy beach or beach in salt water",
+    "tokens" : [ 4647, 3078, 2489, 422, 5075, 1860, 5075, 2515, 3029, 3408 ],
+    "perplexity" : 189.16317749023438,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " beach", " or", " beach", " in", " salt", " water" ],
+    "original_sentence" : "A little soft sandy beach or beach in [MASK] water",
+    "timestamp" : 278444
+  }, {
+    "sentence" : "A little soft sandy beach or beach in fresh water",
+    "tokens" : [ 4647, 3078, 2489, 422, 5075, 1860, 5075, 2515, 2096, 3408 ],
+    "perplexity" : 192.798828125,
+    "tokens_used" : [ " A", " little", " soft", " sandy", " beach", " or", " beach", " in", " fresh", " water" ],
+    "original_sentence" : "A little soft sandy beach or beach in [MASK] water",
+    "timestamp" : 279519
+  }, {
+    "sentence" : "A flat soft sandy beach or beach in fresh water",
+    "tokens" : [ 4647, 4122, 2489, 422, 5075, 1860, 5075, 2515, 2096, 3408 ],
+    "perplexity" : 193.5477752685547,
+    "tokens_used" : [ " A", " flat", " soft", " sandy", " beach", " or", " beach", " in", " fresh", " water" ],
+    "original_sentence" : "A [MASK] soft sandy beach or beach in fresh water",
+    "timestamp" : 327665
+  }, {
+    "sentence" : "A small soft sandy beach or beach in fresh water",
+    "tokens" : [ 4647, 3828, 2489, 422, 5075, 1860, 5075, 2515, 2096, 3408 ],
+    "perplexity" : 169.3218994140625,
+    "tokens_used" : [ " A", " small", " soft", " sandy", " beach", " or", " beach", " in", " fresh", " water" ],
+    "original_sentence" : "A [MASK] soft sandy beach or beach in fresh water",
+    "timestamp" : 328353
+  }, {
+    "sentence" : "A large soft sandy beach or beach in fresh water",
+    "tokens" : [ 4647, 4634, 2489, 422, 5075, 1860, 5075, 2515, 2096, 3408 ],
+    "perplexity" : 187.6707000732422,
+    "tokens_used" : [ " A", " large", " soft", " sandy", " beach", " or", " beach", " in", " fresh", " water" ],
+    "original_sentence" : "A [MASK] soft sandy beach or beach in fresh water",
+    "timestamp" : 329342
+  } ]
+}

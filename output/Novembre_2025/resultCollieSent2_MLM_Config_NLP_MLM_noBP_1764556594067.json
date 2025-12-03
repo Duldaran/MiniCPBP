@@ -1,0 +1,52 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 5,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 24,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "date" : "2025-11-30T21:36:34.065802200",
+  "time" : 8.417,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "The sentence soft beach water mouth beach a mouth water mouth",
+    "score" : 4547.46875,
+    "time" : 2474,
+    "cycle" : 0
+  }, {
+    "sentence" : "Packing mouth soft packing water mouth beach packing mouth water packing",
+    "score" : 3389.601318359375,
+    "time" : 7298,
+    "cycle" : 3
+  } ],
+  "base_sentence" : {
+    "sentence" : "The sentence soft beach water makes beach a place water comes",
+    "perplexity" : 3282.5361328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "The sentence soft beach water mouth beach a mouth water mouth",
+    "tokens" : [ 395, 775, 2489, 5075, 3408, 2602, 5075, 4646, 2602, 3408, 2602 ],
+    "perplexity" : 4547.46875,
+    "tokens_used" : [ " The", " sentence", " soft", " beach", " water", " mouth", " beach", " a", " mouth", " water", " mouth" ],
+    "original_sentence" : "The sentence soft beach water [MASK] beach a [MASK] water [MASK]",
+    "timestamp" : 2474
+  }, {
+    "sentence" : "The mouth soft beach water mouth beach packing mouth water packing",
+    "tokens" : [ 395, 2602, 2489, 5075, 3408, 2602, 5075, 1824, 2602, 3408, 1824 ],
+    "perplexity" : 7118.5244140625,
+    "tokens_used" : [ " The", " mouth", " soft", " beach", " water", " mouth", " beach", " packing", " mouth", " water", " packing" ],
+    "original_sentence" : "The [MASK] soft beach water mouth beach [MASK] mouth water [MASK]",
+    "timestamp" : 4075
+  }, {
+    "sentence" : "Packing mouth soft packing water mouth beach packing mouth water packing",
+    "tokens" : [ 1824, 2602, 2489, 1824, 3408, 2602, 5075, 1824, 2602, 3408, 1824 ],
+    "perplexity" : 3389.601318359375,
+    "tokens_used" : [ " packing", " mouth", " soft", " packing", " water", " mouth", " beach", " packing", " mouth", " water", " packing" ],
+    "original_sentence" : "[MASK] mouth soft [MASK] water mouth beach [MASK] mouth water packing",
+    "timestamp" : 7298
+  } ]
+}

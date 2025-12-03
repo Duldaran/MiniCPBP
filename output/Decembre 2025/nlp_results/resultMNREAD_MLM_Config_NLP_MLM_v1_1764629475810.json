@@ -1,0 +1,123 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T17:51:15.808564053",
+  "time" : 133.574,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She paused outside the door at the back of my left shoulder",
+    "score" : 58.243438720703125,
+    "time" : 31182,
+    "cycle" : 1
+  }, {
+    "sentence" : "She walked outside the back of the tent on my left shoulder",
+    "score" : 44.682010650634766,
+    "time" : 56289,
+    "cycle" : 19
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She paused outside the door at the back of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 302, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 58.243438720703125,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " at", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside [MASK] door [MASK] the back of my left shoulder",
+    "timestamp" : 31182
+  }, {
+    "sentence" : "She paused outside the door in the back of my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2515, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 79.51927185058594,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " in", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside the door [MASK] the back of my left shoulder",
+    "timestamp" : 33914
+  }, {
+    "sentence" : "She paused outside the door in the dust on my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2515, 394, 3165, 710, 938, 1608, 2549 ],
+    "perplexity" : 102.4307632446289,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " in", " the", " dust", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the door in the [MASK] [MASK] my left shoulder",
+    "timestamp" : 35158
+  }, {
+    "sentence" : "She paused outside the door in the rain on my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 2515, 394, 4724, 710, 938, 1608, 2549 ],
+    "perplexity" : 74.98612976074219,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " in", " the", " rain", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] paused outside the door in the [MASK] on my left shoulder",
+    "timestamp" : 35951
+  }, {
+    "sentence" : "She paused outside the door of the rain on my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 394, 4455, 5194, 394, 4724, 710, 938, 1608, 2549 ],
+    "perplexity" : 105.32579040527344,
+    "tokens_used" : [ " She", " paused", " outside", " the", " door", " of", " the", " rain", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside the door [MASK] the rain on my [MASK] shoulder",
+    "timestamp" : 38246
+  }, {
+    "sentence" : "She walked outside the door of the rain on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 4455, 5194, 394, 4724, 710, 938, 1608, 2549 ],
+    "perplexity" : 80.54444885253906,
+    "tokens_used" : [ " She", " walked", " outside", " the", " door", " of", " the", " rain", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "[MASK] [MASK] outside the door of the rain on my left shoulder",
+    "timestamp" : 44107
+  }, {
+    "sentence" : "She walked outside the back of the tent on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 394, 3012, 710, 938, 1608, 2549 ],
+    "perplexity" : 44.682010650634766,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " the", " tent", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She [MASK] outside the back of the tent on my left [MASK]",
+    "timestamp" : 56289
+  }, {
+    "sentence" : "She walked outside the back of the park on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 394, 983, 710, 938, 1608, 2549 ],
+    "perplexity" : 48.24860382080078,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " the", " park", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked outside the back of the [MASK] on my left [MASK]",
+    "timestamp" : 57243
+  }, {
+    "sentence" : "She walked outside the back of his park on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 3882, 983, 710, 938, 1608, 2549 ],
+    "perplexity" : 82.43155670166016,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " his", " park", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked outside the [MASK] of [MASK] park on my left shoulder",
+    "timestamp" : 58705
+  }, {
+    "sentence" : "She walked outside the back of his door on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 3882, 4455, 710, 938, 1608, 2549 ],
+    "perplexity" : 78.61383819580078,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " his", " door", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked outside the back of his [MASK] on my left [MASK]",
+    "timestamp" : 73934
+  }, {
+    "sentence" : "She walked outside the back of his seat on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 3882, 5014, 710, 938, 1608, 2549 ],
+    "perplexity" : 76.06539916992188,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " his", " seat", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked outside the back of his [MASK] on my left [MASK]",
+    "timestamp" : 77251
+  }, {
+    "sentence" : "She walked outside the back of his coat on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 3882, 884, 710, 938, 1608, 2549 ],
+    "perplexity" : 80.38890075683594,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " his", " coat", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked outside the back of his [MASK] on my [MASK] shoulder",
+    "timestamp" : 78031
+  }, {
+    "sentence" : "She walked outside the back of her coat on my left shoulder",
+    "tokens" : [ 1962, 4308, 803, 394, 954, 5194, 3730, 884, 710, 938, 1608, 2549 ],
+    "perplexity" : 84.47859954833984,
+    "tokens_used" : [ " She", " walked", " outside", " the", " back", " of", " her", " coat", " on", " my", " left", " shoulder" ],
+    "original_sentence" : "She walked outside the back of [MASK] coat [MASK] my left shoulder",
+    "timestamp" : 80063
+  } ]
+}

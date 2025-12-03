@@ -1,0 +1,180 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T14:35:19.508569989",
+  "time" : 528.33,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She paused outside and tried to go back to my left shoulder",
+    "score" : 95.01934051513672,
+    "time" : 33300,
+    "cycle" : 0
+  }, {
+    "sentence" : "She walked outside the house a while is from the other side",
+    "score" : 91.70423126220703,
+    "time" : 228700,
+    "cycle" : 38
+  }, {
+    "sentence" : "She walked outside the house while she is on the other side",
+    "score" : 44.595802307128906,
+    "time" : 232021,
+    "cycle" : 39
+  }, {
+    "sentence" : "Me looked into her face thinking it was from the other side",
+    "score" : 44.262855529785156,
+    "time" : 395578,
+    "cycle" : 69
+  }, {
+    "sentence" : "They could see her face because it was in the opposite side",
+    "score" : 40.08799743652344,
+    "time" : 459180,
+    "cycle" : 78
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She paused outside and tried to go back to my left shoulder",
+    "tokens" : [ 1962, 3634, 803, 215, 879, 2461, 3106, 954, 2461, 938, 1608, 2549 ],
+    "perplexity" : 95.01934051513672,
+    "tokens_used" : [ " She", " paused", " outside", " and", " tried", " to", " go", " back", " to", " my", " left", " shoulder" ],
+    "original_sentence" : "She paused outside [MASK] [MASK] to [MASK] back [MASK] my left shoulder",
+    "timestamp" : 33300
+  }, {
+    "sentence" : "She paused outside the doorway to turn back to my left side",
+    "tokens" : [ 1962, 3634, 803, 394, 2374, 2461, 3519, 954, 2461, 938, 1608, 400 ],
+    "perplexity" : 104.8863525390625,
+    "tokens_used" : [ " She", " paused", " outside", " the", " doorway", " to", " turn", " back", " to", " my", " left", " side" ],
+    "original_sentence" : "She paused outside [MASK] [MASK] to [MASK] back to my left [MASK]",
+    "timestamp" : 40210
+  }, {
+    "sentence" : "She walked outside the doorway a time and it the other side",
+    "tokens" : [ 1962, 4308, 803, 394, 2374, 4646, 4737, 215, 2050, 394, 3915, 400 ],
+    "perplexity" : 173.441162109375,
+    "tokens_used" : [ " She", " walked", " outside", " the", " doorway", " a", " time", " and", " it", " the", " other", " side" ],
+    "original_sentence" : "She walked outside the doorway a [MASK] and [MASK] [MASK] other [MASK]",
+    "timestamp" : 82148
+  }, {
+    "sentence" : "She paused outside the doorway a time and it the other side",
+    "tokens" : [ 1962, 3634, 803, 394, 2374, 4646, 4737, 215, 2050, 394, 3915, 400 ],
+    "perplexity" : 187.44720458984375,
+    "tokens_used" : [ " She", " paused", " outside", " the", " doorway", " a", " time", " and", " it", " the", " other", " side" ],
+    "original_sentence" : "She [MASK] outside the doorway a time [MASK] it [MASK] other [MASK]",
+    "timestamp" : 95064
+  }, {
+    "sentence" : "She ran outside the such a building and down the other side",
+    "tokens" : [ 1962, 3332, 803, 394, 4192, 4646, 3724, 215, 4343, 394, 3915, 400 ],
+    "perplexity" : 95.99945068359375,
+    "tokens_used" : [ " She", " ran", " outside", " the", " such", " a", " building", " and", " down", " the", " other", " side" ],
+    "original_sentence" : "She [MASK] outside the such [MASK] building [MASK] down [MASK] other side",
+    "timestamp" : 207673
+  }, {
+    "sentence" : "She walked outside the house a while is from the other side",
+    "tokens" : [ 1962, 4308, 803, 394, 1080, 4646, 861, 2713, 3605, 394, 3915, 400 ],
+    "perplexity" : 91.70423126220703,
+    "tokens_used" : [ " She", " walked", " outside", " the", " house", " a", " while", " is", " from", " the", " other", " side" ],
+    "original_sentence" : "She [MASK] outside the house a [MASK] [MASK] [MASK] the other side",
+    "timestamp" : 228700
+  }, {
+    "sentence" : "She walked outside the house while she is on the other side",
+    "tokens" : [ 1962, 4308, 803, 394, 1080, 861, 1961, 2713, 710, 394, 3915, 400 ],
+    "perplexity" : 44.595802307128906,
+    "tokens_used" : [ " She", " walked", " outside", " the", " house", " while", " she", " is", " on", " the", " other", " side" ],
+    "original_sentence" : "[MASK] walked outside the house [MASK] [MASK] is [MASK] the other side",
+    "timestamp" : 232021
+  }, {
+    "sentence" : "She walked outside his house while she is on the other side",
+    "tokens" : [ 1962, 4308, 803, 3882, 1080, 861, 1961, 2713, 710, 394, 3915, 400 ],
+    "perplexity" : 57.528167724609375,
+    "tokens_used" : [ " She", " walked", " outside", " his", " house", " while", " she", " is", " on", " the", " other", " side" ],
+    "original_sentence" : "[MASK] walked outside [MASK] [MASK] while [MASK] is on the other side",
+    "timestamp" : 235109
+  }, {
+    "sentence" : "We walked outside his house while I lit from the other side",
+    "tokens" : [ 1779, 4308, 803, 3882, 1080, 861, 1092, 4785, 3605, 394, 3915, 400 ],
+    "perplexity" : 84.17395782470703,
+    "tokens_used" : [ " We", " walked", " outside", " his", " house", " while", " I", " lit", " from", " the", " other", " side" ],
+    "original_sentence" : "[MASK] walked outside his house while [MASK] [MASK] [MASK] the other side",
+    "timestamp" : 246479
+  }, {
+    "sentence" : "We looked through his eyes while he lit from the other side",
+    "tokens" : [ 1779, 592, 3941, 3882, 1077, 861, 2228, 4785, 3605, 394, 3915, 400 ],
+    "perplexity" : 75.74612426757812,
+    "tokens_used" : [ " We", " looked", " through", " his", " eyes", " while", " he", " lit", " from", " the", " other", " side" ],
+    "original_sentence" : "[MASK] [MASK] through his eyes while he lit from [MASK] other [MASK]",
+    "timestamp" : 303505
+  }, {
+    "sentence" : "We looked through his face while he lit from the other side",
+    "tokens" : [ 1779, 592, 3941, 3882, 4383, 861, 2228, 4785, 3605, 394, 3915, 400 ],
+    "perplexity" : 86.80593872070312,
+    "tokens_used" : [ " We", " looked", " through", " his", " face", " while", " he", " lit", " from", " the", " other", " side" ],
+    "original_sentence" : "We [MASK] [MASK] his [MASK] while he lit from the other [MASK]",
+    "timestamp" : 308416
+  }, {
+    "sentence" : "Me looked through his face while he lit from the other side",
+    "tokens" : [ 995, 592, 3941, 3882, 4383, 861, 2228, 4785, 3605, 394, 3915, 400 ],
+    "perplexity" : 86.79890441894531,
+    "tokens_used" : [ " Me", " looked", " through", " his", " face", " while", " he", " lit", " from", " the", " other", " side" ],
+    "original_sentence" : "[MASK] looked through his face while [MASK] [MASK] [MASK] the other side",
+    "timestamp" : 327987
+  }, {
+    "sentence" : "Me looked through her face while it lit from the other side",
+    "tokens" : [ 995, 592, 3941, 3730, 4383, 861, 2050, 4785, 3605, 394, 3915, 400 ],
+    "perplexity" : 88.28947448730469,
+    "tokens_used" : [ " Me", " looked", " through", " her", " face", " while", " it", " lit", " from", " the", " other", " side" ],
+    "original_sentence" : "[MASK] looked through [MASK] face while [MASK] lit from the other [MASK]",
+    "timestamp" : 365787
+  }, {
+    "sentence" : "Me looked through her face until it was from the other side",
+    "tokens" : [ 995, 592, 3941, 3730, 4383, 714, 2050, 1557, 3605, 394, 3915, 400 ],
+    "perplexity" : 55.56258010864258,
+    "tokens_used" : [ " Me", " looked", " through", " her", " face", " until", " it", " was", " from", " the", " other", " side" ],
+    "original_sentence" : "Me looked through her face [MASK] it [MASK] [MASK] the other [MASK]",
+    "timestamp" : 391956
+  }, {
+    "sentence" : "Me looked into her face thinking it was from the other side",
+    "tokens" : [ 995, 592, 980, 3730, 4383, 4791, 2050, 1557, 3605, 394, 3915, 400 ],
+    "perplexity" : 44.262855529785156,
+    "tokens_used" : [ " Me", " looked", " into", " her", " face", " thinking", " it", " was", " from", " the", " other", " side" ],
+    "original_sentence" : "Me looked [MASK] her face [MASK] it was from [MASK] other [MASK]",
+    "timestamp" : 395578
+  }, {
+    "sentence" : "Me staring into her face because it was from the other side",
+    "tokens" : [ 995, 2375, 980, 3730, 4383, 3821, 2050, 1557, 3605, 394, 3915, 400 ],
+    "perplexity" : 57.71635055541992,
+    "tokens_used" : [ " Me", " staring", " into", " her", " face", " because", " it", " was", " from", " the", " other", " side" ],
+    "original_sentence" : "Me [MASK] into her face [MASK] it was from [MASK] [MASK] side",
+    "timestamp" : 423244
+  }, {
+    "sentence" : "Me looked into her face because it was in the opposite side",
+    "tokens" : [ 995, 592, 980, 3730, 4383, 3821, 2050, 1557, 2515, 394, 2465, 400 ],
+    "perplexity" : 82.66930389404297,
+    "tokens_used" : [ " Me", " looked", " into", " her", " face", " because", " it", " was", " in", " the", " opposite", " side" ],
+    "original_sentence" : "Me [MASK] into her face because it was [MASK] [MASK] [MASK] side",
+    "timestamp" : 443576
+  }, {
+    "sentence" : "They could see her face because it was in the opposite side",
+    "tokens" : [ 4154, 4439, 3387, 3730, 4383, 3821, 2050, 1557, 2515, 394, 2465, 400 ],
+    "perplexity" : 40.08799743652344,
+    "tokens_used" : [ " They", " could", " see", " her", " face", " because", " it", " was", " in", " the", " opposite", " side" ],
+    "original_sentence" : "[MASK] [MASK] [MASK] her face because it was in [MASK] opposite side",
+    "timestamp" : 459180
+  }, {
+    "sentence" : "They could see our sign because it was on the entrance hall",
+    "tokens" : [ 4154, 4439, 3387, 3369, 377, 3821, 2050, 1557, 710, 394, 2984, 3558 ],
+    "perplexity" : 44.24795913696289,
+    "tokens_used" : [ " They", " could", " see", " our", " sign", " because", " it", " was", " on", " the", " entrance", " hall" ],
+    "original_sentence" : "They could see [MASK] sign because [MASK] [MASK] on the entrance [MASK]",
+    "timestamp" : 519230
+  } ]
+}

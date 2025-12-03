@@ -1,0 +1,387 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 14,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.3,
+  "date" : "2025-12-01T11:52:45.776350399",
+  "time" : 824.442,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "This is soft beach water not beach be part water",
+    "score" : 712.5802001953125,
+    "time" : 11259,
+    "cycle" : 0
+  }, {
+    "sentence" : "Let the soft beach water soft beach be part water",
+    "score" : 505.2504577636719,
+    "time" : 25347,
+    "cycle" : 2
+  }, {
+    "sentence" : "Makes the soft part water and beach be part water",
+    "score" : 474.9350280761719,
+    "time" : 33409,
+    "cycle" : 3
+  }, {
+    "sentence" : "Change land soft bed water into beach soft bed water",
+    "score" : 416.98590087890625,
+    "time" : 56132,
+    "cycle" : 6
+  }, {
+    "sentence" : "Change land soft bed water for beach soft bed water",
+    "score" : 361.5233154296875,
+    "time" : 72141,
+    "cycle" : 7
+  }, {
+    "sentence" : "Change beach soft sand water for beach soft rock water",
+    "score" : 273.14349365234375,
+    "time" : 76857,
+    "cycle" : 8
+  }, {
+    "sentence" : "Compare sea soft rock water and beach soft rock water",
+    "score" : 134.115478515625,
+    "time" : 131410,
+    "cycle" : 16
+  }, {
+    "sentence" : "Between beach soft rock water and beach soft rock water",
+    "score" : 111.8277816772461,
+    "time" : 138641,
+    "cycle" : 17
+  }, {
+    "sentence" : "Soft water soft rock water soft beach soft rock water",
+    "score" : 109.74581146240234,
+    "time" : 586068,
+    "cycle" : 64
+  }, {
+    "sentence" : "Soft rock soft rock soft rock beach soft rock water",
+    "score" : 109.13732147216797,
+    "time" : 642766,
+    "cycle" : 70
+  } ],
+  "base_sentence" : {
+    "sentence" : "This sentence soft beach water can beach be aunts water",
+    "perplexity" : 8105.611328125,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "This is soft beach water not beach be part water",
+    "tokens" : [ 1228, 2713, 2489, 5075, 3408, 2081, 5075, 1392, 2292, 3408 ],
+    "perplexity" : 712.5802001953125,
+    "tokens_used" : [ " This", " is", " soft", " beach", " water", " not", " beach", " be", " part", " water" ],
+    "original_sentence" : "This [MASK] soft beach water [MASK] beach be [MASK] water",
+    "timestamp" : 11259
+  }, {
+    "sentence" : "Let the soft beach water soft beach be part water",
+    "tokens" : [ 3331, 394, 2489, 5075, 3408, 2489, 5075, 1392, 2292, 3408 ],
+    "perplexity" : 505.2504577636719,
+    "tokens_used" : [ " Let", " the", " soft", " beach", " water", " soft", " beach", " be", " part", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft beach water [MASK] beach be part water",
+    "timestamp" : 25347
+  }, {
+    "sentence" : "Makes the soft part water and beach be part water",
+    "tokens" : [ 2250, 394, 2489, 2292, 3408, 215, 5075, 1392, 2292, 3408 ],
+    "perplexity" : 474.9350280761719,
+    "tokens_used" : [ " makes", " the", " soft", " part", " water", " and", " beach", " be", " part", " water" ],
+    "original_sentence" : "[MASK] the soft [MASK] water [MASK] beach be part water",
+    "timestamp" : 33409
+  }, {
+    "sentence" : "Makes land soft part water and beach soft part water",
+    "tokens" : [ 2251, 3286, 2489, 2292, 3408, 215, 5075, 2489, 2292, 3408 ],
+    "perplexity" : 547.8403930664062,
+    "tokens_used" : [ " Makes", " land", " soft", " part", " water", " and", " beach", " soft", " part", " water" ],
+    "original_sentence" : "Makes [MASK] soft [MASK] water and beach [MASK] part water",
+    "timestamp" : 46234
+  }, {
+    "sentence" : "Makes land soft rock water into beach soft rock water",
+    "tokens" : [ 2251, 3286, 2489, 535, 3408, 980, 5075, 2489, 535, 3408 ],
+    "perplexity" : 666.1735229492188,
+    "tokens_used" : [ " Makes", " land", " soft", " rock", " water", " into", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Makes land soft [MASK] water [MASK] beach soft [MASK] water",
+    "timestamp" : 51193
+  }, {
+    "sentence" : "Change land soft bed water into beach soft bed water",
+    "tokens" : [ 1888, 3286, 2489, 3225, 3408, 980, 5075, 2489, 3225, 3408 ],
+    "perplexity" : 416.98590087890625,
+    "tokens_used" : [ " Change", " land", " soft", " bed", " water", " into", " beach", " soft", " bed", " water" ],
+    "original_sentence" : "[MASK] land soft [MASK] water into beach soft [MASK] water",
+    "timestamp" : 56132
+  }, {
+    "sentence" : "Change land soft bed water for beach soft bed water",
+    "tokens" : [ 1888, 3286, 2489, 3225, 3408, 3548, 5075, 2489, 3225, 3408 ],
+    "perplexity" : 361.5233154296875,
+    "tokens_used" : [ " Change", " land", " soft", " bed", " water", " for", " beach", " soft", " bed", " water" ],
+    "original_sentence" : "Change land soft [MASK] water [MASK] beach [MASK] bed water",
+    "timestamp" : 72141
+  }, {
+    "sentence" : "Change beach soft sand water for beach soft rock water",
+    "tokens" : [ 1888, 5075, 2489, 1752, 3408, 3548, 5075, 2489, 535, 3408 ],
+    "perplexity" : 273.14349365234375,
+    "tokens_used" : [ " Change", " beach", " soft", " sand", " water", " for", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Change [MASK] soft [MASK] water for beach soft [MASK] water",
+    "timestamp" : 76857
+  }, {
+    "sentence" : "Change sea soft sand water for beach soft rock water",
+    "tokens" : [ 1888, 4715, 2489, 1752, 3408, 3548, 5075, 2489, 535, 3408 ],
+    "perplexity" : 537.3695068359375,
+    "tokens_used" : [ " Change", " sea", " soft", " sand", " water", " for", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Change [MASK] soft sand [MASK] for beach [MASK] rock water",
+    "timestamp" : 86470
+  }, {
+    "sentence" : "Short sea soft rock water for beach soft rock water",
+    "tokens" : [ 4937, 4715, 2489, 535, 3408, 3548, 5075, 2489, 535, 3408 ],
+    "perplexity" : 290.19586181640625,
+    "tokens_used" : [ " Short", " sea", " soft", " rock", " water", " for", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] sea soft [MASK] water for beach [MASK] rock water",
+    "timestamp" : 91496
+  }, {
+    "sentence" : "Use sea soft rock sand for beach soft rock water",
+    "tokens" : [ 21, 4715, 2489, 535, 1752, 3548, 5075, 2489, 535, 3408 ],
+    "perplexity" : 296.7255859375,
+    "tokens_used" : [ " Use", " sea", " soft", " rock", " sand", " for", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] sea soft [MASK] [MASK] for beach soft rock water",
+    "timestamp" : 97813
+  }, {
+    "sentence" : "Uses sea soft rock materials for beach soft rock water",
+    "tokens" : [ 4878, 4715, 2489, 535, 491, 3548, 5075, 2489, 535, 3408 ],
+    "perplexity" : 524.5180053710938,
+    "tokens_used" : [ " uses", " sea", " soft", " rock", " materials", " for", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] sea soft [MASK] [MASK] for beach soft rock water",
+    "timestamp" : 104354
+  }, {
+    "sentence" : "Remove sea soft rock materials from beach soft rock water",
+    "tokens" : [ 1213, 4715, 2489, 535, 491, 3605, 5075, 2489, 535, 3408 ],
+    "perplexity" : 386.207275390625,
+    "tokens_used" : [ " Remove", " sea", " soft", " rock", " materials", " from", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] sea soft rock materials [MASK] beach [MASK] rock water",
+    "timestamp" : 110531
+  }, {
+    "sentence" : "Use sea soft rock materials and beach soft rock water",
+    "tokens" : [ 21, 4715, 2489, 535, 491, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 380.8431701660156,
+    "tokens_used" : [ " Use", " sea", " soft", " rock", " materials", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] sea soft rock materials [MASK] beach soft [MASK] water",
+    "timestamp" : 122564
+  }, {
+    "sentence" : "Compare sea soft rock water and beach soft rock water",
+    "tokens" : [ 269, 4715, 2489, 535, 3408, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 134.115478515625,
+    "tokens_used" : [ " Compare", " sea", " soft", " rock", " water", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] sea soft [MASK] [MASK] and beach soft rock water",
+    "timestamp" : 131410
+  }, {
+    "sentence" : "Between beach soft rock water and beach soft rock water",
+    "tokens" : [ 339, 5075, 2489, 535, 3408, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 111.8277816772461,
+    "tokens_used" : [ " between", " beach", " soft", " rock", " water", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] water and beach soft rock water",
+    "timestamp" : 138641
+  }, {
+    "sentence" : "Between city soft rock water and beach soft rock water",
+    "tokens" : [ 340, 2973, 2489, 535, 3408, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 183.1437530517578,
+    "tokens_used" : [ " Between", " city", " soft", " rock", " water", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Between [MASK] soft rock water [MASK] beach soft [MASK] water",
+    "timestamp" : 153941
+  }, {
+    "sentence" : "Between city soft water water and beach soft water water",
+    "tokens" : [ 340, 2973, 2489, 3408, 3408, 215, 5075, 2489, 3408, 3408 ],
+    "perplexity" : 190.77484130859375,
+    "tokens_used" : [ " Between", " city", " soft", " water", " water", " and", " beach", " soft", " water", " water" ],
+    "original_sentence" : "Between city soft [MASK] water [MASK] beach soft [MASK] water",
+    "timestamp" : 207166
+  }, {
+    "sentence" : "Between beach soft rock water and beach soft water water",
+    "tokens" : [ 340, 5075, 2489, 535, 3408, 215, 5075, 2489, 3408, 3408 ],
+    "perplexity" : 207.61398315429688,
+    "tokens_used" : [ " Between", " beach", " soft", " rock", " water", " and", " beach", " soft", " water", " water" ],
+    "original_sentence" : "Between [MASK] soft [MASK] water [MASK] beach soft water water",
+    "timestamp" : 227244
+  }, {
+    "sentence" : "Between beach soft rock water and beach hard rock water",
+    "tokens" : [ 340, 5075, 2489, 535, 3408, 215, 5075, 1170, 535, 3408 ],
+    "perplexity" : 153.11976623535156,
+    "tokens_used" : [ " Between", " beach", " soft", " rock", " water", " and", " beach", " hard", " rock", " water" ],
+    "original_sentence" : "Between beach soft rock water [MASK] beach [MASK] [MASK] water",
+    "timestamp" : 242755
+  }, {
+    "sentence" : "In beach soft rock water and beach hard rock water",
+    "tokens" : [ 2515, 5075, 2489, 535, 3408, 215, 5075, 1170, 535, 3408 ],
+    "perplexity" : 174.33924865722656,
+    "tokens_used" : [ " in", " beach", " soft", " rock", " water", " and", " beach", " hard", " rock", " water" ],
+    "original_sentence" : "[MASK] beach soft rock [MASK] and beach hard [MASK] water",
+    "timestamp" : 267246
+  }, {
+    "sentence" : "In beach soft rock water and beach soft rock water",
+    "tokens" : [ 2516, 5075, 2489, 535, 3408, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 128.11485290527344,
+    "tokens_used" : [ " In", " beach", " soft", " rock", " water", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "In beach soft [MASK] water and beach [MASK] [MASK] water",
+    "timestamp" : 292522
+  }, {
+    "sentence" : "In beach soft ice water and beach soft rock water",
+    "tokens" : [ 2516, 5075, 2489, 3385, 3408, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 181.70318603515625,
+    "tokens_used" : [ " In", " beach", " soft", " ice", " water", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "In beach soft [MASK] [MASK] and beach soft [MASK] water",
+    "timestamp" : 323555
+  }, {
+    "sentence" : "In ocean soft surface water and beach soft surface water",
+    "tokens" : [ 2516, 446, 2489, 2035, 3408, 215, 5075, 2489, 2035, 3408 ],
+    "perplexity" : 137.4774627685547,
+    "tokens_used" : [ " In", " ocean", " soft", " surface", " water", " and", " beach", " soft", " surface", " water" ],
+    "original_sentence" : "In [MASK] soft [MASK] water and beach soft [MASK] water",
+    "timestamp" : 340316
+  }, {
+    "sentence" : "Are Ocean soft surface water and beach soft surface water",
+    "tokens" : [ 5158, 447, 2489, 2035, 3408, 215, 5075, 2489, 2035, 3408 ],
+    "perplexity" : 220.82191467285156,
+    "tokens_used" : [ " are", " Ocean", " soft", " surface", " water", " and", " beach", " soft", " surface", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] water and beach soft surface water",
+    "timestamp" : 362792
+  }, {
+    "sentence" : "Are Ocean soft rock water and beach soft rock water",
+    "tokens" : [ 5159, 447, 2489, 535, 3408, 215, 5075, 2489, 535, 3408 ],
+    "perplexity" : 220.90647888183594,
+    "tokens_used" : [ " Are", " Ocean", " soft", " rock", " water", " and", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Are Ocean soft [MASK] [MASK] and beach soft [MASK] water",
+    "timestamp" : 372609
+  }, {
+    "sentence" : "Are this soft rock water or beach soft rock water",
+    "tokens" : [ 5159, 1227, 2489, 535, 3408, 1860, 5075, 2489, 535, 3408 ],
+    "perplexity" : 200.8903350830078,
+    "tokens_used" : [ " Are", " this", " soft", " rock", " water", " or", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Are [MASK] soft [MASK] water [MASK] beach soft rock water",
+    "timestamp" : 406024
+  }, {
+    "sentence" : "Are a soft rock water or beach soft rock water",
+    "tokens" : [ 5159, 4646, 2489, 535, 3408, 1860, 5075, 2489, 535, 3408 ],
+    "perplexity" : 198.15321350097656,
+    "tokens_used" : [ " Are", " a", " soft", " rock", " water", " or", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Are [MASK] soft rock [MASK] [MASK] beach soft rock water",
+    "timestamp" : 537537
+  }, {
+    "sentence" : "Is ocean soft rock water or beach soft rock water",
+    "tokens" : [ 2713, 446, 2489, 535, 3408, 1860, 5075, 2489, 535, 3408 ],
+    "perplexity" : 172.94541931152344,
+    "tokens_used" : [ " is", " ocean", " soft", " rock", " water", " or", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] water or beach soft rock water",
+    "timestamp" : 549345
+  }, {
+    "sentence" : "Either ocean soft rock water or beach soft rock water",
+    "tokens" : [ 3562, 446, 2489, 535, 3408, 1860, 5075, 2489, 535, 3408 ],
+    "perplexity" : 139.744873046875,
+    "tokens_used" : [ " Either", " ocean", " soft", " rock", " water", " or", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] ocean soft rock water or beach [MASK] [MASK] water",
+    "timestamp" : 556400
+  }, {
+    "sentence" : "Soft rock soft rock water sand beach soft rock water",
+    "tokens" : [ 2490, 535, 2489, 535, 3408, 1752, 5075, 2489, 535, 3408 ],
+    "perplexity" : 189.84658813476562,
+    "tokens_used" : [ " Soft", " rock", " soft", " rock", " water", " sand", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft rock water [MASK] beach soft rock water",
+    "timestamp" : 571352
+  }, {
+    "sentence" : "Soft rock soft rock water soft beach soft rock water",
+    "tokens" : [ 2489, 535, 2489, 535, 3408, 2489, 5075, 2489, 535, 3408 ],
+    "perplexity" : 146.1381378173828,
+    "tokens_used" : [ " soft", " rock", " soft", " rock", " water", " soft", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] rock soft rock [MASK] [MASK] beach soft rock water",
+    "timestamp" : 581017
+  }, {
+    "sentence" : "Soft water soft rock water soft beach soft rock water",
+    "tokens" : [ 2490, 3408, 2489, 535, 3408, 2489, 5075, 2489, 535, 3408 ],
+    "perplexity" : 109.74581146240234,
+    "tokens_used" : [ " Soft", " water", " soft", " rock", " water", " soft", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Soft [MASK] soft [MASK] [MASK] soft beach soft rock water",
+    "timestamp" : 586068
+  }, {
+    "sentence" : "Soft water soft rock beach soft beach soft rock water",
+    "tokens" : [ 2490, 3408, 2489, 535, 5075, 2489, 5075, 2489, 535, 3408 ],
+    "perplexity" : 203.35008239746094,
+    "tokens_used" : [ " Soft", " water", " soft", " rock", " beach", " soft", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "[MASK] water soft rock [MASK] soft beach soft [MASK] water",
+    "timestamp" : 597971
+  }, {
+    "sentence" : "Soft rock soft rock beach soft beach soft rock water",
+    "tokens" : [ 2490, 535, 2489, 535, 5075, 2489, 5075, 2489, 535, 3408 ],
+    "perplexity" : 172.14340209960938,
+    "tokens_used" : [ " Soft", " rock", " soft", " rock", " beach", " soft", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Soft [MASK] soft rock [MASK] soft beach [MASK] rock water",
+    "timestamp" : 616251
+  }, {
+    "sentence" : "Soft rock soft rock soft rock beach soft rock water",
+    "tokens" : [ 2490, 535, 2489, 535, 2489, 535, 5075, 2489, 535, 3408 ],
+    "perplexity" : 109.13732147216797,
+    "tokens_used" : [ " Soft", " rock", " soft", " rock", " soft", " rock", " beach", " soft", " rock", " water" ],
+    "original_sentence" : "Soft rock soft [MASK] [MASK] [MASK] beach soft rock water",
+    "timestamp" : 642766
+  }, {
+    "sentence" : "Soft rock soft sand soft rock beach soft sand water",
+    "tokens" : [ 2490, 535, 2489, 1752, 2489, 535, 5075, 2489, 1752, 3408 ],
+    "perplexity" : 178.35557556152344,
+    "tokens_used" : [ " Soft", " rock", " soft", " sand", " soft", " rock", " beach", " soft", " sand", " water" ],
+    "original_sentence" : "Soft rock soft [MASK] [MASK] rock beach soft [MASK] water",
+    "timestamp" : 667390
+  }, {
+    "sentence" : "Soft sand soft sand soft sand beach soft sand water",
+    "tokens" : [ 2490, 1752, 2489, 1752, 2489, 1752, 5075, 2489, 1752, 3408 ],
+    "perplexity" : 116.07019805908203,
+    "tokens_used" : [ " Soft", " sand", " soft", " sand", " soft", " sand", " beach", " soft", " sand", " water" ],
+    "original_sentence" : "Soft [MASK] soft sand soft [MASK] beach soft [MASK] water",
+    "timestamp" : 680467
+  }, {
+    "sentence" : "Soft sand soft sand sandy sand beach sand beach water",
+    "tokens" : [ 2490, 1752, 2489, 1752, 422, 1752, 5075, 1752, 5075, 3408 ],
+    "perplexity" : 138.15684509277344,
+    "tokens_used" : [ " Soft", " sand", " soft", " sand", " sandy", " sand", " beach", " sand", " beach", " water" ],
+    "original_sentence" : "Soft sand soft sand [MASK] sand beach [MASK] [MASK] water",
+    "timestamp" : 692534
+  }, {
+    "sentence" : "Soft rock soft rock sandy sand beach water beach water",
+    "tokens" : [ 2490, 535, 2489, 535, 422, 1752, 5075, 3408, 5075, 3408 ],
+    "perplexity" : 211.71051025390625,
+    "tokens_used" : [ " Soft", " rock", " soft", " rock", " sandy", " sand", " beach", " water", " beach", " water" ],
+    "original_sentence" : "Soft [MASK] soft [MASK] sandy sand beach [MASK] beach water",
+    "timestamp" : 700874
+  }, {
+    "sentence" : "Soft rock soft rock Soft rock beach water beach water",
+    "tokens" : [ 2490, 535, 2489, 535, 2490, 535, 5075, 3408, 5075, 3408 ],
+    "perplexity" : 205.28622436523438,
+    "tokens_used" : [ " Soft", " rock", " soft", " rock", " Soft", " rock", " beach", " water", " beach", " water" ],
+    "original_sentence" : "Soft [MASK] soft rock [MASK] [MASK] beach water beach water",
+    "timestamp" : 706618
+  }, {
+    "sentence" : "Soft rock soft rock beach water beach water beach water",
+    "tokens" : [ 2490, 535, 2489, 535, 5075, 3408, 5075, 3408, 5075, 3408 ],
+    "perplexity" : 196.41253662109375,
+    "tokens_used" : [ " Soft", " rock", " soft", " rock", " beach", " water", " beach", " water", " beach", " water" ],
+    "original_sentence" : "Soft [MASK] soft rock [MASK] [MASK] beach water beach water",
+    "timestamp" : 724124
+  }, {
+    "sentence" : "Soft soft soft water beach water beach water beach water",
+    "tokens" : [ 2489, 2489, 2489, 3408, 5075, 3408, 5075, 3408, 5075, 3408 ],
+    "perplexity" : 181.28309631347656,
+    "tokens_used" : [ " soft", " soft", " soft", " water", " beach", " water", " beach", " water", " beach", " water" ],
+    "original_sentence" : "[MASK] [MASK] soft [MASK] beach water beach water beach water",
+    "timestamp" : 739248
+  }, {
+    "sentence" : "Soft soft soft soft beach water beach water beach water",
+    "tokens" : [ 2490, 2489, 2489, 2489, 5075, 3408, 5075, 3408, 5075, 3408 ],
+    "perplexity" : 164.70948791503906,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " beach", " water", " beach", " water", " beach", " water" ],
+    "original_sentence" : "[MASK] soft soft [MASK] [MASK] water beach water beach water",
+    "timestamp" : 753752
+  }, {
+    "sentence" : "Soft soft soft soft beach water beach with beach water",
+    "tokens" : [ 2490, 2489, 2489, 2489, 5075, 3408, 5075, 2342, 5075, 3408 ],
+    "perplexity" : 214.22877502441406,
+    "tokens_used" : [ " Soft", " soft", " soft", " soft", " beach", " water", " beach", " with", " beach", " water" ],
+    "original_sentence" : "Soft [MASK] soft soft beach [MASK] beach [MASK] beach water",
+    "timestamp" : 788797
+  } ]
+}

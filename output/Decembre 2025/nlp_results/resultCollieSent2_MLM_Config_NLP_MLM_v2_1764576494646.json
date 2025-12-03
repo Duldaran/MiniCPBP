@@ -1,0 +1,780 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "CollieSent2_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 25,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T03:08:14.644065234",
+  "time" : 171.269,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "That sentence soft beach water grass beach be aunts water",
+    "score" : 12066.0546875,
+    "time" : 2372,
+    "cycle" : 0
+  }, {
+    "sentence" : "That sentence soft beach water grass beach water aunts water",
+    "score" : 6091.619140625,
+    "time" : 4178,
+    "cycle" : 1
+  }, {
+    "sentence" : "That sentence soft the long grass beach and aunts water",
+    "score" : 4888.03173828125,
+    "time" : 11107,
+    "cycle" : 4
+  }, {
+    "sentence" : "A sentence soft the long grass beach and aunts water",
+    "score" : 3246.63671875,
+    "time" : 13468,
+    "cycle" : 5
+  }, {
+    "sentence" : "A sentence soft the long grass beach and the water",
+    "score" : 1229.017333984375,
+    "time" : 15374,
+    "cycle" : 6
+  }, {
+    "sentence" : "A man soft a green grass beach in blue water",
+    "score" : 901.1724853515625,
+    "time" : 44080,
+    "cycle" : 17
+  }, {
+    "sentence" : "A man soft a green grass beach in the water",
+    "score" : 654.793701171875,
+    "time" : 45690,
+    "cycle" : 18
+  }, {
+    "sentence" : "A boy soft a long grass beach on the water",
+    "score" : 653.708984375,
+    "time" : 56497,
+    "cycle" : 25
+  }, {
+    "sentence" : "A boat soft a long grass beach on the water",
+    "score" : 427.5691223144531,
+    "time" : 58130,
+    "cycle" : 26
+  }, {
+    "sentence" : "A beach soft of green and beach and blue water",
+    "score" : 365.3798828125,
+    "time" : 119937,
+    "cycle" : 68
+  }, {
+    "sentence" : "A beach soft the green and beach in the water",
+    "score" : 334.003173828125,
+    "time" : 148105,
+    "cycle" : 85
+  }, {
+    "sentence" : "The beach soft of green and beach in the water",
+    "score" : 301.48040771484375,
+    "time" : 159238,
+    "cycle" : 92
+  }, {
+    "sentence" : "The beach soft of green and beach on the water",
+    "score" : 296.37091064453125,
+    "time" : 159630,
+    "cycle" : 92
+  } ],
+  "base_sentence" : {
+    "sentence" : "That sentence soft beach water could beach be aunts water",
+    "perplexity" : 10675.943359375,
+    "weight" : "NaN"
+  },
+  "logs" : [ {
+    "sentence" : "That sentence soft beach water grass beach be aunts water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 0, 5075, 1392, 5196, 3408 ],
+    "perplexity" : 12066.0546875,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " grass", " beach", " be", " aunts", " water" ],
+    "original_sentence" : "That sentence soft beach water [MASK] beach be aunts water",
+    "timestamp" : 2372
+  }, {
+    "sentence" : "That sentence soft beach water grass beach water aunts water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 0, 5075, 3408, 5196, 3408 ],
+    "perplexity" : 6091.619140625,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " grass", " beach", " water", " aunts", " water" ],
+    "original_sentence" : "That sentence soft beach water grass beach [MASK] aunts water",
+    "timestamp" : 4178
+  }, {
+    "sentence" : "That sentence soft beach water grass beach and aunts water",
+    "tokens" : [ 1322, 775, 2489, 5075, 3408, 0, 5075, 215, 5196, 3408 ],
+    "perplexity" : 7422.53759765625,
+    "tokens_used" : [ " That", " sentence", " soft", " beach", " water", " grass", " beach", " and", " aunts", " water" ],
+    "original_sentence" : "That sentence soft beach water grass beach [MASK] aunts water",
+    "timestamp" : 6148
+  }, {
+    "sentence" : "That sentence soft the water grass beach and aunts water",
+    "tokens" : [ 1322, 775, 2489, 394, 3408, 0, 5075, 215, 5196, 3408 ],
+    "perplexity" : 7362.48583984375,
+    "tokens_used" : [ " That", " sentence", " soft", " the", " water", " grass", " beach", " and", " aunts", " water" ],
+    "original_sentence" : "That sentence soft [MASK] water grass beach and aunts water",
+    "timestamp" : 8227
+  }, {
+    "sentence" : "That sentence soft the long grass beach and aunts water",
+    "tokens" : [ 1322, 775, 2489, 394, 1355, 0, 5075, 215, 5196, 3408 ],
+    "perplexity" : 4888.03173828125,
+    "tokens_used" : [ " That", " sentence", " soft", " the", " long", " grass", " beach", " and", " aunts", " water" ],
+    "original_sentence" : "That sentence soft the [MASK] grass beach and aunts water",
+    "timestamp" : 11107
+  }, {
+    "sentence" : "A sentence soft the long grass beach and aunts water",
+    "tokens" : [ 4646, 775, 2489, 394, 1355, 0, 5075, 215, 5196, 3408 ],
+    "perplexity" : 3246.63671875,
+    "tokens_used" : [ " a", " sentence", " soft", " the", " long", " grass", " beach", " and", " aunts", " water" ],
+    "original_sentence" : "[MASK] sentence soft the long grass beach and aunts water",
+    "timestamp" : 13468
+  }, {
+    "sentence" : "A sentence soft the long grass beach and the water",
+    "tokens" : [ 4647, 775, 2489, 394, 1355, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 1229.017333984375,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " long", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A sentence soft the long grass beach and [MASK] water",
+    "timestamp" : 15374
+  }, {
+    "sentence" : "A sentence soft the long grass beach and blue water",
+    "tokens" : [ 4647, 775, 2489, 394, 1355, 0, 5075, 215, 4206, 3408 ],
+    "perplexity" : 1558.0889892578125,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " long", " grass", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A sentence soft the long grass beach and [MASK] water",
+    "timestamp" : 17110
+  }, {
+    "sentence" : "A sentence soft the green grass beach and blue water",
+    "tokens" : [ 4647, 775, 2489, 394, 3479, 0, 5075, 215, 4206, 3408 ],
+    "perplexity" : 1570.11767578125,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " green", " grass", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A sentence soft the [MASK] grass beach and blue water",
+    "timestamp" : 19382
+  }, {
+    "sentence" : "A sentence soft the yellow grass beach and blue water",
+    "tokens" : [ 4647, 775, 2489, 394, 1828, 0, 5075, 215, 4206, 3408 ],
+    "perplexity" : 1848.8707275390625,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " yellow", " grass", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A sentence soft the [MASK] grass beach and blue water",
+    "timestamp" : 22527
+  }, {
+    "sentence" : "A sentence soft the yellow grass beach and the water",
+    "tokens" : [ 4647, 775, 2489, 394, 1828, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 1568.2835693359375,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " yellow", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A sentence soft the yellow grass beach and [MASK] water",
+    "timestamp" : 24507
+  }, {
+    "sentence" : "A sentence soft the yellow grass beach in the water",
+    "tokens" : [ 4647, 775, 2489, 394, 1828, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 1644.250244140625,
+    "tokens_used" : [ " A", " sentence", " soft", " the", " yellow", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A sentence soft the yellow grass beach [MASK] the water",
+    "timestamp" : 26428
+  }, {
+    "sentence" : "A sentence soft a yellow grass beach in the water",
+    "tokens" : [ 4647, 775, 2489, 4646, 1828, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 1285.7625732421875,
+    "tokens_used" : [ " A", " sentence", " soft", " a", " yellow", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A sentence soft [MASK] yellow grass beach in the water",
+    "timestamp" : 28527
+  }, {
+    "sentence" : "A sentence soft of yellow grass beach in the water",
+    "tokens" : [ 4647, 775, 2489, 5194, 1828, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 1460.104736328125,
+    "tokens_used" : [ " A", " sentence", " soft", " of", " yellow", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A sentence soft [MASK] yellow grass beach in the water",
+    "timestamp" : 31458
+  }, {
+    "sentence" : "A sentence soft of yellow grass beach in blue water",
+    "tokens" : [ 4647, 775, 2489, 5194, 1828, 0, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 2017.5528564453125,
+    "tokens_used" : [ " A", " sentence", " soft", " of", " yellow", " grass", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A sentence soft of yellow grass beach in [MASK] water",
+    "timestamp" : 33892
+  }, {
+    "sentence" : "A sentence soft a yellow grass beach in blue water",
+    "tokens" : [ 4647, 775, 2489, 4646, 1828, 0, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 1676.5882568359375,
+    "tokens_used" : [ " A", " sentence", " soft", " a", " yellow", " grass", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A sentence soft [MASK] yellow grass beach in blue water",
+    "timestamp" : 35326
+  }, {
+    "sentence" : "A sentence soft a green grass beach in blue water",
+    "tokens" : [ 4647, 775, 2489, 4646, 3479, 0, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 1354.047607421875,
+    "tokens_used" : [ " A", " sentence", " soft", " a", " green", " grass", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A sentence soft a [MASK] grass beach in blue water",
+    "timestamp" : 42339
+  }, {
+    "sentence" : "A man soft a green grass beach in blue water",
+    "tokens" : [ 4647, 845, 2489, 4646, 3479, 0, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 901.1724853515625,
+    "tokens_used" : [ " A", " man", " soft", " a", " green", " grass", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A [MASK] soft a green grass beach in blue water",
+    "timestamp" : 44080
+  }, {
+    "sentence" : "A man soft a green grass beach in the water",
+    "tokens" : [ 4647, 845, 2489, 4646, 3479, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 654.793701171875,
+    "tokens_used" : [ " A", " man", " soft", " a", " green", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A man soft a green grass beach in [MASK] water",
+    "timestamp" : 45690
+  }, {
+    "sentence" : "A man soft a long grass beach in the water",
+    "tokens" : [ 4647, 845, 2489, 4646, 1355, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 673.2815551757812,
+    "tokens_used" : [ " A", " man", " soft", " a", " long", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A man soft a [MASK] grass beach in the water",
+    "timestamp" : 47074
+  }, {
+    "sentence" : "A man soft a long grass beach and the water",
+    "tokens" : [ 4647, 845, 2489, 4646, 1355, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 1006.4269409179688,
+    "tokens_used" : [ " A", " man", " soft", " a", " long", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A man soft a long grass beach [MASK] the water",
+    "timestamp" : 48709
+  }, {
+    "sentence" : "A man soft a long grass beach on the water",
+    "tokens" : [ 4647, 845, 2489, 4646, 1355, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 656.0062255859375,
+    "tokens_used" : [ " A", " man", " soft", " a", " long", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A man soft a long grass beach [MASK] the water",
+    "timestamp" : 51835
+  }, {
+    "sentence" : "A boy soft a long grass beach on the water",
+    "tokens" : [ 4647, 5163, 2489, 4646, 1355, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 653.708984375,
+    "tokens_used" : [ " A", " boy", " soft", " a", " long", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft a long grass beach on the water",
+    "timestamp" : 56497
+  }, {
+    "sentence" : "A boat soft a long grass beach on the water",
+    "tokens" : [ 4647, 4856, 2489, 4646, 1355, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 427.5691223144531,
+    "tokens_used" : [ " A", " boat", " soft", " a", " long", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft a long grass beach on the water",
+    "timestamp" : 58130
+  }, {
+    "sentence" : "A picture soft a long grass beach on the water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 1355, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 553.7159423828125,
+    "tokens_used" : [ " A", " picture", " soft", " a", " long", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft a long grass beach on the water",
+    "timestamp" : 61172
+  }, {
+    "sentence" : "A picture soft a long grass beach in the water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 1355, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 585.6015625,
+    "tokens_used" : [ " A", " picture", " soft", " a", " long", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A picture soft a long grass beach [MASK] the water",
+    "timestamp" : 62946
+  }, {
+    "sentence" : "A picture soft a long grass beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 1355, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 843.8265380859375,
+    "tokens_used" : [ " A", " picture", " soft", " a", " long", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft a long grass beach [MASK] the water",
+    "timestamp" : 64733
+  }, {
+    "sentence" : "A picture soft the long grass beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1355, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 724.401123046875,
+    "tokens_used" : [ " A", " picture", " soft", " the", " long", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft [MASK] long grass beach and the water",
+    "timestamp" : 66484
+  }, {
+    "sentence" : "A picture soft the long grass beach in the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1355, 0, 5075, 2515, 394, 3408 ],
+    "perplexity" : 731.4214477539062,
+    "tokens_used" : [ " A", " picture", " soft", " the", " long", " grass", " beach", " in", " the", " water" ],
+    "original_sentence" : "A picture soft the long grass beach [MASK] the water",
+    "timestamp" : 68668
+  }, {
+    "sentence" : "A picture soft the long grass beach on the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1355, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 716.9673461914062,
+    "tokens_used" : [ " A", " picture", " soft", " the", " long", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A picture soft the long grass beach [MASK] the water",
+    "timestamp" : 69937
+  }, {
+    "sentence" : "A man soft the long grass beach on the water",
+    "tokens" : [ 4647, 845, 2489, 394, 1355, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 821.8598022460938,
+    "tokens_used" : [ " A", " man", " soft", " the", " long", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft the long grass beach on the water",
+    "timestamp" : 72242
+  }, {
+    "sentence" : "A man soft the green grass beach on the water",
+    "tokens" : [ 4647, 845, 2489, 394, 3479, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 803.8526000976562,
+    "tokens_used" : [ " A", " man", " soft", " the", " green", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A man soft the [MASK] grass beach on the water",
+    "timestamp" : 72899
+  }, {
+    "sentence" : "A man soft a green grass beach on the water",
+    "tokens" : [ 4647, 845, 2489, 4646, 3479, 0, 5075, 710, 394, 3408 ],
+    "perplexity" : 605.9912719726562,
+    "tokens_used" : [ " A", " man", " soft", " a", " green", " grass", " beach", " on", " the", " water" ],
+    "original_sentence" : "A man soft [MASK] green grass beach on the water",
+    "timestamp" : 74224
+  }, {
+    "sentence" : "A man soft a green and beach on the water",
+    "tokens" : [ 4647, 845, 2489, 4646, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 778.884033203125,
+    "tokens_used" : [ " A", " man", " soft", " a", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A man soft a green [MASK] beach on the water",
+    "timestamp" : 76455
+  }, {
+    "sentence" : "A picture soft a green and beach on the water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 474.2312316894531,
+    "tokens_used" : [ " A", " picture", " soft", " a", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A [MASK] soft a green and beach on the water",
+    "timestamp" : 77730
+  }, {
+    "sentence" : "A picture soft a green and beach on blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 3479, 215, 5075, 710, 4206, 3408 ],
+    "perplexity" : 772.8187255859375,
+    "tokens_used" : [ " A", " picture", " soft", " a", " green", " and", " beach", " on", " blue", " water" ],
+    "original_sentence" : "A picture soft a green and beach on [MASK] water",
+    "timestamp" : 79366
+  }, {
+    "sentence" : "A picture soft a green and beach in blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 3479, 215, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 757.772705078125,
+    "tokens_used" : [ " A", " picture", " soft", " a", " green", " and", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A picture soft a green and beach [MASK] blue water",
+    "timestamp" : 82270
+  }, {
+    "sentence" : "A picture soft a green grass beach in blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 3479, 0, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 780.3982543945312,
+    "tokens_used" : [ " A", " picture", " soft", " a", " green", " grass", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A picture soft a green [MASK] beach in blue water",
+    "timestamp" : 84486
+  }, {
+    "sentence" : "A picture soft a green of beach in blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 3479, 5194, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 797.7034912109375,
+    "tokens_used" : [ " A", " picture", " soft", " a", " green", " of", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A picture soft a green [MASK] beach in blue water",
+    "timestamp" : 84781
+  }, {
+    "sentence" : "A picture soft the green of beach in blue water",
+    "tokens" : [ 4647, 3122, 2489, 394, 3479, 5194, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 686.4185180664062,
+    "tokens_used" : [ " A", " picture", " soft", " the", " green", " of", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A picture soft [MASK] green of beach in blue water",
+    "timestamp" : 87547
+  }, {
+    "sentence" : "A picture soft the green and beach in blue water",
+    "tokens" : [ 4647, 3122, 2489, 394, 3479, 215, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 830.705078125,
+    "tokens_used" : [ " A", " picture", " soft", " the", " green", " and", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A picture soft the green [MASK] beach in blue water",
+    "timestamp" : 89031
+  }, {
+    "sentence" : "A picture soft of green and beach in blue water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 215, 5075, 2515, 4206, 3408 ],
+    "perplexity" : 625.4628295898438,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " and", " beach", " in", " blue", " water" ],
+    "original_sentence" : "A picture soft [MASK] green and beach in blue water",
+    "timestamp" : 105552
+  }, {
+    "sentence" : "A picture soft of green and beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 471.3309326171875,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft of green and beach [MASK] blue water",
+    "timestamp" : 106880
+  }, {
+    "sentence" : "A picture soft of excused and beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 5193, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 844.1670532226562,
+    "tokens_used" : [ " A", " picture", " soft", " of", " excused", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft of [MASK] and beach and blue water",
+    "timestamp" : 108180
+  }, {
+    "sentence" : "A picture soft of long and beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 1355, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 709.2208251953125,
+    "tokens_used" : [ " A", " picture", " soft", " of", " long", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft of [MASK] and beach and blue water",
+    "timestamp" : 109216
+  }, {
+    "sentence" : "A picture soft of yellow and beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 1828, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 604.75634765625,
+    "tokens_used" : [ " A", " picture", " soft", " of", " yellow", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft of [MASK] and beach and blue water",
+    "timestamp" : 109474
+  }, {
+    "sentence" : "The picture soft of yellow and beach and blue water",
+    "tokens" : [ 395, 3122, 2489, 5194, 1828, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 634.3848876953125,
+    "tokens_used" : [ " The", " picture", " soft", " of", " yellow", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "[MASK] picture soft of yellow and beach and blue water",
+    "timestamp" : 110197
+  }, {
+    "sentence" : "The picture soft of green and beach and blue water",
+    "tokens" : [ 395, 3122, 2489, 5194, 3479, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 517.892822265625,
+    "tokens_used" : [ " The", " picture", " soft", " of", " green", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "The picture soft of [MASK] and beach and blue water",
+    "timestamp" : 113323
+  }, {
+    "sentence" : "The picture soft of long and beach and blue water",
+    "tokens" : [ 395, 3122, 2489, 5194, 1355, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 662.4644775390625,
+    "tokens_used" : [ " The", " picture", " soft", " of", " long", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "The picture soft of [MASK] and beach and blue water",
+    "timestamp" : 114362
+  }, {
+    "sentence" : "The beach soft of long and beach and blue water",
+    "tokens" : [ 395, 5075, 2489, 5194, 1355, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 543.3539428710938,
+    "tokens_used" : [ " The", " beach", " soft", " of", " long", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "The [MASK] soft of long and beach and blue water",
+    "timestamp" : 116618
+  }, {
+    "sentence" : "A beach soft of long and beach and blue water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 1355, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 580.3632202148438,
+    "tokens_used" : [ " A", " beach", " soft", " of", " long", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "[MASK] beach soft of long and beach and blue water",
+    "timestamp" : 118439
+  }, {
+    "sentence" : "A beach soft of yellow and beach and blue water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 1828, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 482.404052734375,
+    "tokens_used" : [ " A", " beach", " soft", " of", " yellow", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A beach soft of [MASK] and beach and blue water",
+    "timestamp" : 119730
+  }, {
+    "sentence" : "A beach soft of green and beach and blue water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 3479, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 365.3798828125,
+    "tokens_used" : [ " A", " beach", " soft", " of", " green", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A beach soft of [MASK] and beach and blue water",
+    "timestamp" : 119937
+  }, {
+    "sentence" : "A beach soft of excused and beach and blue water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 5193, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 692.433837890625,
+    "tokens_used" : [ " A", " beach", " soft", " of", " excused", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A beach soft of [MASK] and beach and blue water",
+    "timestamp" : 120193
+  }, {
+    "sentence" : "A boat soft of green and beach and blue water",
+    "tokens" : [ 4647, 4856, 2489, 5194, 3479, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 559.3175659179688,
+    "tokens_used" : [ " A", " boat", " soft", " of", " green", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A [MASK] soft of green and beach and blue water",
+    "timestamp" : 121760
+  }, {
+    "sentence" : "A worn soft of green and beach and blue water",
+    "tokens" : [ 4647, 5191, 2489, 5194, 3479, 215, 5075, 215, 4206, 3408 ],
+    "perplexity" : 556.28271484375,
+    "tokens_used" : [ " A", " worn", " soft", " of", " green", " and", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A [MASK] soft of green and beach and blue water",
+    "timestamp" : 122754
+  }, {
+    "sentence" : "A worn soft of green of beach and blue water",
+    "tokens" : [ 4647, 5191, 2489, 5194, 3479, 5194, 5075, 215, 4206, 3408 ],
+    "perplexity" : 608.6993408203125,
+    "tokens_used" : [ " A", " worn", " soft", " of", " green", " of", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A worn soft of green [MASK] beach and blue water",
+    "timestamp" : 123797
+  }, {
+    "sentence" : "A worn soft of green grass beach and blue water",
+    "tokens" : [ 4647, 5191, 2489, 5194, 3479, 0, 5075, 215, 4206, 3408 ],
+    "perplexity" : 564.157958984375,
+    "tokens_used" : [ " A", " worn", " soft", " of", " green", " grass", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A worn soft of green [MASK] beach and blue water",
+    "timestamp" : 124384
+  }, {
+    "sentence" : "A beach soft of green grass beach and blue water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 3479, 0, 5075, 215, 4206, 3408 ],
+    "perplexity" : 416.3306884765625,
+    "tokens_used" : [ " A", " beach", " soft", " of", " green", " grass", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A [MASK] soft of green grass beach and blue water",
+    "timestamp" : 125024
+  }, {
+    "sentence" : "A beach soft of green grass beach and the water",
+    "tokens" : [ 4647, 5075, 2489, 5194, 3479, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 576.0170288085938,
+    "tokens_used" : [ " A", " beach", " soft", " of", " green", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A beach soft of green grass beach and [MASK] water",
+    "timestamp" : 126839
+  }, {
+    "sentence" : "A picture soft of green grass beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 0, 5075, 215, 394, 3408 ],
+    "perplexity" : 685.3921508789062,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " grass", " beach", " and", " the", " water" ],
+    "original_sentence" : "A [MASK] soft of green grass beach and the water",
+    "timestamp" : 129909
+  }, {
+    "sentence" : "A picture soft of green and beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 546.698974609375,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft of green [MASK] beach and the water",
+    "timestamp" : 133085
+  }, {
+    "sentence" : "A picture soft of green of beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 5194, 5075, 215, 394, 3408 ],
+    "perplexity" : 498.7886962890625,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " of", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft of green [MASK] beach and the water",
+    "timestamp" : 133574
+  }, {
+    "sentence" : "A picture soft of green of beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 5194, 5075, 215, 4206, 3408 ],
+    "perplexity" : 527.6957397460938,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " of", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft of green of beach and [MASK] water",
+    "timestamp" : 134915
+  }, {
+    "sentence" : "A picture soft a green of beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 3479, 5194, 5075, 215, 4206, 3408 ],
+    "perplexity" : 610.1005859375,
+    "tokens_used" : [ " A", " picture", " soft", " a", " green", " of", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft [MASK] green of beach and blue water",
+    "timestamp" : 136380
+  }, {
+    "sentence" : "A picture soft a long of beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 1355, 5194, 5075, 215, 4206, 3408 ],
+    "perplexity" : 608.8410034179688,
+    "tokens_used" : [ " A", " picture", " soft", " a", " long", " of", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft a [MASK] of beach and blue water",
+    "timestamp" : 138130
+  }, {
+    "sentence" : "A picture soft a yellow of beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 4646, 1828, 5194, 5075, 215, 4206, 3408 ],
+    "perplexity" : 636.7371826171875,
+    "tokens_used" : [ " A", " picture", " soft", " a", " yellow", " of", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft a [MASK] of beach and blue water",
+    "timestamp" : 138353
+  }, {
+    "sentence" : "A picture soft the yellow of beach and blue water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1828, 5194, 5075, 215, 4206, 3408 ],
+    "perplexity" : 611.4737548828125,
+    "tokens_used" : [ " A", " picture", " soft", " the", " yellow", " of", " beach", " and", " blue", " water" ],
+    "original_sentence" : "A picture soft [MASK] yellow of beach and blue water",
+    "timestamp" : 139618
+  }, {
+    "sentence" : "A picture soft the yellow of beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1828, 5194, 5075, 215, 394, 3408 ],
+    "perplexity" : 534.009521484375,
+    "tokens_used" : [ " A", " picture", " soft", " the", " yellow", " of", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft the yellow of beach and [MASK] water",
+    "timestamp" : 141428
+  }, {
+    "sentence" : "A picture soft the yellow and beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1828, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 716.720947265625,
+    "tokens_used" : [ " A", " picture", " soft", " the", " yellow", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft the yellow [MASK] beach and the water",
+    "timestamp" : 143417
+  }, {
+    "sentence" : "A beach soft the yellow and beach and the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 1828, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 577.6277465820312,
+    "tokens_used" : [ " A", " beach", " soft", " the", " yellow", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A [MASK] soft the yellow and beach and the water",
+    "timestamp" : 145010
+  }, {
+    "sentence" : "A worn soft the yellow and beach and the water",
+    "tokens" : [ 4647, 5191, 2489, 394, 1828, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 580.0287475585938,
+    "tokens_used" : [ " A", " worn", " soft", " the", " yellow", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A [MASK] soft the yellow and beach and the water",
+    "timestamp" : 145246
+  }, {
+    "sentence" : "A beach soft the green and beach and the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 3479, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 440.2342834472656,
+    "tokens_used" : [ " A", " beach", " soft", " the", " green", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A beach soft the [MASK] and beach and the water",
+    "timestamp" : 146680
+  }, {
+    "sentence" : "A beach soft the long and beach and the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 1355, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 545.094482421875,
+    "tokens_used" : [ " A", " beach", " soft", " the", " long", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A beach soft the [MASK] and beach and the water",
+    "timestamp" : 147113
+  }, {
+    "sentence" : "A beach soft the green and beach in the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 3479, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 334.003173828125,
+    "tokens_used" : [ " A", " beach", " soft", " the", " green", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A beach soft the green and beach [MASK] the water",
+    "timestamp" : 148105
+  }, {
+    "sentence" : "A beach soft the green and beach on the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 350.596923828125,
+    "tokens_used" : [ " A", " beach", " soft", " the", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A beach soft the green and beach [MASK] the water",
+    "timestamp" : 148227
+  }, {
+    "sentence" : "A beach soft the green and beach of the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 3479, 215, 5075, 5194, 394, 3408 ],
+    "perplexity" : 482.0786437988281,
+    "tokens_used" : [ " A", " beach", " soft", " the", " green", " and", " beach", " of", " the", " water" ],
+    "original_sentence" : "A beach soft the green and beach [MASK] the water",
+    "timestamp" : 148525
+  }, {
+    "sentence" : "A beach soft the green and beach excused the water",
+    "tokens" : [ 4647, 5075, 2489, 394, 3479, 215, 5075, 5193, 394, 3408 ],
+    "perplexity" : 469.86248779296875,
+    "tokens_used" : [ " A", " beach", " soft", " the", " green", " and", " beach", " excused", " the", " water" ],
+    "original_sentence" : "A beach soft the green and beach [MASK] the water",
+    "timestamp" : 148632
+  }, {
+    "sentence" : "The beach soft the green and beach excused the water",
+    "tokens" : [ 395, 5075, 2489, 394, 3479, 215, 5075, 5193, 394, 3408 ],
+    "perplexity" : 383.81475830078125,
+    "tokens_used" : [ " The", " beach", " soft", " the", " green", " and", " beach", " excused", " the", " water" ],
+    "original_sentence" : "[MASK] beach soft the green and beach excused the water",
+    "timestamp" : 151462
+  }, {
+    "sentence" : "Of beach soft the green and beach excused the water",
+    "tokens" : [ 5194, 5075, 2489, 394, 3479, 215, 5075, 5193, 394, 3408 ],
+    "perplexity" : 431.06585693359375,
+    "tokens_used" : [ " of", " beach", " soft", " the", " green", " and", " beach", " excused", " the", " water" ],
+    "original_sentence" : "[MASK] beach soft the green and beach excused the water",
+    "timestamp" : 151778
+  }, {
+    "sentence" : "Youngest beach soft the green and beach excused the water",
+    "tokens" : [ 5192, 5075, 2489, 394, 3479, 215, 5075, 5193, 394, 3408 ],
+    "perplexity" : 666.2001953125,
+    "tokens_used" : [ " youngest", " beach", " soft", " the", " green", " and", " beach", " excused", " the", " water" ],
+    "original_sentence" : "[MASK] beach soft the green and beach excused the water",
+    "timestamp" : 152390
+  }, {
+    "sentence" : "The beach soft the green of beach excused the water",
+    "tokens" : [ 395, 5075, 2489, 394, 3479, 5194, 5075, 5193, 394, 3408 ],
+    "perplexity" : 547.5374755859375,
+    "tokens_used" : [ " The", " beach", " soft", " the", " green", " of", " beach", " excused", " the", " water" ],
+    "original_sentence" : "The beach soft the green [MASK] beach excused the water",
+    "timestamp" : 152992
+  }, {
+    "sentence" : "The beach soft the green excused beach excused the water",
+    "tokens" : [ 395, 5075, 2489, 394, 3479, 5193, 5075, 5193, 394, 3408 ],
+    "perplexity" : 595.4747314453125,
+    "tokens_used" : [ " The", " beach", " soft", " the", " green", " excused", " beach", " excused", " the", " water" ],
+    "original_sentence" : "The beach soft the green [MASK] beach excused the water",
+    "timestamp" : 153420
+  }, {
+    "sentence" : "The beach soft of green of beach excused the water",
+    "tokens" : [ 395, 5075, 2489, 5194, 3479, 5194, 5075, 5193, 394, 3408 ],
+    "perplexity" : 632.4436645507812,
+    "tokens_used" : [ " The", " beach", " soft", " of", " green", " of", " beach", " excused", " the", " water" ],
+    "original_sentence" : "The beach soft [MASK] green of beach excused the water",
+    "timestamp" : 154486
+  }, {
+    "sentence" : "The beach soft of green and beach excused the water",
+    "tokens" : [ 395, 5075, 2489, 5194, 3479, 215, 5075, 5193, 394, 3408 ],
+    "perplexity" : 517.7150268554688,
+    "tokens_used" : [ " The", " beach", " soft", " of", " green", " and", " beach", " excused", " the", " water" ],
+    "original_sentence" : "The beach soft of green [MASK] beach excused the water",
+    "timestamp" : 157568
+  }, {
+    "sentence" : "The beach soft of green and beach and the water",
+    "tokens" : [ 395, 5075, 2489, 5194, 3479, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 434.7157287597656,
+    "tokens_used" : [ " The", " beach", " soft", " of", " green", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "The beach soft of green and beach [MASK] the water",
+    "timestamp" : 159064
+  }, {
+    "sentence" : "The beach soft of green and beach in the water",
+    "tokens" : [ 395, 5075, 2489, 5194, 3479, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 301.48040771484375,
+    "tokens_used" : [ " The", " beach", " soft", " of", " green", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "The beach soft of green and beach [MASK] the water",
+    "timestamp" : 159238
+  }, {
+    "sentence" : "The beach soft of green and beach on the water",
+    "tokens" : [ 395, 5075, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 296.37091064453125,
+    "tokens_used" : [ " The", " beach", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "The beach soft of green and beach [MASK] the water",
+    "timestamp" : 159630
+  }, {
+    "sentence" : "The beach soft of green and beach of the water",
+    "tokens" : [ 395, 5075, 2489, 5194, 3479, 215, 5075, 5194, 394, 3408 ],
+    "perplexity" : 417.0821533203125,
+    "tokens_used" : [ " The", " beach", " soft", " of", " green", " and", " beach", " of", " the", " water" ],
+    "original_sentence" : "The beach soft of green and beach [MASK] the water",
+    "timestamp" : 159746
+  }, {
+    "sentence" : "The picture soft of green and beach on the water",
+    "tokens" : [ 395, 3122, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 402.53045654296875,
+    "tokens_used" : [ " The", " picture", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "The [MASK] soft of green and beach on the water",
+    "timestamp" : 160461
+  }, {
+    "sentence" : "The worn soft of green and beach on the water",
+    "tokens" : [ 395, 5191, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 489.95965576171875,
+    "tokens_used" : [ " The", " worn", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "The [MASK] soft of green and beach on the water",
+    "timestamp" : 160941
+  }, {
+    "sentence" : "The youngest soft of green and beach on the water",
+    "tokens" : [ 395, 5192, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 560.8302001953125,
+    "tokens_used" : [ " The", " youngest", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "The [MASK] soft of green and beach on the water",
+    "timestamp" : 161260
+  }, {
+    "sentence" : "A picture soft of green and beach on the water",
+    "tokens" : [ 4647, 3122, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 378.9165344238281,
+    "tokens_used" : [ " A", " picture", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "[MASK] picture soft of green and beach on the water",
+    "timestamp" : 162040
+  }, {
+    "sentence" : "Worn picture soft of green and beach on the water",
+    "tokens" : [ 5191, 3122, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 532.87353515625,
+    "tokens_used" : [ " worn", " picture", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "[MASK] picture soft of green and beach on the water",
+    "timestamp" : 162278
+  }, {
+    "sentence" : "Of picture soft of green and beach on the water",
+    "tokens" : [ 5194, 3122, 2489, 5194, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 392.2973937988281,
+    "tokens_used" : [ " of", " picture", " soft", " of", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "[MASK] picture soft of green and beach on the water",
+    "timestamp" : 162413
+  }, {
+    "sentence" : "A picture soft the green and beach on the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 3479, 215, 5075, 710, 394, 3408 ],
+    "perplexity" : 518.2050170898438,
+    "tokens_used" : [ " A", " picture", " soft", " the", " green", " and", " beach", " on", " the", " water" ],
+    "original_sentence" : "A picture soft [MASK] green and beach on the water",
+    "timestamp" : 163417
+  }, {
+    "sentence" : "A picture soft the green and beach and the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 3479, 215, 5075, 215, 394, 3408 ],
+    "perplexity" : 586.2357788085938,
+    "tokens_used" : [ " A", " picture", " soft", " the", " green", " and", " beach", " and", " the", " water" ],
+    "original_sentence" : "A picture soft the green and beach [MASK] the water",
+    "timestamp" : 165153
+  }, {
+    "sentence" : "A picture soft the green and beach in the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 3479, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 502.0553894042969,
+    "tokens_used" : [ " A", " picture", " soft", " the", " green", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A picture soft the green and beach [MASK] the water",
+    "timestamp" : 165458
+  }, {
+    "sentence" : "A picture soft the yellow and beach in the water",
+    "tokens" : [ 4647, 3122, 2489, 394, 1828, 215, 5075, 2515, 394, 3408 ],
+    "perplexity" : 570.0557250976562,
+    "tokens_used" : [ " A", " picture", " soft", " the", " yellow", " and", " beach", " in", " the", " water" ],
+    "original_sentence" : "A picture soft the [MASK] and beach in the water",
+    "timestamp" : 166580
+  } ]
+}

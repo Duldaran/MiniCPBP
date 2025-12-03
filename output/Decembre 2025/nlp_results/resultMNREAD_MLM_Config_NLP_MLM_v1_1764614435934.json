@@ -1,0 +1,140 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 200,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T13:40:35.932248511",
+  "time" : 340.683,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "She paused closing the door to the back of my left shoulder",
+    "score" : 96.5616226196289,
+    "time" : 37118,
+    "cycle" : 1
+  }, {
+    "sentence" : "She just noticed the sign on the door of my house strangers",
+    "score" : 91.6361312866211,
+    "time" : 167457,
+    "cycle" : 45
+  }, {
+    "sentence" : "She also placed her hand on the head of the young strangers",
+    "score" : 41.469905853271484,
+    "time" : 228550,
+    "cycle" : 64
+  }, {
+    "sentence" : "She then placed her hand on the head of the young strangers",
+    "score" : 36.279815673828125,
+    "time" : 238417,
+    "cycle" : 66
+  } ],
+  "base_sentence" : {
+    "sentence" : "She paused outside the door to the back of my left shoulder",
+    "perplexity" : 83.56835174560547,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "She paused closing the door to the back of my left shoulder",
+    "tokens" : [ 1962, 3634, 2554, 394, 4455, 2461, 394, 954, 5194, 938, 1608, 2549 ],
+    "perplexity" : 96.5616226196289,
+    "tokens_used" : [ " She", " paused", " closing", " the", " door", " to", " the", " back", " of", " my", " left", " shoulder" ],
+    "original_sentence" : "She [MASK] [MASK] the door to the back of my left [MASK]",
+    "timestamp" : 37118
+  }, {
+    "sentence" : "She just noticed the sign on the door of my house strangers",
+    "tokens" : [ 1962, 3678, 4609, 394, 377, 710, 394, 4455, 5194, 938, 1080, 3224 ],
+    "perplexity" : 91.6361312866211,
+    "tokens_used" : [ " She", " just", " noticed", " the", " sign", " on", " the", " door", " of", " my", " house", " strangers" ],
+    "original_sentence" : "[MASK] just [MASK] the sign on the door of my [MASK] strangers",
+    "timestamp" : 167457
+  }, {
+    "sentence" : "She just noticed the sign on the back of my house strangers",
+    "tokens" : [ 1962, 3678, 4609, 394, 377, 710, 394, 954, 5194, 938, 1080, 3224 ],
+    "perplexity" : 105.85616302490234,
+    "tokens_used" : [ " She", " just", " noticed", " the", " sign", " on", " the", " back", " of", " my", " house", " strangers" ],
+    "original_sentence" : "She just noticed the [MASK] on the [MASK] of my house [MASK]",
+    "timestamp" : 170394
+  }, {
+    "sentence" : "She just noticed the sign on the back of my phone strangers",
+    "tokens" : [ 1962, 3678, 4609, 394, 377, 710, 394, 954, 5194, 938, 929, 3224 ],
+    "perplexity" : 107.68150329589844,
+    "tokens_used" : [ " She", " just", " noticed", " the", " sign", " on", " the", " back", " of", " my", " phone", " strangers" ],
+    "original_sentence" : "[MASK] just [MASK] the sign on the back of my [MASK] strangers",
+    "timestamp" : 173438
+  }, {
+    "sentence" : "She has painted the sign on the front of my house strangers",
+    "tokens" : [ 1962, 4879, 2213, 394, 377, 710, 394, 2216, 5194, 938, 1080, 3224 ],
+    "perplexity" : 116.7518081665039,
+    "tokens_used" : [ " She", " has", " painted", " the", " sign", " on", " the", " front", " of", " my", " house", " strangers" ],
+    "original_sentence" : "She [MASK] painted [MASK] sign on the front of my house [MASK]",
+    "timestamp" : 194629
+  }, {
+    "sentence" : "She has burned the sign on the front of the house strangers",
+    "tokens" : [ 1962, 4879, 15, 394, 377, 710, 394, 2216, 5194, 394, 1080, 3224 ],
+    "perplexity" : 115.8285903930664,
+    "tokens_used" : [ " She", " has", " burned", " the", " sign", " on", " the", " front", " of", " the", " house", " strangers" ],
+    "original_sentence" : "[MASK] has [MASK] the sign on the front of [MASK] house strangers",
+    "timestamp" : 197422
+  }, {
+    "sentence" : "She has burned her sign on the front of the house strangers",
+    "tokens" : [ 1962, 4879, 15, 3730, 377, 710, 394, 2216, 5194, 394, 1080, 3224 ],
+    "perplexity" : 111.96837615966797,
+    "tokens_used" : [ " She", " has", " burned", " her", " sign", " on", " the", " front", " of", " the", " house", " strangers" ],
+    "original_sentence" : "She has burned [MASK] sign on the front of [MASK] [MASK] strangers",
+    "timestamp" : 209032
+  }, {
+    "sentence" : "She has burned her sign on the floor of the young strangers",
+    "tokens" : [ 1962, 4879, 15, 3730, 377, 710, 394, 51, 5194, 394, 4562, 3224 ],
+    "perplexity" : 153.2411651611328,
+    "tokens_used" : [ " She", " has", " burned", " her", " sign", " on", " the", " floor", " of", " the", " young", " strangers" ],
+    "original_sentence" : "She has burned her [MASK] on the [MASK] of the [MASK] strangers",
+    "timestamp" : 221182
+  }, {
+    "sentence" : "She also placed her hand on the head of the young strangers",
+    "tokens" : [ 1962, 4118, 2926, 3730, 1119, 710, 394, 2968, 5194, 394, 4562, 3224 ],
+    "perplexity" : 41.469905853271484,
+    "tokens_used" : [ " She", " also", " placed", " her", " hand", " on", " the", " head", " of", " the", " young", " strangers" ],
+    "original_sentence" : "She also [MASK] her [MASK] on the head of the young [MASK]",
+    "timestamp" : 228550
+  }, {
+    "sentence" : "She then placed her hand on the head of the young strangers",
+    "tokens" : [ 1962, 2226, 2926, 3730, 1119, 710, 394, 2968, 5194, 394, 4562, 3224 ],
+    "perplexity" : 36.279815673828125,
+    "tokens_used" : [ " She", " then", " placed", " her", " hand", " on", " the", " head", " of", " the", " young", " strangers" ],
+    "original_sentence" : "[MASK] [MASK] placed her hand [MASK] the head of the young strangers",
+    "timestamp" : 238417
+  }, {
+    "sentence" : "She then rested her hand on the edge of the rough materials",
+    "tokens" : [ 1962, 2226, 5104, 3730, 1119, 710, 394, 759, 5194, 394, 83, 491 ],
+    "perplexity" : 41.08310317993164,
+    "tokens_used" : [ " She", " then", " rested", " her", " hand", " on", " the", " edge", " of", " the", " rough", " materials" ],
+    "original_sentence" : "She then rested [MASK] hand on the edge of [MASK] [MASK] materials",
+    "timestamp" : 275953
+  }, {
+    "sentence" : "She then rested her foot on the edge of the rough materials",
+    "tokens" : [ 1962, 2226, 5104, 3730, 1838, 710, 394, 759, 5194, 394, 83, 491 ],
+    "perplexity" : 47.573734283447266,
+    "tokens_used" : [ " She", " then", " rested", " her", " foot", " on", " the", " edge", " of", " the", " rough", " materials" ],
+    "original_sentence" : "She [MASK] rested [MASK] [MASK] on the edge of the rough materials",
+    "timestamp" : 282057
+  }, {
+    "sentence" : "She she planted her foot on the edge of the rough materials",
+    "tokens" : [ 1962, 1961, 2024, 3730, 1838, 710, 394, 759, 5194, 394, 83, 491 ],
+    "perplexity" : 62.56876754760742,
+    "tokens_used" : [ " She", " she", " planted", " her", " foot", " on", " the", " edge", " of", " the", " rough", " materials" ],
+    "original_sentence" : "[MASK] [MASK] [MASK] her foot on the edge of the rough materials",
+    "timestamp" : 285317
+  }, {
+    "sentence" : "She she pressed her foot on the edge of the rough materials",
+    "tokens" : [ 1962, 1961, 2975, 3730, 1838, 710, 394, 759, 5194, 394, 83, 491 ],
+    "perplexity" : 69.71581268310547,
+    "tokens_used" : [ " She", " she", " pressed", " her", " foot", " on", " the", " edge", " of", " the", " rough", " materials" ],
+    "original_sentence" : "She she [MASK] her foot on the edge of [MASK] rough [MASK]",
+    "timestamp" : 288898
+  } ]
+}

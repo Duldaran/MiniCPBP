@@ -1,0 +1,273 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 150,
+  "sentence_builder" : "randomSentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.2,
+  "date" : "2025-12-01T13:26:45.326392907",
+  "time" : 239.105,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front in the shop",
+    "score" : 57.256717681884766,
+    "time" : 68933,
+    "cycle" : 2
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front in the game",
+    "score" : 36.34275817871094,
+    "time" : 83846,
+    "cycle" : 7
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front of his game",
+    "score" : 32.37761306762695,
+    "time" : 87043,
+    "cycle" : 9
+  }, {
+    "sentence" : "And and he seemed to be able to put me in line for the game",
+    "score" : 27.300785064697266,
+    "time" : 91895,
+    "cycle" : 13
+  } ],
+  "base_sentence" : {
+    "sentence" : "And yet he seemed to be able to see me in front of the shop",
+    "perplexity" : 35.467933654785156,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front in the shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 2515, 394, 4667 ],
+    "perplexity" : 57.256717681884766,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " in", " the", " shop" ],
+    "original_sentence" : "And [MASK] he seemed [MASK] be able to see me in front [MASK] the shop",
+    "timestamp" : 68933
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front in the game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 2515, 394, 2701 ],
+    "perplexity" : 36.34275817871094,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " in", " the", " game" ],
+    "original_sentence" : "And yet he seemed to be able [MASK] [MASK] me in front in the [MASK]",
+    "timestamp" : 83846
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front in his game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 2515, 3882, 2701 ],
+    "perplexity" : 43.057586669921875,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " in", " his", " game" ],
+    "original_sentence" : "And yet he seemed to [MASK] able to put me in [MASK] in [MASK] game",
+    "timestamp" : 84719
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front of his game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 3882, 2701 ],
+    "perplexity" : 32.37761306762695,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " his", " game" ],
+    "original_sentence" : "And yet he seemed to [MASK] able to put me in [MASK] [MASK] his game",
+    "timestamp" : 87043
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in front at his game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 302, 3882, 2701 ],
+    "perplexity" : 47.478599548339844,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " at", " his", " game" ],
+    "original_sentence" : "And yet he seemed [MASK] be able to put me in [MASK] [MASK] his game",
+    "timestamp" : 88067
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in line for his game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 3397, 3548, 3882, 2701 ],
+    "perplexity" : 37.05188751220703,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " line", " for", " his", " game" ],
+    "original_sentence" : "[MASK] yet he seemed to be able to put me in [MASK] [MASK] his game",
+    "timestamp" : 89792
+  }, {
+    "sentence" : "And and he seemed to be able to put me in line for the game",
+    "tokens" : [ 216, 215, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 27.300785064697266,
+    "tokens_used" : [ " And", " and", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "[MASK] [MASK] he seemed to be able to put me in line for [MASK] game",
+    "timestamp" : 91895
+  }, {
+    "sentence" : "And yet he seemed to be able to put us in line for the game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 29.359922409057617,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " us", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "And [MASK] he seemed to be able to put [MASK] in line for the [MASK]",
+    "timestamp" : 92977
+  }, {
+    "sentence" : "And yet he seemed to be able to get us in line for the game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 28.136611938476562,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " get", " us", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "And yet he seemed to be [MASK] to [MASK] us in [MASK] for the game",
+    "timestamp" : 95675
+  }, {
+    "sentence" : "And yet he seemed to be able to see us in line for the game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 1368, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 41.658424377441406,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " us", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "[MASK] yet he seemed to be [MASK] to [MASK] us in line for the game",
+    "timestamp" : 96764
+  }, {
+    "sentence" : "And yet he seemed to be glad to see us in line for the game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 1691, 2461, 3387, 1368, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 37.18333435058594,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " glad", " to", " see", " us", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "And yet he seemed [MASK] be [MASK] to see us in line for the [MASK]",
+    "timestamp" : 99089
+  }, {
+    "sentence" : "And yet he seemed to be glad to get us in line for the game",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 1691, 2461, 3912, 1368, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 42.82447052001953,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " glad", " to", " get", " us", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "And [MASK] he seemed to be glad to [MASK] us in line [MASK] the game",
+    "timestamp" : 100450
+  }, {
+    "sentence" : "And yet he seemed to be glad to get us in line for the show",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 1691, 2461, 3912, 1368, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 44.01437759399414,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " glad", " to", " get", " us", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "[MASK] yet he [MASK] to be glad to get us in line for the [MASK]",
+    "timestamp" : 102012
+  }, {
+    "sentence" : "And yet he seemed to be glad to put us in line for the show",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 1691, 2461, 1536, 1368, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 48.97002410888672,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " glad", " to", " put", " us", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet he seemed to be glad to [MASK] us in line for [MASK] [MASK]",
+    "timestamp" : 105083
+  }, {
+    "sentence" : "And yet he seemed to be able to put us in line for the show",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 34.552330017089844,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " us", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And [MASK] he seemed [MASK] be [MASK] to put us in line for the show",
+    "timestamp" : 106189
+  }, {
+    "sentence" : "And yet we seemed to be able to put us in line for the show",
+    "tokens" : [ 216, 3236, 1778, 1458, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 39.674583435058594,
+    "tokens_used" : [ " And", " yet", " we", " seemed", " to", " be", " able", " to", " put", " us", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet [MASK] seemed to be able [MASK] put us in line for the [MASK]",
+    "timestamp" : 107248
+  }, {
+    "sentence" : "And yet he seemed to be able to put me in line for the show",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 34.115840911865234,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " put", " me", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to put [MASK] in line for the [MASK]",
+    "timestamp" : 126944
+  }, {
+    "sentence" : "And yet we wanted to be able to get us in line for the show",
+    "tokens" : [ 216, 3236, 1778, 4750, 2461, 1392, 4464, 2461, 3912, 1368, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 34.88971710205078,
+    "tokens_used" : [ " And", " yet", " we", " wanted", " to", " be", " able", " to", " get", " us", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And [MASK] [MASK] wanted to be able to get us in line for [MASK] show",
+    "timestamp" : 151070
+  }, {
+    "sentence" : "And yet we wanted to be able to put us in line for the show",
+    "tokens" : [ 216, 3236, 1778, 4750, 2461, 1392, 4464, 2461, 1536, 1368, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 38.005699157714844,
+    "tokens_used" : [ " And", " yet", " we", " wanted", " to", " be", " able", " to", " put", " us", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet we wanted to [MASK] able [MASK] [MASK] us in line for the show",
+    "timestamp" : 152382
+  }, {
+    "sentence" : "And yet we wanted to be able to put up in line for the show",
+    "tokens" : [ 216, 3236, 1778, 4750, 2461, 1392, 4464, 2461, 1536, 1840, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 53.58384704589844,
+    "tokens_used" : [ " And", " yet", " we", " wanted", " to", " be", " able", " to", " put", " up", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet we [MASK] to be able to put [MASK] in line [MASK] the show",
+    "timestamp" : 155296
+  }, {
+    "sentence" : "And yet we wanted to be able to put an in line for the show",
+    "tokens" : [ 216, 3236, 1778, 4750, 2461, 1392, 4464, 2461, 1536, 3355, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 53.894020080566406,
+    "tokens_used" : [ " And", " yet", " we", " wanted", " to", " be", " able", " to", " put", " an", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet we wanted to be able to [MASK] [MASK] in line for [MASK] show",
+    "timestamp" : 156544
+  }, {
+    "sentence" : "And yet we wanted to be able to get an in line for the show",
+    "tokens" : [ 216, 3236, 1778, 4750, 2461, 1392, 4464, 2461, 3912, 3355, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 44.446434020996094,
+    "tokens_used" : [ " And", " yet", " we", " wanted", " to", " be", " able", " to", " get", " an", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And yet [MASK] wanted to be able to [MASK] an in line [MASK] the show",
+    "timestamp" : 166595
+  }, {
+    "sentence" : "And then he happy to be able to get up in line for the show",
+    "tokens" : [ 216, 2226, 2228, 3655, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 50.03243637084961,
+    "tokens_used" : [ " And", " then", " he", " happy", " to", " be", " able", " to", " get", " up", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And [MASK] [MASK] [MASK] to be able to get up in line for the show",
+    "timestamp" : 176041
+  }, {
+    "sentence" : "And then he moves to be able to get up in line for the show",
+    "tokens" : [ 216, 2226, 2228, 290, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 3397, 3548, 394, 2535 ],
+    "perplexity" : 50.917720794677734,
+    "tokens_used" : [ " And", " then", " he", " moves", " to", " be", " able", " to", " get", " up", " in", " line", " for", " the", " show" ],
+    "original_sentence" : "And then he [MASK] to be able [MASK] get up [MASK] line for the show",
+    "timestamp" : 177012
+  }, {
+    "sentence" : "And then he moves to be able to get up in line for the game",
+    "tokens" : [ 216, 2226, 2228, 290, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 43.99168395996094,
+    "tokens_used" : [ " And", " then", " he", " moves", " to", " be", " able", " to", " get", " up", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "[MASK] then he moves to [MASK] able to get up in line for the [MASK]",
+    "timestamp" : 197179
+  }, {
+    "sentence" : "And then he seems to be able to get up in line for the game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 34.68218231201172,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " able", " to", " get", " up", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "[MASK] then he [MASK] to be able to get up in [MASK] for the game",
+    "timestamp" : 204375
+  }, {
+    "sentence" : "And then he seems to be able to end up in line for the game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 4464, 2461, 2135, 1840, 2515, 3397, 3548, 394, 2701 ],
+    "perplexity" : 35.7396354675293,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " able", " to", " end", " up", " in", " line", " for", " the", " game" ],
+    "original_sentence" : "[MASK] then he seems to be able to [MASK] up in line [MASK] the game",
+    "timestamp" : 205671
+  }, {
+    "sentence" : "And then he seems to be able to end up in jail for the game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 4464, 2461, 2135, 1840, 2515, 4627, 3548, 394, 2701 ],
+    "perplexity" : 33.23777770996094,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " able", " to", " end", " up", " in", " jail", " for", " the", " game" ],
+    "original_sentence" : "And then he seems to [MASK] able to end up in [MASK] for the [MASK]",
+    "timestamp" : 207462
+  }, {
+    "sentence" : "And then he seems to be sure to end up in jail for the game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 3383, 2461, 2135, 1840, 2515, 4627, 3548, 394, 2701 ],
+    "perplexity" : 45.862789154052734,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " sure", " to", " end", " up", " in", " jail", " for", " the", " game" ],
+    "original_sentence" : "And then he seems to [MASK] [MASK] to end up in jail for the [MASK]",
+    "timestamp" : 213138
+  }, {
+    "sentence" : "And then he seems to be sure to end up in jail for his game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 3383, 2461, 2135, 1840, 2515, 4627, 3548, 3882, 2701 ],
+    "perplexity" : 51.20197677612305,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " sure", " to", " end", " up", " in", " jail", " for", " his", " game" ],
+    "original_sentence" : "And then [MASK] seems [MASK] be sure to end up in jail for [MASK] game",
+    "timestamp" : 227564
+  }, {
+    "sentence" : "And then he seems to be sure to end up in jail for one game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 3383, 2461, 2135, 1840, 2515, 4627, 3548, 1820, 2701 ],
+    "perplexity" : 48.031402587890625,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " sure", " to", " end", " up", " in", " jail", " for", " one", " game" ],
+    "original_sentence" : "And then he seems to [MASK] [MASK] to end up in jail for [MASK] game",
+    "timestamp" : 232274
+  }, {
+    "sentence" : "And then he seems to be able to end up in jail for one game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 4464, 2461, 2135, 1840, 2515, 4627, 3548, 1820, 2701 ],
+    "perplexity" : 31.930496215820312,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " able", " to", " end", " up", " in", " jail", " for", " one", " game" ],
+    "original_sentence" : "[MASK] then he seems to be [MASK] to end up in jail [MASK] one game",
+    "timestamp" : 234615
+  }, {
+    "sentence" : "And then he seems to be able to end up at jail for one game",
+    "tokens" : [ 216, 2226, 2228, 2345, 2461, 1392, 4464, 2461, 2135, 1840, 302, 4627, 3548, 1820, 2701 ],
+    "perplexity" : 50.83998107910156,
+    "tokens_used" : [ " And", " then", " he", " seems", " to", " be", " able", " to", " end", " up", " at", " jail", " for", " one", " game" ],
+    "original_sentence" : "[MASK] then he seems to [MASK] able to end up [MASK] jail for one game",
+    "timestamp" : 237464
+  } ]
+}

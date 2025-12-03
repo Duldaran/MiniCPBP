@@ -1,0 +1,275 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 100,
+  "num_pb" : 4,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 150,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 10,
+  "mask_percent" : 0.1,
+  "date" : "2025-12-01T12:48:55.878539071",
+  "time" : 281.123,
+  "best_perplexity_evolution" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front of his shop",
+    "score" : 39.76469039916992,
+    "time" : 61263,
+    "cycle" : 0
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in front of her eyes",
+    "score" : 25.300086975097656,
+    "time" : 69571,
+    "cycle" : 3
+  }, {
+    "sentence" : "And he had wanted to be able to see me in front of her eyes",
+    "score" : 20.893606185913086,
+    "time" : 76648,
+    "cycle" : 5
+  } ],
+  "base_sentence" : {
+    "sentence" : "And yet he seemed to be able to see me in front of the shop",
+    "perplexity" : 35.467933654785156,
+    "weight" : 1.0
+  },
+  "logs" : [ {
+    "sentence" : "And yet he seemed to be able to see me in front of his shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3882, 4667 ],
+    "perplexity" : 39.76469039916992,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " his", " shop" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to see me in front of [MASK] shop",
+    "timestamp" : 61263
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in front of our shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3369, 4667 ],
+    "perplexity" : 48.42582321166992,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " our", " shop" ],
+    "original_sentence" : "And yet he seemed to be able to see me in [MASK] of [MASK] shop",
+    "timestamp" : 64219
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in front of her shop",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 4667 ],
+    "perplexity" : 49.732486724853516,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " shop" ],
+    "original_sentence" : "And yet [MASK] seemed to be able to see me in front of [MASK] shop",
+    "timestamp" : 66891
+  }, {
+    "sentence" : "And yet he seemed to be able to see me in front of her eyes",
+    "tokens" : [ 216, 3236, 2228, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 25.300086975097656,
+    "tokens_used" : [ " And", " yet", " he", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And yet he seemed to be able to see [MASK] in front of her [MASK]",
+    "timestamp" : 69571
+  }, {
+    "sentence" : "And he had seemed to be able to see me in front of her eyes",
+    "tokens" : [ 216, 2228, 4960, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 27.765491485595703,
+    "tokens_used" : [ " And", " he", " had", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And [MASK] [MASK] seemed to be able to see me in front of her eyes",
+    "timestamp" : 73944
+  }, {
+    "sentence" : "And he had wanted to be able to see me in front of her eyes",
+    "tokens" : [ 216, 2228, 4960, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 20.893606185913086,
+    "tokens_used" : [ " And", " he", " had", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And he had [MASK] to be able to see me in front of her [MASK]",
+    "timestamp" : 76648
+  }, {
+    "sentence" : "And he had wanted to be able to see me in front of our eyes",
+    "tokens" : [ 216, 2228, 4960, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3369, 1077 ],
+    "perplexity" : 26.31528663635254,
+    "tokens_used" : [ " And", " he", " had", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " our", " eyes" ],
+    "original_sentence" : "And he had wanted to be able to [MASK] me in front of [MASK] eyes",
+    "timestamp" : 79642
+  }, {
+    "sentence" : "But he had seemed to be able to see me in front of our eyes",
+    "tokens" : [ 2923, 2228, 4960, 1458, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3369, 1077 ],
+    "perplexity" : 41.32909393310547,
+    "tokens_used" : [ " But", " he", " had", " seemed", " to", " be", " able", " to", " see", " me", " in", " front", " of", " our", " eyes" ],
+    "original_sentence" : "[MASK] he had [MASK] to be able to see me in front of our eyes",
+    "timestamp" : 83039
+  }, {
+    "sentence" : "And he had seemed to be able to put me in front of our eyes",
+    "tokens" : [ 216, 2228, 4960, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 3369, 1077 ],
+    "perplexity" : 37.40114212036133,
+    "tokens_used" : [ " And", " he", " had", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " our", " eyes" ],
+    "original_sentence" : "[MASK] he had seemed to be able to [MASK] me in front of our eyes",
+    "timestamp" : 88125
+  }, {
+    "sentence" : "And he had seemed to be able to put me in front of her eyes",
+    "tokens" : [ 216, 2228, 4960, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 3730, 1077 ],
+    "perplexity" : 31.486143112182617,
+    "tokens_used" : [ " And", " he", " had", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " her", " eyes" ],
+    "original_sentence" : "And he had seemed to be able to [MASK] me in front of [MASK] eyes",
+    "timestamp" : 90288
+  }, {
+    "sentence" : "And he had seemed to be able to put me in front of the eyes",
+    "tokens" : [ 216, 2228, 4960, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 394, 1077 ],
+    "perplexity" : 36.80998992919922,
+    "tokens_used" : [ " And", " he", " had", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " the", " eyes" ],
+    "original_sentence" : "And he had seemed to be able to [MASK] me in front of [MASK] eyes",
+    "timestamp" : 91916
+  }, {
+    "sentence" : "And he had seemed to be able to put me in front of the door",
+    "tokens" : [ 216, 2228, 4960, 1458, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 29.888322830200195,
+    "tokens_used" : [ " And", " he", " had", " seemed", " to", " be", " able", " to", " put", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "And he had seemed to be [MASK] to put me in front of the [MASK]",
+    "timestamp" : 101282
+  }, {
+    "sentence" : "And he had wanted to be able to put me in front of the door",
+    "tokens" : [ 216, 2228, 4960, 4750, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 22.44816017150879,
+    "tokens_used" : [ " And", " he", " had", " wanted", " to", " be", " able", " to", " put", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "And he [MASK] [MASK] to be able to put me in front of the door",
+    "timestamp" : 105709
+  }, {
+    "sentence" : "And he had enough to be able to put me in front of the door",
+    "tokens" : [ 216, 2228, 4960, 2796, 2461, 1392, 4464, 2461, 1536, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 26.798070907592773,
+    "tokens_used" : [ " And", " he", " had", " enough", " to", " be", " able", " to", " put", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] he had [MASK] to be able to put me in front of the door",
+    "timestamp" : 107653
+  }, {
+    "sentence" : "And he saw wanted to be able to see me in front of the door",
+    "tokens" : [ 216, 2228, 3326, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 36.58350372314453,
+    "tokens_used" : [ " And", " he", " saw", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] he saw [MASK] to be able to see me in front of the door",
+    "timestamp" : 122956
+  }, {
+    "sentence" : "And he saw wanted to be able to see me in front of his door",
+    "tokens" : [ 216, 2228, 3326, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3882, 4455 ],
+    "perplexity" : 41.57091522216797,
+    "tokens_used" : [ " And", " he", " saw", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " his", " door" ],
+    "original_sentence" : "And he saw [MASK] to be able to see me in front of [MASK] door",
+    "timestamp" : 138255
+  }, {
+    "sentence" : "And he was wanted to be able to see me in front of his door",
+    "tokens" : [ 216, 2228, 1557, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 3882, 4455 ],
+    "perplexity" : 31.988224029541016,
+    "tokens_used" : [ " And", " he", " was", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " his", " door" ],
+    "original_sentence" : "And he [MASK] wanted to be able to see me in front of his [MASK]",
+    "timestamp" : 148613
+  }, {
+    "sentence" : "And he was wanted to be able to see me in front of the door",
+    "tokens" : [ 216, 2228, 1557, 4750, 2461, 1392, 4464, 2461, 3387, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 28.656335830688477,
+    "tokens_used" : [ " And", " he", " was", " wanted", " to", " be", " able", " to", " see", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "And he was wanted to be able to see [MASK] in front of [MASK] door",
+    "timestamp" : 150403
+  }, {
+    "sentence" : "And he was wanted to be able to see up in front of the door",
+    "tokens" : [ 216, 2228, 1557, 4750, 2461, 1392, 4464, 2461, 3387, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 38.39860534667969,
+    "tokens_used" : [ " And", " he", " was", " wanted", " to", " be", " able", " to", " see", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "And he was wanted to be able to [MASK] [MASK] in front of the door",
+    "timestamp" : 159258
+  }, {
+    "sentence" : "And he was wanted to be able to get up in front of the door",
+    "tokens" : [ 215, 2228, 1557, 4750, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 25.8098201751709,
+    "tokens_used" : [ " and", " he", " was", " wanted", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] he was wanted to be able to [MASK] up in front of the door",
+    "timestamp" : 166064
+  }, {
+    "sentence" : "The he was wanted to be able to get up in front of the door",
+    "tokens" : [ 395, 2228, 1557, 4750, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 30.941450119018555,
+    "tokens_used" : [ " The", " he", " was", " wanted", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] [MASK] was wanted to be able to get up in front of the door",
+    "timestamp" : 175167
+  }, {
+    "sentence" : "The do was wanted to be able to get up in front of the door",
+    "tokens" : [ 395, 3473, 1557, 4750, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 35.95833969116211,
+    "tokens_used" : [ " The", " do", " was", " wanted", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The [MASK] was wanted to be able to [MASK] up in front of the door",
+    "timestamp" : 177068
+  }, {
+    "sentence" : "The do was seemed to be able to get up in front of the door",
+    "tokens" : [ 395, 3473, 1557, 1458, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 39.323490142822266,
+    "tokens_used" : [ " The", " do", " was", " seemed", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The do [MASK] [MASK] to be able to get up in front of the door",
+    "timestamp" : 183661
+  }, {
+    "sentence" : "The do was enough to be able to get up in front of the door",
+    "tokens" : [ 395, 3473, 1557, 2796, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 38.2823600769043,
+    "tokens_used" : [ " The", " do", " was", " enough", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] do was [MASK] to be able to get up in front of the door",
+    "timestamp" : 187507
+  }, {
+    "sentence" : "The do was enough to be able to get me in front of the door",
+    "tokens" : [ 395, 3473, 1557, 2796, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 40.412498474121094,
+    "tokens_used" : [ " The", " do", " was", " enough", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The do was enough to be able to get [MASK] in front of the [MASK]",
+    "timestamp" : 204576
+  }, {
+    "sentence" : "The do was hoping to be able to get me in front of the door",
+    "tokens" : [ 395, 3473, 1557, 440, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 40.57194900512695,
+    "tokens_used" : [ " The", " do", " was", " hoping", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] do was [MASK] to be able to get me in front of the door",
+    "timestamp" : 212773
+  }, {
+    "sentence" : "The do was hoping to be able to get up in front of the door",
+    "tokens" : [ 395, 3473, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 35.106719970703125,
+    "tokens_used" : [ " The", " do", " was", " hoping", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The do [MASK] hoping to be able to get [MASK] in front of the door",
+    "timestamp" : 214435
+  }, {
+    "sentence" : "The So was hoping to be able to get up in front of the door",
+    "tokens" : [ 395, 1514, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 40.89274978637695,
+    "tokens_used" : [ " The", " So", " was", " hoping", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The [MASK] [MASK] hoping to be able to get up in front of the door",
+    "timestamp" : 229544
+  }, {
+    "sentence" : "The he was hoping to be able to get up in front of the door",
+    "tokens" : [ 395, 2228, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 23.077598571777344,
+    "tokens_used" : [ " The", " he", " was", " hoping", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "[MASK] [MASK] was hoping to be able to get up in front of the door",
+    "timestamp" : 259567
+  }, {
+    "sentence" : "The he was hoping to be able to get me in front of the door",
+    "tokens" : [ 395, 2228, 1557, 440, 2461, 1392, 4464, 2461, 3912, 994, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 27.89603614807129,
+    "tokens_used" : [ " The", " he", " was", " hoping", " to", " be", " able", " to", " get", " me", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The he [MASK] hoping to be able to get [MASK] in front of the door",
+    "timestamp" : 261592
+  }, {
+    "sentence" : "The he was hoping to be able to get be in front of the door",
+    "tokens" : [ 395, 2228, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1392, 2515, 2216, 5194, 394, 4455 ],
+    "perplexity" : 40.493080139160156,
+    "tokens_used" : [ " The", " he", " was", " hoping", " to", " be", " able", " to", " get", " be", " in", " front", " of", " the", " door" ],
+    "original_sentence" : "The he was hoping to be able to [MASK] [MASK] in front of the door",
+    "timestamp" : 264867
+  }, {
+    "sentence" : "The he was hoping to be able to get up in front of the neck",
+    "tokens" : [ 395, 2228, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 394, 4977 ],
+    "perplexity" : 36.308658599853516,
+    "tokens_used" : [ " The", " he", " was", " hoping", " to", " be", " able", " to", " get", " up", " in", " front", " of", " the", " neck" ],
+    "original_sentence" : "The he was hoping to be able to get [MASK] in front of the [MASK]",
+    "timestamp" : 269124
+  }, {
+    "sentence" : "The he was hoping to be able to get up in front of his neck",
+    "tokens" : [ 395, 2228, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 3882, 4977 ],
+    "perplexity" : 35.258056640625,
+    "tokens_used" : [ " The", " he", " was", " hoping", " to", " be", " able", " to", " get", " up", " in", " front", " of", " his", " neck" ],
+    "original_sentence" : "The he was hoping to be able to get [MASK] in front of [MASK] neck",
+    "timestamp" : 271583
+  }, {
+    "sentence" : "The he was hoping to be able to get up in front of his poem",
+    "tokens" : [ 395, 2228, 1557, 440, 2461, 1392, 4464, 2461, 3912, 1840, 2515, 2216, 5194, 3882, 4026 ],
+    "perplexity" : 41.77214431762695,
+    "tokens_used" : [ " The", " he", " was", " hoping", " to", " be", " able", " to", " get", " up", " in", " front", " of", " his", " poem" ],
+    "original_sentence" : "[MASK] he was hoping to be able to get up in front of his [MASK]",
+    "timestamp" : 275366
+  } ]
+}
