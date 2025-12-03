@@ -13,12 +13,12 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
     private final String mask_string = "[MASK]";
 
     @Override
-    public String buildSentence(ArrayList<ScoredSentence> bases, HttpClient client, int port) {
+    public String buildSentence(ArrayList<ScoredSentence> bases, HttpClient client, int port, double mask_percent, ArrayList<Integer> bannedIndices) {
         ScoredSentence base = selectWeightedRandom(bases, new Random(), 0.8);
         System.out.println("Base sentence: " + base);
         String[] words = base.getSentence().split(" ");
         Random rand = new Random();
-        int numMasks = rand.nextBoolean() ? 3 : 4;
+        int numMasks = (int) Math.ceil(mask_percent * words.length);
         List<Pair<Integer, Double>> leastToMostProbWords = new ArrayList<>();
         try {
             HttpRequest reqPpl = HttpRequest.newBuilder()
@@ -44,7 +44,7 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
             ex.printStackTrace();
         }
         Set<Integer> maskIndices = new HashSet<>();
-        maskIndices.addAll(selectIndexByProbability(leastToMostProbWords, rand, numMasks));
+        maskIndices.addAll(selectIndexByProbability(leastToMostProbWords, rand, numMasks, bannedIndices));
 
         System.out.println("Masking indices: " + maskIndices);
         for (int idx : maskIndices) {
@@ -82,11 +82,14 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         return sentences.get(sentences.size() - 1);
     }
 
-    private static Set<Integer> selectIndexByProbability(List<Pair<Integer, Double>> probList, Random random, int numMask) {
+    private static Set<Integer> selectIndexByProbability(List<Pair<Integer, Double>> probList, Random random, int numMask, ArrayList<Integer> bannedIndices) {
         if (probList.isEmpty()) return new HashSet<>();
         
         double totalProb = 0.0;
         for (Pair<Integer, Double> pair : probList) {
+            if (bannedIndices != null && bannedIndices.contains(pair.first)) {
+                continue;
+            }
             totalProb += (1-pair.second); 
         }
         
@@ -97,11 +100,12 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
             double cumulativeProb = 0.0;
             
             for (int i = 0; i < probList.size(); i++) {
-                if (selectedIndices.contains(i)) continue;
+                final int wordIndex = probList.get(i).first;
+                if (selectedIndices.contains(wordIndex) || (bannedIndices != null && bannedIndices.contains(wordIndex))) continue;
                 
                 cumulativeProb += 1.0 - probList.get(i).second;
                 if (randomValue <= cumulativeProb) {
-                    selectedIndices.add(i);
+                    selectedIndices.add(wordIndex);
                     totalProb -= probList.get(i).second;
                     break;
                 }

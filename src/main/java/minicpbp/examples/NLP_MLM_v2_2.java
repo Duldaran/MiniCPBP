@@ -23,6 +23,7 @@ import minicpbp.engine.constraints.Circuit;
 import minicpbp.engine.constraints.Element1D;
 import minicpbp.engine.constraints.LessOrEqual;
 import minicpbp.engine.constraints.Markov;
+import minicpbp.engine.constraints.NegTableCT;
 import minicpbp.engine.core.BoolVar;
 import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
@@ -77,13 +78,15 @@ public class NLP_MLM_v2_2 {
 
    public static void main(String[] args) throws Exception {
     
-        System.out.println("3 novembre");
+        System.out.println("30 novembre");
         int port = Integer.parseInt(args[1]);
         final int NUM_ITERATIONS = Integer.parseInt(args[3]);
         final double weight = Double.parseDouble(args[0]);
         final int seed = Integer.parseInt(args[4]);
         final String configArg = args.length > 5 ? args[5] : "MNREAD_MLM_Config";
         final String sentenceBuilderArg = args.length > 6 ? args[6] : "randomSentenceBuilder";
+        final int oracle_top_k = args.length > 7 ? Integer.parseInt(args[7]) : 50;
+        final double mask_percent = args.length > 8 ? Double.parseDouble(args[8]) : 0.2;
 
         SentenceBuilder sentenceBuilder;
         switch (sentenceBuilderArg) {
@@ -265,17 +268,19 @@ public class NLP_MLM_v2_2 {
 
 
         final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).getSentence().split(" ").length;
-        final int ORACLE_TOP_K = 10;
+        final int ORACLE_TOP_K = oracle_top_k;
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
         final int solutionLimit = 5;
+        final int failureLimit = 100;
 
      
 
         System.out.println("Building model...");
         
         Solver cp = makeSolver();
+        cp.actingOnZeroOneBelief();
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
         IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);
@@ -384,8 +389,19 @@ public class NLP_MLM_v2_2 {
             l++;
 
             dfs.optimizeSubjectTo(objectif, statistics -> statistics.numberOfSolutions() >= solutionLimit, () -> {
-                    current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port);
+                    current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port, mask_percent, cb.getBannedIndices(word_index));
                     original_sentence[0] = current_sentence[0];
+
+                    int[][] neg_table = new int[base_sentence.size()][word_index.length];
+                    for (ScoredSentence sentence : base_sentence){
+                        String[] words_in_sentence = sentence.getSentence().split(" ");
+                        for (int idx = 0; idx < word_index.length; idx++) {
+                            String word = words_in_sentence[idx];
+                            int word_idx = words.indexOf(" " + word);
+                            neg_table[base_sentence.indexOf(sentence)][idx] = word_idx;
+                        }
+                    }
+                    //cp.post(new NegTableCT(word_index, neg_table));
 
                     System.out.println("Current sentence: " + current_sentence[0]);
 

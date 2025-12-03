@@ -10,15 +10,18 @@ public class randomSentenceBuilder implements SentenceBuilder {
     private final String mask_string = "[MASK]";
 
     @Override
-    public String buildSentence(ArrayList<ScoredSentence> bases,HttpClient client, int port) {
+    public String buildSentence(ArrayList<ScoredSentence> bases,HttpClient client, int port, double mask_percent, ArrayList<Integer> bannedIndices) {
         ScoredSentence base = selectWeightedRandom(bases, new Random(), 0.8);
         System.out.println("Base sentence: " + base);
         String[] words = base.getSentence().split(" ");
         Random rand = new Random();
-        int numMasks = rand.nextBoolean() ? 3 : 4;
+        int numMasks = (int) Math.ceil(mask_percent * words.length);
         Set<Integer> maskIndices = new HashSet<>();
         while (maskIndices.size() < numMasks) {
             int idx = rand.nextInt(words.length);
+            while (maskIndices.contains(idx) || (bannedIndices != null && bannedIndices.contains(idx))) {
+                idx = rand.nextInt(words.length);
+            }
             maskIndices.add(idx);
         }
         System.out.println("Masking indices: " + maskIndices);

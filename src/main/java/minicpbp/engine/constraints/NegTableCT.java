@@ -18,6 +18,7 @@ package minicpbp.engine.constraints;
 import minicpbp.engine.core.AbstractConstraint;
 import minicpbp.engine.core.IntVar;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.BitSet;
 
@@ -76,6 +77,7 @@ public class NegTableCT extends AbstractConstraint {
         }
         this.table = tableList.toArray(new int[0][]);
         this.tableLength = this.table.length;
+        System.out.println("NegTableCT: table length after removing duplicates = " + this.tableLength);
         menacing = new BitSet(tableLength);
         conflictsi = new BitSet(tableLength);
         tupleWeight = new double[tableLength];
@@ -126,25 +128,25 @@ public class NegTableCT extends AbstractConstraint {
             menacing.and(conflictsi);
         }
 
-        Long prodDomains = 1L;
+        double prodDomains = 1.0;
         for (int i = 0; i < xLength; i++) {
             prodDomains *= x[i].size();
         }
 
         for (int i = 0; i < xLength; i++) {
-            int prodDomainsi = (int) (prodDomains / x[i].size());
+            double prodDomainsi = (double) (prodDomains / x[i].size());
             int s = x[i].fillArray(domainValues);
             for (int j = 0; j < s; j++) {
                 // The condition for removing value v from x[i] is to check if
                 // there are enough (distinct) forbidden tuples to cover all possible supports
                 int v = domainValues[j];
-		BitSet menacingIntersect = (BitSet) menacing.clone();
-		menacingIntersect.and(conflicts[i][v - ofs[i]]);
-		if (menacingIntersect.cardinality() >= prodDomainsi) {
-		    x[i].remove(v);
-		}
-	    }
-	}
+                BitSet menacingIntersect = (BitSet) menacing.clone();
+                menacingIntersect.and(conflicts[i][v - ofs[i]]);
+                if (menacingIntersect.cardinality() >= prodDomainsi) {
+                    x[i].remove(v);
+                }
+            }
+        }
     }
 
     @Override

@@ -101,7 +101,6 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
         int totalSize1 = 0, totalSize2 = 0, totalSize3 = 0;
         int numWords1 = 0, numWords2 = 0, numWords3 = 0;
         for (int i = 0; i < sizes.length; i++) {
-            System.out.println("Line var: " + line[i] + ", size var: " + sizes[i]);
             if(!line[i].isBound() || !sizes[i].isBound()) System.out.println("Line or size variable is not bound");
             if (line[i].valueWithMaxMarginal() == 0) {
                 totalSize1 += sizes[i].valueWithMaxMarginal();

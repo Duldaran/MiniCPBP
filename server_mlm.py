@@ -1,3 +1,4 @@
+from threading import Lock
 import os
 
 from sympy import im
@@ -41,7 +42,41 @@ try:
 except Exception as e:
     print("Import error:", file=sys.stderr)
     traceback.print_exc(file=sys.stderr)
+    
+try:
 
+
+    print("Detecting device...")
+    device='cuda' if torch.cuda.is_available() else 'cpu'
+    if device == 'cuda':
+        print("Using GPU")
+        torch.cuda.set_device(0)
+    else:
+        print("Using CPU")
+
+
+    print("Loading MLM model...")
+    mlm_model_name = "answerdotai/ModernBERT-base" #"roberta-base"
+    mlm_model = AutoModelForMaskedLM.from_pretrained(mlm_model_name).to(device)
+    mlm_tokenizer = AutoTokenizer.from_pretrained(mlm_model_name)
+    print("MLM model ready")
+  
+
+    print("Printing current time...")
+    print(time.time())
+    
+    ppl_model_name = "gpt2"  # could also use "EleutherAI/gpt-neo-1.3B"
+    ppl_tokenizer = AutoTokenizer.from_pretrained(ppl_model_name)
+    ppl_model = AutoModelForCausalLM.from_pretrained(ppl_model_name).to(device)
+    
+
+    print("Ready")
+except Exception as e:
+    print("Error during model/tokenizer/lemmatizer setup:"+str(e), file=sys.stderr)
+    traceback.print_exc(file=sys.stderr)
+    sys.exit(1)
+
+mutex = Lock()
 parser = argparse.ArgumentParser(description="Flask server for token prediction")
 parser.add_argument('--port', type=int, default=5000, help='Port to run the server on')
 args = parser.parse_args()
@@ -91,46 +126,16 @@ def get_mask_distributions(sentence):
     return distributions
 
 
-try:
 
-
-    print("Detecting device...")
-    device='cuda' if torch.cuda.is_available() else 'cpu'
-    if device == 'cuda':
-        print("Using GPU")
-        torch.cuda.set_device(0)
-    else:
-        print("Using CPU")
-
-
-    print("Loading MLM model...")
-    mlm_model_name = "answerdotai/ModernBERT-base" #"roberta-base"
-    mlm_model = AutoModelForMaskedLM.from_pretrained(mlm_model_name).to(device)
-    mlm_tokenizer = AutoTokenizer.from_pretrained(mlm_model_name)
-    print("MLM model ready")
-  
-
-    print("Printing current time...")
-    print(time.time())
-    
-    ppl_model_name = "gpt2"  # could also use "EleutherAI/gpt-neo-1.3B"
-    ppl_tokenizer = AutoTokenizer.from_pretrained(ppl_model_name)
-    ppl_model = AutoModelForCausalLM.from_pretrained(ppl_model_name).to(device)
-    
-
-    print("Ready")
-except Exception as e:
-    print("Error during model/tokenizer/lemmatizer setup:"+str(e), file=sys.stderr)
-    traceback.print_exc(file=sys.stderr)
-    sys.exit(1)
     
 
 
 def calculate_perplexity(sentence: str) -> float:
-    encodings = ppl_tokenizer(sentence, return_tensors="pt").to(device)
-    with torch.no_grad():
-        outputs = ppl_model(**encodings, labels=encodings.input_ids)
-        loss = outputs.loss
+    with mutex:
+        encodings = ppl_tokenizer(sentence, return_tensors="pt").to(device)
+        with torch.no_grad():
+            outputs = ppl_model(**encodings, labels=encodings.input_ids)
+            loss = outputs.loss
     return torch.exp(loss).item()
 
 
@@ -158,7 +163,8 @@ def mlm_predict():
         if mask_string not in sentence:
             return {"error": f"Sentence must contain a mask token ({mask_string})"}, 400
 
-        distributions = get_mask_distributions(sentence)
+        with mutex:
+            distributions = get_mask_distributions(sentence)
         return distributions, 200
     except Exception as e:
         traceback.print_exc()
@@ -258,7 +264,7 @@ def mlm_perplexity():
 if __name__ == '__main__':
     print("Starting server...")
     try:
-        app.run(host="0.0.0.0", port=args.port)
+        app.run(host="0.0.0.0", port=args.port, threaded=True)
     except Exception as e:
         exc_type = type(e).__name__
         print(f"Server crashed with exception type: {exc_type}", file=sys.stderr)

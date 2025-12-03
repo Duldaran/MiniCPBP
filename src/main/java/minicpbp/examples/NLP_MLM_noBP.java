@@ -28,6 +28,7 @@ import minicpbp.engine.core.BoolVar;
 import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
+import minicpbp.engine.core.Solver.PropaMode;
 import minicpbp.search.DFSearch;
 import minicpbp.search.LDSearch;
 import minicpbp.search.Objective;
@@ -76,7 +77,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ibm.icu.impl.Pair;
 
-public class NLP_MLM_v2 {
+public class NLP_MLM_noBP {
     final static String mask_string = "[MASK]";
 
 
@@ -273,7 +274,6 @@ public class NLP_MLM_v2 {
         final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).getSentence().split(" ").length;
         final int ORACLE_TOP_K = oracle_top_k;
         final boolean PRINT_TRACE = false;
-        final int NUM_PB = 3;
         final double w = weight;
         final int solutionLimit = 5;
         final int failureLimit = 100;
@@ -282,8 +282,12 @@ public class NLP_MLM_v2 {
         
         Solver cp = makeSolver();
         cp.actingOnZeroOneBelief();
+        cp.setMode(PropaMode.SP);
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+        for (int i = 0; i < word_index.length; i++) {
+            word_index[i].setName("word_index_" + i);
+        }
         IntVar[] line = makeIntVarArray(cp, word_index.length, 0, 3 - 1);
         cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
@@ -296,7 +300,7 @@ public class NLP_MLM_v2 {
         IntVar[] allVars = new IntVar[word_index.length + line.length];
         System.arraycopy(word_index, 0, allVars, 0, word_index.length);
         System.arraycopy(line, 0, allVars, word_index.length, line.length);
-        DFSearch dfs = makeDfs(cp, maxMarginalStrength(allVars));
+        DFSearch dfs = makeDfs(cp, domWdegWithOracle(allVars, " " + mask_string, port, corpusDomainsSet, word_index, words));
         final int[] l = new int[]{-1};
 
         String[] current_sentence= new String[1];
@@ -430,6 +434,8 @@ public class NLP_MLM_v2 {
                         original_sentence[0] = current_sentence[0];
                         candidateSentences.clear();
 
+                        
+                        
                         try{
                             int[][] neg_table = new int[base_sentence.size()][word_index.length];
                             for (ScoredSentence sentence : base_sentence){
@@ -439,17 +445,16 @@ public class NLP_MLM_v2 {
                                     int word_idx = words.indexOf(" " + word);
                                     neg_table[base_sentence.indexOf(sentence)][idx] = word_idx;
                                 }
-                                System.out.println("Neg table row for sentence: " + sentence.getSentence() + " -> " + Arrays.toString(neg_table[base_sentence.indexOf(sentence)]));
                             }
+                            System.out.println("Posting NegTableCT constraint...");
+                            System.out.println("Neg table: " + Arrays.deepToString(neg_table));
+                            System.out.println("Word index vars: " + word_index.length);
                             cp.post(new NegTableCT(word_index, neg_table));
                         }
                         catch(Exception e){
                             System.out.println("Error posting NegTableCT constraint: " + e.getMessage());
                             e.printStackTrace();
                         }
-                        
-                        System.out.println("Current sentence: " + current_sentence[0]);
-
                         String[] sentenceWords = current_sentence[0].split(" ");
                         List<Integer> masked_indexs = new ArrayList<>();
                         for (int idx = 0; idx < sentenceWords.length; idx++) {
@@ -464,93 +469,9 @@ public class NLP_MLM_v2 {
                             } else {
                                 masked_indexs.add(idx);
                             }
-                        }
-                        
-
-                        
-                        HttpRequest request = HttpRequest.newBuilder()
-                            .uri(URI.create("http://localhost:" + port + "/mlm"))
-                            .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
-                            .build();
-                        String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-
-                        System.out.println("Response: Received");
-
-                        JsonNode jsonNode = null;
-                        try {
-                            jsonNode = objectMapper.readTree(response);
-                        } catch (JsonMappingException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        } catch (JsonProcessingException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                        ObjectNode  maskedTokens = (ObjectNode) jsonNode;
-                        System.out.println("Masked tokens found: " + maskedTokens.size());
-                        int i=0;
-                        for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
-                            String fieldName = it.next();
-                            JsonNode tok = maskedTokens.get(fieldName);
-                            System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
-
-                            int z = tok.get("mask_word_position").asInt();
-                            ArrayNode probsNode = (ArrayNode) tok.get("probs");
-                            ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
-                            List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
-                            for (int idx = 0; idx < probsNode.size(); idx++) {
-                                try {
-                                double prob = probsNode.get(idx).asDouble();
-                                int token = tokensNode.get(idx).asInt();
-                                if (!corpusDomainsSet.containsKey(token)) continue;
-                                if (prob < 0) continue;
-
-                                Pair<Integer, Double> tuple = Pair.of(token, prob);
-                                tokenScoreList.add(tuple);
-                                } catch (Exception e) {
-                                    if (PRINT_TRACE) {
-                                        System.err.println(idx);
-                                        System.err.println(e);
-                                    }
-                                }
-                            }
-
-                            int[] tokens = new int[corpusDomains.size()];
-                            double[] scores = new double[corpusDomains.size()];
-
-                            double total_score = 0;
-            
-
-                            tokenScoreList.sort((a, b) -> Double.compare(
-                                b.second, a.second
-                            ));
-
-
-                            int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
-                            for (int k = 0; k < limit; k++) {
-                                int token = tokenScoreList.get(k).first;
-                                double score = tokenScoreList.get(k).second;
-                                int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
-                                for (int token_index : token_indexes) {
-                                    tokens[token_index] = token_index;
-                                    scores[token_index] = score;
-                                    total_score += score;
-                                }
-                            }
-                            for (int j=0; j<tokens.length; j++) {
-                                double score=scores[j];
-                                if (score > 0) {
-                                    score /= total_score;
-                                }
-                            }
-
-                            Constraint c = Factory.oracle(word_index[z], tokens, scores);
-
-                            c.setWeight(w);
-                            cp.post(c);
-
-
-                        }                                                       
+                        } 
+                        System.out.println("Current sentence: " + current_sentence[0]);
+                                                  
                     }
             );
 
@@ -566,7 +487,6 @@ public class NLP_MLM_v2 {
     result.put("status", "ok");
     result.put("port", port);
     result.put("num_iterations", NUM_ITERATIONS);
-    result.put("num_pb", NUM_PB);
     result.put("weight", w);
     result.put("llm_name", llm_name);
     result.put("config", configArg);
@@ -581,7 +501,7 @@ public class NLP_MLM_v2 {
     result.put("logs", logs);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_" + System.currentTimeMillis()  + ".json";
+    String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_noBP_" + System.currentTimeMillis()  + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
@@ -590,14 +510,14 @@ public class NLP_MLM_v2 {
             // Write error to output file
             String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_" + System.currentTimeMillis()  + "_error.json";
+            String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_noBP_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
             errorResult.put("config", configArg);
             errorResult.put("sentence_builder", sentenceBuilderArg);
-            errorResult.put("seed", seed);  
+            errorResult.put("seed", seed); 
             errorResult.put("oracle_top_k", oracle_top_k);
-            errorResult.put("mask_percent", mask_percent);
+            errorResult.put("mask_percent", mask_percent); 
             errorResult.put("date", java.time.LocalDateTime.now().toString());  
             errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
             errorResult.put("error_message", e.getMessage());

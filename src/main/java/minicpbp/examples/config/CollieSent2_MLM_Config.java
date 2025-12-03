@@ -2,6 +2,9 @@ package minicpbp.examples.config;
 
 import static minicpbp.cp.Factory.equal;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.ibm.icu.impl.Pair;
 
 import minicpbp.cp.Factory;
@@ -73,5 +76,10 @@ public class CollieSent2_MLM_Config implements ConstraintBuilder {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isValid'");
     }
+    @Override
+    public ArrayList<Integer> getBannedIndices(IntVar[] wordVars) {
+        return new ArrayList<>(Arrays.asList(2, 6, 9));
+    }
+    
     
 }

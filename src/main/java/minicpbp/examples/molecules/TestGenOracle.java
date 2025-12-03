@@ -1,5 +1,6 @@
 package minicpbp.examples.molecules;
 
+import minicpbp.engine.constraints.NegTableCT;
 import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
@@ -54,6 +55,7 @@ public class TestGenOracle {
     static int MAX_MOL_WEIGHT = 2750;
     static ArrayList<Logging> logs= new ArrayList<>();
     static String mask_char = "*";
+    static String mask_string = "<mask>";
 
     public static void main(String[] args) {
         if (args.length < 6) {
@@ -67,6 +69,8 @@ public class TestGenOracle {
         int seed = Integer.parseInt(args[4]);
         int NUM_ITERATIONS = Integer.parseInt(args[5]);
         String ref_file = args.length > 6 ? args[6] : "gpt";
+        final double mask_percent = args.length > 7 ? Double.parseDouble(args[7]) : 0.2;
+        final int oracle_top_k = args.length > 8 ? Integer.parseInt(args[8]) : 10;
 
         ArrayList<ScoredMolecule> baseMolecules = new ArrayList<>();
         ArrayList<CycleScoredMolecule> bestScoreTime = new ArrayList<>();
@@ -125,10 +129,16 @@ public class TestGenOracle {
         try{
         switch (architecture) {
             case "v1":
-                v1(oracleWeight, baseMolecules, bestScoreTime, startTime, moleculeBuilder, NUM_ITERATIONS);
+                v1(oracleWeight, baseMolecules, bestScoreTime, startTime, moleculeBuilder, NUM_ITERATIONS, mask_percent, oracle_top_k);
+                break;
+            case "v1_2":
+                v1_2(oracleWeight, baseMolecules, bestScoreTime, startTime, moleculeBuilder, NUM_ITERATIONS, mask_percent, oracle_top_k);
                 break;
             case "v2":
-                v2(oracleWeight, baseMolecules, bestScoreTime, startTime, moleculeBuilder, NUM_ITERATIONS);
+                v2(oracleWeight, baseMolecules, bestScoreTime, startTime, moleculeBuilder, NUM_ITERATIONS, mask_percent, oracle_top_k);
+                break;
+            case "v2_noBP":
+                v2_noBP(oracleWeight, baseMolecules, bestScoreTime, startTime, moleculeBuilder, NUM_ITERATIONS, mask_percent, oracle_top_k);
                 break;
             default:
                 System.out.println("Unrecognized method name. The recognized methods are: v1 and v2");
@@ -143,6 +153,8 @@ public class TestGenOracle {
         result.put("seed", seed);
         result.put("sentence_builder", sentenceBuilderArg);
         result.put("reference_file", ref_file);
+        result.put("oracle_top_k", oracle_top_k);
+        result.put("mask_percent", mask_percent);
         result.put("date", java.time.LocalDateTime.now().toString());  
         result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
         result.put("best_perplexity_evolution", bestScoreTime);
@@ -165,6 +177,8 @@ public class TestGenOracle {
                 errorResult.put("sentence_builder", sentenceBuilderArg);
                 errorResult.put("seed", seed);  
                 errorResult.put("reference_file", ref_file);
+                errorResult.put("oracle_top_k", oracle_top_k);
+                errorResult.put("mask_percent", mask_percent);
                 errorResult.put("date", java.time.LocalDateTime.now().toString());  
                 errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
                 errorResult.put("error_message", e.getMessage());
@@ -188,6 +202,7 @@ public class TestGenOracle {
         static void initialization() throws FileNotFoundException, IOException {
             cp = makeSolver(false);
             g = new CFG(FILE_PATH);
+            cp.actingOnZeroOneBelief();
 
             // Creates the array of token variables
             w = makeIntVarArray(cp, WORD_LENGTH, 0, g.terminalCount()-1);
@@ -340,7 +355,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
         return (jsonNode.get("perplexity").asDouble());
     }
 
-     private static void v1(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, ArrayList<CycleScoredMolecule> bestScoreTime, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS) {
+     private static void v1(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, ArrayList<CycleScoredMolecule> bestScoreTime, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS, double mask_percent, int oracle_top_k) throws FileNotFoundException, IOException {
         try {
          //#region Base initialization
         BaseModel.initialization();
@@ -361,6 +376,9 @@ private static HashMap<Integer, Double> normalizeDistribution(
         GenConstraints.moleculeWeightConstraint(cp, w, tokenWeights, makeIntVar(cp, MIN_MOL_WEIGHT, MAX_MOL_WEIGHT), g);
         //#endregion
         final int solutionLimit = 10;
+        final int failureLimit = 100;
+
+         //#region Search
 
         // Assign remaining tokens after base molecule to underscore
         for (int i = baseMolecules.get(0).getMolecule().length(); i < w.length; i++) {
@@ -451,7 +469,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
             
             dfs.solveSubjectTo(
                 statistics -> statistics.numberOfSolutions() >= solutionLimit || 
-                            statistics.numberOfFailures() >= solutionLimit,
+                            statistics.numberOfFailures() >= failureLimit,
                 () -> {
                     Iterator<Constraint> iteratorC = cp.getConstraints().iterator();
                     while (iteratorC.hasNext()) {
@@ -464,15 +482,30 @@ private static HashMap<Integer, Double> normalizeDistribution(
                     if (candidateMolecules.isEmpty()) {
                         candidateMolecules.add(baseMolecules.get(baseMolecules.size() - 1));
                     }
-                    currentMolecule[0] = moleculeBuilder.buildMolecule(candidateMolecules, client, 5001);
+                    currentMolecule[0] = moleculeBuilder.buildMolecule(candidateMolecules, client, 5001, mask_percent);
                     originalMolecule[0] = currentMolecule[0];
                     candidateMolecules.clear();
+
+                    int[][] neg_table = new int[baseMolecules.size()][w.length];
+                    for (ScoredMolecule molecules : baseMolecules){
+                        String[] words_in_sentence = Tokenizers.tokenizeV7(molecules.getMolecule()).toArray(new String[0]);
+                        for (int idx = 0; idx < w.length; idx++) {
+                            if(idx>=words_in_sentence.length){
+                                neg_table[baseMolecules.indexOf(molecules)][idx] = g.tokenEncoder.get("_");
+                                continue;
+                            }
+                            String token = words_in_sentence[idx];
+                            int token_idx = g.tokenEncoder.get(token);
+                            neg_table[baseMolecules.indexOf(molecules)][idx] = token_idx;
+                        }
+                    }
+                    cp.post(new NegTableCT(w, neg_table));
                     
                     System.out.println("Current iteration " + iterationCount[0] + ": " + currentMolecule[0]);
                     
                     // Parse current molecule to assign known positions
                     currentMolecule[0] = currentMolecule[0].replace("<mask>", mask_char);
-                    String[] tokens = currentMolecule[0].split("");
+                    String[] tokens = Tokenizers.tokenizeV7(currentMolecule[0]).toArray(new String[0]);
                     List<Integer> maskedIndexes = new ArrayList<>();
                     
                     for (int idx = 0; idx < tokens.length; idx++) {
@@ -562,7 +595,9 @@ private static HashMap<Integer, Double> normalizeDistribution(
                         double[] oracleScores = new double[grammarSize];
                         double totalScore = 0;
 
-                        for (int k = 0; k < tokenScoreList.size(); k++) {
+                        int topK = Math.min(oracle_top_k, tokenScoreList.size());
+
+                        for (int k = 0; k < topK; k++) {
                             int tokenId = tokenScoreList.get(k).first;
                             double score = tokenScoreList.get(k).second;
 
@@ -691,7 +726,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
 }
 
 
-    private static void v2(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, ArrayList<CycleScoredMolecule> bestScoreTime, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS) {
+    private static void v2(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, ArrayList<CycleScoredMolecule> bestScoreTime, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS, double mask_percent, int oracle_top_k) throws FileNotFoundException, IOException {
         try {
          //#region Base initialization
         BaseModel.initialization();
@@ -712,6 +747,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
         GenConstraints.moleculeWeightConstraint(cp, w, tokenWeights, makeIntVar(cp, MIN_MOL_WEIGHT, MAX_MOL_WEIGHT), g);
         //#endregion
         final int solutionLimit = 10;
+        final int failureLimit = 100;
 
         DFSearch dfs = makeDfs(cp, maxMarginalStrength(w));
         final int[] iterationCount = new int[]{0};
@@ -801,7 +837,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
             
             dfs.solveSubjectTo(
                 statistics -> statistics.numberOfSolutions() >= solutionLimit || 
-                            statistics.numberOfFailures() >= solutionLimit,
+                            statistics.numberOfFailures() >= failureLimit,
                 () -> {
                     Iterator<Constraint> iteratorC = cp.getConstraints().iterator();
                     while (iteratorC.hasNext()) {
@@ -814,15 +850,30 @@ private static HashMap<Integer, Double> normalizeDistribution(
                     if (candidateMolecules.isEmpty()) {
                         candidateMolecules.add(baseMolecules.get(baseMolecules.size() - 1));
                     }
-                    currentMolecule[0] = moleculeBuilder.buildMolecule(candidateMolecules, client, 5001);
+                    currentMolecule[0] = moleculeBuilder.buildMolecule(candidateMolecules, client, 5001, mask_percent);
                     originalMolecule[0] = currentMolecule[0];
                     candidateMolecules.clear();
+
+                    int[][] neg_table = new int[baseMolecules.size()][w.length];
+                    for (ScoredMolecule molecules : baseMolecules){
+                        String[] words_in_sentence = Tokenizers.tokenizeV7(molecules.getMolecule()).toArray(new String[0]);
+                        for (int idx = 0; idx < w.length; idx++) {
+                            if(idx>=words_in_sentence.length){
+                                neg_table[baseMolecules.indexOf(molecules)][idx] = g.tokenEncoder.get("_");
+                                continue;
+                            }
+                            String token = words_in_sentence[idx];
+                            int token_idx = g.tokenEncoder.get(token);
+                            neg_table[baseMolecules.indexOf(molecules)][idx] = token_idx;
+                        }
+                    }
+                    cp.post(new NegTableCT(w, neg_table));
                     
                     System.out.println("Current iteration " + iterationCount[0] + ": " + currentMolecule[0]);
                     
                     // Parse current molecule to assign known positions
                     currentMolecule[0] = currentMolecule[0].replace("<mask>", mask_char);
-                    String[] tokens = currentMolecule[0].split("");
+                    String[] tokens = Tokenizers.tokenizeV7(currentMolecule[0]).toArray(new String[0]);
                     List<Integer> maskedIndexes = new ArrayList<>();
                     
                     for (int idx = 0; idx < tokens.length; idx++) {
@@ -913,8 +964,9 @@ private static HashMap<Integer, Double> normalizeDistribution(
                         double[] oracleScores = new double[g.tokenEncoder.size()];
                         double totalScore = 0;
                         
+                        int topK = Math.min(oracle_top_k, tokenScoreList.size());
                         
-                        for (int k = 0; k < tokenScoreList.size(); k++) {
+                        for (int k = 0; k < topK; k++) {
                             int tokenId = tokenScoreList.get(k).first;
                             double score = tokenScoreList.get(k).second;
                             
@@ -944,6 +996,359 @@ private static HashMap<Integer, Double> normalizeDistribution(
                         c.setWeight(oracleWeight);
                         cp.post(c);
                     }
+                }
+            );
+        }
+    
+    } catch (Exception e) {
+        System.out.println(e);
+        e.printStackTrace();
+    }
+}
+
+    private static void v2_noBP(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, ArrayList<CycleScoredMolecule> bestScoreTime, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS, double mask_percent, int oracle_top_k) throws FileNotFoundException, IOException {
+        try {
+         //#region Base initialization
+        BaseModel.initialization();
+        // Create variables to shorten access
+        Solver cp = BaseModel.cp;
+        CFG g = BaseModel.g;
+        IntVar[] w = BaseModel.w;
+        IntVar[] tokenWeights = BaseModel.tokenWeights;
+        //#endregion
+        
+        //#region Constraints
+        // Smiles Validity
+        GenConstraints.grammarConstraint(cp,w,g);
+        GenConstraints.cycleCountingConstraint(cp,w,g,1,8);
+        GenConstraints.cycleParityConstraint(cp,w,g,1,8);
+
+        // Other constraints
+        GenConstraints.moleculeWeightConstraint(cp, w, tokenWeights, makeIntVar(cp, MIN_MOL_WEIGHT, MAX_MOL_WEIGHT), g);
+        //#endregion
+        final int solutionLimit = 10;
+        final int failureLimit = 100;
+
+        DFSearch dfs = makeDfs(cp, domWdegWithOracle(w, mask_string, TOKEN_ADDRESS, g.tokenEncoder, g.tokenDecoder));
+        final int[] iterationCount = new int[]{0};
+        
+        // Assign remaining tokens after base molecule to underscore
+        for (int i = baseMolecules.get(0).getMolecule().length(); i < w.length; i++) {
+            if (g.tokenEncoder.containsKey("_")) {
+                w[i].assign(g.tokenEncoder.get("_"));
+            }
+        }
+        
+        String[] originalMolecule = new String[1];
+        String[] currentMolecule = new String[1];
+        
+        ArrayList<ScoredMolecule> candidateMolecules = new ArrayList<>();
+        HttpClient client = HttpClient.newHttpClient();
+        
+        final Double[] bestScore = new Double[]{Double.MAX_VALUE};
+        
+        dfs.onSolution(() -> {
+            // Build molecule from assigned w values
+            String solution = "";
+            
+            for (int i = 0; i < w.length; i++) {
+                if (w[i].isBound() == false) {
+                    throw new RuntimeException("Variable not assigned at solution for index " + i);
+                }
+                int assigned = w[i].min();
+                String token = g.tokenDecoder.get(assigned);
+                if(token.equals("_")) break;
+                solution += token;
+            }
+            
+            solution = solution.trim();
+            System.out.println("Solution found: " + solution);
+            
+            // Evaluate solution
+            if (!solution.contains("ERROR")) {
+
+                double score = getMoleculePerplexity(solution);
+                
+                ScoredMolecule solutionMolecule = new ScoredMolecule(solution, score);
+                
+                System.out.println("Solution evaluated: " + solution + " with score " + score);
+                
+                // Check for duplicates
+                if (baseMolecules.contains(solutionMolecule)) {
+                    System.out.println("Duplicate molecule, skipping: " + solution);
+                    return;
+                }
+              
+                if (score < bestScore[0]) {
+                    bestScore[0] = score;
+                    bestScoreTime.add(new CycleScoredMolecule(
+                        solution, 
+                        score, 
+                        System.currentTimeMillis() - startTime, 
+                        iterationCount[0]
+                    ));
+                }
+                if (score < bestScore[0] * 2) {
+                    Logging newLog = new Logging(
+                        solution, 
+                        originalMolecule[0], 
+                        score, 
+                        System.currentTimeMillis() - startTime
+                    );
+                    logs.add(newLog);
+                    baseMolecules.add(solutionMolecule);
+                    candidateMolecules.add(solutionMolecule);
+                }
+                
+            } else {
+                // Log error cases
+                Logging newLog = new Logging(
+                    solution, 
+                    originalMolecule[0], 
+                    -1, 
+                    System.currentTimeMillis() - startTime
+                );
+                logs.add(newLog);
+            }
+        });
+        
+        while (iterationCount[0] < NUM_ITERATIONS - 1) {
+            iterationCount[0]++;
+            
+            dfs.solveSubjectTo(
+                statistics -> statistics.numberOfSolutions() >= solutionLimit || 
+                            statistics.numberOfFailures() >= failureLimit,
+                () -> {
+                    Iterator<Constraint> iteratorC = cp.getConstraints().iterator();
+                    while (iteratorC.hasNext()) {
+                        Constraint c = iteratorC.next();
+                        if (c.getName().equals("Oracle")) {
+                            c.setActive(false);
+                        }
+                    }
+                    // Select current molecule to extend
+                    if (candidateMolecules.isEmpty()) {
+                        candidateMolecules.add(baseMolecules.get(baseMolecules.size() - 1));
+                    }
+                    currentMolecule[0] = moleculeBuilder.buildMolecule(candidateMolecules, client, 5001, mask_percent);
+                    originalMolecule[0] = currentMolecule[0];
+                    candidateMolecules.clear();
+
+                    int[][] neg_table = new int[baseMolecules.size()][w.length];
+                    for (ScoredMolecule molecules : baseMolecules){
+                        String[] words_in_sentence = Tokenizers.tokenizeV7(molecules.getMolecule()).toArray(new String[0]);
+                        for (int idx = 0; idx < w.length; idx++) {
+                            if(idx>=words_in_sentence.length){
+                                neg_table[baseMolecules.indexOf(molecules)][idx] = g.tokenEncoder.get("_");
+                                continue;
+                            }
+                            String token = words_in_sentence[idx];
+                            int token_idx = g.tokenEncoder.get(token);
+                            neg_table[baseMolecules.indexOf(molecules)][idx] = token_idx;
+                        }
+                    }
+                    cp.post(new NegTableCT(w, neg_table));
+                    
+                    System.out.println("Current iteration " + iterationCount[0] + ": " + currentMolecule[0]);
+                    
+                    // Parse current molecule to assign known positions
+                    currentMolecule[0] = currentMolecule[0].replace("<mask>", mask_char);
+                    String[] tokens = Tokenizers.tokenizeV7(currentMolecule[0]).toArray(new String[0]);
+                    List<Integer> maskedIndexes = new ArrayList<>();
+                    
+                    for (int idx = 0; idx < tokens.length; idx++) {
+                        if (!tokens[idx].equals(mask_char)) {
+                            try {
+                                String token = tokens[idx];
+                                if (g.tokenEncoder.containsKey(token)) {
+                                    w[idx].assign(g.tokenEncoder.get(token));
+                                }
+                            } catch (Exception e) {
+                                System.err.println("Error assigning index " + idx + " to token " + tokens[idx]);
+                                System.err.println(g.tokenEncoder.containsKey(tokens[idx]));
+                            }
+                        } else {
+                            maskedIndexes.add(idx);
+                        }
+                    }
+                    
+                    
+                }
+            );
+        }
+    
+    } catch (Exception e) {
+        System.out.println(e);
+        e.printStackTrace();
+    }
+}
+    private static void v1_2(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, ArrayList<CycleScoredMolecule> bestScoreTime, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS, double mask_percent, int oracle_top_k) throws FileNotFoundException, IOException {
+        try {
+         //#region Base initialization
+        BaseModel.initialization();
+        // Create variables to shorten access
+        Solver cp = BaseModel.cp;
+        CFG g = BaseModel.g;
+        IntVar[] w = BaseModel.w;
+        IntVar[] tokenWeights = BaseModel.tokenWeights;
+        //#endregion
+        
+        //#region Constraints
+        // Smiles Validity
+        GenConstraints.grammarConstraint(cp,w,g);
+        GenConstraints.cycleCountingConstraint(cp,w,g,1,8);
+        GenConstraints.cycleParityConstraint(cp,w,g,1,8);
+
+        // Other constraints
+        GenConstraints.moleculeWeightConstraint(cp, w, tokenWeights, makeIntVar(cp, MIN_MOL_WEIGHT, MAX_MOL_WEIGHT), g);
+        //#endregion
+        final int solutionLimit = 10;
+        final int failureLimit = 100;
+
+        DFSearch dfs = makeDfs(cp, maxMarginalStrengthWithOracle(w, mask_string, TOKEN_ADDRESS, g.tokenEncoder, g.tokenDecoder , w, oracleWeight, oracle_top_k));
+        final int[] iterationCount = new int[]{0};
+        
+        // Assign remaining tokens after base molecule to underscore
+        for (int i = baseMolecules.get(0).getMolecule().length(); i < w.length; i++) {
+            if (g.tokenEncoder.containsKey("_")) {
+                w[i].assign(g.tokenEncoder.get("_"));
+            }
+        }
+        
+        String[] originalMolecule = new String[1];
+        String[] currentMolecule = new String[1];
+        
+        ArrayList<ScoredMolecule> candidateMolecules = new ArrayList<>();
+        HttpClient client = HttpClient.newHttpClient();
+        
+        final Double[] bestScore = new Double[]{Double.MAX_VALUE};
+        
+        dfs.onSolution(() -> {
+            // Build molecule from assigned w values
+            String solution = "";
+            
+            for (int i = 0; i < w.length; i++) {
+                if (w[i].isBound() == false) {
+                    throw new RuntimeException("Variable not assigned at solution for index " + i);
+                }
+                int assigned = w[i].min();
+                String token = g.tokenDecoder.get(assigned);
+                if(token.equals("_")) break;
+                solution += token;
+            }
+            
+            solution = solution.trim();
+            System.out.println("Solution found: " + solution);
+            
+            // Evaluate solution
+            if (!solution.contains("ERROR")) {
+
+                double score = getMoleculePerplexity(solution);
+                
+                ScoredMolecule solutionMolecule = new ScoredMolecule(solution, score);
+                
+                System.out.println("Solution evaluated: " + solution + " with score " + score);
+                
+                // Check for duplicates
+                if (baseMolecules.contains(solutionMolecule)) {
+                    System.out.println("Duplicate molecule, skipping: " + solution);
+                    return;
+                }
+              
+                if (score < bestScore[0]) {
+                    bestScore[0] = score;
+                    bestScoreTime.add(new CycleScoredMolecule(
+                        solution, 
+                        score, 
+                        System.currentTimeMillis() - startTime, 
+                        iterationCount[0]
+                    ));
+                }
+                if (score < bestScore[0] * 2) {
+                    Logging newLog = new Logging(
+                        solution, 
+                        originalMolecule[0], 
+                        score, 
+                        System.currentTimeMillis() - startTime
+                    );
+                    logs.add(newLog);
+                    baseMolecules.add(solutionMolecule);
+                    candidateMolecules.add(solutionMolecule);
+                }
+                
+            } else {
+                // Log error cases
+                Logging newLog = new Logging(
+                    solution, 
+                    originalMolecule[0], 
+                    -1, 
+                    System.currentTimeMillis() - startTime
+                );
+                logs.add(newLog);
+            }
+        });
+        
+        while (iterationCount[0] < NUM_ITERATIONS - 1) {
+            iterationCount[0]++;
+            
+            dfs.solveSubjectTo(
+                statistics -> statistics.numberOfSolutions() >= solutionLimit || 
+                            statistics.numberOfFailures() >= failureLimit,
+                () -> {
+                    Iterator<Constraint> iteratorC = cp.getConstraints().iterator();
+                    while (iteratorC.hasNext()) {
+                        Constraint c = iteratorC.next();
+                        if (c.getName().equals("Oracle")) {
+                            c.setActive(false);
+                        }
+                    }
+                    // Select current molecule to extend
+                    if (candidateMolecules.isEmpty()) {
+                        candidateMolecules.add(baseMolecules.get(baseMolecules.size() - 1));
+                    }
+                    currentMolecule[0] = moleculeBuilder.buildMolecule(candidateMolecules, client, 5001, mask_percent);
+                    originalMolecule[0] = currentMolecule[0];
+                    candidateMolecules.clear();
+
+                    int[][] neg_table = new int[baseMolecules.size()][w.length];
+                    for (ScoredMolecule molecules : baseMolecules){
+                        String[] words_in_sentence = Tokenizers.tokenizeV7(molecules.getMolecule()).toArray(new String[0]);
+                        for (int idx = 0; idx < w.length; idx++) {
+                            if(idx>=words_in_sentence.length){
+                                neg_table[baseMolecules.indexOf(molecules)][idx] = g.tokenEncoder.get("_");
+                                continue;
+                            }
+                            String token = words_in_sentence[idx];
+                            int token_idx = g.tokenEncoder.get(token);
+                            neg_table[baseMolecules.indexOf(molecules)][idx] = token_idx;
+                        }
+                    }
+                    cp.post(new NegTableCT(w, neg_table));
+                    
+                    System.out.println("Current iteration " + iterationCount[0] + ": " + currentMolecule[0]);
+                    
+                    // Parse current molecule to assign known positions
+                    currentMolecule[0] = currentMolecule[0].replace("<mask>", mask_char);
+                    String[] tokens = Tokenizers.tokenizeV7(currentMolecule[0]).toArray(new String[0]);
+                    List<Integer> maskedIndexes = new ArrayList<>();
+                    
+                    for (int idx = 0; idx < tokens.length; idx++) {
+                        if (!tokens[idx].equals(mask_char)) {
+                            try {
+                                String token = tokens[idx];
+                                if (g.tokenEncoder.containsKey(token)) {
+                                    w[idx].assign(g.tokenEncoder.get(token));
+                                }
+                            } catch (Exception e) {
+                                System.err.println("Error assigning index " + idx + " to token " + tokens[idx]);
+                                System.err.println(g.tokenEncoder.containsKey(tokens[idx]));
+                            }
+                        } else {
+                            maskedIndexes.add(idx);
+                        }
+                    }
+                    
+                    
                 }
             );
         }

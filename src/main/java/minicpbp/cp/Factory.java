@@ -31,12 +31,29 @@ import minicpbp.util.Procedure;
 import minicpbp.util.CFG;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.List;
+import java.util.Map;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
+
+import org.antlr.v4.runtime.atn.SemanticContext.OR;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.ibm.icu.impl.Pair;
 
 /**
  * Factory to create {@link Solver}, {@link IntVar}, {@link Constraint}
@@ -345,6 +362,236 @@ public final class Factory {
         x.getSolver().propagateSolver();
     }
 
+    public static void branchEqualWithOracle(IntVar x, int v, String mask_token, int port, Map<Integer, List<Integer>> corpusDomainsSet  , IntVar[] word_index, ArrayList<String> words, double w, int ORACLE_TOP_K) {
+        x.assign(v);
+        Iterator<Constraint> iteratorC = x.getSolver().getConstraints().iterator();
+        while (iteratorC.hasNext()) {
+            Constraint c = iteratorC.next();
+            if (c.getName().equals("Oracle")) {
+                c.setActive(false);
+            }
+        }
+
+        ArrayList<Integer> mask_index = new ArrayList<>();
+        String current_sentence = "";
+        for (int i = 0; i < word_index.length; i++) {
+            IntVar var = word_index[i];
+            if (var.isBound()) {
+                current_sentence += words.get(var.min());
+            } else {
+                current_sentence += mask_token;
+                mask_index.add(i);
+            }
+        }
+        if (mask_index.size()>0){
+            HttpClient client = HttpClient.newHttpClient(); 
+            ObjectMapper objectMapper = new ObjectMapper();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + port + "/mlm"))
+                .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence+"."))
+                .build();
+            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+            System.out.println("Response: Received");
+
+            JsonNode jsonNode = null;
+            try {
+                jsonNode = objectMapper.readTree(response);
+            } catch (JsonMappingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (JsonProcessingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+            System.out.println("Masked tokens found: " + maskedTokens.size());
+            int i=0;
+            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                String fieldName = it.next();
+                JsonNode tok = maskedTokens.get(fieldName);
+                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                int z = tok.get("mask_word_position").asInt();
+                ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                for (int idx = 0; idx < probsNode.size(); idx++) {
+                    try {
+                    double prob = probsNode.get(idx).asDouble();
+                    int token = tokensNode.get(idx).asInt();
+                    if (!corpusDomainsSet.containsKey(token)) continue;
+                    if (prob < 0) continue;
+
+                    Pair<Integer, Double> tuple = Pair.of(token, prob);
+                    tokenScoreList.add(tuple);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                int[] tokens = new int[words.size()];
+                double[] scores = new double[words.size()];
+
+                double total_score = 0;
+
+
+                tokenScoreList.sort((a, b) -> Double.compare(
+                    b.second, a.second
+                ));
+
+
+                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                for (int k = 0; k < limit; k++) {
+                    int token = tokenScoreList.get(k).first;
+                    double score = tokenScoreList.get(k).second;
+                    int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                    for (int token_index : token_indexes) {
+                        tokens[token_index] = token_index;
+                        scores[token_index] = score;
+                        total_score += score;
+                    }
+                }
+                for (int j=0; j<tokens.length; j++) {
+                    double score=scores[j];
+                    if (score > 0) {
+                        score /= total_score;
+                    }
+                }
+
+                Constraint c = Factory.oracle(word_index[z], tokens, scores);
+
+                c.setWeight(w);
+                x.getSolver().post(c);
+            }
+        }
+        x.getSolver().propagateSolver();
+    }
+
+    public static void branchEqualWithOracle(IntVar x, int v, String mask, String TOKEN_ADDRESS, Map<String, Integer> encoder, Map<Integer, String> decoder, IntVar[] w, double weight, int ORACLE_TOP_K) {
+        x.assign(v);
+        Iterator<Constraint> iteratorC = x.getSolver().getConstraints().iterator();
+        while (iteratorC.hasNext()) {
+            Constraint c = iteratorC.next();
+            if (c.getName().equals("Oracle")) {
+                c.setActive(false);
+            }
+        }
+
+        ArrayList<Integer> mask_index = new ArrayList<>();
+        String currentMolecule = "";
+        for (int i = 0; i < w.length; i++) {
+            IntVar var = w[i];
+            if (var.isBound()) {
+                currentMolecule += decoder.get(var.min());
+            } else {
+                currentMolecule += mask;
+                mask_index.add(i);
+            }
+        }
+        if (mask_index.size()>0){
+            HttpClient client = HttpClient.newHttpClient(); 
+            ObjectMapper objectMapper = new ObjectMapper();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(TOKEN_ADDRESS))
+                .POST(HttpRequest.BodyPublishers.ofString("<s>"+currentMolecule+"."))
+                .build();
+            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+            System.out.println("Response: Received");
+
+            JsonNode jsonNode = null;
+            try {
+                jsonNode = objectMapper.readTree(response);
+            } catch (JsonMappingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (JsonProcessingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+            System.out.println("Masked tokens found: " + maskedTokens.size());
+            int i=0;
+            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                String fieldName = it.next();
+                JsonNode tok = maskedTokens.get(fieldName);
+                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                int z = tok.get("mask_index").asInt();
+                ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                
+                for (int idx = 0; idx < probsNode.size(); idx++) {
+                    try {
+                        double prob = probsNode.get(idx).asDouble();
+                        int tokenId = tokensNode.get(idx).asInt();
+                        
+                        // Check if token exists in grammar
+                        boolean tokenInGrammar = false;
+                        for (Integer grammarToken : encoder.values()) {
+                            if (grammarToken == tokenId) {
+                                tokenInGrammar = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!tokenInGrammar) continue;
+                        if (prob < 0) continue;
+                        
+                        Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                        tokenScoreList.add(tuple);
+                        
+                    } catch (Exception e) {
+                        System.err.println("Error at index: " + idx);
+                        System.err.println(e);
+                    }
+                }
+
+                int[] oracleTokens = new int[encoder.size()];
+                double[] oracleScores = new double[encoder.size()];
+                double totalScore = 0;
+                
+                int topK = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                
+                for (int k = 0; k < topK; k++) {
+                    int tokenId = tokenScoreList.get(k).first;
+                    double score = tokenScoreList.get(k).second;
+                    
+                    // Find indices in grammar for this token
+                    for (Map.Entry<String, Integer> entry : encoder.entrySet()) {
+                        if (entry.getValue() == tokenId) {
+                            int tokenIndex = entry.getValue();
+                            oracleTokens[tokenIndex] = tokenIndex;
+                            oracleScores[tokenIndex] = score;
+                            totalScore += score;
+                            break;
+                        }
+                    }
+                }
+                
+                // Normalize scores
+                for (int j = 0; j < oracleTokens.length; j++) {
+                    double score = oracleScores[j];
+                    if (score > 0) {
+                        score /= totalScore;
+                        oracleScores[j] = score;
+                    }
+                }
+
+                Constraint c = Factory.oracle(w[z], oracleTokens, oracleScores);
+
+                c.setWeight(weight);
+                x.getSolver().post(c);
+            }
+        }
+        x.getSolver().propagateSolver();
+    }
+
+
+    
+
     /**
      * Branches on x=v,  
      * performs propagation according to the mode
@@ -502,6 +749,234 @@ public final class Factory {
      */
     public static void branchNotEqual(IntVar x, int v) {
         x.remove(v);
+        x.getSolver().propagateSolver();
+    }
+
+    public static void branchNotEqualWithOracle(IntVar x, int v, String mask_token, int port, Map<Integer, List<Integer>> corpusDomainsSet  , IntVar[] word_index, ArrayList<String> words, double w, int ORACLE_TOP_K) {
+        x.remove(v);
+        Iterator<Constraint> iteratorC = x.getSolver().getConstraints().iterator();
+        while (iteratorC.hasNext()) {
+            Constraint c = iteratorC.next();
+            if (c.getName().equals("Oracle")) {
+                c.setActive(false);
+            }
+        }
+
+        ArrayList<Integer> mask_index = new ArrayList<>();
+        String current_sentence = "";
+        for (int i = 0; i < word_index.length; i++) {
+            IntVar var = word_index[i];
+            if (var.isBound()) {
+                current_sentence += words.get(var.min());
+            } else {
+                current_sentence += mask_token;
+                mask_index.add(i);
+            }
+        }
+
+        if(mask_index.size()>0){
+            HttpClient client = HttpClient.newHttpClient(); 
+            ObjectMapper objectMapper = new ObjectMapper();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + port + "/mlm"))
+                .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence+"."))
+                .build();
+            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+            System.out.println("Response: Received");
+
+            JsonNode jsonNode = null;
+            try {
+                jsonNode = objectMapper.readTree(response);
+            } catch (JsonMappingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (JsonProcessingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+            System.out.println("Masked tokens found: " + maskedTokens.size());
+            int i=0;
+            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                String fieldName = it.next();
+                JsonNode tok = maskedTokens.get(fieldName);
+                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                int z = tok.get("mask_word_position").asInt();
+                ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                for (int idx = 0; idx < probsNode.size(); idx++) {
+                    try {
+                    double prob = probsNode.get(idx).asDouble();
+                    int token = tokensNode.get(idx).asInt();
+                    if (!corpusDomainsSet.containsKey(token)) continue;
+                    if (prob < 0) continue;
+
+                    Pair<Integer, Double> tuple = Pair.of(token, prob);
+                    tokenScoreList.add(tuple);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                int[] tokens = new int[words.size()];
+                double[] scores = new double[words.size()];
+
+                double total_score = 0;
+
+
+                tokenScoreList.sort((a, b) -> Double.compare(
+                    b.second, a.second
+                ));
+
+
+                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                for (int k = 0; k < limit; k++) {
+                    int token = tokenScoreList.get(k).first;
+                    double score = tokenScoreList.get(k).second;
+                    int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                    for (int token_index : token_indexes) {
+                        tokens[token_index] = token_index;
+                        scores[token_index] = score;
+                        total_score += score;
+                    }
+                }
+                for (int j=0; j<tokens.length; j++) {
+                    double score=scores[j];
+                    if (score > 0) {
+                        score /= total_score;
+                    }
+                }
+
+                Constraint c = Factory.oracle(word_index[z], tokens, scores);
+
+                c.setWeight(w);
+                x.getSolver().post(c);
+            }
+        }
+        x.getSolver().propagateSolver();
+    }
+
+    public static void branchNotEqualWithOracle(IntVar x, int v, String mask, String TOKEN_ADDRESS, Map<String, Integer> encoder, Map<Integer, String> decoder, IntVar[] w, double weight, int ORACLE_TOP_K) {
+        x.remove(v);
+        Iterator<Constraint> iteratorC = x.getSolver().getConstraints().iterator();
+        while (iteratorC.hasNext()) {
+            Constraint c = iteratorC.next();
+            if (c.getName().equals("Oracle")) {
+                c.setActive(false);
+            }
+        }
+
+        ArrayList<Integer> mask_index = new ArrayList<>();
+        String currentMolecule = "";
+        for (int i = 0; i < w.length; i++) {
+            IntVar var = w[i];
+            if (var.isBound()) {
+                currentMolecule += decoder.get(var.min());
+            } else {
+                currentMolecule += mask;
+                mask_index.add(i);
+            }
+        }
+        if (mask_index.size()>0){
+            HttpClient client = HttpClient.newHttpClient(); 
+            ObjectMapper objectMapper = new ObjectMapper();
+            HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(TOKEN_ADDRESS))
+                .POST(HttpRequest.BodyPublishers.ofString("<s>"+currentMolecule+"."))
+                .build();
+            String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+            System.out.println("Response: Received");
+
+            JsonNode jsonNode = null;
+            try {
+                jsonNode = objectMapper.readTree(response);
+            } catch (JsonMappingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (JsonProcessingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+            System.out.println("Masked tokens found: " + maskedTokens.size());
+            int i=0;
+            for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                String fieldName = it.next();
+                JsonNode tok = maskedTokens.get(fieldName);
+                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                int z = tok.get("mask_index").asInt();
+                ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                
+                for (int idx = 0; idx < probsNode.size(); idx++) {
+                    try {
+                        double prob = probsNode.get(idx).asDouble();
+                        int tokenId = tokensNode.get(idx).asInt();
+                        
+                        // Check if token exists in grammar
+                        boolean tokenInGrammar = false;
+                        for (Integer grammarToken : encoder.values()) {
+                            if (grammarToken == tokenId) {
+                                tokenInGrammar = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!tokenInGrammar) continue;
+                        if (prob < 0) continue;
+                        
+                        Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                        tokenScoreList.add(tuple);
+                        
+                    } catch (Exception e) {
+                        System.err.println("Error at index: " + idx);
+                        System.err.println(e);
+                    }
+                }
+
+                int[] oracleTokens = new int[encoder.size()];
+                double[] oracleScores = new double[encoder.size()];
+                double totalScore = 0;
+                
+                int topK = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                
+                for (int k = 0; k < topK; k++) {
+                    int tokenId = tokenScoreList.get(k).first;
+                    double score = tokenScoreList.get(k).second;
+                    
+                    // Find indices in grammar for this token
+                    for (Map.Entry<String, Integer> entry : encoder.entrySet()) {
+                        if (entry.getValue() == tokenId) {
+                            int tokenIndex = entry.getValue();
+                            oracleTokens[tokenIndex] = tokenIndex;
+                            oracleScores[tokenIndex] = score;
+                            totalScore += score;
+                            break;
+                        }
+                    }
+                }
+                
+                // Normalize scores
+                for (int j = 0; j < oracleTokens.length; j++) {
+                    double score = oracleScores[j];
+                    if (score > 0) {
+                        score /= totalScore;
+                        oracleScores[j] = score;
+                    }
+                }
+
+                Constraint c = Factory.oracle(w[z], oracleTokens, oracleScores);
+
+                c.setWeight(weight);
+                x.getSolver().post(c);
+            }
+        }
         x.getSolver().propagateSolver();
     }
 

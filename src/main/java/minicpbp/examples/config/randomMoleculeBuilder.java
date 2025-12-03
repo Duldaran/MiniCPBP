@@ -10,7 +10,7 @@ public class randomMoleculeBuilder implements MoleculeBuilder {
     private final String mask_string = "<mask>";
 
     @Override
-    public String buildMolecule(ArrayList<ScoredMolecule> bases, HttpClient client, int port) {
+    public String buildMolecule(ArrayList<ScoredMolecule> bases, HttpClient client, int port, double mask_percent) {
         ScoredMolecule base = selectWeightedRandom(bases, new Random(), 0.8);
         System.out.println("Base molecule: " + base);
         
@@ -19,10 +19,7 @@ public class randomMoleculeBuilder implements MoleculeBuilder {
         
         Random rand = new Random();
         
-        // Determine number of positions to mask (e.g., 20-30% of molecule length)
-        int minMasks = Math.max(2, chars.length / 5);
-        int maxMasks = Math.max(2, chars.length / 3);
-        int numMasks = rand.nextInt(maxMasks - minMasks + 1) + minMasks;
+        int numMasks = (int) Math.ceil(mask_percent * chars.length);
         
         Set<Integer> maskIndices = new HashSet<>();
         
