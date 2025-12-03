@@ -151,13 +151,9 @@ public class NLP_MLM_v1_2 {
             System.err.println("Could not read base sentence file, using default.");
         }
 
-        HttpRequest request_init = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:" + port + "/perplexity"))
-            .POST(HttpRequest.BodyPublishers.ofString(initial_sentence+"."))
-            .build();
-        String response_init = client.sendAsync(request_init, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-        JsonNode jsonNode_init = objectMapper.readTree(response_init);
-        double ppl_init = jsonNode_init.get("perplexity").asDouble();
+        
+
+        double ppl_init = -1.0;
         base_sentence.add(new ScoredSentence(initial_sentence, ppl_init));
 
 
@@ -275,7 +271,7 @@ public class NLP_MLM_v1_2 {
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
-        final int solutionLimit = 5;
+        final int solutionLimit = 1;
         final int failureLimit = 100;
 
         System.out.println("Building model...");
@@ -303,10 +299,7 @@ public class NLP_MLM_v1_2 {
 
 
 
-        ArrayList<CycleScoredSentence> best_perplexity_time = new ArrayList<>();
-        final Double[] bestPerplexity = new Double[] { Double.MAX_VALUE };
 
-        
         ArrayList<ScoredSentence> candidateSentences = new ArrayList<>();
 
         dfs.onSolution(() -> {
@@ -354,25 +347,11 @@ public class NLP_MLM_v1_2 {
 
 
             if(!solution.contains("ERROR")){
-                HttpRequest request3 = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:" + port + "/perplexity"))
-                    .POST(HttpRequest.BodyPublishers.ofString(solution))
-                    .build();
-                String response3 = client.sendAsync(request3, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-                JsonNode jsonNode3 = null;
-                try {
-                    jsonNode3 = objectMapper.readTree(response3);
-                } catch (JsonMappingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (JsonProcessingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                
                 if (solution.endsWith(".")) {
                     solution = solution.substring(0, solution.length() - 1);
                 }
-                double ppl = jsonNode3.get("perplexity").asDouble();
+                double ppl = -1.0;
                 ScoredSentence currentSentence = new ScoredSentence(solution, ppl);
                 System.out.println("Solution found: " + solution + " with perplexity " + ppl);
                 if (base_sentence.contains(currentSentence)) {
@@ -382,17 +361,9 @@ public class NLP_MLM_v1_2 {
 
                 
                 if(configArg.equals("MNREAD_MLM_Config") ){ 
-                    if (ppl > bestPerplexity[0]*2) {
-                        return;
-                    }
                     if (cb.isValid()) {
-                        if (ppl < bestPerplexity[0]) {
-                            bestPerplexity[0] = ppl;
-                            best_perplexity_time.add(new CycleScoredSentence(solution, ppl, System.currentTimeMillis() - startTime, l[0]));
-                        }
                         Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
                         logs.add(new_log);
-                        
                     } 
                     
                     base_sentence.add(currentSentence);
@@ -400,16 +371,10 @@ public class NLP_MLM_v1_2 {
                     return;
                 }
                 else {
-                    if (ppl < bestPerplexity[0]) {
-                        bestPerplexity[0] = ppl;
-                        best_perplexity_time.add(new CycleScoredSentence(solution, ppl, System.currentTimeMillis() - startTime, l[0]));
-                    }
-                    if (ppl < bestPerplexity[0]*2) {
-                        Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
-                        logs.add(new_log);
-                        base_sentence.add(currentSentence);
-                        candidateSentences.add(currentSentence);
-                    }
+                    Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
+                    logs.add(new_log);
+                    base_sentence.add(currentSentence);
+                    candidateSentences.add(currentSentence);
                 }
 
             }
@@ -422,7 +387,7 @@ public class NLP_MLM_v1_2 {
         while (l[0] < NUM_ITERATIONS-1) {
             l[0]++;
 
-            dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= solutionLimit || statistics.numberOfFailures() >= failureLimit, () -> {
+            SearchStatistics stats=dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= solutionLimit || statistics.numberOfFailures() >= failureLimit, () -> {
                         if (candidateSentences.isEmpty()) {
                             candidateSentences.add(base_sentence.get(base_sentence.size() - 1));
                         }
@@ -459,7 +424,7 @@ public class NLP_MLM_v1_2 {
                             }
                         }
 
-                        
+                        cp.fixPoint();
 
                         
                         HttpRequest request = HttpRequest.newBuilder()
@@ -520,12 +485,18 @@ public class NLP_MLM_v1_2 {
                             ));
 
 
-                            int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
-                            for (int k = 0; k < limit; k++) {
+                            int added_tokens = 0;
+                            for (int k = 0; k < tokenScoreList.size(); k++) {
+                                if (added_tokens >= ORACLE_TOP_K) {
+                                    break;
+                                }
                                 int token = tokenScoreList.get(k).first;
                                 double score = tokenScoreList.get(k).second;
                                 int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
                                 for (int token_index : token_indexes) {
+                                    if(word_index[z].contains(token_index)==true){
+                                        added_tokens++;
+                                    }
                                     tokens[token_index] = token_index;
                                     scores[token_index] = score;
                                     total_score += score;
@@ -570,7 +541,6 @@ public class NLP_MLM_v1_2 {
     result.put("mask_percent", mask_percent);
     result.put("date", java.time.LocalDateTime.now().toString());  
     result.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
-    result.put("best_perplexity_evolution", best_perplexity_time);
     result.put("base_sentence", base_sentence.get(0));
     result.put("logs", logs);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";

@@ -441,12 +441,18 @@ public final class Factory {
                 ));
 
 
-                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
-                for (int k = 0; k < limit; k++) {
+                int added_tokens = 0;
+                for (int k = 0; k < tokenScoreList.size(); k++) {
+                    if (added_tokens >= ORACLE_TOP_K) {
+                        break;
+                    }
                     int token = tokenScoreList.get(k).first;
                     double score = tokenScoreList.get(k).second;
                     int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
                     for (int token_index : token_indexes) {
+                        if(word_index[z].contains(token_index)==true){
+                            added_tokens++;
+                        }
                         tokens[token_index] = token_index;
                         scores[token_index] = score;
                         total_score += score;
@@ -553,9 +559,12 @@ public final class Factory {
                 double[] oracleScores = new double[encoder.size()];
                 double totalScore = 0;
                 
-                int topK = Math.min(ORACLE_TOP_K, tokenScoreList.size());
                 
-                for (int k = 0; k < topK; k++) {
+                int added_tokens = 0;
+                for (int k = 0; k < tokenScoreList.size(); k++) {
+                    if (added_tokens >= ORACLE_TOP_K) {
+                        break;
+                    }
                     int tokenId = tokenScoreList.get(k).first;
                     double score = tokenScoreList.get(k).second;
                     
@@ -563,6 +572,9 @@ public final class Factory {
                     for (Map.Entry<String, Integer> entry : encoder.entrySet()) {
                         if (entry.getValue() == tokenId) {
                             int tokenIndex = entry.getValue();
+                            if(w[z].contains(tokenIndex)==true){
+                                added_tokens++;
+                            }
                             oracleTokens[tokenIndex] = tokenIndex;
                             oracleScores[tokenIndex] = score;
                             totalScore += score;
@@ -832,12 +844,18 @@ public final class Factory {
                 ));
 
 
-                int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
-                for (int k = 0; k < limit; k++) {
+                int added_tokens = 0;
+                for (int k = 0; k < tokenScoreList.size(); k++) {
+                    if (added_tokens >= ORACLE_TOP_K) {
+                        break;
+                    }
                     int token = tokenScoreList.get(k).first;
                     double score = tokenScoreList.get(k).second;
                     int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
                     for (int token_index : token_indexes) {
+                        if(word_index[z].contains(token_index)==true){
+                            added_tokens++;
+                        }
                         tokens[token_index] = token_index;
                         scores[token_index] = score;
                         total_score += score;
@@ -944,9 +962,12 @@ public final class Factory {
                 double[] oracleScores = new double[encoder.size()];
                 double totalScore = 0;
                 
-                int topK = Math.min(ORACLE_TOP_K, tokenScoreList.size());
+                int added_tokens = 0;
                 
-                for (int k = 0; k < topK; k++) {
+                for (int k = 0; k < tokenScoreList.size(); k++) {
+                    if (added_tokens >= ORACLE_TOP_K) {
+                        break;
+                    }
                     int tokenId = tokenScoreList.get(k).first;
                     double score = tokenScoreList.get(k).second;
                     
@@ -954,6 +975,9 @@ public final class Factory {
                     for (Map.Entry<String, Integer> entry : encoder.entrySet()) {
                         if (entry.getValue() == tokenId) {
                             int tokenIndex = entry.getValue();
+                            if(w[z].contains(tokenIndex)==true){
+                                added_tokens++;
+                            }
                             oracleTokens[tokenIndex] = tokenIndex;
                             oracleScores[tokenIndex] = score;
                             totalScore += score;

@@ -24,9 +24,9 @@ public class CollieSent2_MLM_Config implements ConstraintBuilder {
 
     @Override
     public void build(SolverContext ctx) {
-        boolean isBeach = false, isSoft = false, isWater = false;
+        boolean isBeach = false, isSoft = false, isMath = false;
         int count = 0;
-        while ((!isBeach || !isSoft || !isWater) && count < ctx.words.size()) {
+        while ((!isBeach || !isSoft || !isMath) && count < ctx.words.size()) {
             String word = ctx.words.get(count);
             switch (word) {
                 case " beach":
@@ -39,9 +39,9 @@ public class CollieSent2_MLM_Config implements ConstraintBuilder {
                     isSoft = true;
                     ctx.word_index[2].assign(count);
                     break;
-                case " water":
-                    if (isWater) throw new RuntimeException("The word 'water' appears multiple times in the corpus.");
-                    isWater = true;
+                case " math":
+                    if (isMath) throw new RuntimeException("The word 'math' appears multiple times in the corpus.");
+                    isMath = true;
                     ctx.word_index[9].assign(count);
                     break;
                 default:
@@ -49,7 +49,7 @@ public class CollieSent2_MLM_Config implements ConstraintBuilder {
             }
             count++;
         }
-        if(!isBeach || !isSoft || !isWater) {
+        if(!isBeach || !isSoft || !isMath) {
             throw new RuntimeException("Could not find all required words in the corpus.");
         }
 

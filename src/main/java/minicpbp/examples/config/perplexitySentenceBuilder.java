@@ -14,7 +14,7 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
 
     @Override
     public String buildSentence(ArrayList<ScoredSentence> bases, HttpClient client, int port, double mask_percent, ArrayList<Integer> bannedIndices) {
-        ScoredSentence base = selectWeightedRandom(bases, new Random(), 0.8);
+        ScoredSentence base = selectWeightedRandom(bases, new Random());
         System.out.println("Base sentence: " + base);
         String[] words = base.getSentence().split(" ");
         Random rand = new Random();
@@ -53,33 +53,10 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         return String.join(" ", words);
     }
 
-    private static ScoredSentence selectWeightedRandom(ArrayList<ScoredSentence> sentences, Random random, double temperature) {
+    private static ScoredSentence selectWeightedRandom(ArrayList<ScoredSentence> sentences, Random random) {
         if (sentences.isEmpty()) return null;
 
-        double totalWeight = 0.0;
-        
-        for (ScoredSentence sent : sentences) {
-            double weight = Math.exp(-sent.getPerplexity() / temperature);
-            sent.setWeight(weight);
-            totalWeight += weight;
-        }
-        
-        for (ScoredSentence sent : sentences) {
-            sent.setWeight(sent.getWeight() / totalWeight);
-        }
-        
-        double randomValue = random.nextDouble(); // 0.0 to 1.0
-        double cumulativeWeight = 0.0;
-        
-        for (ScoredSentence sent : sentences) {
-            cumulativeWeight += sent.getWeight();
-            if (randomValue <= cumulativeWeight) {
-                return sent;
-            }
-        }
-        
-        // Fallback (shouldn't reach here due to normalization)
-        return sentences.get(sentences.size() - 1);
+        return sentences.get(random.nextInt(sentences.size()));
     }
 
     private static Set<Integer> selectIndexByProbability(List<Pair<Integer, Double>> probList, Random random, int numMask, ArrayList<Integer> bannedIndices) {

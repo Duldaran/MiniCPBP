@@ -12,16 +12,16 @@ public class CollieSent2Config implements ConstraintBuilder {
 
     @Override
     public String getInstruction() {
-        return "Generate a sentence with 10 words, where word 3 is “soft” and word 7 is “beach” and word 10 is “water”.";
+        return "Generate a sentence with 10 words, where word 3 is “soft” and word 7 is “beach” and word 10 is “math”.";
     }
 
     
 
     @Override
     public void build(SolverContext ctx) {
-        boolean isBeach = false, isSoft = false, isWater = false;
+        boolean isBeach = false, isSoft = false, isMath = false;
         int count = 0;
-        while ((!isBeach || !isSoft || !isWater) && count < ctx.words.size()) {
+        while ((!isBeach || !isSoft || !isMath) && count < ctx.words.size()) {
             String word = ctx.words.get(count);
             switch (word) {
                 case " beach":
@@ -34,9 +34,9 @@ public class CollieSent2Config implements ConstraintBuilder {
                     isSoft = true;
                     ctx.word_index[2].assign(count);
                     break;
-                case " water":
-                    if (isWater) throw new RuntimeException("The word 'water' appears multiple times in the corpus.");
-                    isWater = true;
+                case " math":
+                    if (isMath) throw new RuntimeException("The word 'math' appears multiple times in the corpus.");
+                    isMath = true;
                     ctx.word_index[9].assign(count);
                     break;
                 default:
@@ -44,7 +44,7 @@ public class CollieSent2Config implements ConstraintBuilder {
             }
             count++;
         }
-        if(!isBeach || !isSoft || !isWater) {
+        if(!isBeach || !isSoft || !isMath) {
             throw new RuntimeException("Could not find all required words in the corpus.");
         }
 
@@ -54,7 +54,6 @@ public class CollieSent2Config implements ConstraintBuilder {
         java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
         int[][] A = new int[2][ctx.corpusDomains_size];
         acceptedState.add(1);
-        acceptedState.add(0);
         java.util.Arrays.fill(A[0], 0);
         A[0][ctx.end_sentence] = 1;
         java.util.Arrays.fill(A[1], -1);

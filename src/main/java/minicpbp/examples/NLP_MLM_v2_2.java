@@ -401,7 +401,7 @@ public class NLP_MLM_v2_2 {
                             neg_table[base_sentence.indexOf(sentence)][idx] = word_idx;
                         }
                     }
-                    //cp.post(new NegTableCT(word_index, neg_table));
+                    cp.post(new NegTableCT(word_index, neg_table));
 
                     System.out.println("Current sentence: " + current_sentence[0]);
 
@@ -479,12 +479,18 @@ public class NLP_MLM_v2_2 {
                         ));
 
 
-                        int limit = Math.min(ORACLE_TOP_K, tokenScoreList.size());
-                        for (int k = 0; k < limit; k++) {
+                        int added_tokens = 0;
+                        for (int k = 0; k < tokenScoreList.size(); k++) {
+                            if (added_tokens >= ORACLE_TOP_K) {
+                                break;
+                            }
                             int token = tokenScoreList.get(k).first;
                             double score = tokenScoreList.get(k).second;
                             int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
                             for (int token_index : token_indexes) {
+                                if(word_index[z].contains(token_index)==true){
+                                    added_tokens++;
+                                }
                                 tokens[token_index] = token_index;
                                 scores[token_index] = score;
                                 total_score += score;

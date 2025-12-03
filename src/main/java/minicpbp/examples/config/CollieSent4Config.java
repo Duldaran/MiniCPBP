@@ -55,7 +55,6 @@ public class CollieSent4Config implements ConstraintBuilder {
         java.util.List<Integer> acceptedState = new java.util.ArrayList<>();
         int[][] A = new int[2][ctx.corpusDomains_size];
         acceptedState.add(1);
-        acceptedState.add(0);
         java.util.Arrays.fill(A[0], 0);
         A[0][ctx.end_sentence] = 1;
         java.util.Arrays.fill(A[1], -1);

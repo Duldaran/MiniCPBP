@@ -13,7 +13,7 @@ def get_predictions(sentence):
 
 
 
-with open(r'C:\Users\arnau\Documents\Ecole\MiniCPBP\src\main\java\minicpbp\examples\data\MNREAD\ENGLISH_LEMSET_CORRECTED.json', 'r', encoding="UTF-8") as file:
+with open(r'C:\Users\arnau\Documents\Ecole\MiniCPBP\src\main\java\minicpbp\examples\data\MNREAD\ENGLISH_LEMSET_CORRECTED+math.json', 'r', encoding="UTF-8") as file:
     lemset = json.load(file)
 
 print(len(lemset))
@@ -28,10 +28,9 @@ words = list(set(words))
 print(len(words))
 
 
-model_name = "answerdotai/ModernBERT-base"
+model_name = "stabilityai/stablelm-zephyr-3b"
 device='cuda' if torch.cuda.is_available() else 'cpu'
 #model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
-model = AutoModelForMaskedLM.from_pretrained(model_name).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 tokens = []

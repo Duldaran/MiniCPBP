@@ -65,10 +65,6 @@ try:
     print("Printing current time...")
     print(time.time())
     
-    ppl_model_name = "gpt2"  # could also use "EleutherAI/gpt-neo-1.3B"
-    ppl_tokenizer = AutoTokenizer.from_pretrained(ppl_model_name)
-    ppl_model = AutoModelForCausalLM.from_pretrained(ppl_model_name).to(device)
-    
 
     print("Ready")
 except Exception as e:
@@ -125,26 +121,6 @@ def get_mask_distributions(sentence):
 
     return distributions
 
-
-
-    
-
-
-def calculate_perplexity(sentence: str) -> float:
-    with mutex:
-        encodings = ppl_tokenizer(sentence, return_tensors="pt").to(device)
-        with torch.no_grad():
-            outputs = ppl_model(**encodings, labels=encodings.input_ids)
-            loss = outputs.loss
-    return torch.exp(loss).item()
-
-
-
-
-@app.route('/perplexity', methods=['POST'])
-def perplexity():
-    sentence = request.data.decode()
-    return {"perplexity": calculate_perplexity(sentence)}
 
 
 

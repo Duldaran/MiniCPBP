@@ -213,7 +213,7 @@ public class NLP_v4_1 {
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 3;
         final double w = weight;
-        final int SENTENCE_MAX_NUMBER_TOKENS = MAX_NUMBER_WORD +1;
+        final int SENTENCE_MAX_NUMBER_TOKENS = MAX_NUMBER_WORD;
         final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 

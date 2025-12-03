@@ -25,9 +25,9 @@ done
 echo "Server is ready!"
 
 # Define lists for the last two arguments
-SEED_LIST=(1 3 5 7)
+SEED_LIST=(1 2 3 4 5 6 7)
 REF_LIST=("gpt" "no_gpt")
-TASK_CONFIG_LIST=("v1" "v2" "v2_noBP" "v1_3")
+TASK_CONFIG_LIST=("v2" "v2_noBP" "v1_2")
 SENTENCE_BUILDER_LIST=("random" "perplexity")
 
 # Maximum parallel jobs (CPU-bound, adjust based on available CPUs)
@@ -38,8 +38,8 @@ job_count=0
 
 pids=()
 # Loop through combinations
-for oracle_top_k in 10 25 50; do
-    for mask_percent in 0.1 0.2 0.3; do
+for oracle_top_k in 50; do
+    for mask_percent in 0.2 ; do
         for seed in "${SEED_LIST[@]}"; do
             for ref in "${REF_LIST[@]}"; do
                 for taskConfig in "${TASK_CONFIG_LIST[@]}"; do
