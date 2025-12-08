@@ -19,6 +19,13 @@ public class CollieSent1_MLM_Config implements ConstraintBuilder {
 
     @Override
     public void build(SolverContext ctx) {
+
+        for(int i=0; i<ctx.words.size(); i++) {
+            if(Character.isUpperCase(ctx.words.get(i).charAt(0))) {
+                ctx.word_index[0].remove(i);
+            }
+        }
+
         final int NUMBER_CHAR = 82-1;//Verify if you need to count the spaces at the beginning of line + No period at the end
         // create num_char array using the solver from the provided context and the word_index length
         IntVar[] num_char = Factory.makeIntVarArray(ctx.cp, ctx.word_index.length,

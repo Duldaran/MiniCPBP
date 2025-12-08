@@ -20,6 +20,80 @@ mask_string = "<mask>"
 
 app = Flask(__name__)
 
+def tokenize(mol_string: str) -> 'list[str]':
+    if len(mol_string) == 0:
+        return []
+    elif len(mol_string) == 1:
+        return [mol_string]
+    skip = 0
+    n = len(mol_string)
+    mol_array = []
+    for i in range(n):
+        if skip > 0:
+            skip -= 1
+            continue
+        token = mol_string[i]
+        if token == '%':
+            skip = 2
+            mol_array.append(mol_string[i:i+3])
+        elif token == '<':
+            if mol_string[i+1] == '/':
+                skip = 3
+                mol_array.append(mol_string[i:i+4])
+            else:
+                skip = 2
+                mol_array.append(mol_string[i:i+3])
+        elif i != n - 1 and token == 'C' and mol_string[i+1] == 'l':
+            skip = 1
+            mol_array.append('Cl')
+        elif i != n - 1 and token == 'B' and mol_string[i+1] == 'r':
+            skip = 1
+            mol_array.append('Br')
+        elif i != n - 1 and token == 'H' and mol_string[i+1] == '3':
+            skip = 1
+            mol_array.append('H3')
+        else:
+            mol_array.append(token)
+            
+    return mol_array
+
+TOKENS = {
+    'F',
+    'Cl',
+    'Br',
+    'I',
+    'O',
+    'N',
+    'S',
+    'C',
+    '[',
+    ']',
+    '-',
+    '+',
+    '@',
+    'H',
+    'H3',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '=',
+    '/',
+    '\\',
+    '(',
+    ')',
+    '#',
+    'o',
+    'n',
+    's',
+    'c',
+}
+
+
 def get_mask_distributions(sentence):
     """Get probability distributions for masked positions in the sentence."""
     inputs = tokenizer(sentence, return_tensors="pt").to(device)
@@ -34,11 +108,32 @@ def get_mask_distributions(sentence):
 
     distributions = {}
     for idx_in_mask_positions, pos in enumerate(mask_positions):
-        probs = torch.softmax(logits[0, pos], dim=-1).cpu().tolist()
+        # Get probabilities for all tokens at this position
+        bert_probabilities = torch.softmax(logits[0, pos], dim=-1).cpu().tolist()
+        bert_tokens = {tokenizer.decode([idx]).strip(): bert_probabilities[idx] 
+                      for idx in range(len(bert_probabilities))}
+        
+        # Aggregate probabilities for tokens in TOKENS
+        probs = {token: 0 for token in TOKENS}
+        for bert_token_str, prob in bert_tokens.items():
+            split_ngram = tokenize(bert_token_str)
+            if len(split_ngram) == 0:  # Skip empty strings
+                continue
+            t = split_ngram[0]  # Get the first token from the ngram
+            if t not in TOKENS:  # Skip if the token is not in our grammar
+                continue
+            probs[t] += prob
+        
+        # Normalize probabilities
+        summed_values = sum(probs.values())
+        if summed_values > 0:  # Avoid division by zero
+            probs = {k: v/summed_values for k, v in probs.items()}
+
+        
         distributions[int(pos)-1] = {
             "mask_index": int(pos)-1,
-            "tokens": list(range(len(probs))),
-            "probs": probs
+            "tokens": list(probs.keys()),
+            "probs": list(probs.values())
         }
 
     return distributions

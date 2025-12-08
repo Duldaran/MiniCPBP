@@ -87,6 +87,7 @@ public class NLP_MLM_v2_2 {
         final String sentenceBuilderArg = args.length > 6 ? args[6] : "randomSentenceBuilder";
         final int oracle_top_k = args.length > 7 ? Integer.parseInt(args[7]) : 50;
         final double mask_percent = args.length > 8 ? Double.parseDouble(args[8]) : 0.2;
+        final String refTypeArg = args.length > 9 ? args[9] : "NOT MNREAD";
 
         SentenceBuilder sentenceBuilder;
         switch (sentenceBuilderArg) {
@@ -100,19 +101,38 @@ public class NLP_MLM_v2_2 {
                 throw new IllegalArgumentException("Unknown sentence builder: " + sentenceBuilderArg);
         }
 
+        MNREAD_MLM_Config.RefType refType;
+        switch (refTypeArg) {
+            case "BONLARRON":
+                refType = MNREAD_MLM_Config.RefType.BONLARRON;
+                break;
+            case "AUTHORS":
+                refType = MNREAD_MLM_Config.RefType.AUTHORS;
+                break;
+            case "CP":
+                refType = MNREAD_MLM_Config.RefType.CP;
+                break;
+            case "CP_LLM":
+                refType = MNREAD_MLM_Config.RefType.CP_LLM;
+                break;
+            default:
+                refType = MNREAD_MLM_Config.RefType.NOT_MNREAD;
+                break;
+        }
+
          ConstraintBuilder cb;
          switch (configArg) {
              case "MNREAD_MLM_Config":
-                 cb = new MNREAD_MLM_Config();
+                 cb = new MNREAD_MLM_Config(refType);
                  break;
             case "CollieSent1_MLM_Config":
                 cb = new CollieSent1_MLM_Config();
                 break;
             case "CollieSent2_MLM_Config":
-                cb = new CollieSent2_MLM_Config();
+                cb = new CollieSent2_MLM_Config(refType);
                 break;      
             case "CollieSent3_MLM_Config":  
-                cb = new CollieSent3_MLM_Config();
+                cb = new CollieSent3_MLM_Config(refType);
                 break;
             case "CollieSent4_MLM_Config":  
                 cb = new CollieSent4_MLM_Config();

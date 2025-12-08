@@ -77,23 +77,23 @@ public class NLP_v0_noBP{
             final int NUM_ITERATIONS = Integer.parseInt(args[3]);
             final double weight = Double.parseDouble(args[0]);
             final String llm_name = args.length > 5 ? args[5] : "zephyr";
-            final String configArg = args.length > 4 ? args[4] : "CollieSent1Config";
+            final String configArg = args.length > 4 ? args[4] : "CollieSent1";
 
 
         try {
 
         ConstraintBuilder cb;
         switch (configArg) {
-            case "CollieSent1Config":
+            case "CollieSent1":
                 cb = new CollieSent1Config();
                 break;
-            case "CollieSent2Config":
+            case "CollieSent2":
                 cb = new CollieSent2Config();
                 break;  
-            case "CollieSent3Config":
+            case "CollieSent3":
                 cb = new CollieSent3Config();   
                 break;
-            case "CollieSent4Config":
+            case "CollieSent4":
                 cb = new CollieSent4Config();   
                 break;
             case "MNREAD":
@@ -221,7 +221,6 @@ public class NLP_v0_noBP{
             }
         }
 
-
         List<Integer> listCharNum = new ArrayList<>();
         List<Integer> listLengthTokens = new ArrayList<>();
         for (int i = 0; i < corpusDomains.size(); i++) {
@@ -289,8 +288,9 @@ public class NLP_v0_noBP{
         IntVar[] allVars = new IntVar[word_index.length + line.length];
         System.arraycopy(word_index, 0, allVars, 0, word_index.length);
         System.arraycopy(line, 0, allVars, word_index.length, line.length);
-        DFSearch search = makeDfs(cp, domWdeg(allVars));
+        LDSearch search = makeLds(cp, firstFailRandomVal(allVars));
 
+        
 
         search.onSolution(() -> {
             String sentence = "";
@@ -309,6 +309,12 @@ public class NLP_v0_noBP{
             ));
             System.out.println("Solution found: " + sentence.strip());
         });
+
+        search.onFailure(() -> {
+            double elapsedTime = (System.currentTimeMillis() - startTime) / 1000.0;
+            System.out.println("Total elapsed time (s): " + elapsedTime);
+        });
+
         SearchStatistics stats = search.solve(statistics -> statistics.numberOfSolutions() == NUM_ITERATIONS);;  
 
 

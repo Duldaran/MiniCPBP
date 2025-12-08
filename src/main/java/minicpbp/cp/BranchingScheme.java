@@ -1226,8 +1226,15 @@ public final class BranchingScheme {
                             b.second, a.second
                         ));
                         for(int k=0; k<tokenScoreList.size(); k++) {
-                            if(xs.contains(tokenScoreList.get(k).first)){
-                                v = tokenScoreList.get(k).first;
+                            int token = tokenScoreList.get(k).first;
+                            int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                            for (int token_index : token_indexes) {
+                                if(word_index[z].contains(token_index)==true){
+                                    v = token_index;
+                                    break;
+                                }
+                            }
+                            if(v != -1) {
                                 break;
                             }
                         }
@@ -1323,21 +1330,16 @@ public final class BranchingScheme {
                         for (int idx = 0; idx < probsNode.size(); idx++) {
                             try {
                                 double prob = probsNode.get(idx).asDouble();
-                                int tokenId = tokensNode.get(idx).asInt();
+                                String tokenString = tokensNode.get(idx).asText();
                                 
-                                // Check if token exists in grammar
-                                boolean tokenInGrammar = false;
-                                for (Integer grammarToken : encoder.values()) {
-                                    if (grammarToken == tokenId) {
-                                        tokenInGrammar = true;
-                                        break;
-                                    }
+                                if (!encoder.containsKey(tokenString)) {
+                                    System.out.println("Token not in grammar " + tokenString);
+                                    continue;
                                 }
-                                
-                                if (!tokenInGrammar) continue;
+                                int token = encoder.get(tokenString);
                                 if (prob < 0) continue;
                                 
-                                Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                                Pair<Integer, Double> tuple = Pair.of(token, prob);
                                 tokenScoreList.add(tuple);
                                 
                             } catch (Exception e) {

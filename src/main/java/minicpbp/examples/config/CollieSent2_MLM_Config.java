@@ -9,21 +9,32 @@ import com.ibm.icu.impl.Pair;
 
 import minicpbp.cp.Factory;
 import minicpbp.engine.core.*;
+import minicpbp.examples.config.MNREAD_MLM_Config.RefType;
 
 public class CollieSent2_MLM_Config implements ConstraintBuilder {
 
     final static private int MAX_WORDS = 10;
     final static private int MIN_WORDS = 10;
+    RefType ref;
 
     @Override
     public String getInstruction() {
         return "Generate a sentence with 10 words, where word 3 is “soft” and word 7 is “beach” and word 10 is “water”.";
     }
 
-    
+    public CollieSent2_MLM_Config(RefType ref) {
+        this.ref = ref;
+    }
 
     @Override
     public void build(SolverContext ctx) {
+
+        for(int i=0; i<ctx.words.size(); i++) {
+            if(Character.isUpperCase(ctx.words.get(i).charAt(0))) {
+                ctx.word_index[0].remove(i);
+            }
+        }
+
         boolean isBeach = false, isSoft = false, isMath = false;
         int count = 0;
         while ((!isBeach || !isSoft || !isMath) && count < ctx.words.size()) {
@@ -66,7 +77,15 @@ public class CollieSent2_MLM_Config implements ConstraintBuilder {
 
     @Override
     public String fileRef() {
-        return "src/main/java/minicpbp/examples/config/files_references/result_CollieSent2Config_v3_1761221684360_sentences.txt";
+        switch (ref) {
+            case CP:
+                return "src/main/java/minicpbp/examples/config/files_references/valid_sentences_result_CollieSent2_NLP_v0_1765116033079.txt";
+            case CP_LLM:
+                return "src/main/java/minicpbp/examples/config/files_references/result_CollieSent2Config_v3_1761221684360_sentences.txt";
+            default:
+                break;
+        }
+        return null;
     }
 
 

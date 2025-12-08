@@ -19,8 +19,7 @@ export HF_HUB_OFFLINE=1
 ) > server_mlm.log 2>&1 &
 SERVER_PID=$!
 
-export TRANSFORMERS_OFFLINE=1
-export HF_HUB_OFFLINE=1
+
 
 
 sleep 30
@@ -36,7 +35,7 @@ SEED_LIST=(0 1 2 3 4 5 6 7 8 9 10 11 12)
 TASK_CONFIG_LIST=("CollieSent2_MLM_Config")
 SENTENCE_BUILDER_LIST=("randomSentenceBuilder" "perplexitySentenceBuilder")
 
-REF_TYPE_LIST="CP"
+REF_TYPE_LIST=("CP" "CP_LLM")
 
 # Maximum parallel jobs (CPU-bound, adjust based on available CPUs)
 MAX_PARALLEL=8
@@ -53,16 +52,12 @@ for refType in "${REF_TYPE_LIST[@]}"; do
             for seed in "${SEED_LIST[@]}"; do
                 for taskConfig in "${TASK_CONFIG_LIST[@]}"; do
                     for sentenceBuilder in "${SENTENCE_BUILDER_LIST[@]}"; do
-                        echo "Running experiments with seed: ${seed}, taskConfig: ${taskConfig}, and sentenceBuilder: ${sentenceBuilder}, mask_percent: ${mask_percent}"
+                        echo "Running experiments with seed: ${seed}, taskConfig: ${taskConfig}, and sentenceBuilder: ${sentenceBuilder}, mask_percent: ${mask_percent}, refType: ${refType}"
                     
                         # Run both Java commands in background (they'll queue requests to the Python server)
-                        java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_v2 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
-                        pids+=($!)
                         java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_noBP 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
                         pids+=($!)
-                        java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_v1_2 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
-                        pids+=($!)
-                        job_count=$((job_count + 3))
+                        job_count=$((job_count + 1))
                         
                         # Wait when we reach max parallel jobs
                         while [ $job_count -ge $MAX_PARALLEL ]; do

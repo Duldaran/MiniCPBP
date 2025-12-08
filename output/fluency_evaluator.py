@@ -18,7 +18,7 @@ start_time = time.time()
 
 path = os.path.join("..","src", "main", "java", "minicpbp", "examples", "data", "MNREAD", "TimesCost_modified.json")
 
-folder_path = Path("Decembre 2025/molecules_results/")
+folder_path = Path("temps/")
 
 # Read and parse the file
 with open(path, "r", encoding="utf-8") as f:

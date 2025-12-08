@@ -58,16 +58,13 @@ public class TestGenOracle {
     static String mask_string = "<mask>";
 
     public static void main(String[] args) {
-        if (args.length < 6) {
-            System.out.println("Please give the method name to run as well as the oracle weight as shown in the README");
-            return;
-        }
+
         long startTime = System.currentTimeMillis();
-        String architecture = args[0];
-        float oracleWeight = Float.parseFloat(args[1]);
-        String sentenceBuilderArg = args[3];
-        int seed = Integer.parseInt(args[4]);
-        int NUM_ITERATIONS = Integer.parseInt(args[5]);
+        String architecture = args.length > 0 ? args[0] : "v1";
+        float oracleWeight = Float.parseFloat(args.length > 1 ? args[1] : "1.0");
+        String sentenceBuilderArg = args.length > 3 ? args[3] : "random";
+        int seed = Integer.parseInt(args.length > 4 ? args[4] : "0");
+        int NUM_ITERATIONS = Integer.parseInt(args.length > 5 ? args[5] : "10");
         String ref_file = args.length > 6 ? args[6] : "gpt";
         final double mask_percent = args.length > 7 ? Double.parseDouble(args[7]) : 0.2;
         final int oracle_top_k = args.length > 8 ? Integer.parseInt(args[8]) : 10;
@@ -114,6 +111,9 @@ public class TestGenOracle {
                     break;
                 }
                 lineNumber++;
+            }
+            if (baseMolecules.size() == 0) {
+                throw new RuntimeException("Seed is larger than the number of lines in the reference file");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -201,6 +201,8 @@ public class TestGenOracle {
             cp = makeSolver(false);
             g = new CFG(FILE_PATH);
             cp.actingOnZeroOneBelief();
+
+            System.out.println("Grammar loaded with " + g.terminalCount() + " terminals and " + g.nonTerminalCount() + " non-terminals.");
 
             // Creates the array of token variables
             w = makeIntVarArray(cp, WORD_LENGTH, 0, g.terminalCount()-1);
@@ -548,29 +550,23 @@ private static HashMap<Integer, Double> normalizeDistribution(
 
                         ArrayNode probsNode = (ArrayNode) positionNode.get("probs");
                         ArrayNode tokensNode = (ArrayNode) positionNode.get("tokens");
-
                         List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
-
+                        
                         for (int idx = 0; idx < probsNode.size(); idx++) {
                             try {
                                 double prob = probsNode.get(idx).asDouble();
-                                int tokenId = tokensNode.get(idx).asInt();
-
-                                // Check if token exists in grammar
-                                boolean tokenInGrammar = false;
-                                for (Integer grammarToken : g.tokenEncoder.values()) {
-                                    if (grammarToken == tokenId) {
-                                        tokenInGrammar = true;
-                                        break;
-                                    }
+                                String tokenString = tokensNode.get(idx).asText();
+                                
+                                if (!g.tokenEncoder.containsKey(tokenString)) {
+                                    System.out.println("Token not in grammar " + tokenString);
+                                    continue;
                                 }
-
-                                if (!tokenInGrammar) continue;
+                                int token = g.tokenEncoder.get(tokenString);
                                 if (prob < 0) continue;
-
-                                Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                                
+                                Pair<Integer, Double> tuple = Pair.of(token, prob);
                                 tokenScoreList.add(tuple);
-
+                                
                             } catch (Exception e) {
                                 System.err.println("Error at index: " + idx);
                                 System.err.println(e);
@@ -589,16 +585,12 @@ private static HashMap<Integer, Double> normalizeDistribution(
                             int tokenId = tokenScoreList.get(k).first;
                             double score = tokenScoreList.get(k).second;
 
-                            // Find indices in grammar for this token
-                            for (Map.Entry<String, Integer> entry : g.tokenEncoder.entrySet()) {
-                                if (entry.getValue() == tokenId) {
-                                    int tokenIndex = entry.getValue();
-                                    oracleTokens[tokenIndex] = tokenIndex;
-                                    oracleScores[tokenIndex] = score;
-                                    totalScore += score;
-                                    break;
-                                }
-                            }
+                                                        
+                            if(w[z].contains(tokenId)){
+                                oracleTokens[tokenId] = tokenId;
+                                oracleScores[tokenId] = score;
+                                totalScore += score;
+                            } 
                         }
 
                         // Normalize scores
@@ -909,27 +901,21 @@ private static HashMap<Integer, Double> normalizeDistribution(
                         
                         ArrayNode probsNode = (ArrayNode) positionNode.get("probs");
                         ArrayNode tokensNode = (ArrayNode) positionNode.get("tokens");
-                        
                         List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
                         
                         for (int idx = 0; idx < probsNode.size(); idx++) {
                             try {
                                 double prob = probsNode.get(idx).asDouble();
-                                int tokenId = tokensNode.get(idx).asInt();
+                                String tokenString = tokensNode.get(idx).asText();
                                 
-                                // Check if token exists in grammar
-                                boolean tokenInGrammar = false;
-                                for (Integer grammarToken : g.tokenEncoder.values()) {
-                                    if (grammarToken == tokenId) {
-                                        tokenInGrammar = true;
-                                        break;
-                                    }
+                                if (!g.tokenEncoder.containsKey(tokenString)) {
+                                    System.out.println("Token not in grammar " + tokenString);
+                                    continue;
                                 }
-                                
-                                if (!tokenInGrammar) continue;
+                                int token = g.tokenEncoder.get(tokenString);
                                 if (prob < 0) continue;
                                 
-                                Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                                Pair<Integer, Double> tuple = Pair.of(token, prob);
                                 tokenScoreList.add(tuple);
                                 
                             } catch (Exception e) {
@@ -951,20 +937,13 @@ private static HashMap<Integer, Double> normalizeDistribution(
                             }
                             int tokenId = tokenScoreList.get(k).first;
                             double score = tokenScoreList.get(k).second;
-                            
-                            // Find indices in grammar for this token
-                            for (Map.Entry<String, Integer> entry : g.tokenEncoder.entrySet()) {
-                                if (entry.getValue() == tokenId) {
-                                    int tokenIndex = entry.getValue();
-                                    if(w[z].contains(tokenIndex)){
-                                        added_tokens += 1;
-                                    } 
-                                    oracleTokens[tokenIndex] = tokenIndex;
-                                    oracleScores[tokenIndex] = score;
-                                    totalScore += score;
-                                    break;
-                                }
-                            }
+                                                        
+                            if(w[z].contains(tokenId)){
+                                added_tokens += 1;
+                                oracleTokens[tokenId] = tokenId;
+                                oracleScores[tokenId] = score;
+                                totalScore += score;
+                            } 
                         }
                         
                         // Normalize scores
@@ -1001,6 +980,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
         IntVar[] w = BaseModel.w;
         IntVar[] tokenWeights = BaseModel.tokenWeights;
         //#endregion
+        cp.setMode(PropaMode.SP);
         
         //#region Constraints
         // Smiles Validity
@@ -1160,6 +1140,7 @@ private static HashMap<Integer, Double> normalizeDistribution(
 }
     private static void v1_2(float oracleWeight, ArrayList<ScoredMolecule> baseMolecules, long startTime, MoleculeBuilder moleculeBuilder, int NUM_ITERATIONS, double mask_percent, int oracle_top_k) throws FileNotFoundException, IOException {
         try {
+        System.out.println(System.currentTimeMillis() - startTime + " ms: Starting v1.2");
          //#region Base initialization
         BaseModel.initialization();
         // Create variables to shorten access
@@ -1181,8 +1162,12 @@ private static HashMap<Integer, Double> normalizeDistribution(
         final int solutionLimit = 1;
         final int failureLimit = 100;
 
+        System.out.println(System.currentTimeMillis() - startTime + " ms: Starting DFS");
+
         DFSearch dfs = makeDfs(cp, maxMarginalStrengthWithOracle(w, mask_string, TOKEN_ADDRESS, g.tokenEncoder, g.tokenDecoder , w, oracleWeight, oracle_top_k));
         final int[] iterationCount = new int[]{0};
+
+        System.out.println(System.currentTimeMillis() - startTime + " ms: Assigning base molecule");
         
         // Assign remaining tokens after base molecule to underscore
         for (int i = baseMolecules.get(0).getMolecule().length(); i < w.length; i++) {
@@ -1256,6 +1241,8 @@ private static HashMap<Integer, Double> normalizeDistribution(
         
         while (iterationCount[0] < NUM_ITERATIONS - 1) {
             iterationCount[0]++;
+
+            System.out.println(System.currentTimeMillis() - startTime + " ms: Starting iteration " + iterationCount[0]);
             
             dfs.solveSubjectTo(
                 statistics -> statistics.numberOfSolutions() >= solutionLimit || 
@@ -1353,27 +1340,21 @@ private static HashMap<Integer, Double> normalizeDistribution(
                         
                         ArrayNode probsNode = (ArrayNode) positionNode.get("probs");
                         ArrayNode tokensNode = (ArrayNode) positionNode.get("tokens");
-                        
                         List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
                         
                         for (int idx = 0; idx < probsNode.size(); idx++) {
                             try {
                                 double prob = probsNode.get(idx).asDouble();
-                                int tokenId = tokensNode.get(idx).asInt();
+                                String tokenString = tokensNode.get(idx).asText();
                                 
-                                // Check if token exists in grammar
-                                boolean tokenInGrammar = false;
-                                for (Integer grammarToken : g.tokenEncoder.values()) {
-                                    if (grammarToken == tokenId) {
-                                        tokenInGrammar = true;
-                                        break;
-                                    }
+                                if (!g.tokenEncoder.containsKey(tokenString)) {
+                                    System.out.println("Token not in grammar " + tokenString);
+                                    continue;
                                 }
-                                
-                                if (!tokenInGrammar) continue;
+                                int token = g.tokenEncoder.get(tokenString);
                                 if (prob < 0) continue;
                                 
-                                Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                                Pair<Integer, Double> tuple = Pair.of(token, prob);
                                 tokenScoreList.add(tuple);
                                 
                             } catch (Exception e) {
@@ -1396,19 +1377,13 @@ private static HashMap<Integer, Double> normalizeDistribution(
                             int tokenId = tokenScoreList.get(k).first;
                             double score = tokenScoreList.get(k).second;
                             
-                            // Find indices in grammar for this token
-                            for (Map.Entry<String, Integer> entry : g.tokenEncoder.entrySet()) {
-                                if (entry.getValue() == tokenId) {
-                                    int tokenIndex = entry.getValue();
-                                    if(w[z].contains(tokenIndex)){
-                                        added_tokens += 1;
-                                    } 
-                                    oracleTokens[tokenIndex] = tokenIndex;
-                                    oracleScores[tokenIndex] = score;
-                                    totalScore += score;
-                                    break;
-                                }
-                            }
+                            
+                            if(w[z].contains(tokenId)){
+                                added_tokens += 1;
+                                oracleTokens[tokenId] = tokenId;
+                                oracleScores[tokenId] = score;
+                                totalScore += score;
+                            } 
                         }
                         
                         // Normalize scores

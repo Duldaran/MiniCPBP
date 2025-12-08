@@ -19,6 +19,13 @@ public class CollieSent4_MLM_Config implements ConstraintBuilder {
 
     @Override
     public void build(SolverContext ctx) {
+
+        for(int i=0; i<ctx.words.size(); i++) {
+            if(Character.isUpperCase(ctx.words.get(i).charAt(0))) {
+                ctx.word_index[0].remove(i);
+            }
+        }
+
         int idxBeach = -1, idxSoft = -1, idxWater = -1;
         int count = 0;
         while ((idxBeach == -1 || idxSoft == -1 || idxWater == -1) && count < ctx.words.size()) {

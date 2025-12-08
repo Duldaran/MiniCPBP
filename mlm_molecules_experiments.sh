@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --time=06:00:00
 #SBATCH --account=def-pesantg
+#SBATCH --time=03:00:00
 #SBATCH --cpus-per-task=9
 #SBATCH --gpus=1
 #SBATCH --mem=24G
@@ -9,11 +9,13 @@ module load java/21.0.1
 source venv/bin/activate
 export JAVA_TOOL_OPTIONS="-Xmx6g"
 
+export TRANSFORMERS_OFFLINE=1
+export HF_HUB_OFFLINE=1
+
 python server_molecules.py > server_molecules.log &
 SERVER_PID=$!
 
-export TRANSFORMERS_OFFLINE=1
-export HF_HUB_OFFLINE=1
+
 
 
 sleep 30
@@ -25,7 +27,7 @@ done
 echo "Server is ready!"
 
 # Define lists for the last two arguments
-SEED_LIST=(1 2 3 4 5 6 7)
+SEED_LIST=(0 1 2 3 4 5 6 7 8 9)
 REF_LIST=("gpt" "no_gpt")
 TASK_CONFIG_LIST=("v2" "v2_noBP" "v1_2")
 SENTENCE_BUILDER_LIST=("random" "perplexity")
@@ -35,6 +37,8 @@ MAX_PARALLEL=8
 
 # Counter for parallel jobs
 job_count=0
+
+output_dir="molecules_results"
 
 pids=()
 # Loop through combinations
@@ -46,7 +50,7 @@ for oracle_top_k in 50; do
                     for sentenceBuilder in "${SENTENCE_BUILDER_LIST[@]}"; do
                         echo "Running experiments with seed: ${seed}, ref: ${ref}, taskConfig: ${taskConfig}, and sentenceBuilder: ${sentenceBuilder}, mask_percent: ${mask_percent}"
                         
-                        java -cp target/minicpbp-1.0.jar minicpbp.examples.molecules.TestGenOracle ${taskConfig} 1.2  output ${sentenceBuilder} ${seed} 100 ${ref} ${mask_percent} ${oracle_top_k} &
+                        java -cp target/minicpbp-1.0.jar minicpbp.examples.molecules.TestGenOracle ${taskConfig} 1.2  ${output_dir} ${sentenceBuilder} ${seed} 100 ${ref} ${mask_percent} ${oracle_top_k} &
                         pids+=($!)
                         job_count=$((job_count + 1))
                         
@@ -62,9 +66,14 @@ for oracle_top_k in 50; do
     done
 done
 
+
+
 # Wait for all remaining jobs to complete
 for pid in "${pids[@]}"; do
     wait $pid
 done
+
+cd ${output_dir}
+python perplexity_calculator.py --model ../entropy/gpt2_zinc_87m --batch-size 32
 
 kill $SERVER_PID

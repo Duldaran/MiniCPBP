@@ -14,6 +14,7 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
     final static private int MAX_NUMBER_SPACE = 4;
     final static private int MIN_NUMBER_WORD = 9;
     final static private int MAX_NUMBER_WORD = 15;
+    RefType ref;
     IntVar[] lines;
     IntVar[] sizes;
 
@@ -22,9 +23,27 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
         return "Please generate a sentence with exactly 60 characters. Include whitespace into your character count.";
     }
 
+    public enum RefType {
+        BONLARRON,
+        AUTHORS,
+        NOT_MNREAD,
+        CP,
+        CP_LLM,
+    }
+
+    public MNREAD_MLM_Config(RefType ref) {
+        this.ref = ref;
+    }
+
     @Override
     public void build(SolverContext ctx) {
        
+
+        for(int i=0; i<ctx.words.size(); i++) {
+            if(Character.isUpperCase(ctx.words.get(i).charAt(0))) {
+                ctx.word_index[0].remove(i);
+            }
+        }
 
         // sizes, word_index, has_space, num_char
         minicpbp.engine.core.IntVar[] sizes = minicpbp.cp.Factory.makeIntVarArray(
@@ -77,6 +96,7 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
             ctx.cp.post(minicpbp.cp.Factory.notEqual(word_index[i], word_index[i + 1]));
         }
 
+        
         ctx.cp.post(minicpbp.cp.Factory.binPacking(line, sizes, lineSize));
 
         this.lines = line;
@@ -91,7 +111,13 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
     }
 
     public String fileRef() {
-        return "src/main/java/minicpbp/examples/config/files_references/IJCAI2023_EN_BENCH_SORTED.txt";
+        switch (ref) {
+            case BONLARRON:
+                return "src/main/java/minicpbp/examples/config/files_references/IJCAI2023_EN_BENCH_SORTED.txt";
+            case AUTHORS:
+                return "src/main/java/minicpbp/examples/config/files_references/MNREAD_authors_9_millions_samples.txt";
+        }
+        return null;
     }
 
     @Override

@@ -522,7 +522,7 @@ public final class Factory {
             for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
                 String fieldName = it.next();
                 JsonNode tok = maskedTokens.get(fieldName);
-                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+                System.out.println("Masked token: " + tok.get("mask_index").asInt());
 
                 int z = tok.get("mask_index").asInt();
                 ArrayNode probsNode = (ArrayNode) tok.get("probs");
@@ -532,21 +532,16 @@ public final class Factory {
                 for (int idx = 0; idx < probsNode.size(); idx++) {
                     try {
                         double prob = probsNode.get(idx).asDouble();
-                        int tokenId = tokensNode.get(idx).asInt();
+                        String tokenString = tokensNode.get(idx).asText();
                         
-                        // Check if token exists in grammar
-                        boolean tokenInGrammar = false;
-                        for (Integer grammarToken : encoder.values()) {
-                            if (grammarToken == tokenId) {
-                                tokenInGrammar = true;
-                                break;
-                            }
+                        if (!encoder.containsKey(tokenString)) {
+                            System.out.println("Token not in grammar " + tokenString);
+                            continue;
                         }
-                        
-                        if (!tokenInGrammar) continue;
+                        int token = encoder.get(tokenString);
                         if (prob < 0) continue;
                         
-                        Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                        Pair<Integer, Double> tuple = Pair.of(token, prob);
                         tokenScoreList.add(tuple);
                         
                     } catch (Exception e) {
@@ -568,19 +563,12 @@ public final class Factory {
                     int tokenId = tokenScoreList.get(k).first;
                     double score = tokenScoreList.get(k).second;
                     
-                    // Find indices in grammar for this token
-                    for (Map.Entry<String, Integer> entry : encoder.entrySet()) {
-                        if (entry.getValue() == tokenId) {
-                            int tokenIndex = entry.getValue();
-                            if(w[z].contains(tokenIndex)==true){
-                                added_tokens++;
-                            }
-                            oracleTokens[tokenIndex] = tokenIndex;
-                            oracleScores[tokenIndex] = score;
-                            totalScore += score;
-                            break;
-                        }
-                    }
+                    if(w[z].contains(tokenId)){
+                        added_tokens += 1;
+                        oracleTokens[tokenId] = tokenId;
+                        oracleScores[tokenId] = score;
+                        totalScore += score;
+                    } 
                 }
                 
                 // Normalize scores
@@ -925,7 +913,7 @@ public final class Factory {
             for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
                 String fieldName = it.next();
                 JsonNode tok = maskedTokens.get(fieldName);
-                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+                System.out.println("Masked token: " + tok.get("mask_index").asInt());
 
                 int z = tok.get("mask_index").asInt();
                 ArrayNode probsNode = (ArrayNode) tok.get("probs");
@@ -935,21 +923,16 @@ public final class Factory {
                 for (int idx = 0; idx < probsNode.size(); idx++) {
                     try {
                         double prob = probsNode.get(idx).asDouble();
-                        int tokenId = tokensNode.get(idx).asInt();
+                        String tokenString = tokensNode.get(idx).asText();
                         
-                        // Check if token exists in grammar
-                        boolean tokenInGrammar = false;
-                        for (Integer grammarToken : encoder.values()) {
-                            if (grammarToken == tokenId) {
-                                tokenInGrammar = true;
-                                break;
-                            }
+                        if (!encoder.containsKey(tokenString)) {
+                            System.out.println("Token not in grammar " + tokenString);
+                            continue;
                         }
-                        
-                        if (!tokenInGrammar) continue;
+                        int token = encoder.get(tokenString);
                         if (prob < 0) continue;
                         
-                        Pair<Integer, Double> tuple = Pair.of(tokenId, prob);
+                        Pair<Integer, Double> tuple = Pair.of(token, prob);
                         tokenScoreList.add(tuple);
                         
                     } catch (Exception e) {
@@ -962,8 +945,8 @@ public final class Factory {
                 double[] oracleScores = new double[encoder.size()];
                 double totalScore = 0;
                 
-                int added_tokens = 0;
                 
+                int added_tokens = 0;
                 for (int k = 0; k < tokenScoreList.size(); k++) {
                     if (added_tokens >= ORACLE_TOP_K) {
                         break;
@@ -971,19 +954,12 @@ public final class Factory {
                     int tokenId = tokenScoreList.get(k).first;
                     double score = tokenScoreList.get(k).second;
                     
-                    // Find indices in grammar for this token
-                    for (Map.Entry<String, Integer> entry : encoder.entrySet()) {
-                        if (entry.getValue() == tokenId) {
-                            int tokenIndex = entry.getValue();
-                            if(w[z].contains(tokenIndex)==true){
-                                added_tokens++;
-                            }
-                            oracleTokens[tokenIndex] = tokenIndex;
-                            oracleScores[tokenIndex] = score;
-                            totalScore += score;
-                            break;
-                        }
-                    }
+                    if(w[z].contains(tokenId)){
+                        added_tokens += 1;
+                        oracleTokens[tokenId] = tokenId;
+                        oracleScores[tokenId] = score;
+                        totalScore += score;
+                    } 
                 }
                 
                 // Normalize scores

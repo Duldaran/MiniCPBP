@@ -1,7 +1,6 @@
 from threading import Lock
 import os
 
-from sympy import im
 print("Importing server...")
 os.environ['PYTHONVERBOSE'] = '1'
 try:
@@ -30,10 +29,6 @@ try:
     start_time = time.time()
     from transformers import  AutoModelForCausalLM, AutoModelForMaskedLM, AutoTokenizer
     print("Done importing transformers in", time.time() - start_time, "seconds")
-    print("Importing WordNetLemmatizer...")
-    from nltk.stem import WordNetLemmatizer
-    print("Importing wordnet corpus...")
-    from nltk.corpus import wordnet
     print("Importing gc...")
     import gc
     print("Importing argparse...")

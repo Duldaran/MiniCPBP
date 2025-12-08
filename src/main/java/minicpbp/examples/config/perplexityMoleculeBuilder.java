@@ -28,7 +28,7 @@ public class perplexityMoleculeBuilder implements MoleculeBuilder {
         try {
             // Request character-level perplexity from the server
             HttpRequest reqPpl = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:" + port + "/mlm_character_perplexity"))
+                .uri(URI.create("http://localhost:" + port + "/mlm_perplexity"))
                 .POST(HttpRequest.BodyPublishers.ofString(molecule))
                 .build();
             String respPpl = client.sendAsync(reqPpl, BodyHandlers.ofString())
@@ -36,12 +36,12 @@ public class perplexityMoleculeBuilder implements MoleculeBuilder {
 
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootPpl = objectMapper.readTree(respPpl);
-            ArrayNode charProbsNode = (ArrayNode) rootPpl.get("char_probs");
+            ArrayNode charProbsNode = (ArrayNode) rootPpl.get("token_probs");
             
             if (charProbsNode != null) {
                 for (int i = 0; i < charProbsNode.size(); i++) {
                     JsonNode cn = charProbsNode.get(i);
-                    int charIdx = cn.get("char_index").asInt();
+                    int charIdx = cn.get("index").asInt();
                     double prob = cn.get("prob").asDouble();
                     leastToMostProbChars.add(Pair.of(charIdx, prob));
                 }
