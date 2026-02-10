@@ -115,6 +115,9 @@ public class NLP_MLM_v1 {
             case "CP_LLM":
                 refType = MNREAD_MLM_Config.RefType.CP_LLM;
                 break;
+            case "INVALID_EASY":
+                refType = MNREAD_MLM_Config.RefType.INVALID_EASY;
+                break;
             default:
                 refType = MNREAD_MLM_Config.RefType.NOT_MNREAD;
                 break;
@@ -126,7 +129,7 @@ public class NLP_MLM_v1 {
                  cb = new MNREAD_MLM_Config(refType);
                  break;
             case "CollieSent1_MLM_Config":
-                cb = new CollieSent1_MLM_Config();
+                cb = new CollieSent1_MLM_Config(refType);
                 break;
             case "CollieSent2_MLM_Config":
                 cb = new CollieSent2_MLM_Config(refType);
@@ -302,7 +305,6 @@ public class NLP_MLM_v1 {
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
         IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);
-        cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
         Random rand = new Random();
 
@@ -434,6 +436,8 @@ public class NLP_MLM_v1 {
                     current_sentence[0] = sentenceBuilder.buildSentence(candidates, client, port, mask_percent, cb.getBannedIndices(word_index));
                     original_sentence[0] = current_sentence[0];
 
+                    System.out.println("Current sentence: " + current_sentence[0]);
+
                     int[][] neg_table = new int[base_sentence.size()][word_index.length];
                     for (ScoredSentence sentence : base_sentence){
                         String[] words_in_sentence = sentence.getSentence().split(" ");
@@ -444,8 +448,6 @@ public class NLP_MLM_v1 {
                         }
                     }
                     cp.post(new NegTableCT(word_index, neg_table));
-
-                    System.out.println("Current sentence: " + current_sentence[0]);
 
                     String[] sentenceWords = current_sentence[0].split(" ");
                     List<Integer> masked_indexs = new ArrayList<>();
@@ -462,6 +464,9 @@ public class NLP_MLM_v1 {
                             masked_indexs.add(idx);
                         }
                     }
+
+                    
+                    cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
                     
 

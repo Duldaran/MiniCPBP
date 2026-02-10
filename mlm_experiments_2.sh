@@ -36,7 +36,7 @@ SEED_LIST=(0 1 2 3 4 5 6 7 8 9 10 11 12)
 TASK_CONFIG_LIST=("CollieSent2_MLM_Config")
 SENTENCE_BUILDER_LIST=("randomSentenceBuilder" "perplexitySentenceBuilder")
 
-REF_TYPE_LIST="CP"
+REF_TYPE_LIST=("CP" "CP_LLM")
 
 # Maximum parallel jobs (CPU-bound, adjust based on available CPUs)
 MAX_PARALLEL=8

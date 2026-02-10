@@ -8,7 +8,12 @@ import minicpbp.engine.core.*;
 public class CollieSent1_MLM_Config implements ConstraintBuilder {
 
     final static private int MAX_WORDS = 20;
-    final static private int MIN_WORDS = 5;
+    final static private int MIN_WORDS = 10;
+    MNREAD_MLM_Config.RefType ref;
+
+    public CollieSent1_MLM_Config(MNREAD_MLM_Config.RefType ref) {
+        this.ref = ref;
+    }
 
     @Override
     public String getInstruction() {
@@ -54,7 +59,12 @@ public class CollieSent1_MLM_Config implements ConstraintBuilder {
 
     @Override
     public String fileRef() {
-        return "src/main/java/minicpbp/examples/config/files_references/result_CollieSent1Config_v3_1761184263207_sentences.txt";
+        switch (ref) {
+            case INVALID_EASY:
+                return "src/main/java/minicpbp/examples/config/files_references/gemini_85_char_sentences.txt";
+            default:
+                return "src/main/java/minicpbp/examples/config/files_references/result_CollieSent1Config_v3_1761184263207_sentences.txt";
+        }
     }
 
 

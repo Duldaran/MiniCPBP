@@ -79,6 +79,7 @@ public class NLP_v5 {
             final String llm_name = args.length > 4 ? args[4] : "zephyr";
             final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
 
+        List<Logging>  logs = new ArrayList<>();
 
         try {
 
@@ -92,8 +93,6 @@ public class NLP_v5 {
         }
 
         long startTime = System.currentTimeMillis();
-
-        List<Logging>  logs = new ArrayList<>();
 
         List<String> lines = Collections.emptyList();
          try {
@@ -260,11 +259,8 @@ public class NLP_v5 {
         int[] lengthTokens = listLengthTokens.stream().mapToInt(Integer::intValue).toArray();
 
 
-        Solver cp = makeSolver();
-        IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-
-        IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);        
-        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words, line));
+           
+        
         
         double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
         System.out.println("Initialization time (s): " + initTime);
@@ -272,13 +268,21 @@ public class NLP_v5 {
 
         HttpClient client = HttpClient.newHttpClient();
 
-        String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
-        StateManager sm = cp.getStateManager();
-        sm.saveState();
-        String instruction = cb.getInstruction();
+        
 
         for (int z = 0; z < NUM_ITERATIONS; z += 1) {//For loop
-        
+        Solver cp = makeSolver();
+        IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
+
+        IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);     
+        cb.build(new SolverContext(cp, corpusDomains.size(), final_sentence_end, pad_token, charNum, lengthTokens, word_index, words, line));
+        String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
+        StateManager sm = cp.getStateManager();
+        String instruction = cb.getInstruction();
+
+        System.out.println("Time after initialisation of iteration " + z + ": " + (System.currentTimeMillis()-startTime)/1000.0+"s");
+
+
         tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
 
 
@@ -366,30 +370,34 @@ public class NLP_v5 {
 
             if(tokenScoreListNew.get(0).first==sentence_end_index && i<word_index.length-1){
                 System.out.println("sentence end reached");
-                try {
-                    sm.saveState();
-                    String[] split_word = current_sentence.trim().split(" ");
-                    assert split_word.length==i;
-                    for (int j = 0; j < i; j++) {
-                        word_index[j].assign(words.indexOf(" " + split_word[j]));
-                    }
-                    
-                    word_index[i].assign(final_sentence_end);
-                    cp.fixPoint();
-                    current_sentence += words.get(corpusDomains.get(final_sentence_end));
+                final boolean[] canEnd = {false};
+                final String testSentence = current_sentence;
+                sm.withNewState(() -> {
+                    try {
+                        String[] split_word = testSentence.trim().split(" ");
+                        assert split_word.length==i;
+                        for (int j = 0; j < i; j++) {
+                            word_index[j].assign(words.indexOf(" " + split_word[j]));
+                        }
+                        
+                        word_index[i].assign(final_sentence_end);
+                        cp.fixPoint();
 
+                        canEnd[0] = true;
+                    } catch (Exception e) {
+                        System.out.println("Not able to end sentence yet, continuing");
+                        canEnd[0] = false;
+                    }
+                });
+                if (canEnd[0]) {
+                    current_sentence += words.get(corpusDomains.get(final_sentence_end));
                     List<Integer> list_sub = new ArrayList<>(corpusDomainToIndex.get(final_sentence_end));
                     list_sub.removeAll(last_word);
                     tokens_used[num_tok] = tokens_list.get(list_sub.get(0));
-
-                    sm.restoreState();
+                    System.out.println("Final sentence: " + current_sentence);
                     break;
-                } catch (Exception e) {
-                    sm.restoreState();
-                    System.out.println("Not able to end sentence yet, continuing");
-                    e.printStackTrace();
-                    System.out.println(e instanceof InconsistencyException);
                 }
+                
             }
 
             int limitNew = Math.min(ORACLE_TOP_K, tokenScoreListNew.size());
@@ -461,65 +469,64 @@ public class NLP_v5 {
             max_score_continue /= total_score_continue;
 
             Map<Integer, Double> marginalsMap = new HashMap<>();
-            double total_score = total_score_new + total_score_continue;
+            final double total_score = total_score_new + total_score_continue;
+            final double final_score_continue = total_score_continue;   
             System.out.println("total_score: "+total_score);
 
             if(total_score_continue>0){
-                sm.saveState();
-                // assign the words in the current sentence except the last one
-                
-                String[] split_word = current_sentence.trim().split(" ");
-                for (int j = 0; j < split_word.length-1; j++) {
-                    try {
-                        word_index[j].assign(words.indexOf(" " + split_word[j]));
-                    } catch (InconsistencyException e) {
-                        System.out.println("Inconsistency detected with continue tokens, state restored");
-                        throw e;
-                    }
-                }
-
-                // create and post oracle constraint with continue tokens and scores
-                Constraint c = Factory.oracle(word_index[i-1], tokensContinue, scoresContinue);
-                c.setWeight(w);
-                cp.post(c);
-
+                final String testSentence = current_sentence;
                 try {
+                    
+                sm.withNewState(() -> {
+                    // assign the words in the current sentence except the last one
+                    String[] split_word = testSentence.trim().split(" ");
+                    for (int j = 0; j < split_word.length-1; j++) {
+                        try {
+                            word_index[j].assign(words.indexOf(" " + split_word[j]));
+                        } catch (InconsistencyException e) {
+                            System.out.println("Inconsistency detected with continue tokens, state restored");
+                            throw e;
+                        }
+                    }
+
+                    // create and post oracle constraint with continue tokens and scores
+                    assert split_word.length-1==i-1;
+                    Constraint c = Factory.oracle(word_index[i-1], tokensContinue, scoresContinue);
+                    c.setWeight(w);
+                    cp.post(c);
+
                     cp.fixPoint();
                     cp.vanillaBP(NUM_PB);
-                } catch (InconsistencyException e) {
-                    System.out.println("Sentence so far: "+Arrays.toString(split_word));
+                    
+                    double ratio_continue = final_score_continue / total_score;
+                    Map<Integer, List<Double>> tempMap = new HashMap<>();
+                    while(word_index[i-1].maxMarginal()!=0.0) {
+                        List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i-1].valueWithMaxMarginal()));
+                        int index;
+                        word_indexes.removeAll(last_word);
+                        if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);//TODO: verify if this is ok
+                        else index = word_indexes.get(0);
+                        if(!tempMap.containsKey(index)){
+                            tempMap.put(index, new ArrayList<>());
+                        }
+                        tempMap.get(index).add(word_index[i-1].maxMarginal()*ratio_continue);
+                        word_index[i-1].remove(word_index[i-1].valueWithMaxMarginal());
+                    }
+                    for(Entry<Integer, List<Double>> entry: tempMap.entrySet()){//TODO : Consider if max would be more interesting than average
+                        double marginalAverage = 0.0;
+                        for(double val: entry.getValue()){
+                            marginalAverage += val;
+                        }
+                        marginalAverage /= entry.getValue().size();
+                        marginalsMap.put(entry.getKey(), marginalAverage);
+                    }
+                });}
+                catch (Exception e) {
                     System.out.println("Inconsistency detected with continue tokens, state restored");
-                    throw e;
                 }
-                double ratio_continue = total_score_continue / total_score;
-                Map<Integer, List<Double>> tempMap = new HashMap<>();
-                while(word_index[i-1].maxMarginal()!=0.0) {
-                    List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i-1].valueWithMaxMarginal()));
-                    int index;
-                    word_indexes.removeAll(last_word);
-                    if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);//TODO: verify if this is ok
-                    else index = word_indexes.get(0);
-                    if(!tempMap.containsKey(index)){
-                        tempMap.put(index, new ArrayList<>());
-                    }
-                    tempMap.get(index).add(word_index[i-1].maxMarginal()*ratio_continue);
-                    word_index[i-1].remove(word_index[i-1].valueWithMaxMarginal());
-                }
-                for(Entry<Integer, List<Double>> entry: tempMap.entrySet()){//TODO : Consider if max would be more interesting than average
-                    double marginalAverage = 0.0;
-                    for(double val: entry.getValue()){
-                        marginalAverage += val;
-                    }
-                    marginalAverage /= entry.getValue().size();
-                    marginalsMap.put(entry.getKey(), marginalAverage);
-                }
-
-                sm.restoreState();
             }
 
             System.out.println("Processing new tokens");
-            sm.restoreState();
-            sm.saveState();
             String last_word_string = last_word.stream()
                                              .map(idx -> tokens_list.get(idx))
                                              .collect(Collectors.joining(""));
@@ -527,125 +534,132 @@ public class NLP_v5 {
             System.out.println("Words contains last word: " + words.contains(last_word_string));
 
             if(words.contains(last_word_string)) {
-                String[] split_word = current_sentence.trim().split(" ");
-                for (int j = 0; j < split_word.length; j++) {
-                    try {
-                        word_index[j].assign(words.indexOf(" " + split_word[j]));
-                    } catch (InconsistencyException e) {
-                        System.out.println("Sentence so far: "+Arrays.toString(split_word));
-                        System.out.println("Inconsistency caused by : " + split_word[j]+", index: "+j);
-                        System.out.println("Words contains word : " + words.indexOf(" "+split_word[j]));
-                        System.out.println("Inconsistency detected with new tokens, state restored");
-                        for(int jj=0; jj<word_index.length; jj++){
-                            System.out.println(word_index[jj].getName()+word_index[jj].toString());
+                final double final_score_new = total_score_new;
+                final String testSentence = current_sentence;
+                try {
+                sm.withNewState(() -> {
+                    String[] split_word = testSentence.trim().split(" ");
+                    for (int j = 0; j < split_word.length; j++) {
+                        try {
+                            word_index[j].assign(words.indexOf(" " + split_word[j]));
+                        } catch (InconsistencyException e) {
+                            System.out.println("Sentence so far: "+Arrays.toString(split_word));
+                            System.out.println("Inconsistency caused by : " + split_word[j]+", index: "+j);
+                            System.out.println("Words contains word : " + words.indexOf(" "+split_word[j]));
+                            System.out.println("Inconsistency detected with new tokens, state restored");
+                            for(int jj=0; jj<word_index.length; jj++){
+                                System.out.println(word_index[jj].getName()+word_index[jj].toString());
+                            }
+                            throw e;
                         }
-                        throw e;
                     }
-                }
 
+                    if(PRINT_TRACE) System.out.println("token "+i);
 
-                if(PRINT_TRACE) System.out.println("token "+i);
-
-                Constraint c = Factory.oracle(word_index[i], tokensNew, scoresNew);
-
-                c.setWeight(w);
-                if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
-                cp.post(c);
-                if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token_new+", '"+words.get(max_token_new)+"', "+max_score_new);
-                if(PRINT_TRACE) 
-                {
-                    double[] temp = scoresNew.clone();
-                    Arrays.sort(temp);
-                    for(int n=1; n<=5; n++){
-                        for(int m=0; m<temp.length; m++){
-                            if(temp[temp.length-n]==scoresNew[m]){
-                                System.out.println("GPT, before BP (max token, 'the word', its probability) "+m+", '"+words.get(m)+"', "+scoresNew[m]);
+                    Constraint c = Factory.oracle(word_index[i], tokensNew, scoresNew);
+                    c.setWeight(w);
+                    if(PRINT_TRACE)  System.out.println("oracle's weight set to "+w);
+                    cp.post(c);
+                    if(PRINT_TRACE)  System.out.println("GPT, before BP (max token, 'the word', its probability) "+max_token_new+", '"+words.get(max_token_new)+"', "+final_score_new);
+                    if(PRINT_TRACE) {
+                        double[] temp = scoresNew.clone();
+                        Arrays.sort(temp);
+                        for(int n=1; n<=5; n++){
+                            for(int m=0; m<temp.length; m++){
+                                if(temp[temp.length-n]==scoresNew[m]){
+                                    System.out.println("GPT, before BP (max token, 'the word', its probability) "+m+", '"+words.get(m)+"', "+scoresNew[m]);
+                                }
                             }
                         }
                     }
-                }
 
-                try {
-                    cp.fixPoint();
+                    try {
+                        cp.fixPoint();
+                    } catch (InconsistencyException e) {
+                        if (PRINT_TRACE) {
+                            System.out.println("INCONSISTENCY!");
+                            for(int j=0; j<word_index.length; j++){
+                                System.out.println(word_index[j].getName()+word_index[j].toString());
+                            }
+                        }
+                        
+                        throw e;
+                    }
+                    
+                    if(PRINT_TRACE) {
+                        TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                        for(int j=0; j<word_index[i].size(); j++){
+                            bestTokens.put(word_index[i].marginal(j), j);
+                        }
+                        for(int j=0; j<5; j++){
+                            if(bestTokens.isEmpty()){
+                                break;
+                            }
+                            double prob = bestTokens.lastKey();
+                            int token = bestTokens.remove(prob);
+                            System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                        }
+                    }
+
+                    if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
+                    cp.vanillaBP(NUM_PB);
+                    if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
+                    
+                    if(PRINT_TRACE) {
+                        TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
+                        for(int j=0; j<word_index[i].size(); j++){
+                            bestTokens.put(word_index[i].marginal(j), j);
+                        }
+                        for(int j=0; j<5; j++){
+                            if(bestTokens.isEmpty()){
+                                break;
+                            }
+                            double prob = bestTokens.lastKey();
+                            int token = bestTokens.remove(prob);
+                            System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
+                        }
+                        System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].marginal(word_index[i].valueWithMaxMarginal()));
+                    }
+
+                    if (word_index[i].maxMarginal() == 0.0) {
+                        System.out.println("No valid tokens found");
+                        throw new InconsistencyException();
+                    }
+
+                    double ratio = final_score_new / total_score;
+                    Map<Integer, List<Double>> tempMap = new HashMap<>();
+                    while(word_index[i].maxMarginal() != 0.0) {
+                        double marginal = word_index[i].maxMarginal() * ratio;
+                        List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i].valueWithMaxMarginal()));
+                        int index;
+                        word_indexes.removeAll(last_word);
+                        if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);
+                        else index = word_indexes.get(0);
+                        if(!tempMap.containsKey(index)){
+                            tempMap.put(index, new ArrayList<>());
+                        }
+                        tempMap.get(index).add(marginal);
+                        word_index[i].remove(word_index[i].valueWithMaxMarginal());
+                    }
+
+                    for(Entry<Integer, List<Double>> entry: tempMap.entrySet()){
+                        double marginalAverage = 0.0;
+                        for(double val: entry.getValue()){
+                            marginalAverage += val;
+                        }
+                        marginalAverage /= entry.getValue().size();
+                        marginalsMap.put(entry.getKey(), marginalAverage);
+                    }
+                });
                 }
                 catch (InconsistencyException e) {
-                    if (PRINT_TRACE) {
-                        System.out.println("INCONSISTENCY!");
-                        for(int j=0; j<word_index.length; j++){
-                            System.out.println(word_index[j].getName()+word_index[j].toString());
-                        }
+                    if(final_score_continue>0)
+                        System.out.println("Inconsistency detected with new tokens, state restored");
+                    else{
+                        e.printStackTrace();
+                        current_sentence += " ERROR";
+                        break;
                     }
-                    current_sentence += " ERROR";
-                    break;
-                }
-                if(PRINT_TRACE) 
-                {
-                    TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                    for(int j=0; j<word_index[i].size(); j++){
-                        bestTokens.put(word_index[i].marginal(j), j);
-                    }
-                    for(int j=0; j<5; j++){
-                        if(bestTokens.isEmpty()){
-                            break;
-                        }
-                        double prob = bestTokens.lastKey();
-                        int token = bestTokens.remove(prob);
-                        System.out.println("CP model, before BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
-                    }
-                }
-
-                if(PRINT_TRACE)  System.out.println("CP model, before BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
-                cp.vanillaBP(NUM_PB);
-                if(PRINT_TRACE)  System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].maxMarginal());
-                
-                if(PRINT_TRACE) 
-                {
-                    TreeMap<Double, Integer> bestTokens = new TreeMap<Double, Integer>();
-                    for(int j=0; j<word_index[i].size(); j++){
-                        bestTokens.put(word_index[i].marginal(j), j);
-                    }
-                    for(int j=0; j<5; j++){
-                        if(bestTokens.isEmpty()){
-                            break;
-                        }
-                        double prob = bestTokens.lastKey();
-                        int token = bestTokens.remove(prob);
-                        System.out.println("after BP (max token, 'the word', its probability) "+token+", '"+words.get(token)+"', "+prob);
-                    }
-                    System.out.println("after BP (max token, 'the word', its probability) "+word_index[i].valueWithMaxMarginal()+", '"+words.get(word_index[i].valueWithMaxMarginal())+"', "+word_index[i].marginal(word_index[i].valueWithMaxMarginal()));
-                }
-            
-            
-            
-                if (word_index[i].maxMarginal() == 0.0) {
-                            System.out.println("No valid tokens found");
-                            current_sentence += " ERROR";
-                            break;
-                }
-
-                double ratio = total_score_new / total_score;
-                Map<Integer, List<Double>> tempMap = new HashMap<>();
-                while(word_index[i].maxMarginal() != 0.0) {
-                    double marginal = word_index[i].maxMarginal() * ratio;
-                    List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i].valueWithMaxMarginal()));
-                    int index;
-                    word_indexes.removeAll(last_word);
-                    if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);
-                    else index = word_indexes.get(0);
-                    if(!tempMap.containsKey(index)){
-                        tempMap.put(index, new ArrayList<>());
-                    }
-                    tempMap.get(index).add(marginal);
-                    word_index[i].remove(word_index[i].valueWithMaxMarginal());
-                }
-            
-                for(Entry<Integer, List<Double>> entry: tempMap.entrySet()){//TODO : Consider if max would be more interesting than average
-                    double marginalAverage = 0.0;
-                    for(double val: entry.getValue()){
-                        marginalAverage += val;
-                    }
-                    marginalAverage /= entry.getValue().size();
-                    marginalsMap.put(entry.getKey(), marginalAverage);
                 }
             }
             int chosen = -1;
@@ -703,7 +717,7 @@ public class NLP_v5 {
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("http://localhost:" + port + "/tokenize"))
-            .POST(HttpRequest.BodyPublishers.ofString(current_sentence))
+            .POST(HttpRequest.BodyPublishers.ofString("0" + current_sentence))
             .build();
         String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
         int[] split_response = Arrays.stream(response.substring(1,response.length()-2).split(",")).mapToInt(Integer::parseInt).toArray();
@@ -739,6 +753,11 @@ public class NLP_v5 {
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
             errorResult.put("date", java.time.LocalDateTime.now().toString());
+            errorResult.put("port", port);
+            errorResult.put("num_iterations", NUM_ITERATIONS);
+            errorResult.put("weight", weight);
+            errorResult.put("llm_name", llm_name);
+            errorResult.put("logs", logs);
             ObjectMapper errorMapper = new ObjectMapper();
             try {
                 errorMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), errorResult);

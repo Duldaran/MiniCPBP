@@ -115,6 +115,9 @@ public class NLP_MLM_v2_2 {
             case "CP_LLM":
                 refType = MNREAD_MLM_Config.RefType.CP_LLM;
                 break;
+            case "INVALID_EASY":
+                refType = MNREAD_MLM_Config.RefType.INVALID_EASY;
+                break;
             default:
                 refType = MNREAD_MLM_Config.RefType.NOT_MNREAD;
                 break;
@@ -126,7 +129,7 @@ public class NLP_MLM_v2_2 {
                  cb = new MNREAD_MLM_Config(refType);
                  break;
             case "CollieSent1_MLM_Config":
-                cb = new CollieSent1_MLM_Config();
+                cb = new CollieSent1_MLM_Config(refType);
                 break;
             case "CollieSent2_MLM_Config":
                 cb = new CollieSent2_MLM_Config(refType);
@@ -304,7 +307,6 @@ public class NLP_MLM_v2_2 {
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
         IntVar[] line = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, 2);
-        cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
         IntVar perplexityVar = makeIntVar(cp,0, 1000);
         Objective objectif = cp.maximize(perplexityVar);
 
@@ -412,17 +414,6 @@ public class NLP_MLM_v2_2 {
                     current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port, mask_percent, cb.getBannedIndices(word_index));
                     original_sentence[0] = current_sentence[0];
 
-                    int[][] neg_table = new int[base_sentence.size()][word_index.length];
-                    for (ScoredSentence sentence : base_sentence){
-                        String[] words_in_sentence = sentence.getSentence().split(" ");
-                        for (int idx = 0; idx < word_index.length; idx++) {
-                            String word = words_in_sentence[idx];
-                            int word_idx = words.indexOf(" " + word);
-                            neg_table[base_sentence.indexOf(sentence)][idx] = word_idx;
-                        }
-                    }
-                    cp.post(new NegTableCT(word_index, neg_table));
-
                     System.out.println("Current sentence: " + current_sentence[0]);
 
                     String[] sentenceWords = current_sentence[0].split(" ");
@@ -440,6 +431,18 @@ public class NLP_MLM_v2_2 {
                             masked_indexs.add(idx);
                         }
                     }
+                    
+                    int[][] neg_table = new int[base_sentence.size()][word_index.length];
+                    for (ScoredSentence sentence : base_sentence){
+                        String[] words_in_sentence = sentence.getSentence().split(" ");
+                        for (int idx = 0; idx < word_index.length; idx++) {
+                            String word = words_in_sentence[idx];
+                            int word_idx = words.indexOf(" " + word);
+                            neg_table[base_sentence.indexOf(sentence)][idx] = word_idx;
+                        }
+                    }
+                    cp.post(new NegTableCT(word_index, neg_table));
+                    cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
                     
                     HttpRequest request = HttpRequest.newBuilder()
                         .uri(URI.create("http://localhost:" + port + "/mlm"))

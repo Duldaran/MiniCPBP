@@ -28,7 +28,6 @@ import minicpbp.engine.core.BoolVar;
 import minicpbp.engine.core.Constraint;
 import minicpbp.engine.core.IntVar;
 import minicpbp.engine.core.Solver;
-import minicpbp.engine.core.Solver.PropaMode;
 import minicpbp.search.DFSearch;
 import minicpbp.search.LDSearch;
 import minicpbp.search.Objective;
@@ -77,13 +76,13 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.ibm.icu.impl.Pair;
 
-public class NLP_MLM_noBP {
+public class NLP_MLM_v2_AnyStart {
     final static String mask_string = "[MASK]";
 
 
    public static void main(String[] args) throws Exception {
     
-        System.out.println("30 novembre");
+        System.out.println("10 février");
         int port = Integer.parseInt(args[1]);
         final int NUM_ITERATIONS = Integer.parseInt(args[3]);
         final double weight = Double.parseDouble(args[0]);
@@ -155,7 +154,7 @@ public class NLP_MLM_noBP {
         ArrayList<ScoredSentence> base_sentence = new ArrayList<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        String initial_sentence = null;
+        String initial_sentence = "And he had no idea what to do with the fact that she was in";
         try {
             BufferedReader br = Files.newBufferedReader(Paths.get(cb.fileRef()), StandardCharsets.UTF_8);
             String line;
@@ -176,9 +175,8 @@ public class NLP_MLM_noBP {
             e.printStackTrace();
             throw new RuntimeException("Error reading initial sentence from file: " + e.getMessage());
         }
-
-
-
+            
+        
         double ppl_init = -1.0;
         base_sentence.add(new ScoredSentence(initial_sentence, ppl_init));
 
@@ -241,10 +239,18 @@ public class NLP_MLM_noBP {
             }
         }
 
+        final String pad_string = "[PAD]";
+        if (!words.contains(pad_string)) {
+            words.add(pad_string);
+        }
+
+
         List<Integer> corpusDomains = new ArrayList<>();
         for (int idx = 0; idx < words.size(); idx++) {
             corpusDomains.add(idx);
         }
+
+        final int pad_index = words.indexOf(pad_string);
 
 
         System.out.println("corpusDomains size: " + corpusDomains.size());
@@ -272,6 +278,11 @@ public class NLP_MLM_noBP {
         for (int i = 0; i < corpusDomains.size(); i++) {
             int domainIndex = corpusDomains.get(i);
             String word = words.get(domainIndex);
+            if(domainIndex==pad_index){
+                lengthTokens[i]=0;
+                charNum[i]=0;
+                continue;
+            }
             int charSum = 0;
             charNum[i]=word.length();
             for (char c : word.toCharArray()) {
@@ -291,12 +302,12 @@ public class NLP_MLM_noBP {
         }
 
 
-        System.out.println(base_sentence.get(0).getSentence());
-        System.out.println(base_sentence.get(0).getSentence().split(" "));
-
-        final int SENTENCE_MAX_NUMBER_TOKENS = base_sentence.get(0).getSentence().split(" ").length;
+        
+        final int SENTENCE_MAX_NUMBER_TOKENS = cb.getWordCountRange().second;
+        final int SENTENCE_MIN_NUMBER_TOKENS = cb.getWordCountRange().first;
         final int ORACLE_TOP_K = oracle_top_k;
         final boolean PRINT_TRACE = false;
+        final int NUM_PB = 3;
         final double w = weight;
         final int solutionLimit = 1;
         final int failureLimit = 100;
@@ -305,31 +316,31 @@ public class NLP_MLM_noBP {
         
         Solver cp = makeSolver();
         cp.actingOnZeroOneBelief();
-        cp.setMode(PropaMode.SP);
+
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
-        for (int i = 0; i < word_index.length; i++) {
-            word_index[i].setName("word_index_" + i);
-        }
         IntVar[] line = makeIntVarArray(cp, word_index.length, 0, 3 - 1);
         cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
         Random rand = new Random();
 
-
-
+        
 
 
         IntVar[] allVars = new IntVar[word_index.length + line.length];
         System.arraycopy(word_index, 0, allVars, 0, word_index.length);
         System.arraycopy(line, 0, allVars, word_index.length, line.length);
-        DFSearch dfs = makeDfs(cp, domWdegWithOracle(allVars, " " + mask_string, port, corpusDomainsSet, word_index, words));
+        DFSearch dfs = makeDfs(cp, maxMarginalStrength(allVars));
         final int[] l = new int[]{-1};
 
         String[] current_sentence= new String[1];
         String[] original_sentence= new String[1];
-   
+
+        
         ArrayList<ScoredSentence> candidateSentences = new ArrayList<>();
+        StateManager sm = cp.getStateManager();
+        
+
 
         dfs.onSolution(() -> {
             double perplexityScore = -1;
@@ -342,12 +353,13 @@ public class NLP_MLM_noBP {
                     throw new RuntimeException("Variable not assigned at solution for index "+i);
                 }
                 int assigned = word_index[i].min(); // value assigned at solution
-                solution += words.get(assigned);
+                if (assigned != pad_index) {
+                    solution += words.get(assigned);
+                }
                 tokens_used[i] = words.get(assigned);
                 true_tokens[i] = assigned;
             }
             solution = solution.trim();
-
 
             solution += ".";
 
@@ -378,8 +390,9 @@ public class NLP_MLM_noBP {
                 if (solution.endsWith(".")) {
                     solution = solution.substring(0, solution.length() - 1);
                 }
-                ScoredSentence currentSentence = new ScoredSentence(solution, -1.0);
-                System.out.println("Solution found: " + solution + " with perplexity " + -1.0);
+                double ppl = -1.0;
+                ScoredSentence currentSentence = new ScoredSentence(solution, ppl);
+                System.out.println("Solution found: " + solution + " with perplexity " + ppl);
                 for (ScoredSentence s : base_sentence) {
                     if (s.getSentence().equals(solution)) {
                         System.out.println("Sentence already in base sentences, skipping.");
@@ -388,7 +401,7 @@ public class NLP_MLM_noBP {
                 }
                 if(configArg.equals("MNREAD_MLM_Config") ){ 
                     if (cb.isValid()) {
-                        Logging new_log = new Logging(solution, original_sentence[0], -1.0, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
+                        Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
                         logs.add(new_log);
                         
                     } 
@@ -398,16 +411,15 @@ public class NLP_MLM_noBP {
                     return;
                 }
                 else {
-                    Logging new_log = new Logging(solution, original_sentence[0], -1.0, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
+                    Logging new_log = new Logging(solution, original_sentence[0], ppl, true_tokens, tokens_used, System.currentTimeMillis() - startTime);
                     logs.add(new_log);
                     base_sentence.add(currentSentence);
                     candidateSentences.add(currentSentence);
-                    
                 }
 
             }
             else {
-                Logging new_log = new Logging(solution, original_sentence[0], -1.0, tokens, new String[tokens_used.length], System.currentTimeMillis() - startTime);
+                Logging new_log = new Logging(solution, original_sentence[0], perplexityScore, tokens, new String[tokens_used.length], System.currentTimeMillis() - startTime);
                 logs.add(new_log);
             }
         });
@@ -419,34 +431,54 @@ public class NLP_MLM_noBP {
                         if (candidateSentences.isEmpty()) {
                             candidateSentences.add(base_sentence.get(base_sentence.size() - 1));
                         }
-                        current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, mask_percent, cb.getBannedIndices(word_index));
+                        if (base_sentence.size() == 1)
+                            initializeFirstSentence(sm, sentenceBuilder, candidateSentences, client, port, 
+                            mask_percent, word_index, current_sentence, mask_string, pad_index, words, cp, cb);
+                        else
+                            current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, mask_percent, cb.getBannedIndices(word_index));
                         original_sentence[0] = current_sentence[0];
                         candidateSentences.clear();
 
-                        
-                        
+                        Iterator<Constraint> iteratorC = cp.getConstraints().iterator();
+                        while (iteratorC.hasNext()) {
+                            Constraint c = iteratorC.next();
+                            if (c.getName().equals("Oracle")) {
+                                c.setActive(false);
+                            }
+                        }
+
                         try{
                             int[][] neg_table = new int[base_sentence.size()][word_index.length];
                             for (ScoredSentence sentence : base_sentence){
                                 String[] words_in_sentence = sentence.getSentence().split(" ");
                                 for (int idx = 0; idx < word_index.length; idx++) {
+                                    if (idx >= words_in_sentence.length) {
+                                        neg_table[base_sentence.indexOf(sentence)][idx] = pad_index;
+                                        continue;
+                                    }
                                     String word = words_in_sentence[idx];
                                     int word_idx = words.indexOf(" " + word);
                                     neg_table[base_sentence.indexOf(sentence)][idx] = word_idx;
                                 }
+                                //System.out.println("Neg table row for sentence: " + sentence.getSentence() + " -> " + Arrays.toString(neg_table[base_sentence.indexOf(sentence)]));
                             }
-                            System.out.println("Posting NegTableCT constraint...");
-                            System.out.println("Neg table: " + Arrays.deepToString(neg_table));
-                            System.out.println("Word index vars: " + word_index.length);
                             cp.post(new NegTableCT(word_index, neg_table));
                         }
                         catch(Exception e){
                             System.out.println("Error posting NegTableCT constraint: " + e.getMessage());
                             e.printStackTrace();
                         }
+                        
+                        System.out.println("Current sentence: " + current_sentence[0]);
+
                         String[] sentenceWords = current_sentence[0].split(" ");
                         List<Integer> masked_indexs = new ArrayList<>();
-                        for (int idx = 0; idx < sentenceWords.length; idx++) {
+                        for (int idx = 0; idx < word_index.length; idx++) {
+                            if(idx>=sentenceWords.length){
+                                word_index[idx].assign(pad_index);
+                                continue;
+                            }
+
                             if (!sentenceWords[idx].equals(mask_string)) {
                                 try {
                                     word_index[idx].assign(words.indexOf(" " + sentenceWords[idx]));
@@ -458,9 +490,100 @@ public class NLP_MLM_noBP {
                             } else {
                                 masked_indexs.add(idx);
                             }
-                        } 
-                        System.out.println("Current sentence: " + current_sentence[0]);
-                                                  
+                        }
+                        cp.fixPoint();
+                        
+
+                        
+                        HttpRequest request = HttpRequest.newBuilder()
+                            .uri(URI.create("http://localhost:" + port + "/mlm"))
+                            .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
+                            .build();
+                        String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
+
+                        System.out.println("Response: Received");
+
+                        JsonNode jsonNode = null;
+                        try {
+                            jsonNode = objectMapper.readTree(response);
+                        } catch (JsonMappingException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } catch (JsonProcessingException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        ObjectNode  maskedTokens = (ObjectNode) jsonNode;
+                        System.out.println("Masked tokens found: " + maskedTokens.size());
+                        int i=0;
+                        for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
+                            String fieldName = it.next();
+                            JsonNode tok = maskedTokens.get(fieldName);
+                            System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+
+                            int z = tok.get("mask_word_position").asInt();
+                            ArrayNode probsNode = (ArrayNode) tok.get("probs");
+                            ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
+                            List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                            for (int idx = 0; idx < probsNode.size(); idx++) {
+                                try {
+                                double prob = probsNode.get(idx).asDouble();
+                                int token = tokensNode.get(idx).asInt();
+                                if (!corpusDomainsSet.containsKey(token)) continue;
+                                if (prob < 0) continue;
+
+                                Pair<Integer, Double> tuple = Pair.of(token, prob);
+                                tokenScoreList.add(tuple);
+                                } catch (Exception e) {
+                                    if (PRINT_TRACE) {
+                                        System.err.println(idx);
+                                        System.err.println(e);
+                                    }
+                                }
+                            }
+
+                            int[] tokens = new int[corpusDomains.size()];
+                            double[] scores = new double[corpusDomains.size()];
+
+                            double total_score = 0;
+            
+
+                            tokenScoreList.sort((a, b) -> Double.compare(
+                                b.second, a.second
+                            ));
+
+
+                            int added_tokens = 0;
+                            for (int k = 0; k < tokenScoreList.size(); k++) {
+                                if (added_tokens >= ORACLE_TOP_K) {
+                                    break;
+                                }
+                                int token = tokenScoreList.get(k).first;
+                                double score = tokenScoreList.get(k).second;
+                                int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
+                                for (int token_index : token_indexes) {
+                                    if(word_index[z].contains(token_index)==true){
+                                        added_tokens++;
+                                    }
+                                    tokens[token_index] = token_index;
+                                    scores[token_index] = score;
+                                    total_score += score;
+                                }
+                            }
+                            for (int j=0; j<tokens.length; j++) {
+                                double score=scores[j];
+                                if (score > 0) {
+                                    score /= total_score;
+                                }
+                            }
+
+                            Constraint c = Factory.oracle(word_index[z], tokens, scores);
+
+                            c.setWeight(w);
+                            cp.post(c);
+
+
+                        }                                                       
                     }
             );
 
@@ -476,6 +599,7 @@ public class NLP_MLM_noBP {
     result.put("status", "ok");
     result.put("port", port);
     result.put("num_iterations", NUM_ITERATIONS);
+    result.put("num_pb", NUM_PB);
     result.put("weight", w);
     result.put("llm_name", llm_name);
     result.put("config", configArg);
@@ -490,7 +614,7 @@ public class NLP_MLM_noBP {
     result.put("logs", logs);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
-    String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_noBP_" + System.currentTimeMillis()  + ".json";
+    String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_AnyStart_" + System.currentTimeMillis()  + ".json";
     objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), result);
     }
     catch (Exception e) {
@@ -499,14 +623,14 @@ public class NLP_MLM_noBP {
             // Write error to output file
             String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
             Files.createDirectories(Paths.get(OUTPUT_DIR));
-            String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_noBP_" + System.currentTimeMillis()  + "_error.json";
+            String outputFileName = OUTPUT_DIR + "/result"+configArg+ "_NLP_MLM_v2_AnyStart_" + System.currentTimeMillis()  + "_error.json";
             Map<String, Object> errorResult = new LinkedHashMap<>();
             errorResult.put("status", "error");
             errorResult.put("config", configArg);
             errorResult.put("sentence_builder", sentenceBuilderArg);
-            errorResult.put("seed", seed); 
+            errorResult.put("seed", seed);  
             errorResult.put("oracle_top_k", oracle_top_k);
-            errorResult.put("mask_percent", mask_percent); 
+            errorResult.put("mask_percent", mask_percent);
             errorResult.put("date", java.time.LocalDateTime.now().toString());  
             errorResult.put("time", (System.currentTimeMillis() - startTime) / 1000.0);
             errorResult.put("error_message", e.getMessage());
@@ -519,8 +643,46 @@ public class NLP_MLM_noBP {
             }
             System.exit(1);
     }
+        
+
+    
     }
 
+    private static void initializeFirstSentence(StateManager sm, SentenceBuilder sentenceBuilder, 
+            ArrayList<ScoredSentence> candidateSentences, HttpClient client, int port, 
+            double mask_percent, IntVar[] word_index, String[] current_sentence, 
+            String mask_string, int pad_index, List<String> words, Solver cp, 
+            ConstraintBuilder cb) {
+            
+            double[] currentMaskPercent = new double[]{ mask_percent };
+            boolean noSolutionFound = true;
+            while (noSolutionFound) {
+                try {
+                    current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, 
+                        currentMaskPercent[0], cb.getBannedIndices(word_index));
+                    sm.withNewState(() -> {
+                        String[] sentenceWords = current_sentence[0].split(" ");
+                        for (int idx = 0; idx < word_index.length; idx++) {
+                            if(idx >= sentenceWords.length){
+                            word_index[idx].assign(pad_index);
+                            continue;
+                            }
+                            if (!sentenceWords[idx].equals(mask_string)) {
+                            word_index[idx].assign(words.indexOf(" " + sentenceWords[idx]));
+                            }
+                        }
+                        cp.fixPoint();
+                    });
+                    noSolutionFound = false;
+                } catch (Exception e) {
+                    System.out.println("No solution found with current mask percent: " + currentMaskPercent[0]);
+                    currentMaskPercent[0] += 0.5;
+                    if (currentMaskPercent[0] >= 1.0) {
+                    throw new RuntimeException("Could not find a valid sentence after trying all mask percents");
+                    }
+                }
+            }
+    }
 
     public static class Logging {
 
@@ -543,6 +705,8 @@ public class NLP_MLM_noBP {
             this.timestamp = timestamp;
         }
     }
+
+
 }
 
 

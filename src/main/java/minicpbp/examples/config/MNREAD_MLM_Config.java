@@ -29,6 +29,7 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
         NOT_MNREAD,
         CP,
         CP_LLM,
+        INVALID_EASY,
     }
 
     public MNREAD_MLM_Config(RefType ref) {

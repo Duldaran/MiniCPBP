@@ -119,6 +119,9 @@ public class NLP_MLM_v2 {
             case "CP_LLM":
                 refType = MNREAD_MLM_Config.RefType.CP_LLM;
                 break;
+            case "INVALID_EASY":
+                refType = MNREAD_MLM_Config.RefType.INVALID_EASY;
+                break;
             default:
                 refType = MNREAD_MLM_Config.RefType.NOT_MNREAD;
                 break;
@@ -130,7 +133,7 @@ public class NLP_MLM_v2 {
                  cb = new MNREAD_MLM_Config(refType);
                  break;
             case "CollieSent1_MLM_Config":
-                cb = new CollieSent1_MLM_Config();
+                cb = new CollieSent1_MLM_Config(refType);
                 break;
             case "CollieSent2_MLM_Config":
                 cb = new CollieSent2_MLM_Config(refType);

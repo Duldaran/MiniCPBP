@@ -41,6 +41,9 @@ try:
 except Exception as e:
     print("Import error:", file=sys.stderr)
     traceback.print_exc(file=sys.stderr)
+    
+import faulthandler
+faulthandler.enable()
 
 parser = argparse.ArgumentParser(description="Flask server for token prediction")
 parser.add_argument('--port', type=int, default=5000, help='Port to run the server on')
@@ -54,11 +57,16 @@ gc.collect()
 
 def get_predictions(sentence):
     # Encode the sentence using the tokenizer and return the model predictions.
-    inputs = tokenizer.encode(sentence, return_tensors="pt").to(device)
-    with torch.no_grad():
-        outputs = model(inputs)
-        predictions = outputs[0]
-    return predictions
+    try:
+        inputs = tokenizer.encode(sentence, return_tensors="pt").to(device)
+        with torch.no_grad():
+            outputs = model(inputs)
+            predictions = outputs[0]
+        return predictions
+    except Exception as e:
+        print(f"[ERROR] in get_predictions: {str(e)}", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
+        raise
 
 def get_next_word_probabilities(sentence):
     

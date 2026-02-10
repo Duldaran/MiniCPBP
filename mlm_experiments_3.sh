@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=06:00:00
+#SBATCH --time=08:00:00
 #SBATCH --account=def-pesantg
 #SBATCH --cpus-per-task=9
 #SBATCH --gpus=1
@@ -29,40 +29,42 @@ done
 echo "Server is ready!"
 
 # Define lists for the last two arguments
-SEED_LIST=(0 1 2 3 4 5 6 7 8 9 10 11 12)
+SEED_LIST=( 3 4 5 6 7 8 9 10 11 12 13 14 15)
 TASK_CONFIG_LIST=("CollieSent3_MLM_Config")
 SENTENCE_BUILDER_LIST=("randomSentenceBuilder" "perplexitySentenceBuilder")
 
-REF_TYPE_LIST="CP"
+REF_TYPE_LIST=("CP" "CP_LLM")
 
 # Maximum parallel jobs (CPU-bound, adjust based on available CPUs)
-MAX_PARALLEL=8
+MAX_PARALLEL=4
 
 # Counter for parallel jobs
 job_count=0
 
 # Loop through combinations
 pids=()
-for oracle_top_k in 50; do  ##Modified to complete missing loops (10 25)
-    for mask_percent in 0.2 ; do
-        for seed in "${SEED_LIST[@]}"; do
-            for taskConfig in "${TASK_CONFIG_LIST[@]}"; do
-                for sentenceBuilder in "${SENTENCE_BUILDER_LIST[@]}"; do
-                    echo "Running experiments with seed: ${seed}, taskConfig: ${taskConfig}, and sentenceBuilder: ${sentenceBuilder}, mask_percent: ${mask_percent}"
-                
-                    # Run both Java commands in background (they'll queue requests to the Python server)
-                    java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_v2 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
-                    pids+=($!)
-                    java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_noBP 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
-                    pids+=($!)
-                    java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_v1_2 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
-                    pids+=($!)
-                    job_count=$((job_count + 3))
+for refType in "${REF_TYPE_LIST[@]}"; do
+    for oracle_top_k in 50; do  ##Modified to complete missing loops (10 25)
+        for mask_percent in 0.2 ; do
+            for seed in "${SEED_LIST[@]}"; do
+                for taskConfig in "${TASK_CONFIG_LIST[@]}"; do
+                    for sentenceBuilder in "${SENTENCE_BUILDER_LIST[@]}"; do
+                        echo "Running experiments with seed: ${seed}, taskConfig: ${taskConfig}, and sentenceBuilder: ${sentenceBuilder}, mask_percent: ${mask_percent}"
                     
-                    # Wait when we reach max parallel jobs
-                    while [ $job_count -ge $MAX_PARALLEL ]; do
-                        wait -n
-                        job_count=$((job_count - 1))
+                        # Run both Java commands in background (they'll queue requests to the Python server)
+                        java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_v2 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
+                        pids+=($!)
+                        java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_noBP 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
+                        pids+=($!)
+                        java -cp target/minicpbp-1.0.jar minicpbp.examples.NLP_MLM_v1_2 1.2 5000 output 100 ${seed} ${taskConfig} ${sentenceBuilder} ${oracle_top_k} ${mask_percent} ${refType} &
+                        pids+=($!)
+                        job_count=$((job_count + 3))
+                        
+                        # Wait when we reach max parallel jobs
+                        while [ $job_count -ge $MAX_PARALLEL ]; do
+                            wait -n
+                            job_count=$((job_count - 1))
+                        done
                     done
                 done
             done
