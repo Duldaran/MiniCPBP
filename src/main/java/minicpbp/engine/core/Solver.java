@@ -138,6 +138,11 @@ public interface Solver {
     boolean actingOnZeroOneBelief();
 
     /**
+     * Set whether we should take action upon zero/one beliefs i.e. remove/assign the corresponding value
+     */
+    void setActingOnZeroOneBeliefFlag(boolean actOnZeroOneBelief);
+
+    /**
      * @return whether search should be traced
      */
     boolean tracingSearch();

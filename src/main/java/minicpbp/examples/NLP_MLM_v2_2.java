@@ -310,6 +310,11 @@ public class NLP_MLM_v2_2 {
         IntVar perplexityVar = makeIntVar(cp,0, 1000);
         Objective objectif = cp.maximize(perplexityVar);
 
+        // Get min/max sentence length from config
+        Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
+        final int minLength = wordCountRange.first;
+        final int maxLength = wordCountRange.second;
+
         Random rand = new Random();
 
         ArrayList<Pair<Double, Long>> best_perplexity_time = new ArrayList<>();
@@ -411,7 +416,7 @@ public class NLP_MLM_v2_2 {
             l++;
 
             dfs.optimizeSubjectTo(objectif, statistics -> statistics.numberOfSolutions() >= solutionLimit, () -> {
-                    current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port, mask_percent, cb.getBannedIndices(word_index));
+                    current_sentence[0] = sentenceBuilder.buildSentence(base_sentence, client, port, mask_percent, cb.getBannedIndices(word_index), minLength, maxLength);
                     original_sentence[0] = current_sentence[0];
 
                     System.out.println("Current sentence: " + current_sentence[0]);

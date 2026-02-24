@@ -305,6 +305,11 @@ public class NLP_MLM_v1_2 {
         IntVar[] line = makeIntVarArray(cp, word_index.length, 0, 3 - 1);
         cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
+        // Get min/max sentence length from config
+        Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
+        final int minLength = wordCountRange.first;
+        final int maxLength = wordCountRange.second;
+
         Random rand = new Random();
 
 
@@ -409,7 +414,7 @@ public class NLP_MLM_v1_2 {
                         if (candidateSentences.isEmpty()) {
                             candidateSentences.add(base_sentence.get(base_sentence.size() - 1));
                         }
-                        current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, mask_percent, cb.getBannedIndices(word_index));
+                        current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, mask_percent, cb.getBannedIndices(word_index), minLength, maxLength);
                         original_sentence[0] = current_sentence[0];
                         candidateSentences.clear();
 

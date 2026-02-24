@@ -433,7 +433,7 @@ public class NLP_MLM_v1 {
             dfs.solveSubjectTo(statistics -> statistics.numberOfSolutions() >= 1, () -> {
                     ArrayList<ScoredSentence> candidates = new ArrayList<>();
                     candidates.add(base_sentence.get(base_sentence.size() - 1));
-                    current_sentence[0] = sentenceBuilder.buildSentence(candidates, client, port, mask_percent, cb.getBannedIndices(word_index));
+                    current_sentence[0] = sentenceBuilder.buildSentence(candidates, client, port, mask_percent, cb.getBannedIndices(word_index), minLength, maxLength);
                     original_sentence[0] = current_sentence[0];
 
                     System.out.println("Current sentence: " + current_sentence[0]);
@@ -467,6 +467,11 @@ public class NLP_MLM_v1 {
 
                     
                     cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
+
+                    // Get min/max sentence length from config
+                    Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
+                    final int minLength = wordCountRange.first;
+                    final int maxLength = wordCountRange.second;
 
                     
 

@@ -2,20 +2,35 @@ package minicpbp.examples.config;
 
 import java.net.http.HttpClient;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 public class randomSentenceBuilder implements SentenceBuilder {
     private final String mask_string = "[MASK]";
+    private ACOLengthSelector acoSelector = new ACOLengthSelector();
+    private int lastLength = -1;
 
     @Override
-    public String buildSentence(ArrayList<ScoredSentence> bases,HttpClient client, int port, double mask_percent, ArrayList<Integer> bannedIndices) {
+    public String buildSentence(ArrayList<ScoredSentence> bases,HttpClient client, int port, double mask_percent, ArrayList<Integer> bannedIndices, int minLength, int maxLength) {
         ScoredSentence base = selectWeightedRandom(bases, new Random());
-        System.out.println("Base sentence: " + base);
+        System.out.println("Random Base sentence: " + base);
         String[] words = base.getSentence().split(" ");
         Random rand = new Random();
-        int numMasks = (int) Math.ceil(mask_percent * words.length);
+        
+        // ACO-based length adjustment (one step: -1, 0, or +1)
+        int currentLength = words.length;
+        int lengthDelta = acoSelector.selectLengthDelta(currentLength, minLength, maxLength);
+        lastLength = currentLength + lengthDelta;
+        
+        if (lengthDelta != 0) {
+            System.out.println("ACO length delta: " + lengthDelta + " (" + currentLength + " -> " + lastLength + ")");
+        }
+        
+        // Select mask positions first
+        int numMasks = Math.max(1, (int) Math.ceil(mask_percent * words.length));
         Set<Integer> maskIndices = new HashSet<>();
         while (maskIndices.size() < numMasks) {
             int idx = rand.nextInt(words.length);
@@ -24,11 +39,58 @@ public class randomSentenceBuilder implements SentenceBuilder {
             }
             maskIndices.add(idx);
         }
+        
+        // Adjust length near a mask position
+        if (lengthDelta != 0 && !maskIndices.isEmpty()) {
+            words = adjustLengthNearMask(words, lengthDelta, maskIndices);
+        }
+        
         System.out.println("Masking indices: " + maskIndices);
         for (int idx : maskIndices) {
-            words[idx] = mask_string;
+            if (idx < words.length) {
+                words[idx] = mask_string;
+            }
         }
         return String.join(" ", words);
+    }
+    
+    /**
+     * Adjust sentence length by ±1 word near a mask position
+     */
+    private String[] adjustLengthNearMask(String[] words, int delta, Set<Integer> maskIndices) {
+        Random rand = new Random();
+        List<String> wordList = new ArrayList<>(Arrays.asList(words));
+        
+        // Select a random mask position
+        int maskPos = new ArrayList<>(maskIndices).get(rand.nextInt(maskIndices.size()));
+        
+        if (delta > 0 && wordList.size() < 100) {
+            // Add: insert a mask adjacent to existing mask
+            int insertPos = Math.min(maskPos + 1, wordList.size());
+            wordList.add(insertPos, mask_string);
+            System.out.println("ACO: Inserted mask near position " + maskPos);
+        } else if (delta < 0 && wordList.size() > 3) {
+            // Remove: delete word adjacent to mask (but not the mask itself)
+            int removePos = maskPos + 1;
+            if (removePos >= wordList.size()) {
+                removePos = Math.max(0, maskPos - 1);
+            }
+            if (removePos != maskPos && removePos < wordList.size()) {
+                wordList.remove(removePos);
+                System.out.println("ACO: Removed word near position " + maskPos);
+            }
+        }
+        
+        return wordList.toArray(new String[0]);
+    }
+    
+    /**
+     * Record search outcome to update ACO pheromones
+     */
+    public void recordSearchFailure(boolean failed) {
+        if (lastLength > 0) {
+            acoSelector.recordOutcome(lastLength, failed);
+        }
     }
 
     private static ScoredSentence selectWeightedRandom(ArrayList<ScoredSentence> sentences, Random random) {

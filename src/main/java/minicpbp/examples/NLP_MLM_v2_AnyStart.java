@@ -315,12 +315,17 @@ public class NLP_MLM_v2_AnyStart {
         System.out.println("Building model...");
         
         Solver cp = makeSolver();
-        cp.actingOnZeroOneBelief();
+        cp.setActingOnZeroOneBeliefFlag(true);
 
 
         IntVar[] word_index = makeIntVarArray(cp, SENTENCE_MAX_NUMBER_TOKENS, 0, corpusDomains.size()-1);
         IntVar[] line = makeIntVarArray(cp, word_index.length, 0, 3 - 1);
         cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
+
+        // Get min/max sentence length from config
+        Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
+        final int minLength = wordCountRange.first;
+        final int maxLength = wordCountRange.second;
 
         Random rand = new Random();
 
@@ -433,9 +438,9 @@ public class NLP_MLM_v2_AnyStart {
                         }
                         if (base_sentence.size() == 1)
                             initializeFirstSentence(sm, sentenceBuilder, candidateSentences, client, port, 
-                            mask_percent, word_index, current_sentence, mask_string, pad_index, words, cp, cb);
+                            mask_percent, word_index, current_sentence, mask_string, pad_index, words, cp, cb, minLength, maxLength);
                         else
-                            current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, mask_percent, cb.getBannedIndices(word_index));
+                            current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, mask_percent, cb.getBannedIndices(word_index), minLength, maxLength);
                         original_sentence[0] = current_sentence[0];
                         candidateSentences.clear();
 
@@ -500,8 +505,6 @@ public class NLP_MLM_v2_AnyStart {
                             .POST(HttpRequest.BodyPublishers.ofString("<s>"+current_sentence[0]+"."))
                             .build();
                         String response = client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).join();
-
-                        System.out.println("Response: Received");
 
                         JsonNode jsonNode = null;
                         try {
@@ -576,6 +579,10 @@ public class NLP_MLM_v2_AnyStart {
                                     score /= total_score;
                                 }
                             }
+
+                            
+                            System.out.println("Pad token score for position " + z + ": " + scores[pad_index]);
+                            System.out.println("Pad token score for position " + z + ": " + word_index[z].marginal(pad_index));
 
                             Constraint c = Factory.oracle(word_index[z], tokens, scores);
 
@@ -652,14 +659,14 @@ public class NLP_MLM_v2_AnyStart {
             ArrayList<ScoredSentence> candidateSentences, HttpClient client, int port, 
             double mask_percent, IntVar[] word_index, String[] current_sentence, 
             String mask_string, int pad_index, List<String> words, Solver cp, 
-            ConstraintBuilder cb) {
+            ConstraintBuilder cb, int minLength, int maxLength) {
             
             double[] currentMaskPercent = new double[]{ mask_percent };
             boolean noSolutionFound = true;
             while (noSolutionFound) {
                 try {
                     current_sentence[0] = sentenceBuilder.buildSentence(candidateSentences, client, port, 
-                        currentMaskPercent[0], cb.getBannedIndices(word_index));
+                        currentMaskPercent[0], cb.getBannedIndices(word_index), minLength, maxLength);
                     sm.withNewState(() -> {
                         String[] sentenceWords = current_sentence[0].split(" ");
                         for (int idx = 0; idx < word_index.length; idx++) {

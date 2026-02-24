@@ -63,7 +63,7 @@ public class MiniCP implements Solver {
     // reset marginals, local beliefs, and previous outside belief before applying BP at each search-tree node
     private static final boolean resetMarginalsBeforeBP = true;
     // take action upon zero/one beliefs: remove/assign the corresponding value
-    private static final boolean actOnZeroOneBelief = false;
+    private static boolean actOnZeroOneBelief = false;
     // relative decrease of metric to trigger BP; in interval [0,1] where 0 means always trigger
     private static double beliefUpdateThreshold = 0.05;
     // representation of beliefs: either standard (StdBelief: [0..1]) or log (LogBelief: [-infinity..0])
@@ -138,6 +138,10 @@ public class MiniCP implements Solver {
     @Override
     public void registerVar(IntVar x) {
         variables.push(x);
+    }
+
+    public void setActingOnZeroOneBeliefFlag(boolean actOnZeroOneBelief) {
+        MiniCP.actOnZeroOneBelief = actOnZeroOneBelief;
     }
 
     public void setMode(PropaMode mode) {
@@ -767,5 +771,7 @@ public class MiniCP implements Solver {
 	else
 	    return new LinkedList<>(); // n could not be factorized (in at most m factors)
     }
+
+    
 }
 

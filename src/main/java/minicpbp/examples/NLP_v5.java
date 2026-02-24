@@ -359,13 +359,13 @@ public class NLP_v5 {
             ));
             for (int t = 0; t < Math.min(5, tokenScoreListNew.size()); t++) {
                 Pair<Integer, Double> pair = tokenScoreListNew.get(t);
-                System.out.println("Top " + (t + 1) + " new: token=" + tokens_list.get(pair.first) + ", index=" + pair.first + ", score=" + pair.second);
+                //System.out.println("Top " + (t + 1) + " new: token=" + tokens_list.get(pair.first) + ", index=" + pair.first + ", score=" + pair.second);
             }
 
             for (int t = 0; t < Math.min(5, tokenScoreListContinue.size()); t++) {
                 Pair<List<Integer>, Double> pair = tokenScoreListContinue.get(t);
                 String tokenStr = pair.first.stream().map(idx -> tokens_list.get(idx)).collect(Collectors.joining(""));
-                System.out.println("Top " + (t + 1) + " continue: token=" + tokenStr + ", score=" + pair.second);
+                //System.out.println("Top " + (t + 1) + " continue: token=" + tokenStr + ", score=" + pair.second);
             }
 
             if(tokenScoreListNew.get(0).first==sentence_end_index && i<word_index.length-1){
@@ -476,7 +476,11 @@ public class NLP_v5 {
             if(total_score_continue>0){
                 final String testSentence = current_sentence;
                 try {
-                    
+
+                System.out.println("Processing continue tokens");
+                System.out.println("Processing continue tokens");
+                System.out.println("Processing continue tokens");
+                System.out.println("Processing continue tokens");
                 sm.withNewState(() -> {
                     // assign the words in the current sentence except the last one
                     String[] split_word = testSentence.trim().split(" ");
@@ -525,6 +529,7 @@ public class NLP_v5 {
                     System.out.println("Inconsistency detected with continue tokens, state restored");
                 }
             }
+
 
             System.out.println("Processing new tokens");
             String last_word_string = last_word.stream()
@@ -662,6 +667,7 @@ public class NLP_v5 {
                     }
                 }
             }
+
             int chosen = -1;
     
             Random random = new Random();
