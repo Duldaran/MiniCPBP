@@ -76,6 +76,7 @@ public class NLP_v4_2 {
             final double weight = Double.parseDouble(args[0]);
             final String llm_name = args.length > 5 ? args[5] : "zephyr";
             final String configArg = args.length > 4 ? args[4] : "CollieSent1Config";
+            final long processStartTime = System.currentTimeMillis();
 
 
         try {
@@ -636,6 +637,7 @@ public class NLP_v4_2 {
     result.put("llm_name", llm_name);
     result.put("logs", logs);
     result.put("date", java.time.LocalDateTime.now().toString());
+    result.put("time", (System.currentTimeMillis() - processStartTime) / 1000.0);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
     String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_NLP_v4-2_" + System.currentTimeMillis()  + ".json";
@@ -652,6 +654,7 @@ public class NLP_v4_2 {
             errorResult.put("status", "error");
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
+            errorResult.put("time", (System.currentTimeMillis() - processStartTime) / 1000.0);
             ObjectMapper errorMapper = new ObjectMapper();
             try {
                 errorMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(outputFileName).toFile(), errorResult);

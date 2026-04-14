@@ -78,6 +78,7 @@ public class NLP_v5 {
             final double weight = Double.parseDouble(args[0]);
             final String llm_name = args.length > 4 ? args[4] : "zephyr";
             final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
+            final long processStartTime = System.currentTimeMillis();
 
         List<Logging>  logs = new ArrayList<>();
 
@@ -743,6 +744,7 @@ public class NLP_v5 {
     result.put("llm_name", llm_name);
     result.put("logs", logs);
     result.put("date", java.time.LocalDateTime.now().toString());
+    result.put("time", (System.currentTimeMillis() - processStartTime) / 1000.0);
     String OUTPUT_DIR = args.length > 3 ? args[2] : "./outputs";
     Files.createDirectories(Paths.get(OUTPUT_DIR));
     String outputFileName = OUTPUT_DIR + "/result_"+configArg+ "_NLP_v5_" + System.currentTimeMillis()  + ".json";
@@ -759,6 +761,7 @@ public class NLP_v5 {
             errorResult.put("error_message", e.getMessage());
             errorResult.put("exception", e.toString());
             errorResult.put("date", java.time.LocalDateTime.now().toString());
+            errorResult.put("time", (System.currentTimeMillis() - processStartTime) / 1000.0);
             errorResult.put("port", port);
             errorResult.put("num_iterations", NUM_ITERATIONS);
             errorResult.put("weight", weight);

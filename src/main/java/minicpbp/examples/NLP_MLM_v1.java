@@ -295,7 +295,7 @@ public class NLP_MLM_v1 {
         final boolean PRINT_TRACE = false;
         final int NUM_PB = 4;
         final double w = weight;
-        final int failureLimit = 10;
+        final int failureLimit = 100;
 
 
         System.out.println("Building model...");
@@ -319,6 +319,9 @@ public class NLP_MLM_v1 {
         System.arraycopy(line, 0, allVars, word_index.length, line.length);
         DFSearch dfs = makeDfs(cp, maxMarginalStrength(allVars));
         int[] l = new int[] {-1};
+
+        int minLength = cb.getWordCountRange().first;
+        int maxLength = cb.getWordCountRange().second;
 
         String[] current_sentence= new String[1];
         String[] original_sentence= new String[1];
@@ -468,10 +471,6 @@ public class NLP_MLM_v1 {
                     
                     cb.build(new SolverContext(cp, corpusDomains.size(), -1, -1, charNum, lengthTokens, word_index, words, line));
 
-                    // Get min/max sentence length from config
-                    Pair<Integer, Integer> wordCountRange = cb.getWordCountRange();
-                    final int minLength = wordCountRange.first;
-                    final int maxLength = wordCountRange.second;
 
                     
 

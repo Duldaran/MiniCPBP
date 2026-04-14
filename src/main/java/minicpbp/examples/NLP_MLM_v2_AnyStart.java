@@ -345,9 +345,14 @@ public class NLP_MLM_v2_AnyStart {
         ArrayList<ScoredSentence> candidateSentences = new ArrayList<>();
         StateManager sm = cp.getStateManager();
         
+        cp.setTraceBPFlag(true);
 
+        dfs.onFailure(() -> {
+            sentenceBuilder.recordSearchFailure(true);
+        });
 
         dfs.onSolution(() -> {
+            sentenceBuilder.recordSearchFailure(false);
             double perplexityScore = -1;
             String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
             // build sentence from assigned word_index values
