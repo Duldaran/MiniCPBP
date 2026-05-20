@@ -59,6 +59,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
@@ -207,25 +208,27 @@ public class NLP_MLM_v2_AnyStart {
  
         final List<String> tokens_list = Arrays.asList(corrected_lines);
         ArrayList<String> words = new ArrayList<>();
-        Map<Integer, List<Integer>> corpusDomainsSet = new HashMap<>();
-        Map<Integer, Integer> corpusDomainToIndex = new HashMap<>();
+        Set<Integer> tokensSet = new HashSet<>();
+        Map<Integer, List<List<Integer>>> tokenizedWords = new HashMap<>();
+        Map< List<Integer>, Integer> corpusDomainsSet = new HashMap<>();
         try {
             String jsonContent = new String(Files.readAllBytes(Paths.get("./src/main/java/minicpbp/examples/data/MNREAD/"+llm_name+"/corpus_tokenized_words.json")), StandardCharsets.UTF_8);
             final List<List<Integer>> parsedCorpusDomains = objectMapper.readValue(jsonContent, new TypeReference<List<List<Integer>>>() {}); 
             int j = 0;
             for (int i = 0; i < parsedCorpusDomains.size(); i++) {
                 List<Integer> sublist = parsedCorpusDomains.get(i);
-                if(sublist.size() != 1) continue;
+                tokensSet.addAll(sublist);
                 String word_string = sublist.stream().map(n -> tokens_list.get(n)).collect(Collectors.joining(""));//.strip();
                 if (words.contains(word_string)) {
                     continue;
                 }
                 words.add(word_string.replace("##", ""));
-                if (!corpusDomainsSet.containsKey(sublist.get(0)))
-                    corpusDomainsSet.put(sublist.get(0), new ArrayList<>(List.of(j)));
-                else
-                    corpusDomainsSet.get(sublist.get(0)).add(j);
-                corpusDomainToIndex.put(j, sublist.get(0));
+                if (!tokenizedWords.containsKey(sublist.get(sublist.size()-1))) {
+                    tokenizedWords.put(sublist.get(sublist.size()-1), new ArrayList<>());
+                }      
+                tokenizedWords.get(sublist.get(sublist.size()-1)).add(sublist);
+                corpusDomainsSet.put(sublist, j);
+                
                 j++;
             }
         } catch (Exception e) {
@@ -345,14 +348,9 @@ public class NLP_MLM_v2_AnyStart {
         ArrayList<ScoredSentence> candidateSentences = new ArrayList<>();
         StateManager sm = cp.getStateManager();
         
-        cp.setTraceBPFlag(true);
 
-        dfs.onFailure(() -> {
-            sentenceBuilder.recordSearchFailure(true);
-        });
 
         dfs.onSolution(() -> {
-            sentenceBuilder.recordSearchFailure(false);
             double perplexityScore = -1;
             String[] tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
             // build sentence from assigned word_index values
@@ -483,25 +481,7 @@ public class NLP_MLM_v2_AnyStart {
 
                         String[] sentenceWords = current_sentence[0].split(" ");
                         List<Integer> masked_indexs = new ArrayList<>();
-                        for (int idx = 0; idx < word_index.length; idx++) {
-                            if(idx>=sentenceWords.length){
-                                word_index[idx].assign(pad_index);
-                                continue;
-                            }
-
-                            if (!sentenceWords[idx].equals(mask_string)) {
-                                try {
-                                    word_index[idx].assign(words.indexOf(" " + sentenceWords[idx]));
-                                } catch (Exception e) {
-                                    System.out.println(e);
-                                    System.err.println("Error assigning index " + idx + " to word " + sentenceWords[idx]);
-                                    System.err.println(words.contains(" " + sentenceWords[idx]));
-                                }
-                            } else {
-                                masked_indexs.add(idx);
-                            }
-                        }
-                        cp.fixPoint();
+                        
                         
 
                         
@@ -523,24 +503,30 @@ public class NLP_MLM_v2_AnyStart {
                         }
                         ObjectNode  maskedTokens = (ObjectNode) jsonNode;
                         System.out.println("Masked tokens found: " + maskedTokens.size());
-                        int i=0;
+                        Map<Integer, List<Pair<Integer, Double>>> nonMaskedTokenProbs = new HashMap<>();
+                        Map<Integer, List<Pair<List<Integer>, Double>>> maskedTokenProbs = new HashMap<>();
+
                         for (Iterator<String> it = maskedTokens.fieldNames(); it.hasNext(); ) {
                             String fieldName = it.next();
                             JsonNode tok = maskedTokens.get(fieldName);
-                            System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+                            if (PRINT_TRACE) {
+                                System.out.println("Masked token: " + tok.get("mask_word_position").asInt());
+                            }
 
                             int z = tok.get("mask_word_position").asInt();
                             ArrayNode probsNode = (ArrayNode) tok.get("probs");
                             ArrayNode tokensNode = (ArrayNode) tok.get("tokens");
-                            List<Pair<Integer, Double>> tokenScoreList = new ArrayList<>();
+                            List<Pair<List<Integer>, Double>> tokenScoreList = new ArrayList<>();
                             for (int idx = 0; idx < probsNode.size(); idx++) {
                                 try {
                                 double prob = probsNode.get(idx).asDouble();
                                 int token = tokensNode.get(idx).asInt();
-                                if (!corpusDomainsSet.containsKey(token)) continue;
+                                if (!tokensSet.contains(token)) {
+                                    continue;
+                                }
                                 if (prob < 0) continue;
 
-                                Pair<Integer, Double> tuple = Pair.of(token, prob);
+                                Pair<List<Integer>, Double> tuple = Pair.of(Collections.singletonList(token), prob);
                                 tokenScoreList.add(tuple);
                                 } catch (Exception e) {
                                     if (PRINT_TRACE) {
@@ -550,52 +536,226 @@ public class NLP_MLM_v2_AnyStart {
                                 }
                             }
 
-                            int[] tokens = new int[corpusDomains.size()];
-                            double[] scores = new double[corpusDomains.size()];
+                           
+                            maskedTokenProbs.put(z, tokenScoreList);
 
-                            double total_score = 0;
-            
+                        }
+                        for (Integer z : maskedTokenProbs.keySet().stream().sorted(Collections.reverseOrder()).collect(Collectors.toList())) {
+                            List<Pair<List<Integer>, Double>> tokenScoreList = maskedTokenProbs.get(z);
+                            int[] tokens = new int[corpusDomains.size()];
+                            for (int indx= 0; indx < corpusDomains.size(); indx++) {
+                                tokens[indx] = corpusDomains.get(indx);
+                            }
+                            double[] scores = new double[corpusDomains.size()];
 
                             tokenScoreList.sort((a, b) -> Double.compare(
                                 b.second, a.second
                             ));
 
-
+                            double total_score = 0;
                             int added_tokens = 0;
+                            Map<List<Integer>, Double> forward_probabilities = new HashMap<>();
                             for (int k = 0; k < tokenScoreList.size(); k++) {
                                 if (added_tokens >= ORACLE_TOP_K) {
                                     break;
                                 }
-                                int token = tokenScoreList.get(k).first;
-                                double score = tokenScoreList.get(k).second;
-                                int[] token_indexes = corpusDomainsSet.get(token).stream().mapToInt(Integer::intValue).toArray();
-                                for (int token_index : token_indexes) {
-                                    if(word_index[z].contains(token_index)==true){
-                                        added_tokens++;
+                                List<Integer> token = tokenScoreList.get(k).first;
+                                if (!corpusDomainsSet.containsKey(token) && !tokenizedWords.containsKey(token.get(0))) continue;
+                                if(token.size() == 1 && !tokens_list.get(token.get(0)).startsWith(" ")){
+                                    List<List<Integer>> possible_words = tokenizedWords.get(token.get(0));
+                                    if (possible_words == null || possible_words.isEmpty()) {
+                                        continue;
                                     }
-                                    tokens[token_index] = token_index;
-                                    scores[token_index] = score;
-                                    total_score += score;
+                                    boolean valid_token = false;
+                                    for (List<Integer> possible_word : possible_words) {
+                                        double combinedScore = tokenScoreList.get(k).second;
+                                        boolean valid = true;
+                                        for(int j = z-possible_word.size()+1; j<z; j++){
+                                            if(j<0 || j>=word_index.length){
+                                                valid = false;
+                                                break; 
+                                            }
+                                            int tokenPosInWord = j - (z - possible_word.size() + 1);
+                                            int expectedToken = possible_word.get(tokenPosInWord);
+                                            if(maskedTokenProbs.containsKey(j)){
+                                                double bestPreviousScore = -1.0;
+                                                List<Pair<List<Integer>, Double>> previous_token_scores = maskedTokenProbs.get(j);
+                                                for(Pair<List<Integer>, Double> previous_token_score : previous_token_scores){
+                                                    if(previous_token_score.first.size()!=1){
+                                                        continue;
+                                                    }
+                                                    if(previous_token_score.first.get(0).equals(expectedToken)){
+                                                        bestPreviousScore = Math.max(bestPreviousScore, previous_token_score.second);
+                                                    }
+                                                }
+                                                if(bestPreviousScore < 0.0){
+                                                    valid = false;
+                                                    break;
+                                                }
+                                                if (PRINT_TRACE) {
+                                                    System.out.println("Found previous token " + tokens_list.get(expectedToken) + " for position " + j + " with score " + bestPreviousScore);
+                                                    System.out.println("Combining with current token " + tokens_list.get(token.get(0)) + " for position " + z + " with score " + tokenScoreList.get(k).second);
+                                                }
+                                                combinedScore = Math.max(combinedScore, bestPreviousScore);//TODO : Test max
+                                            }
+                                            else {
+                                                if(j >= sentenceWords.length || sentenceWords[j] == null || !sentenceWords[j].equals(tokens_list.get(expectedToken).strip())){
+                                                    valid = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if(valid){
+                                            if (PRINT_TRACE) {
+                                                System.out.println("Valid token found: " + possible_word + " with combined score " + combinedScore);
+                                            }
+                                            forward_probabilities.merge(possible_word, combinedScore, Math::max);
+                                            valid_token = true;
+                                        }
+                                    }
+                                    if(valid_token){
+                                        scores[pad_index] += tokenScoreList.get(k).second;
+                                        total_score += tokenScoreList.get(k).second;
+                                    }
+
+                                    continue;
                                 }
+                                double score = tokenScoreList.get(k).second;
+                                int token_index = corpusDomainsSet.get(token);
+                                
+                                if(word_index[z].contains(token_index)==true){
+                                    added_tokens++;
+                                }
+                                scores[token_index] = score;
+                                total_score += score;
+                                
                             }
-                            for (int j=0; j<tokens.length; j++) {
-                                double score=scores[j];
-                                if (score > 0) {
-                                    score /= total_score;
+                            if (total_score > 0) {
+                                for (int j = 0; j < tokens.length; j++) {
+                                    if (scores[j] > 0) {
+                                        scores[j] /= total_score;
+                                    }
                                 }
                             }
 
-                            
-                            System.out.println("Pad token score for position " + z + ": " + scores[pad_index]);
-                            System.out.println("Pad token score for position " + z + ": " + word_index[z].marginal(pad_index));
+                            int bestOracleIdx = -1;
+                            double bestOracleProb = -1.0;
+                            List<Integer> rankedOracleIdx = new ArrayList<>();
+                            for (int j = 0; j < scores.length; j++) {
+                                if (scores[j] > 0.0) {
+                                    rankedOracleIdx.add(j);
+                                    if (scores[j] > bestOracleProb) {
+                                        bestOracleProb = scores[j];
+                                        bestOracleIdx = j;
+                                    }
+                                }
+                            }
+                            rankedOracleIdx.sort((a, b) -> Double.compare(scores[b], scores[a]));
+                            int oracleTopLimit = Math.min(5, rankedOracleIdx.size());
+                            StringBuilder oracleTopSummary = new StringBuilder();
+                            for (int rank = 0; rank < oracleTopLimit; rank++) {
+                                int idx = rankedOracleIdx.get(rank);
+                                if (rank > 0) {
+                                    oracleTopSummary.append(", ");
+                                }
+                                oracleTopSummary.append(words.get(idx))
+                                        .append("=")
+                                        .append(String.format(Locale.US, "%.6f", scores[idx]));
+                            }
+
 
                             Constraint c = Factory.oracle(word_index[z], tokens, scores);
 
                             c.setWeight(w);
                             cp.post(c);
 
+                            if (bestOracleIdx >= 0) {
+                                System.out.println("Position " + z + " best oracle word: " + words.get(bestOracleIdx)
+                                        + " (" + String.format(Locale.US, "%.6f", bestOracleProb) + ")");
+                            }
+                            System.out.println("Position " + z + " top oracle probabilities: [" + oracleTopSummary + "]");
 
-                        }                                                       
+                            Entry<List<Integer>, Double> bestForwardEntry = null;
+                            for (Entry<List<Integer>, Double> entry : forward_probabilities.entrySet()) {
+                                if (bestForwardEntry == null || entry.getValue() > bestForwardEntry.getValue()) {
+                                    bestForwardEntry = entry;
+                                }
+                            }
+                            if (bestForwardEntry != null) {
+                                Integer forwardWordIdx = corpusDomainsSet.get(bestForwardEntry.getKey());
+                                String forwardWord;
+                                if (forwardWordIdx != null && forwardWordIdx >= 0 && forwardWordIdx < words.size()) {
+                                    forwardWord = words.get(forwardWordIdx);
+                                } else {
+                                    forwardWord = bestForwardEntry.getKey().stream()
+                                            .map(i -> tokens_list.get(i))
+                                            .collect(Collectors.joining(""));
+                                }
+                                System.out.println("Position " + z + " best forward word: " + forwardWord
+                                        + " (" + String.format(Locale.US, "%.6f", bestForwardEntry.getValue()) + ")");
+                            }
+
+                            for (Entry<List<Integer>, Double> entry : forward_probabilities.entrySet()) {
+                                List<Integer> word = entry.getKey();
+                                double score = entry.getValue();
+                                
+                                int relevant_index = z - word.size() + 1;
+                                if(maskedTokenProbs.containsKey(relevant_index)){
+                                    maskedTokenProbs.get(relevant_index).add(Pair.of(word, score));
+                                }
+                                else{
+                                    if(!nonMaskedTokenProbs.containsKey(relevant_index)){
+                                        nonMaskedTokenProbs.put(relevant_index, new ArrayList<>());
+                                    }
+                                    nonMaskedTokenProbs.get(relevant_index).add(Pair.of(corpusDomainsSet.get(word), score));
+                                }
+                            }
+
+                        }  
+                        
+                        for (int idx = 0; idx < word_index.length; idx++) {
+                            if(idx>=sentenceWords.length){
+                                word_index[idx].assign(pad_index);
+                                continue;
+                            }
+
+                            if (!sentenceWords[idx].equals(mask_string)) {
+                                try {
+                                    if(nonMaskedTokenProbs.containsKey(idx)){
+                                        System.out.println("Adding oracle constraint for non-masked token at index " + idx + " with word " + sentenceWords[idx]);
+                                        System.out.println("Non-masked token probabilities: " + nonMaskedTokenProbs.get(idx).stream().map(p -> tokens_list.get(p.first)).collect(Collectors.toList()));
+                                        List<Pair<Integer, Double>> tokenScoreList = nonMaskedTokenProbs.get(idx);
+                                        int[] tokens = new int[corpusDomains.size()];
+                                        for (int indx= 0; indx < corpusDomains.size(); indx++) {
+                                            tokens[indx] = corpusDomains.get(indx);
+                                        }
+                                        double[] scores = new double[corpusDomains.size()];
+                                        double total_score = 0;
+                                        for (int k = 0; k < tokenScoreList.size(); k++) {
+                                            int token_index = tokenScoreList.get(k).first;
+                                            double score = tokenScoreList.get(k).second;
+                                            tokens[token_index] = corpusDomains.get(token_index);
+                                            scores[token_index] = score;
+                                            total_score += score;
+                                        }
+                                        scores[words.indexOf(" " + sentenceWords[idx])] = Math.max(0, 1 - total_score);
+                                        Constraint c = Factory.oracle(word_index[idx], tokens, scores);
+                                        c.setWeight(w);
+                                        cp.post(c);
+                                    }
+                                    else
+                                        word_index[idx].assign(words.indexOf(" " + sentenceWords[idx]));
+                                } catch (Exception e) {
+                                    System.out.println(e);
+                                    System.err.println("Error assigning index " + idx + " to word " + sentenceWords[idx]);
+                                    System.err.println(words.contains(" " + sentenceWords[idx]));
+                                }
+                            } else {
+                                masked_indexs.add(idx);
+                            }
+                        }
+                        cp.fixPoint();
+
                     }
             );
 

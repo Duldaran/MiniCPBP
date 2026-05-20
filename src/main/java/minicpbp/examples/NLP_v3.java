@@ -76,8 +76,26 @@ public class NLP_v3 {
             int port = Integer.parseInt(args[1]);
             final int NUM_ITERATIONS = Integer.parseInt(args[3]);
             final double weight = Double.parseDouble(args[0]);
-            final String llm_name = args.length > 5 ? args[5] : "zephyr";
-            final String configArg = args.length > 4 ? args[4] : "CollieSent1Config";
+            final String llm_name = args.length > 4 ? args[4] : "zephyr";
+            final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
+            final Set<String> knownConfigs = new HashSet<>(Arrays.asList(
+                "CollieSent1Config",
+                "CollieSent2Config",
+                "CollieSent3Config",
+                "CollieSent4Config",
+                "MNREADConfig",
+                "MNREAD",
+                "CustomCollieSent1Config",
+                "CustomCollieSent2Config",
+                "CustomCollieSent3Config",
+                "CustomCollieSent4Config",
+                "MNREADRelaxedConfig"
+            ));
+
+            final int ORACLE_TOP_K = args.length > 6 ? Integer.parseInt(args[6]) : 500;
+            final List<String> configParams = args.length > 7
+                    ? Arrays.asList(Arrays.copyOfRange(args, 7, args.length))
+                    : Collections.emptyList();
             final long processStartTime = System.currentTimeMillis();
 
 
@@ -97,8 +115,24 @@ public class NLP_v3 {
             case "CollieSent4Config":
                 cb = new CollieSent4Config();   
                 break;
+            case "MNREADConfig":
             case "MNREAD":
                 cb = new MNREADConfig();   
+                break;
+            case "CustomCollieSent1Config":
+                cb = CustomCollieSent1Config.fromArgs(configParams);
+                break;
+            case "CustomCollieSent2Config":
+                cb = CustomCollieSent2Config.fromArgs(configParams);
+                break;
+            case "CustomCollieSent3Config":
+                cb = CustomCollieSent3Config.fromArgs(configParams);
+                break;
+            case "CustomCollieSent4Config":
+                cb = CustomCollieSent4Config.fromArgs(configParams);
+                break;
+            case "MNREADRelaxedConfig":
+                cb = MNREADRelaxedConfig.fromArgs(configParams);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown config: " + configArg);
@@ -261,7 +295,6 @@ public class NLP_v3 {
         final int NUM_PB = 3;
         final double w = weight;
         final int SENTENCE_MAX_NUMBER_TOKENS = MAX_NUMBER_WORD +1;
-        final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
 

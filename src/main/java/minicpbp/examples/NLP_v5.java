@@ -78,6 +78,10 @@ public class NLP_v5 {
             final double weight = Double.parseDouble(args[0]);
             final String llm_name = args.length > 4 ? args[4] : "zephyr";
             final String configArg = args.length > 5 ? args[5] : "CollieSent1Config";
+            final int ORACLE_TOP_K =  args.length > 6 ? Integer.parseInt(args[6]) : 100;
+            final List<String> configParams = args.length > 7
+                    ? Arrays.asList(Arrays.copyOfRange(args, 7, args.length))
+                    : Collections.emptyList();
             final long processStartTime = System.currentTimeMillis();
 
         List<Logging>  logs = new ArrayList<>();
@@ -88,6 +92,34 @@ public class NLP_v5 {
         switch (configArg) {
             case "CollieSent1Config":
                 cb = new CollieSent1Config();
+                break;
+            case "CollieSent2Config":
+                cb = new CollieSent2Config();
+                break;
+            case "CollieSent3Config":
+                cb = new CollieSent3Config();
+                break;
+            case "CollieSent4Config":
+                cb = new CollieSent4Config();
+                break;
+            case "MNREADConfig":
+            case "MNREAD":
+                cb = new MNREADConfig();
+                break;
+            case "CustomCollieSent1Config":
+                cb = CustomCollieSent1Config.fromArgs(configParams);
+                break;
+            case "CustomCollieSent2Config":
+                cb = CustomCollieSent2Config.fromArgs(configParams);
+                break;
+            case "CustomCollieSent3Config":
+                cb = CustomCollieSent3Config.fromArgs(configParams);
+                break;
+            case "CustomCollieSent4Config":
+                cb = CustomCollieSent4Config.fromArgs(configParams);
+                break;
+            case "MNREADRelaxedConfig":
+                cb = MNREADRelaxedConfig.fromArgs(configParams);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown config: " + configArg);
@@ -249,7 +281,6 @@ public class NLP_v5 {
         final int NUM_PB = 3;
         final double w = weight;
         final int SENTENCE_MAX_NUMBER_TOKENS = MAX_NUMBER_WORD +1;
-        final int ORACLE_TOP_K = 500;
         //final int NUM_ITERATIONS = 8;
 
 
@@ -507,7 +538,7 @@ public class NLP_v5 {
                     Map<Integer, List<Double>> tempMap = new HashMap<>();
                     while(word_index[i-1].maxMarginal()!=0.0) {
                         List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i-1].valueWithMaxMarginal()));
-                        int index;
+                        int index = word_indexes.get(0);
                         word_indexes.removeAll(last_word);
                         if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);//TODO: verify if this is ok
                         else index = word_indexes.get(0);
@@ -637,13 +668,8 @@ public class NLP_v5 {
                     while(word_index[i].maxMarginal() != 0.0) {
                         double marginal = word_index[i].maxMarginal() * ratio;
                         List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i].valueWithMaxMarginal()));
-                        int index;
-                        word_indexes.removeAll(last_word);
-                        if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);
-                        else index = word_indexes.get(0);
-                        if(!tempMap.containsKey(index)){
-                            tempMap.put(index, new ArrayList<>());
-                        }
+                        int index= word_indexes.get(0);
+                        tempMap.put(index, new ArrayList<>());
                         tempMap.get(index).add(marginal);
                         word_index[i].remove(word_index[i].valueWithMaxMarginal());
                     }
@@ -740,6 +766,7 @@ public class NLP_v5 {
     result.put("port", port);
     result.put("num_iterations", NUM_ITERATIONS);
     result.put("num_pb", NUM_PB);
+    result.put("oracle_top_k", ORACLE_TOP_K);
     result.put("weight", w);
     result.put("llm_name", llm_name);
     result.put("logs", logs);
@@ -764,6 +791,7 @@ public class NLP_v5 {
             errorResult.put("time", (System.currentTimeMillis() - processStartTime) / 1000.0);
             errorResult.put("port", port);
             errorResult.put("num_iterations", NUM_ITERATIONS);
+            errorResult.put("oracle_top_k", ORACLE_TOP_K);
             errorResult.put("weight", weight);
             errorResult.put("llm_name", llm_name);
             errorResult.put("logs", logs);

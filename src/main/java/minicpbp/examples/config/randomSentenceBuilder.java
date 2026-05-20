@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class randomSentenceBuilder implements SentenceBuilder {
     private final String mask_string = "[MASK]";
-    private ACOLengthSelector acoSelector = new ACOLengthSelector();
+    private LengthSelector lengthSelector = new LengthSelector();
     private int lastLength = -1;
 
     @Override
@@ -20,13 +20,13 @@ public class randomSentenceBuilder implements SentenceBuilder {
         String[] words = base.getSentence().split(" ");
         Random rand = new Random();
         
-        // ACO-based length adjustment (one step: -1, 0, or +1)
+        //length adjustment (one step: -1, 0, or +1)
         int currentLength = words.length;
-        int lengthDelta = acoSelector.selectLengthDelta(currentLength, minLength, maxLength);
+        int lengthDelta = lengthSelector.selectLengthDelta(currentLength, minLength, maxLength);
         lastLength = currentLength + lengthDelta;
         
         if (lengthDelta != 0) {
-            System.out.println("ACO length delta: " + lengthDelta + " (" + currentLength + " -> " + lastLength + ")");
+            System.out.println("Length delta: " + lengthDelta + " (" + currentLength + " -> " + lastLength + ")");
         }
         
         // Select mask positions first
@@ -68,7 +68,7 @@ public class randomSentenceBuilder implements SentenceBuilder {
             // Add: insert a mask adjacent to existing mask
             int insertPos = Math.min(maskPos + 1, wordList.size());
             wordList.add(insertPos, mask_string);
-            System.out.println("ACO: Inserted mask near position " + maskPos);
+            System.out.println("Inserted mask near position " + maskPos);
         } else if (delta < 0 && wordList.size() > 3) {
             // Remove: delete word adjacent to mask (but not the mask itself)
             int removePos = maskPos + 1;
@@ -77,7 +77,7 @@ public class randomSentenceBuilder implements SentenceBuilder {
             }
             if (removePos != maskPos && removePos < wordList.size()) {
                 wordList.remove(removePos);
-                System.out.println("ACO: Removed word near position " + maskPos);
+                System.out.println("Removed word near position " + maskPos);
             }
         }
         
@@ -85,11 +85,11 @@ public class randomSentenceBuilder implements SentenceBuilder {
     }
     
     /**
-     * Record search outcome to update ACO pheromones
+     * Record search outcome for the selector.
      */
     public void recordSearchFailure(boolean failed) {
         if (lastLength > 0) {
-            acoSelector.recordOutcome(lastLength, failed);
+            lengthSelector.recordOutcome(lastLength, failed);
         }
     }
 
