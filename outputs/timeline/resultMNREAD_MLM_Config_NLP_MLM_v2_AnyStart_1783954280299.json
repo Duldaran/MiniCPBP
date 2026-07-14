@@ -1,0 +1,54 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 1,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "ref_type" : "AUTHORS",
+  "date" : "2026-07-13T10:51:20.291106500",
+  "time" : 81.032,
+  "base_sentence" : {
+    "sentence" : "My uncle has a pet pig with a big black spot near its mouth",
+    "perplexity" : -1.0,
+    "weight" : 0.0
+  },
+  "logs" : [ {
+    "sentence" : "My uncle has a pet pig with a big black spot near its pawed",
+    "tokens" : [ 7145, 1782, 3018, 4474, 2046, 4518, 4236, 4474, 8203, 1616, 9307, 3058, 9225, 7488, 11007 ],
+    "perplexity" : -1.0,
+    "tokens_used" : [ " My", " uncle", " has", " a", " pet", " pig", " with", " a", " big", " black", " spot", " near", " its", " pawed", "[PAD]" ],
+    "original_sentence" : "My uncle has a pet pig with a big [MASK] spot near [MASK] [MASK] [MASK]",
+    "timestamp" : 80981
+  } ],
+  "timelogs" : [ {
+    "event" : "Iteration Start",
+    "iteration" : 0,
+    "timestamp" : 42442
+  }, {
+    "event" : "Sentence built",
+    "iteration" : 0,
+    "timestamp" : 46023
+  }, {
+    "event" : "Model built",
+    "iteration" : 0,
+    "timestamp" : 46125
+  }, {
+    "event" : "MLM response received",
+    "iteration" : 0,
+    "timestamp" : 46989
+  }, {
+    "event" : "Solve Start",
+    "iteration" : 0,
+    "timestamp" : 52350
+  }, {
+    "event" : "Solution Found",
+    "iteration" : 0,
+    "timestamp" : 80964
+  } ]
+}

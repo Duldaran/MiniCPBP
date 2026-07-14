@@ -1,0 +1,116 @@
+{
+  "status" : "ok",
+  "port" : 5000,
+  "num_iterations" : 3,
+  "num_pb" : 3,
+  "weight" : 1.2,
+  "llm_name" : "modernBert",
+  "config" : "MNREAD_MLM_Config",
+  "seed" : 4,
+  "sentence_builder" : "perplexitySentenceBuilder",
+  "oracle_top_k" : 50,
+  "mask_percent" : 0.2,
+  "ref_type" : "AUTHORS",
+  "date" : "2026-07-13T11:06:07.057202300",
+  "time" : 458.281,
+  "base_sentence" : {
+    "sentence" : "My uncle has a pet pig with a big black spot near its mouth",
+    "perplexity" : -1.0,
+    "weight" : 0.0
+  },
+  "logs" : [ {
+    "sentence" : "My uncle has a pet car with a big black eyeing in its mouth",
+    "tokens" : [ 7145, 1782, 3018, 4474, 2046, 4622, 4236, 4474, 8203, 1616, 7322, 9907, 9225, 6448, 11007 ],
+    "perplexity" : -1.0,
+    "tokens_used" : [ " My", " uncle", " has", " a", " pet", " car", " with", " a", " big", " black", " eyeing", " in", " its", " mouth", "[PAD]" ],
+    "original_sentence" : "My uncle has a pet [MASK] with a big black [MASK] [MASK] its mouth",
+    "timestamp" : 143993
+  }, {
+    "sentence" : "My uncle has a pet cat with a big black tongue in its mouth",
+    "tokens" : [ 7145, 1782, 3018, 4474, 2046, 8301, 4236, 4474, 8203, 1616, 9583, 9907, 9225, 6448, 11007 ],
+    "perplexity" : -1.0,
+    "tokens_used" : [ " My", " uncle", " has", " a", " pet", " cat", " with", " a", " big", " black", " tongue", " in", " its", " mouth", "[PAD]" ],
+    "original_sentence" : "My uncle has a pet [MASK] with a big black [MASK] [MASK] its mouth",
+    "timestamp" : 256760
+  }, {
+    "sentence" : "My friend has a pet cat with a big white puppy in its mouth",
+    "tokens" : [ 7145, 10333, 3018, 4474, 2046, 8301, 4236, 4474, 8203, 10291, 9875, 9907, 9225, 6448, 11007 ],
+    "perplexity" : -1.0,
+    "tokens_used" : [ " My", " friend", " has", " a", " pet", " cat", " with", " a", " big", " white", " puppy", " in", " its", " mouth", "[PAD]" ],
+    "original_sentence" : "My [MASK] has a pet cat with a big [MASK] [MASK] in its mouth",
+    "timestamp" : 458263
+  } ],
+  "timelogs" : [ {
+    "event" : "Iteration Start",
+    "iteration" : 0,
+    "timestamp" : 38557
+  }, {
+    "event" : "Sentence built",
+    "iteration" : 0,
+    "timestamp" : 41956
+  }, {
+    "event" : "Model built",
+    "iteration" : 0,
+    "timestamp" : 42094
+  }, {
+    "event" : "MLM response received",
+    "iteration" : 0,
+    "timestamp" : 42791
+  }, {
+    "event" : "Solve Start",
+    "iteration" : 0,
+    "timestamp" : 45765
+  }, {
+    "event" : "Solution Found",
+    "iteration" : 0,
+    "timestamp" : 143987
+  }, {
+    "event" : "Iteration Start",
+    "iteration" : 1,
+    "timestamp" : 144052
+  }, {
+    "event" : "Sentence built",
+    "iteration" : 1,
+    "timestamp" : 144052
+  }, {
+    "event" : "Model built",
+    "iteration" : 1,
+    "timestamp" : 144065
+  }, {
+    "event" : "MLM response received",
+    "iteration" : 1,
+    "timestamp" : 144774
+  }, {
+    "event" : "Solve Start",
+    "iteration" : 1,
+    "timestamp" : 145093
+  }, {
+    "event" : "Solution Found",
+    "iteration" : 1,
+    "timestamp" : 256755
+  }, {
+    "event" : "Iteration Start",
+    "iteration" : 2,
+    "timestamp" : 256771
+  }, {
+    "event" : "Sentence built",
+    "iteration" : 2,
+    "timestamp" : 259548
+  }, {
+    "event" : "Model built",
+    "iteration" : 2,
+    "timestamp" : 259560
+  }, {
+    "event" : "MLM response received",
+    "iteration" : 2,
+    "timestamp" : 260227
+  }, {
+    "event" : "Solve Start",
+    "iteration" : 2,
+    "timestamp" : 260480
+  }, {
+    "event" : "Solution Found",
+    "iteration" : 2,
+    "timestamp" : 458259
+  } ]
+}
