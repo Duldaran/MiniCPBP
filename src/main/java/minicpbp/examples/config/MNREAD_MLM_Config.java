@@ -88,6 +88,11 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
         for (int i = 0; i < lineSize.length; i++)
             lineSize[i].setName("lineSize[" + i + "]");
 
+        // tighten: count number of words per line and link per-line total sizes
+        minicpbp.engine.core.IntVar[] numWords = minicpbp.cp.Factory.makeIntVarArray(ctx.cp, nbLines, 0, sizes.length);
+        for (int j = 0; j < numWords.length; j++)
+            numWords[j].setName("numWords[" + j + "]");
+
         line[0].assign(0);
         line[line.length - 1].assign(nbLines - 1);
 
@@ -99,6 +104,28 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
 
         
         ctx.cp.post(minicpbp.cp.Factory.binPacking(line, sizes, lineSize));
+
+        // post counts and per-line algebraic bounds so solver enforces the same math as isValid()
+        for (int j = 0; j < nbLines; j++) {
+            minicpbp.engine.core.IntVar[] inLine = minicpbp.cp.Factory.makeIntVarArray(ctx.cp, sizes.length, 0, 1);
+            for (int i = 0; i < sizes.length; i++) {
+            inLine[i] = minicpbp.cp.Factory.isEqual(line[i], j);
+            }
+            // numWords[j] = sum_i isEqual(line[i], j)
+            ctx.cp.post(minicpbp.cp.Factory.sum(inLine, numWords[j]));
+
+                // minW = lineSize[j] - SPACE_SIZE + (numWords[j]-1)*(MIN_SPACE_SIZE - SPACE_SIZE)
+                minicpbp.engine.core.IntVar exprA = minicpbp.cp.Factory.minus(lineSize[j], SPACE_SIZE);
+                minicpbp.engine.core.IntVar exprB = minicpbp.cp.Factory.mul(minicpbp.cp.Factory.minus(numWords[j], 1), (MIN_SPACE_SIZE - SPACE_SIZE));
+                minicpbp.engine.core.IntVar minExpr = minicpbp.cp.Factory.sum(exprA, exprB);
+                // maxW = lineSize[j] - SPACE_SIZE + (numWords[j]-1)*(MAX_SPACE_SIZE - SPACE_SIZE)
+                minicpbp.engine.core.IntVar exprC = minicpbp.cp.Factory.mul(minicpbp.cp.Factory.minus(numWords[j], 1), (MAX_SPACE_SIZE - SPACE_SIZE));
+                minicpbp.engine.core.IntVar maxExpr = minicpbp.cp.Factory.sum(exprA, exprC);
+
+            // enforce minW <= LINE_SIZE <= maxW
+            ctx.cp.post(minicpbp.cp.Factory.lessOrEqual(minExpr, minicpbp.cp.Factory.makeIntVar(ctx.cp, LINE_SIZE, LINE_SIZE)));
+            ctx.cp.post(minicpbp.cp.Factory.lessOrEqual(minicpbp.cp.Factory.makeIntVar(ctx.cp, LINE_SIZE, LINE_SIZE), maxExpr));
+        }
 
         this.lines = line;
         this.sizes = sizes;
@@ -117,6 +144,8 @@ public class MNREAD_MLM_Config implements ConstraintBuilder {
                 return "src/main/java/minicpbp/examples/config/files_references/IJCAI2023_EN_BENCH_SORTED.txt";
             case AUTHORS:
                 return "src/main/java/minicpbp/examples/config/files_references/MNREAD_authors_9_millions_samples.txt";
+            case INVALID_EASY:
+                return "src/main/java/minicpbp/examples/config/files_references/MNREAD_failures.txt";
         }
         return null;
     }

@@ -235,6 +235,7 @@ def ping():
 if __name__ == '__main__':
     print("Starting server...")
     try:
+    #    app.run(threaded=False, processes=1,host="0.0.0.0", port=args.port)
         app.run(host="0.0.0.0", port=args.port)
     except Exception as e:
         exc_type = type(e).__name__

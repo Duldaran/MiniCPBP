@@ -30,31 +30,11 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
             System.out.println("Length delta: " + lengthDelta + " (" + currentLength + " -> " + lastLength + ")");
         }
         
-        int numMasks = Math.max(1, (int) Math.ceil(mask_percent * words.length));
-        List<Pair<Integer, Double>> leastToMostProbWords = new ArrayList<>();
-        try {
-            HttpRequest reqPpl = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:" + port + "/mlm_perplexity"))
-                .POST(HttpRequest.BodyPublishers.ofString(base.getSentence()))
-                .build();
-            String respPpl = client.sendAsync(reqPpl, BodyHandlers.ofString())
-                .thenApply(HttpResponse::body).join();
+        List<Pair<Integer, Double>> leastToMostProbWords = buildLeastToMostProbWords(client, port, base.getSentence(), maxLength);
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootPpl = objectMapper.readTree(respPpl);
-            ArrayNode wordProbsNode = (ArrayNode) rootPpl.get("word_probs");
-            if (wordProbsNode != null) {
-                for (int i = 0; i < wordProbsNode.size(); i++) {
-                    JsonNode wn = wordProbsNode.get(i);
-                    int w = wn.get("word_id").asInt();
-                    double p = wn.get("prob").asDouble();
-                    leastToMostProbWords.add(Pair.of(w, p));
-                }
-                leastToMostProbWords.sort((a, b) -> Double.compare(a.second, b.second));
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        int numMasks = Math.max(1, (int) Math.ceil(mask_percent * words.length));
+        
+
         Set<Integer> maskIndices = new HashSet<>();
         maskIndices.addAll(selectIndexByProbability(leastToMostProbWords, rand, numMasks, bannedIndices));
         
@@ -72,6 +52,73 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         return String.join(" ", words);
     }
 
+    @Override
+    public String buildSentenceLight(ScoredSentence base, double mask_percent, int minLength, int maxLength, List<Pair<Integer, Double>> leastToMostProbWords) {
+        System.out.println("Perplexity Base sentence: " + base);
+        List<String> wordList = new ArrayList<>(Arrays.asList(base.getSentence().split(" ")));
+
+        // Pad or trim to length bounds
+        while (wordList.size() < minLength) {
+            wordList.add(mask_string);
+        }
+        if (wordList.size() > maxLength) {
+            wordList = wordList.subList(0, maxLength);
+        }
+
+        Random rand = new Random();
+        int currentLength = wordList.size();
+        int lengthDelta = lengthSelector.selectLengthDelta(currentLength, minLength, maxLength);
+        lastLength = currentLength + lengthDelta;
+
+        if (lengthDelta != 0) {
+            System.out.println("Length delta: " + lengthDelta + " (" + currentLength + " -> " + lastLength + ")");
+        }
+
+        int numMasks = Math.max(1, (int) Math.ceil(mask_percent * wordList.size()));
+
+        // Filter leastToMostProbWords to only indices valid for current wordList
+        List<Pair<Integer, Double>> validProbs = new ArrayList<>();
+        for (Pair<Integer, Double> pair : leastToMostProbWords) {
+            if (pair.first < wordList.size()) {
+                validProbs.add(pair);
+            }
+        }
+
+        if (validProbs.isEmpty()) {
+            // Fallback: mask random indices if no valid probs
+            System.err.println("[WARN] No valid prob indices for sentence of length " + wordList.size() + ", falling back to random masking");
+            Set<Integer> fallback = new HashSet<>();
+            while (fallback.size() < numMasks) {
+                fallback.add(rand.nextInt(wordList.size()));
+            }
+            for (int idx : fallback) wordList.set(idx, mask_string);
+            return String.join(" ", wordList);
+        }
+
+        Set<Integer> maskIndices = new HashSet<>(selectIndexByProbability(validProbs, rand, numMasks, new ArrayList<>()));
+        System.out.println("Masking indices: " + maskIndices);
+
+        String[] words = wordList.toArray(new String[0]);
+
+        if (lengthDelta != 0 && !maskIndices.isEmpty()) {
+            words = adjustLengthNearMask(words, lengthDelta, maskIndices);
+        }
+
+        for (int idx : maskIndices) {
+            if (idx < words.length) {
+                words[idx] = mask_string;
+            } else {
+                System.err.println("[WARN] Mask index " + idx + " out of bounds for length " + words.length);
+            }
+        }
+
+        String result = String.join(" ", words);
+        if (!result.contains(mask_string)) {
+            System.err.println("[WARN] No mask in result sentence: " + result);
+        }
+        return result;
+    }
+    
     private static ScoredSentence selectWeightedRandom(ArrayList<ScoredSentence> sentences, Random random) {
         if (sentences.isEmpty()) return null;
 
@@ -102,7 +149,7 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
                 cumulativeProb += 1.0 - probList.get(i).second;
                 if (randomValue <= cumulativeProb) {
                     selectedIndices.add(wordIndex);
-                    totalProb -= probList.get(i).second;
+                    totalProb -= 1.0 - probList.get(i).second;
                     break;
                 }
             }
@@ -122,18 +169,35 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         int maskPos = new ArrayList<>(maskIndices).get(rand.nextInt(maskIndices.size()));
         
         if (delta > 0 && wordList.size() < 100) {
-            // Add: insert a mask adjacent to existing mask
+            // Add a new mask adjacent to the chosen mask, then shift later masks to keep their word targets.
             int insertPos = Math.min(maskPos + 1, wordList.size());
             wordList.add(insertPos, mask_string);
+            Set<Integer> shiftedMaskIndices = new HashSet<>();
+            for (int index : maskIndices) {
+                shiftedMaskIndices.add(index >= insertPos ? index + 1 : index);
+            }
+            maskIndices.clear();
+            maskIndices.addAll(shiftedMaskIndices);
+            maskIndices.add(insertPos);
             System.out.println("Inserted mask near position " + maskPos);
         } else if (delta < 0 && wordList.size() > 3) {
-            // Remove: delete word adjacent to mask (but not the mask itself)
+            // Remove a word adjacent to the chosen mask, then shift later masks back to keep their word targets.
             int removePos = maskPos + 1;
             if (removePos >= wordList.size()) {
                 removePos = Math.max(0, maskPos - 1);
             }
             if (removePos != maskPos && removePos < wordList.size()) {
                 wordList.remove(removePos);
+                Set<Integer> shiftedMaskIndices = new HashSet<>();
+                for (int index : maskIndices) {
+                    if (index > removePos) {
+                        shiftedMaskIndices.add(index - 1);
+                    } else if (index < removePos) {
+                        shiftedMaskIndices.add(index);
+                    }
+                }
+                maskIndices.clear();
+                maskIndices.addAll(shiftedMaskIndices);
                 System.out.println("Removed word near position " + maskPos);
             }
         }
@@ -148,5 +212,37 @@ public class perplexitySentenceBuilder implements SentenceBuilder {
         if (lastLength > 0) {
             lengthSelector.recordOutcome(lastLength, failed);
         }
+    }
+
+    @Override
+    public List<Pair<Integer, Double>> buildLeastToMostProbWords(HttpClient client, int port, String sentence, int maxLength) {
+        List<Pair<Integer, Double>> leastToMostProbWords = new ArrayList<>();
+        if (sentence.split(" ").length > maxLength) {
+            sentence = String.join(" ", Arrays.copyOfRange(sentence.split(" "), 0, maxLength));
+        }
+        try {
+            HttpRequest reqPpl = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + port + "/mlm_perplexity"))
+                .POST(HttpRequest.BodyPublishers.ofString(sentence))
+                .build();
+            String respPpl = client.sendAsync(reqPpl, BodyHandlers.ofString())
+                .thenApply(HttpResponse::body).join();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootPpl = objectMapper.readTree(respPpl);
+            ArrayNode wordProbsNode = (ArrayNode) rootPpl.get("word_probs");
+            if (wordProbsNode != null) {
+                for (int i = 0; i < wordProbsNode.size(); i++) {
+                    JsonNode wn = wordProbsNode.get(i);
+                    int w = wn.get("word_id").asInt();
+                    double p = wn.get("prob").asDouble();
+                    leastToMostProbWords.add(Pair.of(w, p));
+                }
+                leastToMostProbWords.sort((a, b) -> Double.compare(a.second, b.second));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return leastToMostProbWords;
     }
 }

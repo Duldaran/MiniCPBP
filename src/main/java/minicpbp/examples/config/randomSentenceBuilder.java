@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import com.ibm.icu.impl.Pair;
+
 public class randomSentenceBuilder implements SentenceBuilder {
     private final String mask_string = "[MASK]";
     private LengthSelector lengthSelector = new LengthSelector();
@@ -65,18 +67,35 @@ public class randomSentenceBuilder implements SentenceBuilder {
         int maskPos = new ArrayList<>(maskIndices).get(rand.nextInt(maskIndices.size()));
         
         if (delta > 0 && wordList.size() < 100) {
-            // Add: insert a mask adjacent to existing mask
+            // Add a new mask adjacent to the chosen mask, then shift later masks to keep their word targets.
             int insertPos = Math.min(maskPos + 1, wordList.size());
             wordList.add(insertPos, mask_string);
+            Set<Integer> shiftedMaskIndices = new HashSet<>();
+            for (int index : maskIndices) {
+                shiftedMaskIndices.add(index >= insertPos ? index + 1 : index);
+            }
+            maskIndices.clear();
+            maskIndices.addAll(shiftedMaskIndices);
+            maskIndices.add(insertPos);
             System.out.println("Inserted mask near position " + maskPos);
         } else if (delta < 0 && wordList.size() > 3) {
-            // Remove: delete word adjacent to mask (but not the mask itself)
+            // Remove a word adjacent to the chosen mask, then shift later masks back to keep their word targets.
             int removePos = maskPos + 1;
             if (removePos >= wordList.size()) {
                 removePos = Math.max(0, maskPos - 1);
             }
             if (removePos != maskPos && removePos < wordList.size()) {
                 wordList.remove(removePos);
+                Set<Integer> shiftedMaskIndices = new HashSet<>();
+                for (int index : maskIndices) {
+                    if (index > removePos) {
+                        shiftedMaskIndices.add(index - 1);
+                    } else if (index < removePos) {
+                        shiftedMaskIndices.add(index);
+                    }
+                }
+                maskIndices.clear();
+                maskIndices.addAll(shiftedMaskIndices);
                 System.out.println("Removed word near position " + maskPos);
             }
         }
@@ -98,5 +117,29 @@ public class randomSentenceBuilder implements SentenceBuilder {
 
         return sentences.get(random.nextInt(sentences.size()));
     }
+
+    @Override
+    public String buildSentenceLight(ScoredSentence base, double mask_percent, int minLength, int maxLength,
+            List<Pair<Integer, Double>> leastToMostProbWords) {
+        String newBase = base.getSentence();
+        if (newBase.split(" ").length < minLength) {
+            for(int i = 0; i < minLength - newBase.split(" ").length; i++) {
+                newBase += " " + mask_string;
+            }
+        }
+        else if (newBase.split(" ").length > maxLength) {
+            String[] words = newBase.split(" ");
+            newBase = String.join(" ", Arrays.copyOfRange(words, 0, maxLength));
+        }
+        return buildSentence(  new ArrayList<>(Arrays.asList(new ScoredSentence(newBase, base.getPerplexity()))), null, 0, mask_percent, new ArrayList<>(), minLength, maxLength);
+    }
+
+    @Override
+    public List<Pair<Integer, Double>> buildLeastToMostProbWords(HttpClient client, int port, String sentence, int maxLength) {
+        
+        return new ArrayList<>();
+    }
+
+    
     
 }

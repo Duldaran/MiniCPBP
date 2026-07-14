@@ -291,7 +291,7 @@ public class NLP_v5 {
         int[] lengthTokens = listLengthTokens.stream().mapToInt(Integer::intValue).toArray();
 
 
-           
+        Random rand = new Random(); 
         
         
         double initTime = (System.currentTimeMillis() - startTime) / 1000.0;
@@ -318,7 +318,7 @@ public class NLP_v5 {
         tokens_used = new String[SENTENCE_MAX_NUMBER_TOKENS];
 
 
-        String selectedWord = " "+commonWords[new Random().nextInt(commonWords.length)];
+        String selectedWord = " "+commonWords[rand.nextInt(commonWords.length)];
         
 
         String current_sentence = selectedWord;
@@ -536,8 +536,21 @@ public class NLP_v5 {
                     
                     double ratio_continue = final_score_continue / total_score;
                     Map<Integer, List<Double>> tempMap = new HashMap<>();
-                    while(word_index[i-1].maxMarginal()!=0.0) {
-                        List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i-1].valueWithMaxMarginal()));
+                    List<Integer> candidateValuesContinue = new ArrayList<>();
+                    for (int value = 0; value < corpusDomains.size(); value++) {
+                        if (word_index[i-1].contains(value)) {
+                            candidateValuesContinue.add(value);
+                        }
+                    }
+                    candidateValuesContinue.sort((a, b) -> Double.compare(
+                        word_index[i-1].marginal(b), word_index[i-1].marginal(a)
+                    ));
+                    for (int candidateValue : candidateValuesContinue) {
+                        double candidateMarginal = word_index[i-1].marginal(candidateValue);
+                        if (candidateMarginal == 0.0) {
+                            continue;
+                        }
+                        List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(candidateValue));
                         int index = word_indexes.get(0);
                         word_indexes.removeAll(last_word);
                         if(word_indexes.isEmpty()) index=last_word.get(last_word.size()-1);//TODO: verify if this is ok
@@ -545,8 +558,7 @@ public class NLP_v5 {
                         if(!tempMap.containsKey(index)){
                             tempMap.put(index, new ArrayList<>());
                         }
-                        tempMap.get(index).add(word_index[i-1].maxMarginal()*ratio_continue);
-                        word_index[i-1].remove(word_index[i-1].valueWithMaxMarginal());
+                        tempMap.get(index).add(candidateMarginal*ratio_continue);
                     }
                     for(Entry<Integer, List<Double>> entry: tempMap.entrySet()){//TODO : Consider if max would be more interesting than average
                         double marginalAverage = 0.0;
@@ -571,6 +583,19 @@ public class NLP_v5 {
             System.out.println("Words contains last word: " + words.contains(last_word_string));
 
             if(words.contains(last_word_string)) {
+                // If this position is already fixed by the config (required word),
+                // directly append the assigned word and skip posting an oracle
+                /*if (word_index[i].isBound()) {
+                    int assigned = word_index[i].min();
+                    current_sentence += tokens_list.get(assigned);
+                    tokens_used[num_tok] = (tokens_used[num_tok] == null ? "" : tokens_used[num_tok]) + ", " + tokens_list.get(assigned);
+                    if (tokens_list.get(assigned).startsWith(" ")) {
+                        num_tok += 1;
+                    }
+                    // skip oracle/posting for this position
+                    continue;
+                }*/
+
                 final double final_score_new = total_score_new;
                 final String testSentence = current_sentence;
                 try {
@@ -665,13 +690,24 @@ public class NLP_v5 {
 
                     double ratio = final_score_new / total_score;
                     Map<Integer, List<Double>> tempMap = new HashMap<>();
-                    while(word_index[i].maxMarginal() != 0.0) {
-                        double marginal = word_index[i].maxMarginal() * ratio;
-                        List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(word_index[i].valueWithMaxMarginal()));
+                    List<Integer> candidateValuesNew = new ArrayList<>();
+                    for (int value = 0; value < corpusDomains.size(); value++) {
+                        if (word_index[i].contains(value)) {
+                            candidateValuesNew.add(value);
+                        }
+                    }
+                    candidateValuesNew.sort((a, b) -> Double.compare(
+                        word_index[i].marginal(b), word_index[i].marginal(a)
+                    ));
+                    for (int candidateValue : candidateValuesNew) {
+                        double marginal = word_index[i].marginal(candidateValue) * ratio;
+                        if (marginal == 0.0) {
+                            continue;
+                        }
+                        List<Integer> word_indexes = new ArrayList<>(corpusDomainToIndex.get(candidateValue));
                         int index= word_indexes.get(0);
                         tempMap.put(index, new ArrayList<>());
                         tempMap.get(index).add(marginal);
-                        word_index[i].remove(word_index[i].valueWithMaxMarginal());
                     }
 
                     for(Entry<Integer, List<Double>> entry: tempMap.entrySet()){

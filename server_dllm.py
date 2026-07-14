@@ -119,6 +119,12 @@ def get_mask_distributions(formatted_sentence, original_sentence):
 
     return distributions
 
+def format_as_chat(instruction, sentence):
+    messages = [
+        {"role": "system", "content": "You are a helpful AI assistant."},
+        {"role": "user", "content": f"{instruction} Fill in the blank: {sentence}"}
+    ]
+    return mlm_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
 
 
 
@@ -144,7 +150,7 @@ def mlm_predict():
         if mask_string not in sentence:
             return {"error": f"Sentence must contain a mask token ({mask_string})"}, 400
 
-        formatted = f"{instruction} Fill in the blank: {sentence}"
+        formatted = format_as_chat(instruction, sentence)
         with mutex:
             distributions = get_mask_distributions(formatted, sentence)
         return distributions, 200
